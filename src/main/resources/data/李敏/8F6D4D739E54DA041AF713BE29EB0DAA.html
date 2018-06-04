@@ -1,0 +1,1075 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<title>李敏</title>
+<link rel="stylesheet" type="text/css" href="/static/dep_img/css/index.css">
+<link rel="stylesheet" type="text/css" href="/static/dep_img/css/gongkai.css">
+<script type="text/javascript" src="/static/dep_img/js/jquery1.42.min.js"></script>
+<script type="text/javascript" src="/static/dep_img/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+
+<!--header-->
+
+
+<script type="text/javascript">
+
+	$(function() {
+		$.fn.manhuatoTop = function(options) {
+			var defaults = {
+				showHeight : 150,
+				speed : 1000
+			}; 
+			var options = $.extend(defaults, options);
+			$("body").prepend("<div id='totop'><a>返回顶部</a></div>");
+			var $toTop = $(this);
+			var $top = $("#totop");
+			var $ta = $("#totop a");
+			$toTop.scroll(function() {
+				var scrolltop = $(this).scrollTop();
+				if (scrolltop >= options.showHeight) {
+					$top.show();
+				} else {
+					$top.hide();
+				}
+			});
+			$ta.hover(function() {
+				$(this).addClass("cur");
+			}, function() {
+				$(this).removeClass("cur");
+			});
+			$top.click(function() {
+				$("html,body").animate({
+					scrollTop : 0
+				}, options.speed);
+			});
+		}
+	}); 
+    
+    //设为首页
+function SetHome(obj,url){
+    try{
+        obj.style.behavior='url(#default#homepage)';
+        obj.setHomePage(url);
+    }catch(e){
+        if(window.netscape){
+            try{
+                netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+            }catch(e){
+                alert("抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车然后将[signed.applets.codebase_principal_support]设置为'true'");
+            }
+        }else{
+            alert("抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【"+url+"】设置为首页。");
+        }
+    }
+}
+//收藏本站
+function AddFavorite(title, url) {
+    try {
+        window.external.addFavorite(url, title);
+    }
+    catch (e) {
+        try {
+            window.sidebar.addPanel(title, url, "");
+        }
+        catch (e) {
+            alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请使用Ctrl+D进行添加");
+        }
+    }
+}
+
+</script>
+<script type="text/javascript">
+	$(function() {
+		$(window).manhuatoTop({
+			showHeight : 100, //设置滚动高度时显示
+			speed : 500 //返回顶部的速度以毫秒为单位
+		});
+	}); 
+</script>
+
+
+<script type="text/javascript">
+//检索跳转
+
+function sub(www,query){
+      
+	//必需，先将文本转换为utf-8
+	document.charset = "utf-8";	
+	var fixvalue = document.getElementById(query).value;
+    fixvalue = fixvalue.replace(/\~|\!|\*|\?|\^|\\|\(|\)|\[|\]|\+|\-|\:|\{|\}|\"/g,"");
+	if(fixvalue.trim()=="" || fixvalue=="请输入关键字"){
+		document.getElementById(query).value = "";
+		alert("请输入关键字！");
+		return false;
+	}
+	else{
+      window.open("/fz/znjs/index.shtml?query="+encodeURIComponent(fixvalue)+"&siteId="+2);
+	}	
+
+}
+</script>
+<div id="totop"><a class="">返回顶部</a></div>
+<!--top-->
+<div class="top">
+	<div class="div_1">         
+    	<div class="f_l">                 
+    		<a href="http://www.gov.cn/" target="_blank"><img src="/static/dep_img/images/top/tp2.jpg" />中华人民共和国中央人民政府</a>
+    		<a href="http://www.gzgov.gov.cn/" target="_blank"><img src="/static/dep_img/images/top/tp2.jpg" />贵州省人民政府</a>
+    		
+            <div style="float:left; margin:4px 0 0 100px; position:relative;">
+              <div>
+              <iframe src="http://i.tianqi.com/index.php?c=code&id=26&icon=1&num=3&py=bijie" frameborder="0" scrolling="no" width="248" height="27" allowTransparency="true"></iframe>
+              </div>
+              <div style="width:248px; position:absolute; z-index:1; left:0; top:0; height:27px;"></div>
+        	</div>
+            
+    	</div>
+        
+            <div style="width:297px; position:absolute; z-index:1; left:0; top:0; height:27px;"></div>
+        <div class="f_r">
+        <a href="/fz/wzbz/Flashcjxz/index.shtml">网站帮助</a>|
+        <a href="javascript:void(0);" onclick="javascript:SetHome(this,location.href);">设为首页</a>|<a href="javascript:AddFavorite('我的网站',location.href)">收藏此页</a></div>
+    </div>
+    <div class="div_2">            
+    	<div class="f_l logo_box">
+    		<a href="http://www.bijie.gov.cn/" target="_blank">
+    			<img src="/static/dep_img/images/top/tp3.png" />
+    		</a>    
+            
+    		<div class="rsm_dw1">站点频道</div> 
+            <div class="rsm_dw2" style="letter-spacing: 5px;">毕节市民政局</div>
+    	</div>
+        <div class="f_r">
+        	<div class="ss">
+            <input onblur="if(this.value==''){this.value='请输入关键字';this.style.color='#9e9e9e'}" onfocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#000000'}" style="color: rgb(158, 158, 158);" value="请输入关键字" class="ssk" type="text" id="query"> <a href="#1" onClick="javascript:sub('www','query');"><img src="/static/dep_img/images/top/tp4.jpg" /></a></div>
+            <!--<div class="ssnr">热门搜索：<a href="#1">六中全会</a><a href="#1">四创攻坚</a><a href="#1">三变改革</a></div>-->
+        </div>
+    </div>
+    <div class="dh">
+        <ul>
+            <li class="on"><a class="li_1" href="/bm/bjsmzj/index.shtml">首页</a></li>
+        	<li><a href="/bm/bjsmzj/dt/bjyw/index.shtml" class="li_2" title="动态">动态</a>
+            </li> 
+        	<li><a href="/bm/bjsmzj/gk/xxgkml/zwxxgk/index.shtml" class="li_3" title="公开">公开</a>
+            </li> 
+        	<li><a href="/bm/bjsmzj/fw/bsfw/index.shtml" class="li_4" title="服务">服务</a>
+            </li> 
+        	<li><a href="/bm/bjsmzj/zl/rdzt/index.shtml" class="li_5" title="专栏">专栏</a>
+            </li> 
+            
+        </ul>
+     </div>
+    <script type="text/javascript">
+    $(function(){
+    	$(".dh ul li").hover(function(){
+    		var indexr=$(this).index();
+    		$(".dh ul li").eq(indexr).addClass("on").siblings().removeClass("on");
+    		return false;
+    	})
+    })	
+    </script>
+</div> 
+<!--内容-->
+<div class="box1">
+<div class="container">
+  <!--左边盒子-->
+   <div class="ldzc_left f_l">
+     <!--省局领导-->
+     <div class="sjld">
+        	<h3><a>领导之窗</a></h3>
+            <div class="sjldCont">
+            	<ul>
+                      
+                         <li><a href="/bm/bjsmzj/gk/ldzc/xcp/index.shtml" class="on">
+                         党组书记、局长：熊灿平</a></li>
+                      
+                          <li><a href="/bm/bjsmzj/gk/ldzc/wsy/index.shtml">
+                          党组成员、副局长 ，市老龄办主任（兼）：武绍勇</a></li>
+                      
+                          <li><a href="/bm/bjsmzj/gk/ldzc/mtm/index.shtml">
+                          党组成员、副局长：孟天明</a></li>
+                      
+                          <li><a href="/bm/bjsmzj/gk/ldzc/lm/index.shtml">
+                          党组成员、机关党委书记：李 敏</a></li>
+                      
+                          <li><a href="/bm/bjsmzj/gk/ldzc/pxg/index.shtml">
+                          党组成员、市社会救助局局长：彭晓刚</a></li>
+                      
+                          <li><a href="/bm/bjsmzj/gk/ldzc/wsk/index.shtml">
+                          党组成员、副局长：王仕康</a></li>
+                      
+                          <li><a href="/bm/bjsmzj/gk/ldzc/hdx/index.shtml">
+                          党组成员、纪检组长：黄道先</a></li>
+                      
+                          <li><a href="/bm/bjsmzj/gk/ldzc/zy/index.shtml">
+                          副调研员：赵毅</a></li>
+                </ul>
+            </div>
+        </div>
+   </div>
+   <!--右边盒子-->
+   <div class="ldzc_right f_r">
+     <!--当前位置--> 
+     <div class="dqwz">您当前的位置是：<a href="/bm/bjsmzj/index.shtml" title="毕节市民政局">毕节市民政局</a> &gt;&gt; 
+     <a href="/bm/bjsmzj/gk/ldzc/xcp/index.shtml" title="领导之窗">领导之窗</a> &gt;&gt; 
+    <a href="/bm/bjsmzj/gk/ldzc/lm/index.shtml" title="李敏">李敏</a></div>
+      <!--领导简介-->
+     <div class="ldjj">
+       <div class="ldmz"><h3>党组成员、机关党委书记：李 敏</h3></div>
+       
+       <div class="ldnr">
+      <div class="ldnr_l f_l"><img src="/uploadfiles/201709/04/2017090409314638676024.png"></div>
+      <div class="ldnr_r f_l">
+        <h3>【工作分工】</h3>
+        <p>协助党组书记、局长工作，协助党组书记分管党风廉政建设工作，主持机关党委全面工作，分管人事教育法规科、党建办，以及工青妇组织、党建扶贫、各类帮扶联系点、民政行风建设、宣传（思想政治方面）、民族、宗教、统战、“五项行动”等工作，联系广州市民政局对口帮扶毕节民政工作。</p>
+        <div class="gzfg">
+          <h3>【个人简历】</h3>
+          <div class="gzfg_nr">
+<p>1982.12--1985.01 &nbsp;解放军陆军14军250师2团战士、班长<br />
+1985.01--1986.03 &nbsp;贵州省毕节地区福利工厂工作员<br />
+1986.03--1995.11 &nbsp;贵州省毕节地区民政局科员（其间：1987.09-1989.06在中共贵州省毕节地委党校大专班学习）<br />
+1995.11--1996.07 &nbsp;贵州省毕节地区民政局副主任科员<br />
+1996.07--2000.04 &nbsp;贵州省毕节地区民政局社团福利管理科副科长<br />
+2000.04--2010.03 &nbsp;贵州省毕节地区民政局优抚安置科科长（其间: 2001.09--2004.01在中共贵州省委党校法律专业本科班学习； 2003.03--2003.05在中共贵州省毕节地委党校中青年干部培训班学习；2005.02-2006.01在贵州省大方县挂任大山乡党委委员、副书记）<br />
+2010.03--2011.11 &nbsp;贵州省毕节地区民政局党组成员、直属机关党委书记（其间：2010.04--2010.10在毕节市信访局挂局长助理）<br />
+2011.11-- &nbsp; &nbsp; &nbsp; &nbsp; 贵州省毕节市民政局党组成员、直属机关党委书记</p>
+
+<p>&nbsp;</p>
+
+    <div class="fjxx" style="text-align:right; overflow:hidden;margin-top: 10px;">
+	      <ul>
+	        <li class="f_r">
+	        <!-- JiaThis Button BEGIN -->
+				<div class="jiathis_style_24x24">
+					<a class="jiathis_button_tsina"></a>
+					<a class="jiathis_button_tqq"></a>
+					<a class="jiathis_button_weixin"></a>
+					<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+				</div>
+				<!-- JiaThis Button END -->
+	        </li>
+	         <li class="f_r" style="font-family:宋体; color:#696969; font-size:12px; line-height:24px;">
+              来源：毕节市民政局
+              &nbsp;&nbsp;
+             发布日期：2017-07-27&nbsp;</li>
+	      </ul>
+	    </div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+    
+
+
+<!--来源 分享 发布样式2-->
+          </div>
+        </div>
+      </div>
+    </div>
+     </div>
+    
+    
+   </div>       
+   </div>
+    
+ </div>
+	<!--栏目1-->
+
+<!--footer-->
+    <div class="foot">
+    	    	<div class="yqlj">  
+        	<div class="lj_dh"> 
+            	<ul>
+                
+                
+                
+                	<li></li>
+                	<li><a href="#1">国家部委网站</a></li>  
+                	<li><a href="#1">省级政府网站</a></li>
+                	<li><a href="#1">省内地州市网站</a></li>
+                	<li><a href="#1">区县政府网站</a></li>
+                	<li><a href="/fz/yqlj/zfbmpd/index.shtml">政府部门频道</a></li> 
+                	<li><a href="#1">其它链接</a></li>
+                    
+                </ul>     
+            </div>    
+            
+        	<div class="lj_nr">  
+            	<ul> </ul>    
+                
+            	<ul> 
+                	<li>  
+                    <a href="http://www.fmprc.gov.cn/web/" target="_blank">
+                    外交部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.mod.gov.cn/" target="_blank">
+                    国防部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.ndrc.gov.cn/" target="_blank">
+                    国家发展和改革委</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.moe.gov.cn/" target="_blank">
+                    教育部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.most.gov.cn/" target="_blank">
+                    科学技术部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.miit.gov.cn/" target="_blank">
+                    工业和信息化部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.seac.gov.cn/" target="_blank">
+                    国家民族事务委员</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.mps.gov.cn/" target="_blank">
+                    公安部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.mca.gov.cn/" target="_blank">
+                    民政部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.moj.gov.cn/" target="_blank">
+                    司法部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.mof.gov.cn/index.htm" target="_blank">
+                    财政部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.mohrss.gov.cn/" target="_blank">
+                    人力资源和社会保</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.mlr.gov.cn/" target="_blank">
+                    自然资源部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.mep.gov.cn/" target="_blank">
+                    生态环境部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.mohurd.gov.cn/" target="_blank">
+                    住房和城乡建设部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.mot.gov.cn/" target="_blank">
+                    交通运输部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.mwr.gov.cn/" target="_blank">
+                    水利部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.moa.gov.cn/" target="_blank">
+                    农业农村部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.mofcom.gov.cn/" target="_blank">
+                    商务部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.cnta.gov.cn/" target="_blank">
+                    文化和旅游部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.nhfpc.gov.cn/" target="_blank">
+                    国家卫生健康委员</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.chinasafety.gov.cn/index.shtml" target="_blank">
+                    应急管理部</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.pbc.gov.cn/" target="_blank">
+                    人民银行</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.audit.gov.cn/" target="_blank">
+                    审计署</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.china-language.gov.cn/ " target="_blank">
+                    国家语言文字工作</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.safea.gov.cn/" target="_blank">
+                    国家外国专家局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.cnsa.gov.cn/" target="_blank">
+                    国家航天局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.caea.gov.cn/" target="_blank">
+                    国家原子能机构</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.soa.gov.cn/ " target="_blank">
+                    国家海洋局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://nnsa.mep.gov.cn/" target="_blank">
+                    国家核安全局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.sasac.gov.cn/" target="_blank">
+                    国务院国有资产监</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.customs.gov.cn/ " target="_blank">
+                    海关总署</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.chinatax.gov.cn/ " target="_blank">
+                    国家税务总局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://samr.saic.gov.cn/" target="_blank">
+                    国家市场监督管理</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.sapprft.gov.cn/" target="_blank">
+                    国家广播电视总局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.sport.gov.cn/" target="_blank">
+                    国家体育总局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.stats.gov.cn/" target="_blank">
+                    国家统计局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.counsellor.gov.cn/" target="_blank">
+                    国务院参事室</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.ggj.gov.cn/" target="_blank">
+                    国家机关事务管理</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.cnca.gov.cn/" target="_blank">
+                    国家认证认可监督</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.sac.gov.cn/" target="_blank">
+                    国家标准化管理委</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.ncac.gov.cn/" target="_blank">
+                    国家新闻出版署（</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.sara.gov.cn/" target="_blank">
+                    国家宗教事务局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.hmo.gov.cn/" target="_blank">
+                    国务院港澳事务办</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gov.cn/guoqing/2005-12/26/content_2652073.htm" target="_blank">
+                    国务院研究室</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gqb.gov.cn/" target="_blank">
+                    国务院侨务办公室</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gwytb.gov.cn/" target="_blank">
+                    国务院台湾事务办</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.cac.gov.cn/" target="_blank">
+                    国家互联网信息办</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.scio.gov.cn/" target="_blank">
+                    国务院新闻办公室</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.cas.ac.cn/" target="_blank">
+                    中国科学院</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.cssn.cn/" target="_blank">
+                    中国社会科学院</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.cae.cn/" target="_blank">
+                    中国工程院</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.drc.gov.cn/" target="_blank">
+                    国务院发展研究中</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.cma.gov.cn/" target="_blank">
+                    中国气象局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.cbrc.gov.cn/" target="_blank">
+                    中国银行保险监督</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.csrc.gov.cn/" target="_blank">
+                    中国证券监督管理</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.nsa.gov.cn/" target="_blank">
+                    国家行政学院</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gjxfj.gov.cn/ " target="_blank">
+                    国家信访局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.chinagrain.gov.cn/index.html" target="_blank">
+                    国家粮食和物资储</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.nea.gov.cn/" target="_blank">
+                    国家能源局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.sastind.gov.cn/" target="_blank">
+                    国家国防科技工业</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.tobacco.gov.cn/html/" target="_blank">
+                    国家烟草专卖局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.mps.gov.cn/n2254996" target="_blank">
+                    国家移民管理局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.forestry.gov.cn/" target="_blank">
+                    国家林业和草原局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.nra.gov.cn/" target="_blank">
+                    国家铁路局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.caac.gov.cn/" target="_blank">
+                    中国民用航空局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.spb.gov.cn/" target="_blank">
+                    国家邮政局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.sach.gov.cn/" target="_blank">
+                    国家文物局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.safe.gov.cn/" target="_blank">
+                    国家外汇管理局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://cnda.cfda.gov.cn/" target="_blank">
+                    国家药品监督管理</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.sipo.gov.cn/" target="_blank">
+                    国家知识产权局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.forestry.gov.cn/" target="_blank">
+                    国家公园管理局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.scs.gov.cn/" target="_blank">
+                    国家公务员局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.saac.gov.cn/" target="_blank">
+                    国家档案局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.oscca.gov.cn/" target="_blank">
+                    国家密码管理局</a>
+                    </li> 
+                </ul> 
+                <ul> 
+                	<li>  
+                    <a href="http://www.xjbt.gov.cn/" target="_blank">
+                    新疆生产建设兵团</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gov.hk/" target="_blank">
+                    香港</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.xinjiang.gov.cn/" target="_blank">
+                    新疆</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.nx.gov.cn/" target="_blank">
+                    宁夏</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.qh.gov.cn/" target="_blank">
+                    青海</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gansu.gov.cn/" target="_blank">
+                    甘肃</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.shaanxi.gov.cn/" target="_blank">
+                    陕西</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.xizang.gov.cn/" target="_blank">
+                    西藏</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.yn.gov.cn/" target="_blank">
+                    云南</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gzgov.gov.cn/" target="_blank">
+                    贵州</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.sc.gov.cn/" target="_blank">
+                    四川</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.hainan.gov.cn/" target="_blank">
+                    海南</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gxzf.gov.cn/" target="_blank">
+                    广西</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.nmg.gov.cn/" target="_blank">
+                    内蒙古</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.shanxigov.cn/" target="_blank">
+                    山西</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gd.gov.cn/" target="_blank">
+                    广东</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.hunan.gov.cn/" target="_blank">
+                    湖南</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.hubei.gov.cn/" target="_blank">
+                    湖北</a>
+                    </li> 
+                	<li>  
+                    <a href="https://www.gov.mo/zh-hant/" target="_blank">
+                    澳门</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.jiangxi.gov.cn/" target="_blank">
+                    江西</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.fujian.gov.cn/" target="_blank">
+                    福建</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.ah.gov.cn/" target="_blank">
+                    安徽</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.zhejiang.gov.cn/" target="_blank">
+                    浙江</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.jiangsu.gov.cn/" target="_blank">
+                    江苏</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.hlj.gov.cn/" target="_blank">
+                    黑龙江</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.jl.gov.cn/" target="_blank">
+                    吉林</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.ln.gov.cn/" target="_blank">
+                    辽宁</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.hebei.gov.cn/" target="_blank">
+                    河北</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.henan.gov.cn/" target="_blank">
+                    河南</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.sd.gov.cn/" target="_blank">
+                    山东</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.cq.gov.cn/" target="_blank">
+                    重庆</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.shanghai.gov.cn/shanghai/node2314/index.html" target="_blank">
+                    上海</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.tj.gov.cn/" target="_blank">
+                    天津</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.beijing.gov.cn/" target="_blank">
+                    北京</a>
+                    </li> 
+                </ul>
+                <ul> 
+                	<li>  
+                    <a href="http://www.gygov.gov.cn/" target="_blank">
+                    贵阳市</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.zunyi.gov.cn/" target="_blank">
+                    遵义市</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gzlps.gov.cn/" target="_blank">
+                    六盘水市</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.anshun.gov.cn/" target="_blank">
+                    安顺市</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/" target="_blank">
+                    毕节市</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.trs.gov.cn/index.html" target="_blank">
+                    铜仁市</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.qdn.gov.cn/" target="_blank">
+                    黔东南州</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.qiannan.gov.cn/" target="_blank">
+                    黔南州</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.qxn.gov.cn/" target="_blank">
+                    黔西南州</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gaxq.gov.cn/" target="_blank">
+                    贵安新区</a>
+                    </li> 
+                </ul>
+                <ul> 
+                	<li>  
+                    <a href="http://www.bjqixingguan.gov.cn/" target="_blank">
+                    七星关区人民政府</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gzdafang.gov.cn/" target="_blank">
+                    大方县人民政府</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gzqianxi.gov.cn/" target="_blank">
+                    黔西县人民政府</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gzjinsha.gov.cn/" target="_blank">
+                    金沙县人民政府 </a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gzzhijin.gov.cn/" target="_blank">
+                    织金县人民政府</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gznayong.gov.cn/" target="_blank">
+                    纳雍县人民政府</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gzweining.gov.cn/" target="_blank">
+                    威宁县人民政府</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gzhezhang.gov.cn/" target="_blank">
+                    赫章县人民政府</a>
+                    </li> 
+                	<li>  
+                    <a href="http://bldj.bijie.gov.cn" target="_blank">
+                    百里杜鹃管委会</a>
+                    </li> 
+                	<li>  
+                    <a href="http://jhh.bijie.gov.cn/" target="_blank">
+                    金海湖新区</a>
+                    </li> 
+                </ul>
+                <ul> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsfzggw/index.shtml" target="_blank">
+                    市发改委</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsjyj/index.shtml" target="_blank">
+                    市教育局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjskxjsj/index.shtml" target="_blank">
+                    市科技局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsgynyw/index.shtml" target="_blank">
+                    市工能委</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsmzw/index.shtml" target="_blank">
+                    市民宗委</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsgaj/index.shtml" target="_blank">
+                    市公安局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsmzj/index.shtml" target="_blank">
+                    市民政局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjssfj/index.shtml" target="_blank">
+                    市司法局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsczj/index.shtml" target="_blank">
+                    市财政局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://bj.gzrst.gov.cn/" target="_blank">
+                    市人社局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsgtj/index.shtml" target="_blank">
+                    市国土资源局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjshjbhj/index.shtml" target="_blank">
+                    市环保局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjszfcxjsj/index.shtml" target="_blank">
+                    市住建局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjscxghj/index.shtml" target="_blank">
+                    市城乡规划局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsjtysj/index.shtml" target="_blank">
+                    市交通运输局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsnw/index.shtml" target="_blank">
+                    市农委</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsswj_1/index.shtml" target="_blank">
+                    市水务局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsswj/index.shtml" target="_blank">
+                    市商务局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjswtgdxwcbj/index.shtml" target="_blank">
+                    市文化广电局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjswsjsw/index.shtml" target="_blank">
+                    市卫计委</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsfpkfb/index.shtml" target="_blank">
+                    市扶贫办</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjssjj/index.shtml" target="_blank">
+                    市审计局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsslyj/index.shtml" target="_blank">
+                    市林业局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsxmscj/index.shtml" target="_blank">
+                    市畜牧水产局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsaqjgj/index.shtml" target="_blank">
+                    市安监局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjstjj/index.shtml" target="_blank">
+                    市统计局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsspypjgj/index.shtml" target="_blank">
+                    市食药监局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsslyj_1/index.shtml" target="_blank">
+                    市旅发委</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjszjj/index.shtml" target="_blank">
+                    市质监局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsgsj/index.shtml" target="_blank">
+                    市工商局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsdaj/index.shtml" target="_blank">
+                    市档案局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjszfgjjglzx/index.shtml" target="_blank">
+                    公积金管理中心</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsslsdgcymj/index.shtml" target="_blank">
+                    水库和生态移民局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsgxs/index.shtml" target="_blank">
+                    市供销社</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjstzcjj/index.shtml" target="_blank">
+                    市投资促进局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bjggzy.cn/" target="_blank">
+                    公共资源交易中心</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsrfb/index.shtml" target="_blank">
+                    市人防办</a>
+                    </li> 
+                </ul>
+                <ul> 
+                	<li>  
+                    <a href="http://www.bj-rd.gov.cn/" target="_blank">
+                    毕节人大</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bjszx.gov.cn/" target="_blank">
+                    毕节政协</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bjsjw.gov.cn/" target="_blank">
+                    市纪检监察网</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bjsyqw.com/" target="_blank">
+                    毕节试验区网</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gzcx.gov.cn/" target="_blank">
+                    信用中国（贵州）</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.gzbjxf.gov.cn/" target="_blank">
+                    市信访局</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bjrb.cn/" target="_blank">
+                    毕节日报</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bjsyq.cn/" target="_blank">
+                    试验区之窗</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/bm/bjsllb/index.shtml" target="_blank">
+                    市老龄办</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.bijie.gov.cn/yw/ztzl/bjszw/" target="_blank">
+                    毕节史志</a>
+                    </li> 
+                	<li>  
+                    <a href="http://www.people.com.cn/" target="_blank">
+                    人民网</a>
+                    </li> 
+                </ul>
+                
+               
+            </div>
+        </div>  
+        
+	
+    
+    
+<!-- Generated By TurboECM v2.1.7 2018-05-09 14:57:25 -->
+        
+        
+        <p>主办：毕节市人民政府办公室　承办：毕节市大数据发展办公室（电子政务办）　内容保障：毕节市民政局</p>
+        <p>市民政局地址：毕节市七星关区洪山路61号　联系电话：0857-8222768，8225700（传真）</p>
+        <p>Copyright @ 2017 www.bijie.gov.cn All Rights Reserved 毕节市人民政府办公室 版权所有</p>
+  		<p>黔ICP备05002319号 <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52050202001021">　贵公网安备52050202001021号</a>　网站标识码: 5205000011</p>
+        <p>技术支持：<a href="http://www.jstide.com/" target="_blank">泰得科技</a> &nbsp;&nbsp;
+        访问量:<span>&nbsp;
+        <script language="JavaScript">var _trackDataType = "web";var _trackData = _trackData || [];</script><script type="text/javascript" charset="utf-8" id="kpyfx_js_id_10000796" src="//fxsjcj.kaipuyun.cn/count/10000796/10000796.js"></script>
+        <script src="/webapp/counter/queryCount?siteID=2&censusType=1"></script>&nbsp;
+        </span>
+        </p>        
+
+
+        <div class="dzjg">
+        
+            <script id="_jiucuo_" sitecode="5205000011" src="http://pucha.kaipuyun.cn/exposure/jiucuo.js"></script>
+            
+            <script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript  src='http://dcs.conac.cn/js/24/360/0000/40626131/CA243600000406261310001.js' type='text/javascript'%3E%3C/script%3E"));</script>
+            <a href="http://report.12377.cn:13225/toreportinputNormal.do">
+            <img src="/static/images/foot/footzfzc.jpg" style="width: 200px" /></a>
+        </div>
+    </div>
+<script>
+     jQuery(".yqlj").slide({titCell:".lj_dh ul li",mainCell:".lj_nr",returnDefault:"ture"});
+</script>
+
+<script src="/webapp/counter/calculator?siteID=2&censusType=1&siteName=毕节市人民政府门户网站"></script>
+
+
+  <script type="text/javascript">
+        $(document).ready(function () {
+            for (var i = 0; i < document.links.length; i++) {
+                var url = document.links[i].href.toLowerCase();
+                if (url.indexOf("javascript") == -1 && url.indexOf("bijie.gov.cn") == -1 && url != "#" && !document.links[i].onclick) {
+                    document.links[i].onclick = function () {
+                        return confirm("您访问的链接即将离开“毕节市人民政府门户网站”，是否继续？")
+                    };
+                }
+            }
+        });
+    </script> 
+</body>
+</html>
+
+<!-- Generated By TurboECM v2.1.7 2018-05-06 14:02:54 -->

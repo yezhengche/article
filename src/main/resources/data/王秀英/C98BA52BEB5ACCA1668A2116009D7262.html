@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" /> 
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" /> 
+<title>王秀英医师_有问必答_快速问医生</title>
+<meta name="description" content="快速问医生旗下有问必答网热门问答频道针对用户热门问题总结归纳，帮助用户快速解决问题。"/>
+<meta name="keywords" content="热门问答，有问必答网,快速问医生" />
+<link rel="icon" href="//www.120ask.com/favicon.ico" type="image/x-icon" />
+<link href="//cdn.120askimages.com/ask/m/css/v2/index.css" rel="stylesheet" type="text/css" />
+<script src="//cdn.120askimages.com/ask/js/jquery-1.7.2.js"></script>
+</head>
+<body>
+<div class="doctor-home">
+		<div class="doctor-msg clears">
+			<i><img src="//u1.120askimages.com/6/9/4/34565496"></i>
+							<b>王秀英</b>
+				<span>妇产科综合&nbsp;&nbsp;主管护师</span>
+				<span>红华实业有限公司职工医院</span>						
+			<p><var><em style="width:93%"></em></var><strong>93%好评</strong></p>
+							<a class="attend-btn" href="javascript:;">+ 关注</a>
+					</div>
+		<div class="doc-about-others">
+			<a href="JavaScript:;">
+				<i class="icon i1"></i>
+				<var><em>21649</em>人问诊</var>
+			</a>
+			<a href="JavaScript:;">
+				<i class="icon i2"></i>
+				<var><em>327</em>人付费</var>
+			</a>
+			<a href="JavaScript:;">
+				<i class="icon i3"></i>
+				<var><em>66</em>人赞赏</var>
+			</a>
+		</div>
+		<div class="doc-msg-others">
+			<div class="clears">
+				<var><strong>￥<i>10</i></strong> /次<br><em>已有327人购买</em></var>
+				<span><i style="color:#f60;">1分50秒</i><br>平均应答时间</span>			</div>
+			<p>擅长：新生儿疾病护理,小儿呼吸道疾病,消化道疾病及肾病等多种儿科疾病护理,掌握产科顺产产前,产后护理常规,剖宫产术前术后护理,产妇健康宣教,新生儿护理及新生儿疫苗接种及疾病筛查的操作及妇科常见病多发病和</p>
+		</div>
+		<div class="answer-cont">
+			
+			<div class="nav">
+				<a href="javascript:;" class="on"><span>问答</span></a>
+				<a href="javascript:;"><span>讲座</span></a>
+				<a href="javascript:;"><span>咨询实录</span></a>
+				<a href="javascript:;"><span>患者评价</span></a>
+			</div>
+			<div class="cont">
+				<div class="part record" style="display:block;">
+					<div id="reply" style="border-bottom:0;"></div>
+					<a id="reply_more" class="more" href="javascript:;" onclick="go('reply',1)">加载更多 …</a>
+				</div>
+				<div class="video" style="display:none;">
+					<div id="video" class="video-list">
+					</div>
+				</div>
+				<div class="asklistbox" style="display: none;">
+					<div id="shilu"></div>
+					<a id="shilu_more" class="more" href="javascript:;" onclick="go('shilu',4)">加载更多 …</a>
+				</div>
+				<div class="part evaluation">
+					<div id="com" style="border-bottom:0;"></div>
+					<a id="com_more" class="more" href="javascript:;" onclick="go('com',2)">加载更多 …</a>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<style>
+		/*20171115新加*/
+		.video-list{padding:0 15px 5px 15px;}
+		.video-list .vi{ display: block; overflow: hidden;clear: both;padding:8px 0;border-bottom: 1px solid #E5E5E5;}
+		.video-list .vi .t{ display: block;font-size:14px; line-height: 19px;}
+		.video-list .vi div{ overflow: hidden; clear: both;padding-top:5px;}
+		.video-list .vi .cover{position: relative;float: left;width: 70px; height: 50px; overflow: hidden; line-height: 50px;}
+		.video-list .vi .cover img{ display: inline; width: 70px; height: 50px; vertical-align: middle;}
+		.video-list .vi .cover:after{position: absolute;content: "";width:100%; height: 100%; z-index: 6;background-color:rgba(0,0,0,.4);left: 0;top: 0;}
+		.video-list .vi .cover i{background:url(//cdn.120askimages.com/m/css/audio/img/v_icon1.png) no-repeat;background-size:25px 60px;-webkit-background-size:25px 60px;position: absolute;left: 3px;bottom:3px; z-index: 9;  width: 13px; height: 13px;}
+		.video-list .vi .cover .v{background-position:  0 -26px;}
+		.video-list .vi .cover .r{background-position:  0 -41px;}
+		.video-list .vi div .sp{ display: block;margin-left: 80px;padding-top:6px;}
+		.video-list .vi div .sp var{ display: block;color:#888;padding-top:6px;}
+		.video-list .ask{padding:4px 0;display:-moz-box;display:-webkit-box;display:box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;width:100%; overflow: hidden; clear: both;}
+		.video-list .ask span{-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;width:100%; display: block;    overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size:14px;}
+		.video-list .ask var{ display: block;color:#666;}
+		.answer-cont .cont .record div strong{ display: block;color:#f60;padding-bottom: 3px;}
+		.asklistbox{padding:0 15px;}
+		.asklistbox .askli{ overflow: hidden; clear: both;padding:10px 0;border-bottom: 1px solid #E5E5E5;}
+		.asklistbox .askli .t{ display: block;font-size:14px;line-height: 20px;}
+		.asklistbox .askli .t em{color:#f60;font-style: normal;}
+		.asklistbox .askli div{ display: block;overflow: hidden;padding-top:10px; line-height: 18px;color:#888;}
+		.asklistbox .askli div a{color:#f60; float: right;margin-right:12px;}
+		.asklistbox .askli div var{color:#888; float: right;}
+		
+		.asklistbox .askli p {display:block;position:relative;font-size:14px;background-color:#FCFFFA;border:1px solid #eee;margin-top:15px;padding:9px 13px 14px 16px;color:#666;}
+		.asklistbox .askli p i{display:block;width:11px;height:8px;background-position:-68px -18px;position:absolute;left:27px;top:-7px;}
+		.asklistbox .askli p strong{ display: block;color:#f60;padding-bottom: 3px;}
+		.more {display: block;line-height: 34px;height: 34px;text-align: center;color: #666;}
+		.NoTip {display: block;line-height: 25px;font-size: 13px;text-align: center;padding: 19px 3px 22px 3px;color:#999; }
+	</style>
+	<div class="bottom-pay-about">
+	<script>var _czc = [] || _czc;</script>
+			<a href="javascript:;">剩余名额：131人<br/><FONT color="#999">医生今日正在义诊</FONT></a>
+		<a href="//m.120ask.com/askg/asktype?docid=708cepzxszpknec9" onclick="_czc.push(['_trackEvent', 'onclick_askq', 'm', 'docinfo']);"> <strong>免费咨询</strong></a>
+	</div>
+
+	<input type="hidden" value="708cepzxszpknec9" id="sn_docid" />
+	<input type="hidden" value="0g8s6cxi2h3kf468" id="sn_kw_uid" />
+	<input type="hidden" value="ymyymy201214" id="username" />
+	<input type="hidden" value="1" id="reply_page" />
+	<input type="hidden" value="1" id="com_page" />
+	<input type="hidden" value="1" id="shilu_page" />
+	<input type="hidden" value="5ddbb8bf58d32e01e4a2bffb785e2476" id="sn" />
+	<input type="hidden" value="MDhKSnRvYU8dCSguE1sEHkdKFT85WlIfZ3UjABdcETUDDgM/Ei4zJQ==" id="token" />
+	<style>
+	@-webkit-keyframes steam {
+    to { -webkit-transform: rotate(360deg); }
+	}
+	.ListSearchBg{background-color:#000;opacity:0.1;position:fixed;left:0px;right:0px;top:0px;bottom:0px;z-index:1000;display:none;}
+	.ListSearchBox{display:none;}
+	.ListSearchBox span{display:block;width:66px;height:66px;position:fixed;left:50%;margin-left:-33px;top:50%;margin-top:-33px;background:url(//cdn.120askimages.com/ask/m/css/img/load.png) no-repeat 0 0;background-size:66px 66px;-webkit-background-size:66px 66px;z-index:1001;-webkit-animation: steam 800ms linear infinite;}
+	.ListSearchBox  i{display:block;width:40px;height:40px;position:fixed;left:50%;margin-left:-20px;top:50%;margin-top:-20px;background:url(//cdn.120askimages.com/ask/m/css/img/loadlogo.png) no-repeat 0 0;background-size:40px 40px;-webkit-background-size:40px 40px;z-index:1002;}
+</style>
+<div class="ListSearchBg"></div>
+<div class="ListSearchBox">
+	<span></span>
+	<i></i>
+</div><style>
+#verify_tips {text-align: center;position: fixed;top: 30%;display: none;width: 100%;z-index: 9999;}
+#verify_tips em {font-style: normal;margin: 0 auto;text-align: center;line-height: 34px;height: 34px;display: inline-block;color: #fff;font-size: 14px;background: rgba(0,0,0,0.5);border-radius: 24px;padding: 0 15px;z-index: 90;}
+/*弹窗*/
+.upbox_vv{display:block;width:100%;height:100%;position:fixed;left:0px;top:0px;background-color:rgba(0,0,0,0.7);z-index:999;}
+.upbox_vv div{display:block;width:260px;height:132px;background-color:#fff;border-radius:8px;padding-top:22px;position:absolute;left:50%;margin-left:-130px;top:50%;margin-top:-66px;}
+.upbox_vv div b{display:block;line-height:15px;text-align:center;font-size:15px;}
+.upbox_vv div span{display:block;line-height:17px;padding:11px 20px 0px 22px;}
+.upbox_vv div p{display:block;text-align:center;margin-top:25px;}
+.upbox_vv div p a{display:inline-block;width:100px;height:33px;line-height:33px;text-align:center;border-radius:5px;}
+.upbox_vv div p a.cancel{border:1px solid #BBBBBB;color:#666;margin-right:13px;}
+.upbox_vv div p a.certain{border:1px solid #2AB834;color:#2ab834;}
+</style>
+<span id="verify_tips"><em></em></span>
+<!-- 弹窗 -->
+<div class="upbox_vv" style="display: none;">
+	<div>
+		<b id="vv_title">提示</b>
+		<span id="vv_con">确定要投诉本答案吗？</span>
+		<p><a class="cancel" href="javascript:;">取消</a><a class="certain" href="javascript:;">确定</a></p>
+	</div>
+</div>
+<script>
+var show_error = function(msg){
+	$('#verify_tips').show('slow');
+	setTimeout("$('#verify_tips').fadeOut('slow')",2000);	
+	$('#verify_tips em').html(msg);
+}
+</script>
+<script type="text/javascript">
+	$(function () {
+		$(".answer-cont .nav a").each(function (index) {
+			$(this).click(function () {
+				$(this).addClass("on").siblings().removeClass("on");
+				$(".answer-cont .cont>div").eq(index).css("display","block").siblings().css("display","none")
+			})
+		})
+
+		$(".attend-btn").click(function () {
+			if (!$(this).hasClass("attended")) {
+				watch($(this));
+			}
+
+		});
+		
+		go('reply',1);
+		go('com',2);
+		go('video',3);
+		go('shilu',4);
+	});
+	
+	/*function go(ob,t){
+
+		var sn_docid = $('#sn_docid').val();
+		var page = $('#'+ob+'_page').val();
+		
+		$.get('/member/ajaxabout',{'sn_docid':sn_docid,'type':t,'page':page},function(data){
+			if(typeof(data) != "undefined"){
+				$('#'+ob).append(data);
+				var page_s = parseInt(page) + 1
+				$('#'+ob+'_page').val(page_s);
+			}
+		},'html');
+	}*/
+
+	function go(ob,t){
+
+		var sn_docid = $('#sn_docid').val();
+		var username = $('#username').val();
+		var sn_kw_uid = $('#sn_kw_uid').val();
+		var page = $('#'+ob+'_page').val();
+
+		$.ajax({
+			'url':'/member/ajaxabout',
+			'data':{_:Math.random(),'sn_docid':sn_docid,'sn_kw_uid':sn_kw_uid,'username':username,'type':t,'page':page},
+			'dataType':'html',
+			beforeSend: function(){
+				$('.ListSearchBg').show();
+				$('.ListSearchBox').show();
+			},
+			complete:function(){
+				$('.ListSearchBg').hide();
+				$('.ListSearchBox').hide();
+			},
+			'success':function(data){
+				$('#'+ob).append(data);
+				var page_s = parseInt(page) + 1
+				$('#'+ob+'_page').val(page_s);
+			}
+    	})
+	}
+
+	function watch(obj){
+
+		var sn_docid = $('#sn_docid').val();
+		var sn = $('#sn').val();
+		var token = $('#token').val();
+		$.get('/member/ajaxwatch',{'username':'ymyymy201214','sn_docid':sn_docid,'sn':sn,'_csrf':token},function(data){
+			if(data.status == 'success'){
+				obj.html("已关注")
+				obj.addClass("attended")
+				show_error('已成功关注医生');
+			}else{
+				if(data.msg=='请登录再操作'){
+					show_error(data.msg);
+					setTimeout('window.location.href="http://m.120ask.com/member/login/"',3000);
+				}else{
+					show_error(data.msg);
+				}
+				
+			}
+		},'json')
+	}
+
+	function qgo(tid){
+		if(tid) {
+			window.location.href="//m.120ask.com/askg/posts_detail/"+tid;
+		}
+	}
+	//var _czc = [] || _czc;
+	_czc.push(['_trackEvent', 'docinfo', 'm', '1']);
+</script><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?4bce588bc1ae5e3b74098d84f0600cae";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script src="//w.cnzz.com/c.php?id=30040410" language="JavaScript"></script></body>
+</html>

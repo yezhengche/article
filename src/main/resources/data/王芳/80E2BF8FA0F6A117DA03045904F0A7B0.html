@@ -1,0 +1,1150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>王芳紫砂壶介绍及紫砂作品_砂轩紫砂</title>
+<meta name="keywords" content="王芳,王芳紫砂壶" />
+<meta name="description" content="王芳，近代著名艺人、紫砂七老之一王寅春之小孙女，1968年王芳出生于上袁村，1987年王芳高中毕业后，开始学习紫砂全手工制壶技法，得到父亲王三大的悉心传授，并参加紫砂造型设计班培训获优秀成绩，王芳紫砂壶作品手法全面，并在《中青年英才集》、《十大茗壶》、《茗壶赏析》、《紫砂第一村》刊物上发表。" />
+<link href="/templates/main/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/templates/main/css/public2016.css" rel="stylesheet" type="text/css" />
+    <link href="/templates/main/css/shopIndex.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/templates/main/js/jquery.js"></script>
+    <script type="text/javascript" src="/templates/main/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/templates/main/js/jquery-ext.js"></script>
+    <script type="text/javascript" src="/templates/main/js/simpletooltip.min.js"></script>
+    <script type="text/javascript">
+        function filterMoreClick(that) {
+            var dd = that.parentNode.parentNode.getElementsByTagName('dd');
+            if (dd[0]) {
+                dd = dd[0];
+                if (that.className == 'filter_on') {
+                    that.className = "filter_off";
+                    that.innerHTML = "收起";
+                    if (!dd.getAttribute('_height')) dd.setAttribute('_height', dd.style.height);
+                    var eDiv = dd.getElementsByTagName('div');
+                    if (eDiv[0]) {
+                        var h = eDiv[0].offsetHeight;
+                        dd.style.height = (h - 10) + "px";
+                    }
+                } else {
+                    that.className = "filter_on";
+                    that.innerHTML = "更多";
+                    dd.style.height = dd.getAttribute('_height');
+                }
+            }
+        }
+        function is_display(num) {
+            $("#panel_" + num).toggle();
+        }
+        $(document).ready(function () {
+            $(".master_list").find("a,h3").simpletooltip({
+                position: 'right',
+                border_color: '#A1510E',
+                color: '#FFFFFF',
+                background_color: '#B66C40',
+                border_width: 1
+            });
+        });
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?4fa45ca94f456cc796bece692f66108e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</head>
+
+<body>
+<!--Header-->
+<div id="shortcut">
+  <div class="shortcut_a">
+    <ul class="shortcut_left">
+      <li style=" border:0;">欢迎来到砂轩紫砂，专业紫砂壶文化网站！</li>
+    </ul>
+    <script type="text/javascript">
+        $.ajax({
+            type: "POST",
+            url: "/tools/submit_ajax.ashx?action=user_check_login",
+            dataType: "json",
+            timeout: 20000,
+            success: function (data, textStatus) {
+                if (data.status == 1) {
+                    $("#menu").prepend('<li><a href="/user/center/exit.html">退出</a></li>');
+                    $("#menu").prepend('<li><a href="/user/center/index.html">会员中心</a></li>');
+                } else {
+                    $("#menu").prepend('<li><a href="/register.html">注册</a></li>');
+                    $("#menu").prepend('<li><a href="/login.html">登录</a></li>');
+                }
+            }
+        });
+
+
+        function on_search(that) {                      
+            $(that).parent().parent().find('a').removeClass('current'); // 去除所有同胞元素的红色样式
+            $(that).addClass('current');    // 设置被点击元素为红色
+            $("#hidetype").val($(that).attr("name"));        
+            //SitecSearch('/search.html', '#keywords','#hidetype');           
+        }
+        function SitecSearch(send_url, divTgs,divTpye) {
+            var strwhere = "";
+            var channel_name="goods";
+            var te=$(divTpye).val();       
+            var str = $.trim($(divTgs).val());
+            if (str.length > 0 && str != "输入关健字") {
+                window.location.href = send_url + "?type="+te+"&keyword=" + encodeURI($(divTgs).val());
+            }
+            return false;
+        }
+		</script>
+    <ul class="shortcut_right" id="menu">
+      <li style=" border:0;"><a href="/content/contact.html">联系我们</a></li>
+    </ul>
+  </div>
+</div>
+<div id="header">
+  <div id="h_c" class="header_a">
+    <div class="logo"> <a href="http://www.sxzisha.com/"> <img alt="砂轩紫砂"   title="砂轩紫砂"   src="/templates/main/images/logo.png" width="210" height="90"></a></div>
+    <div class="search">
+        <h2>
+            <input type="hidden" id="hidetype" name="hidetype" value="" />
+            
+            <span><a href="javascript:void(0)" onclick="on_search(this)"  class="current"  name="1">作品</a></span>
+            <span><a href="javascript:void(0)" onclick="on_search(this)"  name="2">新闻</a></span>
+            <span><a href="javascript:void(0)" onclick="on_search(this)"  name="3">名家</a></span>
+            <span><a href="javascript:void(0)" onclick="on_search(this)"  name="4">周边</a></span>
+        </h2>
+        <div class="searchbox">
+        
+            <input type="hidden" value="1" id="so_type" />
+            <input id="keywords" name="keywords" class="searchbox_text" type="text" onkeydown="if(event.keyCode==13){SitecSearch('/search.html', '#keywords','#hidetype');return false};" placeholder="输入回车搜索" x-webkit-speech="" />
+            <input class="searchbox_botton" type="submit" onclick="SitecSearch('/search.html', '#keywords','#hidetype');" value="搜  索" />
+        
+        </div>
+    </div>
+
+    <div class="top_bz"><img alt="砂轩紫砂壶官网联系电话"  src="/templates/main/images/tel.png" width="199" height="90" /></div>
+</div>
+<div id="nav">
+  <div class="nav_a">
+    <div class="nav_items2">
+      <ul>
+        <li><a target="_self" href="http://www.sxzisha.com/index.html">首页</a></li>
+        <li style="width:170px;"><a target="_self" href="http://www.sxzisha.com/goods.html">紫砂商城</a><b></b></li>
+        <li style="width:110px;"><a target="_self" href="http://www.sxzisha.com/gys.html">紫砂名家</a></li>
+        <li style="width:110px;"><a target="_self" href="http://www.sxzisha.com/baike.html">紫砂百科</a></li>
+        <li style="width:110px;"><a target="_self" href="http://www.sxzisha.com/down.html">紫砂鉴别</a></li>
+        <li style="width:110px;"><a target="_self" href="http://www.sxzisha.com/zhicheng.html">职称查询</a></li>
+        <li style="width:110px;"><a target="_self" href="http://www.sxzisha.com/zhuanti.html">紫砂专题</a></li>
+        <li style="width:110px;"><a target="_self" href="http://www.sxzisha.com/guancang/0.html">紫砂收藏</a></li>
+        <li style="width:110px;"><a target="_self" href="http://www.sxzisha.com/video.html">名家视频</a></li>
+        <li style="width:110px;"><a target="_self" href="http://www.sxzisha.com/other.html">紫砂周边</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+<!--/Header-->
+<div id="PageMain" class="box">
+    <div class="here">当前位置：<span><a href="/index.html">首页</a></span> &gt; 工艺师</div>
+    <div class="left_c">
+        <div class="master_list" id="master_list">
+        
+                <div class="master_bt active" onclick="is_display(1);" ><i class="bt_icon"></i><h3 title="紫砂大师/名家">紫砂大师/名家</h3></div>
+                <ul id="panel_1"   class="master_i">
+                
+                    <li><a href="/gongyishi.html?category_id=111">范泽锋</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=44">胡洪明</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=48">范仁良</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=79">范永良</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=80">范永军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=84">沈建强</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=91">吴贞裕</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=99">徐安碧</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=92">史小明</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=106">王涛</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=43">汤鸣皋</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=87">邵顺生</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=108">束旦生</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=109">曹婉芬</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=89">吴奇敏</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=112">陈鸣远</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=333">徐汉棠</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=332">谢曼伦</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=331">蒋彦</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=329">蒋蓉</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=327">张红华</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=326">范建军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=325">程辉</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=322">钱丽媛</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=316">高湘君</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=315">范洪泉</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=312">吕尧臣</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=274">陈洪平</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=206">王石耕</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=45">季益顺</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=88">潘小忠</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=113">吴云根</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=93">桑黎兵</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=100">毛国强</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=334">施小马</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=348">朱斌</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=371">顾景舟</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=399">李碧芳</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=409">吴群祥</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=410">黄霁峰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=411">刘建平</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=414">周桂珍</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=416">朱可心</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=417">裴石民</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=418">任淦庭</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=419">王寅春</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=420">何道洪</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=421">谭泉海</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=422">尹祥明</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=423">路朔良</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=425">黄自英</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=431">徐秀棠</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=439">孙建兴</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=442">陈国良</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=443">华健</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=444">鲍仲梅</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=445">何挺初</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=446">吴培林</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=451">吴亚亦</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=454">范建华</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=455">徐达明</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=456">鲍利安</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=457">沈汉生</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=458">高建芳</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=459">汪寅仙</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=465">吴鸣</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=473">陈曼生</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=491">吕俊杰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=493">李昌鸿</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=494">张守智</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=495">储立之</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=499">冯桂林</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=500">陈荫千</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=501">申锡</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=502">李宝珍</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=503">凌锡苟</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=504">葛明仙</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=505">彭文雄</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=507">王小龙</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=521">高丽君</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=528">葛陶中</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=532">吴曙峰</a></li>
+                    
+                </ul>
+            
+            <div class="master_bt" onclick="is_display(2);" ><i class="bt_icon"></i><h3 title="高工/工艺师">高工/工艺师</h3></div>
+                <ul id="panel_2"   class="master_i">
+                
+                    <li><a href="/gongyishi.html?category_id=202">董正红</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=426">胡朝君</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=151">汤宣武</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=155">卢永强</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=385">陈夕良</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=81">孔小明</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=115">许卫中</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=124">陈宗宝</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=150">汤建林</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=94">范伟群</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=149">范秀红</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=96">毛文杰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=97">邵新和</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=147">卢伟强</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=98">葛军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=101">何忍群</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=166">蒯良荣</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=102">马永强</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=144">史爱民</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=143">蒋泉芳</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=104">黄丽萍</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=142">蒋泽军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=141">范红英</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=105">査元康</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=107">王福君</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=140">孔新华</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=139">孔春华</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=110">陈宏林</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=137">王镇学</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=136">邵美华</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=134">陈正初</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=132">吴永明</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=130">许智萍</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=129">邵亚芬</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=128">许红琴</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=127">孟小军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=123">范建中</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=121">周益君</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=120">王芳</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=116">谢永新</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=46">陈惠红</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=47">范顺君</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=78">袁国强</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=83">汤杰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=85">王杏军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=86">范卫强</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=90">鲁浩</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=157">杨军保</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=159">卢宁刚</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=152">徐飞</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=153">周良荣</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=397">周伯娟</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=398">胡敖君</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=401">储立强</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=402">顾建军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=403">曹敏敏</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=405">吴秋平</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=412">许爱萍</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=413">虞宏</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=415">吴东元</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=203">高峰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=204">潘国良</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=205">沈菊芳</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=209">余志平</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=213">周志新</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=275">陈依群</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=278">董正强</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=279">方幼琴</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=280">高永伟</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=281">韩惠琴</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=283">贾益芳</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=284">蒋建军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=285">蒋升</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=288">倪新安</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=289">邵立平</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=291">王六初</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=292">王翔</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=294">吴余生</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=297">徐秀华</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=300">张志清</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=318">蒋小军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=321">范锡明</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=343">吴建平</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=377">吴菊凤</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=378">周慧</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=180">王俊峰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=428">潘洪均</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=430">史云棠</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=432">朱丹</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=433">王军成</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=435">吴开浒</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=437">蔡炳昆</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=438">蔡炳盛</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=440">范春娣</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=441">蔡炳龙</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=447">李慧芳</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=448">蒋艺华</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=449">徐雪娟</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=450">姚志源</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=452">陈国宏</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=453">周忠军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=460">鲍玉美</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=461">杨群群</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=462">潘国胜</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=464">王红娟</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=466">厉上清</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=468">张伟军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=471">刘亚萍</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=472">周益娟</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=476">朱国伟</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=479">周伟光</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=480">孙明霞</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=485">蒋金凤</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=486">勇淑英</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=488">吴卫兰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=497">杨志仲</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=511">吴顺华</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=512">潘进</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=513">赵洪福</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=515">唐彬杰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=516">周小明</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=519">吴小平</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=520">路学峰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=522">周宇杰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=523">王惠中</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=526">王建芳</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=527">邵云琴</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=530">鲍文君</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=533">徐勤</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=534">史美萍</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=535">吴优良</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=536">马璟辉</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=537">吴东瑾</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=538">吴东元</a></li>
+                    
+                </ul>
+            
+            <div class="master_bt" onclick="is_display(3);" ><i class="bt_icon"></i><h3 title="助工/美术员">助工/美术员</h3></div>
+                <ul id="panel_3"   class="master_i">
+                
+                    <li><a href="/gongyishi.html?category_id=51">范志云</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=208">余美珍</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=170">徐少锋</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=305">杨梦婷</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=306">应卫强</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=324">范陶琦</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=148">王浩平</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=168">吴志华</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=146">冯建中</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=145">戴琳琳</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=138">范列</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=135">冯建平</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=133">周敏</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=131">朱萍萍</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=126">庄青</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=125">张建</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=122">范君华</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=119">盛荷芬</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=118">唐建平</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=117">徐伟强</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=154">胡欣</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=156">江政凌</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=158">范群飞</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=160">王杰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=169">王立芬</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=307">张涛</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=173">陆彩琴</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=174">杨丽亚</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=179">周锋</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=212">周渊</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=273">尹听娣</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=276">陈永亮</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=282">胡迪峰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=286">李晓璐</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=290">沈彩娥</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=295">谢静</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=296">徐萍</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=298">尹跃琴</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=299">张益锋</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=301">周勇生</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=304">李娜</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=335">李爱民</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=341">谈文伟</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=351">顾春芳</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=380">汤华刚</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=400">邵莉</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=404">陈江</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=424">王利萍</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=427">张丽群</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=429">高萍</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=434">秦志荣</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=467">庄荷杰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=474">鲍国新</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=475">蒋丽娟</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=482">韩玉娟</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=483">朱晨阳</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=489">白福成</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=496">马吉</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=506">冯志浩</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=518">徐云</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=524">王志英</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=531">周界</a></li>
+                    
+                </ul>
+            
+            <div class="master_bt" onclick="is_display(4);" ><i class="bt_icon"></i><h3 title="中青年实力派">中青年实力派</h3></div>
+                <ul id="panel_4"   class="master_i">
+                
+                    <li><a href="/gongyishi.html?category_id=82">沈俊</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=317">蒋齐军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=293">闻正荣</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=165">吴渊蓓</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=164">吴步新</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=163">冯勤芳</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=162">於成安</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=161">王亮</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=49">蒋春音</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=114">许曙敏</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=210">张洪强</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=211">周陶君</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=310">袁志敏</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=436">李涵鸣</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=487">白雪山</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=498">周小春</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=514">魏常保</a></li>
+                    
+                </ul>
+            
+            <div class="master_bt" onclick="is_display(5);" ><i class="bt_icon"></i><h3 title="紫砂民间艺人">紫砂民间艺人</h3></div>
+                <ul id="panel_5"   class="master_i">
+                
+                    <li><a href="/gongyishi.html?category_id=177">杨岳军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=176">陈伟军</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=346">姜支琴</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=379">范俊杰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=171">徐剑华</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=172">江慧旺</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=50">陈亮</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=167">陆毅</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=309">周卫君</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=320">许芳娣</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=337">杨娇</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=395">陈静雯</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=396">余菊仙</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=406">盛锡华</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=407">陶岭</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=408">史丽群</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=463">黄兴隆</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=469">崔文</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=477">秦穗丰</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=478">杨雪梅</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=484">郑勇</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=490">陆一飞</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=492">缪兴洲</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=517">周豪</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=525">姚艺晋</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=347">龚询忠</a></li>
+                    
+                    <li><a href="/gongyishi.html?category_id=350">张俊峰</a></li>
+                    
+                </ul>
+            
+
+        </div>
+    </div>
+    
+        <div id="filter" class="filter">
+        <div class="filter_c">
+           <div class="gys_photo2">
+             <img src="/upload/201608/09/201608091614364961.jpg" width="217" height="148" alt="紫砂壶工艺师王芳照片" title="紫砂壶工艺师王芳照片"/>
+           </div>     
+           <div class="gys_con">
+             <h1>王芳</h1>
+             <p>简介:<br />王芳，近代著名艺人、紫砂七老之一王寅春之小孙女，1968年王芳出生于上袁村，1987年王芳高中毕业后，开始学习紫砂全手工制壶技法，得到父亲王三大的悉心传授，并参加紫砂造型设计班培训获优秀成绩，王芳紫砂壶作品手法全面，并在《中青年英才集》、《十大茗壶》、《茗壶赏析》、《紫砂第一村》刊物上发表。</p>
+           </div>
+        </div> 
+
+    </div>  
+    <div class="content">
+        <p>
+	<strong>&nbsp; &nbsp; 职 &nbsp;称</strong>：<strong><span style="color:#E56600;">工艺美术师</span></strong> 
+</p>
+<p>
+	<strong><strong>&nbsp; &nbsp;&nbsp;</strong>王芳</strong>，国家级工艺美术师，青年陶艺家，中国工艺美术学会会员。
+</p>
+<p>
+	<strong>&nbsp; &nbsp;&nbsp;</strong>王芳，近代著名艺人、紫砂七老之一王寅春之小孙女，1968年王芳出生于上袁村，1987年王芳高中毕业后，开始学习紫砂全手工制壶技法，得到父亲王三大的悉心传授，并参加紫砂造型设计班培训获优秀成绩，王芳<strong><a href="http://www.sxzisha.com" target="_blank">紫砂壶</a></strong>作品手法全面，并在《中青年英才集》、《十大茗壶》、《茗壶赏析》、《紫砂第一村》刊物上发表，王芳紫砂壶作品《北瓜》在第四届工艺美术大师精品博览会获铜奖，<span>王芳</span><span>紫砂壶</span>作品《龙泉》获优秀奖，作品《红菱碗》获第二届太湖博览会银奖，<span>王芳</span><span>紫砂壶</span>作品《旭日东升》获第六届工艺美术大师精品博览会获银奖，<span>王芳</span><span>紫砂壶</span>《步步高》获第七届工艺美术大师精品博览会铜奖。
+</p>
+<p>
+	<br />
+</p>
+<p>
+	<span><strong><strong>&nbsp; &nbsp;&nbsp;</strong>王芳</strong></span><span><strong><a href="http://www.sxzisha.com" target="_blank">紫砂壶</a></strong></span><strong>获奖经历</strong>：
+</p>
+<p>
+	<strong>&nbsp; &nbsp;&nbsp;</strong>2001年第三届中国(国家)工艺美术大师精品博览会<span>王芳</span><span>紫砂壶</span>《合欢如意》壶获铜奖。
+</p>
+<p>
+	<strong>&nbsp; &nbsp;&nbsp;</strong>2002年第四届中国(国家)工艺美术大师精品博览会<span>王芳</span><span>紫砂壶</span>《北瓜》壶获铜奖，《龙泉》壶获优秀奖。
+</p>
+<p>
+	<strong>&nbsp; &nbsp;&nbsp;</strong>2003年第五届中国(国家)工艺美术大师精品博览会<span>王芳</span><span>紫砂壶</span>《圆珠》壶获铜奖。
+</p>
+<p>
+	<strong>&nbsp; &nbsp;&nbsp;</strong>2004年第六届(国家)工艺美术大师精品博览会<span>王芳</span><span>紫砂壶</span>《旭日东升》壶获银奖，《美人肩》壶获铜奖，《喜结良缘》壶获铜奖。
+</p>
+<p>
+	<strong>&nbsp; &nbsp;&nbsp;</strong>2004年第二届中国无锡太湖博览会<span>王芳</span><span>紫砂壶</span>《石瓢》壶获银奖，<span>王芳</span><span>紫砂壶</span>《红菱碗》壶获银奖，
+</p>
+<p>
+	<strong>&nbsp; &nbsp;&nbsp;</strong>2005年第七届工艺美术大师精品博览会<span>王芳</span><span>紫砂壶</span>《雄风》壶获银奖，<span>王芳</span><span>紫砂壶</span>《步步高》壶获铜奖。
+</p>
+<p>
+	<strong>&nbsp; &nbsp;&nbsp;</strong>2006年第八届工艺美术大师精品博览会<span>王芳</span><span><a href="http://www.sxzisha.com" target="_blank">紫砂壶</a></span>《步步高升》壶获传统艺术金奖。
+</p>
+    </div>
+    <div class="gys_zp">
+
+    
+
+    <dl>
+                <dd class=""></dd>
+                <dt >
+                    <a href="/goods/show-365.html" target="_blank" >
+                        <img src="/upload/201609/20/201609201718402315.JPG"  alt="筋纹肖樱壶" title="筋纹肖樱壶"/>
+                    </a>
+                </dt>
+                <dd class="pro_1">
+                    <span class="pro_title"><a href="/goods/show-365.html" target="_blank">筋纹肖樱壶</a></span>
+                    <span class="pro_zx"><a class="QUERY_ONLINE" num="39702"  style="cursor: pointer;">立即咨询》</a></span>
+                </dd>
+                <dd class="pro_2">
+                    <span class="pro_author">作者：<a href="/gongyishi.html?category_id=120" target="_blank" title="">王芳</a>
+                    <a class="jj" href="/goods/show-365.html">[简介]</a></span>  <span class="pro_number">编号：39702</span></dd>
+                <dd class="pro_3"><span class="pro_pug">泥料：红泥</span>  <span class="pro_cc">容量：380CC</span></dd>
+            </dl>
+
+    
+
+    <dl>
+                <dd class=""></dd>
+                <dt >
+                    <a href="/goods/show-1033.html" target="_blank" >
+                        <img src="/upload/201611/17/201611171452423893.JPG"  alt="菊蕾壶" title="菊蕾壶"/>
+                    </a>
+                </dt>
+                <dd class="pro_1">
+                    <span class="pro_title"><a href="/goods/show-1033.html" target="_blank">菊蕾壶</a></span>
+                    <span class="pro_zx"><a class="QUERY_ONLINE" num="39701"  style="cursor: pointer;">立即咨询》</a></span>
+                </dd>
+                <dd class="pro_2">
+                    <span class="pro_author">作者：<a href="/gongyishi.html?category_id=120" target="_blank" title="">王芳</a>
+                    <a class="jj" href="/goods/show-1033.html">[简介]</a></span>  <span class="pro_number">编号：39701</span></dd>
+                <dd class="pro_3"><span class="pro_pug">泥料：清水泥</span>  <span class="pro_cc">容量：280CC</span></dd>
+            </dl>
+
+    
+
+    <dl>
+                <dd class=""></dd>
+                <dt >
+                    <a href="/goods/show-2425.html" target="_blank" >
+                        <img src="/upload/201612/30/201612301510550858.JPG"  alt="葵仿古壶" title="葵仿古壶"/>
+                    </a>
+                </dt>
+                <dd class="pro_1">
+                    <span class="pro_title"><a href="/goods/show-2425.html" target="_blank">葵仿古壶</a></span>
+                    <span class="pro_zx"><a class="QUERY_ONLINE" num="39707"  style="cursor: pointer;">立即咨询》</a></span>
+                </dd>
+                <dd class="pro_2">
+                    <span class="pro_author">作者：<a href="/gongyishi.html?category_id=120" target="_blank" title="">王芳</a>
+                    <a class="jj" href="/goods/show-2425.html">[简介]</a></span>  <span class="pro_number">编号：39707</span></dd>
+                <dd class="pro_3"><span class="pro_pug">泥料：清水泥</span>  <span class="pro_cc">容量：300CC</span></dd>
+            </dl>
+
+    
+
+    <dl>
+                <dd class=""></dd>
+                <dt >
+                    <a href="/goods/show-1764.html" target="_blank" >
+                        <img src="/upload/201612/03/201612031807204388.JPG"  alt="筋纹线元壶" title="筋纹线元壶"/>
+                    </a>
+                </dt>
+                <dd class="pro_1">
+                    <span class="pro_title"><a href="/goods/show-1764.html" target="_blank">筋纹线元壶</a></span>
+                    <span class="pro_zx"><a class="QUERY_ONLINE" num="39703"  style="cursor: pointer;">立即咨询》</a></span>
+                </dd>
+                <dd class="pro_2">
+                    <span class="pro_author">作者：<a href="/gongyishi.html?category_id=120" target="_blank" title="">王芳</a>
+                    <a class="jj" href="/goods/show-1764.html">[简介]</a></span>  <span class="pro_number">编号：39703</span></dd>
+                <dd class="pro_3"><span class="pro_pug">泥料：红泥</span>  <span class="pro_cc">容量：310CC</span></dd>
+            </dl>
+
+    
+
+    <dl>
+                <dd class=""></dd>
+                <dt >
+                    <a href="/goods/show-1766.html" target="_blank" >
+                        <img src="/upload/201612/03/201612031810072538.JPG"  alt="菱花石瓢壶" title="菱花石瓢壶"/>
+                    </a>
+                </dt>
+                <dd class="pro_1">
+                    <span class="pro_title"><a href="/goods/show-1766.html" target="_blank">菱花石瓢壶</a></span>
+                    <span class="pro_zx"><a class="QUERY_ONLINE" num="39705"  style="cursor: pointer;">立即咨询》</a></span>
+                </dd>
+                <dd class="pro_2">
+                    <span class="pro_author">作者：<a href="/gongyishi.html?category_id=120" target="_blank" title="">王芳</a>
+                    <a class="jj" href="/goods/show-1766.html">[简介]</a></span>  <span class="pro_number">编号：39705</span></dd>
+                <dd class="pro_3"><span class="pro_pug">泥料：清水泥</span>  <span class="pro_cc">容量：340CC</span></dd>
+            </dl>
+
+    
+
+    <dl>
+                <dd class=""></dd>
+                <dt >
+                    <a href="/goods/show-1768.html" target="_blank" >
+                        <img src="/upload/201612/03/201612031811204246.JPG"  alt="梅花周盘壶" title="梅花周盘壶"/>
+                    </a>
+                </dt>
+                <dd class="pro_1">
+                    <span class="pro_title"><a href="/goods/show-1768.html" target="_blank">梅花周盘壶</a></span>
+                    <span class="pro_zx"><a class="QUERY_ONLINE" num="39706"  style="cursor: pointer;">立即咨询》</a></span>
+                </dd>
+                <dd class="pro_2">
+                    <span class="pro_author">作者：<a href="/gongyishi.html?category_id=120" target="_blank" title="">王芳</a>
+                    <a class="jj" href="/goods/show-1768.html">[简介]</a></span>  <span class="pro_number">编号：39706</span></dd>
+                <dd class="pro_3"><span class="pro_pug">泥料：清水泥</span>  <span class="pro_cc">容量：400CC</span></dd>
+            </dl>
+
+    
+
+    <dl>
+                <dd class=""></dd>
+                <dt >
+                    <a href="/goods/show-1765.html" target="_blank" >
+                        <img src="/upload/201612/03/201612031808209158.JPG"  alt="筋纹虚扁壶" title="筋纹虚扁壶"/>
+                    </a>
+                </dt>
+                <dd class="pro_1">
+                    <span class="pro_title"><a href="/goods/show-1765.html" target="_blank">筋纹虚扁壶</a></span>
+                    <span class="pro_zx"><a class="QUERY_ONLINE" num="39704"  style="cursor: pointer;">立即咨询》</a></span>
+                </dd>
+                <dd class="pro_2">
+                    <span class="pro_author">作者：<a href="/gongyishi.html?category_id=120" target="_blank" title="">王芳</a>
+                    <a class="jj" href="/goods/show-1765.html">[简介]</a></span>  <span class="pro_number">编号：39704</span></dd>
+                <dd class="pro_3"><span class="pro_pug">泥料：红泥</span>  <span class="pro_cc">容量：270CC</span></dd>
+            </dl>
+
+    
+             
+  </div>
+    
+    
+ </div>
+<!--Footer-->
+<div class="service_menu">
+    <ul>
+      <li class="first_menu"><a href="http://www.sxzisha.com/news.html">新闻资讯</a></li>
+      <li><a href="http://www.sxzisha.com/hx_style.html">紫砂壶型</a></li>
+      <li><a href="http://www.sxzisha.com/pug.html">紫砂泥料</a></li>
+      <li><a href="http://www.sxzisha.com/goods.html">紫砂商城</a></li>
+      <li><a href="http://www.sxzisha.com/gys.html">紫砂名家</a></li>
+      <li><a href="http://www.sxzisha.com/zhuanti.html">紫砂专题</a></li>
+      <li><a href="http://www.sxzisha.com/guancang/0.html">紫砂收藏</a></li>
+      <li style="border-right:0;"><a href="http://www.sxzisha.com/content/shengzi.html">升值空间</a></li>
+    </ul>
+</div>
+<div class="cookie_sp">
+<img src="/templates/main/images/cookie_sp_bg.jpg" />
+<h3>最近浏览过的商品</h3>
+  <ul id="history_content">
+
+   </ul>
+</div>
+<div class="service_zb">
+    <ul>
+        <li>
+            <img   alt="砂轩紫砂壶正品保证"  src="/templates/main/images/service_zb1.png" /><p>
+                <span>正品保证</span><br />
+                附带证书&nbsp;捧壶照片</p>
+        </li>
+        <li>
+            <img    alt="放心淘紫砂壶"  src="/templates/main/images/service_zb2.png" /><p>
+                <span>放心淘壶</span><br />
+                满意签收&nbsp;支持退换</p>
+        </li>
+        <li>
+            <img    alt="砂轩紫砂壶全场包邮"  src="/templates/main/images/service_zb3.png" /><p>
+                <span>全场包邮</span><br />
+                购壶即享&nbsp;无需运费</p>
+        </li>
+        <li>
+            <img    alt="开箱验紫砂壶"  src="/templates/main/images/service_zb4.png" /><p>
+                <span>开箱验壶</span><br />
+                当场验壶&nbsp;放心付款</p>
+        </li>
+        <li style="border: 0;">
+            <img    alt="砂轩紫砂壶优质服务"  src="/templates/main/images/service_zb5.png" /><p>
+                <span>优质服务</span><br />
+                7X24小时&nbsp;贴心服务</p>
+        </li>
+    </ul>
+</div>
+<div id="footer">
+    <div class="footer_menu">
+        <div class="footer_nav">
+            <a href="http://www.sxzisha.com/content/about.html" target="_blank">【公司简介】</a>
+            <a href="http://www.sxzisha.com/content/flsm.html" target="_blank">【法律申明】</a>
+            <a href="http://www.sxzisha.com/content/fpwt.html" target="_blank">【发票问题】</a>
+            <a href="http://www.sxzisha.com/content/skzh.html" target="_blank">【收款帐号】</a>
+            <a href="http://www.sxzisha.com/content/contact.html" target="_blank">【联系我们】</a></div>
+    </div>
+    <div class="footer_a">
+        <div class="footer_aleft">
+            <div class="footer_ex">
+                <ul>
+                <li style="color:#fff;">友情链接：</li>
+                    <li><b>合作伙伴：</b></li><li style="color:#fff;">中国紫砂协会</li><li style="color:#fff;">江苏省陶瓷行业协会</li><li style="color:#fff;">宜兴紫砂壶艺术研究所</li>
+                    <li class="footer_copyright">Copyright 2017 &copy;  www.sxzisha.com  <a href=http://www.sxzisha.com/>砂轩紫砂</a> 上海砂轩文化发展有限公司 版权所有 备案号:沪ICP备16015545号-1 <script src="https://s22.cnzz.com/z_stat.php?id=1273314152&web_id=1273314152" language="JavaScript"></script></li>
+                    <li class="footer_icons">
+                        <img src="/templates/main/images/footer_icons1.jpg" alt="可信网站认证" height="35" width="122">
+                        <img src="/templates/main/images/footer_icons2.jpg" alt="诚信网站认证" border="0" height="35" width="106">
+                        <img src="/templates/main/images/footer_icons3.jpg" alt="支付宝 信任商家" border="0" height="35" width="162">
+                    </li>
+                </ul>
+            </div>
+        
+    </div>
+    <div class="footer_code">
+        <ul>
+            
+            <li>
+                <img  alt="砂轩紫砂壶微信二维码"  src="/templates/main/images/ewm02.jpg" width="110" height="110" /></li>
+            <li>
+                <img alt="砂轩紫砂壶联系电话"   src="/templates/main/images/footer_tel.jpg" /></li>
+        </ul>
+    </div>
+</div>
+</div>
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        ljz();
+        $(".switchable-triggerBox li").mousemove(function () {
+            tabs(this, true);
+        })
+    });
+
+    //获取最近浏览过的商品
+    function referenHitory() {
+        $("#history_content").empty();
+        $.each(history_arr, function (i, v) {
+            var listr = $("<li></li>");
+            listr.append("<a href='goods/show-" + v.pid + ".html' ><img src='" + v.imgSrc + "'></a><span class='spantit'>" + v.text + "</span><span class='spantit rightspan'><a onClick=\"all_zixun_price('" + v.no + "','" + v.text + "','" + v.pid + "','" + v.zz + "');\">立即咨询》</a></span><span>作者：" + v.zz + "</span><span class='rightspan'>编号：" + v.no + "</span><span>泥料：" + v.pug + "</span><span class='rightspan'>容量：" + v.capacity + "</span>");
+            $("#history_content").append(listr);
+        });
+    }
+
+    var history_json = sessionStorage.getItem("history");
+    var history_arr = null;
+    if (history_json == null) {
+        history_arr = [];
+    } else {
+        history_arr = JSON.parse(history_json);
+    }
+    referenHitory();
+
+</script>
+
+<script src="/templates/main/js/online.js" type="text/javascript"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?4fa45ca94f456cc796bece692f66108e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<!-- 百度自动收录开始-->
+<script>(function(){    var bp = document.createElement('script');    var curProtocol = window.location.protocol.split(':')[0];    if (curProtocol === 'https'){   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';  }  else{  bp.src = 'http://push.zhanzhang.baidu.com/push.js';  }    var s = document.getElementsByTagName("script")[0];    s.parentNode.insertBefore(bp, s);})();</script>
+<!-- 百度自动收录结束-->
+<script type="text/javascript" src="//js.users.51.la/19453125.js"></script>
+<!--/Footer-->
+<script type="text/javascript" src="//js.users.51.la/19453125.js"></script>
+</body>
+</html>

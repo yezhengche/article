@@ -1,0 +1,576 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="ctl00_Head1"><title>
+	0cean的个人作品集 | 乐艺leewiART CG精英艺术社区，汇聚优秀CG艺术作品
+</title><meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /><meta http-equiv="Cache-Control" content="no-store" /><meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="0" /><meta name="Description" content="乐艺leewiART CG精英艺术社区,汇聚优秀CG艺术作品" /><meta name="Keywords" content="乐艺,leewiART,CG,ART,艺术,个人画廊,线上画廊,作品集,插画,漫画,三维,设计,艺术,摄影,概念设计,原画,游戏,电影,动画,Gallery,Portfolios,Computer Graphics,进口艺术画册" />
+	
+	
+	<!--jquery-->
+	<script type="text/javascript" src="/widgets/jQuery/1.6.4/jquery.min.js"></script>
+	
+	<!--通用样式单-->
+    <link href="/WebPage/css/normal.css" rel="stylesheet" type="text/css" />
+    
+    
+    <!--lightbox样式单及类库-->
+	<script type="text/javascript" src="/widgets/jquery-lightbox/js/jquery.lightbox-0.5.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/widgets/jquery-lightbox/css/jquery.lightbox-0.5.css" media="screen" />
+	
+    <!--图片效果库-->
+	<script type="text/javascript" src="/widgets/buildinternet-mosaic-ef45e11/js/mosaic.1.0.1.js"></script>
+	<script type="text/javascript">  
+		
+		jQuery(function($){
+			$('.bar').mosaic({
+				animation : 'slide'
+			});
+	    });
+	</script>
+	<link rel="stylesheet" href="/widgets/buildinternet-mosaic-ef45e11/css/mosaic.css" type="text/css" media="screen" />
+	<style type="text/css">
+		.mosaic-block
+		{
+	        width:250px;
+	        height:250px;
+	        margin:0px;
+	        border:0px;
+		}
+		.clearfix{ display: block; height: 0; clear: both; visibility: hidden; }
+		.details{ margin:20px;font-size:16px; line-height:160%; letter-spacing:0.15em; color:#fff; text-shadow:1px 1px 0 rgb(0,0,0);overflow:hidden; }
+		.imagetitle{ padding-bottom:6px; }
+		.imagetitle a{ color:#fff }
+		.memberinfo a{ font-size:14px; }
+	</style>
+    
+    <!--登录弹窗库-->
+	<script type="text/javascript" src="/widgets/jQueryTOOLS/1.2.6/jquery.tools-cust.min.js"></script>
+	<link rel="stylesheet" href="/widgets/jQueryTOOLS/css/overlay-apple.css" type="text/css" media="screen" />
+    <style type="text/css">
+      .apple_overlay {
+        background-image:url(/WebPage/image/loginbg.png);
+      }
+    </style>
+    <!--[if IE 6]>
+    <style type="text/css">
+      .apple_overlay {
+        background-image:url(/WebPage/image/loginbg_ie6.gif);
+      }
+     
+      /* default close button positioned on upper right corner */
+      .apple_overlay .close {
+        background-image:url(/widgets/jQueryTools/img/overlay/overlay_close_IE6.gif);
+      }
+    </style>
+    <![endif]-->
+    <!-- each overlay is initialized with this single JavaScript call -->
+    <script type="text/javascript">
+        $(function() {
+		        $("a[rel]").overlay({mask: '#000', effect: 'apple'});
+        });
+        
+        
+
+        function showMenu(id_menu)
+        {
+            var my_menu = document.getElementById(id_menu);
+            var menu_org_display = my_menu.style.display;
+            //removeMenu();
+            if(menu_org_display=="none" || menu_org_display=="")
+            {
+	            my_menu.style.display="block";
+	        }
+	        else
+	        { 
+	            my_menu.style.display="none";
+	        }
+        	
+        }
+
+        function removeMenu()
+        {
+            //alert('aaa');
+            document.getElementById('id_menu_MyTools').style.display="none";
+            document.getElementById('id_menu_MySMS').style.display="none";
+        }
+                
+        
+    </script>
+    
+    
+    <script type="text/javascript">
+    
+    function btnComHover(objName)
+    {
+        document.getElementById(objName).style.backgroundImage = "url(/WebPage/image/btn_bg_f.gif)";
+        document.getElementById(objName).style.backgroundRepeat = "repeat-x";
+    }
+    
+    function btnComOut(objName)
+    {
+        document.getElementById(objName).style.backgroundImage = "url(/WebPage/image/btn_bg_n.gif)";
+        document.getElementById(objName).style.backgroundRepeat = "repeat-x";
+    }
+    
+    </script>
+    
+    
+    <!--个人空间页面专属脚本及样式-->
+    <script type="text/javascript">
+
+        function AddToFriend()
+        {
+            result = WebPage_templatepage_space.AddToFriend("0cean", 39074).value;
+            alert(result);
+        }
+
+
+        function ShowAboutMeAll()
+        {
+            document.getElementById("up_about_me_part").style.display = "none"
+            document.getElementById("up_about_me_all").style.display = "block";
+        }
+
+        function ShowAboutMePart()
+        {
+            document.getElementById("up_about_me_part").style.display = "block"
+            document.getElementById("up_about_me_all").style.display = "none";
+        }
+
+
+    </script>
+    <style type="text/css">
+
+    .nav_arttype_f
+    {
+        float:left;
+        margin-right:20px;
+        padding:2px 0px 0px 25px;
+        width:66px;
+        height:45px;
+        overflow:hidden;
+        background-image:url(/WebPage/image/person_art_navbg.gif);
+        background-repeat:no-repeat;
+    }
+
+    .nav_arttype_n
+    {
+        float:left;
+        margin-right:20px;
+        padding:2px 0px 0px 25px;
+        width:66px;
+        height:45px;
+        overflow:hidden;
+    }
+
+    .nav_arttype_n a
+    {
+        color:#989177;
+    }
+    
+    .nav_arttype_f a,.nav_arttype_n a:hover
+    {
+        color:#d4b74e;
+    }
+
+    </style>
+
+
+
+
+</head>
+<body>
+    
+    <form name="aspnetForm" method="post" action="default.aspx?uid=39074" id="aspnetForm" onsubmit="document.getElementById('aspnetForm').action=document.location.href">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTI0NDc4NzcyMmRksAbUnY2syoBU7u06qzim6eJlISs=" />
+
+<script type="text/javascript" src="/ajax/common.ashx"></script><script type="text/javascript" src="/ajax/WebPage_templatepage_space,App_Web_6amqiwku.ashx"></script>
+    
+
+<!--header-->
+
+<script type="text/javascript">
+
+function doLogin()
+{
+    if(document.getElementById('loginaction').value=='')
+        document.getElementById('loginaction').value = 'dologin';
+    //alert(document.getElementById('loginaction').value);
+    document.getElementById('aspnetForm').action=document.location.href;
+    document.getElementById('aspnetForm').submit();
+}
+
+</script>
+
+<!--login block-->
+<input name="ctl00$ucHeader$tbPageUrl" type="text" id="ctl00_ucHeader_tbPageUrl" style="display:none" />
+<div class="apple_overlay" id="login">
+    <div class="overlay_title_text">登录到leewiART</div>
+    <div style="font-size:15px;padding:65px 0px 0px 40px;">
+        用户名 <input type="text" class="overlay_sub_input_input" style="margin-left:45px" name="username_login" id="username_login" />
+    </div>
+    <div style="font-size:15px;padding:30px 0px 0px 55px;">
+        密码 <input type="password" class="overlay_sub_input_input" style="margin-left:45px" name="password_login" id="password_login" />
+    </div>
+    <div style="font-size:15px;padding:30px 0px 0px 135px;">
+        <input type="checkbox" id="login_remberstatus" style="height:15px;width:15px;border:0px;" /><label for="#login_remberstatus"> 记住我的用户名和密码</label>
+    </div>
+    <div style="font-size:15px;padding:30px 0px 0px 135px;">
+        <input name="loginaction" id="loginaction" type="hidden" value="" />
+        
+        <div class="btn_com_outer" style="float:left">
+            <a href="javascript:doLogin();" onmouseover="this.style.cursor='pointer';btnComHover('btn_login_style');" onmouseout="btnComOut('btn_login_style');">
+                <div class="btn_com_inner" id="btn_login_style">
+                    登录
+                </div>
+            </a>
+        </div>
+        <div style="float:left;padding-left:30px;padding-top:15px;"><a href="/register">新用户注册</a></div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!--end login block-->
+
+<!--topnav-->
+<div style="margin:auto;background-image:url(/WebPage/image/bg_bottomnav.gif);background-color:#434033;z-index:10;height:51px;padding-bottom:0px">
+<!--<div style="margin:auto;background-color:#211e14;z-index:10;padding-bottom:15px">-->
+    <div style="width:1135px;margin:auto;position:relative;z-index:11">
+        <div style="float:left;width:45px;height:10px">
+            &nbsp;
+        </div>
+    
+        <div style="float:left;width:1045px;">
+            
+            <div style="float:left;padding:13px 0px 0px 0px;width:251px">
+                <a href="http://www.leewiart.com"><img src="/WebPage/image/logo_leewiart_2017.png" alt="leewiART" /></a>
+            </div>
+            
+            <div style="float:left;width:579px;padding-top:18px;" id="top_nav">
+                <a href="/"><span id="main_nav_index">首页</span></a>
+                <a href="/elite"><span id="main_nav_elite">精英</span></a>
+                <a href="/arts"><span id="main_nav_arts">作品</span></a>
+                <a href="/zhuanti/index.html"><span id="main_nav_zhuanti">专题</span></a>
+                <!--<a href="/excellentres/index.html"><span id="main_nav_excellentres">资源</span></a>-->
+                <a href="/corporation"><span id="main_nav_corporation">招聘</span></a>
+                <a href="/artbooks"><span id="main_nav_publish">出版</span></a>
+                <a href="http://www.artp.cc" target="_blank"><span id="main_nav_outsource">外包</span></a>
+                <a href="https://leyiart.taobao.com" target="_blank"><span id="main_nav_shop">书店</span></a>
+                <a href="/en/Default.aspx" target="_blank" style="margin-right:0px"><span id="main_nav_en">Gallery</span></a>
+                <!--<a href="/forum" style="margin-right:0px"><span id="main_nav_forum">活动</span></a>-->
+            </div>
+            
+            <div style="float:left;width:215px;padding-top:18px;text-align:right;" id="top_login" class="mainlink">
+                <a href="javascript:void(0);" rel="#login" style="margin-right:20px">登录</a><a href="/register">注册</a>
+            </div>
+            <div class="clear"></div>
+            
+            
+            
+        
+        </div>
+        
+        <div style="float:left;width:45px;height:10px">
+            &nbsp;
+        </div>
+        
+        <div class="clear"></div>
+        
+    </div>
+</div>
+
+
+
+<div style="display:none"></div>
+
+<div style="width:1135px;padding:20px 0px 20px 0px;margin:auto;" id="new_home_top">
+
+    <div style="float:left;width:45px;height:10px">
+        &nbsp;
+    </div>
+
+    <div id="a_home_top" style="float:left;width:1045px"><div><br><br><br></div></div>
+    
+    <div style="float:left;width:45px;height:10px">
+        &nbsp;
+    </div>
+    
+    <div class="clear"></div>
+</div>
+
+
+<!--end topnav-->
+
+
+<!--end header-->
+
+    
+    <div style="position:relative;width:1135px;margin:auto;">
+        <div id="left_nav" style="float:left;padding-top:575px;width:45px;height:30px;display:block"></div>
+        <div style="float:left;width:1045px;">
+    
+    <!--content-->
+    <div class="content">
+
+    <!--个人-->
+    <div class="space_block_user">
+
+        <!--个人信息-->
+        <div style="width:175px;background-color:#272419;padding:30px;overflow:hidden">
+        
+            <div style="padding-bottom:15px"><a href="/space/39074.html"><img onerror="this.src='/WebPages_A/image/bigdefaultface.gif'" src="/userfiles/39074/14c80bb43023402fbae38e67238ed05e_bigLogo.jpg" alt="0cean" height="170" width="170" /></a></div>
+            <div style="line-height:30px;color:#989177;font-size:12px;">
+                <div style="font-size:18px">
+                    <div style="float:left">0cean</div>
+                    <div style="float:right;padding-top:10px !important;padding-top:0px;padding-right:5px;">
+                        
+                        <img src="/WebPage/image/icon_offline.gif" title="离线" alt="offline" />
+                        
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div style="font-size:16px;color:#c41528">精英用户</div>
+                
+                
+                <div>
+                    <a href="javascript:AddToFriend();" style="color:#d4b851">[加关注]</a> <a href="/usendmsg/0cean" style="color:#d4b851">[短消息]</a>
+                    
+                </div>
+                
+                
+                <div style="font-size:12px">刘洋</div>
+                <div style="font-size:12px">中国 深圳</div>
+                <div style="font-size:12px">场景设计师</div>
+                
+                <div>
+                    
+                    <div id="up_about_me_part">
+                        <div>场景设计师
+                        
+                        </div>
+                    </div>
+                    <div id="up_about_me_all" style="display:none;">
+                        <div style="overflow:hidden;">场景设计师&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:ShowAboutMePart()">隐藏</a></div>
+                    </div>
+                
+                </div>
+            
+                <div style="padding-top:30px">
+                主要创作工具：<br />
+                ps<br />
+                博客与微博：<br />                <a href="https://www.artstation.com/artist/ocean" target="_blank" style="color:#938c70">https://www.artstation.com/artist/ocean</a><br />
+                </div>
+
+            </div>
+        </div>
+        <!--end个人信息-->
+
+
+        <!--好友列表-->
+        <div style="width:190px;color:#d4b851;padding:30px 0px 30px 20px;font-size:12px;">
+            <div><a href="#" style="color:#d4b851">好友列表</a></div>
+            
+            <div class="clear"></div>
+            
+        </div>
+        <!--end好友列表-->
+    
+    </div>
+    <!--end 个人-->
+    
+    
+    <!--个人作品-->
+    <div class="space_block_content">
+        <div id="space_main_nav">
+            <a id="space_main_nav_art" href="/space/39074.html">作品</a>
+            <a id="space_main_nav_topic" href="/space/topic/39074">文章</a>
+            <a id="space_main_nav_fav" href="/space/collect/39074">收藏</a>
+            <a id="space_main_nav_friend" href="/space/friend/39074">好友</a>
+        </div>
+        <div style="padding-left:15px;padding-bottom:30px;">
+            
+
+
+<script type="text/javascript">
+
+    document.getElementById('space_main_nav_art').style.color='#d4b74e';
+    
+    
+
+
+    function showAlmAll()
+    {
+        if(document.getElementById('alm_top4')!=undefined) document.getElementById('alm_top4').style.display = 'none';
+        if(document.getElementById('alm_all')!=undefined) document.getElementById('alm_all').style.display = '';
+        if(document.getElementById('alm_showpart')!=undefined) document.getElementById('alm_showpart').style.display = '';
+        if(document.getElementById('alm_showall')!=undefined) document.getElementById('alm_showall').style.display = 'none';
+    }
+
+    function showAlmPart()
+    {
+        if(document.getElementById('alm_top4')!=undefined) document.getElementById('alm_top4').style.display = '';
+        if(document.getElementById('alm_all')!=undefined) document.getElementById('alm_all').style.display = 'none';
+        if(document.getElementById('alm_showpart')!=undefined) document.getElementById('alm_showpart').style.display = 'none';
+        if(document.getElementById('alm_showall')!=undefined) document.getElementById('alm_showall').style.display = '';
+    }
+
+</script>
+
+    <div style="margin:0px;padding-left:16px;" id="space_sub_nav_arr">
+        <img src="/WebPage/image/space_arr_top_f.gif" alt="" style="vertical-align:bottom" />
+    </div>        
+    <div id="space_sub_nav">
+        <div id="alm_all" style="float:left;width:620px;"><a id="alm_a_11910" href="/WebPage/space/default.aspx?uid=39074&st=11910">默认画集(19)</a><div class="clear"></div></div>
+        <div class="clear"></div>
+    </div>
+
+        </div>
+        <!--
+        <div style="padding-left:15px;padding-bottom:20px;">
+            <div class="nav_arttype_n" id="space_art"><a href="/space/39074.html">作品</a></div>
+            <div class="nav_arttype_n" id="space_zhuanti"><a href="/space/forumtopic/39074">专题</a></div>
+            <div class="nav_arttype_n" id="space_res"><a href="/space/res/39074">资源</a></div>
+            <div class="nav_arttype_n" id="space_fav"><a href="/space/collect/39074">收藏</a></div>
+            <div class="nav_arttype_n" id="space_friend"><a href="/space/friend/39074">好友</a></div>
+            
+            <div class="clear"></div>
+        </div>
+        -->
+        <div id="space_content">
+            
+    <div class="norimg_250" style="padding-left:15px;padding-right:0px"><div class="mosaic-block bar"><a href="/art/137494.html" target="_blank" class="mosaic-overlay"><div class="details">外星建筑场景</div></a><div class="mosaic-backdrop"><a href="/art/137494.html" target="_blank" class="mosaic-backdrop"><img src="/userfiles/39074/ffdcc940ccf641d7a829446838796584_thumb_250.jpg" alt="外星建筑场景" height="250" width="250" /></a></div></div><div style="position:absolute;right:-6px;top:-6px;width:112px;height:97px;overflow:hidden"><a href="/art/137494.html" target="_blank"><img src="/WebPage/image/icon_masterArt.png" alt="" /></a></div></div><div class="norimg_250" style="padding-left:15px;padding-right:0px"><div class="mosaic-block bar"><a href="/art/137487.html" target="_blank" class="mosaic-overlay"><div class="details">场景</div></a><div class="mosaic-backdrop"><a href="/art/137487.html" target="_blank" class="mosaic-backdrop"><img src="/userfiles/39074/80a1797c0a3d41378859d7dbf799eb2d_thumb_250.jpg" alt="场景" height="250" width="250" /></a></div></div><div style="position:absolute;right:-6px;top:-6px;width:112px;height:97px;overflow:hidden"><a href="/art/137487.html" target="_blank"><img src="/WebPage/image/icon_masterArt.png" alt="" /></a></div></div><div class="norimg_250" style="padding-left:15px;padding-right:0px"><div class="mosaic-block bar"><a href="/art/137476.html" target="_blank" class="mosaic-overlay"><div class="details">外星球建筑遗迹</div></a><div class="mosaic-backdrop"><a href="/art/137476.html" target="_blank" class="mosaic-backdrop"><img src="/userfiles/39074/51d2e08ddee04a2bba34ad7f11841d38_thumb_250.jpg" alt="外星球建筑遗迹" height="250" width="250" /></a></div></div><div style="position:absolute;right:-6px;top:-6px;width:112px;height:97px;overflow:hidden"><a href="/art/137476.html" target="_blank"><img src="/WebPage/image/icon_masterArt.png" alt="" /></a></div></div><div class="clear"></div><div class="norimg_250" style="padding-left:15px;padding-right:0px"><div class="mosaic-block bar"><a href="/art/137474.html" target="_blank" class="mosaic-overlay"><div class="details">阴阳师 鬼市场</div></a><div class="mosaic-backdrop"><a href="/art/137474.html" target="_blank" class="mosaic-backdrop"><img src="/userfiles/39074/1b994e28a335492fa246d3e3ec3b752a_thumb_250.jpg" alt="阴阳师 鬼市场" height="250" width="250" /></a></div></div><div style="position:absolute;right:-6px;top:-6px;width:112px;height:97px;overflow:hidden"><a href="/art/137474.html" target="_blank"><img src="/WebPage/image/icon_masterArt.png" alt="" /></a></div></div><div class="norimg_250" style="padding-left:15px;padding-right:0px"><div class="mosaic-block bar"><a href="/art/139353.html" target="_blank" class="mosaic-overlay"><div class="details">国风建筑群</div></a><div class="mosaic-backdrop"><a href="/art/139353.html" target="_blank" class="mosaic-backdrop"><img src="/userfiles/39074/4a956ab84dbe4b15bea899dd5601b444_thumb_250.jpg" alt="国风建筑群" height="250" width="250" /></a></div></div></div><div class="norimg_250" style="padding-left:15px;padding-right:0px"><div class="mosaic-block bar"><a href="/art/137493.html" target="_blank" class="mosaic-overlay"><div class="details">we</div></a><div class="mosaic-backdrop"><a href="/art/137493.html" target="_blank" class="mosaic-backdrop"><img src="/userfiles/39074/354ca6bbe2b94fc08a3dfab5702cd464_thumb_250.jpg" alt="we" height="250" width="250" /></a></div></div></div><div class="clear"></div><div class="norimg_250" style="padding-left:15px;padding-right:0px"><div class="mosaic-block bar"><a href="/art/137492.html" target="_blank" class="mosaic-overlay"><div class="details">场景</div></a><div class="mosaic-backdrop"><a href="/art/137492.html" target="_blank" class="mosaic-backdrop"><img src="/userfiles/39074/6859b0ead9274fbc9b1642397733214f_thumb_250.jpg" alt="场景" height="250" width="250" /></a></div></div></div><div class="norimg_250" style="padding-left:15px;padding-right:0px"><div class="mosaic-block bar"><a href="/art/137491.html" target="_blank" class="mosaic-overlay"><div class="details">场景</div></a><div class="mosaic-backdrop"><a href="/art/137491.html" target="_blank" class="mosaic-backdrop"><img src="/userfiles/39074/647e14bd41ed405e8d8d77b11be9413e_thumb_250.jpg" alt="场景" height="250" width="250" /></a></div></div></div><div class="norimg_250" style="padding-left:15px;padding-right:0px"><div class="mosaic-block bar"><a href="/art/137490.html" target="_blank" class="mosaic-overlay"><div class="details">下水道区域</div></a><div class="mosaic-backdrop"><a href="/art/137490.html" target="_blank" class="mosaic-backdrop"><img src="/userfiles/39074/80cdd4d32fb24c63aae4aab46df7ac87_thumb_250.jpg" alt="下水道区域" height="250" width="250" /></a></div></div></div><div class="clear"></div><div class="norimg_250" style="padding-left:15px;padding-right:0px"><div class="mosaic-block bar"><a href="/art/137489.html" target="_blank" class="mosaic-overlay"><div class="details">场景</div></a><div class="mosaic-backdrop"><a href="/art/137489.html" target="_blank" class="mosaic-backdrop"><img src="/userfiles/39074/105274b50e47414288fa77d618777e27_thumb_250.jpg" alt="场景" height="250" width="250" /></a></div></div></div><div class="norimg_250" style="padding-left:15px;padding-right:0px"><div class="mosaic-block bar"><a href="/art/137488.html" target="_blank" class="mosaic-overlay"><div class="details">场景</div></a><div class="mosaic-backdrop"><a href="/art/137488.html" target="_blank" class="mosaic-backdrop"><img src="/userfiles/39074/32edc03a072a4b3890284845114fdc64_thumb_250.jpg" alt="场景" height="250" width="250" /></a></div></div></div><div class="norimg_250" style="padding-left:15px;padding-right:0px"><div class="mosaic-block bar"><a href="/art/137486.html" target="_blank" class="mosaic-overlay"><div class="details">海报2</div></a><div class="mosaic-backdrop"><a href="/art/137486.html" target="_blank" class="mosaic-backdrop"><img src="/userfiles/39074/6b4bd8460eb04fe59afd7cd3d593c06a_thumb_250.jpg" alt="海报2" height="250" width="250" /></a></div></div></div><div class="clear"></div><div class="clear"></div><div class="page_nav_block" style="padding-left:110px;">
+<!--page nav-->
+<div class="btn_com_outer" style="float:left"><div class="btn_com_inner">上一页</div></div>
+<div class="btn_com_outer" style="float:left;width:35px"><div class="btn_com_inner" style="width:30px">1</div></div>
+<div style="float:left;padding:15px;"><a href="/WebPage/space/default.aspx?page=2&uid=39074&st=0">2</a></div>
+<div class="btn_com_outer" style="float:left"><a href="/WebPage/space/default.aspx?page=2&uid=39074&st=0" onmouseover="this.style.cursor='pointer';btnComHover('btn_pagenav_lastpage');" onmouseout="btnComOut('btn_pagenav_lastpage');"><div class="btn_com_inner" id="btn_pagenav_lastpage">下一页</div></a></div>
+<div class="clear"></div></div><!--end page nav-->
+
+
+        </div>
+    </div>
+    <!--end 个人作品-->
+
+    <div class="clear"></div>
+    
+    
+    </div>
+    
+        </div>
+        <div id="right_nav" style="float:left;padding-top:575px;width:28px;height:30px;padding-left:17px;display:block"></div>
+        <div class="clear"></div>
+    </div>
+    
+    <!--end content-->
+    
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAgLJ8JRwAq2vm8QIzkwqfzU0qihIki6/gmTnpXDzcC8=" /></form>
+    <script type="text/javascript">if(document.getElementById("alm_0")!=undefined) document.getElementById("alm_0").style.color = '#d4b74e';
+if(document.getElementById("alm_a_0")!=undefined) document.getElementById("alm_a_0").style.color = '#d4b74e';
+if(document.getElementById("alm_showpart")!=undefined) document.getElementById("alm_showpart").style.color = '#d4b74e';
+showAlmAll();
+document.getElementById("left_nav").innerHTML = '<img src="/WebPage/image/btn_left_big.gif" alt="" />';
+document.getElementById("right_nav").innerHTML = '<a href="/WebPage/space/default.aspx?page=2&uid=39074&st=0"><img onmouseover=\'this.src="/WebPage/image/btn_right_big_f.gif";\' onmouseout=\'this.src="/WebPage/image/btn_right_big.gif";\' src="/WebPage/image/btn_right_big.gif" alt="" /></a>';
+</script>
+    
+    
+<!--footer-->
+
+<div style="margin:auto;background-color:#2f2c21">
+    <!--footer1-->
+    <div id="footer_content" style="margin:45px auto 0px auto;width:1135px;">
+    
+        <div style="float:left;width:45px;height:10px">
+            &nbsp;
+        </div>
+        
+        <div style="float:left;width:985px;padding:30px 0px 30px 40px;color:#989177;text-shadow:#000 2px 2px 2px;font-size:14px;color:#989177;line-height:30px;">
+    
+        <div style="float:left;width:190px;" class="mainlink">
+            <div style="color:#d4b74e;">关于leewiART</div>
+            <a href="/about">关于我们</a><br />            <a href="http://www.weibo.com/leewiart" target="_blank">微博</a><br />            <a href="/about#lxwm">刊登广告</a><br />            <a href="/postrule">用户发布守则</a>            <div style="padding:20px 0px 20px 0px"><img src="/WebPage/image/leewiart_barcode.jpg" alt="" /></div>        </div>
+        <div style="float:left;width:190px;" class="mainlink">
+            <div style="color:#d4b74e;">用户</div>
+            <a href="/elite">精英用户</a><br />            <a href="/zhuanti/index_18.html">推荐用户</a><br />            <a href="/forum/topic/1-110426" target="_blank">如何成为认证用户</a>
+            
+            <div style="color:#d4b74e;padding-top:10px">作品</div>
+            <a href="/arts">优秀作品</a><br />            <a href="/elitearts">精英用户作品</a><br />            <a href="/WebPages_A/module/content/artslist.aspx?cn=0">全部作品</a>
+            
+        </div>
+        <div style="float:left;width:110px;" class="mainlink">
+            
+            
+            <div style="color:#d4b74e;">专题</div>
+            
+            <a href="/zhuanti/index_1.html">官方动态</a><br />            <a href="/zhuanti/index_2.html">精英动态</a><br />            <a href="/zhuanti/index_9.html">投稿与竞赛</a><br />            <a href="/zhuanti/index_11.html">创作工具</a><br />            <a href="/zhuanti/index_13.html">特色专访</a><br />          
+            
+            <div style="color:#d4b74e;padding-top:20px">招聘</div>
+            <a href="/corporation">最新职位</a><br />            <a href="/WebPage/job/orgs.aspx">机构主页</a>
+            
+            
+            <div style="color:#d4b74e;padding-top:20px">友情链接</div>
+            <a href="http://www.veer.com" target="_blank">Veer创意</a>
+            
+        </div>
+        <div style="float:left;width:160px;" class="mainlink">
+            <div style="color:#d4b74e;">&nbsp;</div>
+            
+            <a href="/zhuanti/index_14.html">艺术理论</a><br />            <a href="/zhuanti/index_12.html">推荐课程</a><br />            <a href="/zhuanti/index_10.html">精彩书评</a><br />            <a href="/zhuanti/index_5.html">行业资讯</a><br />
+            
+        </div>
+        <div style="float:left;width:285px;" class="mainlink">
+            <div style="color:#d4b74e;">特色</div>
+            <a href="http://www.leewiart.com/outsource" target="_blank">乐艺·高端美术外包平台</a><br />            <a href="http://www.leewiart.com/zhuanti/50337.html" target="_blank">乐艺·国际顶级数字艺术家佳作赏析 （画册）</a><br />            <a href="http://shop.leewiart.com" target="_blank">艺术图书收藏者俱乐部（艺术书店）</a><br />                                    <div style="color:#d4b74e;padding-top:20px">赛事与征稿</div>
+            <a href="http://www.shareoneplanet.org" target="_blank">SHARE ONE PLANET (天下共生）</a><br />            <a href="http://www.leewiart.com/zhuanti/index_9.html" target="_blank">Spectrum（光谱）国际幻想艺术作品年鉴</a><br />            <a href="http://www.leewiart.com/zhuanti/index_9.html" target="_blank">波隆那儿童插画展及年鉴</a><br />                        <a href="http://perfectrisingstar.leewiart.com" target="_blank">完美未来之星 完美世界游戏美术创意大赛</a><br />            <a href="http://www.leewiart.com/sgccc" target="_blank">2011 盛大游戏卡通创意大赛</a><br />            <a href="http://www.leewiart.com/zhuanti/index_9.html" target="_blank">Dominance War 全球游戏角色美术赛事</a><br />            <a href="http://www.leewiart.com/zhuanti/index_9.html" target="_blank">Unearthly Challange 全球游戏场景美术赛事</a><br />                        <a href="http://www.leewiart.com/zhuanti/index_9.html" target="_blank">BlizzardFest暴雪全球挑战赛事</a>
+            
+        </div>
+        <div class="clear"></div>
+        
+        <div style="float:left;width:1045px;line-height:25px;border-top:solid 1px #635e4b;margin:20px 0px 0px 0px;padding-top:25px;text-align:center;color:#989177">
+            Copyright © 2015 leewiART&nbsp;&nbsp;京ICP备 10018073号-5 京公网安备11010502003533
+        </div>
+        
+        </div>
+        
+        <div style="float:left;width:45px;height:10px">
+            &nbsp;
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+    <!--footer-->
+    <div style="width:1045px;padding-top:30px;padding-bottom:45px;margin:auto;font-size:14px;display:none">
+    
+    
+        <div style="float:left;width:45px;height:10px">
+            &nbsp;
+        </div>
+    
+        <div style="float:left;padding-left:255px;line-height:25px;">
+            <span style="color:#d4b74e">Copyright © 2011 leewiART&nbsp;&nbsp;</span><span style="color:#989177">京ICP备 10018073号-5 京公网安备11010502003533</span>
+        </div>
+        
+        <div style="float:left;width:45px;height:10px">
+            &nbsp;
+        </div>
+        
+        <div class="clear"></div>
+        
+    </div>
+    
+<div style="display:none">	 
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1300133-4";
+urchinTracker();
+</script>
+</div>
+
+<!--end footer-->
+
+
+    <!--script message-->
+</body>
+</html>

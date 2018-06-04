@@ -1,0 +1,1517 @@
+      <!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="keywords" content="新闻频道 央视网 中国网络电视台 中央电视台 CCTV 视频 图片 图解 时政 评论 中国 国际 军事 历史"/>
+<meta name="description" content="央视网(cctv.com)新闻频道是面向全球，多语种，多终端的立体化新闻信息共享平台。以视听与互动为核心，24小时不间断提供最快捷，最权威，最全面，最丰富的新闻视听与互动服务，传播中国，了解世界。"/>
+<title>新闻频道_央视网</title>
+<link rel="stylesheet" href="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1502157896010276/stylezhengwen.css">
+<link rel="apple-touch-icon-precomposed" href="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1502157896010276/xinwenlogo.jpg" />
+<script src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1424933607444705/zepto.min.js"></script>
+<script type="text/javascript" src="http://js.player.cntv.cn/creator/common_standard.js"></script>
+<script type="text/javascript" src="http://js.player.cntv.cn/creator/swfobject.js"></script>
+<script type="text/javascript" src="http://js.player.cntv.cn/creator/theatre_audio_standard.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="http://www.cctv.com/Library/a2.js"></script>
+<script src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1504516146368634/echo.min.js"></script>
+<script src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1486437585241505/nativeShareXY.js"></script>
+<script type="text/javascript">
+	 function rem() {var t = 100, o = 750, e = document.documentElement.clientWidth || window.innerWidth, n = Math.max(Math.min(e, 480), 320), h = 50;320 >= n && (h = Math.floor(n / o * t * .99)), n > 320 && 362 >= n && (h = Math.floor(n / o * t * 1)), n > 362 && 375 >= n && (h = Math.floor(n / o * t * 1)), n > 375 && (h = Math.floor(n / o * t * .97)), document.documentElement.style.fontSize = h + "px"};
+     rem();
+	 var fontSize=$("html").css("font-size").split("px")[0]; 
+     window.onresize = function () {rem();fontSize=$("html").css("font-size").split("px")[0];}
+	 function showLi(className){
+		// 获得ul下所有的li
+		var lis = $(className);
+		// 根据curPage计算出beginLi和endLi    就是要显示的li从那一条开始，到哪一条结束
+		for (var i=0; i<=lis.length; i++){
+			for (var j=0;j<$(lis).eq(i).find('img').length ;j++ ){
+				var datasrc = $(lis).eq(i).find('img').eq(j).attr('data-src');
+				if(datasrc!= undefined){
+					$(lis).eq(i).find('a').eq(j).attr('target','_self');
+					$(lis).eq(i).find('img').eq(j).attr('data-echo',datasrc);
+					$(lis).eq(i).find('img').eq(j).removeAttr('data-src');
+				}
+			}
+		}
+	}
+	$(document).ready(function(){
+		echo.init({
+			throttle: 1,
+			offset:300,
+			unload:false
+		});
+	})
+</script>
+</head>
+<body>
+ 
+  <!-- START WRating v1.0 --> 
+  <script type="text/javascript">
+		var vjAcc="860010-1102010100";
+		var wrUrl="http://cntv.wrating.com/";
+		var wrVideoUrl="http://cntv.wrating.com/";
+	</script> 
+  <!-- END WRating v1.0 --> 
+
+<div class="page_wrap">
+	<!-- 页头 -->
+	<link type="text/css" rel="stylesheet" href="http://r.img.cctvpic.com/news/m/a/ytbhy/style/style.css?82a2d933654f156c0f7a9368a2f99a80"/>
+<div class="ELMT0VljQmZsyDWAvq6CUfE2170810">
+<header class="header">
+	<div class="homepage"><a href="http://news.cctv.com/mobile/index.shtml"></a></div>
+	<div class="twopage"><a href="http://news.cctv.com/mobile/index.shtml">新闻</a></div>
+	<div class="headmenu"><a href="http://m.cctv.com/mobile/wangzhannav/index.shtml"></a></div>
+</header>
+</div>
+	
+	<div class="more_btnbox" id="j_pullLoader">
+		<div class="more_btn_loading " id="j_loading">
+			<span class="loadingbtn"></span><span class="more_btn">正在加载</span>
+		</div>
+	</div>
+	<div class="ind_content">
+		<div class="title_area" id="title_area"></div>
+		<div class="text_area" id="text_area"></div>
+		<div class="pagenation_area" id="yuxiaquanwen"><p>余下全文</p></div>
+	</div>
+	<div class="ind_share clear">
+		<div class="pointnumber"><span></span><p id="zanNum"></p></div>
+		<div class="share_box clear sharebtn" id="nativeShare"></div>
+	</div>
+	<!-- app推广 -->
+	
+
+	<div class="md002" style="display:none;">
+		<div class="md_hd">
+			<span class="mh_title">评论</span>
+		</div>
+		<div class="md_bd">
+			<div class="ind_pinlun">
+				<ul></ul>
+				<div class="do_more">
+					<a href="javascript:void(0);">查看全部评论</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 新闻推荐 -->
+	<link type="text/css" rel="stylesheet" href="http://r.img.cctvpic.com/news/m/a/tjbhy/style/style.css?9c666989b1c9c081a5122c9871cc57c7"/>
+<div class="ELMTDpgzTLy36tLLGB1RoV0U170810">
+<div class="md_16916">
+	<div class="md_hd">
+		<span class="mh_title"><a href="http://news.cctv.com/">推荐阅读</a></span>
+		
+	</div>
+	
+	<div class="md_bd">
+		
+		<div id="SUBD1502332104467227">
+		<div class="ELMTeqOY0hQ0t9Cj0JXm5VS6170810">
+<div class="ind_list_box" id="ELMTeqOY0hQ0t9Cj0JXm5VS6170810">
+	<ul>
+	
+		<li class="">
+			<a href="http://news.cctv.com/2018/06/02/ARTIuExfZZF2LpxA4bCEk7nX180602.shtml">
+				<div class="box">
+					<div class="data_img set169"><img src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1504516146368634/img234X132.jpg" data-src="http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2018/6/2/1527932865762_461.jpg"></div>
+					<div class="detail">
+						<p class="title">特朗普宣布"特金会"将如期举行 中方回应</p>
+						
+						
+					</div>
+				</div>
+			</a>
+		</li>
+	
+		<li class="">
+			<a href="http://m.news.cctv.com/2018/06/02/ARTIwczfyRLafczS14vfXgsA180602.shtml">
+				<div class="box">
+					<div class="data_img set169"><img src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1504516146368634/img234X132.jpg" data-src="http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2018/6/2/1527920327325_406.png"></div>
+					<div class="detail">
+						<p class="title">美防长称拟帮台湾建适当防御能力 中方强硬回应</p>
+						
+						
+					</div>
+				</div>
+			</a>
+		</li>
+	
+	</ul>
+</div>
+<script type="text/javascript">
+	// 工具函数：处理时间
+	function gshtimeELMTeqOY0hQ0t9Cj0JXm5VS6170810(time){
+			var year_ = time.getFullYear();       //年</span>
+			var month_ = time.getMonth() + 1;  //月  
+			var day_ = time.getDate();         //日  
+			var str="";
+				//str+=year_ +'-';
+			if(month_ < 10)
+				str+= "0";
+				str+= month_ +'月';
+			if(day_ < 10)
+				str+= "0";
+				str+= day_+'日';
+			return(str);
+	}
+	// 工具函数：处理时间戳
+	function getTimeStampELMTeqOY0hQ0t9Cj0JXm5VS6170810(dateStr){  //字符串转化为时间戳
+		var newstr = dateStr.replace(/-/g,'/'); 
+		var date =  new Date(newstr); 
+		var time_str = date.getTime().toString();
+		return time_str.substr(0, 10);
+	}
+	
+	// 处理获得数据的时间格式
+	function getDateDiffELMTeqOY0hQ0t9Cj0JXm5VS6170810(dateTimeStamp,sj){
+		var minute = 1000 * 60;
+		var hour = minute * 60;
+		var day = hour * 24;
+
+		var now = new Date().getTime();
+		var diffValue = now - dateTimeStamp;
+
+			var newTime = new Date(dateTimeStamp);
+			var nianyueri = this.gshtimeELMTeqOY0hQ0t9Cj0JXm5VS6170810(newTime);
+			var dayC =diffValue/day;
+			var hourC =diffValue/hour;
+			var minC =diffValue/minute;
+		if(dayC>=1){
+			result= sj;
+		}
+		else if(hourC>=1 && hourC <24){
+			result= parseInt(hourC) +"小时前";
+		}
+		else if(minC>=1 && minC <60){
+			result= parseInt(minC) +"分钟前";
+		}else
+			result="刚刚";
+			return result;
+	}
+	
+	$('.ELMTeqOY0hQ0t9Cj0JXm5VS6170810 .time').each(function(){
+		var getDataTime = $(this).text();
+		TimeStamp = getTimeStampELMTeqOY0hQ0t9Cj0JXm5VS6170810(getDataTime);
+		setTime = getDateDiffELMTeqOY0hQ0t9Cj0JXm5VS6170810(parseInt(TimeStamp)*1000,$(this).text());
+		 $(this).text(setTime);
+	});
+	$('.ELMTeqOY0hQ0t9Cj0JXm5VS6170810 ul li .box .data_img img').each(function(){
+		var liimg=$(this).attr("src");
+		var liimgsrc=$(this).attr("data-src");
+		if (liimg==null || liimg=="null" || liimgsrc==null || liimgsrc=="null"){
+			$(this).parents(".data_img").remove();
+		}
+	});
+	$('.ELMTeqOY0hQ0t9Cj0JXm5VS6170810 ul li').each(function(){
+		var thislength = $(this).find('.detail').find('.title').find('a').length;
+		if(thislength >1){
+			var href=$(this).find('.detail').find('.title').find('a').eq(0).attr('href');
+			var str="<a href='"+href+"'>"+$(this).find('.data_img').html()+"</a>";
+			$(this).find('.data_img').html(str);
+		}
+	})
+</script>
+</div><div class="ELMT6qXrqUi2wCQPkwvQaBEQ170810">
+<div class="ind_list_box" id="ELMT6qXrqUi2wCQPkwvQaBEQ170810">
+	<ul>
+	
+		<li class="">
+			
+				<div class="box">
+					<div class="data_img set169"><img src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1504516146368634/img234X132.jpg" data-src="http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2018/6/2/1527891005867_69.jpg"></div>
+					<div class="detail">
+						<p class="title"><a href="http://news.cctv.com/special/qhxsd/index.shtml" target="_blank" style="color: red;">启航新时代</a> <a href="http://news.cctv.com/2018/06/02/ARTIgmLcGkW6Cl8XOPtXBEnI180602.shtml" target="_blank" style="color: red;">培养造就大批优秀科技人才</a></p>
+						
+						
+					</div>
+				</div>
+			
+		</li>
+	
+		<li class="">
+			
+				<div class="box">
+					<div class="data_img set169"><img src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1504516146368634/img234X132.jpg" data-src="http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2018/6/2/1527910337119_718.jpg"></div>
+					<div class="detail">
+						<p class="title"><a href="http://news.cctv.com/special/2018shzzfh/index.shtml" target="_blank" style="color: red;">聚焦上合</a> <a href="http://news.cctv.com/2018/06/02/ARTIjHsIZ5JKaWjS0kJ24HHE180602.shtml" target="_blank">这次重大外交活动为何选在青岛?</a> <a href="http://news.cctv.com/2018/06/02/ARTI5qJVCVlNGRnhIOHlntxV180602.shtml" target="_blank">看点</a></p>
+						
+						
+					</div>
+				</div>
+			
+		</li>
+	
+		<li class="">
+			
+				<div class="box">
+					<div class="data_img set169"><img src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1504516146368634/img234X132.jpg" data-src="http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2018/6/2/1527924781523_722.jpg"></div>
+					<div class="detail">
+						<p class="title"><a href="http://news.cctv.com/special/sx/index.shtml" target="_blank" style="color: red;">新时代新作为新篇章</a> <a href="http://news.cctv.com/2018/06/02/ARTIW0Her7U82mYq9ZjqEEwo180602.shtml" target="_blank">长三角拉开区域合作大幕</a></p>
+						
+						
+					</div>
+				</div>
+			
+		</li>
+	
+		<li class="">
+			
+				<div class="box">
+					<div class="data_img set169"><img src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1504516146368634/img234X132.jpg" data-src="http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2018/6/2/1527890960766_883.jpg"></div>
+					<div class="detail">
+						<p class="title"><a href="http://news.cctv.com/special/ggkf40zn/index.shtml" target="_blank" style="color: red;">庆祝改革开放40年</a> <a href="http://news.cctv.com/2018/06/02/ARTIo24mdO4tsX9KDNW64EXx180602.shtml" target="_blank">成功实践值得发展中国家借鉴</a></p>
+						
+						
+					</div>
+				</div>
+			
+		</li>
+	
+	</ul>
+</div>
+<script type="text/javascript">
+	// 工具函数：处理时间
+	function gshtimeELMT6qXrqUi2wCQPkwvQaBEQ170810(time){
+			var year_ = time.getFullYear();       //年</span>
+			var month_ = time.getMonth() + 1;  //月  
+			var day_ = time.getDate();         //日  
+			var str="";
+				//str+=year_ +'-';
+			if(month_ < 10)
+				str+= "0";
+				str+= month_ +'月';
+			if(day_ < 10)
+				str+= "0";
+				str+= day_+'日';
+			return(str);
+	}
+	// 工具函数：处理时间戳
+	function getTimeStampELMT6qXrqUi2wCQPkwvQaBEQ170810(dateStr){  //字符串转化为时间戳
+		var newstr = dateStr.replace(/-/g,'/'); 
+		var date =  new Date(newstr); 
+		var time_str = date.getTime().toString();
+		return time_str.substr(0, 10);
+	}
+	
+	// 处理获得数据的时间格式
+	function getDateDiffELMT6qXrqUi2wCQPkwvQaBEQ170810(dateTimeStamp,sj){
+		var minute = 1000 * 60;
+		var hour = minute * 60;
+		var day = hour * 24;
+
+		var now = new Date().getTime();
+		var diffValue = now - dateTimeStamp;
+
+			var newTime = new Date(dateTimeStamp);
+			var nianyueri = this.gshtimeELMT6qXrqUi2wCQPkwvQaBEQ170810(newTime);
+			var dayC =diffValue/day;
+			var hourC =diffValue/hour;
+			var minC =diffValue/minute;
+		if(dayC>=1){
+			result= sj;
+		}
+		else if(hourC>=1 && hourC <24){
+			result= parseInt(hourC) +"小时前";
+		}
+		else if(minC>=1 && minC <60){
+			result= parseInt(minC) +"分钟前";
+		}else
+			result="刚刚";
+			return result;
+	}
+	
+	$('.ELMT6qXrqUi2wCQPkwvQaBEQ170810 .time').each(function(){
+		var getDataTime = $(this).text();
+		TimeStamp = getTimeStampELMT6qXrqUi2wCQPkwvQaBEQ170810(getDataTime);
+		setTime = getDateDiffELMT6qXrqUi2wCQPkwvQaBEQ170810(parseInt(TimeStamp)*1000,$(this).text());
+		 $(this).text(setTime);
+	});
+	$('.ELMT6qXrqUi2wCQPkwvQaBEQ170810 ul li .box .data_img img').each(function(){
+		var liimg=$(this).attr("src");
+		var liimgsrc=$(this).attr("data-src");
+		if (liimg==null || liimg=="null" || liimgsrc==null || liimgsrc=="null"){
+			$(this).parents(".data_img").remove();
+		}
+	});
+	$('.ELMT6qXrqUi2wCQPkwvQaBEQ170810 ul li').each(function(){
+		var thislength = $(this).find('.detail').find('.title').find('a').length;
+		if(thislength >1){
+			var href=$(this).find('.detail').find('.title').find('a').eq(0).attr('href');
+			var str="<a href='"+href+"'>"+$(this).find('.data_img').html()+"</a>";
+			$(this).find('.data_img').html(str);
+		}
+	})
+</script>
+</div><div class="ELMT96YZuBDk0ML3zhq8OeL5170810">
+<div class="ind_list_box" id="ELMT96YZuBDk0ML3zhq8OeL5170810">
+	<ul>
+	
+		<li class="">
+			<a href="http://news.cctv.com/2018/06/02/ARTIPIldEINgaDjsv6FWpDiH180602.shtml">
+				<div class="box">
+					<div class="data_img set169"><img src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1504516146368634/img234X132.jpg" data-src="http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2018/6/2/1527916493197_613.jpg"></div>
+					<div class="detail">
+						<p class="title">关税下调 哪些日用品更便宜了?了解一下</p>
+						
+						
+					</div>
+				</div>
+			</a>
+		</li>
+	
+		<li class="">
+			<a href="http://news.cctv.com/2018/06/02/ARTIey5OCGEtNKC7tHh2E5yo180602.shtml">
+				<div class="box">
+					<div class="data_img set169"><img src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1504516146368634/img234X132.jpg" data-src="http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2018/6/2/1527920289022_520.jpg"></div>
+					<div class="detail">
+						<p class="title">"空姐遇害案"救援队索要百万悬赏金 滴滴回应</p>
+						
+						
+					</div>
+				</div>
+			</a>
+		</li>
+	
+	</ul>
+</div>
+<script type="text/javascript">
+	// 工具函数：处理时间
+	function gshtimeELMT96YZuBDk0ML3zhq8OeL5170810(time){
+			var year_ = time.getFullYear();       //年</span>
+			var month_ = time.getMonth() + 1;  //月  
+			var day_ = time.getDate();         //日  
+			var str="";
+				//str+=year_ +'-';
+			if(month_ < 10)
+				str+= "0";
+				str+= month_ +'月';
+			if(day_ < 10)
+				str+= "0";
+				str+= day_+'日';
+			return(str);
+	}
+	// 工具函数：处理时间戳
+	function getTimeStampELMT96YZuBDk0ML3zhq8OeL5170810(dateStr){  //字符串转化为时间戳
+		var newstr = dateStr.replace(/-/g,'/'); 
+		var date =  new Date(newstr); 
+		var time_str = date.getTime().toString();
+		return time_str.substr(0, 10);
+	}
+	
+	// 处理获得数据的时间格式
+	function getDateDiffELMT96YZuBDk0ML3zhq8OeL5170810(dateTimeStamp,sj){
+		var minute = 1000 * 60;
+		var hour = minute * 60;
+		var day = hour * 24;
+
+		var now = new Date().getTime();
+		var diffValue = now - dateTimeStamp;
+
+			var newTime = new Date(dateTimeStamp);
+			var nianyueri = this.gshtimeELMT96YZuBDk0ML3zhq8OeL5170810(newTime);
+			var dayC =diffValue/day;
+			var hourC =diffValue/hour;
+			var minC =diffValue/minute;
+		if(dayC>=1){
+			result= sj;
+		}
+		else if(hourC>=1 && hourC <24){
+			result= parseInt(hourC) +"小时前";
+		}
+		else if(minC>=1 && minC <60){
+			result= parseInt(minC) +"分钟前";
+		}else
+			result="刚刚";
+			return result;
+	}
+	
+	$('.ELMT96YZuBDk0ML3zhq8OeL5170810 .time').each(function(){
+		var getDataTime = $(this).text();
+		TimeStamp = getTimeStampELMT96YZuBDk0ML3zhq8OeL5170810(getDataTime);
+		setTime = getDateDiffELMT96YZuBDk0ML3zhq8OeL5170810(parseInt(TimeStamp)*1000,$(this).text());
+		 $(this).text(setTime);
+	});
+	$('.ELMT96YZuBDk0ML3zhq8OeL5170810 ul li .box .data_img img').each(function(){
+		var liimg=$(this).attr("src");
+		var liimgsrc=$(this).attr("data-src");
+		if (liimg==null || liimg=="null" || liimgsrc==null || liimgsrc=="null"){
+			$(this).parents(".data_img").remove();
+		}
+	});
+	$('.ELMT96YZuBDk0ML3zhq8OeL5170810 ul li').each(function(){
+		var thislength = $(this).find('.detail').find('.title').find('a').length;
+		if(thislength >1){
+			var href=$(this).find('.detail').find('.title').find('a').eq(0).attr('href');
+			var str="<a href='"+href+"'>"+$(this).find('.data_img').html()+"</a>";
+			$(this).find('.data_img').html(str);
+		}
+	})
+</script>
+</div>
+		</div>
+		
+	</div>
+</div>
+</div>
+<div class="ELMTD7yrNa8W8ZIHzMjAtw2h170810">
+<div class="md_16916">
+	<div class="md_hd">
+		<span class="mh_title"><a href="http://photo.cctv.com/">精彩图集</a></span>
+		
+	</div>
+	
+	<div class="md_bd">
+		
+		<div id="SUBD1502333598429360">
+		<div class="ELMTv7J6PiNP2BSUUiONJAWG170810">
+<div class="ind_img_box" id="ELMTv7J6PiNP2BSUUiONJAWG170810">
+	
+	<ul class=''>
+		
+		<li class="hotlist">
+			<a href="http://photo.cctv.com/2018/06/02/PHOAvmV6zKBQLRM8lMtf3A2L180602.shtml#gSBjZNnqcf9B180602_1">
+				<div class="data_img">
+					<img src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1504516146368634/img234X132.jpg" data-src="http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2018/6/2/1527904126984_531.jpg">
+					
+				</div>
+				<div class="detail">
+					<p class="title">25个“新部门”全部亮相</p>
+				</div>
+			</a>
+		</li>
+		
+		<li class="hotlist">
+			<a href="http://photo.cctv.com/2018/06/02/PHOA6of7ZPD5vLUrmioZpsRP180602.shtml">
+				<div class="data_img">
+					<img src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1504516146368634/img234X132.jpg"
+					data-src="http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2018/6/2/1527904520312_274.jpg">
+					
+				</div>
+				<div class="detail">
+					<p class="title">群特殊的“飞行员”</p>
+				</div>
+			</a>
+		</li>
+		
+	</ul>
+	
+	<ul class=''>
+		
+		<li class="hotlist">
+			<a href="http://photo.cctv.com/2018/06/02/PHOAuxewLp8lQyEb0efDsRsa180602.shtml">
+				<div class="data_img">
+					<img src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1504516146368634/img234X132.jpg" data-src="http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2018/6/2/1527904061865_809.jpg">
+					
+				</div>
+				<div class="detail">
+					<p class="title">唐宋坊市遗址再现成都</p>
+				</div>
+			</a>
+		</li>
+		
+		<li class="hotlist">
+			<a href="http://www.xinhuanet.com/photo/2018-06/02/c_129885219_2.htm">
+				<div class="data_img">
+					<img src="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1504516146368634/img234X132.jpg"
+					data-src="http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2018/6/2/1527904184072_325.jpg">
+					
+				</div>
+				<div class="detail">
+					<p class="title">上合艺术节民族舞蹈晚会举行</p>
+				</div>
+			</a>
+		</li>
+		
+	</ul>
+	
+</div>
+</div>
+<script type="text/javascript">
+function setfunELMTv7J6PiNP2BSUUiONJAWG170810(){
+	var set169 = true;
+	if(set169){
+		var hostliheight = $("#ELMTv7J6PiNP2BSUUiONJAWG170810 li.hotlist").width();
+		$("#ELMTv7J6PiNP2BSUUiONJAWG170810 li.hotlist img").css('height',hostliheight*9/16+'px');
+		var routineliheight = $("#ELMTv7J6PiNP2BSUUiONJAWG170810 li:not(.hotlist) img").width();
+		$("#ELMTv7J6PiNP2BSUUiONJAWG170810 li:not(.hotlist) img").css('height',routineliheight*9/16+'px');
+	}
+}
+setfunELMTv7J6PiNP2BSUUiONJAWG170810();
+$(window).resize(function(){
+	setfunELMTv7J6PiNP2BSUUiONJAWG170810();
+})
+</script>
+		</div>
+		
+	</div>
+</div>
+</div>
+<div class="ELMTw4RSbdxNzuisxPTfpEtz170810">
+<div class="ind_search">
+	
+	<div class="search_area">
+		<input placeholder='请输入您想搜索的关键词' id="search_input" onkeypress="getOnkeyDown(event)">
+		<div class="search_btn_box" onclick="submitSearch();return false;"><i class="search_btn"></i></div>
+	</div>
+	<script type="text/javascript">  
+		function getOnkeyDown(e){
+			var ev = e;
+			ev = ev || event;
+			if(ev.keyCode == 13){
+				submitSearch();
+			}
+		}
+		String.prototype.replaceAll  = function(s1,s2){
+			return this.replace(new RegExp(s1,'g'),s2);
+		}	
+		function submitSearch(){
+			var keywordTemp = $("#search_input").val();
+			if (keywordTemp.replaceAll(' ','') == ''){
+				window.location.href = 'http://search.cctv.com/m';
+				return false;
+			}else if (keywordTemp.length > 75){
+				alert("输入文字过多,请重新输入!");
+				$("#search_input").val("");
+				$("#search_input").focus();
+				return false;
+			}else{
+				keyword = encodeURIComponent(keywordTemp);
+				var searchUrl = 'http://search.cctv.com/m/search.php?type=web&qtext='+keyword;
+				window.location.href = searchUrl;
+			}
+		}
+	</script>
+	
+	
+	<ul>
+	
+		<li class="">
+			<a href="http://news.cctv.com/2018/06/02/ARTIYYLJkwLD4pwHaVLiHqze180602.shtml">25个"新部门"全亮相</a>
+		</li>
+		
+		
+		<li class="special">
+			<a href="http://news.cctv.com/2018/06/02/ARTIb3cmQWa2nFDk0nm2R1xd180602.shtml">暑期旅游市场专项整治</a>
+		</li>
+		
+		
+		<li class="special">
+			<a href="http://tv.cctv.com/2018/06/02/VIDELINdRP8ymzd7h3eSP8hy180602.shtml">歼-20向系列化发展</a>
+		</li>
+		
+		
+		<li class="">
+			<a href="http://news.cctv.com/2018/06/02/ARTIq3DdRTAqgREA6KeduFeC180602.shtml">这些歌里有你的童年</a>
+		</li>
+		
+		<div class="clear"></div>
+	</ul>
+	
+</div>
+</div>
+	<!-- 底通1 -->
+	<link type="text/css" rel="stylesheet" href="http://r.img.cctvpic.com/nettv/mcntv/mobile/mggbhy/dtbhy/style/style.css?b304d6546bf974bbf78ee854791b228d"/>
+<div class="ELMT8tJMWVlv7r6C1TIG9ebB170810">
+	
+	<div class="footer">
+		<div class="link">
+		<a href="http://m.cctv.com/">首页</a>|<a href="http://m.cctv.com/mobile/wangzhannav/index.shtml">导航</a>|<a href="http://www.cctv.com/index.shtml">返回PC</a>
+		</div>
+		
+		<p>中国中央电视台  中国网络电视台  版权所有</p>
+		
+	</div>
+	
+</div>
+	<div class="fixbottomheight"></div>
+	<div class="ind_footersearch">
+		<p placeholder="">我来说两句</p>
+		<div class="infl">
+			<div class="share" id="sharelayer">分享</div>
+			<a href="javascript:void(0);"><div class="zan"></div></a>
+			<div style="clear:both;"></div>
+		</div>
+	</div>
+	<div id="back_to_top" class="gotop_btn"></div>
+	<div id="back_to_home" class="gohome"><a href="http://m.cctv.com"></a></div>
+	<script type="text/javascript">
+		$(function(){
+			var scrollToTopConfig = {oTop: $('#back_to_top'),}//返回顶部id
+			var gohome=$("#back_to_home");
+			function scrollToTop(options) {
+				var oTop = options.oTop;
+				if (oTop.length > 0) {
+					var sTop = 0,
+					rTop = 0,
+					pageHeight = document.body.clientHeight;
+					addOnscroll(function() {
+						sTop = document.body.scrollTop || document.body.scrollTop;
+						if (sTop < pageHeight) {						
+							oTop.hide();
+							gohome.hide();
+						} else {
+							oTop.show();
+							gohome.show();
+						}
+						rTop = sTop;
+					});
+					oTop.click(function() {
+						document.body.scrollTop = document.body.scrollTop = 0;
+					});
+				}
+			}
+			function addOnscroll(fn) {
+				if (typeof window.onscroll == 'function') {
+					var tempFn = window.onscroll;
+					window.onscroll = function() {
+						tempFn();
+						fn();
+					}
+				} else {
+					window.onscroll = function() {
+						fn();
+					}
+				}
+			}
+			setTimeout(function() {
+				scrollToTop(scrollToTopConfig);
+			},300);
+		})
+	</script>
+</div>
+<div class="ind_pinglunlayer" id="ind_pinglunlayer">
+	<div class="md002 pnone" style="border-top:0.24rem solid #fff;">
+		<div class="md_hd plr">
+			<span class="mh_title">我要评论</span>
+			<span class="mh_option">
+				<a href="javascript:void(0)" id="pl_cancel">取消</a>
+			</span>
+		</div>
+		<div class="md_bd">
+			<div class="ind_pingluninput">
+				<textarea id="pl_textarea" class="pl_textarea" name="" placeholder="请理性评论，文明发言"></textarea>
+				<p class="tijiao">提交</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="ind_pinglunlayer" id="ind_pinglunlayer2">
+	<div class="md002 pnone" style="border-top:0.24rem solid #fff;">
+		<div class="md_hd plr">
+			<span class="mh_title">我要评论</span>
+			<span class="mh_option">
+				<a href="javascript:void(0)" id="pl_cancel2">取消</a>
+			</span>
+		</div>
+		<div class="md_bd">
+			<div class="ind_pingluninput">
+				<textarea id="pl_textarea2" class="pl_textarea" name="" placeholder="请理性评论，文明发言"></textarea>
+				<p class="tijiao">提交</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="ind_pinglun0804" id="ind_pinglun0804">
+	<div class="floating_p"><p>您的评论已提交成功</p></div>
+</div>
+<!--分享浮层-->
+<div class="ind_sharelayer" id="ind_sharelayer">
+	<div class="share_box clear" id="share_box">
+		<!-- <div id="nativeShare"></div> -->
+		<div id="fucengshare"></div>
+		<p class="share_cancel" id="share_cancel">取消</p>
+	</div>
+</div>
+<script type="text/javascript">
+	$(".ind_app").css("display","none");
+	$(".md_16916").css("display","none");
+	$(".ind_search ul").css("display","none");
+	// 设置页面数据
+	var itemtitle = "";			//标题
+	var itemsource = "";		//来源
+	var itemfocus_date = "";	//发布时间
+	var itemcontent = "";		//正文
+	var Paging_height = 600;	//分页高度
+	var config={};				//分享参数
+	var yemianScrollTop;//记录页面的scrollTop值
+	var screenW=window.innerWidth || screen.width;
+	if(screenW>750){
+		screenW=750;
+	}
+	var shipinW=screenW*0.9466;//视频框宽高
+	var shipinH=shipinW/16*9;
+	var articleID;
+	try{
+		articleID = window.location.href.split("?")[1].split("&")[0].split("id=")[1];
+	}catch(e){
+		try{
+			articleID = window.location.href.split("#")[1].split("&")[0];
+		}catch(e){
+			articleID=null;
+		}
+	}
+	var apiUrl = 'http://api.cntv.cn/Article/getXinwenNextArticleInfo?serviceId=sjnews&id=';
+	if (articleID =="undefined" ||articleID==""||articleID==null){
+		// 确认，如果参数没有传应该如何提示  其他是跳转到404
+		if ( window.location.href.indexOf("producePage")!=-1){
+		}else{
+			window.location.href='http://m.cctv.com/mobile/404/index.shtml';
+		}
+	}else{
+		apiUrl += articleID+"&t=jsonp&cb=aa";
+	}
+	function getData(){
+		$.ajax({
+			url: apiUrl,
+			dataType:"jsonp",
+			jsonp:"cb",// 重写回调函数名字
+			error:function(){
+				console.log("error");
+			},
+			success:function(data){
+				setMyArticalContent(data);
+			}
+		});
+	} 
+	//正在加载隐藏内容，撑开页面
+	var hoffsetH_h = window.screen.availHeight;
+	$("#j_pullLoader").css("height",(hoffsetH_h-180));
+	// 回调函数
+	function setMyArticalContent(data){
+		/*判断PC浏览器跳PC地址*/
+		if(/AppleWebKit.*mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SM|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
+		}else{
+			window.location.href=data.article_url;
+		}
+		if(data.errcode>0){
+			if(data.errcode=="1002"){
+				window.location.href='http://m.cctv.com/mobile/404/index.shtml';
+			}
+		}else{
+			document.title = data.article_title;
+			//设置页面变量
+			itemtitle = data.article_title;				//标题
+			itemshorttitle= data.article_sub_title;	//副标题
+			itemfocus_date = data.article_focus_date;	//发布时间
+			itemsource = data.article_source;			//来源
+			itemcontent = data.article_content;			//正文
+			var lihtml_title = '';						//标题html
+			var lihtml_content = '';					//正文html
+			// 判断是否是领导人
+			var templateType = data.template_type;
+			var allowcomment = data.allow_comment;
+			if (templateType =="" || templateType=="1"){
+				// 非领导人
+				$(".ind_app").removeAttr("style");
+				$(".md_16916").css("display","block");
+				showLi($('.ind_img_box'))  //异步加载
+				showLi($('.ind_list_box'))
+				$(".ind_search ul").css("display","block");
+				if(allowcomment == 1){
+					//$(".fixbottomheight").css("display","block");
+					//$(".ind_footersearch").addClass("flex");
+					//$(".ind_footersearch .infl a").attr("href","http://m.cctv.com/mobile/pl/index.shtml?id="+articleID+"_"+app);
+				}
+			}else{
+				// 领导人
+			}
+			//标题拼接参数
+			if(itemshorttitle==""){
+				lihtml_title += '<h1 >'+itemtitle+'</h1><p class="info">'+itemfocus_date.substr(0,16)+' '+itemsource+'</p><div class="fontsize big">A+</div><div class="clear"></div>';
+			}else{
+				lihtml_title += '<h1 >'+itemtitle+'</h1><h2>'+itemshorttitle+'</h2><p class="info">'+itemfocus_date.substr(0,16)+itemsource+'</p><div class="fontsize big">A+</div><div class="clear"></div>';
+			}
+
+			/*if(data.guid !=""){
+				var qianArti = itemcontent.split('[!--begin:htmlVideoCode--]');
+				var houArti = itemcontent.split('[!--end:htmlVideoCode--]');
+				lihtml_content+=(qianArti[0]+'<p id="player"></p>'+houArti[1]);
+			}else{
+				lihtml_content += itemcontent;
+			}*/
+			if(data.guid !=""){
+				var qianArti = itemcontent.split('[!--begin:htmlVideoCode--]');
+				var qianArti_id = qianArti[1].split(',');
+				var houArti = itemcontent.split('[!--end:htmlVideoCode--]');
+				if(qianArti_id[1] == 0){		//视频
+					lihtml_content+=(qianArti[0]+'<p id="player"></p>'+houArti[1]);
+				}else if(qianArti_id[1] == 2){	//音频
+					lihtml_content+=(qianArti[0]+'<p id="player_audio"></p>'+houArti[1]);
+				}
+			}else{
+				lihtml_content += itemcontent;
+			}
+			//写入页面
+			$("#title_area").html(lihtml_title);
+			$("#text_area").html(lihtml_content);
+
+			//判断是否插入视频并播放
+			/*if(data.guid !=""){
+				if(data.article_logo_photo3 !== ''){
+					play(data.guid,data.article_logo_photo3);
+				}else if(data.article_logo_photo !== ''){
+					play(data.guid,data.article_logo_photo);
+				}else{
+					play(data.guid,'');
+				}
+			}*/
+			if(data.guid !=""){
+				var qianArti = itemcontent.split('[!--begin:htmlVideoCode--]');
+				var qianArti_id = qianArti[1].split(',');
+				if(qianArti_id[1] == 0){		//视频
+					if(data.article_logo_photo3 !== ''){
+						play(data.guid,data.article_logo_photo3);
+					}else if(data.article_logo_photo !== ''){
+						play(data.guid,data.article_logo_photo);
+					}else{
+						play(data.guid,'');
+					}
+				}else if(qianArti_id[1] == 2){	//音频
+					var player_w = 640;
+					try{
+						player_w = parseInt(document.body.clientWidth) - 20;
+					}catch(e){
+					}
+					var ids = [data.guid];
+					var fo = createPlayer("player_audio", "my_player",player_w);
+					startPlayAudio(ids, fo);
+				}
+			}
+			//获取点赞数
+			getdianzanNum();
+
+			//设置分享标题简介图片
+			var sharePhoto;
+			if(data.article_logo_photo ==""){
+				sharePhoto ="http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1502157896010276/xinwenlogo.jpg";
+			}else{
+				sharePhoto = data.article_logo_photo;
+			}
+			config = {
+				title:itemtitle,
+				desc:data.article_desc,
+				img:sharePhoto
+			};
+			var share_obj = new nativeShare('nativeShare',config);
+			var data={"appid":"newstiket","url":encodeURIComponent(encodeURIComponent(window.location.href))};	
+			getAjax("http://api.cntv.cn/Apicommon/index?&path=iphoneInterface/general/getWeiXinSignature.jsonp",data,weixinSucess);
+		
+			$("#j_pullLoader").css("display","none");
+			$(".ind_content").css("display","block");
+			$(".ind_share").css("display","block");
+			if (templateType =="" || templateType=="1"){
+				if(allowcomment == 1){//要评论
+					//评论区块
+					//getPingLunData();
+					//$(".ind_pinlun").parents(".md002").css("display","block");
+				}
+			}
+			//分页,余下全文效果
+			height_P();
+		}
+	}
+	/*字号切换*/
+	$(".ind_content .title_area .fontsize").live('click',function(){
+		if($(this).hasClass('big')){
+			$(this).text('A-');
+			$(".ind_content .text_area p").css({"font-size":"0.4rem","line-height":"0.8rem"});
+			$(this).removeClass('big');
+		}else{
+			$(this).text('A+');
+			$(".ind_content .text_area p").css({"font-size":"0.36rem","line-height":"0.76rem"});
+			$(this).addClass('big');
+		}
+	});
+	//遍历数据，设置分页余下全文效果
+	var yeshu = 1;
+	function height_P(){
+		var num_p = $("#text_area").children().length;
+		var Single_p = 0;
+		var Single_p_new = 0 ;
+		for(var i=0; i<num_p; i++){
+			Single_p = $("#text_area").children().eq(i).height();	//遍历每个p的高度
+			Single_p_new = Single_p_new+Single_p;					//高度累加
+			$("#text_area").children().eq(i).addClass("area_"+yeshu);
+			if (Single_p_new > Paging_height){
+				Single_p_new = 0;
+				yeshu++;
+			}
+		}
+		yeshu = $("#text_area").children().last().attr("class").split("_")[1];
+		if(yeshu>1){
+			$(".ind_content .pagenation_area").css("display","block");
+		}
+		$("#text_area").children().hide();
+		$("#text_area .area_1").show();
+	}
+	//余下全文
+	$("#yuxiaquanwen").click(function(){
+		$("#text_area").children().show();
+		$("#yuxiaquanwen").hide();
+		$(".ind_content .text_area").css("padding-bottom","0.24rem")
+	})
+	//播放器
+	function play(guid,playimg){
+		var _w = shipinW,_h = shipinH;
+		var fo = createCommonPlayer("v_player",_w,_h,"news",'',playimg);
+		fo.addVariable("videoCenterId",guid);
+		fo.addVariable("videoId","");
+		fo.addVariable("isAutoPlay", 'true');
+		fo.addParam("wmode", "normal");
+		writePlayer(fo,"player");
+		$("#player").css({"width":_w+"px","height":_h+"px"});
+	}
+	function videoChange(){
+		screenW=document.documentElement.clientWidth;
+		if(screenW>750){
+			screenW=750;
+		}
+		shipinW=screenW*0.9466;
+		shipinH=shipinW/16*9;
+		$("#player").css({"width":shipinW+"px","height":shipinH+"px"});
+		$("#html5VideoBack").css({"width":shipinW+"px"});
+		$("#html5VideoBack").css("height",shipinH+"px");
+		$("#html5Player").css({"width":shipinW+"px"});
+		$("#html5Player").css("height",shipinH+"px");
+		$("#html5ControlDiv").css({"width":shipinW+"px"});
+		$("#html5ControlDiv").css("height",shipinH+"px");
+		$('#playbtn_img').css({"left":(shipinW-70)/2+"px","top":(shipinH-70)/2+"px"});
+		$('#video_content_is_loading').css({"left":(shipinW-120)/2+"px","top":(shipinH-120)/2+"px"});
+	}
+	$(window).resize(function(){
+		videoChange();
+	})
+	/*分享*/
+	function getAjaxScript(url){
+		var el = document.createElement("script");
+		el.type="text/javascript";
+		el.lang="javascript";
+		el.src = url;
+		document.getElementsByTagName("body")[0].appendChild(el);
+	}
+	//每个分享图标的数组
+	var shareData=[
+		{
+		"dataapp":"weixin",
+		"className":"nativeShare weixin",
+		"img":"http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1502157896010276/img_weixin.png",
+		"text":"微信好友"
+		},{"dataapp":"weixinFriend",
+		"className":"nativeShare weixinpengyouquan",
+		"img":"http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1502157896010276/img_pengyouquan.png",
+		"text":"朋友圈"
+		},{
+		"dataapp":"sinaWeibo",
+		"className":"weibo nativeSharespecial",
+		"img":"http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1502157896010276/img_sina.png",
+		"text":"新浪微博"
+		},{
+		"dataapp":"QQ",
+		"className":"qq",
+		"img":"http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1502157896010276/img_qq.png",
+		"text":"QQ好友"
+		},{
+		"dataapp":"QZone",
+		"className":"qzone nativeSharespecial",
+		"img":"http://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1502157896010276/img_kongjian.png",
+		"text":"QQ空间"
+		}
+	];
+	//获取点赞数，增加点赞数
+	function getdianzanNum(){
+		var url='http://common.itv.cntv.cn/praise/batchGet?type=other&id='+articleID+'&jsonp_callback=?&r='+Math.random();
+		$.ajax({
+			type:'get',
+			dataType:"jsonp",
+			url:url,
+			data:"",
+			success:function(data){
+				var _obj=data.data;
+				for(var a in _obj){
+					var dianzannum=_obj[a];
+				}
+				if(dianzannum<10000){
+					$("#zanNum").text(dianzannum);
+				}else{
+					$("#zanNum").text((dianzannum/10000).toFixed(1)+"万");
+				}
+			}
+		});
+	}
+	function dianzan(){
+		var url='http://api.itv.cntv.cn/praise/add?type=other&id='+articleID+'&jsonp_callback=?&r='+Math.random();
+		$.ajax({
+			type:'get',
+			dataType:"jsonp",
+			url:url,
+			data:"",
+			success:function(data){}
+		});
+	}
+	$(".ind_share .pointnumber").click(function(){
+		if($(this).find("span").hasClass("cur")){
+		}else{
+			$(this).find("span").addClass("cur");
+			$(this).find("p").addClass("cur");
+			dianzan();
+			var adddianzannum=Number($("#zanNum").text())+1;
+			if(adddianzannum<10000){
+				$("#zanNum").text(adddianzannum);
+			}else{
+				$("#zanNum").text((adddianzannum/10000).toFixed(1)+"万");
+			}
+		}
+		$(this).addClass("yinying");
+	})
+	/*获取评论*/
+	// 工具函数：处理时间
+	function gshtime(time){
+		var year_ = time.getFullYear();    //年
+		var month_ = time.getMonth() + 1;  //月  
+		var day_ = time.getDate();         //日  
+		var hour_ = time.getHours();//时  
+		var min_ = time.getMinutes();//分
+		var str="";
+			str+=year_ +'-';
+		if(month_ < 10)
+			str+= "0";
+			str+= month_ +'-';
+		if(day_ < 10)
+			str+= "0";
+			str+= day_+' ';
+		if(hour_ < 10)
+			str+= "0";
+			str+= hour_+':';
+		if(min_ < 10)
+			str+= "0";
+			str+= min_;
+		return(str);
+	}
+	// 处理获得数据的时间格式
+	function getDateDiff (dateTimeStamp){
+		dateTimeStamp=dateTimeStamp*1000;
+		var minute = 1000 * 60;
+		var hour = minute * 60;
+		var day = hour * 24;
+		var now = new Date().getTime();
+		var diffValue = now - dateTimeStamp;
+			var newTime = new Date(dateTimeStamp);
+			var nianyueri = this.gshtime(newTime);
+			var dayC =diffValue/day;
+			var hourC =diffValue/hour;
+			var minC =diffValue/minute;
+		if(dayC>=1){
+			result= nianyueri;
+		}else if(hourC>=1 && hourC <24){
+			result= parseInt(hourC) +"小时前";
+		}else if(minC>=1 && minC <60){
+			result= parseInt(minC) +"分钟前";
+		}else
+			result="刚刚";
+			return result;
+	}
+	var app='cms_news';
+	var itemid=articleID;
+	var itemtype = 2;
+	function getPingLunData(){
+		var url = "http://common.newcomment.cntv.cn/data/list?app="+app+"&itemid="+itemid+"&itemtype="+itemtype+"&avatar=1&jsonp_callback=callback&jsonp_callback=jsonp4";
+		$.ajax({
+			url:url,
+			dataType:"jsonp",
+			jsonp:"jsonp_callback",// 重写回调函数名字
+			cache:false,
+			error:function(){
+				console.log("error");
+			},
+			success:function(data){
+				var data = data.data;
+				var total = data.total;    //总条数
+				var content = data.content;//内容
+				var contentHtml = "";      //内容html
+				var showTotal;             //展示条数
+				if(total==1 || total==2){
+					showTotal=total;
+				}else if(total>=2){
+					showTotal=2;
+					$(".ind_pinlun .do_more").css("display","block");
+					$(".ind_pinlun .do_more a").attr("href","http://m.cctv.com/mobile/pl/index.shtml?id="+articleID+"_"+app);
+				}else{
+					$(".ind_pinlun").parents(".md002").css("display","none");
+				}
+				if(total>0){
+					if(total<10000){
+						$(".ind_footersearch .zan").text(total);
+					}else{
+						var pinglunshu=(total/10000).toFixed(1)+"万";
+						$(".ind_footersearch .zan").text(pinglunshu);
+					}
+				}else{
+					$(".ind_footersearch .zan").text("评论");
+				}
+				//点赞接口
+				var zanurl='http://common.itv.cntv.cn/praise/batchGet?type=other';
+				//遍历数据
+				for(var i=0;i<showTotal;i++){
+					zanurl+='&id[]='+content[i].pid;
+					contentHtml +='<li style="display:block"><div class="people"><div class="logo"><img src="'+content[i].avatar+'"></div><p>'+content[i].author+'</p></div><div class="content"><p class="text">'+content[i].message+'</p><span class="textall chakan">查看全文</span><div class="plinfo"><span class="time">'+getDateDiff(content[i].dateline)+'</span><span class="reply" pid="'+content[i].pid+'" tid="'+content[i].tid+'" id="huifukuang'+i+'">回复</span><div class="pointnumber dianzan" id="'+content[i].pid+'"></div></div></div></li>';
+				}
+				zanurl+='&jsonp_callback=?&r='+Math.random();
+				//获取点赞数
+				$.ajax({
+					url:zanurl,
+					type:"get",
+					dataType:"jsonp",
+					success: function(data){
+						var zanobj=data.data;
+						for(var b in zanobj){
+							if(zanobj[b]<10000){
+								$("#"+b).html(zanobj[b]);
+							}else{
+								$("#"+b).html((zanobj[b]/10000).toFixed(1)+"万");
+							}
+						}
+					},
+					timeout:8000,
+					error:function(){ alert("提交超时")}
+				});
+				$(".ind_pinlun ul").append(contentHtml);
+				for (var i=0; i<=showTotal; i++)
+				{	var lis = $(".ind_pinlun ul li");
+					var liuyanLineheight=parseInt($(".ind_pinlun ul li .content .text").css("line-height"));
+					var liuyanHeight=$(lis).eq(i).find(".content").find(".text").height()/3;
+					if (liuyanHeight>liuyanLineheight) {
+						liuyanHeight=$(lis).eq(i).find(".content").find(".text").addClass("chakan");
+					}else{
+						$(lis).eq(i).find(".content").find(".text").removeClass("chakan");
+						$(lis).eq(i).find(".content").find(".textall").css("display","none");
+					}
+				}
+				$(".ind_pinlun ul li .content .textall").click(function(){
+					if($(this).hasClass("chakan")){
+						$(this).removeClass("chakan").addClass("shouqi");
+						$(this).parent().find(".text").removeClass("chakan");				
+						$(this).text("收起全文");
+					}else{
+						$(this).removeClass("shouqi").addClass("chakan");
+						$(this).parent().find(".text").addClass("chakan");
+						$(this).text("查看全文");
+					}
+				})
+			}
+		});
+	}
+	/* 评论增加点赞数 */
+	function addDianzan(id){
+		var url = 'http://api.itv.cntv.cn/praise/add?type=other&id='+id+'&jsonp_callback=cb'
+		$.ajax({
+			url:url,
+			dataType:"jsonp",
+			jsonp:"jsonp_callback",// 重写回调函数名字
+			error:function(){},
+			success:function(data){
+			}
+		});
+	}
+	//点赞绑定点击事件
+	$(".ind_pinlun ul li .content .plinfo .pointnumber").live('click',function(){
+		var num=parseInt($(this).html());
+		if ($(this).hasClass("cur")) {
+			return;
+		}else{
+			$(this).addClass("cur");
+			num=num+1;
+			addDianzan($(this).attr("id"));
+			if(num<10000){
+				$(this).html(num);
+			}else{
+				$(this).html((num/10000).toFixed(1)+"万");
+			}
+		}
+		$(this).addClass("yinying");
+	})
+	//主评论回复点击事件
+	/*--登录取Cookie-*/
+	function getCookie1(name) {
+		var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+		if (arr = document.cookie.match(reg)) return unescape(arr[2]);
+		else return null
+	}
+	var userid = getCookie1('userSeqId');	//用户id
+	var verifycode = getCookie1('verifycode');
+	var namecookie = "";					//用户昵称
+	var tid,replyid;
+	if(userid != null){
+		$.getJSON('http://i.cctv.com/intf/napi/api.php?client=cntv_top&method=user.getNickName&userid='+userid+'&verifycode='+verifycode+'&cb=?&format=jsonp',function(data){
+				if(data.code ==0){
+					namecookie = data.content.nickname;
+				}
+			}
+		);	
+	}
+	$('.ind_pinlun ul li .content .plinfo .reply').live('click',function(){//点击评论窗口判断是否登录
+		if(userid == null){
+			location.href = "http://reg.cctv.com/i18n/mobile/new/login.html?service="+ encodeURIComponent("http://m.cctv.com/mobile/pl/index.shtml?id="+articleID+"_"+app);
+		}else{
+			yemianScrollTop=document.body.scrollTop;
+			var zhuNickName=$(this).parents("li").find(".people p").text();
+			$('.page_wrap').css('display','none');
+			$('body').css('background-color','#fff');
+			$('#ind_pinglunlayer2').css('display','block');
+			$('#pl_textarea2').attr('placeholder','回复'+zhuNickName);  //登录之后要获取登录名
+			immediately("pl_textarea2");
+			tid=$(this).attr("tid");
+			replyid=$(this).attr("pid");
+		}
+	});
+	$("#pl_cancel2").live('click',function(){
+		$('#pl_textarea2').val("");
+		$('#ind_pinglunlayer2 .ind_pingluninput .tijiao').removeClass("cur");
+		$('#ind_pinglunlayer2').css('display','none');
+		$('body').css('background-color','#E3E8F2');
+		$('.page_wrap').css('display','block');
+		document.body.scrollTop = document.documentElement.scrollTop =yemianScrollTop;
+	});
+	$("#ind_pinglunlayer2 .ind_pingluninput .tijiao.cur").live('click',function(){
+		var $inputarea=$("#ind_pinglunlayer2 .ind_pingluninput .pl_textarea");
+		var text_val=$inputarea.val();
+		if(userid!=null&&userid!=""){
+			var datas= {"app":app,"itemid":itemid,"itemtype":itemtype,"tid":tid,"replyid":replyid,"message":text_val,"authorid":userid,"author":namecookie,"jsonp_callback":"liuyan_callback"}
+			var url=" http://newcomment.cctv.com/comment/post?"+$.param(datas);
+			var scriptid="liuyan_callback";
+			loadJsnew(scriptid,url);
+		}
+		$inputarea.blur();
+		$inputarea.val("");
+		$(this).removeClass("cur");
+		shuRuNotNull();
+	})
+	$('.ind_footersearch p').click(function(event){
+		if(userid == null){
+			location.href = location.href = "http://reg.cctv.com/i18n/mobile/new/login.html?service="+ encodeURIComponent("http://m.cctv.com/mobile/pl/index.shtml?id="+articleID+"_"+app);
+		}else{
+			yemianScrollTop=document.body.scrollTop;
+			$('.page_wrap').css('display','none');
+			$('body').css('background-color','#fff');
+			$('#ind_pinglunlayer').css('display','block');
+			immediately("pl_textarea");
+		}
+	});
+	$("#pl_cancel").live('click',function(){
+		$('#pl_textarea').val("");
+		$('#ind_pinglunlayer .ind_pingluninput .tijiao').removeClass("cur");
+		$('#ind_pinglunlayer').css('display','none');
+		$('body').css('background-color','#E3E8F2');
+		$('.page_wrap').css('display','block');
+		document.body.scrollTop = document.documentElement.scrollTop =yemianScrollTop;
+	});
+	$("#ind_pinglunlayer .ind_pingluninput .tijiao.cur").live('click',function(){
+		var $inputarea=$("#ind_pinglunlayer .ind_pingluninput .pl_textarea");
+		var text_val=$inputarea.val();
+		if(userid!=null&&userid!=""){
+			var datas= {"app":app,"itemid":itemid,"itemtype":itemtype,"message":text_val,"verifycode":verifycode,"authorid":userid,"author":namecookie,"jsonp_callback":"liuyan_callback"}
+			var url=" http://newcomment.cctv.com/comment/post?"+$.param(datas);
+			var scriptid="liuyan_callback";
+			loadJsnew(scriptid,url);
+		}
+		$inputarea.blur();
+		$inputarea.val("");
+		$(this).removeClass("cur");
+		shuRuNotNull();
+	})
+	$(function(){
+		getData();
+	});
+	//加载接口数据
+	function loadJsnew(id,newJS){
+		var oldjs = document.getElementById(id);
+		if(oldjs) oldjs.parentNode.removeChild(oldjs);
+		var scriptObj = document.createElement("script");
+		scriptObj.src = newJS;
+		scriptObj.type = "text/javascript";
+		scriptObj.id   = id;
+		document.getElementsByTagName("head")[0].appendChild(scriptObj);
+	}
+	//留言回调函数
+	function liuyan_callback(data){
+		$("textarea").val("");
+	}	
+	//弹出输入正常
+	function shuRuNotNull(){
+		$("#ind_pinglun0804").css("display","block");
+		setTimeout(function(){
+			$("#ind_pinglun0804").css("display","none");
+			$('#ind_pinglunlayer').css('display','none');
+			$('#ind_pinglunlayer2').css('display','none');
+			$('body').css('background-color','#E3E8F2');
+			$('.page_wrap').css('display','block');
+			document.body.scrollTop = document.documentElement.scrollTop =yemianScrollTop;
+		},1000)
+	}
+	//判断输入时候为空格
+	function isNull(str){
+		var resultStr = str.replace(/[ ]/g, "");    //去掉空格
+		resultStr = resultStr.replace(/[\r\n]/g, ""); //去掉回车换行
+		if ( resultStr == "" ) return true;
+	}
+	//监听输入框
+	function immediately(textareaid){
+		var element = document.getElementById(textareaid);
+		if("\v"=="v") {
+			element.onpropertychange = webChange;
+			}else{
+			element.addEventListener("input",webChange,false);
+		}
+		function webChange(){
+			if(element.value!="" && !isNull(element.value)){
+				$("#"+textareaid).next(".tijiao").addClass("cur");
+			}else{
+				$("#"+textareaid).next(".tijiao").removeClass("cur"); 
+			}
+		}
+	}
+	// 微信配置
+	function onBridgeReady(){
+		WeixinJSBridge.call('hideOptionMenu');
+	}
+	if (typeof WeixinJSBridge == "undefined"){
+		if( document.addEventListener ){
+			document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+		}else if (document.attachEvent){
+			document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+			document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+		}
+	}else{
+		onBridgeReady();
+	}
+	function getAjax(url,data,cb,spacial){
+		$.ajax({
+			url:url,
+			type:"get",
+			data:data,
+			dataType:'jsonp',
+			success: function(_data){
+				cb(_data)
+			},
+			timeout:10000,
+			error:function(){warnbox("请求超时，请检查网络或者重新刷新页面！")}
+		});
+	}
+	function weixinSucess(data){	
+		wx.config({
+		debug: false, 
+		appId: "wx2723c0deaa5a97e9", 
+		timestamp: data.timestamp, 
+		nonceStr:  data.nonceStr, 
+		signature: data.signature,
+		jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 功能列表，我们要使用JS-SDK的什么功能
+		});
+	}
+	// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在 页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready 函数中。
+	wx.ready(function(){
+		// 获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
+		wx.onMenuShareTimeline({
+			title: config.title, // 分享标题
+			link: window.location.href,
+			imgUrl: config.img // 分享图标
+		});
+		// 获取“分享给朋友”按钮点击状态及自定义分享内容接口
+		wx.onMenuShareAppMessage({
+			title: config.title, // 分享标题
+			desc: config.desc, // 分享描述
+			link: window.location.href,
+			imgUrl: config.img, // 分享图标
+			type: 'link', // 分享类型,music、video或link，不填默认为link
+		});
+		onBridgeReady_OptionMenu();
+	});
+	wx.error(function(res){
+		console.log("失败");
+	});
+	function onBridgeReady_OptionMenu(){
+		WeixinJSBridge.call('showOptionMenu');
+	}
+	var sharefuceng = false;
+	var w =document.documentElement.clientWidth;
+	var h =document.body.clientHeight;
+	function setShareStyle(){
+		if(h < $('#share_box').height()){
+			document.getElementsByTagName('body')[0].addEventListener('touchmove',function(e){e.returnValue = true;}, false);
+			$('.page_wrap').css('display','none');
+			$('.ind_sharelayer .share_box').css('position','static');
+			$('.ind_sharelayer').css('position','static').css('height','auto');
+		}else{
+			document.getElementsByTagName('body')[0].addEventListener('touchmove', function(e) {e.preventDefault();}, false)
+			$('.page_wrap').css('display','block');
+			$('.ind_sharelayer .share_box').css('position','absolute');
+			$('.ind_sharelayer').css('position','fixed').css('height','100%');
+		}
+	}
+	$('#sharelayer').click(function(){
+		if(h < $('#share_box').height()){
+			
+		}else{
+			document.getElementsByTagName('body')[0].addEventListener('touchmove', function(e) {e.preventDefault();}, false)
+		}
+		var share_obj2 = new nativeShare('fucengshare',config);
+		$(".ind_footersearch").css({"display":"none"});
+		$('#ind_sharelayer').css('display','block');
+		sharefuceng = true;
+		setShareStyle();
+	});
+	$('#share_cancel').click(function(){
+		document.getElementsByTagName('body')[0].addEventListener('touchmove',function(e){e.returnValue = true;}, false);
+		$(".ind_footersearch").removeAttr("style");
+		$(".ind_footersearch").addClass("flex");
+		$(".page_wrap").css('display','block');
+		$('#ind_sharelayer').css('display','none');
+		sharefuceng = false;
+	});
+	$("#ind_sharelayer").bind('click', function(e) {  
+		var e = e || window.event; //浏览器兼容性   
+		var elem = e.target || e.srcElement;  
+		while (elem) { //循环判断至跟节点，防止点击的是div子元素   
+			if (elem.id && elem.id == 'share_box') {  
+				return;  
+			}  
+			elem = elem.parentNode;  
+		}
+		$(".ind_footersearch").removeAttr("style");
+		$(".ind_footersearch").addClass("flex");
+		$(".page_wrap").css('display','block');
+		$("#ind_sharelayer").css("display","none");
+		sharefuceng = false;
+		setShareStyle();
+		document.getElementsByTagName('body')[0].addEventListener('touchmove',function(e){e.returnValue = true;}, false);
+	});
+	$(window).resize(function(){
+		w =document.documentElement.clientWidth;
+		h =document.body.clientHeight;
+		if(sharefuceng){
+			setShareStyle();
+		}
+	})
+	window.onpageshow = function(event) {
+		if (event.persisted || navigator.userAgent.indexOf('iPhone') > -1) {
+			setTimeout(function(){
+				rem();
+				videoChange();
+			},200)
+		}
+	}
+</script>
+ 
+  <!-- START WRating v1.0 --> 
+  <script type="text/javascript">
+	_vjTrack("");
+</script>
+  <noscript>
+  <img src="http://cntv.wrating.com/a.gif?c=860010-1102010100" width="1" height="1" />
+  </noscript>
+  <!-- END WRating v1.0 --> 
+
+</body>
+</html>
+
+

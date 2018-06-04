@@ -1,0 +1,796 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CBA球员介绍:张伟</title>
+<link rel="stylesheet" type="text/css" href="http://css.sohu.com/upload/global1.3.css" />
+
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<script type="text/javascript">
+
+				function getObject(objectId) {
+                    if(document.getElementById && document.getElementById(objectId)) {
+                    // W3C DOM
+                    return document.getElementById(objectId);
+                    } else if (document.all && document.all(objectId)) {
+                    // MSIE 4 DOM
+                    return document.all(objectId);
+                    } else if (document.layers && document.layers[objectId]) {
+                    // NN 4 DOM.. note: this won't find nested layers
+                    return document.layers[objectId];
+                    } else {
+                    return false;
+                    }	
+                }
+            
+                function showtab(m,n,count){
+                    for(var i=1;i<=count;i++){
+                        if (i==n){			
+                            getObject("td_"+m+"_"+i).className="active";
+                            getObject("tab_"+m+"_"+i).className="show";
+                            }
+                        else {
+                            getObject("td_"+m+"_"+i).className="";
+                            getObject("tab_"+m+"_"+i).className="hidden";
+                            }
+                    }
+                }                
+                        
+		
+
+	function cleanWhitespace(element) {
+	for (var i = 0;i<element.childNodes.length;i++) {
+		var node = element.childNodes[i]
+		if (node.nodeType ==3 && !/\S/.test(node.nodeValue))
+		node.parentNode.removeChild(node);
+	}
+	}
+	
+	function SohuMenuGlobal(_tab, _content, evt,_startNum,classNames){
+		this.tabs = [];
+		this.contents = [];
+		this.currentNum;
+		this.init(_tab,_content,evt,_startNum,classNames);
+	}
+	
+	
+	SohuMenuGlobal.prototype.init = function(_tab, _content, evt,_startNum,classNames){
+		var old
+		var obj = document.getElementById(_tab)
+		var cbj = document.getElementById(_content)
+		if (!obj) return false
+		if (!cbj) return false
+		cleanWhitespace(obj)
+		cleanWhitespace(cbj)
+		this.tabs = obj.getElementsByTagName("LI");
+		if (!this.tabs) return false
+		
+		for(var i=0; i<this.tabs.length; i++){
+			this.tabs[i].flag = i;
+		}
+	
+		var contstemp = cbj.childNodes;
+		for(var i=0; i<contstemp.length; i++){
+			if(contstemp[i].nodeType == 1)	 this.contents.push(contstemp[i]);
+		}
+		
+		if (_startNum>=this.tabs.length) {_startNum=0}
+		if (!_startNum){_startNum=0}
+		if (!classNames) {classNames="active"}
+		if (!evt) {evt=2}
+		
+		this.tabs[_startNum].style.display=""
+		this.tabs[_startNum].className=classNames
+		this.contents[_startNum].style.display=""
+		this.currentNum = _startNum
+		this.addEvent(evt,classNames);
+	}
+	
+	SohuMenuGlobal.prototype.addEvent = function(evt,classNames){
+		for(var i=0; i<this.tabs.length; i++){
+			this.tabs[i].reflect = this;
+			if (evt==2) {
+				this.tabs[i].onmouseover = function(){
+					var last = this.reflect.currentNum;
+					this.reflect.contents[last].style.display="none"
+					this.reflect.contents[this.flag].style.display=""
+					
+					if (this.reflect.tabs[last].className!="active") {
+						this.reflect.tabs[last].className=old
+					}else {
+						this.reflect.tabs[last].className=""
+					}
+					
+					old = this.reflect.tabs[this.flag].className
+					if (!old) {
+					this.reflect.tabs[this.flag].className=classNames
+					} else {
+					this.reflect.tabs[this.flag].className=old+"_1"
+					}
+					
+					
+					this.reflect.currentNum = this.flag;
+					this.blur();
+					return false;
+				}
+			} else {
+				this.tabs[i].onclick = function(){
+					var last = this.reflect.currentNum;
+					this.reflect.contents[last].style.display="none"
+					this.reflect.contents[this.flag].style.display=""
+					if (this.reflect.tabs[last].className!="active") {
+						this.reflect.tabs[last].className=old
+					}else {
+						this.reflect.tabs[last].className=""
+					}
+					
+					old = this.reflect.tabs[this.flag].className
+					if (!old) {
+					this.reflect.tabs[this.flag].className=classNames
+					} else {
+					this.reflect.tabs[this.flag].className=old+"_1"
+					}
+					this.reflect.currentNum = this.flag;
+					this.blur();
+					return false;
+				}
+			}
+				
+		}
+	}
+
+	
+	function Check(n) {
+	for (var i=1;i<=2;i++) {
+	if (i==n) {
+	var obj = document.getElementById("menu"+n)
+	if (obj.style.display=="none") {
+		obj.style.display=""
+	}else {
+		obj.style.display="none"
+	}
+	}else {
+		document.getElementById("menu"+i).style.display="none"
+	}
+	}
+}
+
+function showValue(n,nTxt) {
+	var obj = document.getElementById("thisInput"+n)
+	obj.value = nTxt
+	
+	document.getElementById("menu"+n).style.display="none"
+	
+}
+
+</script>
+<script src="http://www.sohu.com/sohuflash_1.js" type="text/javascript"></script>
+<script src="http://images.sohu.com/bill/default/sohu-require.js"></script>
+</head>
+
+<body>
+<!--标准头st/-->
+    <div class="area" id="indexNav">
+        <a href="http://www.sohu.com/" target="_blank"><img src="http://images.sohu.com/uiue/sohu_logo/2005/sohu_logo2.gif" width="87" height="22" alt="搜狐网站" border="0" class="left" /></a><span id="channelLogo"><a href="http://sports.sohu.com/" target="_blank"><img src="http://sports.sohu.com/upload/simgs20110121/sports_gmlogo2.gif" width="65" height="22" alt="搜狐体育" border="0" class="left" /></a></span>
+        <style>#channelNav ul {margin-right:5px;width:auto;clear:none}</style>
+<ul class="right">
+	<li><a href="http://www.sohu.com/">搜狐首页</a></li><li>-</li>
+	<li class="red"><a href="http://news.sohu.com/">新闻</a></li><li>-</li>
+	<li><a href="http://sports.sohu.com/">体育</a></li><li>-</li>
+	<li><a href="http://s.sohu.com/">S</a></li><li>-</li>
+	<li><a href="http://yule.sohu.com/">娱乐</a></li><li>-</li>
+	<li><a href="http://tv.sohu.com/yule/">V</a></li><li>-</li>
+	<li class="red"><a href="http://business.sohu.com/">财经</a></li><li>-</li>
+	<li><a href="http://it.sohu.com/">IT</a></li><li>-</li>
+	<li><a href="http://auto.sohu.com/">汽车</a></li><li>-</li>
+	<li><a href="http://house.focus.cn/">房产</a></li><li>-</li>
+	<li><a href="http://women.sohu.com/">女人</a></li><li>-</li>
+	<li><a href="http://tv.sohu.com/">视频</a></li><li>-</li>
+	<li><a href="http://my.tv.sohu.com/">播客</a></li><li>-</li>
+	<li><a href="http://t.sohu.com/">微博</a></li><li>-</li>
+	<li><a href="http://login.mail.sohu.com/">邮件</a></li><li>-</li>
+	<li><a href="http://blog.sohu.com/">博客</a></li><li>-</li>
+	<li><a href="http://club.sohu.com/">BBS</a></li><li>-</li>
+	<li><a href="http://comment2.news.sohu.com/">我说两句</a></li><li>-</li>
+	<li class="end"><a href="http://www.sogou.com/">搜狗</a></li>
+</ul>
+    </div>
+<!--标准头end/-->
+
+<div class="head">
+	<div class="area nav">
+    	<div class="frameDiv">
+	<div class="tag">
+		<ul>
+          <li id="td_2_1" onClick="showtab(2,1,3)" >04月20日[1场]</li>
+          <li id="td_2_2" onClick="showtab(2,2,3)" class="active">04月22日[1场]</li>
+          <li id="td_2_3" onClick="showtab(2,3,3)" >[0场]</li>
+		</ul>
+	</div>	
+	<div class="clear"></div>
+	<div id="tab_2_1" class="live hidden">
+	<div class="scrollImgList1" id="scrollImgList">
+			<div class="leftBtn" onMouseUp="ISL_StopUp_2()" onMouseDown="ISL_GoUp_2()" onMouseOut="this.className='leftBtn',ISL_StopUp_2()" onMouseOver="this.className='leftBtn1'"></div>
+				<div class="Cont" id="ISL_Cont_2">
+					<div class="scrCont">
+					<div id="List1_2">
+					<div class="boxOff">
+					  <table cellspacing="0">
+                        <tbody>
+                          <tr>
+        <td class="team">          <a href="/teams/team_players/Te011" target="_blank">辽宁 </a> </td>
+        <td class="score">104</td>
+        <td rowspan="2" class="part">完</td>
+      </tr>
+      <tr>
+        <td class="team">          <a href="/teams/team_players/Te028" target="_blank">广厦 </a>  </td>
+        <td class="score">100</td>
+      </tr>
+      <tr>
+				 <td colspan="3" class="txt"><a href='https://www.sohu.com/a/228952700_461606' target='_blank'>战报</a>|<a href='/game/show/2017/527' target='_blank'>数据</a>|视频</td>
+		      </tr>
+                        </tbody>
+                      </table>
+					</div>
+					
+					
+
+</div>
+
+					<div id="List2_2"></div>
+				</div>
+				</div>
+			<div class="rightBtn"  onmouseup="ISL_StopDown_2()"onmousedown="ISL_GoDown_2()" onMouseOut="this.className='rightBtn',ISL_StopDown_2()" onMouseOver="this.className='rightBtn1'"></div>
+	  </div>
+	</div>
+
+
+	<div id="tab_2_2" class="live now">
+		<div id="scrollImgList1" class="scrollImgList1">
+			<div class="leftBtn" onMouseUp="ISL_StopUp_1()" onMouseDown="ISL_GoUp_1()" onMouseOut="this.className='leftBtn',ISL_StopUp_1()" onMouseOver="this.className='leftBtn1'"></div>
+				<div id="ISL_Cont_1" class="Cont">
+					<div class="scrCont">
+					<div id="List1_1">
+
+					<div class="boxOff">
+					  <table cellspacing="0">
+                        <tbody>
+                          <tr>
+        <td class="team">          <a href="/teams/team_players/Te011" target="_blank">辽宁 </a> </td>
+        <td class="score">100</td>
+        <td rowspan="2" class="part">完</td>
+      </tr>
+      <tr>
+        <td class="team">          <a href="/teams/team_players/Te028" target="_blank">广厦 </a>  </td>
+        <td class="score">88</td>
+      </tr>
+      <tr>
+        		 <td colspan="3" class="txt"><a href='https://www.sohu.com/a/229093699_461606' target='_blank'>战报</a>|<a href='/game/show/2017/528' target='_blank'>数据</a>|视频</td>
+		      </tr>
+                        </tbody>
+                      </table>
+					</div>
+					  
+					</div>
+					<div id="List2_1"></div>
+				</div>
+				</div>
+			<div class="rightBtn"  onmouseup="ISL_StopDown_1()"onmousedown="ISL_GoDown_1()" onMouseOut="this.className='rightBtn',ISL_StopDown_1()" onMouseOver="this.className='rightBtn1'"></div>
+		</div>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div id="tab_2_3" class="live hidden">
+	<div id="scrollImgList" class="scrollImgList1">
+			<div class="leftBtn" onMouseUp="ISL_StopUp_3()" onMouseDown="ISL_GoUp_3()" onMouseOut="this.className='leftBtn',ISL_StopUp_3()" onMouseOver="this.className='leftBtn1'"></div>
+				<div id="ISL_Cont_3" class="Cont">
+					<div class="scrCont">
+					<div id="List1_3">
+
+</div>
+
+
+					<div id="List2_3"></div>
+				</div>
+				</div>
+
+			<div class="rightBtn"  onmouseup="ISL_StopDown_3()"onmousedown="ISL_GoDown_3()" onMouseOut="this.className='rightBtn',ISL_StopDown_3()" onMouseOver="this.className='rightBtn1'"></div>
+	  </div>
+	</div>
+	
+	
+</div>
+
+		<div class="nav1">
+        		<a href="/">首页</a>|<a href="/teams/">球队</a>|<a href="/players/">球员</a>|<a href="/sch/">赛程</a>|<a href="/ranking/teams/">球队排名</a>|<a href="/ranking/players/">球员排名</a>|<a href="/compare/teams/">球队对比</a>|<a href="/compare/players/">球员对比</a>|<a href="http://cbachina.sports.sohu.com/">CBA官网</a>|<a href="http://sports.sohu.com/">搜狐体育</a>
+        </div>
+    </div>
+    
+</div>
+<script src='/js/scroll.js'></script>
+<script src='/js/scroll2.js'></script>
+<script src='/js/scroll3.js'></script>
+
+<div id="fullscreenad" style="display:none"></div>
+<script language="javascript">
+function nopic(thepic){
+	thepic.src = "/images/players/default.jpg"; 
+}
+var kPlayers = new Array();
+var vPlayers = new Array();
+
+
+
+function changeTeam(key,sel){
+	sel.options.length=0;
+	sel.options[0] = new Option('请选择球员...','0');
+	if(key != 0){
+		var i;
+		for (i=0;i<kPlayers[key].length; i++)
+		{
+			sel.options[sel.length] = new Option(vPlayers[key][i],kPlayers[key][i]);
+		}
+	}
+}
+function selectPlayer(){
+	var player1 = document.getElementById('select_player_1');
+	var player2 = document.getElementById('select_player_2');
+	var player3 = document.getElementById('select_player_3');
+	var player4 = document.getElementById('select_player_4');
+ 
+	window.location.href = "/compare/players/2014/" + player1.value + "/" + player2.value + "/" + player3.value + "/" + player4.value + "/";
+}
+</script>
+<div class="area">
+	<div class="path">
+    	当前位置：<a href="/" target="_blank">CBA数据中心</a> - > <span>CBA球员介绍:张伟</span>
+    </div>
+</div>
+
+<div class="area">
+<div class="cutG">
+    	<h2>张伟资料</h2>
+    
+    	<div class="blockF clear">
+        	<div class="left">
+            	<div class="blockF1 clear">
+                	<div class="l">
+                	<img src="/images/players/100189.jpg" onerror="javascript:nopic(this)" />
+                    <p>张伟</p>
+                    </div>
+                    <div class="r">
+                    <span>位置：</span>前锋<br />
+                    <span>号码：</span>24<br />
+                    <span>出生日期：</span>1984-01-23<br />
+                    <span>民族：</span>汉<br />
+                    <span>身高：</span>202<br />
+                    <span>体重：</span>100<br />
+                    <span>效力球队：</span>广厦<br />
+                    <div class="data"><a href="/analysis/player/100189" target="_blank">数据分析折线图</a></div>
+                    </div>
+                </div>
+               
+            </div>
+            
+            <div class="right">
+            	<div class="blockD2 clear">
+                	<h2><span>*注：最多加入4名球员对比</span>与其他球员进行数据对比：</h2>
+                </div>
+                
+                <div class="blockD3 clear">
+                	<div class="blockF4 clear">
+                    	<dl>
+                        	<dd>
+                            	<div class="l">1</div>
+                            	<div class="center"><div><select id="select_team_1" name="select_team_1" class="slt" onchange="changeTeam(this.options[selectedIndex].value,document.getElementById('select_player_1'))" style="width:118px;">
+					<option value="0">请选择球队...</option>
+										</select></div>
+<div><select id="select_player_1" name="select_player_1" class="slt" style="width:118px;">
+					<option value="0">请选择球员...</option>
+					</select></div></div>
+                            	<div class="r"><img src="/images/cutG_x.jpg" /></div>
+                            </dd>
+                            
+                        	<dd>
+                            	<div class="l">2</div>
+                            	<div class="center"><div><select id="select_team_2" name="select_team_2" class="slt" onchange="changeTeam(this.options[selectedIndex].value,document.getElementById('select_player_2'))" style="width:118px;">
+					<option value="0">请选择球队...</option>
+										</select></div>
+<div><select id="select_player_2" name="select_player_2" class="slt" style="width:118px;">
+					<option value="0">请选择球员...</option>
+					</select></div>
+                    
+                    </div>
+                            	<div class="r"><img src="/images/cutG_x.jpg" /></div>
+                            </dd>
+                        	<dd>
+                            	<div class="l">3</div>
+                            	<div class="center"><div><select id="select_team_3" name="select_team_3" class="slt" onchange="changeTeam(this.options[selectedIndex].value,document.getElementById('select_player_3'))" style="width:118px;">
+					<option value="0">请选择球队...</option>
+										</select></div>
+<div><select id="select_player_3" name="select_player_3" class="slt" style="width:118px;">
+					<option value="0">请选择球员...</option>
+					</select></div></div>
+                            	<div class="r"><img src="/images/cutG_x.jpg" /></div>
+                            </dd>
+                        	<dd>
+                            	<div class="l">4</div>
+                            	<div class="center"><div><select id="select_team_4" name="select_team_4" class="slt" onchange="changeTeam(this.options[selectedIndex].value,document.getElementById('select_player_4'))" style="width:118px;">
+					<option value="0">请选择球队...</option>
+										</select></div>
+<div><select id="select_player_4" name="select_player_4" class="slt" style="width:118px;">
+					<option value="0">请选择球员...</option>
+					</select></div></div>
+                            	<div class="r"><img src="/images/cutG_x.jpg" /></div>
+                            </dd>
+                            
+                        </dl>
+                    </div>                    
+                </div>
+                
+                <div class="blockD5"><img src="/images/btn1.jpg" onclick="javascript:selectPlayer();" /></div>
+                
+            </div>
+        </div>
+    </div>    
+    
+</div><div class="area">
+	<div class="cutD">
+    	<ul>
+        	<li class="att">职业生涯</li>
+        	<a href="/players/matches/100189"><li>每场数据</li></a>
+        	<a href="/players/analysis/100189"><li>数据分析</li></a>
+        </ul>
+    </div>
+</div>
+
+<div class="area">
+	<div class="cutE">    	
+    
+        <h3>CBA数据</h3>
+        <h4>汇总数据</h4>
+        <div>
+        	<table cellspacing="1" cellpadding="0">
+              <tbody><tr>
+                <th>赛季</th>
+                <th>球队</th>
+                <th>出场</th>
+                <th>首发</th>
+                <th>时间</th>
+                <th>命中</th>
+                <th>三分</th>
+                <th>罚球</th>
+                <th>进攻篮板</th>
+                <th>防守篮板</th>
+                <th>总篮板</th>
+                <th>助攻</th>
+                <th>抢断</th>
+                <th>盖帽</th>
+                <th>失误</th>
+                <th>犯规</th>
+                <th>得分</th>
+              </tr>
+              <tr >
+                <td>2016-2017</td>
+                <td><a href='/teams/team_players/Te028'>广厦</a></td>
+                <td>25</td>
+                <td>0</td>
+                <td>246.0</td>
+                <td>22-66</td>
+                <td>9-37</td>
+                <td>9-17</td>
+                <td>11</td>
+                <td>31</td>
+                <td>42</td>
+                <td>14</td>
+                <td>12</td>
+                <td>0</td>
+                <td>2</td>
+                <td>29</td>
+                <td>62</td>
+              </tr>
+              <tr class="tr1">
+                <td>2015-2016</td>
+                <td><a href='/teams/team_players/Te028'>广厦</a></td>
+                <td>32</td>
+                <td>3</td>
+                <td>359.5</td>
+                <td>46-114</td>
+                <td>22-65</td>
+                <td>5-8</td>
+                <td>6</td>
+                <td>46</td>
+                <td>52</td>
+                <td>19</td>
+                <td>13</td>
+                <td>2</td>
+                <td>15</td>
+                <td>49</td>
+                <td>119</td>
+              </tr>
+              <tr >
+                <td>2014-2015</td>
+                <td><a href='/teams/team_players/Te028'>广厦</a></td>
+                <td>40</td>
+                <td>19</td>
+                <td>755.2</td>
+                <td>85-203</td>
+                <td>31-98</td>
+                <td>24-37</td>
+                <td>18</td>
+                <td>74</td>
+                <td>92</td>
+                <td>39</td>
+                <td>20</td>
+                <td>1</td>
+                <td>30</td>
+                <td>90</td>
+                <td>225</td>
+              </tr>
+              <tr class="tr1">
+                <td>2013-2014</td>
+                <td><a href='/teams/team_players/Te028'>广厦</a></td>
+                <td>38</td>
+                <td>12</td>
+                <td>1,047.3</td>
+                <td>108-282</td>
+                <td>49-164</td>
+                <td>33-45</td>
+                <td>31</td>
+                <td>139</td>
+                <td>170</td>
+                <td>40</td>
+                <td>49</td>
+                <td>8</td>
+                <td>40</td>
+                <td>113</td>
+                <td>298</td>
+              </tr>
+              <tr >
+                <td>2012-2013</td>
+                <td><a href='/teams/team_players/Te028'>广厦</a></td>
+                <td>35</td>
+                <td>15</td>
+                <td>641.1</td>
+                <td>68-151</td>
+                <td>28-84</td>
+                <td>17-32</td>
+                <td>8</td>
+                <td>62</td>
+                <td>70</td>
+                <td>37</td>
+                <td>20</td>
+                <td>2</td>
+                <td>22</td>
+                <td>59</td>
+                <td>181</td>
+              </tr>
+              <tr class="tr1">
+                <td>2011-2012</td>
+                <td><a href='/teams/team_players/Te028'>广厦</a></td>
+                <td>35</td>
+                <td>18</td>
+                <td>891.2</td>
+                <td>90-251</td>
+                <td>25-118</td>
+                <td>31-48</td>
+                <td>26</td>
+                <td>98</td>
+                <td>124</td>
+                <td>40</td>
+                <td>37</td>
+                <td>10</td>
+                <td>53</td>
+                <td>79</td>
+                <td>236</td>
+              </tr>
+   
+            </tbody></table>
+            
+        </div>
+            
+            <h4>场均数据</h4>
+        <div>
+        	<table cellspacing="1" cellpadding="0">
+              <tbody><tr>
+                <th>赛季</th>
+                <th>球队</th>
+                <th>出场</th>
+                <th>首发</th>
+                <th>时间</th>
+                <th>命中</th>
+                <th>三分</th>
+                <th>罚球</th>
+                <th>进攻篮板</th>
+                <th>防守篮板</th>
+                <th>总篮板</th>
+                <th>助攻</th>
+                <th>抢断</th>
+                <th>盖帽</th>
+                <th>失误</th>
+                <th>犯规</th>
+                <th>场均分</th>
+              </tr>
+              <tr >
+                <td>2016-2017</td>
+                <td><a href='/teams/team_players/Te028'>广厦</a></td>
+                <td>25</td>
+                <td>0</td>
+                <td>9.8</td>
+                <td>0.9-2.6</td>
+                <td>0.4-1.5</td>
+                <td>0.4-0.7</td>
+                <td>0.4</td>
+                <td>1.2</td>
+                <td>1.7</td>
+                <td>0.6</td>
+                <td>0.5</td>
+                <td>0.0</td>
+                <td>0.1</td>
+                <td>1.2</td>
+                <td>2.5</td>
+              </tr>
+              <tr class="tr1">
+                <td>2015-2016</td>
+                <td><a href='/teams/team_players/Te028'>广厦</a></td>
+                <td>32</td>
+                <td>3</td>
+                <td>11.2</td>
+                <td>1.4-3.6</td>
+                <td>0.7-2.0</td>
+                <td>0.2-0.3</td>
+                <td>0.2</td>
+                <td>1.4</td>
+                <td>1.6</td>
+                <td>0.6</td>
+                <td>0.4</td>
+                <td>0.1</td>
+                <td>0.5</td>
+                <td>1.5</td>
+                <td>3.7</td>
+              </tr>
+              <tr >
+                <td>2014-2015</td>
+                <td><a href='/teams/team_players/Te028'>广厦</a></td>
+                <td>40</td>
+                <td>19</td>
+                <td>18.9</td>
+                <td>2.1-5.1</td>
+                <td>0.8-2.5</td>
+                <td>0.6-0.9</td>
+                <td>0.5</td>
+                <td>1.9</td>
+                <td>2.3</td>
+                <td>1.0</td>
+                <td>0.5</td>
+                <td>0.0</td>
+                <td>0.8</td>
+                <td>2.3</td>
+                <td>5.6</td>
+              </tr>
+              <tr class="tr1">
+                <td>2013-2014</td>
+                <td><a href='/teams/team_players/Te028'>广厦</a></td>
+                <td>38</td>
+                <td>12</td>
+                <td>27.6</td>
+                <td>2.8-7.4</td>
+                <td>1.3-4.3</td>
+                <td>0.9-1.2</td>
+                <td>0.8</td>
+                <td>3.7</td>
+                <td>4.5</td>
+                <td>1.1</td>
+                <td>1.3</td>
+                <td>0.2</td>
+                <td>1.1</td>
+                <td>3.0</td>
+                <td>7.8</td>
+              </tr>
+              <tr >
+                <td>2012-2013</td>
+                <td><a href='/teams/team_players/Te028'>广厦</a></td>
+                <td>35</td>
+                <td>15</td>
+                <td>18.3</td>
+                <td>1.9-4.3</td>
+                <td>0.8-2.4</td>
+                <td>0.5-0.9</td>
+                <td>0.2</td>
+                <td>1.8</td>
+                <td>2.0</td>
+                <td>1.1</td>
+                <td>0.6</td>
+                <td>0.1</td>
+                <td>0.6</td>
+                <td>1.7</td>
+                <td>5.2</td>
+              </tr>
+              <tr class="tr1">
+                <td>2011-2012</td>
+                <td><a href='/teams/team_players/Te028'>广厦</a></td>
+                <td>35</td>
+                <td>18</td>
+                <td>25.5</td>
+                <td>2.6-7.2</td>
+                <td>0.7-3.4</td>
+                <td>0.9-1.4</td>
+                <td>0.7</td>
+                <td>2.8</td>
+                <td>3.5</td>
+                <td>1.1</td>
+                <td>1.1</td>
+                <td>0.3</td>
+                <td>1.5</td>
+                <td>2.3</td>
+                <td>6.7</td>
+              </tr>
+        
+            </tbody></table>
+
+        </div>
+        <h4>个人技术统计记录</h4>
+        <div>
+        <table cellSpacing=1 cellPadding=0>
+         <tr>    <td>单场得分最多:32</td>    <td> 所在球队：陕西亚旅联盟</td>    <td>主队：佛山友诚金融(126) VS 客队：浙江稠州银行(93) </td>    <td>2008-2009赛季</td>    <td>场序：412</td>  </tr><tr>    <td>单场篮板最多:14</td>    <td> 所在球队：陕西汉斯</td>    <td>主队：佛山友诚金融(113) VS 客队：辽宁衡业(115) </td>    <td>2005-2006赛季</td>    <td>场序：271</td>  </tr><tr>    <td>单场三分最多:6</td>    <td> 所在球队：陕西亚旅联盟</td>    <td>主队：佛山友诚金融(126) VS 客队：浙江稠州银行(93) </td>    <td>2008-2009赛季</td>    <td>场序：412</td>  </tr><tr>    <td>单场助攻最多:7</td>    <td> 所在球队：陕西亚旅联盟</td>    <td>主队：佛山友诚金融(112) VS 客队：东莞马可波罗(135) </td>    <td>2008-2009赛季</td>    <td>场序：453</td>  </tr><tr>    <td>单场盖帽最多:3</td>    <td> 所在球队：浙江明凯照明</td>    <td>主队：浙江广厦(89) VS 客队：东莞马可波罗(97) </td>    <td>2010-2011赛季</td>    <td>场序：285</td>  </tr><tr>    <td>单场扣篮最多:3</td>    <td> 所在球队：陕西蔚利信</td>    <td>主队：佛山友诚金融(130) VS 客队：云南红云红河(100) </td>    <td>2007-2008赛季</td>    <td>场序：130</td>  </tr><tr>    <td>单场抢断最多:6</td>    <td> 所在球队：陕西亚旅联盟</td>    <td>主队：佛山友诚金融(113) VS 客队：辽宁衡业(87) </td>    <td>2008-2009赛季</td>    <td>场序：16</td>  </tr>
+        </table>
+        </div>
+
+    </div>
+</div>
+<div class="area" id="foot">
+<a false;="" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.sohu.com');return" href="javascript:void(0)">设置首页</a>
+- <a target="_blank" href="http://pinyin.sogou.com/">搜狗输入法</a>
+- <a target="_blank" href="http://up.sohu.com/">支付中心</a>
+- <a target="_blank" href="http://hr.sohu.com">搜狐招聘</a>
+- <a target="_blank" href="http://ad.sohu.com/">广告服务</a>
+- <a target="_blank" href="http://sohucallcenter.blog.sohu.com/">客服中心</a>
+- <a target="_blank" href="http://corp.sohu.com/s2006/contactus/">联系方式</a>
+- <a target="_blank" href="http://www.sohu.com/about/privacy.html">保护隐私权</a>
+- <a target="_blank" href="http://corp.sohu.com/">About SOHU</a>
+- <a target="_blank" href="http://corp.sohu.com/indexcn.shtml">公司介绍</a>
+<br>Copyright &copy; 2017 Sohu.com Inc. All Rights Reserved. 搜狐公司 <span class="unline"><a target="_blank" href="http://corp.sohu.com/s2007/copyright/">版权所有</a></span>
+<br>搜狐不良信息举报电话：010－62728061 举报邮箱：<a href="mailto:jubao@contact.sohu.com">jubao@contact.sohu.com</a>
+<div class="clear"></div>
+</div>
+<SCRIPT language=JavaScript src="http://js.sohu.com/pv.js"></SCRIPT>
+<script language="javascript" src="http://js.sohu.com/wrating0820.js"></script>
+<script language="javascript">
+var  _wratingId = null;
+try{
+_wratingId = _getAcc();
+}catch(e){}
+if(_wratingId !=null){
+document.write('<scr'+'ipt type="text/javascript" src="http://sohu.wrating.com/a1.js"></scr'+'ipt>');
+}
+</script>
+<script language="javascript">
+if(_wratingId !=null){
+document.write('<scr'+'ipt type="text/javascript">');
+document.write('var vjAcc="'+_wratingId+'";');
+document.write('var wrUrl="http://sohu.wrating.com/";');
+document.write('try{vjTrack();}catch(e){}');
+document.write('</scr'+'ipt>');
+}
+
+</script>
+<Script language="Javascript">var cWidth=950;</script>
+<Script language="Javascript" src="http://images.sohu.com/bill/s2012/gates/all/adm2013.js"></Script>
+<script type="text/javascript">
+try{ 
+    var amd_timetag = Math.round(new Date().getTime()/1800000);
+    var amd_url= "http://images.sohu.com/bill/s2013/gates/all/cbadata_2013.js"+"?t="+ amd_timetag;
+    document.write('<script src="'+ amd_url +'" type="text/javascript"></sc'+ 'ript>');
+}catch(e){}
+</script>
+<script> require(["sjs/matrix/ad/passion"]); </script>
+</body>
+</html>

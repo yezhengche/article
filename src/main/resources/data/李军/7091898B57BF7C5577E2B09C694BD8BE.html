@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="publisher" content="TideCMS 9.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>李 军_频道主持人_大连广播电视台</title>
+<link rel="stylesheet" href="/css/base.css"/>
+<link rel="stylesheet" href="/css/else.css"/>
+<script src="/js/jquery.js"></script>
+<script src="/js/public.js"></script>
+</head>
+<body>
+<div class="navbg">
+<script src="/js/jquery.fancybox.pack.js" id="ajax_script_id"></script>
+<script>
+$(document).ready(function() {
+        $(".fancybox").attr("href", $(".fancybox").attr("href") + "?red=" + window.location.pathname);
+	$(".fancybox").fancybox({width:'348',height:'342','callbackOnClose':function(){alert("aaa");}});	
+});
+</script>
+<!--header-->
+<div style="height:40px;">
+<div class="header" style="left:0px;topx;0px;z-index:999999">
+	<div class="top-bar">
+    	<div class="container clearfix">
+<div class="pull-left clearfix">
+            	<a href="/" target="_self">首页</a>
+                <a href="/news/" target="_self">新闻</a>
+                <a href="/life/" target="_self">生活</a>
+                <a href="/shorts/index.shtml" target="_self">短片</a>
+                <!--<a href="/hd/" target="_self">活动</a>-->
+                <a href="/live/kds_news.shtml" target="_self">看电视</a>
+                <a href="/live/tgb_news.shtml" target="_self">听广播</a>
+                <!--<a href="/shoping/index.shtml" target="_self">购物频道</a>-->
+            </div>
+            <div class="pull-right">
+            	<a href="https://user.dltv.cn/" class="fancybox fancybox.iframe" target="_blank">登录</a>|
+                <a href="https://user.dltv.cn/index.php/Home/Register/register.html">注册 | </a>
+                <a href="http://www.cutv.com/" target="_blank">CUTV</a>|
+                <a href="/html/guangdian/app_content.shtml" target="_blank">无限大连</a>|
+                <a href="http://dalian.runsky.com/" target="_blank">天健网</a>|
+                <!--<a href="/tv/index.shtml">摇电视</a>|-->
+                <a href="http://www.dltv.cn/ad/" target="_blank">广告合作</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+$.ajax({
+	url:"https://user.dltv.cn/api/get_userinfo.php",
+	dataType:"jsonp",
+	async : false,
+	success:function(data){
+		if(data.userid){
+			$('.top-bar .pull-right a:eq(0)').hide();
+			$('.top-bar .pull-right a:eq(1)').hide();
+			$('.top-bar .pull-right').prepend('<span  id="logined">欢迎您,<a style="cursor:pointer" href="https://user.dltv.cn/index.php/Home/Feature/page">'+data.username+'</a><i style="cursor:pointer;font-style:normal;" id="loginout">退出</i></span>');
+
+			$('.top-bar .pull-right').on('click','i',function(){
+				$.ajax({
+				  url:"https://user.dltv.cn/index.php/Home/Login/quit",
+				  dataType:"jsonp",
+				  success:function(data){
+				    if(data.status == 1){
+				     location.reload();
+				    }
+				  },
+				  error:function(e){
+				  	var a=1;
+				  }
+				});
+			})
+		}
+		var a=1;
+	}
+});
+</script>
+<script>
+	var urls="http://php.dltv.cn/search/search.php?";
+	function search(){
+		keyword=$('#search').val();
+		//urls=urls+"time="+time+"&type="+type+"&channelID="+range+"&page="+page+"&keyword="+keyword+"&channelcode="+channelcode;
+//		window.location=urls;
+window.open(urls+"keyword="+encodeURIComponent(keyword));
+	}
+
+</script>
+
+<!--navbar-->
+<div class="menu-bar">
+    <div class="container clearfix">
+        <div class="logo pull-left"><a href="/compere/list.shtml"><img src="/img/zcr-logo.jpg" /></a></div>
+        <div class="menu-li pull-left">
+           <a class="cat"> >详情</a>
+        </div>
+        <div class="pull-right search">
+<input type="text" class="search-ipt" id="search" value="请输入关键字搜索" onkeypress="if(event.keyCode==13){search();}" onfocus="if(this.value==this.defaultValue){this.value='';this.value.color='#b8b8b8';}" onblur="if(this.value==''){this.value=this.defaultValue;this.value.color='#b8b8b8';}"/>
+            <input class="search-sbt" onclick="search();"  type="submit" />
+<script>
+				var urls="http://php.dltv.cn/search/search.php?";
+				function search(){
+					keyword=$('#search').val();
+					//urls=urls+"time="+time+"&type="+type+"&channelID="+range+"&page="+page+"&keyword="+keyword+"&channelcode="+channelcode;
+					urls=urls+"keyword="+keyword;
+					window.location=urls;
+				}
+			</script>
+        </div>
+    </div>
+</div>
+</div>
+<div class="navh"></div>
+<!--/navbar-->
+<!--主持人详情内容区域-->
+<div class="container clearfix mt-30">
+	<div class="media-zcrinfo clearfix">
+    	<div class="pull-left meida-thumb"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467873090448_32.jpg" /></div>
+        <div class="pull-right media-txt">
+        	<div class="module module-border">
+            	<h3 class="module-title">李 军</h3>
+                <div class="module-more">
+                	<div class="bdsharebuttonbox">
+                		<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                    </div>
+					<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+					</script>
+				</div>
+            </div>
+        	<div class="txt-info section-body">
+            	<p align="left">　　李军，《大连新闻》主播，主任播音员。<br />　　1993年，李军从抚顺电视台来到大连。多年来，她把全部的智慧和热情都献给了美丽的城市，献给了崇高的职业，献给了可亲可敬的观众。<br />　　新闻中，她端庄靓丽；采访中，她沉着睿智；晚会中，她优雅大气。她精心的历练和悉心的储备所成就的庄重感和亲和力赢得了千家万户，男女老少。<br />　　凭借不懈的努力，她获得了诸多荣誉和成绩：曾当选大连市人大代表，省市青联委员，曾被评为辽宁省青年岗位能手，大连市十大青年岗位明星，青年突击手，辽宁省首届十佳播音员（主持人），市十佳播音员（主持人），曾获省首届播音成就奖，建台35周年突出贡献奖，播音作品及论文多次获全国省市一等奖&hellip;&hellip;　　　　　　　　　　&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; 面对荣誉和成绩，李军依然那样平和，平静。其实，平和正是她在节目中坚持的风格，也是她的人生态度。她说：我尊重职业，热爱生活。我希望我的人生乐观通达，淡泊宁静，无论顺境还是逆境，都能保持一个清醒的头脑，一颗平常心，真实面对自己，坦然面对一切。</p><p align="left"><br />　　李军个人档案&mdash;&mdash;<br /><br />　　身高：1.68米<br />　　星座：天秤座<br />　　最喜欢的颜色：黑、白<br />　　最喜欢的一句话：看取莲花净,应知不染心<br />&nbsp;</p><p align="center"><br />&nbsp;</p><p align="center">&nbsp;</p>
+            </div>
+            <div class="meida-footer">
+            	<div class="module module-border">
+                	<h3 class="module-title">主持节目</h3>
+                </div>
+                <div class="pull-left section-body lm">
+                	大连新闻
+                </div>
+                <div class="pull-left section-body jm">
+                    <p>首播：当日18：30</p>
+                    <p>重播：当日22：30</p>
+                </div>
+            </div>
+				<div class="lmjs"></div>
+
+        </div>
+    </div>
+    <!--微博模块-->
+
+</div>
+<!--/主持人详情内容区域-->
+<!--主持人图片展示-->
+<div class="zcr-photos mt-30">
+	<div class="container">
+    	<div class="focus-pic" >
+            <div id="index_tabs2">
+                <ul class="clearfix">
+                    <li>
+<div class="emcee_pic"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467872952925_32_b.jpg"/></div>
+<div class="emcee_pic"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467872953515_32_b.jpg"/></div>
+<div class="emcee_pic"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467872954277_32_b.jpg"/></div>
+<div class="emcee_pic"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467872955039_32_b.jpg"/></div>
+<div class="emcee_pic"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467872955719_32_b.jpg"/></div>
+<div class="emcee_pic"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467872956308_32_b.jpg"/></div>
+<div class="emcee_pic"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467872956704_32_b.jpg"/></div>
+<div class="emcee_pic"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467873049923_32_b.jpg"/></div>
+<div class="emcee_pic"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467873050663_32_b.jpg"/></div>
+<div class="emcee_pic"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467873051462_32_b.jpg"/></div>
+<div class="emcee_pic"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467873052093_32_b.jpg"/></div>
+<div class="emcee_pic"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467873052863_32_b.jpg"/></div>
+<div class="emcee_pic"><img src="http://pic.dltv.cn/images/2016/7/7/2016771467873053513_32_b.jpg"/></div>
+                    </li>
+                </ul>
+            </div>
+            <span class="lft-btn" id="tab2-lbtn"></span>
+            <span class="rgt-btn" id="tab2-rbtn"></span>
+        </div>
+    </div>
+</div>
+<!--主持人图片展示-->
+<div class="index_footer">
+	<div class="index_footer_t">
+		<div class="index_footer_logo">
+			<div class="index_footer_pic"><a href="/"><img src="/images/footer_logo.png"/></a></div>
+			<span>大连广播电视台版权所有</span>
+			<span>辽ICP备17012554号</span>
+			<span>信息网络传播视听节目许可证0607178号</span>
+		</div>
+		<div class="index_about">
+			<ul>
+				<li class="first">关于我们</li>
+				<li><a href="/bottomblue/dbAbouts.html" target="_blank">大连广播电视台</a></li>
+				<li><a href="/bottomblue/cmmedia.html" target="_blank">云动传媒</a></li>
+				<li><a href="/bottomblue/legaldec.html" target="_blank">法律声明</a></li>
+				<li><a href="/bottomblue/contactus.html" target="_blank">联系我们</a></li>
+				<li><a href="/2017jzgs.docx" target="_blank">2017年度核验人员公示</a></li>
+				<li><a href="http://php.dltv.cn/bottomblue/irong.html" target="_blank">我要报错</a></li>
+
+			</ul>
+			<ul>
+				<li class="first">新媒体服务</li>
+				<li><a href="/bottomblue/bcData.html" target="_blank">城市数据服务</a></li>
+				<li><a href="/bottomblue/intechno.html" target="_blank">互联网技术服务</a></li>
+				<li><a href="/bottomblue/mServices.html" target="_blank">媒资服务</a></li>
+				<li><a href="/bottomblue/nmvideo.html" target="_blank">新媒体视频</a></li>
+                                
+			</ul>
+			<ul>
+				<li class="first">产品集群</li>
+				<li><a href="/bottomblue/productcluste.html" target="_blank">大连网络台</a></li>
+				<li><a href="/bottomblue/productcluste.html?id=1" target="_blank">无限大连</a></li>
+				<li><a href="/bottomblue/productcluste.html?id=2" target="_blank">微信矩阵</a></li>
+				<li><a href="/bottomblue/productcluste.html?id=3" target="_blank">微博矩阵</a></li>
+				<li><a href="/bottomblue/productcluste.html?id=4" target="_blank">户外新媒体</a></li>
+			</ul>
+			<ul>
+				<li class="first">广告刊例</li>
+				<li><a href="/advertisement/adjg/list.shtml">广播电视广告</a></li>
+				<li><a href="http://q.eqxiu.com/s/NEWR2kgV">新媒体广告</a></li>
+			</ul>
+		</div>
+		<div class="index_erweima">
+			<dl>
+				<dt><img src="/images/erweima.jpg" width="100" height="100" /></dt>
+				<dd>微信公众平台</dd>
+			</dl>
+			<dl>
+				<dt><img src="/images/erweima2.jpg" width="100" height="100" /></dt>
+				<dd>微博公众平台</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="index_footer_b">
+		<div class="index_yqlj">
+			<ul>
+				<li class="yqlj">友情链接</li>
+				<li><a href="http://www.dl.cn/citizen/" target="_blank">中国大连</a></li>
+				<li><a href="http://dalian.runsky.com/" target="_blank">大连天健网</a></li>
+				<li><a href="http://www.cutv.com/" target="_blank">CUTV城市网</a></li>
+				<li><a href="http://www.gstv.com.cn/" target="_blank">甘肃网络广播电视台</a></li>
+				<li><a href="http://www.tjtv.com.cn/" target="_blank">天津电视台</a></li>
+				<li><a href="http://www.nbtv.cn/" target="_blank">宁波广电网</a></li>
+				<li><a href="http://dl.sohu.com/" target="_blank"> 搜狐大连</a></li>
+				<li><a href="http://dl.sina.com.cn/" target="_blank">新浪大连 </a></li>
+				<li><a href="http://www.jlds110.com/index.php" target="_blank">吉林根网</a></li>
+				<li><a href="http://www.chinactv.com/" target="_blank">长视网</a></li>
+                                <li class="mail"><a href="http://mail.dltv.cn" target="_blank">广电邮箱</a></li>
+			</ul>
+		</div>
+<div style="width:300px;margin:0 auto; padding:20px 0;">
+		 		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=21020402000211" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="http://www.dltv.cn/img/beiantubiao.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">辽公网安备 21020402000211号</p></a>
+		 	</div>
+	</div>
+</div>
+
+		 
+<!--公益 -->
+<script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/08/138/0000/41340676/CA081380000413406760001.js' type='text/javascript'%3E%3C/script%3E"));</script>
+<!-- -->
+<script src="/js/scroll.fixed.js"></script>
+<script  type="text/javascript"> 
+$(document).ready(function(){
+        if($("div").hasClass("top-ad")){
+          $(document).scroll(function(){
+
+var scotop;
+               if(document.body.scrollTop){
+                  scotop = document.body.scrollTop;
+               }else{
+                   scotop = document.documentElement.scrollTop;
+               }
+                 console.log(scotop);
+            if(scotop >206){
+               $(".navbg").capacityFixed({right:0,top:0});
+            }else if(scotop <206){
+               $(".navbg").css("position","absolute");
+            }
+         });
+         
+            
+	    $(".top-ad .close").click(function(){
+		$(".top-ad").css("display","none");
+		$(".navbg").capacityFixed({right:0,top:0});
+                $(".life_btn").css("display","block");
+	    });
+           }else{
+           $(".navbg").capacityFixed({right:0,top:0});
+           }
+});
+$(document).ready(function(){
+ $(".life_btn").click(function(){
+		  $(".navbg").capacityFixed({right:0,top:206});
+                  $(".top-ad").css("display","block");
+	    });
+            
+ });
+jQuery("#index_tabs1").jCarouselLite({auto:3000,speed:500,visible:1,btnPrev: "#tab1-lbtn",btnNext: "#tab1-rbtn",stop:$("#index_tabs1"),btnGoOver:true}); 
+
+</script>
+
+<!-- 统计 -->
+<!-- Gridsum tracking code begin. -->
+<script type='text/javascript'>
+    (function () {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = (location.protocol == 'https:' ? 'https://ssl.' : 'http://static.') + 'gridsumdissector.com/js/Clients/GWD-002867-BEA740/gs.js';
+        var    firstScript = document.getElementsByTagName('script')[0];
+        firstScript.parentNode.insertBefore(s, firstScript);
+    })();
+</script>
+<!--Gridsum tracking code end. -->
+<!-- baidu-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?6098fc1a986f4cfd5b283c3a6ff9cd00";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- -->
+
+
+
+
+<script>
+jQuery("#index_tabs2").jCarouselLite({auto:3000,speed:500,visible:1,btnPrev: "#tab2-lbtn",btnNext: "#tab2-rbtn",stop:$("#index_tabs2"),btnGoOver:true}); 
+</script>
+
+</body>
+</html>

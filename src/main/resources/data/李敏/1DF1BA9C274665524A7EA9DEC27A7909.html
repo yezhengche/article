@@ -1,0 +1,813 @@
+<!DOCTYPE html>           
+
+<script>
+    (function (context) {
+        var data = {};
+        var url = '//imgstat.baidu.com/17.gif';
+        var start = +new Date;
+        var createQuery = function (data) {
+            var ret = [];
+            for (var key in data) {
+                ret.push(key + '=' + data[key]);
+            }
+            return ret.join('&');
+        };
+
+        var _mergeCommPara = function (data) {
+            data.etype = 'speed';
+            data.page = 'result';
+            data.logid = "8506902451160001220";
+            data.sid = 'fb8b83588c343269f46bfdafb36ae6b33f974bb6';
+            data.wh = window.screen.width + 'x' + window.screen.height ;
+            data.sampid = '-1';
+            data.app = 'searchresult';
+            data.spat = 0 + '-' + '';
+            data.protocol = window.location.protocol.replace(':', '');
+            if ('2' - 0) {
+                data.ishttps = '2';
+            }
+            
+            data.sync = "";
+            return data;
+        };
+        var _profiles = {
+            'slider': {
+                _url: '//imgstat.baidu.com/17.gif',
+                etype: 'slide'
+            }
+        };
+        var speed = {
+            set: function (key, value) {
+                if (key) {
+                    data[key] = value || 0;
+                }
+            },
+            get: function (key) {
+                return data[key] || ('start' === key && start);
+            },
+            mark: function (key, value, ts) {
+                if (undefined === value) {
+                    value = new Date - start;
+                }
+                if (true === ts) {
+                    value = value - start;
+                }
+                data[key] = value;
+            },
+            send: function (ext) {
+                if (ext) {
+                    for (var key in ext) {
+                        data[key] = ext[key];
+                    }
+                }
+                _mergeCommPara(data);
+                var queryString = createQuery(data);
+                new Image().src = url + '?' + queryString;
+            },
+            loadmark: function () {
+                value = new Date - start;
+
+                if (speed.firstScCount) {
+                    speed.firstScCount += 1;
+                }else{
+                    speed.firstScCount = 1;
+                }
+
+                data['firstSc'] = value;
+
+            },
+            log: function (profile, data) {
+                var queryString = createQuery(data);
+                var pf = _profiles[profile];
+                var a = [];
+
+                _mergeCommPara(data);
+                for (var p in pf) {
+                    if (p.indexOf('_') !== 0) {
+                        data[p] = pf[p];
+                    }
+
+                }
+                for (var p in data) {
+                    a.push(p + '=' + data[p]);
+                }
+
+
+                (new Image).src = pf._url + '?' + a.join('&');
+            }
+        };
+        context.speed = speed;
+        speed.firstScCount = 0;
+        (function () {
+            window.logid = "8506902451160001220";
+            loaded = 0;
+            var addWindowEvent = window.addEventListener ?
+                function(type, fn) { window.addEventListener(type, fn, false); } :
+                function(type, fn) { window.attachEvent('on' + type, fn); };
+            addWindowEvent('beforeunload', function () {
+                if (!loaded) {
+                    speed.mark('leave');
+                    speed.send();
+                }
+            });
+
+            addWindowEvent('load', function () {
+                loaded = 1;
+            });
+        })();
+    })(window);
+</script>
+<script>
+    // ala进入打点
+    try {
+        if (!window._alaEnter) {
+            window._alaEnter = true;
+            function query2Json(query) {
+                var json = {};
+                var search = query.split("&");
+                for (var i = search.length - 1; i >= 0; i--) {
+                    var s = search[i].split('=');
+                    json[s[0]] = s[1];
+                }
+                return json;
+            }
+            var query = query2Json((location.search || '').replace('?', ''));
+            if (+query.hs && query.tn === 'baiduimage') {
+                var payload = 'dsp=pc&tn=result&hs=' + query.hs;
+                (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload + '&type=enter&t=' + (+new Date);
+                window._alaEnter = function (type) {
+                    (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload
+                        + '&type=' + type + '&t=' + (+new Date);
+                };
+                var sid = "c3437dbc7c1255d3a21d444d86ebf2e9234c22bd";
+                if (window.localStorage
+                    && window.localStorage.sid
+                    && window.localStorage.sid !== sid) {
+                    window._alaEnter('change');
+                }
+                window.localStorage.sid = sid;
+            }
+        }
+    } catch(e) {}
+</script>
+
+   <html>   <!--STATUS OK-->  <head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<noscript>
+<meta http-equiv="refresh" content="0;url=/search/index?ct=201326592&lm=-1&tn=baiduimagenojs&ipn=rnj&pv=&word=%E6%9D%8E%E6%95%8F&z=0&pn=0&rn=20&cl=2&ie=utf-8">
+
+<style>table,.p{display:none}</style>
+
+</noscript>
+
+ <title>
+李敏_百度图片搜索</title> <link rel="shortcut icon" href="https://www.baidu.com/cache/icon/favicon.ico" type="image/x-icon"> <link rel="icon" sizes="any" href="https://www.baidu.com/cache/icon/favicon.svg">  <script>
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>     
+   <script>
+        var Ihttps_agent_config = {"http:\/\/nssug.baidu.com":"https:\/\/sp1.baidu.com\/8qUZeT8a2gU2pMbgoY3K\/su","http:\/\/img.baidu.com":"https:\/\/gss2.bdstatic.com\/70cFsjip0QIZ8tyhnq","http:\/\/himg.bdimg.com":"https:\/\/ss1.bdstatic.com\/7Ls0a8Sm1A5BphGlnYG","http:\/\/apps.bdimg.com":"https:\/\/ss0.bdstatic.com\/9_QWf8Sm1A5BphGlnYG","http:\/\/f3.baidu.com":"https:\/\/sp3.baidu.com\/-uV1bjeh1BF3odCf","http:\/\/bzclk.baidu.com":"https:\/\/gsp0.baidu.com\/9q9JcDHa2gU2pMbgoY3K","http:\/\/img0.imgtn.bdimg.com":"https:\/\/ss0.bdstatic.com\/70cFvHSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img1.imgtn.bdimg.com":"https:\/\/ss1.bdstatic.com\/70cFvXSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img2.imgtn.bdimg.com":"https:\/\/ss2.bdstatic.com\/70cFvnSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img3.imgtn.bdimg.com":"https:\/\/ss3.bdstatic.com\/70cFv8Sh_Q1YnxGkpoWK1HF6hhy","http:\/\/img4.imgtn.bdimg.com":"https:\/\/ss0.bdstatic.com\/70cFuHSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img5.imgtn.bdimg.com":"https:\/\/ss1.bdstatic.com\/70cFuXSh_Q1YnxGkpoWK1HF6hhy","http:\/\/bdimg.share.baidu.com":"https:\/\/gss0.baidu.com\/9rA4cT8aBw9FktbgoI7O1ygwehsv","http:\/\/dispatcher.video.qiyi.com":"https:\/\/gss0.bdstatic.com\/-LsZfDe52w9JkxG9m9iS_HFjgAkrreHg-_","http:\/\/passport.bdimg.com":"https:\/\/ss0.bdstatic.com\/5LMZfyabBhJ3otebn9fN2DJv"};
+    </script> <script type="text/javascript" src="//img0.bdstatic.com/static/common/mod_6f6741d.js"></script> 
+<script>
+    //记录页面开始时间
+    window.pageStartTime = new Date();
+    window.scrollTo(0, 0);
+    // 时效性热点
+    </script>
+ <link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/pkg/result_50ca984.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/pkg/co_b1eb78d.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/widget/ui/slider/slider_ecce195.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/common/widget/ui/userInfo/userInfo_5bd6198.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvFilterView/AvFilterView_5709328.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvMuiltSizeFilterView/AvMuiltSizeFilterView_5a57aa1.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvTypeFilterView/AvTypeFilterView_cea6b92.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorWallFilterView/AvColorWallFilterView_cf8a646.css"/><link rel="stylesheet" type="text/css" href="//img2.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorFilterView/AvColorFilterView_5b1da63.css"/><link rel="stylesheet" type="text/css" href="//img2.bdstatic.com/static/common/widget/loginbar/loginbar_e8a6507.css"/></head>  <script> alog('speed.set', 'ht', +new Date); </script>  <body class=""> <script type="text/javascript">require.siteNS && require.siteNS(["searchresult", "common"]);require.resourceMap({"res":{"common:widget/ui/base/base.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/base/base_a66ce51.js"},"common:widget/ui/arch/router.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/arch/router_1670dcf.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/app.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/arch/app_c1dac05.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/arch/router.js"]},"common:widget/ui/base/EventDispatcher.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/base/EventDispatcher_e71d337.js","pkg":"common:p1"},"common:widget/ui/base/events.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/base/events_f8b4e1f.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/EventDispatcher.js"]},"common:widget/ui/arch/behavior/pageresizer.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/arch/behavior/pageresizer_9f05f70.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/arch/localdb.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/arch/localdb_1fa8a65.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/collection.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/arch/collection_8624f21.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/arch/localdb.js"]},"common:widget/ui/arch/handlers.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/arch/handlers_2d9d42f.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/events/events.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/events/events_87337df.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/EventDispatcher.js"]},"common:widget/ui/utils/scroller.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/utils/scroller_efc1f29.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/events/events.js"]},"common:widget/ui/utils/pageresizer.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/utils/pageresizer_9feba52.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/events/events.js"]},"common:widget/ui/utils/utils.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/utils/utils_2cc00ac.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/scroller.js","common:widget/ui/utils/pageresizer.js"]},"common:widget/ui/arch/history.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/arch/history_dbb6541.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"common:widget/ui/arch/model.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/arch/model_32910e4.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/pagemodel.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/arch/pagemodel_8be1499.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/base/events.js","common:widget/ui/arch/model.js"]},"common:widget/ui/base/subject.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/base/subject_7c3c6c3.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/EventEmitter/EventEmitter.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/EventEmitter/EventEmitter_655344a.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/monitorRequest/monitorRequest.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/monitorRequest/monitorRequest_cabcf84.js","pkg":"common:p1"},"common:widget/ui/searchUtils/searchUtils.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/searchUtils/searchUtils_17600ce.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/slider/slider.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/slider/slider_545c0c2.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/EventEmitter/EventEmitter.js"]},"common:widget/ui/statistic/statistic.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/statistic/statistic_09d1c4a.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/monitorRequest/monitorRequest.js","common:widget/ui/base/events.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/suggest/data.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/suggest/data_89dc815.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"common:widget/ui/suggest/inputwatcher.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/suggest/inputwatcher_2eb7c40.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/suggest/suggestionlist.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/suggest/suggestionlist_37c79c7.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/suggest/suggestion.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/suggest/suggestion_1507f89.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/suggest/data.js","common:widget/ui/suggest/inputwatcher.js","common:widget/ui/suggest/suggestionlist.js"]},"common:widget/ui/sugHistory/sugHistory.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/sugHistory/sugHistory_4277c60.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/statistic/statistic.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/SugRec/SugRec.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/SugRec/SugRec_3755387.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/statistic/statistic.js"]},"common:widget/ui/swf/swf.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/swf/swf_b5294d0.js","pkg":"common:p1"},"common:widget/ui/userInfo/userInfo.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/userInfo/userInfo_82b8b2d.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/searchUtils/searchUtils.js","common:widget/ui/base/events.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/feedback/feedback.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/feedback/feedback_4002381.js","pkg":"common:p1"},"common:widget/shitu/static/animate.js":{"url":"//img1.bdstatic.com/static/common/widget/shitu/static/animate_d5993fc.js","deps":["common:widget/ui/base/base.js"]},"common:widget/shitu/run.js":{"url":"//img0.bdstatic.com/static/common/widget/shitu/run_bd921f8.js","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/shitu/static/animate.js"]},"common:widget/ui/juicer/juicer.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/juicer/juicer_59c3d50.js"},"searchresult:widget/ui/app/noResultPage.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/app/noResultPage_ee2374d.js","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/relsearchBox/relsearchBox.js","common:widget/ui/userInfo/userInfo.js","searchresult:widget/ui/controls/hotwordBox/hotwordBox.js","searchresult:widget/ui/controls/suggBox/suggBox.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/app/pagemodel.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/app/pagemodel_c5ab165.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/arch/pagemodel.js"]},"searchresult:widget/ui/app/app.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/app/app_37a638b.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/arch/app.js","searchresult:widget/ui/app/pagemodel.js"]},"searchresult:widget/ui/utils/lib.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/utils/lib_9563723.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/app/datacontroller.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/app/datacontroller_dec6049.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/lib.js"]},"searchresult:widget/ui/app/history.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/app/history_99d60d0.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/arch/history.js"]},"searchresult:widget/ui/app/sizemanager.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/app/sizemanager_9470d7a.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/base/subject.js"]},"searchresult:widget/ui/utils/scroller.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/utils/scroller_7a260db.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/utils/utils.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/utils/utils_8781693.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/statistic/statistic.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/statistic/statistic_18dd36e.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/EventEmitter/EventEmitter.js","common:widget/ui/monitorRequest/monitorRequest.js","searchresult:widget/ui/app/pagemodel.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/morePageBox/morePageBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/morePageBox/morePageBox_e22eccf.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","common:widget/ui/base/EventDispatcher.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/app/scrollmanager.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/app/scrollmanager_d492580.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/utils/scroller.js","common:widget/ui/base/subject.js","common:widget/ui/base/EventDispatcher.js","common:widget/ui/EventEmitter/EventEmitter.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/controls/morePageBox/morePageBox.js"]},"searchresult:widget/ui/models/filtermodel.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/models/filtermodel_9a67e9c.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/base/events.js","common:widget/ui/arch/model.js"]},"searchresult:widget/ui/collections/imgcollection.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/collections/imgcollection_396e663.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/arch/collection.js","searchresult:widget/ui/app/pagemodel.js","searchresult:widget/ui/utils/lib.js"]},"searchresult:widget/ui/strategy/imglayoutstrategy.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/strategy/imglayoutstrategy_59f65f9.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js"]},"searchresult:widget/ui/strategy/insertstrategy.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/strategy/insertstrategy_109fa2b.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js"]},"searchresult:widget/ui/config/base/config.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/config/base/config_80645d2.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/statistic/bdgstat.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/statistic/bdgstat_dc78e9c.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/monitorRequest/monitorRequest.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/app/pagemodel.js"]},"searchresult:widget/ui/controls/postpone/postpone.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/postpone/postpone_0f090f5.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/controls/imgpagelist/cellBox/cellBox.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/imgpagelist/cellBox/cellBox_9cdd250.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/utils/lib.js","searchresult:widget/ui/statistic/bdgstat.js","searchresult:widget/ui/controls/postpone/postpone.js","searchresult:widget/ui/utils/utils.js"]},"searchresult:widget/ui/controls/imgpagelist/TJADBox/TJADBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/imgpagelist/TJADBox/TJADBox_c7d1740.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/statistic/statistic.js","common:widget/ui/juicer/juicer.js"]},"searchresult:widget/ui/controls/fakeCK/fakeCK.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/fakeCK/fakeCK_5ff12a8.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/controls/imgpagelist/FCADBox/FCADBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/imgpagelist/FCADBox/FCADBox_46d5c31.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/controls/fakeCK/fakeCK.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/imgpagelist/imgpagelist.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/imgpagelist/imgpagelist_55dbad6.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/utils/lib.js","searchresult:widget/ui/config/base/config.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/controls/imgpagelist/cellBox/cellBox.js","searchresult:widget/ui/controls/imgpagelist/TJADBox/TJADBox.js","searchresult:widget/ui/controls/imgpagelist/FCADBox/FCADBox.js","common:widget/ui/utils/utils.js"]},"searchresult:widget/ui/controls/hoverBox/hoverBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/hoverBox/hoverBox_963c767.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/statistic/statistic.js","common:widget/ui/utils/utils.js"]},"searchresult:widget/ui/controls/memoryBar/memoryBar.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/memoryBar/memoryBar_2204d8e.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/base/common/common.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/base/common/common_45cb43c.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/base/windowHandle/windowHandle.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/base/windowHandle/windowHandle_7c1357f.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/EventEmitter/EventEmitter.js"]},"searchresult:widget/ui/base/view/AvFilterView/AvFilterView.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/base/view/AvFilterView/AvFilterView_232b006.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/base/view/AvMuiltSizeFilterView/AvMuiltSizeFilterView.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvMuiltSizeFilterView/AvMuiltSizeFilterView_dd06793.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/base/view/AvFilterView/AvFilterView.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/base/view/AvTypeFilterView/AvTypeFilterView.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvTypeFilterView/AvTypeFilterView_1ff7251.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/base/view/AvFilterView/AvFilterView.js"]},"searchresult:widget/ui/base/view/AvColorWallFilterView/AvColorWallFilterView.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorWallFilterView/AvColorWallFilterView_a560528.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/base/view/AvFilterView/AvFilterView.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/base/view/AvColorFilterView/AvColorFilterView.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorFilterView/AvColorFilterView_60ff8de.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/base/view/AvFilterView/AvFilterView.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/pagelets/base/avfilter/init.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/pagelets/base/avfilter/init_0f2c934.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/base/common/common.js","searchresult:widget/ui/base/windowHandle/windowHandle.js","searchresult:widget/ui/base/view/AvMuiltSizeFilterView/AvMuiltSizeFilterView.js","searchresult:widget/ui/base/view/AvTypeFilterView/AvTypeFilterView.js","searchresult:widget/ui/base/view/AvColorWallFilterView/AvColorWallFilterView.js","searchresult:widget/ui/base/view/AvColorFilterView/AvColorFilterView.js"]},"searchresult:widget/ui/controls/tagbar/tagbar.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/tagbar/tagbar_9aff488.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js","common:widget/ui/base/events.js","searchresult:widget/ui/base/windowHandle/windowHandle.js","common:widget/ui/EventEmitter/EventEmitter.js"]},"searchresult:widget/ui/controls/jzFilter/jzFilter.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/jzFilter/jzFilter_a6524e7.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js","common:widget/ui/base/events.js","searchresult:widget/ui/base/windowHandle/windowHandle.js"]},"searchresult:widget/ui/controls/filter/filterClass/filterClass.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/filterClass/filterClass_0819dd1.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/filter/filterConfig/filterConfig.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/filterConfig/filterConfig_ff5e87b.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/sizeFilter/sizeFilter.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/sizeFilter/sizeFilter_f34601c.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/controls/filter/filterClass/filterClass.js","searchresult:widget/ui/controls/filter/filterConfig/filterConfig.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/filter/colorFilter/colorFilter.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/colorFilter/colorFilter_c991668.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/controls/filter/filterConfig/filterConfig.js","searchresult:widget/ui/controls/filter/filterClass/filterClass.js"]},"searchresult:widget/ui/controls/filter/typeFilter/typeFilter.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/typeFilter/typeFilter_0f4ac46.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/statistic/statistic.js","common:widget/ui/base/events.js","searchresult:widget/ui/controls/filter/filterConfig/filterConfig.js","searchresult:widget/ui/controls/filter/filterClass/filterClass.js"]},"searchresult:widget/ui/controls/RsBox/RsBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/RsBox/RsBox_0a847a7.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/utils/utils.js"]},"searchresult:widget/ui/controls/relsearchBox/relsearchBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/relsearchBox/relsearchBox_222702b.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/hotwordBox/hotwordBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/hotwordBox/hotwordBox_d6e2df8.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/suggBox/suggBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/suggBox/suggBox_7576a4f.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","common:widget/ui/suggest/suggestion.js","common:widget/ui/sugHistory/sugHistory.js"]},"searchresult:widget/pagelets/base/topInfoBar/topInfoBar.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/pagelets/base/topInfoBar/topInfoBar_5723eb4.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/app/page.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/app/page_17e1f8a.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","searchresult:widget/ui/app/history.js","common:widget/ui/arch/behavior/pageresizer.js","searchresult:widget/ui/utils/lib.js","searchresult:widget/ui/app/sizemanager.js","searchresult:widget/ui/app/scrollmanager.js","common:widget/ui/arch/handlers.js","searchresult:widget/ui/models/filtermodel.js","searchresult:widget/ui/collections/imgcollection.js","searchresult:widget/ui/strategy/imglayoutstrategy.js","searchresult:widget/ui/strategy/insertstrategy.js","searchresult:widget/ui/controls/imgpagelist/imgpagelist.js","searchresult:widget/ui/controls/hoverBox/hoverBox.js","searchresult:widget/ui/controls/memoryBar/memoryBar.js","searchresult:widget/pagelets/base/avfilter/init.js","searchresult:widget/ui/controls/tagbar/tagbar.js","searchresult:widget/ui/controls/jzFilter/jzFilter.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/statistic/bdgstat.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/filter/sizeFilter/sizeFilter.js","searchresult:widget/ui/controls/filter/colorFilter/colorFilter.js","searchresult:widget/ui/controls/filter/typeFilter/typeFilter.js","searchresult:widget/ui/controls/RsBox/RsBox.js","searchresult:widget/ui/controls/relsearchBox/relsearchBox.js","searchresult:widget/ui/controls/hotwordBox/hotwordBox.js","searchresult:widget/ui/controls/suggBox/suggBox.js","searchresult:widget/pagelets/base/topInfoBar/topInfoBar.js"]},"searchresult:widget/ui/component/component.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/component/component_875ce06.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/action/base/imgcollectioin_setting.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/action/base/imgcollectioin_setting_ffc6c0c.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/utils/lib.js"]},"searchresult:widget/ui/action/base/base.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/action/base/base_523427b.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/action/base/imgcollectioin_setting.js","searchresult:widget/ui/collections/imgcollection.js","searchresult:widget/ui/strategy/imglayoutstrategy.js","searchresult:widget/ui/app/page.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/app/app.js"]},"searchresult:widget/ui/controls/ReportBox/ReportBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/ReportBox/ReportBox_ebd714e.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/app/pagemodel.js"]},"searchresult:widget/ui/controls/adsearchBox/adsearchBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/adsearchBox/adsearchBox_aad3e2a.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/cyberbox/cyberplayer.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/cyberbox/cyberplayer_e097387.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/cyberbox/cyberbox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/cyberbox/cyberbox_24ffbaf.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/cyberbox/cyberplayer.js"]},"searchresult:widget/ui/controls/festivalLogo/FestivalLogo.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/festivalLogo/FestivalLogo_7d2c1a5.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/InteractFilter/InteractFilter.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/filter/InteractFilter/InteractFilter_ae23e39.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/InteractFilter/tagData/tagData.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/filter/InteractFilter/tagData/tagData_4cb2061.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/indicator/indicator.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/filter/indicator/indicator_c9ab8b8.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/wallpaperFliter/wallpaperFilter.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/filter/wallpaperFliter/wallpaperFilter_11b8153.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/fixedSearchBox/fixedRSBox/fixedRSBox.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/fixedSearchBox/fixedRSBox/fixedRSBox_486f57e.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/fixedSearchBox/fixedSearchBox.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/fixedSearchBox/fixedSearchBox_6f59ef8.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/controls/fixedSearchBox/fixedRSBox/fixedRSBox.js","searchresult:widget/ui/controls/suggBox/suggBox.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/floatBoxClass/floatBoxClass_79fa05b.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/floatBox/AldBox/AldBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/AldBox/AldBox_6f32187.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js"]},"searchresult:widget/ui/controls/floatBox/baikeBox/baikeBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/baikeBox/baikeBox_ff6da79.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js"]},"searchresult:widget/ui/controls/floatBox/comicBox/comicBox.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/comicBox/comicBox_5ea3e57.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js"]},"searchresult:widget/ui/controls/floatBox/fcAdBox/fcAd.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/fcAdBox/fcAd_68311f2.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/floatBox/starBox/starBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/starBox/starBox_8e4e3cb.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js"]},"searchresult:widget/ui/utils/timeline.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/utils/timeline_a2f3f77.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/imgPopBox/imgPopBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/imgPopBox/imgPopBox_60de90d.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/utils/timeline.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/mapBox/DragSupport/DragSupport.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/mapBox/DragSupport/DragSupport_566744a.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/mapBox/ZoomProvider/ZoomProvider.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/mapBox/ZoomProvider/ZoomProvider_cac7d22.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/mapBox/mapBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/mapBox/mapBox_7404840.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/controls/mapBox/ZoomProvider/ZoomProvider.js","searchresult:widget/ui/controls/mapBox/DragSupport/DragSupport.js"]},"searchresult:widget/pagelets/movie/banners/banners.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/pagelets/movie/banners/banners_b5447b6.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/cyberbox/cyberbox.js","searchresult:widget/ui/component/component.js","searchresult:widget/ui/statistic/bdgstat.js"]},"searchresult:widget/ui/controls/movieBanners/bannerContainer.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/movieBanners/bannerContainer_0d0b8a6.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/component/component.js","searchresult:widget/pagelets/movie/banners/banners.js"]},"searchresult:widget/ui/controls/movieTabs/tabs.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/movieTabs/tabs_1f81b19.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","searchresult:widget/ui/component/component.js","searchresult:widget/ui/statistic/bdgstat.js"]},"searchresult:widget/ui/controls/newsSliderBox/pageresizer.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/newsSliderBox/pageresizer_e86538a.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/newsSliderBox/newsSliderBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/newsSliderBox/newsSliderBox_01ba740.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/slider/slider.js","common:widget/ui/base/events.js","common:widget/ui/EventEmitter/EventEmitter.js","searchresult:widget/ui/controls/newsSliderBox/pageresizer.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/shootbanners/shootbanners.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/shootbanners/shootbanners_f2f906d.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/component/component.js"]},"searchresult:widget/ui/controls/shoottabs/shoottabs.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/shoottabs/shoottabs_e6476a2.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","searchresult:widget/ui/component/component.js","searchresult:widget/ui/utils/scroller.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/specicalRecBox/specialRecBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/specicalRecBox/specialRecBox_05ee852.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/statistic/statistic-core.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/statistic/statistic-core_69709d2.js","pkg":"searchresult:p1"},"searchresult:widget/ui/strategy/filterStrategy.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/strategy/filterStrategy_f367bf6.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/utils/imghelper.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/utils/imghelper_f70f1d0.js","pkg":"searchresult:p1"},"searchresult:widget/ui/utils/pms.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/utils/pms_61658b8.js","pkg":"searchresult:p1"},"searchresult:widget/ui/utils/swf.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/utils/swf_d14d2d6.js","pkg":"searchresult:p1"},"searchresult:widget/searchBox/imgFilter/init.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/searchBox/imgFilter/init_fc417b5.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ad/ecom199/init.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ad/ecom199/init_c98a43a.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ad/fuzi/sning3.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ad/fuzi/sning3_bd05ab4.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ad/sning1/sning1.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ad/sning1/sning1_17fc423.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ad/sning2/sning2.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ad/sning2/sning2_b8a4441.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ad/sning3/sning3.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ad/sning3/sning3_486c90e.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/pageLayout/pageLayoutCheck.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/pageLayout/pageLayoutCheck_17f513f.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/pageLayout/pageLayoutTip.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/pageLayout/pageLayoutTip_451d146.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"searchresult:widget/pageLayout/pageLayoutReview.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/pageLayout/pageLayoutReview_8b11bf0.js","pkg":"searchresult:p1","deps":["searchresult:widget/pageLayout/pageLayoutCheck.js","searchresult:widget/pageLayout/pageLayoutTip.js"]},"searchresult:widget/pagelets/base/backTop/init.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/pagelets/base/backTop/init_7fc0a8f.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/pagelets/base/timeliness/init.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/pagelets/base/timeliness/init_ccb9c30.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/juicer/juicer.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/action/movie/imgcollection_setting.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/action/movie/imgcollection_setting_a591058.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/utils/lib.js","searchresult:widget/ui/action/base/imgcollectioin_setting.js"]},"searchresult:widget/ui/action/movie/action.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/action/movie/action_bc8a372.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/app/page.js","searchresult:widget/ui/collections/imgcollection.js","searchresult:widget/ui/action/movie/imgcollection_setting.js","searchresult:widget/ui/strategy/imglayoutstrategy.js","searchresult:widget/ui/action/base/base.js","searchresult:widget/ui/statistic/bdgstat.js","common:widget/ui/utils/utils.js"]},"searchresult:widget/ui/app/lazyPage.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/app/lazyPage_0aab115.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/filter/sizeFilter/sizeFilter.js","searchresult:widget/ui/controls/filter/colorFilter/colorFilter.js","searchresult:widget/ui/controls/filter/typeFilter/typeFilter.js","searchresult:widget/ui/controls/RsBox/RsBox.js","searchresult:widget/ui/controls/relsearchBox/relsearchBox.js","common:widget/ui/userInfo/userInfo.js","searchresult:widget/ui/controls/hotwordBox/hotwordBox.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/pagelets/base/topInfoBar/topInfoBar.js","searchresult:widget/ui/controls/movieBanners/bannerContainer.js","searchresult:widget/ui/controls/movieTabs/tabs.js","searchresult:widget/ui/controls/imgpagelist/FCADBox/FCADBox.js","searchresult:widget/ui/controls/imgpagelist/TJADBox/TJADBox.js","searchresult:widget/ad/sning1/sning1.js","searchresult:widget/pagelets/movie/banners/banners.js","searchresult:widget/ui/controls/shootbanners/shootbanners.js","searchresult:widget/ui/controls/shoottabs/shoottabs.js","searchresult:widget/pageLayout/pageLayoutReview.js"]},"common:widget/ui/historyRecord/historyRecord.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/historyRecord/historyRecord_31e31e1.js","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/loginBox/loginBox.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/loginBox/loginBox_ea459f5.js"},"common:widget/loginbar/loginbar.js":{"url":"//img2.bdstatic.com/static/common/widget/loginbar/loginbar_f08c999.js","deps":["common:widget/ui/base/base.js","common:widget/ui/loginBox/loginBox.js","common:widget/ui/base/EventDispatcher.js"]},"searchresult:widget/ui/action/pullface/imgcollectioin_setting.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/action/pullface/imgcollectioin_setting_80602c8.js","pkg":"searchresult:p2","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/utils/lib.js"]},"searchresult:widget/ui/action/pullface/action.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/action/pullface/action_cd9f68d.js","pkg":"searchresult:p2","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/app/page.js","searchresult:widget/ui/collections/imgcollection.js","searchresult:widget/ui/strategy/imglayoutstrategy.js","searchresult:widget/ui/action/pullface/imgcollectioin_setting.js","searchresult:widget/ui/action/base/base.js","searchresult:widget/ui/controls/floatBox/baikeBox/baikeBox.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/fmCheck/fmCheck.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/fmCheck/fmCheck_e6197fc.js","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/durationStat/durationStat.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/durationStat/durationStat_d292e9f.js","deps":["common:widget/ui/utils/utils.js","common:widget/ui/base/base.js"]}},"pkg":{"common:p1":{"url":"//img0.bdstatic.com/static/common/pkg/cores_2cc0104.js"},"searchresult:p1":{"url":"//img1.bdstatic.com/static/searchresult/pkg/result_e750c91.js"},"searchresult:p2":{"url":"//img0.bdstatic.com/static/searchresult/pkg/baike_2dc1093.js"}}});</script> 
+<div id="search" class="">
+<script>
+        (function() {
+            var search = document.getElementById('search');
+            var width = window.innerWidth
+                || (document.documentElement && document.documentElement.clientWidth)
+                || (document.body && document.body.clientWidth);
+            if (search && width < 1217) {
+                search.className = 'narrow ' + search.className;
+            }
+        })();
+    </script>
+<div class="s_search">
+<a href="/" class="s_logo">
+<img src="//img0.bdstatic.com/static/searchresult/img/logo-2X_b99594a.png" alt="到 百度图片首页 来" title="返回 百度图片首页">
+</a>
+<div class="s_nav">
+<form action="/search/index" class="searchform" name="f1" onsubmit="return s_submit(this,true)">
+<input type="hidden" name="tn" value="baiduimage">
+<input type="hidden" name="ipn" value="r">
+<input name="ct" type="hidden" value="201326592">
+<input name="cl" type="hidden" value="2">
+<input name="lm" type="hidden" value="-1">
+<input name="st" type="hidden" value="-1">
+<input name="fm" type="hidden" value="result">
+<input name="fr" type="hidden" value="">
+<input name="sf" type="hidden" value="1">
+<input name="fmq" type="hidden" value="">
+<input name="pv" type="hidden" value="">
+<input name="ic" type="hidden" value="0">
+<input name="nc" type="hidden" value="1">
+<input name="z" type="hidden" value="">
+<input name="se" type="hidden" value="">
+<input name="showtab" type="hidden" value="0">
+<input name="fb" type="hidden" value="0">
+<input name="width" type="hidden" value="">
+<input name="height" type="hidden" value="">
+<input name="face" type="hidden" value="0">
+<input name="istype" type="hidden" value="2">
+<input name="ie" type="hidden" value="utf-8">
+<input name="hs" type="hidden" value="2">
+<input name="ctd" type="hidden" value="">
+<span class="s_ipt_wr"><input id="kw" name="word" class="s_ipt" value="李敏" autocomplete="off" onfocus="this.parentNode.className='s_ipt_wr active'" onblur="this.parentNode.className='s_ipt_wr'"/></span><span class="s_btn_wr"><input type="submit" class="s_btn" onmousedown="this.className='s_btn s_btn_h'" onmouseout="this.className='s_btn'"  value="百度一下"   /></span>
+</form><div id="stcontent" class="common-shitu"> <a class="sttb" hidefocus="true" id="sttb" href="javascript:void(0)" title="上传图片，搜索相关信息"> <img class="st_camera_off" src="//img1.bdstatic.com/static/common/widget/shitu/images/camera_new_off_a552294.png" width="20" height="20"> <img class="st_camera_on" src="//img2.bdstatic.com/static/common/widget/shitu/images/camera_new_on_4e3e250.png" width="20" height="20"> <div class="st_tips" id="stTipsBox">上传图片，搜索相关信息</div> <div class="st_tips_arrow_in" id="stTipArrowIn"></div> <div class="st_tips_arrow_out" id="stTipArrowOut"></div> </a> <div id="stsug" class="stsug" style="display:none"> <div id="sthead"><span>识图</span><img id="sthelp" width="13" height="13" src="//img2.bdstatic.com/static/common/widget/shitu/images/mark_b68ff2e.png" /></div> <div class="stf"> <form id="form2" target="_self" enctype="multipart/form-data" name="form2"> <a id="uploadImg" href="javascript:void(0)" data-nsclick="p=1811102&tn=index&event_type=shitu.search.click&pos=upload">本地上传<input type="file" name="file" id="stfile" size="2"></a> <div class="st_dragtg" id="dragtg" style="display:none;">提示：您也可以把图片拖到这里</div> <input id="shitu2" name="pos" value="" type="hidden"> <input name="uptype" value="upload_pc" type="hidden"> <input name="fm" value="index" type="hidden"> </form> <form id="form1" target="_self" enctype="multipart/form-data" method="get" name="form1"> <div id="sturl"> <span class="stuwr"> <input type="text" id="stuurl" placeholder="在此处粘贴图片网址" value="" autocomplete="off"  class="stuurl" name="objurl"> </span> <span class="stsb"> <input type="submit" id="sbobj" class="stsb2" onmousedown="this.className='stsb2 stsb3'" onmouseout="this.className='stsb2'" onmouseover="this.className='stsb2 stsb4'" value="识图一下"> </span> </div> <input name="filename" id="filename" value="" type="hidden"> <input name="rt" value="0" type="hidden"> <input name="rn" value="10" type="hidden"> <input id="stftn" name="ftn" value="wantu" type="hidden"> <input name="ct" value="1" type="hidden"> <input name="stt" value="0" type="hidden"> <input name="tn" value="shituresultpc" type="hidden"> <input id="shitu1" name="uptype" value="paste" type="hidden"> <input name="fm" value="index" type="hidden"> </form> </div> <div class="drag-text-tip" id="dttip">拖拽图片到此处试试</div> <div id="stmore" style="display:none;"> <div class="stmore-header">百度识图</div> <ul> <li>识别人物、搜索服饰、寻找高清素材、浏览相似美图，尽在百度识图!</li> </ul> <div class="stmore_arrow_in"></div> <div class="stmore_arrow_out"></div> </div> <a id="closest" href="javascript:void(0);" title="关闭"></a> <div id="point" style="display:none;"> <img src="//img1.bdstatic.com/img/image/shitu/feimg/uploading.gif" /><span>正在识别中，请稍候...</span> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div class="undrag-text-tip" id="undragtip"> <p>抱歉，Safari不支持拖拽识图。<br/> 请保存图片到本地，通过本地上传或在搜索框粘贴图片url进行识图。</p> </div> <div id="dragtip" style="display:none;"> <span>请拖拽图片到此处</span> <div class="drag_dot_area drag_dot_left_top"></div> <div class="drag_dot_area drag_dot_left_bottom"></div> <div class="drag_dot_area drag_dot_right_top"></div> <div class="drag_dot_area drag_dot_right_bottom"></div> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div class="left-border"></div> <div class="right-border"></div> </div> <div id="mock-stsug"></div> </div>  </div>
+<div id="imgfilter">
+<a id="imgfilter-btn" class="filter-open" href="javascript:;">
+<span class="imgfilter-text">图片筛选</span>
+<span class="imgfilter-arrow"></span>
+</a>
+<div id="filter-holder" style="display:none">
+<span class="holder-arrow"></span>
+<div id="top-filter-hoder">
+<div id="filter-container">
+<div class="filter" id="filter">
+<div id="sizeFilter" class="subFilter sizeFilter"></div>
+<div id="colorFilter" class="subFilter"></div>
+<div id="typeFilter" class="subFilter"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='userInfo'>
+<a target='_blank' href='http://www.baidu.com/'>百度首页</a>
+</div>
+</div>
+<div id="pageLayoutTipWindow">
+<div class="page-layouttip-banner">
+<div class="page-layouttip-describe">温馨提示：由于您的浏览器安装了某些插件，导致页面布局失败，重新加载可恢复布局</div>
+<div class="page-layouttip-loadbtn">重新加载</div>
+<div class="page-layouttip-viewbtn">继续查看</div>
+</div>
+</div><script>
+var commonHeaderConf = {
+	sugProdName: "image",
+	searchInputId: "kw"
+};
+void function(w){
+	window.setHeadUrl= function(o){
+		var links = {
+		i_news:['word','http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&ie=utf-8',1],
+        i_webpage:['wd','https://www.baidu.com/s?ie=utf-8',1],
+		i_tieba:['kw','http://tieba.baidu.com/f?ie=utf-8',1],
+		i_zhidao:['word','http://zhidao.baidu.com/q?ct=17&pn=0&tn=ikaslist&rn=10&lm=0&ie=utf-8',1],
+		i_mp3:['key','http://music.baidu.com/search?fr=img&ie=utf-8',1],
+		i_video:['word','http://v.baidu.com/v?ct=301989888&s=25&ie=utf-8',1],
+		i_map:['wd','http://map.baidu.com/?newmap=1&ie=utf-8&s=s',2],
+		i_baike:['word','http://baike.baidu.com/search/word?pic=1&sug=1&enc=utf8',1],
+		i_wenku:['word','http://wenku.baidu.com/search?ie=utf-8',1]
+		},
+		name = o.name,
+		items = links[name],
+		kw = document.getElementById(w),
+		reg = new RegExp('^\\s+|\\s+\x24'),
+		key = kw.value.replace(reg,'');
+		if(items){
+			if(key.length > 0){
+				var wd = items[0],
+					url = items[1],
+					proSign = items[2];
+				url = pro(url,wd,key,proSign);
+				o.href = url;
+
+			}else{
+				o.href = o.href.match(new RegExp('^http:\/\/.+\\.baidu\\.com'))[0];
+			}
+            if(!o.clickHandle){
+                o.onclick = function(e){
+                    if(typeof p === 'function'){
+                        e = e || window.event;
+                        p(e, 52, {isAsyn : true, to : this.name, href : this.href});
+                    }
+
+                };
+                o.clickHandle = true;
+            }
+		}
+		function pro(url,wd,key,proSign){
+			/*日文片假部分乱码\u30f7--\u30fb,转换成实体*/
+			function HtmlEncodeAndComponent(inTXT){
+				/*地图，uri编码，不转换成实体*/
+				if(proSign==2){
+					return encodeURIComponent(key);
+				}
+				var hexArray =[],entityCode = '',finalKey = '', character='',tmpInt=0;
+				for(i=0; i<inTXT.length; i++){
+					character = inTXT.charCodeAt(i).toString(16).toUpperCase();
+					tmpInt = parseInt(character,16);
+					if(tmpInt>=0x30f7&&tmpInt<=0x30fb){
+						decCode = tmpInt.toString(10);
+						entityCode = '&#'+decCode+';';
+						finalKey += encodeURIComponent(entityCode);
+
+					}else{
+						entityCode = inTXT.charAt(i);
+						if(proSign>0){
+							finalKey += encodeURIComponent(entityCode);
+						}else{
+							finalKey += entityCode;
+						}
+					}
+				}
+				return finalKey;
+			}
+			var prefix = (url.indexOf('?')>0?'&':'?') + wd +'=';
+			if(proSign == 2){
+				prefix = encodeURIComponent(prefix);
+			}
+			key = HtmlEncodeAndComponent(key);
+			return url + prefix + key;
+		}
+	}
+}(commonHeaderConf.searchInputId);
+</script>
+<div class="s_tab">
+<a href="https://www.baidu.com/"  onmousedown="setHeadUrl(this)" name="i_webpage" >网页</a>
+<a href="http://news.baidu.com/" onmousedown="setHeadUrl(this)" name="i_news">新闻</a>
+<a href="http://tieba.baidu.com/" onmousedown="setHeadUrl(this)" name="i_tieba">贴吧</a>
+<a href="http://zhidao.baidu.com/" onmousedown="setHeadUrl(this)" name="i_zhidao" >知道</a>
+<a href="http://music.baidu.com/" onmousedown="setHeadUrl(this)" name="i_mp3" class="eng">音乐</a>
+<b>图片</b>
+<a href="http://v.baidu.com/" onmousedown="setHeadUrl(this)" name="i_video" >视频</a>
+<a href="http://map.baidu.com/" onmousedown="setHeadUrl(this)" name="i_map" >地图</a>
+<a href="http://wenku.baidu.com/" onmousedown="setHeadUrl(this)" name="i_wenku">文库</a>
+<a href="https://www.baidu.com/more/" onmousedown="setHeadUrl(this)" name="i_more">更多»</a>
+</div>
+<div id="topInfoBar">
+<div id="topRS">
+<em class="pull-rs-title">相关搜索：</em><a class="pull-rs" title="查看 李敏李讷不承认毛新宇"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E6%9D%8E%E6%95%8F%E6%9D%8E%E8%AE%B7%E4%B8%8D%E6%89%BF%E8%AE%A4%E6%AF%9B%E6%96%B0%E5%AE%87&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">李敏李讷不承认毛新宇</a><a class="pull-rs" title="查看 抗联李敏的前夫"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E6%8A%97%E8%81%94%E6%9D%8E%E6%95%8F%E7%9A%84%E5%89%8D%E5%A4%AB&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">抗联李敏的前夫</a><a class="pull-rs" title="查看 李敏李纳近况"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E6%9D%8E%E6%95%8F%E6%9D%8E%E7%BA%B3%E8%BF%91%E5%86%B5&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">李敏李纳近况</a><a class="pull-rs" title="查看 张家口副市长李敏"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%BC%A0%E5%AE%B6%E5%8F%A3%E5%89%AF%E5%B8%82%E9%95%BF%E6%9D%8E%E6%95%8F&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">张家口副市长李敏</a><a class="pull-rs" title="查看 山东电视台主持人李敏"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%B1%B1%E4%B8%9C%E7%94%B5%E8%A7%86%E5%8F%B0%E4%B8%BB%E6%8C%81%E4%BA%BA%E6%9D%8E%E6%95%8F&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">山东电视台主持人李敏</a><a class="pull-rs" title="查看 越剧演员李敏微博"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%B6%8A%E5%89%A7%E6%BC%94%E5%91%98%E6%9D%8E%E6%95%8F%E5%BE%AE%E5%8D%9A&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">越剧演员李敏微博</a><a class="pull-rs" title="查看 越剧演员李敏简历"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%B6%8A%E5%89%A7%E6%BC%94%E5%91%98%E6%9D%8E%E6%95%8F%E7%AE%80%E5%8E%86&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">越剧演员李敏简历</a><a class="pull-rs" title="查看 张家口李敏"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%BC%A0%E5%AE%B6%E5%8F%A3%E6%9D%8E%E6%95%8F&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">张家口李敏</a><a class="pull-rs" title="查看 临邑吧破鞋李敏照片"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E4%B8%B4%E9%82%91%E5%90%A7%E7%A0%B4%E9%9E%8B%E6%9D%8E%E6%95%8F%E7%85%A7%E7%89%87&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">临邑吧破鞋李敏照片</a><a class="pull-rs" title="查看 女飞行员李敏悼念余旭"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%A5%B3%E9%A3%9E%E8%A1%8C%E5%91%98%E6%9D%8E%E6%95%8F%E6%82%BC%E5%BF%B5%E4%BD%99%E6%97%AD&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">女飞行员李敏悼念余旭</a><a class="pull-rs" title="查看 西华师范大学李敏"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%A5%BF%E5%8D%8E%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6%E6%9D%8E%E6%95%8F&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">西华师范大学李敏</a><a class="pull-rs" title="查看 深圳阿宝集团李敏老婆"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E6%B7%B1%E5%9C%B3%E9%98%BF%E5%AE%9D%E9%9B%86%E5%9B%A2%E6%9D%8E%E6%95%8F%E8%80%81%E5%A9%86&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">深圳阿宝集团李敏老婆</a><a class="pull-rs" title="查看 华宁大酒店总经理李敏"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%8D%8E%E5%AE%81%E5%A4%A7%E9%85%92%E5%BA%97%E6%80%BB%E7%BB%8F%E7%90%86%E6%9D%8E%E6%95%8F&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">华宁大酒店总经理李敏</a><a class="pull-rs" title="查看 泰安天乐坊李敏夏琳"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E6%B3%B0%E5%AE%89%E5%A4%A9%E4%B9%90%E5%9D%8A%E6%9D%8E%E6%95%8F%E5%A4%8F%E7%90%B3&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">泰安天乐坊李敏夏琳</a><a class="pull-rs" title="查看 莱芜汇融集团李敏老婆"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%8E%B1%E8%8A%9C%E6%B1%87%E8%9E%8D%E9%9B%86%E5%9B%A2%E6%9D%8E%E6%95%8F%E8%80%81%E5%A9%86&hs=2&oriquery=%25E6%259D%258E%25E6%2595%258F&ofr=%25E6%259D%258E%25E6%2595%258F&sensitive=0">莱芜汇融集团李敏老婆</a></div>
+<div id="timeliness" class="hotpot-container">
+</div>
+<script type="text/juicer" id="timeliness-tpl">
+    <div id="timeliness-bless">
+        <div class="blessing-img-wrapper">
+            <img class="blessing-img" src="${icon.normal}" alt="" />
+            <img class="blessing-img icon-zoomup" src="${icon.normal}" alt="" />
+        </div>
+        <span class="blessing-content">
+            ${title}
+        </span>
+        <div class="blessing-count-wrapper">
+            (<span class="blessing-count"></span>人)
+        </div>
+    </div>
+    <div class="egg">
+        <img class="blessing-img-egg" src="${egg}" alt="" />
+    </div>
+</script>
+</div>
+<div id="specialQuery"></div>
+<div id="browser-hotword"></div>
+
+</div>
+ 
+
+<script>
+    window.vsid = '6d05fbbf6afc229433d46be7b485e1cdf3ce669c';
+</script>
+<div id="wrapper">
+<div id="pnlBeforeContent">
+<div class="news-slider"></div>
+<div id="smeContainer" style="display:none;">
+</div>
+</div>
+<div id="imgContainer" class="">
+<div id="timeliness-title">
+<img class="blessing-img guideIcon" src="">
+<span class="timeliness-desc"></span>
+</div>
+<div id="pnlBeforeImgList">
+<div class="memory-con" id="memoryBar" style="display: none;">您收藏时已经看到第<span class="memory-page">10</span>页，<span><a class="memory-link">点击直达</a></span><a class="memory-close"></a></div>
+</div>
+<div id="specialRecommend"></div>
+
+<div id="imgid">
+</div>
+<div id="lastPage" style="position:relative;overflow:hidden;padding-left:50px;zoom:1;display:none;">
+为给您提供最相关的图片结果，百度已省略与以上结果相类似的图片，您可<a href="/">点此查看更多搜索结果</a>。</div>
+<div id="ajaxInfo"></div>
+<div id="noPage" >
+<div id="dataNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+抱歉，在该筛选条件下，没有找到与<font color="#C60A00">李敏</font>相关的图片。</div>
+<div id="stdNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+<br>
+<br>
+<font class="fB" style="font-size:14px">百度建议您：</font>
+<div style="font-size:14px;margin-top:0px;">
+<li id="listSetDefault">将筛选功能<a href="/search/index?ct=201326592&z=&s=&tn=baiduimage&ipn=r&word=%E6%9D%8E%E6%95%8F&ie=utf-8&oe=utf-8&lm=-1&st=-1&z=&se=0&fr=ala&pn=0&width=&height=&face=0&ct=503316480" onclick="" >恢复默认状态</a></li>
+<li>修改当前的筛选条件</li>
+<li >看看输入的文字是否有误</li>
+</div>
+<div id=DivPost style="margin-top:0px;margin-left:15px;"></div>
+</div>
+</div>
+</div>
+<div style="clear:both;"></div>
+<p href="javascript:void(0);" id="loading"><img style="width:50px;height:54px;"/></p>
+<div id="pageMoreWrap">
+<a href="javascript:void(0);" onmousedown="p(null,499,{domid:'pageMore',type:'click'})" id="pageMore">加载更多图片</a>
+<div id="resultInfo">找到相关图片约56,500张</div>
+</div><div id="pnlAfterContent" style="display:none">
+<div id="cmsimage">
+<div id="hotWordDiv"></div>
+</div>
+<div id="relecom54">
+</div>
+</div>
+</div>
+<div id="loginbar" style="display:none;"> <div class="loginbar-inner"> <div class="login-png"></div> <a class="baidulogin" href="javascript:;">百度账号登陆</a> <span>或</span> <a class="baidureg" href="javascript:void(0);">注册</a> </div> <a class="loginbar-close" href="javascript:;">关闭</a> </div>  <script>
+    window.alogObjectConfig = {
+        product: '11',
+        page: '2', 
+        speed_page: '2',  
+ 
+        speed: {
+            sample: '0.01'   
+        },
+ 
+       
+        monkey: {
+            sample: '0.01'   
+        },
+ 
+        exception: { 
+            sample: '0.01' 
+        },
+ 
+        feature: {
+            sample: '0.01'
+        },
+ 
+        
+        cus: {
+            sample: '0.01' 
+        },
+ 
+        csp: {
+            sample: '0.01',
+            'default-src': [
+                {match: '*bae.baidu.com', target: 'Accept,Warn'},
+                {match: '*.baidu.com,*.bdstatic.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com', target: 'Accept'},
+                {match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept'},
+                {match: '*', target: 'Accept,Warn'}
+            ]
+        }
+    };
+ 
+    // pc和mobile端会稍有不同，必须严格按照该文档来部署，该段代码必须放在上面的window.alogObjectConfig配置之后
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>  <script>
+    void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("speed.set",{fsItems:i,fs:a})}(window,document);
+</script> 
+<a id="backTop" href="javascript:;" data-title="返回顶部"><div class="btn-inner-text"></div></a>
+<a href="javascript:;" id="report_link" data-title="反馈图片"><div class="btn-inner-text">反馈</div></a>
+ 
+<script>
+        var Hunter = window.Hunter || {};
+        Hunter.userConfig = Hunter.userConfig || [];
+        Hunter.userConfig.push({
+            hid: 36991
+        });
+    </script>
+                    <script>
+    void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d,k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+</script>   </body><script type="text/javascript"  src="//img0.bdstatic.com/static/common/widget/ui/base/base_a66ce51.js" ></script>
+<script type="text/javascript"  src="//img0.bdstatic.com/static/common/pkg/cores_2cc0104.js" ></script>
+<script type="text/javascript"  src="//img1.bdstatic.com/static/searchresult/pkg/result_e750c91.js" ></script>
+<script type="text/javascript"  src="//img1.bdstatic.com/static/common/widget/ui/juicer/juicer_59c3d50.js" ></script>
+<script type="text/javascript">!function(){    window.tn = 'result';
+    window.vsid = 'ebf4f60117e58f1eb6245dfc1640c2ef28f5fd3e';
+    if ('index' === window.tn
+        || 'result' === window.tn
+        || 'detail' === window.tn) {
+        var sttb = document.getElementById('sttb');
+        sttb.removeAttribute && sttb.removeAttribute('title');
+    }
+    /**
+     * 统计代码
+    **/
+    window.ss = function(){
+        var URL = '//imgstat.baidu.com/9.gif?rainbow=1&';
+        function request(url){
+            var seed = Math.random();
+            var img = window[seed] = new Image;
+            img.onload = img.onerror = function(){
+                window[seed] = null;
+                img.onload = img.onerror = null;
+                img = null;
+            };
+            img.src = url;
+        }
+
+        /* p = 0, 首页八张demo图片点击统计
+         * p = 1, 结果页tab相关： name=stu相同tab显示；name=face 人脸搜索tab显示; type=show展现；type=click点击
+         * p = pv, 结果页PV统计：data=1，有结果；data=0无结果；data=-1，down页面
+         **/
+
+        return function(arg, url, e){
+            var s = URL + json2Query(arg) + '&' + Math.random();
+            request(s);
+            if(url){
+                setTimeout(function(){
+                    location.href = url;
+                }, 300);
+                e = e || window.event;
+                if(e){
+                    if(e.preventDefault){
+                        e.preventDefault();
+                    }else{
+                        e.returnValue = false;
+                    }
+                }
+
+            }
+        };
+
+    }();
+    window.__originTitle = document.title;
+    function json2Query(json){
+        if(json == null || typeof json != 'object') return json;
+        var query = [];
+        for(var i in json){
+            if(i != '')
+                query[query.length] = i + '=' + json[i];
+        }
+        return query.join('&');
+    }
+
+    require.async(["common:widget/ui/base/base","common:widget/shitu/run"],function($, shitu){
+        window.$ = $;
+        $(document).ready(function() {
+            var st = new shitu();
+            st.init();
+            window.stInstance = st;
+        });
+    });
+}();
+!function(){require.async(["searchresult:widget/searchBox/imgFilter/init"],function(filter){
+	filter.init();
+})
+
+
+}();
+!function(){    if (window.hotspotData) {
+        require.async(['searchresult:widget/pagelets/base/timeliness/init'], function (Timeliness) {
+            new Timeliness().init(window.hotspotData);
+        });
+    }
+}();
+!function(){/**
+* isRefresh 用来判断禁止se或查询的参数是否生效,false表示无须清零，true表示需要清零
+*/
+require.async(["common:widget/ui/base/base","searchresult:widget/ui/utils/utils","common:widget/ui/historyRecord/historyRecord"],function( $, utils, HistoryRecord){
+
+    window.s_submit = function(form,isRefresh){
+
+
+//图片url检索跳转
+var keyword = form.word.value;
+
+if ($.trim(keyword).length > 0) {
+    var historyRecord = new HistoryRecord({historyKey: 'indexPageSugList'});
+    historyRecord.setRecord(keyword);
+    $.cookie.set('cleanHistoryStatus', 0, {path: '/'});
+}
+
+
+var tiaoma = /^[\s]*http[s]*\:\/\/[\s\S]*\.[jpg|gif|png|bmp|jpeg]*[\s]*$/.test(keyword) ||/img5\.imgtn\.bdimg\.com/.test(keyword) || /mt1\.baidu\.com\/timg/.test(keyword);
+var jumpURL = '/pcdutu?queryImageUrl='+encodeURIComponent(keyword)+'&fm=searchresult&pos=urlsearch&uptype=urlsearch';
+
+
+        if (tiaoma) {
+            // speed
+            $.cookie('uploadTime', new Date().getTime(), {path: '/'});
+
+           location.href = jumpURL;
+           return false;
+        }
+
+
+        var searchConf = utils.query2Json(utils.escapeXSS(window.location.search.substring(1)));
+        if(typeof searchConf.fm == "undefined"){searchConf.fm = '';}
+        if(typeof searchConf.fmq == "undefined"){searchConf.fmq = '';}
+        if(utils.trim(searchConf.queryWord) == form.word.value){
+            form.fmq.value = utils.fmqValueSet();
+        }else{
+            var fmqDate = new Date();
+            var T = fmqDate.getTime();
+            if(searchConf.fmq.indexOf('m') > -1 && searchConf.fmq.indexOf('_m') == -1 && searchConf.fmq.indexOf('_R') == -1){
+                var fmqvalue = searchConf.fmq;
+                form.fmq.value = T + '_' +fmqvalue + '_R';
+            }else{
+                form.fmq.value =  T + '_R';
+            }
+
+        }
+        var isflip = $('body').hasClass('flip');
+        form.tn.value = "baiduimage";
+
+        form.ct.value = "201326592";
+        form.cl.value = "2";
+        form.lm.value = "-1";
+        form.pv.value = "";
+        form.action = "/search/index";
+        if (window.canUseHttps) {
+            form.action = 'https://' + window.location.host + '/search/index';
+        }
+
+        if(isflip) {
+            form.action = "/search/flip";
+        }
+        if(isRefresh == true){
+            // submit直接提交新query
+            form.se.value = "1";
+        }else{
+            var showtab =  parseInt(searchConf.showtab);
+            if(!isNaN(showtab)&&showtab>0){
+                form.showtab.value = showtab;
+            }
+        }
+        form.ctd.value = (+new Date()) + "^00_" + $(window).width() + "X" +  window.innerHeight;
+
+        return true;
+    }
+})
+
+}();
+!function(){
+		window.bid = -1;
+
+	if(!window.passport){
+	    var script = document.createElement("script");
+	    script.src = '//passport.baidu.com/passApi/js/uni_login_wrapper.js?cdnversion=' + (new Date).getTime();
+	    document.body.appendChild(script);
+	}
+	require.async(["common:widget/loginbar/loginbar"],function(loginbar){
+
+	    loginbar.init();        
+
+	});
+
+
+}();
+!function(){    require.async(['searchresult:widget/pagelets/base/backTop/init']);
+
+    require.async(['common:widget/ui/feedback/feedback'], function (feedback) {
+        var callbacks = {};
+        feedback.init(callbacks);
+    });
+}();
+!function(){    window._alaEnter && window._alaEnter !== true && window._alaEnter('sample');
+    var sample = [];
+    var keyValue = '';
+    for(var name in sample) {
+        keyValue +=  name + ':' + sample[name] + ',';
+    }
+    window.samplekey = keyValue.substr(0, keyValue.length - 1);
+}();
+!function(){        require.async(['searchresult:widget/ui/app/app'], function (app) {
+    require.async(["searchresult:widget/ui/action/pullface/action"]);
+    app.setPageInfo({
+    tpl: 'pullface',
+    //在后端对query进行抽样的时候，用这个来统计实验组和对照组
+    queryPageType : '0',
+    gsm: '1e',
+    listNum : "1953",
+    dispNum : "56525",
+    bdIsClustered : "1",
+    frStr : "&fr=ala",
+    sme : "",
+    ie : "utf-8",
+    oe : "utf-8",
+    fInsertNum : "0",
+    queryWordEnc: "%E6%9D%8E%E6%95%8F",
+    queryWordGBKEnc: "%C0%EE%C3%F4",
+    queryWord : "李敏",
+    queryUrlWord : "%E6%9D%8E%E6%95%8F",
+    bdFmtDispNum : "56525",
+    bdSearchTime : "",
+    gbkword:'%C0%EE%C3%F4',
+    resTabs : [],
+    useSign:"",
+    userid:"",
+    userNumID:"",//这个才是真正的 userid
+    encodeUserNumId:"",
+    spaceUrl:"",
+    hasUserName: ('' == '0'),
+    bdstoken : '',
+    thirdLogo :'0',//第三方网站登录的logo，为空则不显示
+    se:'',
+    needIE:'1',
+    jit:'',
+    showHot:'',
+    hasResult: '1',
+    aspSID:'760e96b5344aaac4',
+    strategyType:"normal",
+    oriquery: '',
+    fm: '',
+    personalized:'0',
+    hs: '2'
+    });
+    app.setData('jsConfs', {    "normal": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,"lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,"pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,"maxImgWidth": 400,"pageMoreNum": 10,"leftMenu": 0    },    "comic": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 190,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "ald": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 190,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "star": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 260,        "maxBaseLineHeight": 280,        "minBaseLineHeight": 250,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu":0    },    "avatar_brand": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 300,        "maxBaseLineHeight": 320,        "minBaseLineHeight": 280,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 500,        "pageMoreNum": 10,"leftMenu": 0    },    "avatar_star": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 260,        "maxBaseLineHeight": 280,        "minBaseLineHeight": 250,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,"leftMenu": 0    },    "avatar_head": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 190    },    "avatar_wallpaper": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 180,        "maxBaseLineHeight": 200,        "minBaseLineHeight": 160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 190    },    "single": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,        "pageLineNum": 1,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "personalized": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,        "pageLineNum": 2,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    }}
+);
+    app.setData('imgData', {    "queryEnc":"%E6%9D%8E%E6%95%8F",    "displayNum":56525,    "bdIsClustered" : "1",    "listNum":1953,    "bdFmtDispNum" : "56525",    "bdSearchTime" : "",    "isNeedAsyncRequest":0,"data":[{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=417081012,3061483962&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=417081012,3061483962&fm=214&gp=0.jpg","FromURL":"http:\/\/news.china.com\/international\/1000\/20150415\/19531971.html?pluginnewspush?"},{"ObjURL":"http:\/\/img03.images2.china.com\/news\/zh_cn\/international\/1000\/20150415\/19531971_2015041521011029330100.jpg.484x0.jpg","FromURL":"http:\/\/3g.china.com\/baike_6ioc5yip5pel6zif5yw1.html"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=417081012,3061483962&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=417081012,3061483962&fm=27&gp=0.jpg",            "pageNum":0,            "objURL":"http://p6.qhimg.com/t01f253b8a97abb401b.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F4_z&e3Bkwthj_z&e3Bf5_z&e3Bv54AzdH3F15vAzdH3Fcnlc8aa-0c009ld_z&e3Bip4s",            "fromURLHost":"m.baike.so.com","currentIndex":"",            "width":1380,            "height":920,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"58657451380",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>-书法家",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "417081012,3061483962",            "os" : "1956656586,1094359468",            "simid" : "3147279866,3947464215",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=4201400633,268337712&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=4201400633,268337712&fm=214&gp=0.jpg","FromURL":"http:\/\/zhidao.baidu.com\/question\/434952773158119764.html"},{"ObjURL":"http:\/\/c.hiphotos.baidu.com\/zhidao\/pic\/item\/6a63f6246b600c33e5990b3e1d4c510fd8f9a160.jpg","FromURL":"http:\/\/zhidao.baidu.com\/question\/1949128502148968108.html"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=4201400633,268337712&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=4201400633,268337712&fm=27&gp=0.jpg",            "pageNum":1,            "objURL":"http://c.hiphotos.baidu.com/zhidao/pic/item/d4628535e5dde711328e9600a0efce1b9c1661ec.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fzit1w5_z&e3Bkwt17_z&e3Bv54AzdH3Fq7jfpt5gAzdH3F9n9lcd00n8cb88l0m9_z&e3Bip4s",            "fromURLHost":"zhidao.baidu.com","currentIndex":"",            "width":600,            "height":460,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"77589300360",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>的介绍",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4201400633,268337712",            "os" : "5902361,2687236239",            "simid" : "3493842573,395961390",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=641192110,3048472631&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=641192110,3048472631&fm=214&gp=0.jpg","FromURL":"http:\/\/www.zrexam.com\/#"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=641192110,3048472631&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=641192110,3048472631&fm=27&gp=0.jpg",            "pageNum":2,            "objURL":"http://fileserver.zrexam.net/zrfileserver/teacher/images/2015112135747.png",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bz6jxw4_z&e3Bv54AzdH3F#",            "fromURLHost":"www.zrexam.com","currentIndex":"",            "width":500,            "height":579,            "type":"png",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"148820037520",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "641192110,3048472631",            "os" : "4037973802,78524974",            "simid" : "4194615179,705070051",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=1770112700,62432175&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=1770112700,62432175&fm=214&gp=0.jpg","FromURL":"http:\/\/rwx.svtcc.edu.cn\/index.php\/teacher\/li\/"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=1770112700,62432175&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=1770112700,62432175&fm=27&gp=0.jpg",            "pageNum":3,            "objURL":"http://rwx.svtcc.edu.cn/source/editor/attached/image/20160112/20160112021253_72297.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F6ox_z&e3Bfepvv_z&e3Bj17_z&e3BvgAzdH3Ftg1jx_z&e3BrirAzdH3Fpjwvij6AzdH3FstAzdH3F",            "fromURLHost":"rwx.svtcc.edu.cn","currentIndex":"",            "width":2192,            "height":3352,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"41651072430",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1770112700,62432175",            "os" : "679772224,222362339",            "simid" : "3085041390,3604558883",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=3462363991,811573506&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=3462363991,811573506&fm=214&gp=0.jpg","FromURL":"http:\/\/i.sodao.com\/hfttminmin\/show.html?grzy"},{"ObjURL":"http:\/\/www.bapimi.com\/uploads\/1_3462363991x811573506_23.jpg","FromURL":"http:\/\/www.bapimi.com\/ypgztm\/"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=3462363991,811573506&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=3462363991,811573506&fm=27&gp=0.jpg",            "pageNum":4,            "objURL":"http://imgcache.mysodao.com/img1/M05/80/CA/CgAPC02KbN3827QFACAAAIhBrSo517_630x0x1.JPG",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bf51w5_z&e3Bv54AzdH3F7AzdH3Fiupp4tg4tgAzdH3F7fj6AzdH3Fv5ej6fi5o",            "fromURLHost":"www.sodao.com","currentIndex":"",            "width":630,            "height":420,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"105320500230",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3462363991,811573506",            "os" : "1105023620,199880191",            "simid" : "4113169902,656288612",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=3894448037,1407375958&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=3894448037,1407375958&fm=214&gp=0.jpg","FromURL":"http:\/\/www.cjr.org.cn\/contents\/12\/2939.html"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=3894448037,1407375958&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=3894448037,1407375958&fm=27&gp=0.jpg",            "pageNum":5,            "objURL":"http://www.cjr.org.cn/upload/2005/8/200584165734.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bv36_z&e3B562_z&e3BvgAzdH3Fv5gpjgpfAzdH3F8dAzdH3Fdlnl_z&e3Bip4s",            "fromURLHost":"www.cjr.org.cn","currentIndex":"",            "width":550,            "height":455,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"16725043500",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"访谈实录:充满自信的幸福女人--<strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3894448037,1407375958",            "os" : "2601682483,858355863",            "simid" : "3475842006,185463548",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=1390460210,845765288&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=1390460210,845765288&fm=214&gp=0.jpg","FromURL":"http:\/\/i.sodao.com\/u5037908\/show.html"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=1390460210,845765288&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=1390460210,845765288&fm=27&gp=0.jpg",            "pageNum":6,            "objURL":"http://imgcache.mysodao.com/img2/M02/1C/17/CgAPDVBS5iL3DvjuAB71h2WqgEQ159_630x0x1.JPG",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Ft_z&e3Bf51w5_z&e3Bv54AzdH3F7can0labAzdH3Ffi5o_z&e3Bip4s",            "fromURLHost":"i.sodao.com","currentIndex":"",            "width":630,            "height":945,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"46585421190",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1390460210,845765288",            "os" : "2572235772,1279016633",            "simid" : "3384484665,269905573",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=122769381,2077581896&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=122769381,2077581896&fm=214&gp=0.jpg","FromURL":"http:\/\/newstsg.tuxi.com.cn\/viewtt\/q\/20171227G0MTPC00.html"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=122769381,2077581896&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=122769381,2077581896&fm=27&gp=0.jpg",            "pageNum":7,            "objURL":"http://f1.yihuimg.com/TFS/upfile/WBJ/1029668/2016-02-22/181340_1456121158857.JPG",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgjofpf2_z&e3Bp7xt_z&e3Bv54_z&e3BvgAzdH3FetjoppAzdH3FqAzdH3Fda808dd0GaMTPCaa_z&e3Bip4s",            "fromURLHost":"newstsg.tuxi.com.cn","currentIndex":"",            "width":2357,            "height":3535,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"27420108980",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"散文新观察 <strong>李敏<\/strong>《芳华》影评",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "122769381,2077581896",            "os" : "3486521637,1894695783",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=1546461812,1653545862&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=1546461812,1653545862&fm=214&gp=0.jpg","FromURL":"http:\/\/news.hexun.com\/2012-03-21\/139564309.html"},{"ObjURL":"http:\/\/img1.cache.netease.com\/catchpic\/0\/0e\/0ebc6aeb9a29cb2f400f804ca4773890.jpg","FromURL":"http:\/\/news.163.com\/15\/0621\/17\/aslahn0t00014jb6.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=1546461812,1653545862&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=1546461812,1653545862&fm=27&gp=0.jpg",            "pageNum":8,            "objURL":"http://img1.cache.netease.com/catchpic/9/92/92F226627E2726FE0E1C6F01BF0D22F4.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F45gjy_z&e3B8mn_z&e3Bv54AzdH3F89AzdH3Fa0a8AzdH3F80AzdH3FAanlEdcDaadc9TIc_z&e3Bip4s#u654=6jsjewgp#xoozy_nc_k5pp54gjofho1",            "fromURLHost":"money.163.com","currentIndex":"",            "width":550,            "height":365,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"101480981910",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"组图揭秘毛泽东之女<strong>李敏<\/strong>的平民生活",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1546461812,1653545862",            "os" : "1925907747,4076600487",            "simid" : "3579114196,233410157",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=3187277343,1295112657&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=3187277343,1295112657&fm=214&gp=0.jpg","FromURL":"http:\/\/news.hexun.com\/2012-03-21\/139564309.html"},{"ObjURL":"http:\/\/img1.cache.netease.com\/catchpic\/3\/32\/32b6c626599e64cf732ce108d6814a39.jpg","FromURL":"http:\/\/news.163.com\/12\/1120\/16\/8gp3nvci00014jb6_all.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=3187277343,1295112657&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=3187277343,1295112657&fm=27&gp=0.jpg",            "pageNum":9,            "objURL":"http://img.sdchina.com/news/20091013/c01_200910131100204906200.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fsjtf76j_z&e3Bf1vitgw_z&e3Bv54AzdH3Ffi5oAzdH3F8m9mba_0_z&e3Bip4s",            "fromURLHost":"leisure.sdchina.com","currentIndex":"",            "width":300,            "height":333,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"151595743420",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"晚年的<strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3187277343,1295112657",            "os" : "2870639934,4172606461",            "simid" : "32846396,733152547",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=1149556228,3291206229&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=1149556228,3291206229&fm=214&gp=0.jpg","FromURL":"http:\/\/i.sodao.com\/u3272361\/show.html"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=1149556228,3291206229&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=1149556228,3291206229&fm=27&gp=0.jpg",            "pageNum":10,            "objURL":"http://imgcache.mysodao.com/img2/M03/2E/B5/CgAPDU6eFAmts5QTADKtpGwj7pI768_630x0x1.JPG",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Ft_z&e3Bf51w5_z&e3Bv54AzdH3F7nd0dnm8AzdH3Ffi5o_z&e3Bip4s",            "fromURLHost":"i.sodao.com","currentIndex":"",            "width":630,            "height":420,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"108344959910",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1149556228,3291206229",            "os" : "3746946514,3063949307",            "simid" : "4192523508,379079059",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=3729064564,3555490825&fm=11&gp=0.jpg","adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=3729064564,3555490825&fm=11&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":11,            "objURL":"http://5b0988e595225.cdn.sohucs.com/images/20180601/a30898cbb470423e841eb596b0e2cb64.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fsjw6gtg2_z&e3Bf5i7_z&e3Bv54AzdH3Fda8bama8AzdH3Fgcnlnl9lb0_z&e3Bfip4s",            "fromURLHost":"learning.sohu.com","currentIndex":"",            "width":1080,            "height":1037,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"11",            "di":"28672516540",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"2018-06-01 18:25",            "fromPageTitle":"【六一专题】首都师范大学初等教育学院副教授<strong>李敏<\/strong>:用",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3729064564,3555490825",            "os" : "1500636568,783689758",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=3451303450,687284094&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=3451303450,687284094&fm=214&gp=0.jpg","FromURL":"http:\/\/pic.cul.sohu.com\/detail-552996-1.shtml"},{"ObjURL":"http:\/\/img1.cache.netease.com\/catchpic\/2\/2f\/2f0954542d7e98146ca9f23fd81d9d60.jpg","FromURL":"http:\/\/money.163.com\/14\/0701\/17\/a039e25d00254ti5_all.html"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=3451303450,687284094&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=3451303450,687284094&fm=27&gp=0.jpg",            "pageNum":12,            "objURL":"http://i1.hexunimg.cn/2012-03-21/139564314.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgjof_z&e3Bijx7g_z&e3Bv54AzdH3Fda8d-an-d8AzdH3F8nlcm9nal_z&e3Bip4s",            "fromURLHost":"news.hexun.com","currentIndex":"",            "width":700,            "height":465,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"192205503050",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>,李纳两姐妹",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3451303450,687284094",            "os" : "3102382706,338292783",            "simid" : "4176501251,439234201",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=3128511077,2377144135&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=3128511077,2377144135&fm=214&gp=0.jpg","FromURL":"http:\/\/www.hdbaopi.com\/221kn66.html"},{"ObjURL":"http:\/\/www.bapimi.com\/uploads\/2_3128511077x2377144135_21.jpg","FromURL":"http:\/\/www.bapimi.com\/clgcpp\/"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=3128511077,2377144135&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=3128511077,2377144135&fm=27&gp=0.jpg",            "pageNum":13,            "objURL":"http://imgcache.mysodao.com/img1/M04/26/C3/CgAPC0_U3l6gT3r3AB90L7-6Hmk004_630x0x1.JPG",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Ft_z&e3Bf51w5_z&e3Bv54AzdH3F79nc8bdaAzdH3Ffi5o_z&e3Bip4s?26zy",            "fromURLHost":"i.sodao.com","currentIndex":"",            "width":630,            "height":947,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"111853196400",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3128511077,2377144135",            "os" : "1796493256,322079192",            "simid" : "4127381390,485614632",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=1388716516,3469237402&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=1388716516,3469237402&fm=214&gp=0.jpg","FromURL":"http:\/\/www.fang.com\/xinfangbang\/u\/52157562.htm"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=1388716516,3469237402&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=1388716516,3469237402&fm=27&gp=0.jpg",            "pageNum":14,            "objURL":"http://img8.soufunimg.com/xfbang/2014_11/25/M01/00/EF/wKgEQVRz7EqIIg3RAACyUaUlvDIAABdgQP0C08AALJp706.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Buwg2_z&e3Bv54AzdH3Fxtguwg2kwg2AzdH3F7AzdH3Fcd8c0cmd_z&e3Bip4",            "fromURLHost":"www.fang.com","currentIndex":"",            "width":486,            "height":648,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"4301236060",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>的网上旗舰店铺",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1388716516,3469237402",            "os" : "2053718865,2130333770",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=3232938930,990673667&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=3232938930,990673667&fm=214&gp=0.jpg","FromURL":"http:\/\/newseed.pedaily.cn\/data\/project\/50387"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=3232938930,990673667&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=3232938930,990673667&fm=27&gp=0.jpg",            "pageNum":15,            "objURL":"http://newseed.pedaily.cn/upload/project/team/201605/03185844165.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgjofjj1_z&e3Brj1wtsy_z&e3BvgAzdH3F1wpwAzdH3Fr653jvpAzdH3Fcanb0",            "fromURLHost":"newseed.pedaily.cn","currentIndex":"",            "width":450,            "height":600,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"184403392580",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>                    ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3232938930,990673667",            "os" : "132428857,2509927131",            "simid" : "3265631951,51113585",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=1506035418,4122327077&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=1506035418,4122327077&fm=214&gp=0.jpg","FromURL":"http:\/\/roll.sohu.com\/20151203\/n429545980.shtml"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=1506035418,4122327077&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=1506035418,4122327077&fm=27&gp=0.jpg",            "pageNum":16,            "objURL":"http://photocdn.sohu.com/20151203/Img429545985.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F65ss_z&e3Bf5i7_z&e3Bv54AzdH3Fda8c8danAzdH3Fg9dlc9clba_z&e3Bfip4s",            "fromURLHost":"roll.sohu.com","currentIndex":"",            "width":579,            "height":511,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"29204121540",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"(人众金服董事长<strong>李敏<\/strong>,80后新锐女企业家)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1506035418,4122327077",            "os" : "1752288843,137866565",            "simid" : "3165703988,3776628252",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=4265599063,3907997150&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=4265599063,3907997150&fm=214&gp=0.jpg","FromURL":"http:\/\/roll.sohu.com\/20130531\/n377645094.shtml"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=4265599063,3907997150&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=4265599063,3907997150&fm=27&gp=0.jpg",            "pageNum":17,            "objURL":"http://photocdn.sohu.com/20130531/Img377645100.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F65ss_z&e3Bf5i7_z&e3Bv54AzdH3Fda8nacn8AzdH3Fgn00m9cal9_z&e3Bfip4s",            "fromURLHost":"roll.sohu.com","currentIndex":"",            "width":450,            "height":629,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"15336338490",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"专访儿童剧导演<strong>李敏<\/strong>:儿童剧的梦想一校一品(组图)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4265599063,3907997150",            "os" : "1537613707,17538735",            "simid" : "4082123160,535155371",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=1127482489,1911543001&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=1127482489,1911543001&fm=214&gp=0.jpg","FromURL":"http:\/\/www.lnc.edu.cn\/2011\/0415\/8327.shtml"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=1127482489,1911543001&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=1127482489,1911543001&fm=27&gp=0.jpg",            "pageNum":18,            "objURL":"http://uploads.lnc.edu.cn/201106/2011061316241510.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bsgv_z&e3Bj17_z&e3BvgAzdH3Fda88AzdH3Fa98cAzdH3Fbnd0_z&e3Bfip4s",            "fromURLHost":"www.lnc.edu.cn","currentIndex":"",            "width":597,            "height":435,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"147208548630",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"公共外语教师风采——<strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1127482489,1911543001",            "os" : "2194661074,3338580741",            "simid" : "3398926568,247770488",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=2306403631,2694182509&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=2306403631,2694182509&fm=214&gp=0.jpg","FromURL":"http:\/\/i.sodao.com\/u4811949\/show.html"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=2306403631,2694182509&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=2306403631,2694182509&fm=27&gp=0.jpg",            "pageNum":19,            "objURL":"http://imgcache.mysodao.com/img2/M07/4B/5E/CgAPDlAT1TaMnT6dABhqTaDAg4E856_630x0x1.JPG",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Ft_z&e3Bf51w5_z&e3Bv54AzdH3F79b88l9lAzdH3Ffi5o_z&e3Bip4s",            "fromURLHost":"i.sodao.com","currentIndex":"",            "width":630,            "height":948,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"177089745360",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2306403631,2694182509",            "os" : "2495564953,2009306602",            "simid" : "15952185,672285290",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=1393416950,3778342032&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=1393416950,3778342032&fm=214&gp=0.jpg","FromURL":"http:\/\/wiki.mdaxue.com\/doc-view-2079927.html"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=1393416950,3778342032&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=1393416950,3778342032&fm=27&gp=0.jpg",            "pageNum":20,            "objURL":"http://wiki.mdaxue.com/uploads/201208/13462543838oXXGpZC.gif",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fotht_z&e3B41wx7j_z&e3Bv54AzdH3F15v-etjo-da0lld0_z&e3Bip4s",            "fromURLHost":"wiki.mdaxue.com","currentIndex":"",            "width":304,            "height":436,            "type":"gif",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"167661477280",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1393416950,3778342032",            "os" : "518024861,3249821906",            "simid" : "3398048697,230101394",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=3397243080,1477503869&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=3397243080,1477503869&fm=214&gp=0.jpg","FromURL":"http:\/\/www.zigui.gov.cn\/zigui\/lingdao\/"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=3397243080,1477503869&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=3397243080,1477503869&fm=27&gp=0.jpg",            "pageNum":21,            "objURL":"http://www.zigui.gov.cn/_CMS_NEWS_IMG_/www16/2011-12/05/f4e60ca8236d4d2db7e8aefda4e642ae.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bzt27t_z&e3B25e_z&e3BvgAzdH3Fzt27tAzdH3Fstg21w5AzdH3F",            "fromURLHost":"www.zigui.gov.cn","currentIndex":"",            "width":390,            "height":555,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"178795770340",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"副县长 <strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3397243080,1477503869",            "os" : "1649288814,1376629293",            "simid" : "4269146574,407116616",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=579413769,1003808729&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=579413769,1003808729&fm=214&gp=0.jpg","FromURL":"http:\/\/www.art.gxnu.edu.cn\/index.php?c=article&a=view&id=804"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=579413769,1003808729&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=579413769,1003808729&fm=27&gp=0.jpg",            "pageNum":22,            "objURL":"http://www.art.gxnu.edu.cn/public/upload/images/teachers/2014072015111404526.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bw6p_z&e3B2xg7_z&e3Bj17_z&e3BvgAzdH3Ftg1jx_z&e3Brir?v=w6ptvsj&w=etjo&t1=ba9",            "fromURLHost":"www.art.gxnu.edu.cn","currentIndex":"",            "width":381,            "height":483,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"128513097900",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "579413769,1003808729",            "os" : "586576362,1603534827",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=3109090924,2015438337&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=3109090924,2015438337&fm=214&gp=0.jpg","FromURL":"http:\/\/www.sdjkzxw.com\/news.asp?id=3105&title=\u516c\u76ca\u661f\u4e3b\u64ad"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=3109090924,2015438337&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=3109090924,2015438337&fm=27&gp=0.jpg",            "pageNum":23,            "objURL":"http://www.sdjkzxw.com/jkpd_admin/b_Editor/UploadFile/20167119209222.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bf13hzxo_z&e3Bv54AzdH3Fgjof_z&e3Bwfr?t1=n8ac&ptpsj=%Ec%bc%AC%E0%lB%bA%Em%lb%lF%E9%Bb%BB%Em%ld%AD",            "fromURLHost":"www.sdjkzxw.com","currentIndex":"",            "width":267,            "height":391,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"68088610700",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"公益星主播:<strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3109090924,2015438337",            "os" : "264531985,3401142748",            "simid" : "3410967862,391910020",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=3933682363,4017234702&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=3933682363,4017234702&fm=214&gp=0.jpg","FromURL":"http:\/\/www.meizhou.cn\/2011\/0427\/256366.shtml"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=3933682363,4017234702&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=3933682363,4017234702&fm=27&gp=0.jpg",            "pageNum":24,            "objURL":"http://www.meizhou.cn/Comm/NewsImages/M/1104/27/704bd3c5bed24b6b9f8cdb447e72d91e.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B4jtzi57_z&e3BvgAzdH3Fda88AzdH3Fa9d0AzdH3Fdcmnmm_z&e3Bfip4s",            "fromURLHost":"www.meizhou.cn","currentIndex":"",            "width":341,            "height":480,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"8012233020",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3933682363,4017234702",            "os" : "1306458917,946568206",            "simid" : "12367104,934211085",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=1458371083,3312367207&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=1458371083,3312367207&fm=214&gp=0.jpg","FromURL":"http:\/\/music.163.com\/artist\/mv?id=168030"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=1458371083,3312367207&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=1458371083,3312367207&fm=27&gp=0.jpg",            "pageNum":25,            "objURL":"http://p4.music.126.net/t0imarxQHmxfPry1EHqxdQ==/588238720899904.jpg?param=640y300",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F47ftv_z&e3B8mn_z&e3Bv54AzdH3Fw6ptfpAzdH3F4e?t1=8mbana",            "fromURLHost":"music.163.com","currentIndex":"",            "width":640,            "height":300,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"89479344350",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1458371083,3312367207",            "os" : "786280858,3610509073",            "simid" : "3457555172,389155861",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=1787268124,3262703330&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=1787268124,3262703330&fm=214&gp=0.jpg","FromURL":"http:\/\/www.aoye.com\/point.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=1787268124,3262703330&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=1787268124,3262703330&fm=27&gp=0.jpg",            "pageNum":26,            "objURL":"http://www.aoye.com/images/point/14769546061724862603.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bw5yj_z&e3Bv54AzdH3Fr5tgp_z&e3Bip4s",            "fromURLHost":"www.aoye.com","currentIndex":"",            "width":324,            "height":386,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"136656645510",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1787268124,3262703330",            "os" : "2082272919,420203506",            "simid" : "4106313728,387624350",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=3108674689,4217317332&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=3108674689,4217317332&fm=214&gp=0.jpg","FromURL":"http:\/\/news.voc.com.cn\/article\/201504\/201504161711285070.html"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=3108674689,4217317332&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=3108674689,4217317332&fm=27&gp=0.jpg",            "pageNum":27,            "objURL":"http://img1.voc.com.cn/UpLoadFile/2015/04/16/201504161604336863.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgjof_z&e3Be5v_z&e3Bv54_z&e3BvgAzdH3Fw6ptvsjAzdH3Fda8ca9AzdH3Fda8ca98m8088dbca0a_z&e3Bip4s",            "fromURLHost":"news.voc.com.cn","currentIndex":"",            "width":376,            "height":379,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"19225814520",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"毛泽东之女<strong>李敏<\/strong>获苏联卫国战争勋章 一生相夫教子度清贫",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3108674689,4217317332",            "os" : "2688631162,907474340",            "simid" : "3258049529,63580511",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=2680349497,636874476&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=2680349497,636874476&fm=214&gp=0.jpg","FromURL":"http:\/\/www.shijihr.com\/Persons\/Person.asp?PerId=33754"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=2680349497,636874476&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=2680349497,636874476&fm=27&gp=0.jpg",            "pageNum":28,            "objURL":"http://www.shijihr.com/per_pic/2012033063598837.JPG",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bfit3ti6_z&e3Bv54AzdH3FPj6f5gfAzdH3FPj6f5g_z&e3Bwfr?Pj6I1=nn0c9",            "fromURLHost":"www.shijihr.com","currentIndex":"",            "width":390,            "height":567,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"47239530910",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>李敏<\/strong>- 个人简历(简历编号: 33754)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2680349497,636874476",            "os" : "1646268441,1188994004",            "simid" : "3363033892,409740832",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=253027757,2508166730&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=253027757,2508166730&fm=214&gp=0.jpg","FromURL":"http:\/\/www.kuwo.cn\/geci\/l_7013509\/"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=253027757,2508166730&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=253027757,2508166730&fm=27&gp=0.jpg",            "pageNum":29,            "objURL":"http://img1.kuwo.cn/star/starheads/300/94/2/1589020651.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bh7o5_z&e3BvgAzdH3F2jvtAzdH3Fs_0a8ncalAzdH3F",            "fromURLHost":"www.kuwo.cn","currentIndex":"",            "width":300,            "height":300,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"100104836260",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"《清明扫墓歌》歌词 — <strong>李敏<\/strong>[女]",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "253027757,2508166730",            "os" : "1772808260,1148362922",            "simid" : "3126968071,4027330449",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{}]}
+);
+    app.setData('fcadData', {"fcData":[],"fcMidData":[],"fcBtData":[],"fcType":"","adType":0,"fcAdDatasLen":"0"}
+);
+    app.setData('xgMidData', {"xgMidData":[],"xgMidDataLen":"0"});
+    app.setData('rpData', {"data": []});
+    app.setData('fsData', {    "result" :{ "StdStg": 91, "StdStl": 1, "_update_time": "1514873864", "loc": "http:\/\/baike.baidu.com\/4322311", "lastmod": "2018-01-02", "changefreq": "always", "priority": "1.0", "name": "李敏", "original_name": "李敏", "name_info": { "@text": "", "@attr": { "name": "李敏", "original_name": "李敏", "url": "https:\/\/baike.baidu.com\/item\/%E6%9D%8E%E6%95%8F\/4322311?fr=aladdin", "totalurl": "https:\/\/baike.baidu.com\/item\/%E6%9D%8E%E6%95%8F?force=1&fr=aladdin", "determiner": "女越剧名家" } }, "sublemmaid": "10151151", "new_id": "4322311", "pic": "http:\/\/c.hiphotos.baidu.com\/baike\/pic\/item\/0e2442a7d933c895c31162f5d81373f0830200d4.jpg", "pic_width": "461", "pic_height": "650", "keytype": "people", "field": { "@text": "", "@attr": { "name": "职业：", "value": "教师" } }, "content": "乐家协会会员，上海师范大音乐学院青年教师。她的歌声如银铃般清脆，舞台表现力强，李敏这段旦角和生角的经验在国内戏曲界是鲜有的，这为她的戏曲创作打开了新的空间。前几年，王君安从美国回来，重返芳华，李敏又重回旦角，与她重新搭档。李敏这段旦角和生角的经验在国内戏曲界是鲜有的，这对她的戏曲创作打开了新的空间。此后，她推出更多精品，比如《江姐》，在饰演江姐一角时为了表现她的刚毅，把以前演小生时的一些经验也融入角色中。如今，李敏在越剧这方舞台上如鱼得水，游刃有余，粉丝遍布全国，他们都亲切地称李敏为“团儿”。李敏说，她今后还是会认认真真唱戏，塑造好每一个人物角色，让观众满意。", "link": [ { "@text": "", "@attr": { "txt": "基本信息", "url": "#1" } }, { "@text": "", "@attr": { "txt": "个人简介", "url": "#2" } }, { "@text": "", "@attr": { "txt": "学习经历", "url": "#3" } }, { "@text": "", "@attr": { "txt": "工作经历", "url": "#4" } }, { "@text": "", "@attr": { "txt": "演唱风格", "url": "#5" } }, { "@text": "", "@attr": { "txt": "获奖经历", "url": "#6" } }, { "@text": "", "@attr": { "txt": "演出经历", "url": "#7" } }, { "@text": "", "@attr": { "txt": "个人简历", "url": "#8" } }, { "@text": "", "@attr": { "txt": "艺术特色", "url": "#9" } }, { "@text": "", "@attr": { "txt": "主要作品", "url": "#10" } }, { "@text": "", "@attr": { "txt": "获得荣誉", "url": "#11" } } ], "link#num#baidu": 11, "tip": { "@text": "", "@attr": { "horizontal": "false", "isSquare": "false", "noStructure": "false" } }, "original_url": "https:\/\/baike.baidu.com\/item\/%E6%9D%8E%E6%95%8F\/4322311", "card_kv": [ { "@text": "", "@attr": { "key": "中文名", "value": "李敏" } }, { "@text": "", "@attr": { "key": "国籍", "value": "中国" } }, { "@text": "", "@attr": { "key": "民族", "value": "汉族" } }, { "@text": "", "@attr": { "key": "职业", "value": "教师" } } ], "card_kv#num#baidu": 4, "album_url": "https:\/\/baike.baidu.com\/pic\/%E6%9D%8E%E6%95%8F\/4322311?fr=alading", "pic_in_album_url": "https:\/\/baike.baidu.com\/pic\/%E6%9D%8E%E6%95%8F\/4322311\/0\/0e2442a7d933c895c31162f5d81373f0830200d4?fr=alading", "showurl": "baike.baidu.com\/", "date": "2013-01-23", "newpic1": "http:\/\/t11.baidu.com\/it\/u=58888915,2847402996&fm=58", "newpic2": "http:\/\/t11.baidu.com\/it\/u=1337686909,3519708742&fm=58", "newpic3": "http:\/\/t10.baidu.com\/it\/u=1354302231,3525279124&fm=58", "SiteId": 2003041, "_version": 1514865498, "_select_time": 1514865498 },    "link" : "http:\/\/c.hiphotos.baidu.com\/baike\/pic\/item\/0e2442a7d933c895c31162f5d81373f0830200d4.jpg"});
+    app.setData('browserRsData', {    "Status" : "0",    "query" : "",    "desc" : "",    "id" : "",    "photos" :[]}
+);
+    app.setData('rsQuery', [["李敏李讷不承认毛新宇", "%C0%EE%C3%F4%C0%EE%DA%AB%B2%BB%B3%D0%C8%CF%C3%AB%D0%C2%D3%EE", "0", "0"],["抗联李敏的前夫", "%BF%B9%C1%AA%C0%EE%C3%F4%B5%C4%C7%B0%B7%F2", "0", "0"],["李敏李纳近况", "%C0%EE%C3%F4%C0%EE%C4%C9%BD%FC%BF%F6", "0", "0"],["张家口副市长李敏", "%D5%C5%BC%D2%BF%DA%B8%B1%CA%D0%B3%A4%C0%EE%C3%F4", "0", "0"],["山东电视台主持人李敏", "%C9%BD%B6%AB%B5%E7%CA%D3%CC%A8%D6%F7%B3%D6%C8%CB%C0%EE%C3%F4", "0", "0"],["越剧演员李敏微博", "%D4%BD%BE%E7%D1%DD%D4%B1%C0%EE%C3%F4%CE%A2%B2%A9", "0", "0"],["越剧演员李敏简历", "%D4%BD%BE%E7%D1%DD%D4%B1%C0%EE%C3%F4%BC%F2%C0%FA", "0", "0"],["张家口李敏", "%D5%C5%BC%D2%BF%DA%C0%EE%C3%F4", "0", "0"],["临邑吧破鞋李敏照片", "%C1%D9%D2%D8%B0%C9%C6%C6%D0%AC%C0%EE%C3%F4%D5%D5%C6%AC", "0", "0"],["女飞行员李敏悼念余旭", "%C5%AE%B7%C9%D0%D0%D4%B1%C0%EE%C3%F4%B5%BF%C4%EE%D3%E0%D0%F1", "0", "0"],["西华师范大学李敏", "%CE%F7%BB%AA%CA%A6%B7%B6%B4%F3%D1%A7%C0%EE%C3%F4", "0", "0"],["深圳阿宝集团李敏老婆", "%C9%EE%DB%DA%B0%A2%B1%A6%BC%AF%CD%C5%C0%EE%C3%F4%C0%CF%C6%C5", "0", "0"],["华宁大酒店总经理李敏", "%BB%AA%C4%FE%B4%F3%BE%C6%B5%EA%D7%DC%BE%AD%C0%ED%C0%EE%C3%F4", "0", "0"],["泰安天乐坊李敏夏琳", "%CC%A9%B0%B2%CC%EC%C0%D6%B7%BB%C0%EE%C3%F4%CF%C4%C1%D5", "0", "0"],["莱芜汇融集团李敏老婆", "%C0%B3%CE%DF%BB%E3%C8%DA%BC%AF%CD%C5%C0%EE%C3%F4%C0%CF%C6%C5", "0", "0"],["故乡情李敏版简谱", "%B9%CA%CF%E7%C7%E9%C0%EE%C3%F4%B0%E6%BC%F2%C6%D7", "0", "0"],["安徽大学团委李敏", "%B0%B2%BB%D5%B4%F3%D1%A7%CD%C5%CE%AF%C0%EE%C3%F4", "0", "0"],["李敏 湖南农业大学", "%C0%EE%C3%F4%20%BA%FE%C4%CF%C5%A9%D2%B5%B4%F3%D1%A7", "0", "0"],["惠州市政法委书记李敏", "%BB%DD%D6%DD%CA%D0%D5%FE%B7%A8%CE%AF%CA%E9%BC%C7%C0%EE%C3%F4", "0", "0"],["李敏 厦门大学医学院", "%C0%EE%C3%F4%20%CF%C3%C3%C5%B4%F3%D1%A7%D2%BD%D1%A7%D4%BA", "0", "0"],["东营市实验中学 李敏", "%B6%AB%D3%AA%CA%D0%CA%B5%D1%E9%D6%D0%D1%A7%20%C0%EE%C3%F4", "0", "0"],["越剧秦楼月-李敏相片", "%D4%BD%BE%E7%C7%D8%C2%A5%D4%C2-%C0%EE%C3%F4%CF%E0%C6%AC", "0", "0"],["四川内江隆昌一中李敏", "%CB%C4%B4%A8%C4%DA%BD%AD%C2%A1%B2%FD%D2%BB%D6%D0%C0%EE%C3%F4", "0", "0"],["湖南师范大学李敏", "%BA%FE%C4%CF%CA%A6%B7%B6%B4%F3%D1%A7%C0%EE%C3%F4", "0", "0"],["女飞行员李敏退役", "%C5%AE%B7%C9%D0%D0%D4%B1%C0%EE%C3%F4%CD%CB%D2%DB", "0", "0"],["山西财经大学 李敏", "%C9%BD%CE%F7%B2%C6%BE%AD%B4%F3%D1%A7%20%C0%EE%C3%F4", "0", "0"],["南京医科大学李敏", "%C4%CF%BE%A9%D2%BD%BF%C6%B4%F3%D1%A7%C0%EE%C3%F4", "0", "0"],["“扫云轩”创办人李敏", "%A1%B0%C9%A8%D4%C6%D0%F9%A1%B1%B4%B4%B0%EC%C8%CB%C0%EE%C3%F4", "0", "0"],["记者李敏受贿案图片", "%BC%C7%D5%DF%C0%EE%C3%F4%CA%DC%BB%DF%B0%B8%CD%BC%C6%AC", "0", "0"],["山东主持人李敏丈夫", "%C9%BD%B6%AB%D6%F7%B3%D6%C8%CB%C0%EE%C3%F4%D5%C9%B7%F2", "0", "0"]]);
+    app.setData('hotWords', [{            "query": "重庆4.8级地震",            "flag": "重庆4.8级地震",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%87%8D%E5%BA%864.8%E7%BA%A7%E5%9C%B0%E9%9C%87",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "内蒙古现罕见日柱",            "flag": "内蒙古现罕见日柱",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%86%85%E8%92%99%E5%8F%A4%E7%8E%B0%E7%BD%95%E8%A7%81%E6%97%A5%E6%9F%B1",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "女歌手本兮22岁逝世",            "flag": "女歌手本兮22岁逝世",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%A5%B3%E6%AD%8C%E6%89%8B%E6%9C%AC%E5%85%AE22%E5%B2%81%E9%80%9D%E4%B8%96",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "蒋劲夫托举佟丽娅",            "flag": "蒋劲夫托举佟丽娅",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E8%92%8B%E5%8A%B2%E5%A4%AB%E6%89%98%E4%B8%BE%E4%BD%9F%E4%B8%BD%E5%A8%85",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "打工钱被咬成碎片",            "flag": "打工钱被咬成碎片",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%89%93%E5%B7%A5%E9%92%B1%E8%A2%AB%E5%92%AC%E6%88%90%E7%A2%8E%E7%89%87",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "村民发现奇石似飞碟",            "flag": "村民发现奇石似飞碟",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%9D%91%E6%B0%91%E5%8F%91%E7%8E%B0%E5%A5%87%E7%9F%B3%E4%BC%BC%E9%A3%9E%E7%A2%9F",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "环卫夫妻身高不足一米四",            "flag": "环卫夫妻身高不足一米四",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E7%8E%AF%E5%8D%AB%E5%A4%AB%E5%A6%BB%E8%BA%AB%E9%AB%98%E4%B8%8D%E8%B6%B3%E4%B8%80%E7%B1%B3%E5%9B%9B",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "沙滩现巨大黑色怪物",            "flag": "沙滩现巨大黑色怪物",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%B2%99%E6%BB%A9%E7%8E%B0%E5%B7%A8%E5%A4%A7%E9%BB%91%E8%89%B2%E6%80%AA%E7%89%A9",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "黄子韬搂何炅",            "flag": "黄子韬搂何炅",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%BB%84%E5%AD%90%E9%9F%AC%E6%90%82%E4%BD%95%E7%82%85",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "2016nba圣诞大战",            "flag": "2016nba圣诞大战",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=2016nba%E5%9C%A3%E8%AF%9E%E5%A4%A7%E6%88%98",            "hot": "0",            "fromurl": "",            "photos": []        }]);
+        app.init();
+    app.run();
+    });
+    }();
+!function(){    require.async(['common:widget/ui/monitorRequest/monitorRequest'],function(monitorRequest){
+	var userid = "";
+	var q = "%E6%9D%8E%E6%95%8F";
+	var tn = "result";
+	var host = "//imgstat.baidu.com/4.gif";
+	var hostSweb = "//image.baidu.com/pv/pv2.gif";
+    var rsw = "";
+    if(location.href !== document.referrer && document.referrer != ""){
+        rsw = "&rs=";
+    }
+    else{
+        rsw = '';
+    }
+    var samplekey = window.samplekey || '';
+    var img = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    monitorRequest( host + "?logid=8506902451160001220&ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=result_pullface.page&fr=ala" + rsw);
+    var imgSweb = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    imgSweb.src = hostSweb + "?ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=&fr=ala" + rsw + '&' + new Date() * Math.random();
+    });
+}();
+!function(){    require.async(["common:widget/ui/fmCheck/fmCheck"],function(fmCheck){
+        fmCheck.init();
+    });
+}();
+!function(){require.async(['common:widget/ui/base/base'], function($) {
+    var userFrom = '';
+
+    var elem = document.createElement('a');
+    elem.href = document.referrer;
+    var hostname = elem['hostname'];
+    var urlfr = 'ala';
+    var chenjin = '';
+    var urlword = '%C0%EE%C3%F4';
+
+    if (hostname !== 'image.baidu.com') {
+        if (urlfr) {
+            userFrom += urlfr;
+            if (chenjin === '1') {
+                userFrom += 'chenjin1';
+            } else if (chenjin === '0') {
+                var wordList = ["%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8%E5%9B%BE%E7%89%87",
+                    "%E5%A4%B4%E5%83%8F",
+                    "%E5%A4%B4%E5%83%8F%E5%9B%BE%E7%89%87"];
+                if (wordList.indexOf(urlword) >= 0) {
+                    userFrom += 'chenjin0';
+                }
+            }
+        } else {
+            userFrom = hostname;
+        }
+    } else {
+        userFrom = $.cookie('userFrom') || '';
+    }
+
+    if (userFrom.length > 0) {
+        var date = new Date();
+        date.setTime(date.getTime() + (10 * 60 * 1000));
+        $.cookie('userFrom', userFrom, {path: '/', expires: date, domain: '.baidu.com'});
+    } else {
+        $.cookie('userFrom', null, {path: '/', domain: '.baidu.com'});
+    }
+});
+}();
+!function(){            require.async(["common:widget/ui/durationStat/durationStat"],function(durationStat){
+            durationStat.heartStart({
+                pageId: 2 - 0,
+                sid: '29a954476b61948eea65342ffd1f542a25b21609',
+                cs: '',
+                word: '李敏'
+            });
+        });
+    }();</script>   </html> <!--15102220990626424586060218-->
+<script> var _trace_page_logid = 1510222099; </script><!--15102208230827947786060218-->
+<script> var _trace_page_logid = 1510220823; </script>

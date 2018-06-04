@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+ 
+<title>
+张伟-山东省立医院</title>
+<meta name="keywords" content="山东省立医院主站,山东省立医院,山东省红十字会医院,山东大学附属省立医院" />
+<meta name="description" />
+
+    <!-- 54Doctor -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(["setCookieDomain", "*.sph.com.cn"]);
+        _paq.push(["setDomains", ["*.sph.com.cn"]]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "//tongji.54doctors.net/";
+            _paq.push(['setTrackerUrl', u + '54doctor.php']);
+            _paq.push(['setSiteId', 47]);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + '54doctor.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <noscript><p><img src="//tongji.54doctors.net/54doctor.php?idsite=47" style="border:0;" alt="" /></p></noscript>
+    <!-- End 54Doctor Code -->
+
+
+ <link href="/Content/Areas/Common/css/common.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Common/css/message.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Common/css/article.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Common/css/header.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Common/css/footer.css" rel="stylesheet" type="text/css" />
+
+ 
+ <link href="/Content/Areas/Common/css/FunctionStyle.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Doctors/css/main.css" rel="stylesheet" type="text/css" />
+ <!-- 相关样式 -->
+ <link href="/Content/Areas/Common/css/Relative.css" rel="stylesheet" type="text/css" />
+ <!-- 出诊样式 -->
+ <link href="/Content/Areas/Common/css/Scheduling_icon.css" rel="stylesheet" type="text/css" />
+
+
+ <script src="/Scripts/jquery-1.8.3.min.js" type="text/javascript"></script>
+ <script src="/Scripts/Common/control.js" type="text/javascript"></script>
+ <script src="/Content/Areas/Common/scripts/change_fontsize.js" type="text/javascript"></script>
+ <script src="/Content/Areas/Common/scripts/common.js" type="text/javascript"></script>
+
+ 
+ <link href="/Content/Awesome/jquery-ui.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Awesome/Awesome.css" rel="stylesheet" type="text/css" />
+ <script src="/Scripts/Awesome/jquery-ui.min.js" type="text/javascript"></script>
+ <script src="/Scripts/Awesome/jquery.form.js" type="text/javascript"></script>
+ <script src="/Scripts/Awesome/Awesome.js" type="text/javascript"></script>
+ <script src="/Scripts/Common/control.js" type="text/javascript"></script>
+ <script src="/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+ <script src="/Scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+ 
+ 
+ <script type="text/javascript">
+  
+ //咨询
+  $(function () {
+ if ($.trim($("#question").text()) == '') {
+ $(".question").hide();
+ };
+ });
+ //疾病
+  $(function () {
+ if ($.trim($("#disease").text()) == '') {
+ $(".disease").hide();
+ };
+ });
+ //文章
+ $(function () {
+ if ($.trim($("#wenzhang").text()) == '') {
+ $(".wenzhang").hide();
+ };
+ });
+ //文章
+ $(function () {
+ if ($.trim($("#video").text()) == '') {
+ $(".video").hide();
+ };
+ });
+
+ </script>
+
+</head>
+
+<body> 
+            <img src="/Sites/Uploaded/UserUpLoad/20170301/20170301175231.jpg" width="0" height="0" style="display:none" />
+    <img src="/Content/Areas/Common/images/logo/wxShare.jpg" width="0" height="0" style="display: none" />
+        <!--微信js-->
+        <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script type="text/javascript">
+            var ua = window.navigator.userAgent.toLowerCase();
+            if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+                var urlStr='http://www.sph.com.cn/Html/Doctors/Main/Index_677.html';
+                urlStr=decodeURI(urlStr);
+                var currUrlStr=decodeURI(window.location.href);
+                if(urlStr!=''&& urlStr != currUrlStr){
+                    window.location.href=urlStr;
+                }
+                wx.config({
+                    debug: false,
+                    appId: 'wx66101267f7643c8a',
+                    timestamp: 1527883953,
+                    nonceStr: '61428',
+                    signature: '0eeb6d5bfd0f9c0bb1f119eb08c12caad69ce4f3',
+                    jsApiList: [
+                        'checkJsApi',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage',
+                        'onMenuShareQQ',
+                        'onMenuShareWeibo',
+                        'hideMenuItems',
+                        'showMenuItems',
+                        'hideAllNonBaseMenuItem',
+                        'showAllNonBaseMenuItem',
+                        'translateVoice',
+                        'startRecord',
+                        'stopRecord',
+                        'onRecordEnd',
+                        'playVoice',
+                        'pauseVoice',
+                        'stopVoice',
+                        'uploadVoice',
+                        'downloadVoice',
+                        'chooseImage',
+                        'previewImage',
+                        'uploadImage',
+                        'downloadImage',
+                        'getNetworkType',
+                        'openLocation',
+                        'getLocation',
+                        'hideOptionMenu',
+                        'showOptionMenu',
+                        'closeWindow',
+                        'scanQRCode',
+                        'chooseWXPay',
+                        'openProductSpecificView',
+                        'addCard',
+                        'chooseCard',
+                        'openCard'
+                    ]
+                });
+                wx.ready(function(){
+                    //获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
+                    wx.onMenuShareTimeline({
+                        title: '骨科', // 分享标题
+                        link: 'http://www.sph.com.cn/Html/Doctors/Main/Index_677.html', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: 'http://www.sph.com.cn/Sites/Uploaded/UserUpLoad/20170301/20170301175231.jpg', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    //获取“分享给朋友”按钮点击状态及自定义分享内容接口
+                    wx.onMenuShareAppMessage({
+                        title: '骨科', // 分享标题
+                        desc: '', // 分享描述
+                        link: 'http://www.sph.com.cn/Html/Doctors/Main/Index_677.html', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: 'http://www.sph.com.cn/Sites/Uploaded/UserUpLoad/20170301/20170301175231.jpg', // 分享图标
+                        type: '', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    //获取“分享到QQ”按钮点击状态及自定义分享内容接口
+                    wx.onMenuShareQQ({
+                        title: '骨科', // 分享标题
+                        desc: '', // 分享描述
+                        link: 'http://www.sph.com.cn/Html/Doctors/Main/Index_677.html', // 分享链接
+                        imgUrl: 'http://www.sph.com.cn/Sites/Uploaded/UserUpLoad/20170301/20170301175231.jpg', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    //获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口
+                    wx.onMenuShareWeibo({
+                        title: '骨科', // 分享标题
+                        desc: '', // 分享描述
+                        link: 'http://www.sph.com.cn/Html/Doctors/Main/Index_677.html', // 分享链接
+                        imgUrl: 'http://www.sph.com.cn/Sites/Uploaded/UserUpLoad/20170301/20170301175231.jpg', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    //获取“分享到QQ空间”按钮点击状态及自定义分享内容接口
+                    wx.onMenuShareQZone({
+                        title: '骨科', // 分享标题
+                        desc: '', // 分享描述
+                        link: 'http://www.sph.com.cn/Html/Doctors/Main/Index_677.html', // 分享链接
+                        imgUrl: 'http://www.sph.com.cn/Sites/Uploaded/UserUpLoad/20170301/20170301175231.jpg', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                });
+            }
+        </script>
+    <script>
+        window._bd_share_config = {
+            common : {
+                bdText : '骨科',
+                bdDesc : '',
+                bdUrl : 'http://www.sph.com.cn/Html/Doctors/Main/Index_677.html',
+                bdPic : 'http://www.sph.com.cn/Sites/Uploaded/UserUpLoad/20170301/20170301175231.jpg'
+            },
+            share : [{
+                "bdSize" : 16
+            }]
+        }
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/Content/plugins/baiduShare/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+
+<!-- 弹窗、飘窗、浮窗等 -->
+ 
+ <div class="wrap">
+ <!--头部开始-->
+ <div class="header">
+ <div class="header2_W">
+ <div class="logo2 fl">
+ <a href="/"><img src="/Content/Areas/Common/images/logo/logo2.png" /></a>
+ </div>
+ <div class="header_DepNameDiv"><span class="header_DepNameSpan">骨科</span></div>
+ <div class="fr header_R">
+ <div class="header_RT">
+ 
+
+<span id="ajax_div__LoggingStatus_1_0_0_8209">
+    <script type="text/javascript">
+        GetAjaxContentByUrl('ajax_div__LoggingStatus_1_0_0_8209', '/PartialView/_Plugin/_LoggingStatus?siteId=1');
+    </script>
+</span>
+ <a href="#" class="color_1">English</a>
+ <a href=/Html/Departments/Main/Index_274.html>科室首页</a>
+ <a href="/">医院网站首页</a>
+ </div>
+ <div class="header_RB">
+ <div class="search_box">
+ <form action="/Hospitals/Search" method="post">
+ <input class="searchTxt" id="search" name="search" type="text" placeholder="承百年医脉 铸一流名院">
+ <input name="" value="" class="searchBtn" type="submit">
+ </form>
+ <div class="clearit"></div>
+ </div>
+ </div>
+ </div>
+ <div class="clearit"></div>
+ </div>
+ </div>
+ <div class="clearit"></div>
+ <!--头部结束-->
+ <!--PC导航 开始-->
+ <div class="nav">
+ <link href="/Content/Areas/Common/css/nav.css" rel="stylesheet" type="text/css" />
+ <script src="/Content/Areas/Common/scripts/common_nav.js" type="text/javascript"></script>
+ <!--手机导航附加类名-->
+ <div class="sy_nav">
+ <a id="open_btn" class="open_btn">
+ <span></span>
+ </a>
+ <div class="phone_container" id="phone_container">
+ <!--手机导航附加类名-->
+ <div class="phone_header">
+ <h3><a href="/">网站导航</a></h3>
+ <a id="close_btn" class="close_btn">
+ <span></span>
+ </a>
+ </div>
+ <div class="nav_ks">
+ <ul class="nav_ks_list">
+ <li><a href="/Html/Departments/Main/Index_274.html">科室首页</a></li>
+ <li><a href="/Html/Departments/Main/Detail_102.html">科室介绍</a></li>
+ <li><a href="/Html/Departments/Main/DoctorTeam_102.html">医疗团队</a></li>
+ 
+
+		 <li class = "column319 lv1_li">
+		 	<p class="lv1_p">
+		 		<a href="/Html/News/Columns/319/Index.html" class="lv1_tit">科研教学</a>
+			</p>
+
+		 </li>
+		 <li class = "column320 lv1_li">
+		 	<p class="lv1_p">
+		 		<a href="/Html/News/Columns/320/Index.html" class="lv1_tit">健康科普</a>
+			</p>
+
+		 </li>
+		 <li class = "column321 lv1_li">
+		 	<p class="lv1_p">
+		 		<a href="/Html/News/Columns/321/Index.html" class="lv1_tit">特色技术</a>
+			</p>
+
+		 </li>
+		 <li class = "column206 lv1_li">
+		 	<p class="lv1_p">
+		 		<a href="/Html/News/Columns/206/Index.html" class="lv1_tit">科室相册</a>
+			</p>
+
+		 </li>
+		 <li class = "column717 lv1_li">
+		 	<p class="lv1_p">
+		 		<a href="/Html/News/Columns/717/Index.html" class="lv1_tit">精彩视频</a>
+			</p>
+
+		 </li>
+
+ 
+ <li><a href="/Departments/Main/QuestionList/102">在线咨询</a></li>
+ <div class="clearit"></div>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!--导航结束-->
+ <!--主体部分-->
+ <div class="main" style="background:#fff;">
+ 
+
+
+  <link href="/Content/Areas/Common/css/linkMap.css" rel="stylesheet" type="text/css" />
+
+<div class="linkmap">
+	您所在的位置：
+    <span><a href="/">首页</a>
+        &gt;&gt;<a href="/Html/Hospitals/Doctors/Overview677.html"><span class="navspan"> 专家介绍 </span></a>&gt;&gt;<a><span class="navspan"> 张伟</span></a>
+    </span>
+</div>
+
+<div class="main_content">
+ 
+ <div class="doctor_left">
+ <div class="doc_jj_con">
+ <h2 class="ask_title" style="margin-top: 0px;"><p>张伟</p></h2>
+ <div class="zj_img">
+ <div class="album-view">
+ <img src="/Sites/Uploaded/UserUpLoad/20170301/20170301175231.jpg" class="doc_pic" />
+ </div>
+ </div>
+ <div class="zj_cont">
+  <p>
+ <span><strong>所在科室：</strong></span><a href="/Html/Departments/Main/Index_274.html" target="_blank">骨科</a><a href="/Html/Departments/Main/Index_1443.html" target="_blank">骨关节科</a> </p>
+  <p>
+ <span><strong>职称：</strong></span>
+ <span>主任医师</span>
+ </p>
+ <div class="ks_jj_div" id="Descri">
+ <p>
+ <span><strong>主要经历：</strong></span>
+ 1957年出生，山东大学硕士研究生导师，并承担山东大学临床医学研究生、本科生和进修生的教学工作。曾赴美国、德国多家骨关节中心进修学习。
+ </p>
+ </div>
+ <a class="Show_more" id="showDescri" style="float:right">更多</a>
+ <div style="display: none" id="Descri_all">
+ <p>
+ <span><strong>主要经历：</strong></span>
+ 1957年出生，山东大学硕士研究生导师，并承担山东大学临床医学研究生、本科生和进修生的教学工作。曾赴美国、德国多家骨关节中心进修学习。
+ </p>
+ </div>
+ <div style="display: none" id="Descri_little">
+ <p>
+ <span><strong>主要经历：</strong></span>
+ 1957年出生，山东大学硕士研究生导师，并承担山东大学临床医学研究生、本科生和进修生的教学工作。曾赴美国、德国多家骨关节中心进修学习。
+ </p>
+ </div>
+ <div class="clearit"></div>
+ </div>
+ <script type="text/javascript">
+ $(document).ready(function () {
+ $("#showDescri").click(function () {
+ if ($(this).html() == "更多") {
+ $(this).html("收起");
+ $("#Descri").html($("#Descri_all").html());
+ //$('.ks_jj_l').css("display", "none");
+ }
+ else {
+ $(this).html("更多");
+ $("#Descri").html($("#Descri_little").html());
+ //$('.ks_jj_l').css("display", "block");
+ }
+ })
+ $("#imgZoom").click(function () {
+ $(this).fadeOut()
+ $("#Depar_logo_a").html($(this).html());
+ });
+ //点击上面的锚链接时，显示全部信息
+ $(".ks_navUl").click(function () {
+ $("#showDescri").html("收起");
+ $("#Descri").html($("#Descri_all").html());
+ //$('.ks_jj_l').css("display", "none");
+ });
+ });
+ function showImg(picId) {
+ $("#imgZoom").html($(picId)).fadeIn();
+ }
+
+ </script>
+ <div class="clearit"></div>
+ </div>
+ <div class="ys">
+ <h2 class="ask_title"><p>学术兼职</p></h2>
+ <p class="ys_con">兼任山东省医学会骨科学会关节学组组长，主任委员，山东省医学会骨科专业委员会副主任委员，中国医师协会山东省骨科专业委员会副主任委员，山东省医学会骨质疏松及骨矿盐疾病学会常委，华裔骨科学会理事。</p>
+ <div class="clearit"></div>
+ </div>
+  <div class="ys">
+ <h2 class="ask_title"><p>优势擅长</p></h2>
+ <p class="ys_con">关节置换及翻修、关节镜手术，擅长多种骨关节疾病的诊断和外科治疗，包括骨关节炎、类风湿性关节炎、骨坏死、强直性脊柱炎、髋臼发育不良、髋关节脱位、半月板损伤、交叉韧带损伤、膝关节侧副韧带损伤等，特别是下肢髋、膝关节置换和翻修手术，具有上千例关节镜手术及髋、膝、肩等人工关节置换的临床经验。</p>
+ <div class="clearit"></div>
+ </div>
+ <!-- 出诊信息 -->
+ <div class="ys">
+ 
+</p>
+ </div>
+ <div class="clearit"></div>
+ </div>
+ <!---->
+ <div class="doctor_right">
+ <div class="Doct_box1 border " >
+ 
+ 
+ <h3 class="color_3">门诊科室</h3>
+ <ul class="dep_list pd15">
+ </ul>
+ <div class="clearit"></div> 
+ <div class="clearit"></div>
+ </div>
+ <div class="Doct_box1 mt20 border " >
+ <h3 class="color_1">科研论文</h3>
+ <p class="ys_con">
+  在核心A类、B类、国家级、SCI杂志发表论文10余篇，其中第一作者3篇，SCI论文1篇。
+ </p>
+ <div class="clearit"></div>
+ </div>
+ <div class="Doct_box2 mt20 border question" >
+  <div id="question">
+ 
+
+
+
+
+
+ <div class="clearit"></div>
+ </div>
+ </div>
+ <!-- 先关疾病 -->
+ <div class="Doct_box4 mt20 border disease">
+ <div class="department_disease" id="disease">
+ 
+
+
+ <div class="clearit">
+ </div>
+ </div>
+ <div class="clearit"></div>
+ </div>
+ <!-- 相关文章 -->
+ <div class="Doct_box5 mt20 border wenzhang">
+ <h3 class="color_2"><span></span>相关文章</h3>
+ <div class="about_wenz" id="wenzhang">
+ <ul class="jb_type ">
+ 
+ <h2 class="ask_title"><a href="/News/Articles/ReleatedArticle?siteId=0">更多</a><p>相关文章</p></h2>
+ <ul class="ask_list">
+ <li class = "Li_Odd">
+ 
+ <a href="/Html/News/Articles/3248.html" title="专家介绍" class="title_type">
+ <font color="">专家介绍</font></a>
+ 
+ 
+  
+ 
+ </li>
+ <li class = "Li_Even">
+ 
+ <a href="/Html/News/Articles/1915.html" title="科研立项" class="title_type">
+ <font color="">科研立项</font></a>
+ 
+ 
+  
+ 
+ </li>
+ <li class = "Li_Odd">
+ 
+ <a href="/Html/News/Articles/3287.html" title="山东省第二次男护士职业发展论坛在青岛成功举办" class="title_type">
+ <font color="">山东省第二次男护士职业发展论坛在青岛成功举办</font></a>
+ 
+ 
+  
+ 
+ </li>
+ <div class="clearit"></div>
+  
+ </ul>
+ 
+ </ul>
+ </div>
+ </div>
+ <!-- 相关视频 -->
+ <div class="Doct_box5 mt20 border video">
+ <h3 class="" style="background:#CDAD6C"><span><a href="/Html/News/VideoColumns/3/Index.html">更多</a></span>相关视频</h3>
+ <div class="ys" id="video">
+ 
+  
+ </div>
+ </div>
+  
+ <div class="clearit"></div>
+ </div>
+ <div class="clearit"></div>
+ 
+ </div>
+ <div class="clearit"></div>
+ <!--主体结束-->
+ <!-- 友情链接 -->
+ <div class="FriendLink">
+ 
+ 
+ 
+ </div>
+ <div class="clearit"></div>
+ <!--底部开始-->
+ <div class="footer_2">
+ <div class="footer2_con">
+ <p class="bq">山东省立医院版权所有 <span> Copyrights © 2009 sph.com.cn All Rights Reserved </span></p>
+ <p class="address">山东省立医院总机：0531-87938911 山东省立医院地址：济南市经五纬七路324号 邮编：250021 </p>
+ <p class="ba">
+ <span class="xs">ICP备案：<a target="_blank" href="http://www.miit.gov.cn/">鲁ICP备11002409号</a></span>
+ 
+
+<span id="ajax_div__VisitCount_1_0_0_2711">
+    <script type="text/javascript">
+        GetAjaxContentByUrl('ajax_div__VisitCount_1_0_0_2711', '/PartialView/_Plugin/_VisitCount?siteId=1');
+    </script>
+</span>
+ <span class="xs xs01">技术支持：<a href="http://www.54doctor.net/" target="_blank" title="54Doctor"><img src="/Content/Areas/Common/images/logo/54.png" /></a></span>
+ </p>
+ <div class="clearit"></div>
+ </div>
+ </div>
+ <!--底部结束-->
+ </div>
+</body>
+</html>  

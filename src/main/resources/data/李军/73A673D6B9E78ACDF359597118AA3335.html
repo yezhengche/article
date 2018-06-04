@@ -1,0 +1,3011 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+<title>李军_北大医院</title>
+<link rel="stylesheet" type="text/css" href="http://i1.hdfimg.com/partner/sohu/950.css" />
+<link rel="stylesheet" type="text/css"	href="http://i1.hdfimg.com/partner/css/page_bar.css" />
+<link rel="stylesheet" type="text/css"	href="http://i1.hdfimg.com/partner/css/common.css?1350483410" />
+<link href="http://i1.hdfimg.com/partner/css/css.css" rel="stylesheet"	type="text/css" />
+<script language="javascript" src="http://i1.hdfimg.com/js/jquery.js"></script>
+<script language="javascript" src="http://i1.hdfimg.com/partner/js/common.js"></script>
+<style>
+body {
+	margin: 0px auto;
+	font-size: 12px;
+	background-color: #ffffff;
+	text-align:left;
+}
+</style>
+<script language="javascript">
+//看病过程,如果有选不满意则弹出联系方式让填写
+function check_skill_attitude()
+{
+	$('#moreinputbox_mobile_3').css('display', 'none');
+    if($('#skill').attr('value')==0 
+        || $('#skill').attr('value')==1)
+	{
+		$('#moreinputbox_mobile_3').css('display', 'block');
+	}		
+}
+//改造一下
+function checkMobile2(mobile)
+{
+    var reg0=/^(1[34578][0-9]{9})$/;   //1开头。至少7位
+	 if (reg0.test(mobile)){
+	 	return true;
+	 }else
+	 {
+	 	return false;
+	 }
+}
+function checkform()
+{
+    var obj = $("#inputform")[0];
+	if (($.trim(obj.disease.value) == "") || (obj.disease.value == "请填入正确的疾病名称")) {
+		alert("请输入疾病名称!");
+		obj.disease.focus();
+		return false;
+	}
+	if (obj.disease.value.length > 100) {
+		alert("疾病名称不能大于50字！");
+		obj.disease.focus();
+		return false;
+	}
+	if (obj.skill.value == -2) {
+		alert("请选择疗效！");
+		obj.skill.focus();
+		return false;
+	}
+	if (obj.attitude.value == -2) {
+		alert("请选择态度！");
+		obj.attitude.focus();
+		return false;
+	}
+	if (obj.registerrate.value == -2) {
+		alert("请选择挂号难度！");
+		obj.registerrate.focus();
+		return false;
+	}
+	var reg = /^请注意/;
+	if (reg.test(obj.content_fix_0.value)) {
+		alert("请输入的评论内容");
+		obj.content_fix_0.focus();
+		return false;
+	}
+	/*
+    if(obj.verifystr.value =='')
+    {
+        alert('请输入验证码');
+        return false;
+    }
+	 */
+	if ($.trim(obj.content_fix_0.value).length < 50) {
+		alert("您输入的评论内容不能少于50个字!");
+		obj.content_fix_0.focus();
+		return false;
+	}
+	if (obj.content_fix_0.value.length > 5000) {
+		alert("您输入的评论内容不能大于5000个字!");
+		obj.content_fix_0.focus();
+		return false;
+	}
+	obj.fld_UserRealName.value = jQuery.trim(obj.fld_UserRealName.value);
+	if ((obj.fld_UserRealName.value == "")) {
+		alert("请输入真实姓名!");
+		obj.fld_UserRealName.focus();
+		return false;
+	}
+	if(obj.fld_UserRealName.value.replace(/([\u4E00-\u9FA5\uf900-\ufa2d])/g,'**').length>20)
+	{
+		alert("患者姓名不能超过20个字符");
+		obj.fld_UserRealName.focus();
+		return false;
+	}
+
+	obj.fld_UserMobile.value = jQuery.trim(obj.fld_UserMobile.value);		
+	if ((obj.fld_UserMobile.value == "")) {
+		alert("请输入手机号码!");
+		obj.fld_UserMobile.focus();
+		return false;
+	}		
+	if (checkMobile2(obj.fld_UserMobile.value)==false) {
+		alert("请输入正确的手机号码!");
+		obj.fld_UserMobile.focus();
+		return false;
+	}
+	tmp_content = "";	
+	
+	if(obj.content_fix_0.value.length>1)
+	{
+		tmp_content += jQuery.trim(obj.content_fix_0.value);
+		tmp_content += "\r\n";
+	}
+
+    $.post('ajaxCheckSensComment',{'content':tmp_content},function(data){
+        var odata = eval('(' + data + ')');
+        if (odata.issens == 1)
+        {
+            alert("内容内包含敏感词,无法提交");
+        }
+        else
+        {
+            alert("看病过程发表成功，我们将在3个工作日内进行审核，通过后才能被展示！");
+            obj.content.value = jQuery.trim(tmp_content);
+
+            obj.btn.value='发表中...';
+            obj.btn.disabled = true;
+            obj.submit();
+            return true;
+        }
+    });
+}
+function showVoteBox(){
+	tb_show("给大夫投票", "#TB_inline?height=166&width=260&inlineId=voteFormContent&modal=true");
+}
+function showJieShao(){
+	tb_show("大夫介绍", "#TB_inline?height=300&width=550&inlineId=jieshaoContent");
+}
+function closePopDiv(){
+	tb_remove();
+}
+
+function wordNumberNotice(input_el, notice_el, word_number){
+	var num = Math.ceil($(input_el).val().length);
+	if (word_number-num > 0) {
+		$(notice_el).html('你还需要输入'+(word_number-num)+'个字才能发表');
+	} else {
+		$(notice_el).html('');
+	}
+}
+</script>
+</head>
+<body>
+<div align="center"> 
+<iframe src="http://health.sohu.com/7/0803/17/column212301760.shtml
+" frameBorder=0 scrolling=no class="navi" width="990" height="130"></iframe> 
+</div>  
+
+<div class="width_yy"><a href="/">搜狐健康</a>
+&gt; <a href="/province/all.htm">医院列表</a> &gt; <a
+	href="/province/beijing.htm">北京</a>
+&gt; <a
+	href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm">北大医院</a>
+&gt; <a
+	href="/faculty/DE4roiYGYZw0xaUz-mzZSmmxP.htm">骨科</a>
+&gt; <a
+	href="/doctor/DE4r08xQdKSLBvLPG52Duj49TpEn.htm">李军</a>
+</div>
+<div class="width_yy" id="ss">
+<ul>
+	<li class="bg_l"><a href="/" class="bg_l" style="text-decoration:   none">医生 <span>Doctor</span></a></li>
+	<li class="bg_c">
+	<form action="/search/showlist" method="get">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td><input class="top_input" name="k" /></td>
+			<td width="10"></td>
+			<td width="60">
+			<input type="image"	src="http://i1.hdfimg.com/partner/images/search.gif" width="48" height="23" style="border: none" />
+			</td>
+            			<td width="60">
+			<a href="/thread/ask.htm"><img src="http://i1.hdfimg.com/partner/images/wytw.gif" /></a>
+			</td>
+			<td align="right" valign="middle">&nbsp;&nbsp;全国<span>3175</span>家重点医院,<span>303367</span>名专家</td>
+            		</tr>
+	</table>
+</form>
+	</li>
+	<li class="bg_r"></li>
+</ul>
+</div>
+<div class="width_yy">
+<div class="yyleft">
+<div class="yy">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="title">
+	<tr>
+		<td class="bg_l">&nbsp;</td>
+		<td class="bg_c">
+		<table border="0" cellspacing="0" cellpadding="0" class="tit_bg">
+			<tr>
+				<td>李军</td>
+				<td class="tit_bg_r">&nbsp;</td>
+			</tr>
+		</table>
+	  
+<span><a href="/thread/ask.htm?host_id=67712" style="color: #F00;">李军大夫已开通个人网站，向李军咨询</a></span>
+</td>
+		<td class="bg_r">&nbsp;</td>
+	</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="listxx font14">
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/faculty16.gif" width="10"
+			height="14" /></td>
+		<td width="95%">科 室: <a
+			href="/faculty/DE4roiYGYZw0xaUz-mzZSmmxP.htm"
+			class="blue font14">北京大学第一医院骨科</a>
+		( <a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			class="blue font14">医院联系方式</a> <a
+			href="/faculty/DE4roiYGYZw0xaUz-mzZSmmxP.htm"
+			class="blue font14">科室介绍</a> )</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/icon_post.gif" width="12"
+			height="14" /></td>
+		<td width="95%">职 称: 副主任医师 </td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/icon_flag.gif" width="12"
+			height="14" /></td>
+		<td width="95%">擅 长: 各种四肢骨折的微创治疗、高龄患者髋部骨折治疗、股骨头坏死微创保头治疗、老年骨质增生规范保守及手术治疗、骨质疏松的系统治疗；老年高龄人工髋、膝、肩、肘关节置换术。特别擅于针对不同个体、病情制定个性化治疗方案。对深静脉血栓、围手术期感染等骨科并发症的预防和处理有全面系统的理解，术后并发症极低。</td>
+	</tr>
+    <!--start add element-->
+    <style>
+       .sohu-zixun{ padding-top:5px;}
+       .sohu-zixun-l{ width:10%; background:url( http://i1.hdfimg.com/www/images/icon_xxzxy_03.gif) no-repeat left center; padding-left:33px; }
+       .sohu-jiahao-l { width:10%; background:url( http://i1.hdfimg.com/www/images/icon_xxzxy_11.gif) no-repeat left center; padding-left:33px; }
+       .sohu-zixun-c{ width:65%;}
+       .sohu-zixun p{ line-height:220%;}
+       .sohu-zixun-b{ width:19%;}
+       .fl{ display:inline; float:left;}
+       .fr{ display:inline; float:right;}
+       .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+        }
+        .clearfix{display:inline-block;}
+        * html .clearfix{height:1%;}
+        .clearfix{display:block;}
+        .xxzx_button {
+        background: url("http://i1.hdfimg.com/www/images/anniu_xxzxy_03.gif") no-repeat scroll 0 0 transparent;
+        display: block;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        text-decoration: none;
+        width: 100px;
+        margin-left:30px;
+    }
+    </style>
+        <tr>
+          <td colspan="2">
+             <div class="sohu-zixun clearfix">
+                <div class="sohu-zixun-l fl"><p>网上咨询：</p></div>
+                <div class="sohu-zixun-c fl">
+
+                    <p>关节外科疾病，人工关节，创伤，骨质增生、强直性脊柱炎、股骨头坏死</p>
+                    <p>(患者提问:<span class="orange">630</span>问 李军本人已回复:<span class="orange">630</span>问)</p>
+                </div>
+                <div class="sohu-zixun-r fr">
+                    <a class="xxzx_button" href="/thread/ask.htm?host_id=67712">咨询李军</a>
+                </div>
+             </div>
+          </td>
+   </tr>
+          <tr>
+          <td colspan="2">
+             <div class="sohu-zixun clearfix">
+                <div class="sohu-jiahao-l fl"><p>预约转诊：</p></div>
+
+                <div class="sohu-zixun-c fl">
+                    <p>关节炎、股骨头坏死、四肢骨折、骨质疏松、股骨颈骨折</p>
+                                        <p>(已有<a target="_blank" href="http://jiahao.haodf.com/doctor/lijunyisheng/yuyuejiahaolist.htm" class="orange">64</a>位患者预约就诊成功)</p>
+                                    </div>
+                <div class="sohu-zixun-r fr">
+                    <a class="xxzx_button" target="_blank" href="http://jiahao.haodf.com/doctor/lijunyisheng/index.htm">申请转&shy;诊</a>
+
+                </div>
+             </div>
+          </td>
+   </tr>
+           <!--end add element-->
+	<tr>
+		<td colspan="2" class="blue_line">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/icon_flower.gif" width="12"
+			height="14" /></td>
+		<td width="95%">患者投票</td>
+	</tr>
+	<tr>
+		<td width="5%">&nbsp;</td>
+		<td width="95%">		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="12%">疗效:</td>
+				<td width="28%"><img
+					src="http://i1.hdfimg.com/partner/images/purple1.gif" height="8"
+					width="100" /></td>
+				<td width="30%">满意度:100%</td>
+				<td rowspan="2" width="30%"><a href="#comment"><img
+					src="http://i1.hdfimg.com/images/common/tou.gif" /></a></td>
+			</tr>
+			<tr>
+				<td>态度:</td>
+				<td><img
+					src="http://i1.hdfimg.com/partner/images/purple1.gif" height="8"
+					width="100" /></td>
+				<td>满意度:100%</td>
+			</tr>
+			<tr>
+				<td colspan="4"> <a
+					href="http://dise.health.sohu.com/disease-3132.shtml"
+					class="blue">骨折</a>(19票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/rengongguanjiezhihuanshu.htm"
+					class="blue">人工关节置换术</a>(6票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/xiguanjiesunshang.htm"
+					class="blue">膝关节损伤</a>(4票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/zubuguzhe.htm"
+					class="blue">足部骨折</a>(3票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-3133.shtml"
+					class="blue">骨质增生</a>(2票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/diseaseSearch.sip?item=疼痛&pageNo=1&onePageNo=20&flag=common"
+					class="blue">疼痛</a>(1票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-1026.shtml"
+					class="blue">关节炎</a>(1票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/huaibuniushang.htm"
+					class="blue">踝部扭伤</a>(1票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-3032.shtml"
+					class="blue">骨质疏松</a>(1票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/jingfeiguganguzhe.htm"
+					class="blue">胫腓骨干骨折</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/muwaifan.htm"
+					class="blue">拇外翻</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/shouwaishang.htm"
+					class="blue">手外伤</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/xiguanjiebanyuebansunshang.htm"
+					class="blue">膝关节半月板损伤</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/xiguanjierendaisunshang.htm"
+					class="blue">膝关节韧带损伤</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/yaotuitong.htm"
+					class="blue">腰腿痛</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/xiguanjiezhihuanshu.htm"
+					class="blue">膝关节置换术</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/guanjietong.htm"
+					class="blue">关节痛</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/guguguzhe.htm"
+					class="blue">股骨骨折</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/gongguguzhe.htm"
+					class="blue">肱骨骨折</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/jianguanjietuowei.htm"
+					class="blue">肩关节脱位</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/huaibuguzhe.htm"
+					class="blue">踝部骨折</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/body-1024.shtml"
+					class="blue">腰部疾病</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-1073.shtml"
+					class="blue">类风湿性关节炎</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2944.shtml"
+					class="blue">股骨头坏死</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-3087.shtml"
+					class="blue">韧带损伤</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-3016.shtml"
+					class="blue">腰椎间盘突出</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/yaotong.htm"
+					class="blue">腰痛</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-3143.shtml"
+					class="blue">滑膜炎</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2010.shtml"
+					class="blue">骨膜炎</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/gugujingguzhe.htm"
+					class="blue">股骨颈骨折</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/binguguzhe.htm"
+					class="blue">髌骨骨折</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/genjianduanlie.htm"
+					class="blue">跟腱断裂</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/xiguanjieyan.htm"
+					class="blue">膝关节炎</a>(0票)&nbsp;
+					</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+				<table width="60%" cellpadding="0" cellspacing="0" align="right">
+					<tr>
+						<td>图例:</td>
+						<td>满意</td>
+						<td><img height="5" src="http://i1.hdfimg.com/partner/images/purple1.gif"
+							width="20" /></td>
+						<td>一般</td>
+						<td><img height="5" src="http://i1.hdfimg.com/partner/images/purple2.gif"
+							width="20" /></td>
+						<td>不满意</td>
+						<td><img height="5" src="http://i1.hdfimg.com/partner/images/purple3.gif"
+							width="20" /></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu//icon_introduce.gif" width="14"
+			height="14" /></td>
+		<td width="95%">大夫介绍</td>
+	</tr>
+	<tr>
+		<td width="5%">&nbsp;</td>
+		<td width="95%"> 李军，男，医学博士，副主任医师。1994年毕业于同济医科大学，曾经多次到国外学习访问。2001年，在国内首先提出关节置换		...<a
+			href="javascript:display_div('block', 'doctorintro');" class="blue">完整介绍&gt;&gt;</a>
+			</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="blue_line">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu//icon_date.gif" width="14"
+			height="14" /></td>
+		<td width="95%">出诊时间</td>
+	</tr>
+	<tr>
+		<td width="5%"></td>
+		<td width="95%" style="font-size: 12px;">
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td align="right">
+				<table width="100%" cellpadding="1" cellspacing="0">
+					<tr>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_green.gif" align="absmiddle" /><span class="normal">普通门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_red.gif" align="absmiddle" /><span class="normal">专家门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_yellow.gif" align="absmiddle" /><span class="normal">特需门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_blue.gif" align="absmiddle" /><span class="normal">专科门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_purple.gif" align="absmiddle" /><span class="normal">会诊中心</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_blue2.gif" align="absmiddle" /><span class="normal">夜间门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_red.gif" align="absmiddle" /><span class="normal">门诊+手术门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_brown.png" align="absmiddle" /><span class="normal">其他门诊</span></td>
+                        					</tr>
+				</table>
+
+				<table width="100%" cellpadding="0" cellspacing="0"
+					class="table_yellow">
+					<tr>
+						<td width="16%" class="yellowtext">&nbsp;</td>
+						<td width="12%" align="center" class="yellowtext">周一</td>
+						<td width="12%" align="center" class="yellowtext">周二</td>
+						<td width="12%" align="center" class="yellowtext">周三</td>
+						<td width="12%" align="center" class="yellowtext">周四</td>
+						<td width="12%" align="center" class="yellowtext">周五</td>
+						<td width="12%" align="center" class="yellowtext">周六</td>
+						<td width="12%" align="center" class="yellowtext">周日</td>
+					</tr>
+										<tr>
+						<td class="yellowtext">上午</td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                            60.00元                            </span>
+							<br>北大医院 
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                            60.00元                            </span>
+							<br>北大医院 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                            60.00元                            </span>
+							<br>北大医院 
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+											</tr>
+										<tr>
+						<td class="yellowtext">下午</td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+											</tr>
+										<tr>
+						<td class="yellowtext">夜间</td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+											</tr>
+									</table>
+
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+<table width="100%" cellpadding="3" cellspacing="0"
+	style="margin-top: 10px">
+	<tr>
+		<td align="left" style="background-color: #FFF4E3; color: #E3961E;">李军大夫发布的门诊提示</td>
+	</tr>
+	<tr>
+		<td>
+		<table width="100%" cellpadding="0" cellspacing="0">
+								<tr>
+				<td align="right"><span class="gray">(由李军大夫本人发表于2018-01-25 11:39)</span></td>
+			</tr>
+
+			<tr>
+				<td height="40" align="right"><a
+					href="http://www.haodf.com/senderr/" class="blue">信息有错误？请点击这里&gt;&gt;</a></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+			</div>
+<div class="yy">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="title">
+	<tr>
+		<td class="bg_l">&nbsp;</td>
+		<td class="bg_c">
+		<table border="0" cellspacing="0" cellpadding="0" class="tit_bg">
+			<tr>
+				<td>找李军大夫的看病经验</td>
+				<td class="tit_bg_r">&nbsp;</td>
+			</tr>
+		</table>
+		</td>
+		<td class="bg_r">&nbsp;</td>
+	</tr>
+</table>
+<div style="font-size: 14px; text-align: right">
+<a href="#comment" class="red">发表就医经验>></a></div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="listxx">
+	<tr>
+		<td class="gray">以下言论未经核实，仅为网友个人观点，不代表本站同意其说法，本站不承担由此引起的法律责任。请阅读者谨慎参考。</td>
+	</tr>
+	<tr>
+    <td>		<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 田*** </td>
+				<td>时间：2018年01月18日09时05分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://www.haodf.com/jibing/zubuguzhe.htm" class="blue">足部骨折</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>手术<br> 
+				术后伤口恢复正常。李医生经验丰富，应对自如，游刃有余。伤口处理的好，没用换药，就拆线了。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 陈*** </td>
+				<td>时间：2018年01月02日22时19分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-3132.shtml" class="blue">骨折</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				李医生医术高明，态度和蔼可亲，解答问题细致易懂。对病情分析的十分透彻，解决了我们不少难题，也提出了很好的治疗建议。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 谢*** </td>
+				<td>时间：2017年10月27日11时40分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://www.haodf.com/jibing/xiguanjiesunshang.htm" class="blue">膝关节损伤</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				大夫帮我看了半月板片子,让我暂时静养恢复,看看情况效果有好转 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 申*** </td>
+				<td>时间：2017年09月18日11时30分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-3132.shtml" class="blue">骨折</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>手术<br> 
+				李主任医术高超，看到我摔伤的左手，果断进行手术，保住了我的左手功能，我和我的家人都非常感谢李主任。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 王*** </td>
+				<td>时间：2017年09月11日11时45分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 骨关节</span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				非常感谢李軍医生的正确诊疗病情，使我减轻了很多痛苦，在我看病的过程中李医生是最好的，最有耐心的，还是感谢再感谢。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 刘*** </td>
+				<td>时间：2017年09月07日17时17分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/diseaseSearch.sip?item=疼痛&pageNo=1&onePageNo=20&flag=common" class="blue">疼痛</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				服务态度好，对病人认真负责。医术高明对病例讲解详细用药方法讲的全面 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 沈*** </td>
+				<td>时间：2017年07月10日11时38分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://www.haodf.com/jibing/zubuguzhe.htm" class="blue">足部骨折</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>复诊<br> 
+				李主任，看病信心，耐心解答病人疑问，态度好，医术好，很替病人着想。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 李*** </td>
+				<td>时间：2017年06月13日11时54分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-1026.shtml" class="blue">关节炎</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>手术<br> 
+				看评价说李医生很细心，医术精湛，母亲住院也说李医生不错，很关心患者 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 王*** </td>
+				<td>时间：2017年05月04日09时40分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-3132.shtml" class="blue">骨折</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>手术<br> 
+				经验丰富，真的很认真负责，出的术后建议非常管用，我会积极配合治疗 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 贾*** </td>
+				<td>时间：2017年03月29日08时32分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-3132.shtml" class="blue">骨折</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>康复<br> 
+				李主任的医术精湛，对待患者态度很好，术前术后查房非常到位，出院指导详细，可操作性强，万分感谢李主任。 </td>
+			</tr>
+		</table>
+		 
+
+		</td>
+	</tr>
+</table>
+</div>
+<div class="yy">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="title">
+	<tr>
+		<td class="bg_l">&nbsp;</td>
+		<td class="bg_c">
+		<table border="0" cellspacing="0" cellpadding="0" class="tit_bg">
+			<tr>
+				<td>发表就医经验，帮助更多患友了解李军大夫！<a id="comment"
+					name="comment"></a>&nbsp;<!--这个空格不要删除，这关系到ie兼容性--></td>
+				<td class="tit_bg_r">&nbsp;</td>
+			</tr>
+		</table>
+		</td>
+		<td class="bg_r">&nbsp;</td>
+	</tr>
+</table>
+<form action="http://www.haodf.com/api/doctor/addcomment"
+	method="post" name="inputform" id="inputform">
+    <input name="patient[id]" value="-1" type="hidden">
+<table id="inputcomment" width="100%" cellpadding="0" cellspacing="0"
+	style="border: 1px solid #ddd;">
+	<tr>
+		<td colspan="2" class="hdf_content" style="padding: 8px">
+		<table width="100%" cellpadding="0" cellspacing="0">
+
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				疾病名称:&nbsp;</td>
+				<td><input name="disease" style="width: 180px; font-size: 12px;"
+					maxlength="10" /> <span class=red>*</span></td>
+			</tr>
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				治疗方式:&nbsp;</td>
+				<td><input name="fld_DoctorCommentRemedy"
+					style="width: 180px; font-size: 12px;" maxlength="10" /> <span
+					class="gray">如：药品名、手术名(腹腔镜、介入治疗)...</span></td>
+			</tr>
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr>
+				<td align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				疗效/医术:&nbsp;</td>
+				<td><select id="skill" name="skill" style="width: 140px;">
+					<option value="-2" selected="selected">请选择</option>
+					<option value="5">很满意</option>
+					<option value="3">满意</option>
+					<option value="1">一般</option>
+					<option value="0">不满意</option>
+					<option value="-1">还不知道</option>
+				</select> <span class=red>*</span> &nbsp;&nbsp;&nbsp;&nbsp;<img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				耐心/态度:&nbsp; <select id="attitude" name="attitude"
+					style="width: 140px;">
+					<option value="-2" selected="selected">请选择</option>
+					<option value="5">很满意</option>
+					<option value="3">满意</option>
+					<option value="1">一般</option>
+					<option value="0">不满意</option>
+				</select> <span class=red>*</span></td>
+			</tr>
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr align="left">
+				<td align=right valign=top><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				看病过程:&nbsp;</td>
+				<td><textarea
+					onkeyup="wordNumberNotice(this, $('#notice_word_number'), 50)"
+					rows="12" style="font-size: 12px; color: #666" class="tex_width"
+					name="content_fix_0"
+					onfocus="var reg = /^请注意/;if (reg.test(this.value)){this.value='';this.style.color='#000'}">请注意:
+1. 只有您在李军大夫处就医后，才能发表看病经验。
+2. 分享看病经验要求公正、客观、详实。涉及“医疗纠纷”的，需提供法院已生效的法律文书，经审核，对事实清楚、证据充分、合法有效的，可予以发表。
+3. 无事实根据，发布损毁医生名誉的不实言论，发布者需承担相应法律责任。
+					</textarea> <span class=red>*</span><br />
+				<span id="notice_word_number" style="color: #F00;"></span></td>
+			</tr>
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+		</table>
+
+		<div id="moreinputbox_mobile_3">
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				真实姓名:&nbsp;</td>
+				<td><input style="WIDTH: 140px; FONT-SIZE: 12px" size="18"
+					name="fld_UserRealName" maxlength="20" /> <span class="orange">*</span></td>
+			</tr>
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				手机号码:&nbsp;</td>
+				<td><input style="WIDTH: 140px; FONT-SIZE: 12px" size="18"
+					name="fld_UserMobile" maxlength="11" /> <span class="orange">*</span></td>
+			</tr>
+			<!--
+				<tr>
+						<td>请输入计算结果:</td>
+						<td>
+                        <span id="show_captcha_article"><img id='captcha' name='captcha' src="http://www.haodf.com/captcha.php?type=article&width=120&height=35&token=ATdfJgFmXW4HMVs4XTUBZVUxA2cDJwAxWjRWNVIxUT1VYAVnBGVcaFFhUWBcbl5uATgAMVE7AXUAagdnUjJVNQE1" /></span>
+                        <input type="text" size="4" style="height:28px" name="verifystr" id="verifystr" value="" />
+						</td>
+				</tr>
+				-->
+			<tr>
+				<td></td>
+				<td>1.您必须自己在大夫处就医过，才能发表。<br />
+				2.就医过程需要公正，客观，详实。无事实依据有可能被删除。 <br />
+				注意：请填写您的真实姓名和手机号码，联系方式不会在网页上公开。
+				如遇到投诉的时候我们会及时联系您。如果无法联系到您本人核实，您的评论可能会被删除。</td>
+			</tr>
+		</table>
+		</div>
+
+		<table width="100%" cellpadding="0" cellspacing="0">
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr align="left">
+
+				<td width="15%" align=right valign=top></td>
+				<td><input type="button" name="btn" style="padding-top: 3px;" onclick="return checkform();" value="发表就医经验" /> 
+                            <input type="hidden" name="token" id="token" value="ATdfJgFmXW4HMVs4XTUBZVUxA2cDJwAxWjRWNVIxUT1VYAVnBGVcaFFhUWBcbl5uATgAMVE7AXUAagdnUjJVNQE1" />
+					<input
+					type="hidden" name="expenserate" value="-2" /> <input type="hidden"
+					name="doctor_id_primary" value="11452" /> <input
+					type="hidden" name="doctor_id" value="11452" /> <input
+					type="hidden" name="doctor_name" value="李军" /> <input
+					type="hidden" name="type" value="2" id="TYPE" /> <input
+					type="hidden" name="from" value="" /> <input type="hidden"
+					name="domain" value="" /> <input type="hidden" name="registerrate"
+					value="-1" /> <input type="hidden" name="content" value="" /> <input
+					type="hidden" name="comment_type" value="3" /></td>
+                    <input type="hidden" name="crumb" value="02b01144" />
+                    <input type="hidden" name="isHezuo" value="1" />
+			</tr>
+		</table>
+
+
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+</div>
+
+<div class="yyright">
+<div class="clear yyright_s"> <div class="clear yyright_s" style="border-top: 1px solid #dddddd">
+<div style="padding: 16px; text-align: center;">
+<button style="height:29px; line-height: 24px; padding: 0 5px;" onclick="window.open('http://lijunyisheng.haodf.com/','newwindow');">访问李军个人网站</button>
+</div>
+ <div class="top_bg">李军 同专业推荐大夫</div>
+<table width="94%" cellspacing="0" cellpadding="0"
+	style="margin-left: 7px; margin-top: 7px">
+
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-3132.shtml" class="blue">骨折</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBVNPyPv5LwmK7DLi.htm">
+			陈华</a>(203票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdewURKNlx2XzuGO4ty.htm">
+			张立海</a>(147票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSNh0zdBz54iUuDINgIYJg.htm">
+			范丰川</a>(121票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNwkFi99Bk2BvoNi46Z7n1.htm">
+			丁坚</a>(74票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhmIKBtDEBxt8k.htm"
+			title="上海第六人民医院">
+			上海第六人民医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-3132.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/rengongguanjiezhihuanshu.htm" class="blue">人工关节置换术</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0iqIIQgjgKEL-rP.htm">
+			李为</a>(274票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0KmzZljbt3pIpm0.htm">
+			周勇刚</a>(301票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUnJ2Obnnx8s59Gnn.htm">
+			寇伯龙</a>(207票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONDnJPvy76rvKc.htm"
+			title="北大人民医院">
+			北大人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduGakTjT0-22oNxVxB.htm">
+			李锋</a>(127票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/rengongguanjiezhihuanshu.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/xiguanjiesunshang.htm" class="blue">膝关节损伤</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeGIkfiej6dZX-ciU9.htm">
+			马勇</a>(393票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeGnJ4uRwE-9BS0ak-.htm">
+			徐雁</a>(440票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduw0j9By8SzvH6fbnp.htm">
+			皇甫小桥</a>(443票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhmIKBtDEBxt8k.htm"
+			title="上海第六人民医院">
+			上海第六人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeCbNCrBx2XzuGO4ty.htm">
+			杨渝平</a>(167票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/xiguanjiesunshang.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/zubuguzhe.htm" class="blue">足部骨折</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNgQVxOazGRQ9C2br23VVO.htm">
+			赵廷虎</a>(90票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLUmKaNHcTieBvzKOb.htm"
+			title="深圳平乐骨伤科医院">
+			深圳平乐骨伤科医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNSNTQ8hYYemCFC7PDXngc.htm">
+			黄海晶</a>(65票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXJ2c2dcByMhc7g.htm"
+			title="天津医院">
+			天津医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduKolZWRwE-9BS0ak-.htm">
+			吴刚</a>(29票)</td>
+		<td><a
+			href="/yiyuan/DE4r0Fy0C9LugNGRgn-Vw0nj-p35r6Dll.htm"
+			title="国家康复医院">
+			国家康复医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBVNPyPv5LwmK7DLi.htm">
+			陈华</a>(46票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/zubuguzhe.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-3133.shtml" class="blue">骨质增生</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduhIyPg2bpNCqpa7rv.htm">
+			黄野</a>(71票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPSYfWz9LoalFRy9w.htm">
+			袁涛</a>(41票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXyq65Sxq9XkxnU.htm"
+			title="南京鼓楼医院">
+			南京鼓楼医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduGakTjT0-22oNxVxB.htm">
+			李锋</a>(32票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduGakVG6TMFHdvkQ4C.htm">
+			李子剑</a>(42票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-3133.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/diseaseSearch.sip?item=疼痛&pageNo=1&onePageNo=20&flag=common" class="blue">疼痛</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeZXJ57DWKEMSMwtPM.htm">
+			路桂军</a>(125票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBvQPh3oBq7c5PLvm.htm">
+			杨克勤</a>(55票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OmG3OUNZWCWNv0.htm"
+			title="中日医院">
+			中日医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeZnJBPlx2XzuGO4ty.htm">
+			岳剑宁</a>(52票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6O0h1aaH6PKRH5e.htm"
+			title="宣武医院">
+			宣武医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUmj15tPQrVFGoqUr.htm">
+			樊碧发</a>(46票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OmG3OUNZWCWNv0.htm"
+			title="中日医院">
+			中日医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/diseaseSearch.sip?item=疼痛&pageNo=1&onePageNo=20&flag=common"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-1026.shtml" class="blue">关节炎</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNwkf-7s6yoqIqpOOMCeP0.htm">
+			符培亮</a>(27票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhoUz-mzZSmmxP.htm"
+			title="长征医院">
+			长征医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduhIyPg2bpNCqpa7rv.htm">
+			黄野</a>(46票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LugRhNG0-evYReozGolC54J.htm">
+			王宁</a>(18票)</td>
+		<td><a
+			href="/yiyuan/DE4r0Fy0C9LuSYhNibOqWzwWIyvz8Kq1V.htm"
+			title="北京大学国际医院">
+			北京大学国际医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPSYfWz9LoalFRy9w.htm">
+			袁涛</a>(21票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXyq65Sxq9XkxnU.htm"
+			title="南京鼓楼医院">
+			南京鼓楼医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-1026.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/huaibuniushang.htm" class="blue">踝部扭伤</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduGaMTHwOXKq2IWmiF.htm">
+			华英汇</a>(141票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGaOyZJ9SvRJb8.htm"
+			title="上海华山医院">
+			上海华山医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeZny8fmRDydDzVOlL.htm">
+			郭秦炜</a>(113票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeCbNCrBx2XzuGO4ty.htm">
+			杨渝平</a>(79票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduKolZWRwE-9BS0ak-.htm">
+			吴刚</a>(54票)</td>
+		<td><a
+			href="/yiyuan/DE4r0Fy0C9LugNGRgn-Vw0nj-p35r6Dll.htm"
+			title="国家康复医院">
+			国家康复医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/huaibuniushang.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-3032.shtml" class="blue">骨质疏松</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBfz6hbX3HVJ2rF-e.htm">
+			章振林</a>(65票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhmIKBtDEBxt8k.htm"
+			title="上海第六人民医院">
+			上海第六人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNhlCYJ6eWBkdzBx736JmU.htm">
+			余希杰</a>(71票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXJq43vTNHYjTjw.htm"
+			title="华西医院">
+			华西医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNwkVx1pIOHGYX-4THvahP.htm">
+			岳华</a>(40票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhmIKBtDEBxt8k.htm"
+			title="上海第六人民医院">
+			上海第六人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZNgLwRTqlkdzBx736JmU.htm">
+			孟国林</a>(19票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwX-q9quPKsNiPfO.htm"
+			title="西京医院">
+			西京医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-3032.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/jingfeiguganguzhe.htm" class="blue">胫腓骨干骨折</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuGEJr3b345tJ1SHSYhq37w.htm">
+			马敬祖</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0CaXLPQrVFGoqUr.htm"
+			title="宁夏人民医院">
+			宁夏人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LugkfjPTHiLGccyq6vJdZnb.htm">
+			张汉阳</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwIyreFEgXN3cgkJ.htm"
+			title="吉林大学第二医院">
+			吉林大学第二医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LugzDC9s9x0yTQH5Fy7BKbP.htm">
+			石博文</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXJ2c2dcByMhc7g.htm"
+			title="天津医院">
+			天津医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LugzfK1rb92UdeozGolC54J.htm">
+			薛鸣丰</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0xoMyrPeWduCBgU.htm"
+			title="嘉兴第二医院">
+			嘉兴第二医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/jingfeiguganguzhe.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/muwaifan.htm" class="blue">拇外翻</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduKolZWRwE-9BS0ak-.htm">
+			吴刚</a>(72票)</td>
+		<td><a
+			href="/yiyuan/DE4r0Fy0C9LugNGRgn-Vw0nj-p35r6Dll.htm"
+			title="国家康复医院">
+			国家康复医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeZOMDHwOXKq2IWmiF.htm">
+			李昕宇</a>(56票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLUXioEWgURjIHBzPQ.htm"
+			title="北京中医药大学第三附属医院">
+			北京中医药大学第三附属医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNKWKOXJ16sKEpXkgLG4be.htm">
+			杜辉</a>(56票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPGIC4TyyMxUNjSNk.htm">
+			胡勇</a>(22票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwaCU9quPKsNiPfO.htm"
+			title="山大二院">
+			山大二院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/muwaifan.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/shouwaishang.htm" class="blue">手外伤</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZWxERVyPfIHKon0GqPtk.htm">
+			陈江海</a>(264票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXyUc2dcByMhc7g.htm"
+			title="武汉协和医院">
+			武汉协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdexbWJ7VkFGpEHP0h6.htm">
+			王海华</a>(110票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeCaLgNzfz6DLFjxaq.htm">
+			张立山</a>(157票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXJp7o5nM-zfnJT.htm"
+			title="山东省立医院">
+			山东省立医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNwRfQBVLhkQ9C2br23VVO.htm">
+			刘波</a>(96票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/shouwaishang.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/xiguanjiebanyuebansunshang.htm" class="blue">膝关节半月板损伤</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwYGXXD2kvYsPktj.htm">
+			张啟维</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwE-Uc2dcByMhc7g.htm">
+			刘延青</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwI-qd9CWC6I0WTb.htm">
+			余家阔</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwI-186yaYLonaQx.htm">
+			印钰</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/xiguanjiebanyuebansunshang.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/xiguanjierendaisunshang.htm" class="blue">膝关节韧带损伤</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwI-qd9CWC6I0WTb.htm">
+			余家阔</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwI-186yaYLonaQx.htm">
+			印钰</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwI-rPBM4FM2b44i.htm">
+			崔国庆</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwIJp43vTNHYjTjw.htm">
+			胡跃林</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/xiguanjierendaisunshang.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/yaotuitong.htm" class="blue">腰腿痛</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwYGYYFEgXN3cgkJ.htm">
+			张华俦</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwYGIIKBtDEBxt8k.htm">
+			孙常太</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwExbsp9b25Lgbma.htm">
+			姜亮</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwEiq43vTNHYjTjw.htm">
+			张立</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/yaotuitong.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/xiguanjiezhihuanshu.htm" class="blue">膝关节置换术</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwYGWWuYe-Bqregr.htm">
+			张耀南</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwE-Uc2dcByMhc7g.htm">
+			刘延青</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwI-qd9CWC6I0WTb.htm">
+			余家阔</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwI-186yaYLonaQx.htm">
+			印钰</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/xiguanjiezhihuanshu.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/guanjietong.htm" class="blue">关节痛</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZw0ZWNBM4FM2b44i.htm">
+			王芳</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwExbsp9b25Lgbma.htm">
+			姜亮</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwnCa3XIhpq-4h0m.htm">
+			凌晓锋</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwI-qd9CWC6I0WTb.htm">
+			余家阔</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/guanjietong.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/guguguzhe.htm" class="blue">股骨骨折</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0KmLG0lPR5qqdfm.htm">
+			陈继营</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0i2anjfh42XHZ0l.htm">
+			周一新</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0-baakhlkqINLVW.htm">
+			王树锋</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEz5svi88QpNK6eR.htm">
+			张克</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/guguguzhe.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/gongguguzhe.htm" class="blue">肱骨骨折</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwEip7o5nM-zfnJT.htm">
+			田耘</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwI-rPBM4FM2b44i.htm">
+			崔国庆</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwIJU65Sxq9XkxnU.htm">
+			王健全</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0-baakhlkqINLVW.htm">
+			王树锋</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/gongguguzhe.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/jianguanjietuowei.htm" class="blue">肩关节脱位</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwEiO5IqlG3HelVn.htm">
+			王超</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwI-rPBM4FM2b44i.htm">
+			崔国庆</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwIJU65Sxq9XkxnU.htm">
+			王健全</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0-INQ4wkiNDMHtx.htm">
+			姜春岩</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/jianguanjietuowei.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/huaibuguzhe.htm" class="blue">踝部骨折</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwYGmmS30yF9V0wc.htm">
+			文良元</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwEip7o5nM-zfnJT.htm">
+			田耘</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwIJp43vTNHYjTjw.htm">
+			胡跃林</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0KEzwWkcw-2p57V.htm">
+			毕文志</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/huaibuguzhe.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/body-1024.shtml" class="blue">腰部疾病</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNDy9uhXJSGduYK1csFmfb.htm">
+			吴晓亮</a>(18票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXCO1YXfLKC7fiV.htm"
+			title="广州南方医院">
+			广州南方医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBTLVLgzM21bXlzuR.htm">
+			赵杰</a>(10票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhXnG6rsvdwrU4.htm"
+			title="上海第九人民医院">
+			上海第九人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuwlKXQ4VWdJewBFNKaEMw4.htm">
+			冼耀东</a>(5票)</td>
+		<td><a
+			href="/yiyuan/DE4r0eJWGqZNZlhlJpO3YWS3qrtB-fTr.htm"
+			title="香港大学深圳医院">
+			香港大学深圳医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuZRTzvJsVGoqa9sDMfNCrT.htm">
+			姚亚杰</a>(5票)</td>
+		<td><a
+			href="/yiyuan/DE4r0Fy0C9LuZRTzv-cSwb4tMuLDQvLT1.htm"
+			title="苏州平江医院">
+			苏州平江医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/body-1024.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-1073.shtml" class="blue">类风湿性关节炎</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduhOWwInWKEMSMwtPM.htm">
+			黄建林</a>(260票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwEKp3XIhpq-4h0m.htm"
+			title="中山六院">
+			中山六院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPgny9D-CyPwMiuK4.htm">
+			沈凌汛</a>(214票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXyUc2dcByMhc7g.htm"
+			title="武汉协和医院">
+			武汉协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdex1oXgr4uSXys8lfo.htm">
+			凌光辉</a>(118票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmxoqNN8Z2K18e0.htm"
+			title="湘雅二医院">
+			湘雅二医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduCp0y7VkFGpEHP0h6.htm">
+			赵岩</a>(103票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-1073.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2944.shtml" class="blue">股骨头坏死</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0iqIIQgjgKEL-rP.htm">
+			李为</a>(92票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdex1aWhr4uSXys8lfo.htm">
+			柴伟</a>(132票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBfz4fECGGbOLh9BQ.htm">
+			张长青</a>(62票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhmIKBtDEBxt8k.htm"
+			title="上海第六人民医院">
+			上海第六人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNKWKOmy4gyTHKon0GqPtk.htm">
+			郭盛杰</a>(39票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2944.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-3087.shtml" class="blue">韧带损伤</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeGnJ4uRwE-9BS0ak-.htm">
+			徐雁</a>(21票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeZny8fmRDydDzVOlL.htm">
+			郭秦炜</a>(23票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduGaMTHwOXKq2IWmiF.htm">
+			华英汇</a>(24票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGaOyZJ9SvRJb8.htm"
+			title="上海华山医院">
+			上海华山医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSQeSozDmV0lf3o2p0zvkj.htm">
+			朱文辉</a>(16票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGaOyZJ9SvRJb8.htm"
+			title="上海华山医院">
+			上海华山医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-3087.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-3016.shtml" class="blue">腰椎间盘突出</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0KmlxaOQhHsdycT.htm">
+			张西峰</a>(589票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPTRFHD-CyPwMiuK4.htm">
+			陶惠人</a>(308票)</td>
+		<td><a
+			href="/yiyuan/DE4r0Fy0C9LuGNJnlD00B-ewBFNKaEMw4.htm"
+			title="深圳大学总医院">
+			深圳大学总医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPfNfzGNoD0ioO33P.htm">
+			黄鹏</a>(172票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdei3onCuJs56FCrgRH.htm">
+			孙浩林</a>(308票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-3016.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/yaotong.htm" class="blue">腰痛</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNKNiIWwoOCDyZYjeZpcO4.htm">
+			茹丽丽</a>(35票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXibsp9b25Lgbma.htm"
+			title="上海市东方医院">
+			上海市东方医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZRVir59fGtBMDWj5BR7h.htm">
+			杨强</a>(26票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXJ2c2dcByMhc7g.htm"
+			title="天津医院">
+			天津医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBvQPh3oBq7c5PLvm.htm">
+			杨克勤</a>(24票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OmG3OUNZWCWNv0.htm"
+			title="中日医院">
+			中日医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdewpkVQSmHsBZYJwWN.htm">
+			吴永超</a>(28票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXyUc2dcByMhc7g.htm"
+			title="武汉协和医院">
+			武汉协和医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/yaotong.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-3143.shtml" class="blue">滑膜炎</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeGnJ4uRwE-9BS0ak-.htm">
+			徐雁</a>(39票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduSnxbq9Vy3s6uiTQK.htm">
+			杨利平</a>(18票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0Co0LPQrVFGoqUr.htm"
+			title="浙江省儿童医院">
+			浙江省儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLFw0j4gzM21bXlzuR.htm">
+			孙立泉</a>(26票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwEJb65Sxq9XkxnU.htm"
+			title="济南市儿童医院">
+			济南市儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduw0j9By8SzvH6fbnp.htm">
+			皇甫小桥</a>(30票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhmIKBtDEBxt8k.htm"
+			title="上海第六人民医院">
+			上海第六人民医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-3143.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2010.shtml" class="blue">骨膜炎</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLeTnC7Pv5LwmK7DLi.htm">
+			蔡林</a>(2票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwm-I1YXfLKC7fiV.htm"
+			title="武汉大学中南医院">
+			武汉大学中南医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduTNgYJuJs56FCrgRH.htm">
+			曾伟雄</a>(2票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0GOM-bc1P6dS2aO.htm"
+			title="广州正骨医院">
+			广州正骨医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPTLFkSHzEWhYkCqt.htm">
+			苗毅</a>(1票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwX-bc2dcByMhc7g.htm"
+			title="江苏省人民医院">
+			江苏省人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUmCoomi88QpNK6eR.htm">
+			曹永平</a>(1票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2010.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/gugujingguzhe.htm" class="blue">股骨颈骨折</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwYGmmS30yF9V0wc.htm">
+			文良元</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwEip7o5nM-zfnJT.htm">
+			田耘</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0KmzZljbt3pIpm0.htm">
+			周勇刚</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0KmLG0lPR5qqdfm.htm">
+			陈继营</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/gugujingguzhe.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/binguguzhe.htm" class="blue">髌骨骨折</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwYGmmS30yF9V0wc.htm">
+			文良元</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwEip7o5nM-zfnJT.htm">
+			田耘</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwI-qd9CWC6I0WTb.htm">
+			余家阔</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0KmkwWkcw-2p57V.htm">
+			唐佩福</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/binguguzhe.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/genjianduanlie.htm" class="blue">跟腱断裂</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwIJp43vTNHYjTjw.htm">
+			胡跃林</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0J3brbc1P6dS2aO.htm">
+			张建中</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCoglyo3WJbWRFh5.htm"
+			title="北京同仁医院">
+			北京同仁医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEy7sew1mnSzFYx4.htm">
+			张文涛</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwEhp1YXfLKC7fiV.htm"
+			title="北京大学深圳医院">
+			北京大学深圳医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUOQ76hm0TUy35vjf.htm">
+			白克文</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hopHKRSoDWRPl.htm"
+			title="306医院">
+			306医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/genjianduanlie.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/xiguanjieyan.htm" class="blue">膝关节炎</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwYGXXD2kvYsPktj.htm">
+			张啟维</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZw0ZWNBM4FM2b44i.htm">
+			王芳</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwE-Uc2dcByMhc7g.htm">
+			刘延青</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwI-qd9CWC6I0WTb.htm">
+			余家阔</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/xiguanjieyan.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+	</table>
+
+<div class="yyright_s">
+<div class="top_bg">李军大夫最新文章和回复的咨询</div>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+		<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/hz/images/sohu//document.gif" width="16"
+			height="16" /></td>
+		<td width="70%"><a
+            href="http://www.haodf.com/zhuanjiaguandian/lijunyisheng_4303306719.htm" class="blue">有时治愈、常常缓解、总是安慰</a>
+		</td>
+		
+	</tr>
+		<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/hz/images/sohu//document.gif" width="16"
+			height="16" /></td>
+		<td width="70%"><a
+            href="http://www.haodf.com/zhuanjiaguandian/lijunyisheng_2052580200.htm" class="blue">腰痛的预防视频</a>
+		</td>
+		
+	</tr>
+		<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/hz/images/sohu//document.gif" width="16"
+			height="16" /></td>
+		<td width="70%"><a
+            href="http://www.haodf.com/zhuanjiaguandian/lijunyisheng_2012909796.htm" class="blue">颈椎病的预防（网易健康课）</a>
+		</td>
+		
+	</tr>
+	</table>
+<hr color="#999" size="1"></hr>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/lijunyisheng_g_5896123456.htm"
+			class="blue">老年人大腿根摔断怎么治疗手术</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/lijunyisheng_g_5908681735.htm"
+			class="blue">找李军大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/lijunyisheng_g_4837150273.htm"
+			class="blue">找李军大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/lijunyisheng_g_5686955873.htm"
+			class="blue">找李军大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/lijunyisheng_g_5652951694.htm"
+			class="blue">找李军大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/lijunyisheng_g_5661092130.htm"
+			class="blue">找李军大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/lijunyisheng_g_2355447317.htm"
+			class="blue">找李军大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/lijunyisheng_g_5635426467.htm"
+			class="blue">找李军大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/lijunyisheng_g_5638013755.htm"
+			class="blue">找李军大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/lijunyisheng_g_5653441726.htm"
+			class="blue">找李军大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+</div>
+ 
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- 添加 -->
+<div id="doctorintro"
+	style="display: none; width: 100%; text-align: center; position: absolute; top: 150px; left: 0px; z-index: 1">
+<table align="center" width="500" style="margin: 0 auto;">
+	<tr>
+		<td class="hdf_frame_popbox">
+		<table width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="95%" class="hdf_title">大夫介绍</td>
+				<td width="5%" align="left" class="hdf_title"><input type="button"
+					value="╳" onClick="display_div('none', 'doctorintro')" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="left" class="hdf_content">
+				<div style="height: 400px; width: 500px; overflow: auto">李军，男，医学博士，副主任医师。1994年毕业于同济医科大学，曾经多次到国外学习访问。2001年，在国内首先提出关节置换手术中存在脂肪栓塞的危险。结合临床经验，在核心期刊发表关于人工关节置换、翻修、感染的处理及骨折等专业学术论文近20篇,参与著书3部。中华医学会骨科分会外固定与肢体重建学组委员、中华医学会创伤学分会骨与关节损伤专业委员会委员、中国医师协会骨科分会肩肘关节委员会委员、北京医学会骨科分会委员、北京医学会骨科分会创伤学组委员、北京医学会创伤分会委员、《国家基本药物应用指南》编写专家，《中华肩肘外科电子杂志》通讯编委。</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">好大夫网站收集整理，未经允许，请勿转载</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center" class="hdf_content"><input
+					type="button" value=" 关 闭 "
+					onClick="display_div('none', 'doctorintro')" /></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div class="hzfoot">本页信息由<a href="http://www.haodf.com/" target="_blank">好大夫在线</a>提供。所有门诊时间仅供参考，最终以医院当日公布为准。任何关于疾病的建议都不能替代执业医师的面对面诊断。<br />
+				网友言论仅代表其个人观点，并不代表本站同意其说法，本站不担由此引起的法律责任。   <a href="http://www.haodf.com/senderr/" class="lightblue" target="_blank">错误报告</a></div>
+ <script type="text/javascript">
+var protocol = document.location.protocol;
+    document.writeln("<script type='text/javascript' src='//i2.hdfimg.com/js/pvstat.js?20171106'><"+"/script>");
+</script>
+ <div id="foot" class="Area"  align="center"> 
+Copyright &copy; 2009 Sohu.com Inc. All Rights Reserved. 搜狐公司 <span class="unline"><a href="http://corp.sohu.com/s2007/copyright/" target="_blank">版权所有</a></span><br />
+</div>
+<SCRIPT language=JavaScript src="http://js.sohu.com/pv.js"></SCRIPT>
+<script language="javascript" src="http://js.sohu.com/wrating0820.js"></script>
+<script language="javascript">
+var  _wratingId = null;
+try{
+_wratingId = _getAcc();
+}catch(e){}
+if(_wratingId !=null){
+document.write('<scr'+'ipt type="text/javascript" src="http://sohu.wrating.com/a1.js"></scr'+'ipt>');
+}
+</script>
+<style type="text/css" media="screen">
+.sys_message { display: none; }
+</style>
+<script language="javascript">
+if(_wratingId !=null){
+document.write('<scr'+'ipt type="text/javascript">');
+document.write('var vjAcc="'+_wratingId+'";');
+document.write('var wrUrl="http://sohu.wrating.com/";');
+document.write('try{vjTrack();}catch(e){}');
+document.write('</scr'+'ipt>');
+}
+</script>
+<span class='sys_message'></span>
+<script type="text/javascript" src="http://js.tongji.linezing.com/431464/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/431464/tongji.gif"/></a></noscript>
+</body>
+</html>

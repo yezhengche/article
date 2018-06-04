@@ -1,0 +1,2708 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+ 
+<title>
+刘洋-四川大学华西口腔医学院</title>
+<meta name="keywords" content="四川大学华西口腔医院主站,四川大学华西口腔医院,华西口腔医院,口腔医院" />
+<meta name="description" />
+
+
+
+ <link href="/Content/Areas/Common/css/common.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Common/css/message.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Common/css/article.css" rel="stylesheet" type="text/css" />
+
+ 
+ <link href="/Content/Areas/Common/css/FunctionStyle.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Hospitals/css/doctorIndex.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Common/css/Scheduling_icon.css" rel="stylesheet" type="text/css" />
+
+
+ <script src="/Scripts/jquery-1.8.3.min.js" type="text/javascript"></script>
+ <script src="/Scripts/Common/control.js" type="text/javascript"></script>
+ <script src="/Content/Areas/Common/scripts/change_fontsize.js" type="text/javascript"></script>
+ <script src="/Content/Areas/Common/scripts/common.js" type="text/javascript"></script>
+ 
+ 
+ <link href="/Content/Awesome/jquery-ui.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Awesome/Awesome.css" rel="stylesheet" type="text/css" />
+ <script src="/Scripts/Awesome/jquery-ui.min.js" type="text/javascript"></script>
+ <script src="/Scripts/Awesome/jquery.form.js" type="text/javascript"></script>
+ <script src="/Scripts/Awesome/Awesome.js" type="text/javascript"></script>
+ <script src="/Scripts/Common/control.js" type="text/javascript"></script>
+ <script src="/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+ <!-- IE响应式 -->
+ <!--[if lt IE 9]>
+ <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+ <![endif]-->
+ 
+
+ 
+ <script src="/Content/Areas/Common/scripts/jquery.qrcode.js" type="text/javascript"></script>
+ <script src="/Content/Areas/Common/scripts/qrcode.js" type="text/javascript"></script>
+ <script type="text/javascript">
+  $(function () {
+ 
+  // 专家团队
+  if ($.trim($("#doctor").text()) == '') {
+  $(".department_doctor").hide();
+  };
+  // 出诊信息
+  if ($.trim($("#scheduling").text()) == '') {
+  $(".department_scheduling").hide();
+  };
+  // 相关疾病
+  if ($.trim($("#disease ul").text()) == '') {
+  $(".department_disease,#disease").hide();
+  };
+  // 相关问答
+  if ($.trim($("#question").text()) == '') {
+  $(".department_question").hide();
+  };
+  // 相关文章
+  if ($.trim($("#wenzhang").text()) == '') {
+  $(".about_wenz").hide();
+  }
+  // 相关视频
+  if ($.trim($("#video").text()) == '') {
+  $(".department_video").hide();
+  };
+ });
+ </script>
+
+</head>
+<body> 
+    <img src="/Content/Areas/Common/images/logo/wxShare.jpg" width="0" height="0" style="display: none" />
+
+
+
+ <div class="wrap container ">
+ <!-- 弹窗、飘窗、浮窗等 -->
+  
+ <!--头部开始-->
+ <div class="header">
+ <link href="/Content/Areas/Common/css/header.css" rel="stylesheet" type="text/css" />
+
+<!-- 图片懒加载js文件 头部调用 不能删除---wz2016-5-18 -->
+<script src="/Content/Areas/Common/scripts/jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">
+ $(function () {
+ $("img").lazyload({ effect: "fadeIn" });
+ });
+</script>
+<script type="text/javascript">
+  $(function(){
+ $(".arrow").hover(function(){
+ $(this).find(".box").stop().slideDown();
+ },function(){
+ $(".box").stop().slideUp()
+ }) 
+  });
+  
+</script>
+<!--头部搜索点击事件-->
+<script type="text/javascript">
+$(document).ready(function(){
+
+ //选择点击事件
+ $('#searchSexChoose').click(function(){
+ if($('#searchSexList').is(':visible')) $('#searchSexList').hide();
+ else {
+ cleanAllSearchList();
+ $('#searchSexList').fadeIn(400);
+ return false;
+ }
+ });
+ 
+ //菜单项hover事件
+ $('.searchDownList li').hover(function(){
+ $(this).css({'background-color':'#9c65b2'});
+ $(this).css({'color':'#fff'});
+ }, function(){
+ $(this).css({'color':'#4b4b4b'});
+ $(this).css({'background-color':'#fff'});
+ });
+ 
+ //下拉菜单项点击事件
+ $('.searchDownList li').click(function(){
+ var choosen = $(this).attr("value");
+ var choosem = $(this).html();
+ //将选择的内容插入搜索框中
+ $(this).parent().parent().find('.searchChoose').html(choosem);
+ //将选择的内容插入到隐藏的输入框中
+ $(this).parent().parent().find('input').attr("value",choosen);
+ });
+ 
+ //全局关闭事件
+ $(document).click(function(){
+ cleanAllSearchList();
+ });
+ 
+ 
+});
+ 
+//全局关闭
+function cleanAllSearchList() {
+ $('#searchSexList').hide();
+}
+</script>
+<!-- 结束 -->
+
+<!--[if IE 6]>
+<script src="/Content/Areas/Common/scripts/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('img,a,input,ul.article_list li,.arrow,div,h2,ul.icon-group li.icon-1 a i,ul.icon-group li.icon-2 a.icon-2-1 i,ul.icon-group li.icon-2 a.icon-2-2 i,ul.icon-group li.icon-4 a.icon-4-1 i,ul.icon-group li.icon-4 a.icon-4-2 i,.picFocus .hd ul li span,.scroll-box .con_box,.Scroll_Box .swiper-box ul li h2 a,.Scroll_Box .swiper-box ul li h2');
+</script>
+<![endif]-->
+<script type="text/javascript">
+  
+  $(function(){
+ $(".phone").hover(function(){$(".phone_img").show();},function(){$(".phone_img").hide()});  
+ 
+  });
+
+</script>
+
+<div class="top">
+ <div class="row">  
+ <div id="topBar">
+ <div class="language pull-right">
+ <ul>
+ <li><a href="http://117.175.173.224:8060/ioffice/Login.aspx?ReturnUrl=%2fiOffice%2fdefault.aspx" class="oa" target="_blank">OA登录</a></li>
+ <li><a class="phone" href="/" target="_blank">手机版
+ <img class="phone_img" src="/Content/Areas/Hospitals/images/Main/ewm.jpg" style="display: none;"></a></li>
+ <li><a href="/Html/News/Main/220.html" class="english" target="_blank">英文版</a></li>
+ </ul>
+ </div>
+ <div class="welcome pull-left">
+ <p>欢迎您访问华西口腔医学院!</p>
+ <ul class="userPanel">
+ 
+
+<span id="ajax_div__LoggingStatus_191_0_0_5524">
+    <script type="text/javascript">
+        GetAjaxContentByUrl('ajax_div__LoggingStatus_191_0_0_5524', '/PartialView/_Plugin/_LoggingStatus?siteId=191');
+    </script>
+</span>
+ </ul>
+
+ <div class="clearit"></div>
+ </div>
+ <div class="clearit"></div>
+ </div>
+ </div>
+</div>
+
+<!--头部-->
+<div class="header_con">
+ <div class="row">  
+ <div class="pull-left">
+ <div class="logo">
+ <a href="/">
+ <embed allownetworking="none" allowscriptaccess="never" width="585" height="85" loop="false" menu="false" play="true" pluginspage="http://www.macromedia.com/go/getflashplayer" src="/Sites/Uploaded/File/2017/08/256363927493105078127444277.swf" type="application/x-shockwave-flash" wmode="transparent"></embed>
+ </a>
+ </div>
+ <div class="phone_logo hide-lg"><a href="/"><img src="/Content/Areas/Common/images/common/phone_logo.png"/></a></div>
+ </div>
+ <div class="pull-right">
+ 
+ <div class="form-horizontal">
+<form action="/Hospitals/Search" method="post"> <div id="languages" class="searchType_simulate">
+  <div id="languages" class="searchType">
+ <div class="controler"></div>
+ <div class="searchChoose" id="searchSexChoose">全部</div>
+ <input type="hidden" value="请选择语言" name="searchTypeId" id="searchTypeId">
+ <ul class="searchDownList" id="searchSexList" style="display: none;">
+ <li value="1">全部</li>
+ <li value="2">医生</li>
+ <li value="3">文章</li>
+ <li value="5">视频</li>
+ <li value="6">咨询</li>
+ </ul>
+  </div>
+ </div>
+ <input type="text" placeholder="关键字" name="search" id="search" class="searchtxt">
+ <input name="" value="" class="searchbtn" type="submit" />
+</form> </div>
+ 
+  
+ </div>
+ <div class="clearit"></div>
+ </div>
+</div> 
+  
+ </div>
+ <div class="clearit"></div>
+ <!--头部结束-->
+ <!--PC导航 开始-->
+ <div class="nav">
+ 
+<link href="/Content/Areas/Common/css/nav.css" rel="stylesheet" type="text/css" />
+<script src="/Content/Areas/Common/scripts/common_nav.js" type="text/javascript"></script>
+
+<!--手机导航附加类名-->
+<div class="sy_nav">
+ <a id="open_btn" class="open_btn">
+ <span></span>
+ </a>
+ <div class="phone_container" id="phone_container">
+ <!--手机导航附加类名-->
+<div class="phone_header">
+ <h3><a href="/">网站导航</a></h3>
+ <a id="close_btn" class="close_btn">
+ <span></span>
+ </a>
+</div>
+
+
+  <ul class="sy1_ul">
+ <div class="sy2_inside">
+  <li class="sy1_li homeLi">
+  <a class="homeA sy1_tit" href="/">首 页</a>
+  </li>
+    <li class="sy1_li num0"> 
+  <a class="next_open"></a>
+  <a id="2" class="sy1_tit " href="/Html/News/Main/110.html" target="_self"><span class="navspan">学院概况</span></a> 
+
+   <ul class="sy2_ul">
+ <div class="sy2_inside">
+    <li class="sy2_li num0"> 
+  <a class="next_open"></a>
+  <a id="12" class="sy2_tit " href="/Hospitals/Main/Description" target="_self"><span class="navspan">学院简介</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num1"> 
+  <a class="next_open"></a>
+  <a id="6" class="sy2_tit " href="/Html/News/Columns/125/Index.html" target="_self"><span class="navspan">院徽寓意</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num2"> 
+  <a class="next_open"></a>
+  <a id="5" class="sy2_tit " href="/Html/News/Columns/124/Index.html" target="_self"><span class="navspan">历任院长</span></a> 
+
+   
+  </li>
+  <div class="clearit"></div>
+ </div>
+ <div class="sy2_ul_div">
+ 
+
+<div class="NavBoxsFirst" style="width: 33.3%">
+ <h2 class="titleStyNav"><a href="/Hospitals/Main/Description">学院简介</a></h2>
+ <div class="description BoxContent">
+ 
+
+ <a href="/Hospitals/Main/Description">
+ <img src="/Sites/Uploaded/Image/2017/08/036363736294464843752364270.jpg"/>
+ </a>
+ <p class="text">
+  四川大学华西口腔医(学)院始建于1907年的成都仁济牙科诊所;1912年扩建为牙症医院;1917年建立华西协合大学牙学院，是中国第一所高等口腔医学院校;1928年仁济牙症医院迁至华西坝，更名为华西协合大学口腔病院;1951年更名为华西大学口腔病院;1953年更名为四川医…
+  
+ <a class="details" href="/Hospitals/Main/Description">详细&gt;&gt;</a>
+ </p>
+ 
+ </div>
+</div>
+<div class="NavBoxsSecond" style="width: 34.3%">
+  <h2 class="titleStyNav"><a href="/Html/News/Columns/124/Index.html">历任院长</a></h2>
+  
+ <ul class="Leader_ul pd0-20">
+  
+ <li class = "Li_Odd ">
+ 
+ 
+ <span class="img_box" target=_blank title="林则博士（首任）">
+ <img src="/Sites/Uploaded/UserUpLoad/20170516/20170516150448.jpg" alt="林则博士（首任）" /></span> 
+  <div class="text_con">
+ <p class="Name">林则博士（首任）</p>
+ <p class="zhiwu">1907-1950年任华西口腔院长</p>
+ <p class="XX">Dr. Ashley Woodward Lindsay The First Dean （1907-1950）</p>
+ </div>
+  <div class="clearit"></div>
+ </li>
+ <li class = "Li_Even last">
+ 
+ 
+ <span class="img_box" target=_blank title="邹海帆教授">
+ <img src="/Sites/Uploaded/UserUpLoad/20170516/20170516150648.jpg" alt="邹海帆教授" /></span> 
+  <div class="text_con">
+ <p class="Name">邹海帆教授</p>
+ <p class="zhiwu">1950-1951年任华西口腔院长</p>
+ <p class="XX">Prof. Zhou Haifan The Second Dean（1950-1951）</p>
+ </div>
+  <div class="clearit"></div>
+ </li>
+  
+  <div class="clearit"></div>
+  </ul>
+</div>
+<div class="NavBoxsThird" style="width: 32.3%">
+ <h2 class="titleStyNav"><a href="/Html/News/Columns/125/Index.html">院徽寓意</a></h2>
+ <div class="BoxContent">
+ <div class="yuanhui">
+			
+ <a href="/Html/News/Articles/3766.html" target=_blank title="院徽寓意" class="img_box">
+ <img src="/Sites/Uploaded/Image/2017/05/166363054344405995047012437.jpg" alt="院徽寓意" /></a> 
+ <div class="article_box_con">  
+ <h2>
+ <a href="/Html/News/Articles/3766.html" target=_blank title="院徽寓意"><font color=""></font></a></h2>
+ <p>
+ 华西口腔的院徽整体为圆形，由四种颜色组成。中心图案、文字采用绿色，寓意为生命之树长青；白色的衬底象征着白衣天使纯洁的心灵；红色数字象征着人道主义的出发点；环绕的紫色则代表胆识与勇气，象征着医生不畏艰险、攻克疾…
+ <a class="details" href="/Html/News/Articles/3766.html" target=_blank>
+ 详细>></a>
+ </p>
+</div>
+ 
+ </div>
+ </div>
+</div>
+<div class="clearit"></div>
+ 
+ </div>
+ <div class="bottomOne"></div>
+ 
+ <div class="clearit"></div>
+ </ul>
+ 
+  </li>
+  <li class="sy1_li num1"> 
+  <a class="next_open"></a>
+  <a id="185" class="sy1_tit " href="/Html/News/Main/468.html" target="_self"><span class="navspan">新闻资讯</span></a> 
+
+   <ul class="sy2_ul">
+ <div class="sy2_inside">
+    <li class="sy2_li num0"> 
+  <a class="next_open"></a>
+  <a id="196" class="sy2_tit " href="/Html/News/Main/468.html" target="_self"><span class="navspan">新闻中心</span></a> 
+
+   <ul class="sy3_ul">
+ <div class="sy2_inside">
+    <li class="sy3_li num0"> 
+  <a class="next_open"></a>
+  <a id="198" class="sy3_tit " href="/Html/News/Columns/269/Index.html" target="_self"><span class="navspan">重点新闻</span></a> 
+
+   
+  </li>
+  <li class="sy3_li num1"> 
+  <a class="next_open"></a>
+  <a id="199" class="sy3_tit " href="/Html/News/Columns/270/Index.html" target="_self"><span class="navspan">院内动态</span></a> 
+
+   
+  </li>
+  <div class="clearit"></div>
+ </div>
+ 
+ <div class="clearit"></div>
+ </ul>
+ 
+  </li>
+  <li class="sy2_li num1"> 
+  <a class="next_open"></a>
+  <a id="197" class="sy2_tit " href="/Html/News/Columns/274/Index.html" target="_self"><span class="navspan">名医科普</span></a> 
+
+   
+  </li>
+  <div class="clearit"></div>
+ </div>
+ <div class="sy2_ul_div">
+ 
+
+<div class="NavBoxsFirst" style="width:50%">
+  <h2 class="titleStyNav"><a href="/Html/News/Columns/269/Index.html">重点新闻</a></h2>
+ <div class="BoxContent">
+  <ul class="kxyj_box article_box mt10">
+ 
+ <li class = "Li_Odd last  column_1">
+ 
+ 
+ <a class="img_box" href="/Html/News/Articles/5302.html"  title="我院周学东教授团队荣获2017年度四川省科技进步一等奖">
+ <img src="/Sites/Uploaded/UserUpLoad/20180531/20180531160849.jpg" alt="我院周学东教授团队荣获2017年度四川省科技进步一等奖" /></a> 
+ <a href="/Html/News/Articles/5302.html" title="我院周学东教授团队荣获2017年度四川省科技进步一等奖"class="title_type">我院周学东教授团队荣获…</a>
+ 
+ 
+ 
+ <p>
+  四川省委、省政府在5月30日“全国科技工作者日”举行四川省科学技术奖励大会，隆重表彰为四川省科技事业做出突出贡献的科技工作者。我院周学东教授团… <a class="detail" href="/Html/News/Articles/5302.html"  title="点击查看详细">详细>></a>
+ </p>
+  </li>
+  
+ <div class="clearit"></div>
+ </ul> 
+ <ul class="article_list mt10">
+ 
+ <li class = "Li_Odd   column_1">
+ 
+ 
+ <a href="/Html/News/Articles/5316.html"target=_blank title="巴基斯坦伊斯兰共和国驻成都总领事馆总领事提普先生一行来我院访问"class="title_type">巴基斯坦伊斯兰共和国驻成都总领事馆总领事提普先生一行来我…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_2">
+ 
+ 
+ <a href="/Html/News/Articles/5317.html"target=_blank title="我院学子获2018年微软“创新杯”中国赛区总决赛二等奖"class="title_type">我院学子获2018年微软“创新杯”中国赛区总决赛二等奖</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_3">
+ 
+ 
+ <a href="/Html/News/Articles/5305.html"target=_blank title="我院教师在四川大学2018年青年教师教学竞赛中喜获佳绩"class="title_type">我院教师在四川大学2018年青年教师教学竞赛中喜获佳绩</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even last  column_4">
+ 
+ 
+ <a href="/Html/News/Articles/5304.html"target=_blank title="加州大学旧金山分校口腔医学院预防与口腔内科学教研室主任Pro. Elisabeth Kalenderian来我院访问"class="title_type">加州大学旧金山分校口腔医学院预防与口腔内科学教研室主任Pr…</a>
+ 
+ 
+ 
+  </li>
+ 
+ </ul> 
+ </div>
+</div>
+<div class="NavBoxsThird" style="width:50%">
+ <h2 class="titleStyNav"><a href="/Html/News/Columns/274/Index.html">名医科普</a></h2>
+ 
+  <ul class="article_list pd0-20">
+ 
+ <li class="No_Con"></li>
+ 
+ </ul>
+
+</div>
+<div class="clearit"></div>
+ 
+ </div>
+ <div class="bottomOne"></div>
+ 
+ <div class="clearit"></div>
+ </ul>
+ 
+  </li>
+  <li class="sy1_li num2"> 
+  <a class="next_open"></a>
+  <a id="3" class="sy1_tit " href="/Html/News/Main/111.html" target="_self"><span class="navspan">党建工作</span></a> 
+
+   <ul class="sy2_ul">
+ <div class="sy2_inside">
+    <li class="sy2_li num0"> 
+  <a class="next_open"></a>
+  <a id="13" class="sy2_tit " href="/Html/News/Columns/126/Index.html" target="_self"><span class="navspan">思想建设</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num1"> 
+  <a class="next_open"></a>
+  <a id="14" class="sy2_tit " href="/Html/News/Columns/127/Index.html" target="_self"><span class="navspan">组织建设</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num2"> 
+  <a class="next_open"></a>
+  <a id="15" class="sy2_tit " href="/Html/News/Columns/128/Index.html" target="_self"><span class="navspan">作风建设</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num3"> 
+  <a class="next_open"></a>
+  <a id="16" class="sy2_tit " href="/Html/News/Columns/129/Index.html" target="_self"><span class="navspan">党风廉政</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num4"> 
+  <a class="next_open"></a>
+  <a id="17" class="sy2_tit " href="/Html/News/Columns/130/Index.html" target="_self"><span class="navspan">思政工作</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num5"> 
+  <a class="next_open"></a>
+  <a id="18" class="sy2_tit " href="/Html/News/Columns/131/Index.html" target="_self"><span class="navspan">统战工作</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num6"> 
+  <a class="next_open"></a>
+  <a id="19" class="sy2_tit " href="/Html/News/Columns/132/Index.html" target="_self"><span class="navspan">群团工作</span></a> 
+
+   
+  </li>
+  <div class="clearit"></div>
+ </div>
+ <div class="sy2_ul_div">
+ 
+
+<div class="NavBoxsSecond" style="width:29%">
+ <h2 class="titleStyNav"><a href="/Html/News/Columns/126/Index.html">思想建设</a></h2>
+ <div class="BoxContent">
+ <ul class="article_list">
+  
+ <li class = "Li_Odd   column_1">
+ 
+ 
+ <a href="/Html/News/Articles/4508.html" title="四川大学华西口腔医（学）院明白卡"class="title_type">四川大学华西口腔医（学）院明…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_2">
+ 
+ 
+ <a href="/Html/News/Articles/4311.html" title="党员干部理论学习知识问答（上）"class="title_type">党员干部理论学习知识问答（上…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_3">
+ 
+ 
+ <a href="/Html/News/Articles/4310.html" title="党员干部理论学习知识问答（下）"class="title_type">党员干部理论学习知识问答（下…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_4">
+ 
+ 
+ <a href="/Html/News/Articles/4309.html" title="四川大学华西口腔医（学）院纪律处分条例明白卡"class="title_type">四川大学华西口腔医（学）院纪…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_5">
+ 
+ 
+ <a href="/Html/News/Articles/4307.html" title="四川大学华西口腔医（学）院“两学一做”明白卡"class="title_type">四川大学华西口腔医（学）院“…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_6">
+ 
+ 
+ <a href="/Html/News/Articles/4306.html" title="四川大学华西口腔医（学）院十八届六中全会明白卡"class="title_type">四川大学华西口腔医（学）院十…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_7">
+ 
+ 
+ <a href="/Html/News/Articles/4305.html" title="四川大学华西口腔医（学）院关键词明白卡"class="title_type">四川大学华西口腔医（学）院关…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even last  column_8">
+ 
+ 
+ <a href="/Html/News/Articles/4304.html" title="四川大学华西口腔医（学）院中国共产党问责条例明白卡"class="title_type">四川大学华西口腔医（学）院中…</a>
+ 
+ 
+ 
+  </li>
+  
+  
+  
+ </ul> 
+ </div>
+</div>
+<div class="NavBoxsFirst" style="width:42%">
+  <h2 class="titleStyNav"><a href="/Html/News/Columns/129/Index.html">党风廉政</a></h2>
+ <div class="BoxContent">
+  <ul class="dj_box article_box mt10">
+  
+ <li class = "Li_Odd   column_1">
+ 
+ 
+ <a class="img_box" href="/Html/News/Articles/4493.html"  title="我院开展行风专题查房">
+ <img src="/Sites/Uploaded/UserUpLoad/20170801/20170801152921.jpg" alt="我院开展行风专题查房" /></a> 
+ <a href="/Html/News/Articles/4493.html" title="我院开展行风专题查房"class="title_type">我院开展行风专题查房</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even last  column_2">
+ 
+ 
+ <a class="img_box" href="/Html/News/Articles/4339.html"  title="我院组织参观四川省（成都市）法纪教育基地">
+ <img src="/Sites_OldFiles/pic/20170420-01-01.jpg" alt="我院组织参观四川省（成都市）法纪教育基地" /></a> 
+ <a href="/Html/News/Articles/4339.html" title="我院组织参观四川省（成都市）法纪教育基地"class="title_type">我院组织参观四川省（成…</a>
+ 
+ 
+ 
+  </li>
+ 
+  
+ <div class="clearit"></div>
+ </ul> 
+ <ul class="article_list mt10">
+ 
+ <li class = "Li_Odd   column_1">
+ 
+ 
+ <a href="/Html/News/Articles/4338.html"target=_blank title="四川大学华西口腔医院纪委办公室案件检查工作流程"class="title_type">四川大学华西口腔医院纪委办公室案件检查工作流程</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_2">
+ 
+ 
+ <a href="/Html/News/Articles/4337.html"target=_blank title="纪委办公室信访工作流程"class="title_type">纪委办公室信访工作流程</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_3">
+ 
+ 
+ <a href="/Html/News/Articles/4336.html"target=_blank title="联系方式"class="title_type">联系方式</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even last  column_4">
+ 
+ 
+ <a href="/Html/News/Articles/4493.html"target=_blank title="我院开展行风专题查房"class="title_type">我院开展行风专题查房</a>
+ 
+ 
+ 
+  </li>
+ 
+ 
+ </ul> 
+ </div>
+</div>
+<div class="NavBoxsThird" style="width:29%">
+ <h2 class="titleStyNav"><a href="/Html/News/Columns/130/Index.html">思政工作</a></h2>
+ <ul class="article_box pd0-15 zfjs">
+ 
+ <li class = "Li_Odd last  column_1">
+ 
+ 
+ <a class="img_box" href="/Html/News/Articles/5208.html"  title="院长叶玲教授为2017级本科生讲授专题思政">
+ <img src="/Sites/Uploaded/UserUpLoad/20180502/20180502153026.jpg" alt="院长叶玲教授为2017级本科生讲授专题思政" /></a> 
+ <a href="/Html/News/Articles/5208.html" title="院长叶玲教授为2017级本科生讲授专题思政"class="title_type">院长叶玲教授为2017级本科生讲…</a>
+ 
+ 
+ 
+  </li>
+  
+  
+ <div class="clearit"></div>
+  </ul>
+  <ul class="article_list pd0-20">
+  
+ <li class = "Li_Odd   column_1">
+ 
+ 
+ <a href="/Html/News/Articles/4352.html"target=_blank title="四川大学2017届毕业生文明离校温馨提示"class="title_type">四川大学2017届毕业生文明离校…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_2">
+ 
+ 
+ <a href="/Html/News/Articles/4349.html"target=_blank title="中共教育部党组关于深入学习贯彻习近平总书记在中国政法大学考察时重要讲话精神的通知"class="title_type">中共教育部党组关于深入学习贯…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_3">
+ 
+ 
+ <a href="/Html/News/Articles/5310.html"target=_blank title="黄金急救进行时 ——“超级牙医”口腔技能菁英大赛第三轮顺利举办"class="title_type">黄金急救进行时 ——“超级牙医…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_4">
+ 
+ 
+ <a href="/Html/News/Articles/4350.html"target=_blank title="“一带一路”国际合作高峰论坛领导人讲话原文"class="title_type">“一带一路”国际合作高峰论坛…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd last  column_5">
+ 
+ 
+ <a href="/Html/News/Articles/5309.html"target=_blank title="我院团委学生会换届选举大会顺利举行"class="title_type">我院团委学生会换届选举大会顺…</a>
+ 
+ 
+ 
+  </li>
+ 
+ </ul>
+</div>
+<div class="clearit"></div>
+ 
+ </div>
+ <div class="bottomOne"></div>
+ 
+ <div class="clearit"></div>
+ </ul>
+ 
+  </li>
+  <li class="sy1_li num3"> 
+  <a class="next_open"></a>
+  <a id="7" class="sy1_tit " href="/Html/News/Articles/3773.html" target="_self"><span class="navspan">学科建设</span></a> 
+
+   <ul class="sy2_ul">
+ <div class="sy2_inside">
+    <li class="sy2_li num0"> 
+  <a class="next_open"></a>
+  <a id="20" class="sy2_tit " href="/Html/News/Articles/3773.html" target="_self"><span class="navspan">口腔基础医学系</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num1"> 
+  <a class="next_open"></a>
+  <a id="21" class="sy2_tit " href="/Html/News/Articles/3772.html" target="_self"><span class="navspan">口腔内科学系</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num2"> 
+  <a class="next_open"></a>
+  <a id="22" class="sy2_tit " href="/Html/News/Articles/3771.html" target="_self"><span class="navspan">口腔颌面外科学系</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num3"> 
+  <a class="next_open"></a>
+  <a id="23" class="sy2_tit " href="/Html/News/Articles/3770.html" target="_self"><span class="navspan">口腔修复学系</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num4"> 
+  <a class="next_open"></a>
+  <a id="24" class="sy2_tit " href="/Html/News/Articles/3769.html" target="_self"><span class="navspan">口腔正畸学系</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num5"> 
+  <a class="next_open"></a>
+  <a id="172" class="sy2_tit " href="/Html/News/Articles/4651.html" target="_self"><span class="navspan">口腔交叉学科系</span></a> 
+
+   
+  </li>
+  <div class="clearit"></div>
+ </div>
+ 
+ <div class="clearit"></div>
+ </ul>
+ 
+  </li>
+  <li class="sy1_li num4"> 
+  <a class="next_open"></a>
+  <a id="8" class="sy1_tit " href="/Html/News/Main/113.html" target="_self"><span class="navspan">人才培养</span></a> 
+
+   <ul class="sy2_ul">
+ <div class="sy2_inside">
+    <li class="sy2_li num0"> 
+  <a class="next_open"></a>
+  <a id="26" class="sy2_tit " href="/Html/News/Columns/135/Index.html" target="_self"><span class="navspan">本科教育</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num1"> 
+  <a class="next_open"></a>
+  <a id="28" class="sy2_tit " href="/Html/News/Columns/137/Index.html" target="_self"><span class="navspan">毕业后教育</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num2"> 
+  <a class="next_open"></a>
+  <a id="58" class="sy2_tit " href="/Html/News/Columns/139/Index.html" target="_self"><span class="navspan">学生工作</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num3"> 
+  <a class="next_open"></a>
+  <a id="57" class="sy2_tit " href="/Html/News/Main/102.html" target="_self"><span class="navspan">基础实验教学中心</span></a> 
+
+   
+  </li>
+  <div class="clearit"></div>
+ </div>
+ <div class="sy2_ul_div">
+ 
+
+<div class="NavBoxsFirst" style="width: 33.3%">
+ <h2 class="titleStyNav"><a href="/Html/News/Columns/135/Index.html">本科教育</a></h2>
+  
+  <ul class="article_list pd0-20">
+ 
+ <li class = "Li_Odd   column_1">
+ 
+ 
+ <a href="/Html/News/Articles/5105.html"target=_blank title="2017-2018 学年春季学期开学教学检查简报2018年第01期"class="title_type">2017-2018 学年春季学期开学教学检查…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_2">
+ 
+ 
+ <a href="/Html/News/Articles/4639.html"target=_blank title="四川大学学生证（火车票优惠卡）补办申请表"class="title_type">四川大学学生证（火车票优惠卡）补办…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_3">
+ 
+ 
+ <a href="/Html/News/Articles/4621.html"target=_blank title="四川大学本科生办理复学手续流程"class="title_type">四川大学本科生办理复学手续流程</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_4">
+ 
+ 
+ <a href="/Html/News/Articles/3836.html"target=_blank title="口腔医学技术（四年制）（原口腔修复工艺学专业）"class="title_type">口腔医学技术（四年制）（原口腔修复…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_5">
+ 
+ 
+ <a href="/Html/News/Articles/3833.html"target=_blank title="口腔医学（五年制）"class="title_type">口腔医学（五年制）</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_6">
+ 
+ 
+ <a href="/Html/News/Articles/3830.html"target=_blank title="临床医学（八年制）（口腔医学专业）"class="title_type">临床医学（八年制）（口腔医学专业）</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_7">
+ 
+ 
+ <a href="/Html/News/Articles/3785.html"target=_blank title="本科生教育简介"class="title_type">本科生教育简介</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_8">
+ 
+ 
+ <a href="/Html/News/Articles/5194.html"target=_blank title="四川大学华西口腔医学院 教学质量评价和改进工作简报2017年第04期"class="title_type">四川大学华西口腔医学院 教学质量评…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_9">
+ 
+ 
+ <a href="/Html/News/Articles/4620.html"target=_blank title="四川大学本科生办理退学手续流程"class="title_type">四川大学本科生办理退学手续流程</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even last  column_10">
+ 
+ 
+ <a href="/Html/News/Articles/5193.html"target=_blank title="四川大学华西口腔医学院 教学质量评价和改进工作简报2017年第03期"class="title_type">四川大学华西口腔医学院 教学质量评…</a>
+ 
+ 
+ 
+  </li>
+ 
+  </ul>
+  
+</div>
+<div class="NavBoxsSecond" style="width: 33.3%">
+  <h2 class="titleStyNav"><a href="/Html/News/Columns/139/Index.html">学生工作</a></h2>
+  
+ <ul class="article_list pd0-20">
+ 
+ <li class = "Li_Odd   column_1">
+ 
+ 
+ <a href="/Html/News/Articles/5245.html"target=_blank title="我院学子喜获第五届全国大学生基础医学创新论坛暨实验设计大赛一等奖"class="title_type">我院学子喜获第五届全国大学生基础医…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_2">
+ 
+ 
+ <a href="/Html/News/Articles/4863.html"target=_blank title="美丽牙齿健康口腔，口腔医学生一展风采"class="title_type">美丽牙齿健康口腔，口腔医学生一展风…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_3">
+ 
+ 
+ <a href="/Html/News/Articles/4862.html"target=_blank title="我院 “科研申报”主题讲座顺利举行"class="title_type">我院 “科研申报”主题讲座顺利举行</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_4">
+ 
+ 
+ <a href="/Html/News/Articles/4861.html"target=_blank title="我院口腔卫生保健讲座顺利举行"class="title_type">我院口腔卫生保健讲座顺利举行</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_5">
+ 
+ 
+ <a href="/Html/News/Articles/4860.html"target=_blank title="我院“暖秋送书”活动顺利举行"class="title_type">我院“暖秋送书”活动顺利举行</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_6">
+ 
+ 
+ <a href="/Html/News/Articles/4499.html"target=_blank title="
+外籍教师系列学术讲座拉开我院国际交流营帷幕
+"class="title_type">
+外籍教师系列学术讲座拉开我院国际…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_7">
+ 
+ 
+ <a href="/Html/News/Articles/4495.html"target=_blank title="《中国口腔医学信息》学生采编部第八次工作会议顺利举行"class="title_type">《中国口腔医学信息》学生采编部第八…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_8">
+ 
+ 
+ <a href="/Html/News/Articles/4492.html"target=_blank title="
+以青春的名义 向梦想启航——我院隆重举行2017届毕业典礼
+"class="title_type">
+以青春的名义 向梦想启航——我院隆…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_9">
+ 
+ 
+ <a href="/Html/News/Articles/4491.html"target=_blank title="
+我院2017年“实践及国际课程周”拉开序幕
+"class="title_type">
+我院2017年“实践及国际课程周”拉…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even last  column_10">
+ 
+ 
+ <a href="/Html/News/Articles/4489.html"target=_blank title="我院实践及国际课程周课程《思维风暴》成功开展"class="title_type">我院实践及国际课程周课程《思维风暴…</a>
+ 
+ 
+ 
+  </li>
+ 
+ </ul>
+  
+</div>
+<div class="NavBoxsThird" style="width: 33.3%">
+ <h2 class="titleStyNav"><a href="/Html/News/Columns/137/Index.html">毕业后教育</a></h2>
+ <div class="BoxContent">
+ <ul class="article_list">
+ 
+ <li class = "Li_Odd   column_1">
+ 
+ 
+ <a href="/Html/News/Articles/4697.html"target=_blank title="住院医师规范化培训"class="title_type">住院医师规范化培训</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_2">
+ 
+ 
+ <a href="/Html/News/Articles/4694.html"target=_blank title="牙周病科"class="title_type">牙周病科</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_3">
+ 
+ 
+ <a href="/Html/News/Articles/4682.html"target=_blank title="护士规范化培训"class="title_type">护士规范化培训</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_4">
+ 
+ 
+ <a href="/Html/News/Articles/4632.html"target=_blank title="四川大学华西口腔医院进修简介"class="title_type">四川大学华西口腔医院进修简介</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_5">
+ 
+ 
+ <a href="/Html/News/Articles/4696.html"target=_blank title="口腔颌面医学影像科培训细则"class="title_type">口腔颌面医学影像科培训细则</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even last  column_6">
+ 
+ 
+ <a href="/Html/News/Articles/4693.html"target=_blank title="牙体牙髓科"class="title_type">牙体牙髓科</a>
+ 
+ 
+ 
+  </li>
+ 
+ </ul>
+ <a class="img_gn mt20 pd0-10" style="display: block;" href="/Html/News/Main/102.html" target="_blank"><img src="/Sites/Uploaded/UserUpLoad/20180306/20180306160412.jpg"></a>
+ </div>
+</div>
+<div class="clearit"></div>
+
+
+ 
+ </div>
+ <div class="bottomOne"></div>
+ 
+ <div class="clearit"></div>
+ </ul>
+ 
+  </li>
+  <li class="sy1_li num5"> 
+  <a class="next_open"></a>
+  <a id="9" class="sy1_tit " href="/Html/News/Main/114.html" target="_self"><span class="navspan">患者服务</span></a> 
+
+   <ul class="sy2_ul">
+ <div class="sy2_inside">
+    <li class="sy2_li num0"> 
+  <a class="next_open"></a>
+  <a id="33" class="sy2_tit " href="/Html/Hospitals/Departments/Overview0.html" target="_self"><span class="navspan">临床科室</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num1"> 
+  <a class="next_open"></a>
+  <a id="34" class="sy2_tit " href="/Html/News/Columns/142/Index.html" target="_self"><span class="navspan">患者公告</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num2"> 
+  <a class="next_open"></a>
+  <a id="35" class="sy2_tit " href="/Html/Hospitals/Schedulings/OPIndex0_0.html" target="_self"><span class="navspan">出诊信息</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num3"> 
+  <a class="next_open"></a>
+  <a id="36" class="sy2_tit " href="/Html/News/Columns/143/Index.html" target="_self"><span class="navspan">就诊指南</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num4"> 
+  <a class="next_open"></a>
+  <a id="37" class="sy2_tit " href="/Html/News/Columns/144/Index.html" target="_self"><span class="navspan">就医查询</span></a> 
+
+   
+  </li>
+  <div class="clearit"></div>
+ </div>
+ <div class="sy2_ul_div">
+ 
+
+<div class="NavBoxsFirst" style="width: 46%">
+ <h2 class="titleStyNav"><a href="/Html/Hospitals/Departments/Overview114.html">临床科室</a></h2>
+  
+  <ul class="list_dep pd0-20">
+ 
+    <h3>
+        临床科室</h3>
+    <ul class="menu">
+            <li><a href="/Hospitals/Departments/Index/2">牙体牙髓病科</a></li>
+            <li><a href="/Hospitals/Departments/Index/3">牙周病科</a></li>
+            <li><a href="/Hospitals/Departments/Index/4">口腔粘膜病科</a></li>
+            <li><a href="/Hospitals/Departments/Index/5">儿童口腔科</a></li>
+            <li><a href="/Hospitals/Departments/Index/6">特需门诊</a></li>
+            <li><a href="/Hospitals/Departments/Index/7">预防口腔科</a></li>
+            <li><a href="/Hospitals/Departments/Index/8">口腔外科门诊</a></li>
+            <li><a href="/Hospitals/Departments/Index/9">唇腭裂外科</a></li>
+            <li><a href="/Hospitals/Departments/Index/10">创伤整形外科</a></li>
+            <li><a href="/Hospitals/Departments/Index/11">头颈肿瘤外科</a></li>
+            <li><a href="/Hospitals/Departments/Index/12">正颌与关节外科</a></li>
+            <li><a href="/Hospitals/Departments/Index/13">口腔麻醉科</a></li>
+            <li><a href="/Hospitals/Departments/Index/14">医疗美容科</a></li>
+            <li><a href="/Hospitals/Departments/Index/15">修复I科</a></li>
+            <li><a href="/Hospitals/Departments/Index/16">修复Ⅱ科</a></li>
+            <li><a href="/Hospitals/Departments/Index/17">种植科</a></li>
+            <li><a href="/Hospitals/Departments/Index/18">全科门诊</a></li>
+            <li><a href="/Hospitals/Departments/Index/19">正畸科</a></li>
+            <li><a href="/Hospitals/Departments/Index/20">颞颌关节科</a></li>
+            <li><a href="/Hospitals/Departments/Index/21">口腔病理科</a></li>
+            <li><a href="/Hospitals/Departments/Index/22">口腔放射科</a></li>
+            <li><a href="/Hospitals/Departments/Index/23">口腔急诊科</a></li>
+            <li><a href="/Hospitals/Departments/Index/24">中医科</a></li>
+            <li><a href="/Hospitals/Departments/Index/25">药剂科</a></li>
+            <li><a href="/Hospitals/Departments/Index/26">检验科</a></li>
+            <li><a href="/Hospitals/Departments/Index/28">感染管理科</a></li>
+            <li><a href="/Hospitals/Departments/Index/29">消毒供应中心</a></li>
+	<div class="clearit"></div>
+    </ul>
+	<div class="clearit"></div>
+
+
+  </ul>
+</div>
+<div class="NavBoxsSecond" style="width: 29%">
+  <h2 class="titleStyNav"><a href="/Html/News/Columns/142/Index.html">患者公告</a></h2>
+  <ul class="article_box pd0-20 zfjs">
+  
+ <li class="No_Con"></li>
+  
+  <div class="clearit"></div>
+ </ul>
+ <ul class="article_list pd0-20">
+ 
+ <li class = "Li_Odd   column_1">
+ 
+ 
+ <a href="/Html/News/Articles/4117.html"target=_blank title="四川大学华西口腔医院2018年义诊讲座安排"class="title_type">四川大学华西口腔医院2018年义…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_2">
+ 
+ 
+ <a href="/Html/News/Articles/4118.html"target=_blank title="华西口腔医院微信公众号【预约挂号】及【挂号费】 微信支付开通"class="title_type">华西口腔医院微信公众号【预约…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_3">
+ 
+ 
+ <a href="/Html/News/Articles/4013.html"target=_blank title="
+2016年“920爱牙日”义诊公告
+"class="title_type">
+2016年“920爱牙日”义诊公…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_4">
+ 
+ 
+ <a href="/Html/News/Articles/4014.html"target=_blank title="我院开展“服务百姓健康行动”全国大型义诊活动周活动"class="title_type">我院开展“服务百姓健康行动”…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd last  column_5">
+ 
+ 
+ <a href="/Html/News/Articles/4015.html"target=_blank title="“服务百姓健康行动”义诊活动安排"class="title_type">“服务百姓健康行动”义诊活动…</a>
+ 
+ 
+ 
+  </li>
+ 
+ </ul>
+</div>
+<div class="NavBoxsThird" style="width: 25%">
+ <h2 class="titleStyNav"><a href="/Html/News/Columns/143/Index.html">就诊指南</a></h2>
+ <div class="BoxContent">
+ <ul class="article_list">
+ 
+ <li class = "Li_Odd   column_1">
+ 
+ 
+ <a href="/Html/News/Articles/4169.html"target=_blank title="挂号方式"class="title_type">挂号方式</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_2">
+ 
+ 
+ <a href="/Html/News/Articles/4168.html"target=_blank title="出院流程"class="title_type">出院流程</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_3">
+ 
+ 
+ <a href="/Html/News/Articles/4167.html"target=_blank title="入院流程"class="title_type">入院流程</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_4">
+ 
+ 
+ <a href="/Html/News/Articles/4166.html"target=_blank title="医保门诊流程"class="title_type">医保门诊流程</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_5">
+ 
+ 
+ <a href="/Html/News/Articles/4165.html"target=_blank title="门诊流程"class="title_type">门诊流程</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_6">
+ 
+ 
+ <a href="/Html/News/Articles/4164.html"target=_blank title="急诊流程"class="title_type">急诊流程</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_7">
+ 
+ 
+ <a href="/Html/News/Articles/3920.html"target=_blank title="华西口腔医院开通114预约挂号服务"class="title_type">华西口腔医院开通114预约…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_8">
+ 
+ 
+ <a href="/Html/News/Articles/3919.html"target=_blank title="华西口腔医院114预约挂号须知"class="title_type">华西口腔医院114预约挂号…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd last  column_9">
+ 
+ 
+ <a href="/Html/News/Articles/3918.html"target=_blank title="患者实名制建卡与挂号须知"class="title_type">患者实名制建卡与挂号须知</a>
+ 
+ 
+ 
+  </li>
+ 
+ </ul>
+ </div>
+</div>
+<div class="clearit"></div>
+
+
+ 
+ </div>
+ <div class="bottomOne"></div>
+ 
+ <div class="clearit"></div>
+ </ul>
+ 
+  </li>
+  <li class="sy1_li num6"> 
+  <a class="next_open"></a>
+  <a id="10" class="sy1_tit " href="/Html/News/Main/115.html" target="_self"><span class="navspan">科学研究</span></a> 
+
+   <ul class="sy2_ul">
+ <div class="sy2_inside">
+    <li class="sy2_li num0"> 
+  <a class="next_open"></a>
+  <a id="38" class="sy2_tit " href="/Html/News/Columns/145/Index.html" target="_self"><span class="navspan">科研动态</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num1"> 
+  <a class="next_open"></a>
+  <a id="39" class="sy2_tit " href="/Html/News/Columns/146/Index.html" target="_self"><span class="navspan">通知公告</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num2"> 
+  <a class="next_open"></a>
+  <a id="40" class="sy2_tit " href="http://www.sklod.org/" target="_blank"><span class="navspan">国家重点实验室</span></a> 
+
+   
+  </li>
+  <li class="sy2_li num3"> 
+  <a class="next_open"></a>
+  <a id="41" class="sy2_tit " href="/Html/News/Columns/147/Index.html" target="_self"><span class="navspan">办事指南</span></a> 
+
+   
+  </li>
+  <div class="clearit"></div>
+ </div>
+ <div class="sy2_ul_div">
+ 
+
+<div class="NavBoxsFirst" style="width:42%">
+  <h2 class="titleStyNav"><a href="/Html/News/Columns/145/Index.html">科研动态</a></h2>
+ <div class="BoxContent">
+  <ul class="kxyj_box article_box mt10">
+ 
+ <li class = "Li_Odd last  column_1">
+ 
+ 
+ <a class="img_box" href="/Html/News/Articles/5159.html"  title="口腔疾病研究国家重点实验室召开2017年度学术委员会">
+ <img src="/Sites/Uploaded/UserUpLoad/20180408/20180408102326.jpg" alt="口腔疾病研究国家重点实验室召开2017年度学术委员会" /></a> 
+ <a href="/Html/News/Articles/5159.html" title="口腔疾病研究国家重点实验室召开2017年度学术委员会"class="title_type">口腔疾病研究国家重点实…</a>
+ 
+ 
+ 
+ <p>
+  2018年4月1日，口腔疾病研究国家重点实验室2017年度学术委员会在四川大学召开。口腔疾… <a class="detail" href="/Html/News/Articles/5159.html"  title="点击查看详细">详细>></a>
+ </p>
+  </li>
+  
+ <div class="clearit"></div>
+ </ul> 
+ <ul class="article_list mt10">
+ 
+ <li class = "Li_Odd   column_1">
+ 
+ 
+ <a href="/Html/News/Articles/5120.html"target=_blank title="我院举行2018年新年学术报告会"class="title_type">我院举行2018年新年学术报告会</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_2">
+ 
+ 
+ <a href="/Html/News/Articles/4900.html"target=_blank title="我院两本英文期刊入选“砥砺奋进的五年”大型成就展"class="title_type">我院两本英文期刊入选“砥砺奋进的五年”大型成就…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_3">
+ 
+ 
+ <a href="/Html/News/Articles/4866.html"target=_blank title="我院代表参加中华医学会第十六次医学科学研究管理学学术会议"class="title_type">我院代表参加中华医学会第十六次医学科学研究管理…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even last  column_4">
+ 
+ 
+ <a href="/Html/News/Articles/4525.html"target=_blank title="我院国家口腔疾病临床医学研究中心获国家科技部授牌"class="title_type">我院国家口腔疾病临床医学研究中心获国家科技部授…</a>
+ 
+ 
+ 
+  </li>
+ 
+ </ul> 
+ </div>
+</div>
+<div class="NavBoxsSecond" style="width:29%">
+ <h2 class="titleStyNav"><a href="/Html/News/Columns/146/Index.html">通知公告</a></h2>
+ 
+ <ul class="article_list pd0-20">
+ 
+ <li class = "Li_Odd last  column_1">
+ 
+ 
+ <a href="/Html/News/Articles/4524.html" title="四川省科学技术厅关于发布2018年度四川省科技计划项目申报指南的通知"class="title_type">四川省科学技术厅关于发布2018…</a>
+ 
+ 
+ 
+  </li>
+  
+ </ul> 
+
+ <div class="div_img mt10"><a href="http://www.sklod.org/"><img src="/Sites/Uploaded/UserUpLoad/20170522/20170522115135.jpg"></a></div>
+</div>
+<div class="NavBoxsThird" style="width:29%">
+ <h2 class="titleStyNav"><a href="/Html/News/Columns/147/Index.html">办事指南</a></h2>
+ 
+  <ul class="article_list pd0-20">
+ 
+ <li class = "Li_Odd   column_1">
+ 
+ 
+ <a href="/Html/News/Articles/4522.html"target=_blank title="专利申请程序"class="title_type">专利申请程序</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_2">
+ 
+ 
+ <a href="/Html/News/Articles/4521.html"target=_blank title="科研经费业务办理流程"class="title_type">科研经费业务办理流程</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_3">
+ 
+ 
+ <a href="/Html/News/Articles/4520.html"target=_blank title="国家科技计划、公益性行业科研专项、四川省科技计划项目预算调整流程"class="title_type">国家科技计划、公益性行业科研…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even   column_4">
+ 
+ 
+ <a href="/Html/News/Articles/4519.html"target=_blank title="国家自然科学基金项目预算调整流程"class="title_type">国家自然科学基金项目预算调整…</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Odd   column_5">
+ 
+ 
+ <a href="/Html/News/Articles/4518.html"target=_blank title="项目结题审核"class="title_type">项目结题审核</a>
+ 
+ 
+ 
+  </li>
+ <li class = "Li_Even last  column_6">
+ 
+ 
+ <a href="/Html/News/Articles/4119.html"target=_blank title="大型仪器管理人员及联系方式"class="title_type">大型仪器管理人员及联系方式</a>
+ 
+ 
+ 
+  </li>
+ 
+ </ul>
+
+</div>
+<div class="clearit"></div>
+ 
+ </div>
+ <div class="bottomOne"></div>
+ 
+ <div class="clearit"></div>
+ </ul>
+ 
+  </li>
+  <li class="sy1_li num7"> 
+  <a class="next_open"></a>
+  <a id="11" class="sy1_tit " href="/" target="_self"><span class="navspan">教科网镜像站</span></a> 
+
+   
+  </li>
+  <div class="clearit"></div>
+ </div>
+ 
+ <div class="clearit"></div>
+ </ul>
+
+ <div class="dl_box">
+ 
+
+<span id="ajax_div__LoggingStatus_1_0_0_7485">
+    <script type="text/javascript">
+        GetAjaxContentByUrl('ajax_div__LoggingStatus_1_0_0_7485', '/PartialView/_Plugin/_LoggingStatus?siteId=1');
+    </script>
+</span>
+ <a href="/Html/News/Main/220.html" class="english2" target="_blank">英文版</a>
+ <div class="clearit"></div>
+ </div>
+ <div class="clearit"></div>
+ </div>
+</div>
+ 
+  
+ </div>
+ <!--导航结束-->
+ <div class="wrap_main">
+ <!-- link_Map -->
+ <link href="/Content/Areas/Common/css/linkMap.css" rel="stylesheet" type="text/css" />
+
+<div class="linkmap_box">
+  <div class="linkmap">
+    您所在的位置：
+    <span><a href="/">首页</a>
+        <small>&gt;&gt;</small><a><span class="navspan"> 刘洋</span></a>
+    </span>
+  </div>
+</div>
+
+ <!--主体部分-->
+ <div class="main">
+ 
+
+
+
+
+<div class="main_content">
+ <div class="article_left">
+ <div class="Department_left">
+ <div class="side_menu">
+ 
+<script>
+ $(function () {
+ iniMenu('#20');
+ })
+</script>
+<script src="/Content/Areas/Common/scripts/searchIndexLeftMenu.js" type="text/javascript"></script>
+<ul id="menu">
+<h2 class="dep_title2">科室介绍</h2>
+ 
+ <li class="li_Dep0">
+ 
+ <p class="p_Dep0 Show" id="1">
+ <a href="javascript:void(0);" class="dep_tit_1">临床科室</a>
+ </p>
+ 
+ <ul class="Dep_List0" style="display:none">
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="2">
+ <a href="/Hospitals/Departments/Index/2">牙体牙髓病科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/139">- 周学东</a></li>
+ <li><a href="/Hospitals/Doctors/Index/142">- 李继遥</a></li>
+ <li><a href="/Hospitals/Doctors/Index/140">- 黄定明</a></li>
+ <li><a href="/Hospitals/Doctors/Index/141">- 叶玲</a></li>
+ <li><a href="/Hospitals/Doctors/Index/154">- 苏勤</a></li>
+ <li><a href="/Hospitals/Doctors/Index/163">- 陈新梅</a></li>
+ <li><a href="/Hospitals/Doctors/Index/148">- 张凌琳</a></li>
+ <li><a href="/Hospitals/Doctors/Index/146">- 杨锦波</a></li>
+ <li><a href="/Hospitals/Doctors/Index/157">- 邹玲</a></li>
+ <li><a href="/Hospitals/Doctors/Index/144">- 彭栗</a></li>
+ <li><a href="/Hospitals/Doctors/Index/143">- 程磊</a></li>
+ <li><a href="/Hospitals/Doctors/Index/145">- 高原</a></li>
+ <li><a href="/Hospitals/Doctors/Index/152">- 李文</a></li>
+ <li><a href="/Hospitals/Doctors/Index/151">- 薛晶</a></li>
+ <li><a href="/Hospitals/Doctors/Index/147">- 徐欣</a></li>
+ <li><a href="/Hospitals/Doctors/Index/162">- 王人可</a></li>
+ <li><a href="/Hospitals/Doctors/Index/155">- 汪成林</a></li>
+ <li><a href="/Hospitals/Doctors/Index/153">- 张岚</a></li>
+ <li><a href="/Hospitals/Doctors/Index/161">- 何利邦</a></li>
+ <li><a href="/Hospitals/Doctors/Index/156">- 孙建勋</a></li>
+ <li><a href="/Hospitals/Doctors/Index/149">- 高波</a></li>
+ <li><a href="/Hospitals/Doctors/Index/158">- 解文博</a></li>
+ <li><a href="/Hospitals/Doctors/Index/159">- 杨静</a></li>
+ <li><a href="/Hospitals/Doctors/Index/164">- 何金枝</a></li>
+ <li><a href="/Hospitals/Doctors/Index/150">- 张敏</a></li>
+ <li><a href="/Hospitals/Doctors/Index/165">- 万冕</a></li>
+ <li><a href="/Hospitals/Doctors/Index/160">- 王浩浩</a></li>
+ <li><a href="/Hospitals/Doctors/Index/166">- 周雅川</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="3">
+ <a href="/Hospitals/Departments/Index/3">牙周病科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/177">- ​吴亚菲</a></li>
+ <li><a href="/Hospitals/Doctors/Index/167">- ​丁一</a></li>
+ <li><a href="/Hospitals/Doctors/Index/172">- ​黄萍</a></li>
+ <li><a href="/Hospitals/Doctors/Index/178">- 徐屹</a></li>
+ <li><a href="/Hospitals/Doctors/Index/182">- ​赵蕾</a></li>
+ <li><a href="/Hospitals/Doctors/Index/174">- ​孟姝</a></li>
+ <li><a href="/Hospitals/Doctors/Index/179">- 杨禾</a></li>
+ <li><a href="/Hospitals/Doctors/Index/168">- ​董伟</a></li>
+ <li><a href="/Hospitals/Doctors/Index/181">- 赵寰</a></li>
+ <li><a href="/Hospitals/Doctors/Index/170">- ​郭淑娟</a></li>
+ <li><a href="/Hospitals/Doctors/Index/173">- ​刘程程</a></li>
+ <li><a href="/Hospitals/Doctors/Index/180">- ​叶畅畅</a></li>
+ <li><a href="/Hospitals/Doctors/Index/169">- 段丁瑜</a></li>
+ <li><a href="/Hospitals/Doctors/Index/171">- ​黄海云</a></li>
+ <li><a href="/Hospitals/Doctors/Index/175">- ​申道南</a></li>
+ <li><a href="/Hospitals/Doctors/Index/176">- ​王骏</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="4">
+ <a href="/Hospitals/Departments/Index/4">口腔粘膜病科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/30">- 陈谦明</a></li>
+ <li><a href="/Hospitals/Doctors/Index/34">- 林梅</a></li>
+ <li><a href="/Hospitals/Doctors/Index/35">- ​周红梅</a></li>
+ <li><a href="/Hospitals/Doctors/Index/29">- 曾昕</a></li>
+ <li><a href="/Hospitals/Doctors/Index/33">- 江潞</a></li>
+ <li><a href="/Hospitals/Doctors/Index/36">- ​周瑜</a></li>
+ <li><a href="/Hospitals/Doctors/Index/32">- 葛林</a></li>
+ <li><a href="/Hospitals/Doctors/Index/31">- ​但红霞</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="5">
+ <a href="/Hospitals/Departments/Index/5">儿童口腔科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/19">- ​邹静</a></li>
+ <li><a href="/Hospitals/Doctors/Index/20">- 李小兵</a></li>
+ <li><a href="/Hospitals/Doctors/Index/21">- 郭维华</a></li>
+ <li><a href="/Hospitals/Doctors/Index/22">- 李少敏</a></li>
+ <li><a href="/Hospitals/Doctors/Index/23">- 陈娥</a></li>
+ <li><a href="/Hospitals/Doctors/Index/24">- 刘敏川</a></li>
+ <li><a href="/Hospitals/Doctors/Index/25">- 郑黎薇</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="6">
+ <a href="/Hospitals/Departments/Index/6">特需门诊</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/89">- 吴红崑</a></li>
+ <li><a href="/Hospitals/Doctors/Index/86">- ​郝玉庆</a></li>
+ <li><a href="/Hospitals/Doctors/Index/87">- ​楼北雁</a></li>
+ <li><a href="/Hospitals/Doctors/Index/88">- 田也</a></li>
+ <li><a href="/Hospitals/Doctors/Index/90">- ​朱运握</a></li>
+ <li><a href="/Hospitals/Doctors/Index/85">- 冯瑾</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="7">
+ <a href="/Hospitals/Departments/Index/7">预防口腔科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/193">- ​胡涛</a></li>
+ <li><a href="/Hospitals/Doctors/Index/194">- 李雪</a></li>
+ <li><a href="/Hospitals/Doctors/Index/192">- 程然</a></li>
+ <li><a href="/Hospitals/Doctors/Index/197">- 尹 伟</a></li>
+ <li><a href="/Hospitals/Doctors/Index/191">- 程立</a></li>
+ <li><a href="/Hospitals/Doctors/Index/196">- 杨英明</a></li>
+ <li><a href="/Hospitals/Doctors/Index/195">- ​王国松</a></li>
+ <li><a href="/Hospitals/Doctors/Index/198">- 钟亦思</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="8">
+ <a href="/Hospitals/Departments/Index/8">口腔外科门诊</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/39">- 温玉明</a></li>
+ <li><a href="/Hospitals/Doctors/Index/41">- 林云锋</a></li>
+ <li><a href="/Hospitals/Doctors/Index/42">- 包崇云</a></li>
+ <li><a href="/Hospitals/Doctors/Index/37">- 潘剑</a></li>
+ <li><a href="/Hospitals/Doctors/Index/43">- 高庆红</a></li>
+ <li><a href="/Hospitals/Doctors/Index/40">- 梁新华</a></li>
+ <li><a href="/Hospitals/Doctors/Index/38">- 华成舸</a></li>
+ <li><a href="/Hospitals/Doctors/Index/44">- 刘显</a></li>
+ <li><a href="/Hospitals/Doctors/Index/45">- ​伍俊</a></li>
+ <li><a href="/Hospitals/Doctors/Index/46">- 刘济远</a></li>
+ <li><a href="/Hospitals/Doctors/Index/48">- 周京琳</a></li>
+ <li><a href="/Hospitals/Doctors/Index/50">- 周懿</a></li>
+ <li><a href="/Hospitals/Doctors/Index/47">- 王了</a></li>
+ <li><a href="/Hospitals/Doctors/Index/51">- 吴云龙</a></li>
+ <li><a href="/Hospitals/Doctors/Index/49">- 张晓辉</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="9">
+ <a href="/Hospitals/Departments/Index/9">唇腭裂外科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/14">- 石冰</a></li>
+ <li><a href="/Hospitals/Doctors/Index/12">- 郑谦</a></li>
+ <li><a href="/Hospitals/Doctors/Index/11">- 王䶮</a></li>
+ <li><a href="/Hospitals/Doctors/Index/17">- 李杨</a></li>
+ <li><a href="/Hospitals/Doctors/Index/15">- 李承浩</a></li>
+ <li><a href="/Hospitals/Doctors/Index/18">- 杨超</a></li>
+ <li><a href="/Hospitals/Doctors/Index/16">- ​李精韬</a></li>
+ <li><a href="/Hospitals/Doctors/Index/13">- 曾妮</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="10">
+ <a href="/Hospitals/Departments/Index/10">创伤整形外科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/2">- 田卫东</a></li>
+ <li><a href="/Hospitals/Doctors/Index/4">- 刘磊</a></li>
+ <li><a href="/Hospitals/Doctors/Index/3">- 汤炜</a></li>
+ <li><a href="/Hospitals/Doctors/Index/5">- 龙洁</a></li>
+ <li><a href="/Hospitals/Doctors/Index/7">- 郑晓辉</a></li>
+ <li><a href="/Hospitals/Doctors/Index/6">- 敬伟</a></li>
+ <li><a href="/Hospitals/Doctors/Index/8">- 杨波</a></li>
+ <li><a href="/Hospitals/Doctors/Index/9">- 陈金龙</a></li>
+ <li><a href="/Hospitals/Doctors/Index/10">- 熊茂婧</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="11">
+ <a href="/Hospitals/Departments/Index/11">头颈肿瘤外科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/91">- 李龙江</a></li>
+ <li><a href="/Hospitals/Doctors/Index/92">- ​唐休发</a></li>
+ <li><a href="/Hospitals/Doctors/Index/93">- ​王晓毅</a></li>
+ <li><a href="/Hospitals/Doctors/Index/94">- ​宣鸣</a></li>
+ <li><a href="/Hospitals/Doctors/Index/95">- ​李一</a></li>
+ <li><a href="/Hospitals/Doctors/Index/96">- 张壮</a></li>
+ <li><a href="/Hospitals/Doctors/Index/97">- 韩波</a></li>
+ <li><a href="/Hospitals/Doctors/Index/98">- 谢蟪旭</a></li>
+ <li><a href="/Hospitals/Doctors/Index/99">- 刘哲</a></li>
+ <li><a href="/Hospitals/Doctors/Index/100">- 阙 林</a></li>
+ <li><a href="/Hospitals/Doctors/Index/101">- ​李春洁</a></li>
+ <li><a href="/Hospitals/Doctors/Index/102">- ​门乙</a></li>
+ <li><a href="/Hospitals/Doctors/Index/103">- 高宁</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="12">
+ <a href="/Hospitals/Departments/Index/12">正颌与关节外科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/202">- ​罗恩</a></li>
+ <li><a href="/Hospitals/Doctors/Index/204">- ​祝颂松</a></li>
+ <li><a href="/Hospitals/Doctors/Index/199">- ​李继华</a></li>
+ <li><a href="/Hospitals/Doctors/Index/200">- ​李运峰</a></li>
+ <li><a href="/Hospitals/Doctors/Index/203">- ​叶斌</a></li>
+ <li><a href="/Hospitals/Doctors/Index/201">- 刘尧</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1" id="13">
+ <a href="/Hospitals/Departments/Index/13">口腔麻醉科</a>
+ </p>
+ 
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="14">
+ <a href="/Hospitals/Departments/Index/14">医疗美容科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/185">- ​王杭</a></li>
+ <li><a href="/Hospitals/Doctors/Index/186">- ​冯戈</a></li>
+ <li><a href="/Hospitals/Doctors/Index/187">- ​郑玮</a></li>
+ <li><a href="/Hospitals/Doctors/Index/188">- ​宋健</a></li>
+ <li><a href="/Hospitals/Doctors/Index/190">- 崔军辉</a></li>
+ <li><a href="/Hospitals/Doctors/Index/189">- ​李果</a></li>
+ <li><a href="/Hospitals/Doctors/Index/183">- ​田卫东</a></li>
+ <li><a href="/Hospitals/Doctors/Index/184">- 王晓毅</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="15">
+ <a href="/Hospitals/Departments/Index/15">修复I科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/117">- 朱智敏</a></li>
+ <li><a href="/Hospitals/Doctors/Index/111">- 万乾炳</a></li>
+ <li><a href="/Hospitals/Doctors/Index/116">- ​鲜苏琴</a></li>
+ <li><a href="/Hospitals/Doctors/Index/106">- 高宁</a></li>
+ <li><a href="/Hospitals/Doctors/Index/112">- ​王航</a></li>
+ <li><a href="/Hospitals/Doctors/Index/109">- ​孟玉坤</a></li>
+ <li><a href="/Hospitals/Doctors/Index/115">- 王魏新</a></li>
+ <li><a href="/Hospitals/Doctors/Index/108">- 李勇</a></li>
+ <li><a href="/Hospitals/Doctors/Index/114">- 王剑</a></li>
+ <li><a href="/Hospitals/Doctors/Index/105">- 陈文川</a></li>
+ <li><a href="/Hospitals/Doctors/Index/113">- 王华蓉</a></li>
+ <li><a href="/Hospitals/Doctors/Index/107">- ​李磊</a></li>
+ <li><a href="/Hospitals/Doctors/Index/104">- 陈晨峰</a></li>
+ <li><a href="/Hospitals/Doctors/Index/110">- 裴锡波</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="16">
+ <a href="/Hospitals/Departments/Index/16">修复Ⅱ科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/118">- 于海洋</a></li>
+ <li><a href="/Hospitals/Doctors/Index/119">- 陈新民</a></li>
+ <li><a href="/Hospitals/Doctors/Index/120">- 梁星</a></li>
+ <li><a href="/Hospitals/Doctors/Index/121">- 王敏</a></li>
+ <li><a href="/Hospitals/Doctors/Index/122">- 杜莉</a></li>
+ <li><a href="/Hospitals/Doctors/Index/124">- 林映荷</a></li>
+ <li><a href="/Hospitals/Doctors/Index/123">- 罗云</a></li>
+ <li><a href="/Hospitals/Doctors/Index/126">- 陈悦</a></li>
+ <li><a href="/Hospitals/Doctors/Index/127">- 王小容</a></li>
+ <li><a href="/Hospitals/Doctors/Index/128">- 沈颉飞</a></li>
+ <li><a href="/Hospitals/Doctors/Index/129">- 高姗姗</a></li>
+ <li><a href="/Hospitals/Doctors/Index/131">- 屈依丽</a></li>
+ <li><a href="/Hospitals/Doctors/Index/130">- 熊芳</a></li>
+ <li><a href="/Hospitals/Doctors/Index/125">- 杨家农</a></li>
+ <li><a href="/Hospitals/Doctors/Index/132">- 王琪</a></li>
+ <li><a href="/Hospitals/Doctors/Index/133">- 朱卓立</a></li>
+ <li><a href="/Hospitals/Doctors/Index/134">- 甘雪琦</a></li>
+ <li><a href="/Hospitals/Doctors/Index/135">- 郝亮</a></li>
+ <li><a href="/Hospitals/Doctors/Index/136">- 李丹雪</a></li>
+ <li><a href="/Hospitals/Doctors/Index/137">- 谢璐</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="17">
+ <a href="/Hospitals/Departments/Index/17">种植科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/246">- 宫苹</a></li>
+ <li><a href="/Hospitals/Doctors/Index/249">- 刘福祥</a></li>
+ <li><a href="/Hospitals/Doctors/Index/262">- 张敏</a></li>
+ <li><a href="/Hospitals/Doctors/Index/251">- 莫安春</a></li>
+ <li><a href="/Hospitals/Doctors/Index/252">- 欧国敏</a></li>
+ <li><a href="/Hospitals/Doctors/Index/256">- ​汪永跃</a></li>
+ <li><a href="/Hospitals/Doctors/Index/254">- 谭震</a></li>
+ <li><a href="/Hospitals/Doctors/Index/253">- ​彭琳</a></li>
+ <li><a href="/Hospitals/Doctors/Index/260">- ​袁泉</a></li>
+ <li><a href="/Hospitals/Doctors/Index/250">- ​满毅</a></li>
+ <li><a href="/Hospitals/Doctors/Index/245">- ​蔡潇潇</a></li>
+ <li><a href="/Hospitals/Doctors/Index/248">- ​李华</a></li>
+ <li><a href="/Hospitals/Doctors/Index/257">- ​魏娜</a></li>
+ <li><a href="/Hospitals/Doctors/Index/255">- 唐华</a></li>
+ <li><a href="/Hospitals/Doctors/Index/259">- ​杨醒眉</a></li>
+ <li><a href="/Hospitals/Doctors/Index/264">- 康宁</a></li>
+ <li><a href="/Hospitals/Doctors/Index/258">- ​伍颖颖</a></li>
+ <li><a href="/Hospitals/Doctors/Index/261">- 张亮</a></li>
+ <li><a href="/Hospitals/Doctors/Index/265">- ​姚洋</a></li>
+ <li><a href="/Hospitals/Doctors/Index/247">- 何鲲</a></li>
+ <li><a href="/Hospitals/Doctors/Index/263">- 向琳</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="18">
+ <a href="/Hospitals/Departments/Index/18">全科门诊</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/53">- ​郭锡久</a></li>
+ <li><a href="/Hospitals/Doctors/Index/61">- 万呼春</a></li>
+ <li><a href="/Hospitals/Doctors/Index/62">- ​王晴</a></li>
+ <li><a href="/Hospitals/Doctors/Index/59">- 柳茜</a></li>
+ <li><a href="/Hospitals/Doctors/Index/56">- ​黄海云</a></li>
+ <li><a href="/Hospitals/Doctors/Index/58">- 李彩</a></li>
+ <li><a href="/Hospitals/Doctors/Index/81">- 杨征</a></li>
+ <li><a href="/Hospitals/Doctors/Index/83">- ​张杰魁</a></li>
+ <li><a href="/Hospitals/Doctors/Index/64">- 吴爱华</a></li>
+ <li><a href="/Hospitals/Doctors/Index/55">- 洪潇</a></li>
+ <li><a href="/Hospitals/Doctors/Index/57">- ​蒋丽</a></li>
+ <li><a href="/Hospitals/Doctors/Index/52">- 杜冰</a></li>
+ <li><a href="/Hospitals/Doctors/Index/60">- 骆筱秋</a></li>
+ <li><a href="/Hospitals/Doctors/Index/65">- 杨惠</a></li>
+ <li><a href="/Hospitals/Doctors/Index/68">- 张玉楠</a></li>
+ <li><a href="/Hospitals/Doctors/Index/69">- ​郑庆华</a></li>
+ <li><a href="/Hospitals/Doctors/Index/63">- ​王姝</a></li>
+ <li><a href="/Hospitals/Doctors/Index/77">- 王诗达</a></li>
+ <li><a href="/Hospitals/Doctors/Index/82">- ​游梦</a></li>
+ <li><a href="/Hospitals/Doctors/Index/79">- ​杨波</a></li>
+ <li><a href="/Hospitals/Doctors/Index/66">- 叶畅畅</a></li>
+ <li><a href="/Hospitals/Doctors/Index/73">- 李津乐</a></li>
+ <li><a href="/Hospitals/Doctors/Index/54">- 韩国华</a></li>
+ <li><a href="/Hospitals/Doctors/Index/71">- ​陈金龙</a></li>
+ <li><a href="/Hospitals/Doctors/Index/75">- ​阙林</a></li>
+ <li><a href="/Hospitals/Doctors/Index/67">- 袁鹤</a></li>
+ <li><a href="/Hospitals/Doctors/Index/78">- ​谢蟪旭</a></li>
+ <li><a href="/Hospitals/Doctors/Index/70">- ​陈琛</a></li>
+ <li><a href="/Hospitals/Doctors/Index/72">- 蒋丽</a></li>
+ <li><a href="/Hospitals/Doctors/Index/74">- 柳茜</a></li>
+ <li><a href="/Hospitals/Doctors/Index/76">- ​王晴</a></li>
+ <li><a href="/Hospitals/Doctors/Index/80">- 杨阳</a></li>
+ <li><a href="/Hospitals/Doctors/Index/84">- 张亮</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="19">
+ <a href="/Hospitals/Departments/Index/19">正畸科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/227">- ​赵志河</a></li>
+ <li><a href="/Hospitals/Doctors/Index/205">- 白丁</a></li>
+ <li><a href="/Hospitals/Doctors/Index/214">- ​赖文莉</a></li>
+ <li><a href="/Hospitals/Doctors/Index/229">- 邹淑娟</a></li>
+ <li><a href="/Hospitals/Doctors/Index/237">- ​王军</a></li>
+ <li><a href="/Hospitals/Doctors/Index/207">- ​陈嵩</a></li>
+ <li><a href="/Hospitals/Doctors/Index/228">- ​周力</a></li>
+ <li><a href="/Hospitals/Doctors/Index/209">- 杜熹</a></li>
+ <li><a href="/Hospitals/Doctors/Index/215">- 李娟</a></li>
+ <li><a href="/Hospitals/Doctors/Index/211">- 韩向龙</a></li>
+ <li><a href="/Hospitals/Doctors/Index/233">- ​李宇</a></li>
+ <li><a href="/Hospitals/Doctors/Index/235">- ​谭理军</a></li>
+ <li><a href="/Hospitals/Doctors/Index/234">- ​刘钧</a></li>
+ <li><a href="/Hospitals/Doctors/Index/226">- ​赵青</a></li>
+ <li><a href="/Hospitals/Doctors/Index/225">- ​赵立星</a></li>
+ <li><a href="/Hospitals/Doctors/Index/231">- 黄 宁</a></li>
+ <li><a href="/Hospitals/Doctors/Index/239">- ​张孟平</a></li>
+ <li><a href="/Hospitals/Doctors/Index/236">- 唐甜</a></li>
+ <li><a href="/Hospitals/Doctors/Index/238">- 杨璞</a></li>
+ <li><a href="/Hospitals/Doctors/Index/222">- 王艳民</a></li>
+ <li><a href="/Hospitals/Doctors/Index/208">- ​陈雨雪</a></li>
+ <li><a href="/Hospitals/Doctors/Index/206">- 陈建伟</a></li>
+ <li><a href="/Hospitals/Doctors/Index/212">- 何姝姝</a></li>
+ <li><a href="/Hospitals/Doctors/Index/221">- ​王艳</a></li>
+ <li><a href="/Hospitals/Doctors/Index/232">- 简繁</a></li>
+ <li><a href="/Hospitals/Doctors/Index/219">- 舒睿</a></li>
+ <li><a href="/Hospitals/Doctors/Index/224">- ​叶瑞</a></li>
+ <li><a href="/Hospitals/Doctors/Index/213">- 金樱</a></li>
+ <li><a href="/Hospitals/Doctors/Index/210">- ​段沛沛</a></li>
+ <li><a href="/Hospitals/Doctors/Index/230">- 郭永文</a></li>
+ <li><a href="/Hospitals/Doctors/Index/216">- ​廖丽娜</a></li>
+ <li><a href="/Hospitals/Doctors/Index/217">- 廖文</a></li>
+ <li><a href="/Hospitals/Doctors/Index/223">- ​徐晖</a></li>
+ <li><a href="/Hospitals/Doctors/Index/220">- ​田野</a></li>
+ <li><a href="/Hospitals/Doctors/Index/218">- ​龙虎</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="20">
+ <a href="/Hospitals/Departments/Index/20">颞颌关节科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/28">- ​李晓箐</a></li>
+ <li><a href="/Hospitals/Doctors/Index/27">- 刘洋</a></li>
+ <li><a href="/Hospitals/Doctors/Index/26">- 余丽霞</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1" id="21">
+ <a href="/Hospitals/Departments/Index/21">口腔病理科</a>
+ </p>
+ 
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="22">
+ <a href="/Hospitals/Departments/Index/22">口腔放射科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/270">- 王虎</a></li>
+ <li><a href="/Hospitals/Doctors/Index/273">- ​郑广宁</a></li>
+ <li><a href="/Hospitals/Doctors/Index/271">- 吴红兵</a></li>
+ <li><a href="/Hospitals/Doctors/Index/266">- ​刘莉</a></li>
+ <li><a href="/Hospitals/Doctors/Index/267">- ​刘媛媛</a></li>
+ <li><a href="/Hospitals/Doctors/Index/268">- ​任家银</a></li>
+ <li><a href="/Hospitals/Doctors/Index/269">- ​唐蓓</a></li>
+ <li><a href="/Hospitals/Doctors/Index/272">- 游梦</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1" id="23">
+ <a href="/Hospitals/Departments/Index/23">口腔急诊科</a>
+ </p>
+ 
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1 Show" id="24">
+ <a href="/Hospitals/Departments/Index/24">中医科</a>
+ </p>
+ 
+ <ul class="doctor_team1 doctor_team" style="display:none">
+ <li><a href="/Hospitals/Doctors/Index/240">- ​黄小瑾</a></li>
+ <li><a href="/Hospitals/Doctors/Index/244">- ​张招娣</a></li>
+ <li><a href="/Hospitals/Doctors/Index/241">- ​蒋红钢</a></li>
+ <li><a href="/Hospitals/Doctors/Index/243">- ​温江华</a></li>
+ <li><a href="/Hospitals/Doctors/Index/242">- ​李佳霖</a></li>
+ <div class="clearb"></div>
+ </ul>
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1" id="25">
+ <a href="/Hospitals/Departments/Index/25">药剂科</a>
+ </p>
+ 
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1" id="26">
+ <a href="/Hospitals/Departments/Index/26">检验科</a>
+ </p>
+ 
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1" id="28">
+ <a href="/Hospitals/Departments/Index/28">感染管理科</a>
+ </p>
+ 
+ </li>
+ <li class="li_Dep1">
+ 
+ <p class="p_Dep1" id="29">
+ <a href="/Hospitals/Departments/Index/29">消毒供应中心</a>
+ </p>
+ 
+ </li>
+ </ul>
+ </li>
+</ul>
+
+ 
+ </div>
+ </div>
+ </div>
+ <div class="article_right">
+ 
+ <div class="Min">
+ <h2 class="title_header mb10"><span>医生介绍</span></h2>
+ <div class="YSBox">
+ <h2>
+ 刘洋
+ 
+ 
+ <div class="ewm_b" style="display: block;"><div id="big_erm"></div><span>扫一扫</span></div>
+ 
+ <script type="text/javascript">
+ $(function () {
+ $(".erweima_x").hover(function () { $(".ewm_b").show(100) }, function () { $(".ewm_b").hide() });
+ })
+ </script>
+ <script>
+ $("#big_erm").qrcode({
+ render: "canvas",
+ text: "http://www.hxkq.org/Hospitals/Doctors/Index/27",
+ width: "125", //二维码的宽度
+ height: "125", //二维码的高度
+ background: "#ffffff", //二维码的后景色
+ foreground: "#000000", //二维码的前景色
+ src: '/Sites/Uploaded/Image/2017/05/166363054344405995047012437.jpg' //二维码中间的图片
+ });
+ </script>
+ </h2>
+
+ <p>
+ 科室：
+ <a href="/Hospitals/Departments/Index/20" target="_blank">颞颌关节科</a>
+ </p>
+ <div class="clearit"></div>
+ </div>
+ 
+ <script>
+ $(function () {
+ $(".btn_more").each(function () {
+ $(this).hover(function () {
+ $(this).find(".btn_icon").show();
+ }, function () {
+ $(".btn_more .btn_icon").hide();
+ })
+ })
+ });
+ $(function () {
+ $("li.FixedField_Img").each(function () {
+ $(this).hover(function () {
+ $("span.Img_box").stop().fadeOut("fast");
+ $(this).find("span.Img_box").fadeIn("fast");
+ }, function () {
+ $("span.Img_box").stop().fadeOut("fast");
+ })
+ })
+ })
+ </script>
+ <div class="scheduling mb20 pc_chuzhen mt20" id="scheduling">
+ 
+            <script type="text/javascript">
+                $(function () {
+                    try {
+                        var urlhash = window.location.hash;
+                        if (!urlhash.match("fromapp")) {
+                            if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i))) {
+                                $(".PCDisplay").hide();
+                                $(".MobileDisplay").show();
+                            } else {
+                                $(".PCDisplay").show();
+                                $(".MobileDisplay").hide();
+                            }
+                        }
+                    }
+                    catch (err) {
+                    }
+                });
+            </script>
+        <div class="MobileDisplay" style="display:none">
+            <div>
+                <h2 class="Com_tit">
+                    <span class="current">出诊信息</span>
+                </h2>
+
+            </div>
+            <div class="box">
+                <div class="yuyue_detail ">
+                    <div class="shiduan">
+                        <p class="time">时段</p>
+                        <p>上午</p>
+                        <p>下午</p>
+                        <p>夜间</p>
+                    </div>
+                    <div class="yuyue_detail_con ">
+                        <ul class="yuyue_detail_ul">
+                                <li>
+                                    <p class="time "><b class="month">06-04</b><b class="week">周一</b></p>
+                                        <p class="self">
+                                                <span class="SchedulingLevel_icon9 outpatient ">
+                                                </span>
+                                                                                        四级专家                                        </p>
+                                                                            <p></p>
+                                                                            <p></p>
+                                </li>
+                                <li>
+                                    <p class="time "><b class="month">06-05</b><b class="week">周二</b></p>
+                                        <p></p>
+                                                                            <p></p>
+                                                                            <p></p>
+                                </li>
+                                <li>
+                                    <p class="time "><b class="month">06-06</b><b class="week">周三</b></p>
+                                        <p class="self">
+                                                <span class="SchedulingLevel_icon9 outpatient ">
+                                                </span>
+                                                                                        四级专家                                        </p>
+                                                                            <p class="self">
+                                                <span class="SchedulingLevel_icon9 outpatient ">
+                                                </span>
+                                                                                        四级专家                                        </p>
+                                                                            <p></p>
+                                </li>
+                                <li>
+                                    <p class="time "><b class="month">06-07</b><b class="week">周四</b></p>
+                                        <p></p>
+                                                                            <p></p>
+                                                                            <p></p>
+                                </li>
+                                <li>
+                                    <p class="time "><b class="month">06-08</b><b class="week">周五</b></p>
+                                        <p class="self">
+                                                <span class="SchedulingLevel_icon9 outpatient ">
+                                                </span>
+                                                                                        四级专家                                        </p>
+                                                                            <p class="self">
+                                                <span class="SchedulingLevel_icon9 outpatient ">
+                                                </span>
+                                                                                        四级专家                                        </p>
+                                                                            <p></p>
+                                </li>
+                        </ul>
+                        <div class="clearit"></div>
+                    </div>
+                    <div class="btn">
+                        <a href="javascript:void(0)">></a>
+                    </div>
+                    <div class="clearit"></div>
+                </div>
+                <div class="clearit"></div>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    var i = $(".yuyue_detail_con ul li").length;
+                    var yy_width = $(".yuyue_detail_con").width()
+                    var m_right = $(".yuyue_detail").width() * 0.01
+                    var li_width = yy_width / 7 - m_right
+                    var left_W = (i - 7) * (li_width + m_right);
+                    var ul_width = i * (li_width + m_right)
+                    $(".yuyue_detail_con").css("width", yy_width + "px")
+                    $(".yuyue_detail_con ul").css("width", ul_width + "px");
+                    $(".yuyue_detail_con ul li").css("width", li_width + "px");
+                    $(".yuyue_detail_con ul li").css("margin-right", m_right + "px");
+
+                    $(document).ready(function () {
+                        $('.btn').click(x);
+                    });
+                    function x() {
+                        $(".yuyue_detail_ul").animate({
+                            "margin-left": -left_W
+                        });
+                        $(this).unbind("click").click(y);
+                    }
+                    function y() {
+                        $(".yuyue_detail_ul").animate({
+                            "margin-left": 0
+                        });
+                        $(this).unbind("click").click(x);
+                    }
+                })
+            </script>
+            <div class="yuanqu_color">
+                                    <span class="span_self"><b></b>医生门诊时间表</span>
+
+            </div>
+            <div class="clearit"></div>
+        </div>
+    <div class="PCDisplay">
+        
+                <script type="text/javascript">
+                    function setTabLab(name, cursel) {
+                        var i = 1;
+                        var menu = document.getElementById(name + i);
+                        var con = document.getElementById("con_" + name + "_" + i);
+                        while (menu != null && con != null) {
+                            menu.className = i == cursel ? "current" : "";
+                            con.style.display = i == cursel ? "block" : "none";
+                            i++;
+                            menu = document.getElementById(name + i);
+                            con = document.getElementById("con_" + name + "_" + i);
+                        }
+                    }
+                </script>
+                <div>
+                    <h2 class="Com_tit">
+                        <span class="current">出诊信息</span>
+                    </h2>
+
+
+                </div>
+                <div class="chuzhen">
+                                                    <span class="SchedulingLevel_icon1 Icon">普通门诊</span>
+                                <span class="SchedulingLevel_icon2 Icon">专家门诊</span>
+                                <span class="SchedulingLevel_icon3 Icon">特需门诊</span>
+                                <span class="SchedulingLevel_icon4 Icon">专科门诊</span>
+                                <span class="SchedulingLevel_icon5 Icon">首席专家</span>
+                                <span class="SchedulingLevel_icon6 Icon">一级专家</span>
+                                <span class="SchedulingLevel_icon7 Icon">二级专家</span>
+                                <span class="SchedulingLevel_icon8 Icon">三级专家</span>
+                                <span class="SchedulingLevel_icon9 Icon">四级专家</span>
+                                <span class="SchedulingLevel_icon10 Icon">主治医师</span>
+                                <span class="SchedulingLevel_icon11 Icon">医师</span>
+                                <span class="SchedulingLevel_icon12 Icon">教学</span>
+                                            <span class="SchedulingState_icon0 Icon">未开启预约</span>
+                        <span class="SchedulingState_icon2 Icon">时间未到</span>
+                        <span class="SchedulingState_icon4 Icon">可预约</span>
+                        <span class="SchedulingState_icon6 Icon">时间已过</span>
+                        <span class="SchedulingState_icon8 Icon">暂停</span>
+                        <span class="SchedulingState_icon10 Icon">假期</span>
+                        <span class="SchedulingState_icon12 Icon">约满</span>
+                        <span class="SchedulingState_icon14 Icon">停诊</span>
+                        <span class="SchedulingState_icon16 Icon">替诊</span>
+                        <span class="SchedulingState_icon18 Icon">被替诊</span>
+                        <span class="SchedulingState_icon20 Icon">换诊</span>
+                    （<font color="red">*</font>出诊信息仅供参考，以门诊公布为准）
+                    
+                </div>
+                            <table width="100%" cellspacing="0" cellpadding="0" bordercolor="#98C6E2" border="0" class="clinicDetail">
+                                <tr class="frist_tr">
+                                    <th class="table_yi" width="20%">
+                                        科室
+                                    </th>
+                                    <th class="table_yi" width="10%">
+                                        时段
+                                    </th>
+                                        <td width="14%" class="table_yi ">
+                                            星期一<br />
+06-04                                        </td>
+                                        <td width="14%" class="table_yi ">
+                                            星期二<br />
+06-05                                        </td>
+                                        <td width="14%" class="table_yi ">
+                                            星期三<br />
+06-06                                        </td>
+                                        <td width="14%" class="table_yi ">
+                                            星期四<br />
+06-07                                        </td>
+                                        <td width="14%" class="table_yi ">
+                                            星期五<br />
+06-08                                        </td>
+                                </tr>
+                                        <tr>
+                                                <td class="Dep_Name" rowspan="2">
+口腔关节科                                                </td>
+                                            <td width="65" class="daytime">
+                                                上午
+                                            </td>
+                                                <td class="">
+                                                            <span class="SchedulingLevel_icon9 outpatient ">
+                                                            </span>
+                                                        <span>
+四级专家                                                            
+                                                        </span>
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                            <span class="SchedulingLevel_icon9 outpatient ">
+                                                            </span>
+                                                        <span>
+四级专家                                                            
+                                                        </span>
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                            <span class="SchedulingLevel_icon9 outpatient ">
+                                                            </span>
+                                                        <span>
+四级专家                                                            
+                                                        </span>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="65" class="daytime">
+                                                下午
+                                            </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                            <span class="SchedulingLevel_icon9 outpatient ">
+                                                            </span>
+                                                        <span>
+四级专家                                                            
+                                                        </span>
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                            <span class="SchedulingLevel_icon9 outpatient ">
+                                                            </span>
+                                                        <span>
+四级专家                                                            
+                                                        </span>
+                                                </td>
+                                        </tr>
+                            </table>
+    </div>
+
+ </div>
+ 
+ <div class="phone_chuzhen mt20 mb20" style="display: none;"><a href="/Html/Hospitals/Schedulings/OPIndex0_0.html">出诊信息</a></div>
+
+ <div class="about_department " id="department">
+  
+  <h2 class="title_header"><span>相关科室</span></h2>
+ <div class="department_rq mt20">
+  <div class="department_r">
+ <h2><a href="/Hospitals/Departments/Index/20">颞颌关节科</a></h2>
+ <p>颞颌关节科是专门针对咀嚼系统功能紊乱患者设立的诊断治疗科室，特别擅长咀嚼系统功能紊乱的修复及调牙合治疗、颞下颌关节紊乱病的诊断及治疗、磨牙症的诊断及治疗等。
+ <a href="/Hospitals/Departments/Index/20" >详细>></a>
+ </p>
+ </div>
+ <div class="clearit"></div>
+ </div>
+ 
+ </div>
+  <div class="doc_td mt20" id="team">
+ <h2 class="title_header"><span>技术团队</span></h2>
+ <ul class="mt20">
+ 
+    <li>
+        <div class="doc_cont">
+            <a class="doc_name" href="/Hospitals/Doctors/Index/28">
+​李晓箐            </a><span class="doc_tit">
+            </span><a class="ask_btn" href="/Hospitals/Doctors/Index/28"></a>
+        </div>
+        <h6 class="doc_dep">
+            颞颌关节科</h6>
+    </li>
+    <li>
+        <div class="doc_cont">
+            <a class="doc_name" href="/Hospitals/Doctors/Index/27">
+刘洋            </a><span class="doc_tit">
+副主任医师            </span><a class="ask_btn" href="/Hospitals/Doctors/Index/27"></a>
+        </div>
+        <h6 class="doc_dep">
+            颞颌关节科</h6>
+    </li>
+    <li>
+        <div class="doc_cont">
+            <a class="doc_name" href="/Hospitals/Doctors/Index/26">
+余丽霞            </a><span class="doc_tit">
+主治医师            </span><a class="ask_btn" href="/Hospitals/Doctors/Index/26"></a>
+        </div>
+        <h6 class="doc_dep">
+            颞颌关节科</h6>
+    </li>
+
+
+ </ul>
+ </div>
+ <div class="clearit">
+ </div>
+  
+ 
+ <div class="about_diseas mt20" id="disease">
+ 
+  
+
+ 
+ <div class="clearit">
+ </div>
+ </div>
+ <div class="about_wenz mt20" >
+  
+ <h2 class="title_header"><span>相关文章</span></h2>
+ <ul class="article_list mt20" id="wenzhang">
+
+ <div class="article mb20" id="article">
+</div>
+   </ul>
+ </div>  
+ <div class="clearit"></div>
+ </div>
+ </div>
+  <div class="clearit"></div>
+</div>
+
+  
+ </div>
+ <div class="clearit"></div>
+ 
+ <!--主体结束-->
+
+ <!--底部开始--> 
+ <link href="/Content/Areas/Common/css/footer.css" rel="stylesheet" type="text/css" />
+
+<div class="row bg_white mt20 hide-sm friend-link" style="display: none;">
+  
+
+<h2 class="title_header"><a class="more" href="/Hospitals/FriendlyLinks"></a><span><a href="/Hospitals/FriendlyLinks">友情链接</a></span></h2>
+<ul class="friend-list pd20">
+
+ 
+ <li class="linkli ">
+ <a href="http://www.nature.com/ijos/index.html" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20171225/20171225124834.jpg" alt="IJOS" />
+ </a>
+ <a href="http://www.nature.com/ijos/index.html" class="link_title" style="display: none;">IJOS</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.boneresearch.org/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20171225/20171225124916.jpg" alt="Bone Research" />
+ </a>
+ <a href="http://www.boneresearch.org/" class="link_title" style="display: none;">Bone Research</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.hxkqyxzz.net/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20170517/20170517101351.jpg" alt="华西口腔医学杂志" />
+ </a>
+ <a href="http://www.hxkqyxzz.net/" class="link_title" style="display: none;">华西口腔医学杂志</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://manu03.magtech.com.cn/gjkqyx/CN/volumn/current.shtml" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20170517/20170517101705.jpg" alt="国际口腔医学杂志" />
+ </a>
+ <a href="http://manu03.magtech.com.cn/gjkqyx/CN/volumn/current.shtml" class="link_title" style="display: none;">国际口腔医学杂志</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.moe.edu.cn/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20170517/20170517102816.jpg" alt="教育部" />
+ </a>
+ <a href="http://www.moe.edu.cn/" class="link_title" style="display: none;">教育部</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.nhfpc.gov.cn/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20170517/20170517102853.gif" alt="国家卫生计生委" />
+ </a>
+ <a href="http://www.nhfpc.gov.cn/" class="link_title" style="display: none;">国家卫生计生委</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.most.gov.cn/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20170517/20170517102831.jpg" alt="科学技术部" />
+ </a>
+ <a href="http://www.most.gov.cn/" class="link_title" style="display: none;">科学技术部</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.scwst.gov.cn/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20171019/20171019095002.png" alt="四川省卫生厅" />
+ </a>
+ <a href="http://www.scwst.gov.cn/" class="link_title" style="display: none;">四川省卫生厅</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.scst.gov.cn/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20180301/20180301104239.jpg" alt="四川省科技厅" />
+ </a>
+ <a href="http://www.scst.gov.cn/" class="link_title" style="display: none;">四川省科技厅</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.scu.edu.cn/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20170517/20170517101642.jpg" alt="四川大学" />
+ </a>
+ <a href="http://www.scu.edu.cn/" class="link_title" style="display: none;">四川大学</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://wcums.scu.edu.cn" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20170517/20170517101728.gif" alt="四川大学华西医学中心" />
+ </a>
+ <a href="http://wcums.scu.edu.cn" class="link_title" style="display: none;">四川大学华西医学中心</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.cd120.com/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20171017/20171017125613.png" alt="四川大学华西医院" />
+ </a>
+ <a href="http://www.cd120.com/" class="link_title" style="display: none;">四川大学华西医院</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.motherchildren.com/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20170517/20170517101827.jpg" alt="四川大学华西第二医院" />
+ </a>
+ <a href="http://www.motherchildren.com/" class="link_title" style="display: none;">四川大学华西第二医院</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.hxsiyuan.cn/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20180301/20180301104409.jpg" alt="华西公共卫生学院 华西第四医院" />
+ </a>
+ <a href="http://www.hxsiyuan.cn/" class="link_title" style="display: none;">华西公共卫生学院 华西第四医院</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.who.int/oral_health/en/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20170517/20170517101610.jpg" alt="世界卫生组织口腔健康专题" />
+ </a>
+ <a href="http://www.who.int/oral_health/en/" class="link_title" style="display: none;">世界卫生组织口腔健康专题</a>
+ </li>
+ <li class="linkli ">
+ <a href="https://www.fdiworlddental.org/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20180301/20180301104538.jpg" alt="FDI" />
+ </a>
+ <a href="https://www.fdiworlddental.org/" class="link_title" style="display: none;">FDI</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.iadranz.org.au/meetings" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20170517/20170517102759.jpg" alt="IADR" />
+ </a>
+ <a href="http://www.iadranz.org.au/meetings" class="link_title" style="display: none;">IADR</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.icd.org/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20170517/20170517101422.jpg" alt="ICD" />
+ </a>
+ <a href="http://www.icd.org/" class="link_title" style="display: none;">ICD</a>
+ </li>
+ <li class="linkli ">
+ <a href="http://www.cndent.com/" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20170517/20170517102916.jpg" alt="中华口腔医学会" />
+ </a>
+ <a href="http://www.cndent.com/" class="link_title" style="display: none;">中华口腔医学会</a>
+ </li>
+ <li class="linkli last">
+ <a href="http://www.sma.org.cn/index.asp" target="_blank">
+ <img src="/Sites/Uploaded/UserUpLoad/20180301/20180301132545.jpg" alt="四川省医学会" />
+ </a>
+ <a href="http://www.sma.org.cn/index.asp" class="link_title" style="display: none;">四川省医学会</a>
+ </li>
+ 
+ </ul>
+  
+ </div>
+ <div class="clearit"></div>
+ 
+<div class="row">
+ <div class="footer">
+ <p class="footer-nav hide-sm">
+ 
+ <a href="/Hospitals/Main/ContactUs">联系我们</a><span>|</span>
+ <a href="/Hospitals/Main/Location">乘车路线</a><span>|</span>
+ <a href="/Hospitals/FriendlyLinks">友情链接</a><span>|</span>
+ <a href="/Hospitals/Main/WebMap">网站地图</a><span>|</span>
+ <a href="/Html/News/Articles/3762.html">法律声明</a><span>|</span>
+ <a href="/Html/News/Articles/3763.html">帮助中心</a>
+ </p>
+ <p class="hide-sm">备案序号:蜀ICP备09013973-1号</p>
+ <p class="hide-sm">四川大学华西口腔医学院版权所有@2002－2017</p>
+ <p class="hide-sm">地址：610041四川省成都市人民南路三段14号 电话：028-85501437(医疗咨询)  85501445(投诉电话)</p>
+<p>
+
+<span id="ajax_div__VisitCount_1_0_0_4127">
+    <script type="text/javascript">
+        GetAjaxContentByUrl('ajax_div__VisitCount_1_0_0_4127', '/PartialView/_Plugin/_VisitCount?siteId=1');
+    </script>
+</span> </p>
+ 
+ </div>
+</div>
+<div id="fixedLayertop">
+ <a class="weixin"><div class="weixin_img" style="display: none"> <img src="/Sites/Uploaded/UserUpLoad/20170525/20170525143036.jpg" ></div></a>
+  
+ <a class="top"></a>
+ <p class="close"></p>
+</div>
+
+<script language="JavaScript">
+$(document).ready(function($){
+ $(".close").click(function(){
+ $(this).parents("#fixedLayertop").hide();
+ })
+});
+$(document).ready(function($){
+$(".weixin").hover(function(){ $(".weixin_img").show()},function(){$(".weixin_img").hide()}); 
+});
+$(document).ready(function($){
+ $('.top').click(function(){
+ $('html,body').stop();
+ $('html,body').animate({
+ scrollTop:$('.header').offset().top
+ },
+ 1000);
+ });
+});
+
+</script>
+ 
+ 
+   
+ <!--底部结束--> 
+ </div>
+ </div>
+</body>
+</html>  

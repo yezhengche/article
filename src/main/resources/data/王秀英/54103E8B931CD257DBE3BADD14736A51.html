@@ -1,0 +1,2036 @@
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="baidu-site-verification" content="uL5ec97WeI" />
+	
+	
+	
+	
+		<title>王秀英挂号_王秀英预约挂号_宁波市公众健康服务平台:宁波挂号网[宁波预约挂号]</title>
+	
+	
+	
+	
+
+<meta http-equiv="X-UA-Compatible" content = "chrome=1，IE=edge">
+<link href="/static/web/css/Style.css" rel="stylesheet" type="text/css" />
+<link href="/static/web/css/jquery.slideBox.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="/static/web/js/jq.js"></script>
+<script language="javascript" type="text/javascript" src="/static/web/js/Display_Tab.js"></script>
+<script language="javascript" type="text/javascript" src="/static/web/js/css.js"></script>
+<script language="javascript" type="text/javascript" src="/static/web/js/tab_title.js"></script>
+<script language="javascript" type="text/javascript" src="/static/web/js/common.js"></script>
+<script language="javascript" type="text/javascript" src="/static/js/validate.js"></script>
+<script language="javascript" type="text/javascript" src="/static/My97DatePicker/WdatePicker.js"></script>
+<script language="javascript" type="text/javascript" src="/static/My97DatePicker/lang/zh-cn.js"></script>
+<script language="javascript" type="text/javascript" src="/static/My97DatePicker/lang/zh-tw.js"></script>
+<script language="javascript" type="text/javascript" src="/static/js/layer.min.js"></script>
+<script language="javascript" type="text/javascript" src="/static/web/js/jquery.slideBox.min.js"></script>
+		</head>
+		
+		<body>
+		
+
+
+<link rel="stylesheet" type="text/css" href="/static/web/css/jkda2.css" />
+<link rel="stylesheet" type="text/css" href="/static/web/css/head.css" />
+<!--头部开始 -->
+<script type="text/javascript">
+			$().ready(function(){
+				var url=window.location.href;
+				if(url.indexOf("/f/index")>0||url.indexOf("/f/hos")>0||url.indexOf("/f/dept")>0||url.indexOf("f/doc")>0||url.indexOf("/f/order")>0||url.indexOf("/f/zjtj")>0||url.indexOf("/f/yyl")>0||url.indexOf("/f/stopList")>0){
+					$("#a_yygh").addClass("cur_bg").parent().siblings().children("a").removeClass("cur_bg");
+				}else if(url.indexOf("f/healthresources")>0||url.indexOf("/f/title")>0||url.indexOf("/f/mech")>0||url.indexOf("/f/equi/")>0){
+					$("#a_wszy").addClass("cur_bg").parent().siblings().children("a").removeClass("cur_bg");
+				}else if(url.indexOf("f/zlxx")>0&&url.indexOf("f/zlxx/archives")<0&&url.indexOf("f/zlxx/jkmz")<0&&url.indexOf("f/zlxx/jyxx1")<0&&url.indexOf("f/zlxx/jkzy")<0&&url.indexOf("f/zlxx/jcxx1")<0&&url.indexOf("f/zlxx/jktj")<0&&url.indexOf("f/zlxx/htinfo")<0&&url.indexOf("f/zlxx/diabetesinfo")<0){
+					$("#a_zlxx").addClass("cur_bg").parent().siblings().children("a").removeClass("cur_bg");
+				}else if(url.indexOf("f/zlxx/archives")>0||url.indexOf("f/zlxx/jkmz")>0||url.indexOf("f/zlxx/jyxx1")>0||url.indexOf("f/zlxx/jkzy")>0||url.indexOf("f/zlxx/jcxx1")>0||url.indexOf("f/zlxx/jktj")>0||url.indexOf("f/zlxx/htinfo")>0||url.indexOf("f/zlxx/diabetesinfo")>0){
+					$("#a_jkdn").addClass("cur_bg").parent().siblings().children("a").removeClass("cur_bg");
+				}else if(url.indexOf("f/healthrecords")>0){
+					$("#a_jkgl").addClass("cur_bg").parent().siblings().children("a").removeClass("cur_bg");
+				}else if(url=="http://www.tyjk.net"){
+					$("#a_jkjy").addClass("cur_bg").parent().siblings().children("a").removeClass("cur_bg");
+				}
+				$("#mask").height(window.screen.availHeight).width(window.screen.availWidth);
+				$("#show_mask").click(function(){
+					//判断用户是否登录
+					$.ajax({
+			 			url : "/f/isLogin?date="+new Date(),
+						dataType : "json",
+						type : "get",
+						success : function(data) {
+							if(data.code==-1){
+								//登录页面
+								window.location.href="/f/tologin";
+							}else if(data.code==0){
+								$("#mask").css("display","block");
+							}else{
+								$("#jkda").attr("href","/f/tologin");
+							}
+						}
+			 		});
+				});
+				$("#btn01").click(function(){
+					var code=$("#dacode").val();
+					var phone=$("#phone").val();
+					if(code==""){
+						alert("请输入验证码！");
+						return false;
+					}
+					$.ajax({
+			 			url : "/f/zlxx/jkdnCheckCode?code="+code+"&phone="+phone+"&date="+new Date(),
+						dataType : "json",
+						type : "get",
+						success : function(data) {
+							if(data.code==0){
+								//健康档案页面
+								window.location.href="/f/zlxx/archives"
+							}else{
+								alert("验证码不正确");
+							}
+						}
+			 		});
+				});
+				$("#btn02").click(function(){
+					$("#mask").css("display","none");
+					$("#dacode").val("");
+				});
+				$(".dis_box .span2").click(function(){
+					$("#mask").css("display","none");
+					$("#dacode").val("");
+				});
+			});
+			var speed = 1000; //速度 
+			var wait = 59; 
+			function getTransCode(){
+					var phone=$("#phone").val();
+					document.getElementById("codeText").disabled = true; 
+					var url ="/f/msg/sendAmCode?phone="+phone+"&randow="+Math.random();
+					if(wait==59){
+						$.ajax({
+							url : url,
+							dataType : "html",
+							type : "get",
+							success : function(data) {
+								alert(data);
+							},error : function() {
+								alert("对不起，网络繁忙，稍后重试...");
+							}
+						});
+					}
+					if(wait == 0){ 
+						document.getElementById("codeText").disabled = false; 
+						document.getElementById("codeText").value = "重发验证码"; 
+						wait = 59;
+					}else { 
+						document.getElementById("codeText").value = wait+"秒后可重发验证码"; 
+						wait--; 
+						window.setTimeout("getTransCode()",speed); 
+					}
+			}
+			var userName="";
+			if(userName!=""){
+				function run() {
+					$.ajax({
+			 			url : "/f/sysdate?date="+new Date(),
+						dataType : "json",
+						type : "get",
+						success : function(data) {
+							document.getElementById("currentTime").innerHTML = data.sysdate.histime;
+						}
+			 		});
+				}
+				window.setInterval("run();", 1000);
+				//消息5秒刷新
+				function userMsg() {
+					$.ajax({
+			 			url : "/f/userMsg?date="+new Date(),
+						dataType : "json",
+						type : "get",
+						success : function(data) {
+								if(data.myNewsNumber==0){
+									$("#userMsg").html("");
+								}else{
+									$("#userMsg").html(data.myNewsNumber);
+								}
+						}
+			 		});
+		 		}
+				window.setInterval("userMsg();", 5000);
+				function loginLog() {
+					$.ajax({
+			 			url : "/f/loginLog",
+						dataType : "json",
+						type : "get",
+						success : function(data) {
+						}
+			 		});
+				}
+				window.setInterval("loginLog();", 9*60*1000);
+			}
+			//收藏本站 bbs.ecmoban.com
+			function AddFavorite(title, url) {
+			  try {
+			      window.external.addFavorite(url, title);
+			  }
+			catch (e) {
+			     try {
+			       window.sidebar.addPanel(title, url, "");
+			    }
+			     catch (e) {
+			         alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请使用Ctrl+D进行添加");
+			     }
+			  }
+			}
+			function dzjk(){
+				$.ajax({
+			 			url : "/f/zlxx/checkArchives",
+						dataType : "json",
+						type : "post",
+						success : function(data) {
+								if(data.code==2){
+									alert("请先登录之后查看健康档案!");
+								}else if(data.code==0){
+									var phone=data.phone;
+									$("#phone").val(phone);
+									var phone1=phone.substring(0,3);
+									var phone2=phone.substring(7,11);
+									$("#phoneSpan").text(phone1+"****"+phone2);
+									$("#mask").css("display","block");
+									//window.location.href="/f/zlxx/archives";
+								}else if(data.code==1){
+									alert("您尚未签约家庭医生，无法查看健康档案，请到您的社区服务中心签约家庭医生!");
+								}else if(data.code==3){
+									window.location.href="/f/zlxx/archives";
+								}else if(data.code==4){
+									alert("您预留手机号格式错误，必须是手机号，请到您的社区服务中心修改手机号!");
+								}
+						}
+			 		});
+			}
+		</script>
+		<div id="mask">
+	    	<div class="dis_box">
+	    			<input type="hidden" id="phone" />
+		        	<div class="close"><span class="span1">信息校验</span><span class="span2"><img src="/static/web/images/close_icon.png" /></span></div>
+		        	<p  class="p01">手机号码：<span id="phoneSpan"></span>&nbsp;&nbsp;<input type="button" id="codeText" onclick="getTransCode();" value="发送验证码" ></p>
+		            <div style="margin-left:90px; line-height:60px;">验证码：<input type="text" id="dacode" class="mask_text" /></div>
+		            <!-- <div style="margin-left:90px; line-height:25px;"><font color="red">温馨提示：点击确定浏览器会默认拦截弹出健康档案页面,请设置浏览器拦截。</font></div>-->
+		            <div style="text-align: center;"><input type="button" value="确认" id="btn01"/><input type="button" id="btn02" value="取消"/></div>
+			</div>
+	    </div>
+		<div class="page_wrap">
+			<div class="page_top">
+				<ul class="page_top_l">
+					<li>
+						<a href="http://www.zhuojianchina.com/jjfasjapp/223.jhtml"><img src="/static/web/images/hospital_pass.png" /></a>
+					</li>
+					<li>
+						<a href="http://www.nbyyy.com.cn/ch/"><img src="/static/web/images/yuyy.png" /></a>
+					</li>
+					<!--<li>
+						<a href="/f/yyqd"><img src="/static/web/images/yyzlfwpt.png" /></a>
+					</li>-->
+				</ul>
+				<ul class="page_top_r">
+					
+					
+						<li  class="login_icon"><a class="fb" href="/f/tologin">登录</a></li>
+						<li><a href="/f/patient/reg1	">会员注册</a></li>
+					
+					<li><a href="/f/order/queryOrderRecord">预约记录</a></li>
+					<li><a href="/f/yyghsm">挂号规范</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="newnav_wrap">
+			<div class="new_logo_mod">
+				<a class="logo" href="/f/index"><img src="/static/web/images/logo.png" /></a>
+				
+				<p class="hotline"><img src="/static/web/images/hotline.png" /></p>
+			</div>
+			<div class="new_nav">
+				<ul>
+					<li>
+						<a href="/f/index" id="a_yygh">预约挂号</a>
+					</li>
+					<li>
+						<a href="/f/healthresources" id="a_wszy">卫生资源 </a>
+					</li>
+					 <li>
+						<a href="/f/zlxx" id="a_zlxx">诊疗信息</a>
+					</li> 
+					<li>
+						<a href="javascript:dzjk();" id="a_jkdn">健康档案</a>
+					</li>
+					<!-- <li>
+						<a href="/f/zlxx/archives" id="a_jkdn">健康档案</a>
+					</li> 
+					<li>
+						<a href="/f/healthrecords" id="a_jkgl">健康管理</a>
+					</li>-->
+					<li>
+						<a href="http://www.tyjk.net" target="_blank" id="a_jkjy">健康教育</a>
+					</li>
+				</ul>
+				<dl>	
+					<dd>
+						<a  class="nb" href="http://www.zhuojianchina.com/jjfasjapp/223.jhtml">APP下载</a>
+					</dd>
+					<dd>
+						<a href="/f/queryCenter">查询中心</a>
+					</dd>
+					<dd>
+						<a href="/f/comments">咨询投诉</a>
+					</dd>
+					<dd>
+						<a href="/f/cjwt">使用帮助</a>
+					</dd>
+					<dd>
+						<a href="/f/commProblem">常见问题</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+
+<!-- 导航结束-->
+	
+		
+	
+	
+
+<meta name="Keywords" content="海曙区挂号网,海曙区预约挂号网,海曙区检验,妇科门诊正高挂号,妇科门诊正高检验,浙江挂号，浙江预约挂号，检验报告，预约挂号" />	
+<meta name="Description" content="浙江预约统一挂号网（官网）为您提供网上预约挂号，检验报告查询等服务。" />
+<link rel="stylesheet" type="text/css" href="/static/web/css/reg.css" />
+<script type="text/javascript">
+  function collect(){
+		if(confirm("是否收藏该医生")){
+			var url = "/f/mycollect/save?collectType=3&collectContent=419529892438&platDeptId=25371";
+			$.ajax({
+	 			url : url,
+				dataType : "json",
+				type : "post",
+				success : function(data) {
+					alert(data.message);
+					if(data.code==1){
+						$("#shouc").hide();
+						$("#qux").show();
+						$("#collectId").val(data.collectId);
+					}
+				},error : function() {
+					alert("对不起，网络繁忙，稍后重试...");
+				}
+	 		});
+		}
+	}
+	function quXcollect(){
+		if(confirm("是否取消收藏")){
+			var id=$("#collectId").val();
+			var url = "/f/mycollect/delete?collectId="+id;
+			$.ajax({
+	 			url : url,
+				dataType : "json",
+				type : "post",
+				success : function(data) {
+					alert(data.message);
+					if(data.code==1){
+						$("#shouc").show();
+						$("#qux").hide();
+					}
+				},error : function() {
+					alert("对不起，网络繁忙，稍后重试...");
+				}
+	 		});
+		}
+	}
+  $(function(){	 
+		var doc_intro=$("#doc_intro").text();
+	 	var height=$(".intro_text").height();
+	 	var introH=$("#doc_intro").height();
+	 	$("#my_open").toggle(
+			  function(e){
+			  	$("#doc_intro").text($("#intro").text());
+			  	var introH1=$("#doc_intro").height();
+			  	$(".intro_text").height(height+introH1-introH);
+			  	$(".doc_intro_box").height(height+introH1-introH);
+			  	$("#my_open").text("收缩>>");
+			  	$("#sl").text("");
+			  },
+			  function(e){
+			  	$("#doc_intro").text(doc_intro);
+			  	$(".intro_text").height(height);
+			  	$(".doc_intro_box").height(height);
+			  	$("#my_open").text("展开>>");
+			  	$("#sl").text("...");
+			  }
+		);
+	 	$("#login_btn").click(function() {
+			var loginName=$("#loginName").val();
+			var loginPassword=$("#loginPassword").val();
+			if(loginName=="")
+		    {
+				layer.msg("请输入登录名！");
+		        $("#loginName").focus();
+		        return false;
+		    }
+			if(loginPassword=="")
+		    {
+				layer.msg("请输入密码！");
+		        $("#loginPassword").focus();
+		        return false;
+		    }
+			var url=$("#url").val();
+			 $.ajax({
+				type : "post",
+				url : "/f/patient/yyLogin",
+				dataType : "json",
+				data : {"loginName":loginName,"loginPassword":loginPassword},
+				success : function(data) {
+					if (data.code==0) {
+						window.location.href=url;
+					} else {
+						$("#loginName").focus();
+						$("#loginPassword").val("");
+						layer.msg(data.message, 1, 1);
+					}
+				},
+				error : function() {
+					alert("对不起，网络繁忙，稍后重试...");
+				}
+			});
+		});
+	 	$(document).on("change","#patWrap ul li input",function (e) {
+	          $(this).next().find("i").addClass("cover");
+	          $(this).parent().siblings().find("i").removeClass("cover");
+	          //$("#patWrap").find("input[name='memberNumPorxy']").remove();
+	          if ($("#patWrap").find("form [name='memberNumPorxy']").size() == 0) {
+	              $("#patWrap").find("form").append('<input type="hidden" name="memberNumPorxy">');
+	          }
+	          $("#patWrap").find("form [name='memberNumPorxy']").val(this.value);
+	    });
+  });
+  var loginName="";
+  if(loginName!=""){
+	  yyLogin();
+  }
+  function selectPat(btn) {
+      var form = $(btn).parent();
+      $("#patWrap").find("form").remove();
+      form.clone().appendTo($("#patWrap"));
+      $("#patWrap").find("input[type='button']").remove();
+      var url='/f/doc/docscheme?deptId=null_docId=419529892438_deptType=null_platHosId=null_scheduleNum=null';
+      var basePath='';
+      //获取就诊人
+       $.ajax({
+			type : "post",
+			url : "/f/order/getProxy",
+			dataType : "json",
+			success : function(data) {
+				if(data[0].name=="-1"){
+					window.location.href=basePath+data[0].memberNum+"?newUrl="+url;
+				}else{
+					var proxy=$("#proxy");
+					$("#proxy").children().filter("li").remove();
+					for ( var int = 0; int <data.length; int++) {
+						proxy.append("<li><input type=\"radio\" name=\"memberNumPorxy\" id=\"membernum"+int+"\" value="+data[int].memberNum+"><label for=\"membernum"+int+"\"><i></i>"+data[int].name+"</label></li>");
+					}
+					 $.layer({
+				          type: 1,
+				          title: ["选择就诊人", "background:#fff;"],
+				          border: [0],
+				          area: ["450px", "300px"],
+				          closeBtn: false,
+				          page: {
+				              dom: "#patWrap"
+				          }
+				      });
+				}
+			},
+			error : function() {
+				alert("对不起，网络繁忙，稍后重试...");
+			}
+		});
+  }
+
+  function sub(dom) {
+		if($(dom).parent().parent().find("form [name='memberNumPorxy']").size()==0){
+			layer.msg("请选择就诊人");
+		}else{
+			$(dom).parent().parent().find("form").submit();
+		}
+  }
+
+  function cancel(doc) {
+      layer.closeAll();
+  }
+</script>
+	
+	
+
+<div style="display: none" id="patWrap">
+    <ul id="proxy">
+    </ul>
+    <div class="btns">
+        <a href="javascript:;" class="ok" onclick="sub(this)">确定</a>
+        <a href="javascript:;" class="cancel" onclick="cancel(this)">取消</a>
+    </div>
+</div>
+	
+	<div class="middle_ind">
+	<input type="hidden" id="url" value="/f/order/check?scheduleNum=&deptId=25371&docId=34067&platDocId=419529892438" />
+	<div class="middle_top">
+    	<p class="tree_title"><span class="color_2"><a href="/f/index" style="color:#1D86C8;">首页></a><a href="/f/hos/info/404" style="color:#1D86C8;">宁波市妇女儿童医院 > </a><a href="/f/dept/25371" style="color:#1D86C8;">妇科门诊正高  > 王秀英</a></span></p>
+        <div class="eye">
+        	<div class="c_x_hos">
+            	<div class="hos_font">
+                <span>宁波市妇女儿童医院</span>
+                </div>
+              <div class="hos_font_r">
+                	<p>等级：<span>三级甲等</span> &nbsp;&nbsp;&nbsp;区域: <span>海曙区</span></p>
+                </div>
+               
+          </div>
+          	<div class="physician">
+            	<span>王秀英</span> 主任医师
+                <div class="phy_text"><span> &nbsp;&nbsp;科室：</span><span>妇科门诊正高</span></div>
+            </div>
+            
+            <div class="eye_r">
+            	<div class="eye_star">
+            <span>
+             
+            
+           	
+           		<img src="/static/web/images/star.png" title="非常不满意"/> 
+           	
+           	
+           	
+           	
+           		<img src="/static/web/images/star.png" title="不满意"/> 
+           	
+           	
+           	
+           	
+           		<img src="/static/web/images/star.png" title="一般"/> 
+           	
+           	
+           	
+           	
+           		<img src="/static/web/images/star.png" title="满意"/> 
+           	
+           	
+            
+           	
+				<img src="/static/web/images/star.png" title="很满意"/> 
+			
+            </span>
+            <p><span>10分</span>/154条就医经验</p>
+            </div>
+            </div>
+        </div>
+        
+        
+        
+	</div>
+    <div class="ad3"></div>
+    
+ <!--医生简介开始 -->
+ 	<div class="doc_intro" style="height:auto;"> 
+    <div class="doc_intro_box">
+   	  <div class="intro_l">
+      <div class="intro_l_box">
+        	<div class="intro_img">
+        			<img src="http://pic.nbwjw.gov.cn/PhotoShow/419529892438/S.shtml" width="137" height="140" onerror="this.src='/static/web/images/doc_intro.png'" />
+        	</div>
+            <div class="intro_text">
+           	  <div class="intro_font"><span>擅长：暂无</span></div>
+          	  <div class="intro_font"><span>简介：</span><span style="line-height: 2;" id="doc_intro"> 主任医师，浙江医科大学医学系毕业。从事妇产科临床工作近二十年，对妇产科各种疾病的诊治具有丰富的理论知识和临床经验，擅长妊娠并发症及难产的诊断和处理。</span></div>
+              <div id="intro" style="display: none">主任医师，浙江医科大学医学系毕业。从事妇产科临床工作近二十年，对妇产科各种疾病的诊治具有丰富的理论知识和临床经验，擅长妊娠并发症及难产的诊断和处理。</div>
+            </div>
+            </div>
+            <div style="padding-top: 5px;" id="shouc" class="collect" onclick="collect()" >
+	            <div class="collect_l"><img src="/static/web/images/doc_intro_a.png"/></div>
+	            <div class="collect_r"><span>加入收藏 </span></div>
+            </div>
+            <div id="qux" class="collect" onclick="quXcollect()" style="display: none;">
+	            <div class="collect_l"><img src="/static/web/images/doc_intro_a.png"/></div>
+	            <div class="collect_r"><span>取消收藏 </span></div>
+	            <input id="collectId" type="hidden" value="" />
+            </div>
+      </div>
+        <div class="intro_r">
+       	  <div class="intro_r_box">
+           	<div class="intro_r_boxl"><span>同科室其他医生</span></div>
+            <div class="intro_r_box_more"><a href="/f/dept/deptDoc/25371">更多<img src="/static/web/images/fange2.png" /></a></div>
+          </div>
+          
+	      
+		        <div class="intro_dept_text">
+					  <p><span>暂无其他医生</span></p>
+		        </div>
+	      
+        </div>
+        </div>
+      <div class="intro_u">
+      	<div class="intro_u_box">
+        	<div class="intro_u_btn">
+            
+            </div>
+        </div>
+        <div class="intro_u_boxl" style="height:auto; ">
+        	   <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td></td>
+                        
+								<td colspan="2" class="td_t">06/03<br/>Sun</td>
+						
+								<td colspan="2" class="td_t">06/04<br/>Mon</td>
+						
+								<td colspan="2" class="td_t">06/05<br/>Tue</td>
+						
+								<td colspan="2" class="td_t">06/06<br/>Wed</td>
+						
+								<td colspan="2" class="td_t">06/07<br/>Thu</td>
+						
+								<td colspan="2" class="td_t">06/08<br/>Fri</td>
+						
+								<td colspan="2" class="td_t">06/09<br/>Sat</td>
+						
+								<td colspan="2" class="td_t">06/10<br/>Sun</td>
+						
+                      </tr>
+                    </table>
+        </div>
+        <div class="intro_u_boxl">
+         <table border="0" cellspacing="0" cellpadding="0">
+         			
+                      <tr>
+                        <td>上</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        					
+                        						
+                        						
+                        						
+                        							<span class="ym">已满</span>
+                        						
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        						
+                        						
+                        							<form action="/f/order/check" method="post" name="orderInfo">
+												 		<input type="hidden" name="scheduleNum" value="41952989180608027213">
+														<input type="hidden" name="deptId" value="25371">
+												 		<input type="hidden" name="docId" value="34067">
+												 		<input type="hidden" name="platDocId" value="419529892438">
+                        								<input type="button" onclick="selectPat(this)" class="bnt_submit" value="预约&#13;&#10;33/40" title="总放号数40人次,剩余33人次,诊金21元" alt="总放号数40人次,剩余33人次,诊金21元"/>
+                        							</form>
+                        						
+                        						
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        						
+                        						
+                        							<form action="/f/order/check" method="post" name="orderInfo">
+												 		<input type="hidden" name="scheduleNum" value="41952989180609000917">
+														<input type="hidden" name="deptId" value="25371">
+												 		<input type="hidden" name="docId" value="34067">
+												 		<input type="hidden" name="platDocId" value="419529892438">
+                        								<input type="button" onclick="selectPat(this)" class="bnt_submit" value="预约&#13;&#10;24/40" title="总放号数40人次,剩余24人次,诊金21元" alt="总放号数40人次,剩余24人次,诊金21元"/>
+                        							</form>
+                        						
+                        						
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        				
+                        					
+                        				
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                      </tr>
+                     
+                      <tr>
+                        <td>下</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        						
+                        						
+                        						
+                        							<span class="ym">已满</span>
+                        						
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        						
+                        						
+                        							<form action="/f/order/check" method="post" name="orderInfo">
+												 		<input type="hidden" name="scheduleNum" value="41952989180608027214">
+														<input type="hidden" name="deptId" value="25371">
+												 		<input type="hidden" name="docId" value="34067">
+												 		<input type="hidden" name="platDocId" value="419529892438">
+                        								<input  type="button" onclick="selectPat(this)" class="bnt_submit"  value="预约&#13;&#10;32/32" title="总放号数32人次,剩余32人次,诊金21元" alt="总放号数32人次,剩余32人次,诊金21元"/>
+                        							</form>
+                        						
+                        						
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        						
+                        						
+                        							<form action="/f/order/check" method="post" name="orderInfo">
+												 		<input type="hidden" name="scheduleNum" value="41952989180609000201">
+														<input type="hidden" name="deptId" value="25371">
+												 		<input type="hidden" name="docId" value="34067">
+												 		<input type="hidden" name="platDocId" value="419529892438">
+                        								<input  type="button" onclick="selectPat(this)" class="bnt_submit"  value="预约&#13;&#10;34/35" title="总放号数35人次,剩余34人次,诊金21元" alt="总放号数35人次,剩余34人次,诊金21元"/>
+                        							</form>
+                        						
+                        						
+                        					
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        				
+                        				
+                        					
+                        				
+                        				
+                        			
+                        		</td>
+                        
+                      </tr>
+                     
+                      <tr>
+                        <td>晚</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        		</td>
+                        
+                        		<td colspan="2" class="td_t">
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        				
+                        				
+                        				
+                        					
+                        				
+                        			
+                        		</td>
+                        
+                      </tr>
+                     
+         </table>
+        
+       		<div class="intro_u_boxl_btn">如需在特定时间就诊，<a href="/f/dept/deptDoc/25371" class="look_at">查看科室排班</a> 预约同科室的其他医生</div>
+        </div>
+      </div>
+    </div>
+    
+<!--医生简介结束 -->
+   <!--已开放预约科室开始-->
+   <div class="dept_ind">
+	   <div class="dept_list" >
+	   		<div class="intro_r">
+	       	  <div class="intro_r_box">
+	           	<div class="intro_r_boxl"><span>王秀英医生其他科室排班</span></div>
+	            <div class="intro_r_box_more"></div>
+	          </div>
+	     	  
+	     	   
+					<div class="intro_dept_text">
+						<p><span>王秀英医生暂无其他科室排班</span></p>
+			 		</div>
+	     	  
+	        </div>
+	  </div>
+	</div>
+  <div class="doc_ind" >
+   <div class="eye_left">
+   		<div class="exp"></div>
+                    <div class="choose">
+                 	<div class="jyht"><div class="jlv_l">共<span>154</span>条</div> 
+                     <div class="jlv_r"></div>
+                     </div>
+                 	   <div class="right_list" style="border:none;">
+                      		
+                      				<div class="evaluate2">
+	                      				<div class="eva_l"><img src="" onerror="this.src='/static/web/images/tx.png'" width="48" height="48" />
+	                      				<span>王*</span></div>
+						                <div class="eva_m">
+						                		
+						                			
+						                		
+						                			
+						                				医生态度：<span>10分</span>
+						                			
+						                		
+						                			
+						                				医术水平：<span>10分</span>
+						                			
+						                		
+						                	<p></p>
+										<p>2016-04-01 分享的就医经验 就诊医生<b>王秀英</b></p></div>
+						                <div class="eva_r"><!-- <img src="/static/web/images/bang.png" />有用 --></div>
+                      				 </div>	
+                      		
+                      				<div class="evaluate2">
+	                      				<div class="eva_l"><img src="" onerror="this.src='/static/web/images/tx.png'" width="48" height="48" />
+	                      				<span>陈*</span></div>
+						                <div class="eva_m">
+						                		
+						                			
+						                		
+						                			
+						                				医生态度：<span>10分</span>
+						                			
+						                		
+						                			
+						                				医术水平：<span>10分</span>
+						                			
+						                		
+						                	<p></p>
+										<p>2016-04-01 分享的就医经验 就诊医生<b>王秀英</b></p></div>
+						                <div class="eva_r"><!-- <img src="/static/web/images/bang.png" />有用 --></div>
+                      				 </div>	
+                      		
+                      				<div class="evaluate2">
+	                      				<div class="eva_l"><img src="" onerror="this.src='/static/web/images/tx.png'" width="48" height="48" />
+	                      				<span>陶*</span></div>
+						                <div class="eva_m">
+						                		
+						                			
+						                				医术水平：<span>10分</span>
+						                			
+						                		
+						                			
+						                				医生态度：<span>10分</span>
+						                			
+						                		
+						                			
+						                		
+						                	<p></p>
+										<p>2016-04-01 分享的就医经验 就诊医生<b>王秀英</b></p></div>
+						                <div class="eva_r"><!-- <img src="/static/web/images/bang.png" />有用 --></div>
+                      				 </div>	
+                      		
+                      				<div class="evaluate2">
+	                      				<div class="eva_l"><img src="" onerror="this.src='/static/web/images/tx.png'" width="48" height="48" />
+	                      				<span>尚*</span></div>
+						                <div class="eva_m">
+						                		
+						                			
+						                				医术水平：<span>10分</span>
+						                			
+						                		
+						                			
+						                				医生态度：<span>10分</span>
+						                			
+						                		
+						                			
+						                		
+						                	<p></p>
+										<p>2016-04-01 分享的就医经验 就诊医生<b>王秀英</b></p></div>
+						                <div class="eva_r"><!-- <img src="/static/web/images/bang.png" />有用 --></div>
+                      				 </div>	
+                      		
+                      				<div class="evaluate2">
+	                      				<div class="eva_l"><img src="" onerror="this.src='/static/web/images/tx.png'" width="48" height="48" />
+	                      				<span>何*</span></div>
+						                <div class="eva_m">
+						                		
+						                			
+						                				医术水平：<span>10分</span>
+						                			
+						                		
+						                			
+						                		
+						                			
+						                				医生态度：<span>10分</span>
+						                			
+						                		
+						                	<p></p>
+										<p>2016-04-01 分享的就医经验 就诊医生<b>王秀英</b></p></div>
+						                <div class="eva_r"><!-- <img src="/static/web/images/bang.png" />有用 --></div>
+                      				 </div>	
+                      		
+                      				<div class="evaluate2">
+	                      				<div class="eva_l"><img src="" onerror="this.src='/static/web/images/tx.png'" width="48" height="48" />
+	                      				<span>王*</span></div>
+						                <div class="eva_m">
+						                		
+						                			
+						                				医术水平：<span>10分</span>
+						                			
+						                		
+						                			
+						                				医生态度：<span>10分</span>
+						                			
+						                		
+						                			
+						                		
+						                	<p></p>
+										<p>2016-04-01 分享的就医经验 就诊医生<b>王秀英</b></p></div>
+						                <div class="eva_r"><!-- <img src="/static/web/images/bang.png" />有用 --></div>
+                      				 </div>	
+                      		
+                      				<div class="evaluate2">
+	                      				<div class="eva_l"><img src="" onerror="this.src='/static/web/images/tx.png'" width="48" height="48" />
+	                      				<span>孙*</span></div>
+						                <div class="eva_m">
+						                		
+						                			
+						                				医术水平：<span>10分</span>
+						                			
+						                		
+						                			
+						                				医生态度：<span>10分</span>
+						                			
+						                		
+						                			
+						                		
+						                	<p></p>
+										<p>2016-04-01 分享的就医经验 就诊医生<b>王秀英</b></p></div>
+						                <div class="eva_r"><!-- <img src="/static/web/images/bang.png" />有用 --></div>
+                      				 </div>	
+                      		
+                      				<div class="evaluate2">
+	                      				<div class="eva_l"><img src="" onerror="this.src='/static/web/images/tx.png'" width="48" height="48" />
+	                      				<span>王*</span></div>
+						                <div class="eva_m">
+						                		
+						                			
+						                		
+						                			
+						                				医术水平：<span>10分</span>
+						                			
+						                		
+						                			
+						                				医生态度：<span>10分</span>
+						                			
+						                		
+						                	<p></p>
+										<p>2016-04-01 分享的就医经验 就诊医生<b>王秀英</b></p></div>
+						                <div class="eva_r"><!-- <img src="/static/web/images/bang.png" />有用 --></div>
+                      				 </div>	
+                      		
+                      				<div class="evaluate2">
+	                      				<div class="eva_l"><img src="" onerror="this.src='/static/web/images/tx.png'" width="48" height="48" />
+	                      				<span>陈*</span></div>
+						                <div class="eva_m">
+						                		
+						                			
+						                		
+						                			
+						                				医术水平：<span>10分</span>
+						                			
+						                		
+						                			
+						                				医生态度：<span>10分</span>
+						                			
+						                		
+						                	<p></p>
+										<p>2016-04-01 分享的就医经验 就诊医生<b>王秀英</b></p></div>
+						                <div class="eva_r"><!-- <img src="/static/web/images/bang.png" />有用 --></div>
+                      				 </div>	
+                      		
+                      				<div class="evaluate2">
+	                      				<div class="eva_l"><img src="" onerror="this.src='/static/web/images/tx.png'" width="48" height="48" />
+	                      				<span>葛*</span></div>
+						                <div class="eva_m">
+						                		
+						                			
+						                		
+						                			
+						                				医生态度：<span>10分</span>
+						                			
+						                		
+						                			
+						                				医术水平：<span>10分</span>
+						                			
+						                		
+						                	<p></p>
+										<p>2016-04-01 分享的就医经验 就诊医生<b>王秀英</b></p></div>
+						                <div class="eva_r"><!-- <img src="/static/web/images/bang.png" />有用 --></div>
+                      				 </div>	
+                      		
+         			 </div>
+				  	
+				  			<div class="page">
+						       		<div class="pagination">
+<ul style="overflow: hidden;">
+<li class="disabled"><a href="javascript:;">首页</a></li>
+<li class="disabled"><a href="javascript:;">上一页</a></li>
+<li class="active"><a href="javascript:;">1</a></li>
+<li class=""><a href="/f/doc/docscheme?deptId=25371&docId=419529892438&page=2&pageSize=10&">2</a></li>
+<li class=""><a href="/f/doc/docscheme?deptId=25371&docId=419529892438&page=3&pageSize=10&">3</a></li>
+<li class=""><a href="/f/doc/docscheme?deptId=25371&docId=419529892438&page=4&pageSize=10&">4</a></li>
+<li class=""><a href="/f/doc/docscheme?deptId=25371&docId=419529892438&page=5&pageSize=10&">5</a></li>
+<li class=""><a href="/f/doc/docscheme?deptId=25371&docId=419529892438&page=6&pageSize=10&">6</a></li>
+<li class=""><a href="/f/doc/docscheme?deptId=25371&docId=419529892438&page=7&pageSize=10&">7</a></li>
+<li class="disabled" ><a href="javascript:;">...</a></li>
+<li class=""><a href="/f/doc/docscheme?deptId=25371&docId=419529892438&page=2&pageSize=10&">下一页</a></li>
+<li class=""><a href="/f/doc/docscheme?deptId=25371&docId=419529892438&page=16&pageSize=10&">末页</a></li>
+<li class="disabled"><a >共16页 记录总数154条</a></li>
+</ul>
+</div>
+
+						    </div>
+				   	
+				   	
+   <!-- 就医经验分享结束-->  
+    </div>
+   </div>
+  </div>
+    <!--已开放预约科室结束-->
+</div>
+
+	
+
+<!--foot开始 -->
+<div class="borderDiv"></div>
+
+
+<div class="foot" style="margin-top: 20px;">
+	<!--<div class="footbg">
+		<div class="foot_sel">
+			<a class="btn-select"  id="btn-select"> <span
+				class="cur-select">--宁波政府--</span> <select onchange="MM_jumpMenu(this,true)" >
+					<option value="" >--宁波政府--</option>
+					<option value="http://www.yy.gov.cn/">余姚市人民政府</option>
+					<option value="http://www.cixi.gov.cn/">慈溪市人民政府</option>
+					<option value="http://www.fh.gov.cn/index.html">奉化市人民政府</option>
+					<option value="http://www.nh.gov.cn/col/col4/">宁海县人民政府</option>
+					<option value="http://www.nbxs.gov.cn/">象山县人民政府</option>
+					<option value="http://www.nbyz.gov.cn/">鄞州区人民政府</option>
+					<option value="http://www.haishu.gov.cn/index.htm">海曙区人民政府</option>
+					<option value="http://www.nbjd.gov.cn/">江东区人民政府</option>
+					<option value="http://www.nbjiangbei.gov.cn/">江北区人民政府</option>
+					<option value="http://www.zh.gov.cn/">镇海区人民政府</option>
+					<option value="http://www.bl.gov.cn/">北仑区人民政府</option>
+					<option value="http://gjgxq.ningbo.gov.cn/">宁波市科技园区管委会</option>
+					<option value="http://www.nbws.gov.cn/index.html#">宁波市经济技术开发区</option>
+					<option value="http://www.nftz.gov.cn/ydy/index.aspx">宁波保税区管委会</option>
+					<option value="http://www.daxie.gov.cn/cn/default.html">宁波大榭开发区管委会</option>
+					<option value="http://www.dqlake.gov.cn/">东钱湖旅游度假区管委会</option>
+					<option value="http://www.nbplan.gov.cn/">宁波市规划局</option>
+					<option value="http://www.nbeic.gov.cn/">宁波市经济和信息化委员会</option>
+					<option value="http://www.nbagri.gov.cn/html/main/gb2312/index.html">宁波市人民政府农村工作办公室</option>
+					<option value="http://www.nbda.gov.cn/">宁波市药品监督管理局</option>
+			</select> </a> <a class="btn-select"  id="btn-select"> <span
+				class="cur-select">--宁波卫生系统--</span> <select onchange="MM_jumpMenu(this,true)">
+					<option value="" >--宁波卫生系统--</option>
+					<option value="http://www.jdws.gov.cn/index.html?ReturnUrl=http%3a%2f%2fwww.jdws.gov.cn%2f">江东区卫生局</option>
+					<option value="http://wsj.haishu.gov.cn/index.asp">海曙区卫生局</option>
+					<option value="http://www.nhws.gov.cn/">宁海县卫生局</option>
+					<option value="http://weisheng.cixi.gov.cn/">慈溪市卫生局</option>
+					<option value="http://www.wsj.yy.gov.cn/">余姚市卫生局</option>
+					<option value="http://www.fhws.gov.cn/">奉化市卫生局</option>
+					<option value="http://www.jbws.gov.cn/">江北区卫生局</option>
+					<option value="http://www.zhws.gov.cn/">镇海区卫生局</option>
+					<option value="http://www.blws.gov.cn/">北仑区卫生局</option>
+					<option value="http://www.yzws.gov.cn/webhtml/default.aspx">鄞州区卫生局</option>
+					<option value="http://www.yzws.gov.cn/webhtml/default.aspx">象山县卫生局</option>
+			</select> </a> <a class="btn-select" id="btn-select"> <span
+				class="cur-select">--宁波卫生单位--</span> <select onchange="MM_jumpMenu(this,true)">
+					<option value="" >--宁波卫生单位--</option>
+					<option value="http://www.nblhlyy.com/">宁波市李惠利医院</option>
+					<option value="http://www.nbdyyy.com/hospital/index.aspx">宁波市第一医院</option>
+					<option value="http://www.nbdeyy.com/index.aspx">宁波市第二医院</option>
+					<option value="http://www.ndfsyy.com/">宁波大学医学院附属医院</option>
+					<option value="http://www.nbfeyy.com/">宁波市妇女儿童医院</option>
+					<option value="http://www.nbszyy.com.cn/">宁波市中医院</option>
+					<option value="http://www.ningbo120.net/">宁波市急救中心</option>
+					<option value="http://www.nbknyy.com/">宁波市康宁医院</option>
+					<option value="http://www.nbhcyy.com.cn/">宁波市华慈医院</option>
+					<option value="http://www.nbcdc.org.cn/">宁波市疾病预防控制中心</option>
+					<option value="http://www.nbartc.cn/">宁波戒毒研究中心</option>
+					<option value="http://www.nbblood.org.cn/default.aspx">宁波市中心血站</option>
+					<option value="http://www.nbwsjd.gov.cn/">宁波市卫生监督所</option>
+			</select> </a> <a class="btn-select" id="btn-select"> <span
+				class="cur-select">--浙江卫生部门--</span> <select onchange="MM_jumpMenu(this,true)">
+					<option value="">--浙江卫生部门--</option>
+					<option value="http://kxbj.net/">宁波市老医药卫生工作</option>
+					<option value="http://www.ywwsj.gov.cn/">义乌市卫生局</option>
+					<option value="http://www.qzwsj.gov.cn/">衢州市卫生局</option>
+					<option value="http://www.wzswsj.gov.cn/">温州市卫生局</option>
+					<option value="http://wsj.lishui.gov.cn/">丽水市卫生局</option>
+					<option value="http://www.sxws.gov.cn/">绍兴市卫生局</option>
+					<option value="http://www.zy91.com/index/index.jhtml">浙江省第一医院</option>
+					<option value="http://www.hbhc.gov.cn/">湖州市卫生局</option>
+					<option value="http://www.zswsj.gov.cn/">舟山市卫生局</option>
+					<option value="http://www.hzwsjsw.gov.cn">杭州市卫生局</option>
+			</select> </a> <a class="btn-select"  id="btn-select"> <span
+				class="cur-select">--友情链接--</span> <select onchange="MM_jumpMenu(this,true)">
+					<option value="" >--友情链接--</option>
+					<option value="http://lzwh.ytxsoft.com/">中国廉政文化网</option>
+					<option value="http://www.baidu.com/">百度</option>
+					<option value="http://www.sina.com.cn/">新浪</option>
+					<option value="http://sg.search.yahoo.com/">雅虎</option>
+					<option value="http://www.1688.com/">阿里巴巴</option>
+					<option value="http://www.ccw.com.cn/">计算机世界</option>
+					<option value="http://www.drcnet.com.cn/www/integrated/">国研网</option>
+					<option value="http://www.cnool.net/">东方热线</option>
+					<option value="http://www.sohu.com/">搜狐</option>
+			</select> </a>
+		</div>
+	</div>  -->
+	<script type="text/javascript">
+		$(function(){
+			$("select option[value='']").hide();
+		})
+		function MM_jumpMenu(selObj,restore){ 
+			eval(window.open(selObj.options[selObj.selectedIndex].value,"_blank")); 
+			if (restore) selObj.selectedIndex=0; 
+		}  
+	</script>
+	<style>
+		.f_menu p,.foot .f_foot p{ font-family: "微软雅黑"; font-size: 13px}
+		.f_menu p a{ font-family: "微软雅黑";}
+		.foot .f_foot p{color: #666;}
+	</style>
+	<!--<div class="f_menu">
+		<p>
+			<a href="/f/title/info?id=526&typeId=301" target="_blank">关于我们</a>| <a
+				href="/f/title/info?id=528&typeId=301" target="_blank" title="网站声明">网站声明</a>|
+			<a href="/f/title/info?id=527&typeId=301" target="_blank"
+				title="隐私安全">隐私安全</a>| <a href="/f/title/info?id=529&typeId=301"
+				target="_blank" title="联系我们">联系我们</a>
+		</p>
+	</div>-->
+	<div class="f_foot">
+		<p>版权所有：宁波市卫生和计划生育委员会</p>
+		<p>浙ICP备07020660号 最佳浏览模式：1024*768分辨率</p>
+		<p>网站保留所有权利，未经允许不得复制、镜像</p>
+		<!--<p><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256378768'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256378768%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script><p>-->
+	</div>
+</div>
+<!--foot结束 -->
+
+</body>
+</html>

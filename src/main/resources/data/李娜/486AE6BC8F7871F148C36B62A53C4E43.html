@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit"/>
+    <meta name="wap-font-scale" content="no">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!--[if lt IE 8]>
+	<script src="//static.koocdn.com/lib/json-js/json2.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+	<script src="//static.koocdn.com/lib/es5-shim/es5-shim.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="//static.koocdn.com/framework/css/global.17622.css"/>
+
+        <script type="text/javascript" src="//static.koocdn.com/framework/js/global.17078.js"></script>
+
+        <script type="text/javascript" src="//static.koocdn.com/project/teacher/1.x/common/es5-sham/es5-sham.16874.js"></script>
+    <link rel="stylesheet" type="text/css" href="//static.koocdn.com/project/teacher/1.x/css/index/page.17865.css"/>
+
+        <script type="text/javascript" src="//static.koocdn.com/project/header/1.x/common/common-mix/common-mix.bundle.17674.js"></script>
+
+        <script type="text/javascript" src="//static.koocdn.com/project/header/1.x/common/header-sq/header_sq.bundle.17921.js"></script>
+    <link rel="stylesheet" type="text/css" href="//static.koocdn.com/project/teacher/1.x/css/teacher-detail/page.17865.css"/>
+
+    <script type="text/javascript">
+        seajs.config({
+                'base':'//static.koocdn.com/',
+                'importBase':'//static.koocdn.com/',
+                'comboExcludes':function(uri) {
+                
+                if (uri.indexOf("/common/tinymce/") > 0) {
+                    return true
+                }
+                },
+                'alias':{
+                                'common/backbone/backbone':'common/backbone/backbone.15858.js',
+                                'common/backbone/plugins/backbone-nested':'common/backbone/plugins/backbone-nested.15858.js',
+                                'common/crop-upload/crop-upload':'common/crop-upload/crop-upload.17000.js',
+                                'common/dialog/dialog':'common/dialog/dialog.15884.js',
+                                'common/file-upload/file-upload':'common/file-upload/file-upload.17000.js',
+                                'common/jcrop/jcrop':'common/jcrop/jcrop.17093.js',
+                                'common/jstree/jstree':'common/jstree/jstree.17093.js',
+                                'common/kalendae/kalendae':'common/kalendae/kalendae.17964.js',
+                                'common/kooplayer/kooplayer':'common/kooplayer/kooplayer.10442.js',
+                            'common/kooplayer-collect/kooplayer-collect':'common/kooplayer-collect/kooplayer-collect.js',
+                                'common/kooplayer-new-2015/kooplayer':'common/kooplayer-new-2015/kooplayer.15790.js',
+                                'common/linkup/linkup':'common/linkup/linkup.545.js',
+                                'common/moment/moment':'common/moment/moment.15708.js',
+                                'common/pickadate/pickadate':'common/pickadate/pickadate.15651.js',
+                                'common/raphael/raphael':'common/raphael/raphael.16292.js',
+                                'common/select2/select2':'common/select2/select2.15651.js',
+                            'common/tinymce/tinymce':'common/tinymce/tinymce.js',
+                                'common/validate/validate':'common/validate/validate.14550.js',
+                                'common/ztree/ztree':'common/ztree/ztree.17093.js',
+                                'common/viewInit/baseViewInit':'common/viewInit/baseViewInit.15749.js',
+                                'common/viewInit/viewBindEvent1.1':'common/viewInit/viewBindEvent1.1.15749.js'
+                }
+        });
+    </script>
+    <!-- 公共部分结束 -->
+    <title>新东方在线名师堂</title>
+    
+</head>
+<body xmlns="//www.w3.org/1999/html">
+<!-- 公共部分结束 -->
+    <script type="text/javascript">
+        seajs.config({
+                
+                
+                'alias':{
+                                'project/teacher/1.x/common/redux/redux':'project/teacher/1.x/common/redux/redux.16874.js',
+                            'project/teacher/1.x/common/redux/redux-thunk':'project/teacher/1.x/common/redux/redux-thunk.js'
+                }
+        });
+    </script>
+
+	<!--头部 S-->
+	<script type="text/javascript">
+		// 头部配置数据
+		var g_header_config = {
+			api:{
+				platformUrl:'//teacher.koolearn.com'//logo边上的链接
+			},
+			platformName:'名师堂'
+		};
+        var g_header_host = {
+        "domains.sso":'//login.koolearn.com'
+        };
+        //头部页签数组，如果没有的话就置为空数组；否则去掉这一行，采用相应平台默认的
+        var g_header_items = [
+            { id:'xxxx', name: "进入学习中心", url:"http://www.koolearn.com/member?_method=myCourse" }
+        ];
+	</script>
+	<!--头部 S-->
+	<script src="//static.koocdn.com/project/header/1.x/common/common-mix/common-mix.bundle.js"></script>
+	<div id="g-header"></div>
+	<script src="//static.koocdn.com/project/header/1.x/common/header-sq/header_sq.bundle.js"></script>
+	<script src="//static.koocdn.com/project/teacher/1.x/js/header-search/header-search.bundle.js"></script>
+	<!--头部 E-->
+<div class="p-wrap">
+    <div class="p-first-wrap">
+        <div class="container i-bread i-bread-inverse">
+            <ul>
+                <li>
+                    <a href="/" class="go-home">
+                        <i></i>
+                        <span>名师堂</span>
+                        <em></em>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>李娜</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <ul class="p-count">
+                <li>
+                    <a class="p-btn-like j-btn-like" href="javascript:">
+                        <p class="num">1078</p>
+                        <p class="p-ico-like">喜欢</p>
+                    </a>
+                </li>
+                <li>
+                    <p class="num">1</p>
+                    <p>课程</p>
+                </li>
+                <li class="last">
+                    <p class="num">16075</p>
+                    <p>访客</p>
+                </li>
+            </ul>
+        </div>
+        <div class="container p-first">
+            <div class="p-photos">
+                <a href="javascript:" class="p-photos-big">
+                    <img src="//file.koolearn.com/2015/0708/20150708102357237.jpg" onerror="this.src='//file.koolearn.com/2014/1211/20141211084015635.png'" >
+                    <p class="p-photos-mask">
+                        <i></i>
+                        <span>预览大图</span>
+                    </p>
+                </a>
+                <div class="p-photos-item">
+
+                    <div class="box">
+                        <ul class="list">
+                                    <li>
+                                        <div class="item">
+                                            <a href="javascript:">
+                                                <img src="http://file.koolearn.com/2014/1223/20141223052649991.jpg" onerror="this.src='//file.koolearn.com/2014/1211/20141211084015635.png'">
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="javascript:">
+                                                <img src="http://file.koolearn.com/2014/1223/20141223052650542.jpg" onerror="this.src='//file.koolearn.com/2014/1211/20141211084015635.png'">
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="javascript:">
+                                                <img src="http://file.koolearn.com/2014/1223/20141223052650605.jpg" onerror="this.src='//file.koolearn.com/2014/1211/20141211084015635.png'">
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="javascript:">
+                                                <img src="http://file.koolearn.com/2014/1223/20141223052651391.jpg" onerror="this.src='//file.koolearn.com/2014/1211/20141211084015635.png'">
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="javascript:">
+                                                <img src="http://file.koolearn.com/2015/0812/20150812032023311.jpg" onerror="this.src='//file.koolearn.com/2014/1211/20141211084015635.png'">
+                                            </a>
+                                        </div>
+                                    </li>
+                        </ul>
+                    </div>
+                    <!--<a href="javascript:" class="list-arr"></a>-->
+                    <!--<a href="javascript:" class="list-arr right"></a>-->
+                </div>
+            </div>
+            <div class="p-resume">
+                <div class="p-resume-name">
+                    <span class="name">李娜</span>
+                    <a class="link" href="http://teacher.koolearn.com:80/courses/7995-0-1-1-1.html">在售课程</a>
+                </div>
+                <div class="p-resume-text" >&ldquo;数学知心姐姐&rdquo;李娜老师：十年教龄，市级新课改论文评比一等奖、省级教学技能大赛二等奖获得者。熟悉网络远程教育特点，热爱、关注每一位学生，致力于创造&ldquo;平等、创新、高...<a class="resume-open" data-val="&ldquo;数学知心姐姐&rdquo;李娜老师：十年教龄，市级新课改论文评比一等奖、省级教学技能大赛二等奖获得者。熟悉网络远程教育特点，热爱、关注每一位学生，致力于创造&ldquo;平等、创新、高效&rdquo;的现代课堂，所教多位学生从数学成绩较差提升到所在班级第一。教学风格：思路清晰，通俗易懂，亲切生动，被同学们称为&ldquo;数学知心姐姐&rdquo;。教学名言：因为热爱，所以用心；因为用心，所以精彩！&nbsp;" href="javascript:;">查看更多<i class="xia"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container p-course">
+        <div class="p-course-classify">
+            <p class="title">
+            李娜老师的课程
+            </p>
+            <div class="classify j-classify">
+                <a class="course" data-category="0" href="javascript:;">全部</a>
+            </div>
+        </div>
+        <div class="p-course-scroll">
+            <p class="split-tit"><i class="p-ico-play"></i>免费试听</p>
+            <div class="scroll">
+                <div class="scroll_horizontal">
+                    <div class="box">
+                        <ul class="list j-target-preview"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-course-list">
+            <p class="split-tit"><i class="p-ico-pen"></i>在售课程</p>
+            <div class="list">
+                <div class="j-target-course">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container p-comment">
+        <div class="p-list-bar">
+            <div class="tit">
+                <span>学员评价</span>
+                <span class="count">（累计评论<span class="fc-danger">68</span>条）</span>
+            </div>
+        </div>
+        <ul class="p-comment-list"></ul>
+        <div class="i-pager p-comment-pager"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    seajs.config({
+        alias:{
+            'project/teacher/1.x/js/teacher-detail/page': 'project/teacher/1.x/js/teacher-detail/page.js'
+        }
+    });
+    seajs.use(['project/teacher/1.x/js/teacher-detail/page'], function( init ){
+        init({
+            teacherId:7995,
+            api:{
+                //评论查询接口
+                comment:'comment',
+                //评论点赞接口
+                praiseComment:'praisecomment/',
+                //喜欢接口
+                love:'love/',
+                //添加印象
+                addImpress:'addimpress',
+                //+1印象
+                praiseImpress:'praiseimpress/',
+                //试听课程列表接口 josnp.
+                previewCourse:'open/',
+                //老师分类课程列表
+                course:'courselist/',
+                //直播课列表
+                live:'zhibo/'
+            }
+        });
+    });
+</script>
+<!--脚步 S-->
+<div id="ft">
+    <div class="copyright">
+        <div class="copyright_txt">
+            <p class="ft_link"><a rel="nofollow" href="//www.koolearn.com/about/" target="_blank">关于我们</a><a rel="nofollow" href="//www.koolearn.com/about/shangwu/" target="_blank">商务合作</a><a rel="nofollow" href="//www.koolearn.com/about/guanggao/" target="_blank">广告服务</a><a rel="nofollow" href="//agent.koolearn.com" target="_blank">代理商区域</a><a rel="nofollow" href="//help.koolearn.com/" target="_blank">客服中心</a><a rel="nofollow" href="//help.koolearn.com/#lxkf" target="_blank">在线留言</a><a rel="nofollow" href="//help.koolearn.com/20131125/4.html" target="_blank">退换货说明</a><a rel="nofollow" href="//www.koolearn.com/about/hezuo/" target="_blank">合作伙伴</a><a rel="nofollow" href="//www.koolearn.com/about/lianxi/" target="_blank">联系我们</a><a rel="nofollow" href="//www.koolearn.com/about/zhaopin/" target="_blank">人员招聘</a><a href="//www.koolearn.com/sitemap/" target="_blank">网站地图</a><a href="//www.koolearn.com/zt/" target="_blank">热点关注</a><a href="//lc.koolearn.com/" target="_blank">寓乐优学</a></p>
+            <a rel="nofollow" href="http://www.itrust.org.cn/yz/pjwx.asp?wm=177256341X" target="_blank"><img class="ft_left" alt="中国信用企业" src="//img.koolearn.com/v2/img/flogo3.jpg"></a>
+            <p class="ft_link2"><a rel="nofollow" href="http://www.miibeian.gov.cn/">京ICP证050421号</a> <a rel="nofollow" href="http://www.miibeian.gov.cn/">京ICP备05067669号</a> 京公网安备11010802017616号 <a rel="nofollow" href="//news.koolearn.com/20140623/1017723.html">网络视听许可证0110531号</a><br>
+                Copyright © 2000-2018 <a href="//www.koolearn.com/"><strong>koolearn.com</strong></a> Inc. All rights reserved. 新东方在线 版权所有</p>
+        </div>
+        <div class="ft_logo"><a rel="nofollow" href="http://www.xdf.cn/" target="_blank"><img alt="新东方官网" src="//img.koolearn.com/v2/img/xdf.jpg"></a><span class="m-line"></span><a href="//www.koolearn.com/"><img alt="新东方在线" src="//img.koolearn.com/v2/img/koolearn.jpg"></a><p>新东方在线：新东方旗下网络教育品牌</p></div><div style="clear:both"></div>
+    </div>
+</div>
+<script type="text/javascript" src="//images.koolearn.com/www/subject/script/tongji.js" charset="utf-8"></script>
+<!--脚步 E--></body>
+</html>

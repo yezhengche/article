@@ -1,0 +1,621 @@
+<!Doctype html>
+<html>
+<head><!-- SUCCESS_HEAD -->
+	<meta name="viewport" content="width=device-width,initial-scale=0.58,minimum-scale=0.58,maximum-scale=1,user-scalable=no" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
+	<title>李娜电影票购买_影评_剧情- 格瓦拉生活网</title>
+	<meta name="keywords" content="李娜,热映电影,电影院排片,电影排片,网上购买电影票,电影资讯,最新电影,电影剧情,电影预告片" />
+	<meta name="description" content="李娜在线电影票购买,剧情介绍,高清预告片观看. 李娜火爆影评, 上映日期：. "/>
+	<link rel="stylesheet" type="text/css" href="https://static5.gewara.com/css/gewara.css?n=ui_layout,movie,walaEditorNew&v=2018040216"/>
+	<script type="text/javascript" src="https://static5.gewara.com/scripts/mootools.js"></script>
+	<script type="text/javascript" src="https://static5.gewara.com/scripts/gewara.js?n=gewara-util,scrollerbar,noobSlide,swfobject,sns&v=2018040216"></script>
+	<style type="text/css">
+					.mod_top_banner{background:url(https://static5.gewara.com/css/movie_new/def_movie_banner_bg.jpg) #000 center top no-repeat;}
+				body{position:relative;}
+		.ui_panel_screen{right:0;}
+	</style>
+</head>
+<body>
+<div class="navgate" id="navgate">
+	<div class="navgateIn clear">
+		<div class="movieName">
+			<h2>李娜</h2>
+			<span class="point">7.0</span>
+		</div>
+		<div class="book" id="chooseSeatTool"></div>
+	</div>
+</div>
+<div class="ui_layout">
+	<input type="hidden" id="paramsCinemaId" value=""/>
+	<input type="hidden" id="fyrq" value=""/>
+	<input type="hidden" id="paramsCinemaName" value=""/>
+</div>
+<div class="clear">
+<div class="mod_top_banner">
+	<!--[if lt IE 7]>
+<div class="ui_warning ui_ieUpdate center">你正在使用低版本浏览器，为了您的格瓦拉账号安全和更好的产品体验，强烈建议您立即 <a class="blue" href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" target="_blank">升级浏览器</a>。</div>
+<![endif]-->
+<div class="ui_nav">
+	<div class="ui_plugs_body">
+		<a title="格瓦拉生活网" class="movieLogo" href="/"><img width="80" height="31" alt="格瓦拉生活网" src="https://static5.gewara.com/css/movie_new/logo.png?v=2018040216"></a>
+		<div id="cityChoose" class="ui_changeCity"></div>
+		<div class="ui_nav_menu">
+			<ul class="ui_inline">
+				<li class="isHome"><a href="/">首页</a></li>
+				<li><a class="select" href="/movie/">电影首页</a></li>
+				<li><a href="/movie/searchMovie.xhtml">热映电影</a></li>
+				<li><a href="/movie/futureMovie.xhtml">即将上映</a></li>
+		<!--	<li><a href="/movie/searchCinema.xhtml">电影院</a></li>  -->
+				<li><a href="/activity/">活动</a></li>
+				<li><a href="/wala/">社区</a></li>
+			</ul>
+		</div>
+		<div class="ui_nav_right">
+			<div class="ui_logins right" id="global_check_login"></div>
+		</div>
+	</div>
+</div>
+<div class="ui_city_plugs none clear" id="ui_city_plugs"></div>
+<script type="text/javascript">
+gewa.util.cinemaCityPy = "/movie/searchCinema.xhtml";
+</script>
+<script type="text/javascript" src="https://static5.gewara.com/scripts/gewara.js?n=movie_nav&v=2018040216" cityMap='$proMap' cookieCityname='上海' cookieCitycode='310000' head='' issearch='' id='navigation'></script>
+<script type="text/javascript">
+window.addEvent('domready',function(){
+	nav.init();//初始化导航
+	loadHeadCityList();//获取切换城市数据
+});
+
+function loadHeadCityList(){
+	GewaraUtil.sendLoad("ui_city_plugs", "/movie/ajax/common/loadHeadCity.xhtml",{}, function(result){
+	});
+}
+</script>
+	
+	<div class="ui_layout">
+										
+		<div class="movieInfo">
+			<div class="detail_head_name">
+				<div class="clear">
+					<h1>李娜</h1>
+					<div class="ratingsCount">
+												<a id="nCollect" class="ad se" href="javascript:addCollection();">142</a>
+						<a id="hCollect" class="ad none" href="javascript:cancelTreasure();">142</a>
+											</div>
+				</div>
+								<h2></h2>
+							</div>
+					</div>
+	<!--  	<div id="realHeader"></div>   -->
+	</div>
+	<div class="cover"></div>
+	<div class="fixBg"></div>
+</div>
+ 
+<script type="text/javascript">
+window.addEvent('domready',function(){
+			GewaraUtil.sendRequest("/movie/ajax/common/isCollection.xhtml",{"relatedid":"323881544","tag":"movie"}, function(result){
+			if(result.success && result.retval == "true"){
+				$("nCollect").addClass('none');
+				$("hCollect").removeClass('none');
+			}
+		})
+		gewara.util.sendRequest(GewaraUtil.basePath+'activity/message/ajax/count.xhtml', {}, function(result){
+		if(result.success){
+			if(result.interaction > 0 && $('messsageCount')){
+				$('messsageCount').innerHTML = result.interaction;
+				$('messsageCount').removeClass("none");
+			}
+			
+			if(nav.syscount){
+				if(result.sys > 0)nav.syscount.systemNew = true;
+				else nav.syscount.systemNew = false;
+				if(result.instant > 0) nav.syscount.whenNew = true;
+				else nav.syscount.whenNew = false;
+			}
+		}
+		if(nav.message)nav.message();//消息下拉
+	});
+});
+function addCollection(){
+	checkLogin(true, function(){
+		GewaraUtil.sendRequest("/ma/common/addCollection.xhtml",{"relatedid":"323881544","tag":"movie"}, function(result){
+			if(result.success){
+				$("nCollect").addClass('none');
+				$("hCollect").removeClass('none');
+				$("hCollect").innerHTML = result.retval;
+			}else{
+				gewaUtil.alert(result.msg);
+			}
+		})
+	});
+}
+function cancelTreasure(){
+	checkLogin(true, function(){
+		GewaraUtil.sendRequest("/ajax/common/cancelTreasure.xhtml",{"relatedid":"323881544","tag":"movie"}, function(result){
+			if(result.success){
+				$("hCollect").addClass('none');
+				$("nCollect").removeClass('none');
+				$("nCollect").innerHTML = result.retval;
+			}else{
+				gewaUtil.alert(result.msg);
+			}
+		})
+	});
+}
+</script><div class="mod_movie_info">
+	<div class="ui_layout clear" style="position:relative; z-index:2">
+		<div class="ui_point_open" style="height:0; opacity:0;" id="ui_point_open">
+			<div class="innerBox">
+				<div class="ui_point_mini clear">
+					<div class="pointHeart">
+						<span class="cover"></span>
+						<span class="inn grade7"></span>
+						<span class="cover2"></span>
+					</div>
+					<span class="point">7.0</span>
+					<span class="txt">
+						<em>来自0位</em>
+						<em>购票用户评分</em>
+					</span>
+					<span class="ui_arrow ui_arrow_on" onclick="hidePoint('ui_point_open');" style="right:0; top:22px;"></span>
+				</div>
+				<ul class="newGradeBox">
+										<li>
+						<span class="value">9-10分</span>
+						<span class="pect">(100%)</span>
+						<span class="box">
+																																																												<span style="width:100%"><em class="buyUser" title="购票瓦友" style="width:1%"></em></span>
+							<span style="width:100%; margin-top:1px;"><em class="unbuyUser" title="未购票瓦友" style="width:100%"></em></span>
+						</span>
+					</li>
+										<li>
+						<span class="value">8-9分</span>
+						<span class="pect">(0%)</span>
+						<span class="box">
+																																																												<span style="width:0%"><em class="buyUser" title="购票瓦友" style="width:100%"></em></span>
+							<span style="width:0%; margin-top:1px;"><em class="unbuyUser" title="未购票瓦友" style="width:100.0%"></em></span>
+						</span>
+					</li>
+										<li>
+						<span class="value">6-8分</span>
+						<span class="pect">(0%)</span>
+						<span class="box">
+																																																												<span style="width:0%"><em class="buyUser" title="购票瓦友" style="width:100%"></em></span>
+							<span style="width:0%; margin-top:1px;"><em class="unbuyUser" title="未购票瓦友" style="width:100.0%"></em></span>
+						</span>
+					</li>
+										<li>
+						<span class="value">4-6分</span>
+						<span class="pect">(0%)</span>
+						<span class="box">
+																																																												<span style="width:0%"><em class="buyUser" title="购票瓦友" style="width:100%"></em></span>
+							<span style="width:0%; margin-top:1px;"><em class="unbuyUser" title="未购票瓦友" style="width:100.0%"></em></span>
+						</span>
+					</li>
+										<li>
+						<span class="value">1-4分</span>
+						<span class="pect">(0%)</span>
+						<span class="box">
+																																																												<span style="width:0%"><em class="buyUser" title="购票瓦友" style="width:100%"></em></span>
+							<span style="width:0%; margin-top:1px;"><em class="unbuyUser" title="未购票瓦友" style="width:100.0%"></em></span>
+						</span>
+					</li>
+									</ul>
+				<p class="explain">
+					<span class="buyUser"><b></b>购票</span>
+					<span><b></b>未购票</span>
+				</p>
+				<p class="center line">
+					<a class="ui_btn minBt lineBt" href="javascript:pinfen();">我来评</a>
+				</p>
+			</div>
+		</div>
+		<div class="detail_head_info">
+			<div class="ui_media">
+				<div class="ui_pic mr30">
+					<div class="ui_movieType_line">
+											</div>
+					<img width="270" height="360" title="李娜" alt="李娜" src="http://img6.gewara.com/cw270h360/images/movie/201612/s_3a382d0_15901d43089__7e85.jpg"/>
+				</div>
+				<div class="ui_text">
+					<div class="lineBox clear" style="position:relative;">
+						<span>导演：<em>陈可辛</em></span>
+												<div class="ui_point_mini clear" style="cursor: pointer;" onclick="openPoint('ui_point_open');" >
+							<div class="pointHeart">
+								<span class="cover"></span>
+								<span class="inn grade7"></span>
+								<span class="cover2"></span>
+							</div>
+							<span class="point">7.0</span>
+							<span class="txt">
+								<em>来自0位</em>
+								<em>购票用户评分</em>
+							</span>
+						</div>
+						<span class="ui_arrow" id="ui_point_close" onclick="openPoint('ui_point_open');" style="right:0; top:17px;"></span>
+											</div>
+					<div class="lineBox clear">
+						<div class="ui_media mt0">
+							<div class="ui_pic  mr0">主演：</div>
+							<div class="ui_text">
+														     
+														</div>
+						</div>
+					</div>
+					<div id="ui_movieInfo_open" style="height:0px; opacity:0; overflow:hidden; visibility:hidden;">
+						<div class="ui_movieInfo_open clear">
+							<ul class="clear">
+								<li class="first">上映时间：2018</li>
+								<li>类型： 传记,运动</li>								<li>国家/地区： 中国香港,中国大陆</li>								<li>语言： 国语</li>																<li>版本：</li>								<li>发行公司： </li>								<li>获得荣誉： </li>							</ul>
+							<span class="ui_arrow ui_arrow_on right mt10" onclick="hidePoint('ui_movieInfo_open');" style="position:relative;">收起</span>
+						</div>
+					</div>
+					<div class="lineBox clear">
+						<div class="toggleInfo clear">
+							<span>传记</span><i>|</i>														<span>中国香港</span><i>|</i>							<span>国语</span><i>|</i>							<span></span><i>|</i>
+							<span>2018上映</span>
+							<span class="ui_arrow ml20" onclick="openPoint('ui_movieInfo_open');" style="position:relative; float:left;"></span>
+						</div>
+					</div>
+					<div class="countInfo clear">
+						<span class="focusCount">2300关注</span>
+						<span class="buyCount">0购票</span>
+																	    					</div>
+				</div>
+			</div>
+		</div>
+	 	<!-- <div class="detail_head_playList" id="detail_head_playList"> 
+		</div> -->
+		<img src="https://static5.gewara.com//img/wxSmallPg.jpg?v=2018040216" style="position:absolute;top:0;right:0;">
+	</div>
+</div>
+<script type="text/javascript">
+window.addEvent('domready', function(){
+	var slideYs = $('ys_even_box');
+	if(slideYs && slideYs.getElements('li').length > 1){
+		new noobSlide({
+			box: $('slide_yh'),
+			items:$$('#slide_yh li'),
+			size:280,
+			autoPlay:true,
+			handles:$$('#even_tips span'),
+			handle_event:'click',
+			onWalk: function(currentItem,currentHandle){
+				this.handles.removeClass('select');
+				currentHandle.addClass('select');
+			}
+		});
+	}else{
+		
+	}
+});
+
+function praise(el){
+	checkLogin(true, function(){
+		GewaraUtil.sendRequest("/ma/common/addCollection.xhtml",{"relatedid":"323881544","tag":"movie"}, function(result){
+			if(result.success){
+				anp(el);
+			}else{
+				gewaUtil.alert(result.msg);
+			}
+		})
+	});
+}
+
+function anp(e){
+	var e = $(e);
+	var x=e.getPosition().x,y=e.getPosition().y;
+	var b = new Element('b',{html:'+1',styles:{'left':x+10,'top':y-30,'position':'absolute','line-height':'30px','font-size':'30px','color':'#eb6120'}}).inject(document.body);
+	var myEffects = new Fx.Morph(b, {
+		duration:1000,
+		transition: Fx.Transitions.Sine.easeOut,
+		onComplete:function(){
+			$('praiseNum').set('html',$('praiseNum').get('html').toInt()+1);
+		}
+	});
+	myEffects.start({
+		'opacity': 0,
+		'top':y-100
+	});
+}
+
+function pinfen(){
+	new Fx.Scroll(window).toElement('s_ui_walaList');
+	(function(){$('wala_off').fireEvent('click');}).delay(500)
+}
+</script><div class="mod_movie_pics">
+	<div class="ui_layout">
+		<div class="mod_lines">
+			<div class="mod_hd">
+				<h2>解读《李娜》</h2>
+			</div>
+			<div class="mod_bd">
+				<!-- 剧情详情 -->
+				<div class="ui_movieInfoBox" id="ui_movieInfoBox" onclick="hidePoint('ui_movieInfoBox')" style="height:0px; opacity:0; overflow:hidden; visibility:hidden;">
+					<b class="st">剧情：</b><p>
+	<span class="dra">为了父亲冠军梦六岁李娜走进网球队，网球天才挥洒汗水有血有泪开始了与众不同的成才之路。从武汉到北京再到巴黎伦敦一路上她对网球由恨至爱跌宕起伏的赛场传奇，不离不弃的爱情誓言荣耀背后是超乎常人的努力和心酸。</span></p>
+<span>收起&gt;</span>
+				</div>
+				<div class="sBox s1" id="aVideoList">
+								<ul class="moviePic" style="width:500px;height: 315px;">
+			<li ></li>
+		</ul>
+					</div>
+								
+																	
+				<div class="sBox s4">
+					<div class="txtBox">
+						<div class="count"  onclick="openPoint('ui_movieInfoBox');">
+														<p>剧情： 
+ 为了父亲冠军梦六岁李娜走进网球队，网球天才挥洒汗水有血有泪开始了与众不同的成才之路。从武汉到北京再到巴黎伦敦一路上她对网球由恨至爱跌宕起伏的赛场传奇，不离不弃的爱情誓言荣耀背后是超乎常人的努力和心酸。
+...<span style="cursor:pointer">详情<em class="ffst">&gt;</em></span></p>
+													</div>
+						<span class="fixed"></span>
+					</div>
+				</div>
+				
+																</div>
+		</div>
+	</div>
+	<span class="fixed"><img src="http://img6.gewara.com/cw30h30/images/movie/201612/s_3a382d0_15901d43089__7e85.jpg"/></span>
+</div>
+<div class="ui_walaList" id="s_ui_walaList">
+	<div class="ui_layout clear">
+		<div class="clear"><img class="walaTitle" src="https://static5.gewara.com/css/movie_new/walatitle.png"/></div>
+		<div class="ui_left">
+			<div id="WalaDetail">&nbsp;</div>
+		</div>
+		<div class="ui_right" id="rightWala">
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+window.addEvent('domready',function(){
+	(function(){
+		getWala();
+		getRightWala();
+		addCollectedtimes();
+	}).delay(1000);
+});
+function addCollectedtimes(){
+	GewaraUtil.sendRequest("/movie/ajax/common/addCollectedtimes.xhtml",{"movieId":"323881544"}, function(result){
+	})
+}
+function getRightWala(){
+	var url = "/activity/ajax/sns/getRightCommentList.xhtml";
+	var values = {'tag':'movie','relatedid':'323881544'};
+	GewaraUtil.sendLoad("rightWala", url, values,function(result){});
+}
+var isScroll = true,marks='';
+function getWala(){
+	Asset.javascript("https://static5.gewara.com/scripts/gewara.js?n=wala_movie_v5,slimbox&v=2018040216", {
+		'id':'walaDynaScript',
+		'isScroll':false,//用于控制是否支持鼠标滚动事件
+		'bindWala':'WalaDetail',//把加载的哇啦放在什么位置
+		'isTicket':true,
+		onLoad:function(){
+			if(GewaraUtil.cdnPath)GewaraUtil.cdnPath = "https://static5.gewara.com/";
+			Asset.css('https://static5.gewara.com/css/wala_movie_v5.css?v=2018040216&v='+new Date().getTime(),{'id':'walasCss'});
+			gewa.util.pageNumber = 0;
+			var _body = $(document.body);
+			gewa.util.requestUrl = 'activity/ajax/sns/qryComment.xhtml';
+			gewa.util.values = {
+				pageNumber:gewa.util.pageNumber,//自动加载时的分页数
+				relatedid:'323881544',//关联对象的ID
+				topic:'',//话题的标题
+				issue:true,//是否有发表框
+				hasMarks:true,//是否支持评分
+				isCount:true,
+				tag:'movie',//关联那个板块的内容
+				isPic:true,//是否支持传图片
+				isVideo:false,//是否支持传视频
+				userLogo:gewara.util.member.headUrl,//用户的头像
+				newWalaPage:true,
+				isShare:false,
+				isNew:true,	//新版wala
+				maxCount:12
+			};
+			gewa.util.init();
+		}
+	});
+};
+</script><div class="ui_footList clear" id="ui_footList"></div>
+<div class="ui_movie_footer">
+	<div class="ui_layout">
+		<span class="logo"></span>
+		<div class="centerCont">
+			<p class="links clear">
+				<a href="/service/about.xhtml" target="_blank" rel="nofollow">关于我们</a><span>|</span>
+				<a href="/helpCenter/index.xhtml" target="_blank" rel="nofollow">帮助中心</a><span>|</span>
+				<a href="/service/marketing.xhtml" target="_blank" rel="nofollow">联系我们</a><span>|</span>
+				<a href="/service/treaty.xhtml" target="_blank" rel="nofollow">服务条款</a><span>|</span>
+				<a href="/service/law.xhtml" target="_blank" rel="nofollow">法律声明</a><span>|</span>
+				<a href="/service/buss.xhtml" target="_blank" rel="nofollow">商家登陆</a><span>|</span>
+				<a href="/subject/advertIndex.xhtml" target="_blank" rel="nofollow">团体购票</a><span>|</span>
+				<a href="/service/job.xhtml" target="_blank" rel="nofollow">招聘英才</a><span>|</span>
+				<a href="/link.xhtml" target="_blank">友情链接</a>
+			</p>
+			<p>
+				<span>Copyright &copy; 2007–2014 Gewara.</span>
+				<span>All Rights Reserved</span>
+				<span><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备16022489号-2</a></span>
+				<span>ICP证：沪B2-20120044</span>
+			</p>
+		</div>
+		<span class="phone">客服电话<b>4006970005</b></span>
+	</div>
+</div>
+<div id="backTopBox">
+						<a class="ui_online" href="javascript:void(0);" onclick="javascript:onlineCustomer('0');">在线客服</a>
+			<a class="ui_asq" target="_blank" href="/home/acct/advise.xhtml">意见反馈</a>
+		</div></div>
+
+<script type="text/javascript">
+<!--137发版007-->
+window.addEvents({
+	scroll: scrollNavgate,
+	domready:scrollNavgate,
+	resize:scrollNavgate
+});
+
+window.addEvent('domready',function(){
+	getMoviePlayItemsInADay(); //查询一天内的排片
+});
+function getMoviePlayItemsInADay(){
+	GewaraUtil.sendLoad($('detail_head_playList'), "/movie/v5/getCinemasAndCinemaPlayDates.xhtml",{'movieid':323881544},function(result){
+		if($("temp_header")){
+			$("realHeader").innerHTML = $("temp_header").innerHTML; 			$("temp_header").dispose();
+			if($("temp_chooseSeatTool")){ //有选座购票的按钮 添加如下代码
+				$("chooseSeatTool").innerHTML = $("temp_chooseSeatTool").innerHTML;
+				$("temp_chooseSeatTool").dispose();
+				Asset.javascript("https://static5.gewara.com/scripts/movie/movie_inits3.js?v=2018040216", {
+					"mid":"323881544",
+					"cinemaid":$('paramsCinemaId').value?$('paramsCinemaId').value:decodeURI(gewaUtil.getRequestParams('cinemaid')),
+					"cinemaname":$('paramsCinemaName').value?$('paramsCinemaName').value:gewaUtil.getRequestParams('cinemaname'),
+					'id':'movieDynaScript',
+					'isOpend':1,
+					'CALLBACK':'getMoreOpiItems',
+					onLoad:function(){
+						var _isshow = gewaUtil.getRequestParams("isshow");
+						if(_isshow && $$("#chooseSeatTool [data-type=buyTicket]")){
+							$$("#chooseSeatTool [data-type=buyTicket]")[0].fireEvent('click');
+						}
+							
+						}
+				}
+				);
+			}
+		}
+	});		
+}
+function getMoreOpiItems(movieUi){
+	document.getElements("*[conf=opitems]").addEvent('click',function(){
+			var _cinemaId = this.get("cid");
+			var _playDate = this.get("playDate");
+			movieUi.toggleScreen({'id':movieUi.cinemaBox,'playDate':_playDate,'callback':function(){
+					movieUi.getCinemaPlayList(_playDate,_cinemaId);
+			}});
+	});
+}
+//屏幕跟随
+var pozition = 0,oldPozition = 0;
+var _isLoad = false;
+function scrollNavgate(){
+	//var myVerticalSlide = new Fx.Slide('navgate');
+	//myVerticalSlide.hide();
+	var _navgate = $('navgate');
+	pozition = document.getScroll().y;
+	if(pozition>900 && !_isLoad){
+		_isLoad = true;
+		GewaraUtil.sendLoad($("ui_footList"), "/movie/v5/fMovieList.xhtml", {'mid':'323881544'}, function(result){});
+	}	
+	if((pozition - oldPozition).abs() < 30) return;
+	if((pozition > 480 && pozition < 1500) || pozition < oldPozition && pozition > 480){
+		if(!_navgate.getElement("[data-type=buyTicket]")){
+			_navgate.removeClass('fixOut');
+		}else{
+			_navgate.addClass('fixOut');
+		}
+	}else{
+			_navgate.removeClass('fixOut');
+	}
+	oldPozition = pozition;
+};
+
+var videoTopPos = '0';
+//展开相关操作
+function openPoint(element){
+	var obj = $(element);
+	//展开评分
+	if(element == 'ui_point_open'){
+		var _this = this;
+		new Fx.Elements(obj,{duration:300,onComplete:function(){
+			bindPointClick(element,$('ui_point_close'),function(){
+				
+			});
+		}}).start({'0':{'opacity':[0,1],'height':[0,450]}});
+	}else if(element == 'ui_artsList'){
+		new Fx.Elements(obj,{duration:300,onComplete:function(){
+			$('ui_artsList_off').hide();
+			$('ui_artsList_on').show();
+		}}).start({'0':{'height':[104,280]}});
+	}else if(element == 'ui_movieInfo_open'){
+		new Fx.Elements(obj,{duration:300,onComplete:function(){
+			//
+		}}).start({'0':{'opacity':[0,1],'height':[0,200]}});
+	}else if(element == 'ui_bigVideoBox'){
+		videoTopPos = (document.documentElement.clientHeight - 600)/2;
+		new Element('div',{'id':'videofixbg','styles':{
+			'width':'100%',
+			'height':document.body.clientHeight,
+			'overflow':'hidden',
+			'opacity':0.6,
+			'background':'#000',
+			'position':'absolute',
+			'top':0,
+			'left':0,
+			'z-index':60		
+		}}).addEvent('click',function(){
+			hidePoint('ui_bigVideoBox');
+		}).inject(document.body);
+		new Fx.Elements(obj,{duration:300,onComplete:function(){
+			if(!$('flash'))setFlash(obj.get('lang'),"bigVideoBox",800,600);
+		}}).start({'0':{'opacity':[0,1],'top':['-700px',videoTopPos]}});
+	}else if(element == 'ui_movieInfoBox'){
+		new Fx.Elements(obj,{duration:300,onComplete:function(){
+			
+		}}).start({'0':{'opacity':[0,1],'height':[0,426]}});
+	}
+};
+
+//收起相关操作
+function hidePoint(element){
+	var obj = $(element);
+	if(element == 'ui_point_open'){
+		new Fx.Elements(obj,{duration:300,onComplete:function(){
+			
+		}}).start({'0':{'opacity':[1,0],'height':[450,0]}});
+	}else if(element == 'ui_artsList'){
+		new Fx.Elements(obj,{duration:300,onComplete: function(){
+			$('ui_artsList_off').show();
+			$('ui_artsList_on').hide();
+		}}).start({'0':{'height':[280,104]}});
+	}else if(element == 'ui_movieInfo_open'){
+		new Fx.Elements(obj,{duration:300,onComplete:function(){
+			//评分展开后回调
+		}}).start({'0':{'opacity':[1,0],'height':[200,0]}});
+	}else if(element == 'ui_bigVideoBox'){
+		new Fx.Elements(obj,{duration:300,onComplete:function(){
+			$('videofixbg').dispose();
+		}}).start({'0':{'top':[videoTopPos,'-700px']}});
+	}else if(element == 'ui_movieInfoBox'){
+		new Fx.Elements(obj,{duration:300,onComplete:function(){
+		}}).start({'0':{'opacity':[1,0],'height':[426,0]}});
+	}
+};
+
+function setFlash(src,element,width,height){
+	var f=new SWFObject(src, "flash", width, height, "10", "#fff",true);
+	f.addParam('wmode','transparent');
+	f.addVariable('autostart','true');
+	f.addParam('allowfullscreen','true');
+	f.write(element);
+};
+
+var bindPointClick = function(element,self,callback){
+	element = $(element);
+	document.addEvent('click',function(e){
+		var target = $(e.target);
+		if(target != element && !element.contains(target) && target != self){
+			document.removeEvent('click',arguments.callee);
+			hidePoint('ui_point_open');
+			if(callback)callback();
+		}
+	});
+}
+</script>
+</body>
+<!-- SUCCESS_BOTTOM -->
+</html>

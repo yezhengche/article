@@ -1,0 +1,813 @@
+<!DOCTYPE html>           
+
+<script>
+    (function (context) {
+        var data = {};
+        var url = '//imgstat.baidu.com/17.gif';
+        var start = +new Date;
+        var createQuery = function (data) {
+            var ret = [];
+            for (var key in data) {
+                ret.push(key + '=' + data[key]);
+            }
+            return ret.join('&');
+        };
+
+        var _mergeCommPara = function (data) {
+            data.etype = 'speed';
+            data.page = 'result';
+            data.logid = "8731449414330035539";
+            data.sid = 'e9b1ee774ea8cc2953eba7b00025177864e29b4b';
+            data.wh = window.screen.width + 'x' + window.screen.height ;
+            data.sampid = '-1';
+            data.app = 'searchresult';
+            data.spat = 0 + '-' + '';
+            data.protocol = window.location.protocol.replace(':', '');
+            if ('2' - 0) {
+                data.ishttps = '2';
+            }
+            
+            data.sync = "";
+            return data;
+        };
+        var _profiles = {
+            'slider': {
+                _url: '//imgstat.baidu.com/17.gif',
+                etype: 'slide'
+            }
+        };
+        var speed = {
+            set: function (key, value) {
+                if (key) {
+                    data[key] = value || 0;
+                }
+            },
+            get: function (key) {
+                return data[key] || ('start' === key && start);
+            },
+            mark: function (key, value, ts) {
+                if (undefined === value) {
+                    value = new Date - start;
+                }
+                if (true === ts) {
+                    value = value - start;
+                }
+                data[key] = value;
+            },
+            send: function (ext) {
+                if (ext) {
+                    for (var key in ext) {
+                        data[key] = ext[key];
+                    }
+                }
+                _mergeCommPara(data);
+                var queryString = createQuery(data);
+                new Image().src = url + '?' + queryString;
+            },
+            loadmark: function () {
+                value = new Date - start;
+
+                if (speed.firstScCount) {
+                    speed.firstScCount += 1;
+                }else{
+                    speed.firstScCount = 1;
+                }
+
+                data['firstSc'] = value;
+
+            },
+            log: function (profile, data) {
+                var queryString = createQuery(data);
+                var pf = _profiles[profile];
+                var a = [];
+
+                _mergeCommPara(data);
+                for (var p in pf) {
+                    if (p.indexOf('_') !== 0) {
+                        data[p] = pf[p];
+                    }
+
+                }
+                for (var p in data) {
+                    a.push(p + '=' + data[p]);
+                }
+
+
+                (new Image).src = pf._url + '?' + a.join('&');
+            }
+        };
+        context.speed = speed;
+        speed.firstScCount = 0;
+        (function () {
+            window.logid = "8731449414330035539";
+            loaded = 0;
+            var addWindowEvent = window.addEventListener ?
+                function(type, fn) { window.addEventListener(type, fn, false); } :
+                function(type, fn) { window.attachEvent('on' + type, fn); };
+            addWindowEvent('beforeunload', function () {
+                if (!loaded) {
+                    speed.mark('leave');
+                    speed.send();
+                }
+            });
+
+            addWindowEvent('load', function () {
+                loaded = 1;
+            });
+        })();
+    })(window);
+</script>
+<script>
+    // ala进入打点
+    try {
+        if (!window._alaEnter) {
+            window._alaEnter = true;
+            function query2Json(query) {
+                var json = {};
+                var search = query.split("&");
+                for (var i = search.length - 1; i >= 0; i--) {
+                    var s = search[i].split('=');
+                    json[s[0]] = s[1];
+                }
+                return json;
+            }
+            var query = query2Json((location.search || '').replace('?', ''));
+            if (+query.hs && query.tn === 'baiduimage') {
+                var payload = 'dsp=pc&tn=result&hs=' + query.hs;
+                (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload + '&type=enter&t=' + (+new Date);
+                window._alaEnter = function (type) {
+                    (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload
+                        + '&type=' + type + '&t=' + (+new Date);
+                };
+                var sid = "c3437dbc7c1255d3a21d444d86ebf2e9234c22bd";
+                if (window.localStorage
+                    && window.localStorage.sid
+                    && window.localStorage.sid !== sid) {
+                    window._alaEnter('change');
+                }
+                window.localStorage.sid = sid;
+            }
+        }
+    } catch(e) {}
+</script>
+
+   <html>   <!--STATUS OK-->  <head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<noscript>
+<meta http-equiv="refresh" content="0;url=/search/index?ct=201326592&lm=-1&tn=baiduimagenojs&ipn=rnj&pv=&word=%E7%8E%8B%E7%A7%80%E8%8B%B1&z=0&pn=0&rn=20&cl=2&ie=utf-8">
+
+<style>table,.p{display:none}</style>
+
+</noscript>
+
+ <title>
+王秀英_百度图片搜索</title> <link rel="shortcut icon" href="https://www.baidu.com/cache/icon/favicon.ico" type="image/x-icon"> <link rel="icon" sizes="any" href="https://www.baidu.com/cache/icon/favicon.svg">  <script>
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>     
+   <script>
+        var Ihttps_agent_config = {"http:\/\/nssug.baidu.com":"https:\/\/sp1.baidu.com\/8qUZeT8a2gU2pMbgoY3K\/su","http:\/\/img.baidu.com":"https:\/\/gss2.bdstatic.com\/70cFsjip0QIZ8tyhnq","http:\/\/himg.bdimg.com":"https:\/\/ss1.bdstatic.com\/7Ls0a8Sm1A5BphGlnYG","http:\/\/apps.bdimg.com":"https:\/\/ss0.bdstatic.com\/9_QWf8Sm1A5BphGlnYG","http:\/\/f3.baidu.com":"https:\/\/sp3.baidu.com\/-uV1bjeh1BF3odCf","http:\/\/bzclk.baidu.com":"https:\/\/gsp0.baidu.com\/9q9JcDHa2gU2pMbgoY3K","http:\/\/img0.imgtn.bdimg.com":"https:\/\/ss0.bdstatic.com\/70cFvHSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img1.imgtn.bdimg.com":"https:\/\/ss1.bdstatic.com\/70cFvXSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img2.imgtn.bdimg.com":"https:\/\/ss2.bdstatic.com\/70cFvnSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img3.imgtn.bdimg.com":"https:\/\/ss3.bdstatic.com\/70cFv8Sh_Q1YnxGkpoWK1HF6hhy","http:\/\/img4.imgtn.bdimg.com":"https:\/\/ss0.bdstatic.com\/70cFuHSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img5.imgtn.bdimg.com":"https:\/\/ss1.bdstatic.com\/70cFuXSh_Q1YnxGkpoWK1HF6hhy","http:\/\/bdimg.share.baidu.com":"https:\/\/gss0.baidu.com\/9rA4cT8aBw9FktbgoI7O1ygwehsv","http:\/\/dispatcher.video.qiyi.com":"https:\/\/gss0.bdstatic.com\/-LsZfDe52w9JkxG9m9iS_HFjgAkrreHg-_","http:\/\/passport.bdimg.com":"https:\/\/ss0.bdstatic.com\/5LMZfyabBhJ3otebn9fN2DJv"};
+    </script> <script type="text/javascript" src="//img0.bdstatic.com/static/common/mod_6f6741d.js"></script> 
+<script>
+    //记录页面开始时间
+    window.pageStartTime = new Date();
+    window.scrollTo(0, 0);
+    // 时效性热点
+    </script>
+ <link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/pkg/result_50ca984.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/pkg/co_b1eb78d.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/widget/ui/slider/slider_ecce195.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/common/widget/ui/userInfo/userInfo_5bd6198.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvFilterView/AvFilterView_5709328.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvMuiltSizeFilterView/AvMuiltSizeFilterView_5a57aa1.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvTypeFilterView/AvTypeFilterView_cea6b92.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorWallFilterView/AvColorWallFilterView_cf8a646.css"/><link rel="stylesheet" type="text/css" href="//img2.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorFilterView/AvColorFilterView_5b1da63.css"/><link rel="stylesheet" type="text/css" href="//img2.bdstatic.com/static/common/widget/loginbar/loginbar_e8a6507.css"/></head>  <script> alog('speed.set', 'ht', +new Date); </script>  <body class=""> <script type="text/javascript">require.siteNS && require.siteNS(["searchresult", "common"]);require.resourceMap({"res":{"common:widget/ui/base/base.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/base/base_a66ce51.js"},"common:widget/ui/arch/router.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/arch/router_1670dcf.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/app.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/arch/app_c1dac05.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/arch/router.js"]},"common:widget/ui/base/EventDispatcher.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/base/EventDispatcher_e71d337.js","pkg":"common:p1"},"common:widget/ui/base/events.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/base/events_f8b4e1f.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/EventDispatcher.js"]},"common:widget/ui/arch/behavior/pageresizer.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/arch/behavior/pageresizer_9f05f70.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/arch/localdb.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/arch/localdb_1fa8a65.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/collection.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/arch/collection_8624f21.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/arch/localdb.js"]},"common:widget/ui/arch/handlers.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/arch/handlers_2d9d42f.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/events/events.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/events/events_87337df.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/EventDispatcher.js"]},"common:widget/ui/utils/scroller.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/utils/scroller_efc1f29.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/events/events.js"]},"common:widget/ui/utils/pageresizer.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/utils/pageresizer_9feba52.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/events/events.js"]},"common:widget/ui/utils/utils.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/utils/utils_2cc00ac.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/scroller.js","common:widget/ui/utils/pageresizer.js"]},"common:widget/ui/arch/history.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/arch/history_dbb6541.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"common:widget/ui/arch/model.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/arch/model_32910e4.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/pagemodel.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/arch/pagemodel_8be1499.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/base/events.js","common:widget/ui/arch/model.js"]},"common:widget/ui/base/subject.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/base/subject_7c3c6c3.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/EventEmitter/EventEmitter.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/EventEmitter/EventEmitter_655344a.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/monitorRequest/monitorRequest.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/monitorRequest/monitorRequest_cabcf84.js","pkg":"common:p1"},"common:widget/ui/searchUtils/searchUtils.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/searchUtils/searchUtils_17600ce.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/slider/slider.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/slider/slider_545c0c2.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/EventEmitter/EventEmitter.js"]},"common:widget/ui/statistic/statistic.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/statistic/statistic_09d1c4a.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/monitorRequest/monitorRequest.js","common:widget/ui/base/events.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/suggest/data.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/suggest/data_89dc815.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"common:widget/ui/suggest/inputwatcher.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/suggest/inputwatcher_2eb7c40.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/suggest/suggestionlist.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/suggest/suggestionlist_37c79c7.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/suggest/suggestion.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/suggest/suggestion_1507f89.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/suggest/data.js","common:widget/ui/suggest/inputwatcher.js","common:widget/ui/suggest/suggestionlist.js"]},"common:widget/ui/sugHistory/sugHistory.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/sugHistory/sugHistory_4277c60.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/statistic/statistic.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/SugRec/SugRec.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/SugRec/SugRec_3755387.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/statistic/statistic.js"]},"common:widget/ui/swf/swf.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/swf/swf_b5294d0.js","pkg":"common:p1"},"common:widget/ui/userInfo/userInfo.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/userInfo/userInfo_82b8b2d.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/searchUtils/searchUtils.js","common:widget/ui/base/events.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/feedback/feedback.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/feedback/feedback_4002381.js","pkg":"common:p1"},"common:widget/shitu/static/animate.js":{"url":"//img1.bdstatic.com/static/common/widget/shitu/static/animate_d5993fc.js","deps":["common:widget/ui/base/base.js"]},"common:widget/shitu/run.js":{"url":"//img0.bdstatic.com/static/common/widget/shitu/run_bd921f8.js","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/shitu/static/animate.js"]},"common:widget/ui/juicer/juicer.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/juicer/juicer_59c3d50.js"},"searchresult:widget/ui/app/noResultPage.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/app/noResultPage_ee2374d.js","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/relsearchBox/relsearchBox.js","common:widget/ui/userInfo/userInfo.js","searchresult:widget/ui/controls/hotwordBox/hotwordBox.js","searchresult:widget/ui/controls/suggBox/suggBox.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/app/pagemodel.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/app/pagemodel_c5ab165.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/arch/pagemodel.js"]},"searchresult:widget/ui/app/app.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/app/app_37a638b.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/arch/app.js","searchresult:widget/ui/app/pagemodel.js"]},"searchresult:widget/ui/utils/lib.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/utils/lib_9563723.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/app/datacontroller.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/app/datacontroller_dec6049.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/lib.js"]},"searchresult:widget/ui/app/history.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/app/history_99d60d0.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/arch/history.js"]},"searchresult:widget/ui/app/sizemanager.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/app/sizemanager_9470d7a.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/base/subject.js"]},"searchresult:widget/ui/utils/scroller.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/utils/scroller_7a260db.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/utils/utils.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/utils/utils_8781693.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/statistic/statistic.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/statistic/statistic_18dd36e.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/EventEmitter/EventEmitter.js","common:widget/ui/monitorRequest/monitorRequest.js","searchresult:widget/ui/app/pagemodel.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/morePageBox/morePageBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/morePageBox/morePageBox_e22eccf.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","common:widget/ui/base/EventDispatcher.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/app/scrollmanager.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/app/scrollmanager_d492580.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/utils/scroller.js","common:widget/ui/base/subject.js","common:widget/ui/base/EventDispatcher.js","common:widget/ui/EventEmitter/EventEmitter.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/controls/morePageBox/morePageBox.js"]},"searchresult:widget/ui/models/filtermodel.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/models/filtermodel_9a67e9c.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/base/events.js","common:widget/ui/arch/model.js"]},"searchresult:widget/ui/collections/imgcollection.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/collections/imgcollection_396e663.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/arch/collection.js","searchresult:widget/ui/app/pagemodel.js","searchresult:widget/ui/utils/lib.js"]},"searchresult:widget/ui/strategy/imglayoutstrategy.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/strategy/imglayoutstrategy_59f65f9.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js"]},"searchresult:widget/ui/strategy/insertstrategy.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/strategy/insertstrategy_109fa2b.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js"]},"searchresult:widget/ui/config/base/config.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/config/base/config_80645d2.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/statistic/bdgstat.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/statistic/bdgstat_dc78e9c.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/monitorRequest/monitorRequest.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/app/pagemodel.js"]},"searchresult:widget/ui/controls/postpone/postpone.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/postpone/postpone_0f090f5.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/controls/imgpagelist/cellBox/cellBox.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/imgpagelist/cellBox/cellBox_9cdd250.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/utils/lib.js","searchresult:widget/ui/statistic/bdgstat.js","searchresult:widget/ui/controls/postpone/postpone.js","searchresult:widget/ui/utils/utils.js"]},"searchresult:widget/ui/controls/imgpagelist/TJADBox/TJADBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/imgpagelist/TJADBox/TJADBox_c7d1740.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/statistic/statistic.js","common:widget/ui/juicer/juicer.js"]},"searchresult:widget/ui/controls/fakeCK/fakeCK.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/fakeCK/fakeCK_5ff12a8.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/controls/imgpagelist/FCADBox/FCADBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/imgpagelist/FCADBox/FCADBox_46d5c31.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/controls/fakeCK/fakeCK.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/imgpagelist/imgpagelist.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/imgpagelist/imgpagelist_55dbad6.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/utils/lib.js","searchresult:widget/ui/config/base/config.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/controls/imgpagelist/cellBox/cellBox.js","searchresult:widget/ui/controls/imgpagelist/TJADBox/TJADBox.js","searchresult:widget/ui/controls/imgpagelist/FCADBox/FCADBox.js","common:widget/ui/utils/utils.js"]},"searchresult:widget/ui/controls/hoverBox/hoverBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/hoverBox/hoverBox_963c767.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/statistic/statistic.js","common:widget/ui/utils/utils.js"]},"searchresult:widget/ui/controls/memoryBar/memoryBar.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/memoryBar/memoryBar_2204d8e.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/base/common/common.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/base/common/common_45cb43c.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/base/windowHandle/windowHandle.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/base/windowHandle/windowHandle_7c1357f.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/EventEmitter/EventEmitter.js"]},"searchresult:widget/ui/base/view/AvFilterView/AvFilterView.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/base/view/AvFilterView/AvFilterView_232b006.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/base/view/AvMuiltSizeFilterView/AvMuiltSizeFilterView.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvMuiltSizeFilterView/AvMuiltSizeFilterView_dd06793.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/base/view/AvFilterView/AvFilterView.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/base/view/AvTypeFilterView/AvTypeFilterView.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvTypeFilterView/AvTypeFilterView_1ff7251.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/base/view/AvFilterView/AvFilterView.js"]},"searchresult:widget/ui/base/view/AvColorWallFilterView/AvColorWallFilterView.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorWallFilterView/AvColorWallFilterView_a560528.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/base/view/AvFilterView/AvFilterView.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/base/view/AvColorFilterView/AvColorFilterView.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorFilterView/AvColorFilterView_60ff8de.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/base/view/AvFilterView/AvFilterView.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/pagelets/base/avfilter/init.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/pagelets/base/avfilter/init_0f2c934.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/base/common/common.js","searchresult:widget/ui/base/windowHandle/windowHandle.js","searchresult:widget/ui/base/view/AvMuiltSizeFilterView/AvMuiltSizeFilterView.js","searchresult:widget/ui/base/view/AvTypeFilterView/AvTypeFilterView.js","searchresult:widget/ui/base/view/AvColorWallFilterView/AvColorWallFilterView.js","searchresult:widget/ui/base/view/AvColorFilterView/AvColorFilterView.js"]},"searchresult:widget/ui/controls/tagbar/tagbar.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/tagbar/tagbar_9aff488.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js","common:widget/ui/base/events.js","searchresult:widget/ui/base/windowHandle/windowHandle.js","common:widget/ui/EventEmitter/EventEmitter.js"]},"searchresult:widget/ui/controls/jzFilter/jzFilter.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/jzFilter/jzFilter_a6524e7.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js","common:widget/ui/base/events.js","searchresult:widget/ui/base/windowHandle/windowHandle.js"]},"searchresult:widget/ui/controls/filter/filterClass/filterClass.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/filterClass/filterClass_0819dd1.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/filter/filterConfig/filterConfig.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/filterConfig/filterConfig_ff5e87b.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/sizeFilter/sizeFilter.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/sizeFilter/sizeFilter_f34601c.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/controls/filter/filterClass/filterClass.js","searchresult:widget/ui/controls/filter/filterConfig/filterConfig.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/filter/colorFilter/colorFilter.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/colorFilter/colorFilter_c991668.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/controls/filter/filterConfig/filterConfig.js","searchresult:widget/ui/controls/filter/filterClass/filterClass.js"]},"searchresult:widget/ui/controls/filter/typeFilter/typeFilter.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/typeFilter/typeFilter_0f4ac46.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/statistic/statistic.js","common:widget/ui/base/events.js","searchresult:widget/ui/controls/filter/filterConfig/filterConfig.js","searchresult:widget/ui/controls/filter/filterClass/filterClass.js"]},"searchresult:widget/ui/controls/RsBox/RsBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/RsBox/RsBox_0a847a7.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/utils/utils.js"]},"searchresult:widget/ui/controls/relsearchBox/relsearchBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/relsearchBox/relsearchBox_222702b.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/hotwordBox/hotwordBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/hotwordBox/hotwordBox_d6e2df8.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/suggBox/suggBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/suggBox/suggBox_7576a4f.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","common:widget/ui/suggest/suggestion.js","common:widget/ui/sugHistory/sugHistory.js"]},"searchresult:widget/pagelets/base/topInfoBar/topInfoBar.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/pagelets/base/topInfoBar/topInfoBar_5723eb4.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/app/page.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/app/page_17e1f8a.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","searchresult:widget/ui/app/history.js","common:widget/ui/arch/behavior/pageresizer.js","searchresult:widget/ui/utils/lib.js","searchresult:widget/ui/app/sizemanager.js","searchresult:widget/ui/app/scrollmanager.js","common:widget/ui/arch/handlers.js","searchresult:widget/ui/models/filtermodel.js","searchresult:widget/ui/collections/imgcollection.js","searchresult:widget/ui/strategy/imglayoutstrategy.js","searchresult:widget/ui/strategy/insertstrategy.js","searchresult:widget/ui/controls/imgpagelist/imgpagelist.js","searchresult:widget/ui/controls/hoverBox/hoverBox.js","searchresult:widget/ui/controls/memoryBar/memoryBar.js","searchresult:widget/pagelets/base/avfilter/init.js","searchresult:widget/ui/controls/tagbar/tagbar.js","searchresult:widget/ui/controls/jzFilter/jzFilter.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/statistic/bdgstat.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/filter/sizeFilter/sizeFilter.js","searchresult:widget/ui/controls/filter/colorFilter/colorFilter.js","searchresult:widget/ui/controls/filter/typeFilter/typeFilter.js","searchresult:widget/ui/controls/RsBox/RsBox.js","searchresult:widget/ui/controls/relsearchBox/relsearchBox.js","searchresult:widget/ui/controls/hotwordBox/hotwordBox.js","searchresult:widget/ui/controls/suggBox/suggBox.js","searchresult:widget/pagelets/base/topInfoBar/topInfoBar.js"]},"searchresult:widget/ui/component/component.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/component/component_875ce06.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/action/base/imgcollectioin_setting.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/action/base/imgcollectioin_setting_ffc6c0c.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/utils/lib.js"]},"searchresult:widget/ui/action/base/base.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/action/base/base_523427b.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/action/base/imgcollectioin_setting.js","searchresult:widget/ui/collections/imgcollection.js","searchresult:widget/ui/strategy/imglayoutstrategy.js","searchresult:widget/ui/app/page.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/app/app.js"]},"searchresult:widget/ui/controls/ReportBox/ReportBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/ReportBox/ReportBox_ebd714e.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/app/pagemodel.js"]},"searchresult:widget/ui/controls/adsearchBox/adsearchBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/adsearchBox/adsearchBox_aad3e2a.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/cyberbox/cyberplayer.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/cyberbox/cyberplayer_e097387.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/cyberbox/cyberbox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/cyberbox/cyberbox_24ffbaf.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/cyberbox/cyberplayer.js"]},"searchresult:widget/ui/controls/festivalLogo/FestivalLogo.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/festivalLogo/FestivalLogo_7d2c1a5.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/InteractFilter/InteractFilter.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/filter/InteractFilter/InteractFilter_ae23e39.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/InteractFilter/tagData/tagData.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/filter/InteractFilter/tagData/tagData_4cb2061.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/indicator/indicator.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/filter/indicator/indicator_c9ab8b8.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/wallpaperFliter/wallpaperFilter.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/filter/wallpaperFliter/wallpaperFilter_11b8153.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/fixedSearchBox/fixedRSBox/fixedRSBox.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/fixedSearchBox/fixedRSBox/fixedRSBox_486f57e.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/fixedSearchBox/fixedSearchBox.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/fixedSearchBox/fixedSearchBox_6f59ef8.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/controls/fixedSearchBox/fixedRSBox/fixedRSBox.js","searchresult:widget/ui/controls/suggBox/suggBox.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/floatBoxClass/floatBoxClass_79fa05b.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/floatBox/AldBox/AldBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/AldBox/AldBox_6f32187.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js"]},"searchresult:widget/ui/controls/floatBox/baikeBox/baikeBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/baikeBox/baikeBox_ff6da79.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js"]},"searchresult:widget/ui/controls/floatBox/comicBox/comicBox.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/comicBox/comicBox_5ea3e57.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js"]},"searchresult:widget/ui/controls/floatBox/fcAdBox/fcAd.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/fcAdBox/fcAd_68311f2.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/floatBox/starBox/starBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/starBox/starBox_8e4e3cb.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js"]},"searchresult:widget/ui/utils/timeline.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/utils/timeline_a2f3f77.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/imgPopBox/imgPopBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/imgPopBox/imgPopBox_60de90d.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/utils/timeline.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/mapBox/DragSupport/DragSupport.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/mapBox/DragSupport/DragSupport_566744a.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/mapBox/ZoomProvider/ZoomProvider.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/mapBox/ZoomProvider/ZoomProvider_cac7d22.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/mapBox/mapBox.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/mapBox/mapBox_7404840.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/controls/mapBox/ZoomProvider/ZoomProvider.js","searchresult:widget/ui/controls/mapBox/DragSupport/DragSupport.js"]},"searchresult:widget/pagelets/movie/banners/banners.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/pagelets/movie/banners/banners_b5447b6.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/cyberbox/cyberbox.js","searchresult:widget/ui/component/component.js","searchresult:widget/ui/statistic/bdgstat.js"]},"searchresult:widget/ui/controls/movieBanners/bannerContainer.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/controls/movieBanners/bannerContainer_0d0b8a6.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/component/component.js","searchresult:widget/pagelets/movie/banners/banners.js"]},"searchresult:widget/ui/controls/movieTabs/tabs.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/movieTabs/tabs_1f81b19.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","searchresult:widget/ui/component/component.js","searchresult:widget/ui/statistic/bdgstat.js"]},"searchresult:widget/ui/controls/newsSliderBox/pageresizer.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/newsSliderBox/pageresizer_e86538a.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/newsSliderBox/newsSliderBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/newsSliderBox/newsSliderBox_01ba740.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/slider/slider.js","common:widget/ui/base/events.js","common:widget/ui/EventEmitter/EventEmitter.js","searchresult:widget/ui/controls/newsSliderBox/pageresizer.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/shootbanners/shootbanners.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/shootbanners/shootbanners_f2f906d.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","searchresult:widget/ui/component/component.js"]},"searchresult:widget/ui/controls/shoottabs/shoottabs.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/shoottabs/shoottabs_e6476a2.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","searchresult:widget/ui/component/component.js","searchresult:widget/ui/utils/scroller.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/specicalRecBox/specialRecBox.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/controls/specicalRecBox/specialRecBox_05ee852.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/statistic/statistic-core.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/statistic/statistic-core_69709d2.js","pkg":"searchresult:p1"},"searchresult:widget/ui/strategy/filterStrategy.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/strategy/filterStrategy_f367bf6.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/utils/imghelper.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/utils/imghelper_f70f1d0.js","pkg":"searchresult:p1"},"searchresult:widget/ui/utils/pms.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/utils/pms_61658b8.js","pkg":"searchresult:p1"},"searchresult:widget/ui/utils/swf.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/utils/swf_d14d2d6.js","pkg":"searchresult:p1"},"searchresult:widget/searchBox/imgFilter/init.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/searchBox/imgFilter/init_fc417b5.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ad/ecom199/init.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ad/ecom199/init_c98a43a.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ad/fuzi/sning3.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ad/fuzi/sning3_bd05ab4.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ad/sning1/sning1.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ad/sning1/sning1_17fc423.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ad/sning2/sning2.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ad/sning2/sning2_b8a4441.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ad/sning3/sning3.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ad/sning3/sning3_486c90e.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/pageLayout/pageLayoutCheck.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/pageLayout/pageLayoutCheck_17f513f.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/pageLayout/pageLayoutTip.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/pageLayout/pageLayoutTip_451d146.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"searchresult:widget/pageLayout/pageLayoutReview.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/pageLayout/pageLayoutReview_8b11bf0.js","pkg":"searchresult:p1","deps":["searchresult:widget/pageLayout/pageLayoutCheck.js","searchresult:widget/pageLayout/pageLayoutTip.js"]},"searchresult:widget/pagelets/base/backTop/init.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/pagelets/base/backTop/init_7fc0a8f.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/pagelets/base/timeliness/init.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/pagelets/base/timeliness/init_ccb9c30.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/juicer/juicer.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/action/movie/imgcollection_setting.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/action/movie/imgcollection_setting_a591058.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/utils/lib.js","searchresult:widget/ui/action/base/imgcollectioin_setting.js"]},"searchresult:widget/ui/action/movie/action.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/action/movie/action_bc8a372.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/app/page.js","searchresult:widget/ui/collections/imgcollection.js","searchresult:widget/ui/action/movie/imgcollection_setting.js","searchresult:widget/ui/strategy/imglayoutstrategy.js","searchresult:widget/ui/action/base/base.js","searchresult:widget/ui/statistic/bdgstat.js","common:widget/ui/utils/utils.js"]},"searchresult:widget/ui/app/lazyPage.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/app/lazyPage_0aab115.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/filter/sizeFilter/sizeFilter.js","searchresult:widget/ui/controls/filter/colorFilter/colorFilter.js","searchresult:widget/ui/controls/filter/typeFilter/typeFilter.js","searchresult:widget/ui/controls/RsBox/RsBox.js","searchresult:widget/ui/controls/relsearchBox/relsearchBox.js","common:widget/ui/userInfo/userInfo.js","searchresult:widget/ui/controls/hotwordBox/hotwordBox.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/pagelets/base/topInfoBar/topInfoBar.js","searchresult:widget/ui/controls/movieBanners/bannerContainer.js","searchresult:widget/ui/controls/movieTabs/tabs.js","searchresult:widget/ui/controls/imgpagelist/FCADBox/FCADBox.js","searchresult:widget/ui/controls/imgpagelist/TJADBox/TJADBox.js","searchresult:widget/ad/sning1/sning1.js","searchresult:widget/pagelets/movie/banners/banners.js","searchresult:widget/ui/controls/shootbanners/shootbanners.js","searchresult:widget/ui/controls/shoottabs/shoottabs.js","searchresult:widget/pageLayout/pageLayoutReview.js"]},"common:widget/ui/historyRecord/historyRecord.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/historyRecord/historyRecord_31e31e1.js","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/loginBox/loginBox.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/loginBox/loginBox_ea459f5.js"},"common:widget/loginbar/loginbar.js":{"url":"//img2.bdstatic.com/static/common/widget/loginbar/loginbar_f08c999.js","deps":["common:widget/ui/base/base.js","common:widget/ui/loginBox/loginBox.js","common:widget/ui/base/EventDispatcher.js"]},"searchresult:widget/ui/action/pullface/imgcollectioin_setting.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/action/pullface/imgcollectioin_setting_80602c8.js","pkg":"searchresult:p2","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/utils/lib.js"]},"searchresult:widget/ui/action/pullface/action.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/action/pullface/action_cd9f68d.js","pkg":"searchresult:p2","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/app/page.js","searchresult:widget/ui/collections/imgcollection.js","searchresult:widget/ui/strategy/imglayoutstrategy.js","searchresult:widget/ui/action/pullface/imgcollectioin_setting.js","searchresult:widget/ui/action/base/base.js","searchresult:widget/ui/controls/floatBox/baikeBox/baikeBox.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/fmCheck/fmCheck.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/fmCheck/fmCheck_e6197fc.js","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/durationStat/durationStat.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/durationStat/durationStat_d292e9f.js","deps":["common:widget/ui/utils/utils.js","common:widget/ui/base/base.js"]}},"pkg":{"common:p1":{"url":"//img0.bdstatic.com/static/common/pkg/cores_2cc0104.js"},"searchresult:p1":{"url":"//img1.bdstatic.com/static/searchresult/pkg/result_e750c91.js"},"searchresult:p2":{"url":"//img0.bdstatic.com/static/searchresult/pkg/baike_2dc1093.js"}}});</script> 
+<div id="search" class="">
+<script>
+        (function() {
+            var search = document.getElementById('search');
+            var width = window.innerWidth
+                || (document.documentElement && document.documentElement.clientWidth)
+                || (document.body && document.body.clientWidth);
+            if (search && width < 1217) {
+                search.className = 'narrow ' + search.className;
+            }
+        })();
+    </script>
+<div class="s_search">
+<a href="/" class="s_logo">
+<img src="//img0.bdstatic.com/static/searchresult/img/logo-2X_b99594a.png" alt="到 百度图片首页 来" title="返回 百度图片首页">
+</a>
+<div class="s_nav">
+<form action="/search/index" class="searchform" name="f1" onsubmit="return s_submit(this,true)">
+<input type="hidden" name="tn" value="baiduimage">
+<input type="hidden" name="ipn" value="r">
+<input name="ct" type="hidden" value="201326592">
+<input name="cl" type="hidden" value="2">
+<input name="lm" type="hidden" value="-1">
+<input name="st" type="hidden" value="-1">
+<input name="fm" type="hidden" value="result">
+<input name="fr" type="hidden" value="">
+<input name="sf" type="hidden" value="1">
+<input name="fmq" type="hidden" value="">
+<input name="pv" type="hidden" value="">
+<input name="ic" type="hidden" value="0">
+<input name="nc" type="hidden" value="1">
+<input name="z" type="hidden" value="">
+<input name="se" type="hidden" value="">
+<input name="showtab" type="hidden" value="0">
+<input name="fb" type="hidden" value="0">
+<input name="width" type="hidden" value="">
+<input name="height" type="hidden" value="">
+<input name="face" type="hidden" value="0">
+<input name="istype" type="hidden" value="2">
+<input name="ie" type="hidden" value="utf-8">
+<input name="hs" type="hidden" value="2">
+<input name="ctd" type="hidden" value="">
+<span class="s_ipt_wr"><input id="kw" name="word" class="s_ipt" value="王秀英" autocomplete="off" onfocus="this.parentNode.className='s_ipt_wr active'" onblur="this.parentNode.className='s_ipt_wr'"/></span><span class="s_btn_wr"><input type="submit" class="s_btn" onmousedown="this.className='s_btn s_btn_h'" onmouseout="this.className='s_btn'"  value="百度一下"   /></span>
+</form><div id="stcontent" class="common-shitu"> <a class="sttb" hidefocus="true" id="sttb" href="javascript:void(0)" title="上传图片，搜索相关信息"> <img class="st_camera_off" src="//img1.bdstatic.com/static/common/widget/shitu/images/camera_new_off_a552294.png" width="20" height="20"> <img class="st_camera_on" src="//img2.bdstatic.com/static/common/widget/shitu/images/camera_new_on_4e3e250.png" width="20" height="20"> <div class="st_tips" id="stTipsBox">上传图片，搜索相关信息</div> <div class="st_tips_arrow_in" id="stTipArrowIn"></div> <div class="st_tips_arrow_out" id="stTipArrowOut"></div> </a> <div id="stsug" class="stsug" style="display:none"> <div id="sthead"><span>识图</span><img id="sthelp" width="13" height="13" src="//img2.bdstatic.com/static/common/widget/shitu/images/mark_b68ff2e.png" /></div> <div class="stf"> <form id="form2" target="_self" enctype="multipart/form-data" name="form2"> <a id="uploadImg" href="javascript:void(0)" data-nsclick="p=1811102&tn=index&event_type=shitu.search.click&pos=upload">本地上传<input type="file" name="file" id="stfile" size="2"></a> <div class="st_dragtg" id="dragtg" style="display:none;">提示：您也可以把图片拖到这里</div> <input id="shitu2" name="pos" value="" type="hidden"> <input name="uptype" value="upload_pc" type="hidden"> <input name="fm" value="index" type="hidden"> </form> <form id="form1" target="_self" enctype="multipart/form-data" method="get" name="form1"> <div id="sturl"> <span class="stuwr"> <input type="text" id="stuurl" placeholder="在此处粘贴图片网址" value="" autocomplete="off"  class="stuurl" name="objurl"> </span> <span class="stsb"> <input type="submit" id="sbobj" class="stsb2" onmousedown="this.className='stsb2 stsb3'" onmouseout="this.className='stsb2'" onmouseover="this.className='stsb2 stsb4'" value="识图一下"> </span> </div> <input name="filename" id="filename" value="" type="hidden"> <input name="rt" value="0" type="hidden"> <input name="rn" value="10" type="hidden"> <input id="stftn" name="ftn" value="wantu" type="hidden"> <input name="ct" value="1" type="hidden"> <input name="stt" value="0" type="hidden"> <input name="tn" value="shituresultpc" type="hidden"> <input id="shitu1" name="uptype" value="paste" type="hidden"> <input name="fm" value="index" type="hidden"> </form> </div> <div class="drag-text-tip" id="dttip">拖拽图片到此处试试</div> <div id="stmore" style="display:none;"> <div class="stmore-header">百度识图</div> <ul> <li>识别人物、搜索服饰、寻找高清素材、浏览相似美图，尽在百度识图!</li> </ul> <div class="stmore_arrow_in"></div> <div class="stmore_arrow_out"></div> </div> <a id="closest" href="javascript:void(0);" title="关闭"></a> <div id="point" style="display:none;"> <img src="//img1.bdstatic.com/img/image/shitu/feimg/uploading.gif" /><span>正在识别中，请稍候...</span> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div class="undrag-text-tip" id="undragtip"> <p>抱歉，Safari不支持拖拽识图。<br/> 请保存图片到本地，通过本地上传或在搜索框粘贴图片url进行识图。</p> </div> <div id="dragtip" style="display:none;"> <span>请拖拽图片到此处</span> <div class="drag_dot_area drag_dot_left_top"></div> <div class="drag_dot_area drag_dot_left_bottom"></div> <div class="drag_dot_area drag_dot_right_top"></div> <div class="drag_dot_area drag_dot_right_bottom"></div> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div class="left-border"></div> <div class="right-border"></div> </div> <div id="mock-stsug"></div> </div>  </div>
+<div id="imgfilter">
+<a id="imgfilter-btn" class="filter-open" href="javascript:;">
+<span class="imgfilter-text">图片筛选</span>
+<span class="imgfilter-arrow"></span>
+</a>
+<div id="filter-holder" style="display:none">
+<span class="holder-arrow"></span>
+<div id="top-filter-hoder">
+<div id="filter-container">
+<div class="filter" id="filter">
+<div id="sizeFilter" class="subFilter sizeFilter"></div>
+<div id="colorFilter" class="subFilter"></div>
+<div id="typeFilter" class="subFilter"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='userInfo'>
+<a target='_blank' href='http://www.baidu.com/'>百度首页</a>
+</div>
+</div>
+<div id="pageLayoutTipWindow">
+<div class="page-layouttip-banner">
+<div class="page-layouttip-describe">温馨提示：由于您的浏览器安装了某些插件，导致页面布局失败，重新加载可恢复布局</div>
+<div class="page-layouttip-loadbtn">重新加载</div>
+<div class="page-layouttip-viewbtn">继续查看</div>
+</div>
+</div><script>
+var commonHeaderConf = {
+	sugProdName: "image",
+	searchInputId: "kw"
+};
+void function(w){
+	window.setHeadUrl= function(o){
+		var links = {
+		i_news:['word','http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&ie=utf-8',1],
+        i_webpage:['wd','https://www.baidu.com/s?ie=utf-8',1],
+		i_tieba:['kw','http://tieba.baidu.com/f?ie=utf-8',1],
+		i_zhidao:['word','http://zhidao.baidu.com/q?ct=17&pn=0&tn=ikaslist&rn=10&lm=0&ie=utf-8',1],
+		i_mp3:['key','http://music.baidu.com/search?fr=img&ie=utf-8',1],
+		i_video:['word','http://v.baidu.com/v?ct=301989888&s=25&ie=utf-8',1],
+		i_map:['wd','http://map.baidu.com/?newmap=1&ie=utf-8&s=s',2],
+		i_baike:['word','http://baike.baidu.com/search/word?pic=1&sug=1&enc=utf8',1],
+		i_wenku:['word','http://wenku.baidu.com/search?ie=utf-8',1]
+		},
+		name = o.name,
+		items = links[name],
+		kw = document.getElementById(w),
+		reg = new RegExp('^\\s+|\\s+\x24'),
+		key = kw.value.replace(reg,'');
+		if(items){
+			if(key.length > 0){
+				var wd = items[0],
+					url = items[1],
+					proSign = items[2];
+				url = pro(url,wd,key,proSign);
+				o.href = url;
+
+			}else{
+				o.href = o.href.match(new RegExp('^http:\/\/.+\\.baidu\\.com'))[0];
+			}
+            if(!o.clickHandle){
+                o.onclick = function(e){
+                    if(typeof p === 'function'){
+                        e = e || window.event;
+                        p(e, 52, {isAsyn : true, to : this.name, href : this.href});
+                    }
+
+                };
+                o.clickHandle = true;
+            }
+		}
+		function pro(url,wd,key,proSign){
+			/*日文片假部分乱码\u30f7--\u30fb,转换成实体*/
+			function HtmlEncodeAndComponent(inTXT){
+				/*地图，uri编码，不转换成实体*/
+				if(proSign==2){
+					return encodeURIComponent(key);
+				}
+				var hexArray =[],entityCode = '',finalKey = '', character='',tmpInt=0;
+				for(i=0; i<inTXT.length; i++){
+					character = inTXT.charCodeAt(i).toString(16).toUpperCase();
+					tmpInt = parseInt(character,16);
+					if(tmpInt>=0x30f7&&tmpInt<=0x30fb){
+						decCode = tmpInt.toString(10);
+						entityCode = '&#'+decCode+';';
+						finalKey += encodeURIComponent(entityCode);
+
+					}else{
+						entityCode = inTXT.charAt(i);
+						if(proSign>0){
+							finalKey += encodeURIComponent(entityCode);
+						}else{
+							finalKey += entityCode;
+						}
+					}
+				}
+				return finalKey;
+			}
+			var prefix = (url.indexOf('?')>0?'&':'?') + wd +'=';
+			if(proSign == 2){
+				prefix = encodeURIComponent(prefix);
+			}
+			key = HtmlEncodeAndComponent(key);
+			return url + prefix + key;
+		}
+	}
+}(commonHeaderConf.searchInputId);
+</script>
+<div class="s_tab">
+<a href="https://www.baidu.com/"  onmousedown="setHeadUrl(this)" name="i_webpage" >网页</a>
+<a href="http://news.baidu.com/" onmousedown="setHeadUrl(this)" name="i_news">新闻</a>
+<a href="http://tieba.baidu.com/" onmousedown="setHeadUrl(this)" name="i_tieba">贴吧</a>
+<a href="http://zhidao.baidu.com/" onmousedown="setHeadUrl(this)" name="i_zhidao" >知道</a>
+<a href="http://music.baidu.com/" onmousedown="setHeadUrl(this)" name="i_mp3" class="eng">音乐</a>
+<b>图片</b>
+<a href="http://v.baidu.com/" onmousedown="setHeadUrl(this)" name="i_video" >视频</a>
+<a href="http://map.baidu.com/" onmousedown="setHeadUrl(this)" name="i_map" >地图</a>
+<a href="http://wenku.baidu.com/" onmousedown="setHeadUrl(this)" name="i_wenku">文库</a>
+<a href="https://www.baidu.com/more/" onmousedown="setHeadUrl(this)" name="i_more">更多»</a>
+</div>
+<div id="topInfoBar">
+<div id="topRS">
+<em class="pull-rs-title">相关搜索：</em><a class="pull-rs" title="查看 凌迟周秀英"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%87%8C%E8%BF%9F%E5%91%A8%E7%A7%80%E8%8B%B1&hs=2&oriquery=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&ofr=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&sensitive=0">凌迟周秀英</a><a class="pull-rs" title="查看 萧俊贤"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%90%A7%E4%BF%8A%E8%B4%A4&hs=2&oriquery=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&ofr=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&sensitive=0">萧俊贤</a><a class="pull-rs" title="查看 周江波"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%91%A8%E6%B1%9F%E6%B3%A2&hs=2&oriquery=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&ofr=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&sensitive=0">周江波</a><a class="pull-rs" title="查看 韦秀英"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E9%9F%A6%E7%A7%80%E8%8B%B1&hs=2&oriquery=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&ofr=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&sensitive=0">韦秀英</a><a class="pull-rs" title="查看 萧燕燕"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%90%A7%E7%87%95%E7%87%95&hs=2&oriquery=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&ofr=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&sensitive=0">萧燕燕</a><a class="pull-rs" title="查看 周秀英"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%91%A8%E7%A7%80%E8%8B%B1&hs=2&oriquery=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&ofr=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&sensitive=0">周秀英</a><a class="pull-rs" title="查看 杨秀英"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E6%9D%A8%E7%A7%80%E8%8B%B1&hs=2&oriquery=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&ofr=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&sensitive=0">杨秀英</a><a class="pull-rs" title="查看 舒巧周秀英"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%88%92%E5%B7%A7%E5%91%A8%E7%A7%80%E8%8B%B1&hs=2&oriquery=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&ofr=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&sensitive=0">舒巧周秀英</a><a class="pull-rs" title="查看 萧凤霞"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%90%A7%E5%87%A4%E9%9C%9E&hs=2&oriquery=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&ofr=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&sensitive=0">萧凤霞</a><a class="pull-rs" title="查看 许秀英"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%AE%B8%E7%A7%80%E8%8B%B1&hs=2&oriquery=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&ofr=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&sensitive=0">许秀英</a><a class="pull-rs" title="查看 周嘉宁"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%91%A8%E5%98%89%E5%AE%81&hs=2&oriquery=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&ofr=%25E7%258E%258B%25E7%25A7%2580%25E8%258B%25B1&sensitive=0">周嘉宁</a></div>
+<div id="timeliness" class="hotpot-container">
+</div>
+<script type="text/juicer" id="timeliness-tpl">
+    <div id="timeliness-bless">
+        <div class="blessing-img-wrapper">
+            <img class="blessing-img" src="${icon.normal}" alt="" />
+            <img class="blessing-img icon-zoomup" src="${icon.normal}" alt="" />
+        </div>
+        <span class="blessing-content">
+            ${title}
+        </span>
+        <div class="blessing-count-wrapper">
+            (<span class="blessing-count"></span>人)
+        </div>
+    </div>
+    <div class="egg">
+        <img class="blessing-img-egg" src="${egg}" alt="" />
+    </div>
+</script>
+</div>
+<div id="specialQuery"></div>
+<div id="browser-hotword"></div>
+
+</div>
+ 
+
+<script>
+    window.vsid = 'ef0cddf5977b4f979475a68a6b18592a3845429a';
+</script>
+<div id="wrapper">
+<div id="pnlBeforeContent">
+<div class="news-slider"></div>
+<div id="smeContainer" style="display:none;">
+</div>
+</div>
+<div id="imgContainer" class="">
+<div id="timeliness-title">
+<img class="blessing-img guideIcon" src="">
+<span class="timeliness-desc"></span>
+</div>
+<div id="pnlBeforeImgList">
+<div class="memory-con" id="memoryBar" style="display: none;">您收藏时已经看到第<span class="memory-page">10</span>页，<span><a class="memory-link">点击直达</a></span><a class="memory-close"></a></div>
+</div>
+<div id="specialRecommend"></div>
+
+<div id="imgid">
+</div>
+<div id="lastPage" style="position:relative;overflow:hidden;padding-left:50px;zoom:1;display:none;">
+为给您提供最相关的图片结果，百度已省略与以上结果相类似的图片，您可<a href="/">点此查看更多搜索结果</a>。</div>
+<div id="ajaxInfo"></div>
+<div id="noPage" >
+<div id="dataNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+抱歉，在该筛选条件下，没有找到与<font color="#C60A00">王秀英</font>相关的图片。</div>
+<div id="stdNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+<br>
+<br>
+<font class="fB" style="font-size:14px">百度建议您：</font>
+<div style="font-size:14px;margin-top:0px;">
+<li id="listSetDefault">将筛选功能<a href="/search/index?ct=201326592&z=&s=&tn=baiduimage&ipn=r&word=%E7%8E%8B%E7%A7%80%E8%8B%B1&ie=utf-8&oe=utf-8&lm=-1&st=-1&z=&se=0&fr=ala&pn=0&width=&height=&face=0&ct=503316480" onclick="" >恢复默认状态</a></li>
+<li>修改当前的筛选条件</li>
+<li >看看输入的文字是否有误</li>
+</div>
+<div id=DivPost style="margin-top:0px;margin-left:15px;"></div>
+</div>
+</div>
+</div>
+<div style="clear:both;"></div>
+<p href="javascript:void(0);" id="loading"><img style="width:50px;height:54px;"/></p>
+<div id="pageMoreWrap">
+<a href="javascript:void(0);" onmousedown="p(null,499,{domid:'pageMore',type:'click'})" id="pageMore">加载更多图片</a>
+<div id="resultInfo">找到相关图片约3,100张</div>
+</div><div id="pnlAfterContent" style="display:none">
+<div id="cmsimage">
+<div id="hotWordDiv"></div>
+</div>
+<div id="relecom54">
+</div>
+</div>
+</div>
+<div id="loginbar" style="display:none;"> <div class="loginbar-inner"> <div class="login-png"></div> <a class="baidulogin" href="javascript:;">百度账号登陆</a> <span>或</span> <a class="baidureg" href="javascript:void(0);">注册</a> </div> <a class="loginbar-close" href="javascript:;">关闭</a> </div>  <script>
+    window.alogObjectConfig = {
+        product: '11',
+        page: '2', 
+        speed_page: '2',  
+ 
+        speed: {
+            sample: '0.01'   
+        },
+ 
+       
+        monkey: {
+            sample: '0.01'   
+        },
+ 
+        exception: { 
+            sample: '0.01' 
+        },
+ 
+        feature: {
+            sample: '0.01'
+        },
+ 
+        
+        cus: {
+            sample: '0.01' 
+        },
+ 
+        csp: {
+            sample: '0.01',
+            'default-src': [
+                {match: '*bae.baidu.com', target: 'Accept,Warn'},
+                {match: '*.baidu.com,*.bdstatic.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com', target: 'Accept'},
+                {match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept'},
+                {match: '*', target: 'Accept,Warn'}
+            ]
+        }
+    };
+ 
+    // pc和mobile端会稍有不同，必须严格按照该文档来部署，该段代码必须放在上面的window.alogObjectConfig配置之后
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>  <script>
+    void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("speed.set",{fsItems:i,fs:a})}(window,document);
+</script> 
+<a id="backTop" href="javascript:;" data-title="返回顶部"><div class="btn-inner-text"></div></a>
+<a href="javascript:;" id="report_link" data-title="反馈图片"><div class="btn-inner-text">反馈</div></a>
+ 
+<script>
+        var Hunter = window.Hunter || {};
+        Hunter.userConfig = Hunter.userConfig || [];
+        Hunter.userConfig.push({
+            hid: 36991
+        });
+    </script>
+                    <script>
+    void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d,k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+</script>   </body><script type="text/javascript"  src="//img0.bdstatic.com/static/common/widget/ui/base/base_a66ce51.js" ></script>
+<script type="text/javascript"  src="//img0.bdstatic.com/static/common/pkg/cores_2cc0104.js" ></script>
+<script type="text/javascript"  src="//img1.bdstatic.com/static/searchresult/pkg/result_e750c91.js" ></script>
+<script type="text/javascript"  src="//img1.bdstatic.com/static/common/widget/ui/juicer/juicer_59c3d50.js" ></script>
+<script type="text/javascript">!function(){    window.tn = 'result';
+    window.vsid = 'c1a2d4d92ffdf583c47115c9327933c9b76c084f';
+    if ('index' === window.tn
+        || 'result' === window.tn
+        || 'detail' === window.tn) {
+        var sttb = document.getElementById('sttb');
+        sttb.removeAttribute && sttb.removeAttribute('title');
+    }
+    /**
+     * 统计代码
+    **/
+    window.ss = function(){
+        var URL = '//imgstat.baidu.com/9.gif?rainbow=1&';
+        function request(url){
+            var seed = Math.random();
+            var img = window[seed] = new Image;
+            img.onload = img.onerror = function(){
+                window[seed] = null;
+                img.onload = img.onerror = null;
+                img = null;
+            };
+            img.src = url;
+        }
+
+        /* p = 0, 首页八张demo图片点击统计
+         * p = 1, 结果页tab相关： name=stu相同tab显示；name=face 人脸搜索tab显示; type=show展现；type=click点击
+         * p = pv, 结果页PV统计：data=1，有结果；data=0无结果；data=-1，down页面
+         **/
+
+        return function(arg, url, e){
+            var s = URL + json2Query(arg) + '&' + Math.random();
+            request(s);
+            if(url){
+                setTimeout(function(){
+                    location.href = url;
+                }, 300);
+                e = e || window.event;
+                if(e){
+                    if(e.preventDefault){
+                        e.preventDefault();
+                    }else{
+                        e.returnValue = false;
+                    }
+                }
+
+            }
+        };
+
+    }();
+    window.__originTitle = document.title;
+    function json2Query(json){
+        if(json == null || typeof json != 'object') return json;
+        var query = [];
+        for(var i in json){
+            if(i != '')
+                query[query.length] = i + '=' + json[i];
+        }
+        return query.join('&');
+    }
+
+    require.async(["common:widget/ui/base/base","common:widget/shitu/run"],function($, shitu){
+        window.$ = $;
+        $(document).ready(function() {
+            var st = new shitu();
+            st.init();
+            window.stInstance = st;
+        });
+    });
+}();
+!function(){require.async(["searchresult:widget/searchBox/imgFilter/init"],function(filter){
+	filter.init();
+})
+
+
+}();
+!function(){    if (window.hotspotData) {
+        require.async(['searchresult:widget/pagelets/base/timeliness/init'], function (Timeliness) {
+            new Timeliness().init(window.hotspotData);
+        });
+    }
+}();
+!function(){/**
+* isRefresh 用来判断禁止se或查询的参数是否生效,false表示无须清零，true表示需要清零
+*/
+require.async(["common:widget/ui/base/base","searchresult:widget/ui/utils/utils","common:widget/ui/historyRecord/historyRecord"],function( $, utils, HistoryRecord){
+
+    window.s_submit = function(form,isRefresh){
+
+
+//图片url检索跳转
+var keyword = form.word.value;
+
+if ($.trim(keyword).length > 0) {
+    var historyRecord = new HistoryRecord({historyKey: 'indexPageSugList'});
+    historyRecord.setRecord(keyword);
+    $.cookie.set('cleanHistoryStatus', 0, {path: '/'});
+}
+
+
+var tiaoma = /^[\s]*http[s]*\:\/\/[\s\S]*\.[jpg|gif|png|bmp|jpeg]*[\s]*$/.test(keyword) ||/img5\.imgtn\.bdimg\.com/.test(keyword) || /mt1\.baidu\.com\/timg/.test(keyword);
+var jumpURL = '/pcdutu?queryImageUrl='+encodeURIComponent(keyword)+'&fm=searchresult&pos=urlsearch&uptype=urlsearch';
+
+
+        if (tiaoma) {
+            // speed
+            $.cookie('uploadTime', new Date().getTime(), {path: '/'});
+
+           location.href = jumpURL;
+           return false;
+        }
+
+
+        var searchConf = utils.query2Json(utils.escapeXSS(window.location.search.substring(1)));
+        if(typeof searchConf.fm == "undefined"){searchConf.fm = '';}
+        if(typeof searchConf.fmq == "undefined"){searchConf.fmq = '';}
+        if(utils.trim(searchConf.queryWord) == form.word.value){
+            form.fmq.value = utils.fmqValueSet();
+        }else{
+            var fmqDate = new Date();
+            var T = fmqDate.getTime();
+            if(searchConf.fmq.indexOf('m') > -1 && searchConf.fmq.indexOf('_m') == -1 && searchConf.fmq.indexOf('_R') == -1){
+                var fmqvalue = searchConf.fmq;
+                form.fmq.value = T + '_' +fmqvalue + '_R';
+            }else{
+                form.fmq.value =  T + '_R';
+            }
+
+        }
+        var isflip = $('body').hasClass('flip');
+        form.tn.value = "baiduimage";
+
+        form.ct.value = "201326592";
+        form.cl.value = "2";
+        form.lm.value = "-1";
+        form.pv.value = "";
+        form.action = "/search/index";
+        if (window.canUseHttps) {
+            form.action = 'https://' + window.location.host + '/search/index';
+        }
+
+        if(isflip) {
+            form.action = "/search/flip";
+        }
+        if(isRefresh == true){
+            // submit直接提交新query
+            form.se.value = "1";
+        }else{
+            var showtab =  parseInt(searchConf.showtab);
+            if(!isNaN(showtab)&&showtab>0){
+                form.showtab.value = showtab;
+            }
+        }
+        form.ctd.value = (+new Date()) + "^00_" + $(window).width() + "X" +  window.innerHeight;
+
+        return true;
+    }
+})
+
+}();
+!function(){
+		window.bid = -1;
+
+	if(!window.passport){
+	    var script = document.createElement("script");
+	    script.src = '//passport.baidu.com/passApi/js/uni_login_wrapper.js?cdnversion=' + (new Date).getTime();
+	    document.body.appendChild(script);
+	}
+	require.async(["common:widget/loginbar/loginbar"],function(loginbar){
+
+	    loginbar.init();        
+
+	});
+
+
+}();
+!function(){    require.async(['searchresult:widget/pagelets/base/backTop/init']);
+
+    require.async(['common:widget/ui/feedback/feedback'], function (feedback) {
+        var callbacks = {};
+        feedback.init(callbacks);
+    });
+}();
+!function(){    window._alaEnter && window._alaEnter !== true && window._alaEnter('sample');
+    var sample = [];
+    var keyValue = '';
+    for(var name in sample) {
+        keyValue +=  name + ':' + sample[name] + ',';
+    }
+    window.samplekey = keyValue.substr(0, keyValue.length - 1);
+}();
+!function(){        require.async(['searchresult:widget/ui/app/app'], function (app) {
+    require.async(["searchresult:widget/ui/action/pullface/action"]);
+    app.setPageInfo({
+    tpl: 'pullface',
+    //在后端对query进行抽样的时候，用这个来统计实验组和对照组
+    queryPageType : '0',
+    gsm: '1e',
+    listNum : "1992",
+    dispNum : "3105",
+    bdIsClustered : "1",
+    frStr : "&fr=ala",
+    sme : "",
+    ie : "utf-8",
+    oe : "utf-8",
+    fInsertNum : "0",
+    queryWordEnc: "%E7%8E%8B%E7%A7%80%E8%8B%B1",
+    queryWordGBKEnc: "%CD%F5%D0%E3%D3%A2",
+    queryWord : "王秀英",
+    queryUrlWord : "%E7%8E%8B%E7%A7%80%E8%8B%B1",
+    bdFmtDispNum : "3105",
+    bdSearchTime : "",
+    gbkword:'%CD%F5%D0%E3%D3%A2',
+    resTabs : [],
+    useSign:"",
+    userid:"",
+    userNumID:"",//这个才是真正的 userid
+    encodeUserNumId:"",
+    spaceUrl:"",
+    hasUserName: ('' == '0'),
+    bdstoken : '',
+    thirdLogo :'0',//第三方网站登录的logo，为空则不显示
+    se:'',
+    needIE:'1',
+    jit:'',
+    showHot:'',
+    hasResult: '1',
+    aspSID:'792c56fb2b6f2d53',
+    strategyType:"normal",
+    oriquery: '',
+    fm: '',
+    personalized:'0',
+    hs: '2'
+    });
+    app.setData('jsConfs', {    "normal": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,"lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,"pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,"maxImgWidth": 400,"pageMoreNum": 10,"leftMenu": 0    },    "comic": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 190,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "ald": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 190,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "star": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 260,        "maxBaseLineHeight": 280,        "minBaseLineHeight": 250,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu":0    },    "avatar_brand": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 300,        "maxBaseLineHeight": 320,        "minBaseLineHeight": 280,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 500,        "pageMoreNum": 10,"leftMenu": 0    },    "avatar_star": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 260,        "maxBaseLineHeight": 280,        "minBaseLineHeight": 250,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,"leftMenu": 0    },    "avatar_head": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 190    },    "avatar_wallpaper": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 180,        "maxBaseLineHeight": 200,        "minBaseLineHeight": 160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 190    },    "single": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,        "pageLineNum": 1,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "personalized": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,        "pageLineNum": 2,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    }}
+);
+    app.setData('imgData', {    "queryEnc":"%E7%8E%8B%E7%A7%80%E8%8B%B1",    "displayNum":3105,    "bdIsClustered" : "1",    "listNum":1992,    "bdFmtDispNum" : "3105",    "bdSearchTime" : "",    "isNeedAsyncRequest":0,"data":[{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=374357110,166037650&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=374357110,166037650&fm=214&gp=0.jpg","FromURL":"http:\/\/rollnews.tuxi.com.cn\/zjj\/143782606fqz676026.html"},{"ObjURL":"http:\/\/www.bapimi.com\/uploads\/2_374357110x166037650_23.jpg","FromURL":"http:\/\/www.bapimi.com\/zciaqt\/"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=374357110,166037650&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=374357110,166037650&fm=27&gp=0.jpg",            "pageNum":0,            "objURL":"http://www.carinfant.com/buy2buyupfile/2011111411534572288b.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bvw6tguwgp_z&e3Bv54AzdH3Fkdk_vrtgu5m_z&e3Bwfr?t1=80aa",            "fromURLHost":"www.carinfant.com","currentIndex":"",            "width":536,            "height":800,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"23189114630",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "374357110,166037650",            "os" : "2091115979,2666318147",            "simid" : "3110965712,3523360386",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=310724040,2264004860&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=310724040,2264004860&fm=214&gp=0.jpg","FromURL":"http:\/\/blog.sina.com.cn\/s\/blog_53ce2e4d0100u1ij.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=310724040,2264004860&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=310724040,2264004860&fm=27&gp=0.jpg",            "pageNum":1,            "objURL":"http://s10.sinaimg.cn/middle/53ce2e4dx7703a596e929&690",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fks52_z&e3Bftgw_z&e3Bv54_z&e3BvgAzdH3FfAzdH3Fks52_cnvjdj91a8aa78t3_z&e3Bip4s",            "fromURLHost":"blog.sina.com.cn","currentIndex":"",            "width":690,            "height":517,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"97380950700",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong>60寿庆活动小记",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "310724040,2264004860",            "os" : "1185811420,548110062",            "simid" : "3580041351,255197767",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=522518615,3029283311&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=522518615,3029283311&fm=214&gp=0.jpg","FromURL":"http:\/\/blog.sina.com.cn\/s\/blog_5f9f30700100usi5.html"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=522518615,3029283311&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=522518615,3029283311&fm=27&gp=0.jpg",            "pageNum":2,            "objURL":"http://s14.sinaimg.cn/middle/5f9f3070xa674aa691ebd&690&690",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fks52_z&e3Bftgw_z&e3Bv54_z&e3BvgAzdH3FfAzdH3Fks52_culuna0aa8aa7ftc_z&e3Bip4s",            "fromURLHost":"blog.sina.com.cn","currentIndex":"",            "width":690,            "height":517,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"91839594770",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"昆明知青<strong>王秀英<\/strong>精彩的60岁生日庆典",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "522518615,3029283311",            "os" : "3681977391,2895187935",            "simid" : "4066532325,590484475",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=2384250819,4184826528&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=2384250819,4184826528&fm=214&gp=0.jpg","FromURL":"http:\/\/enjoy.eastday.com\/e\/20151009\/u1ai9057657.html"},{"ObjURL":"http:\/\/img1.cache.netease.com\/catchpic\/7\/7c\/7ca24d2d4c6e4b5e1b4de313342081d1.jpg","FromURL":"http:\/\/news.163.com\/15\/1009\/16\/b5gflu6500014seh.html"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=2384250819,4184826528&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=2384250819,4184826528&fm=27&gp=0.jpg",            "pageNum":3,            "objURL":"http://i2.hexunimg.cn/2015-10-09/179695230.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgjof_z&e3Bijx7g_z&e3Bv54AzdH3Fda8c-8a-alAzdH3F80lmlcddc_z&e3Bip4s",            "fromURLHost":"news.hexun.com","currentIndex":"",            "width":387,            "height":580,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"29366255050",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"傅幸文饰<strong>王秀英<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2384250819,4184826528",            "os" : "3272523354,559101083",            "simid" : "4097656389,652136109",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=3012729116,1862674773&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=3012729116,1862674773&fm=214&gp=0.jpg","FromURL":"http:\/\/qdslyy.qdslyy.cn\/zhuanjia-view.aspx?id=836"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=3012729116,1862674773&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=3012729116,1862674773&fm=27&gp=0.jpg",            "pageNum":4,            "objURL":"http://qdslyy.qdslyy.cn/img/20131119160658.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fq1fsyy_z&e3Bq1fsyy_z&e3BvgAzdH3Fzi7wg3tw-etjo_z&e3Bwfrx?t1=bnm",            "fromURLHost":"qdslyy.qdslyy.cn","currentIndex":"",            "width":500,            "height":700,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"149205850310",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3012729116,1862674773",            "os" : "190241258,3718031627",            "simid" : "3389895783,124421958",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=2691219194,110279301&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=2691219194,110279301&fm=214&gp=0.jpg","FromURL":"http:\/\/i.sodao.com\/u3992151\/photo"},{"ObjURL":"http:\/\/img.130158.com\/uploads\/i_5_2691219194x110279301_23.jpg","FromURL":"http:\/\/sc.tuxi.com.cn\/viewtsg-15-0814-10-8321943_491552505.html"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=2691219194,110279301&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=2691219194,110279301&fm=27&gp=0.jpg",            "pageNum":5,            "objURL":"http://imgcache.mysodao.com/img1/M03/C6/74/CgAPC09t1GvZ1qZFAA79aWvpeLU875_630x0x1.JPG",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Ft_z&e3Bf51w5_z&e3Bv54AzdH3F7nlld8c8AzdH3Ffi5o_z&e3Bip4s?26zy",            "fromURLHost":"i.sodao.com","currentIndex":"",            "width":630,            "height":420,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"65667654360",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2691219194,110279301",            "os" : "1984865587,2331762310",            "simid" : "3412594882,403918424",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=3254501750,2329932211&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=3254501750,2329932211&fm=214&gp=0.jpg","FromURL":"http:\/\/zhidao.baidu.com\/question\/1799524508448063227.html"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=3254501750,2329932211&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=3254501750,2329932211&fm=27&gp=0.jpg",            "pageNum":6,            "objURL":"http://b.hiphotos.baidu.com/zhidao/pic/item/1ad5ad6eddc451da0037693eb1fd5266d1163225.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fzit1w5_z&e3Bkwt17_z&e3Bv54AzdH3Fq7jfpt5gAzdH3F80llcd9cab99bamndd0_z&e3Bip4s",            "fromURLHost":"zhidao.baidu.com","currentIndex":"",            "width":472,            "height":354,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"123103796090",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong>的介绍",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3254501750,2329932211",            "os" : "961583230,2854912813",            "simid" : "3119993484,3812989422",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=2169410441,853359746&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=2169410441,853359746&fm=214&gp=0.jpg","FromURL":"http:\/\/news.iqilu.com\/shandong\/kejiaoshehui\/20180125\/3820513.shtml"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=2169410441,853359746&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=2169410441,853359746&fm=27&gp=0.jpg",            "pageNum":7,            "objURL":"http://img5.iqilu.com/c/u/2018/0125/1516848764483.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgjof_z&e3Btqts7_z&e3Bv54AzdH3Ffiwg15g2AzdH3Fhj3tw5fiji7tAzdH3Fda8ba8dcAzdH3Fnbdac8n_z&e3Bfip4s",            "fromURLHost":"news.iqilu.com","currentIndex":"",            "width":454,            "height":650,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"39020027860",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"2017年度社会化推荐省巾帼建功标兵候选人事迹——<strong>王秀英<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2169410441,853359746",            "os" : "3226322191,3600894376",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=1922657762,187722321&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=1922657762,187722321&fm=214&gp=0.jpg","FromURL":"http:\/\/www.jn-ygdj.com\/jpzd\/1538.jhtml"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=1922657762,187722321&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=1922657762,187722321&fm=27&gp=0.jpg",            "pageNum":8,            "objURL":"http://www.jn-ygdj.com/u/cms/www/201401/2013514172728.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B3g-y213_z&e3Bv54AzdH3F3rz1AzdH3F8cnb_z&e3B3ip4s",            "fromURLHost":"www.jn-ygdj.com","currentIndex":"",            "width":272,            "height":390,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"51097370720",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1922657762,187722321",            "os" : "590519444,3395881474",            "simid" : "3185270115,3727099862",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=3284257656,663116305&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=3284257656,663116305&fm=214&gp=0.jpg","FromURL":"http:\/\/www.cqhsh.cn\/show.php?disp_custom_item_id=4763"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=3284257656,663116305&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=3284257656,663116305&fm=27&gp=0.jpg",            "pageNum":9,            "objURL":"http://www.cqhsh.cn/images/2010070511562461b240.JPG",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bvqifi_z&e3BvgAzdH3Ffi5o_z&e3Brir?1tfr_v7fp54_tpj4_t1=90mn",            "fromURLHost":"www.cqhsh.cn","currentIndex":"",            "width":500,            "height":370,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"56713871060",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"重庆市总工会副主席<strong>王秀英<\/strong>代表市级人民团体致贺词",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3284257656,663116305",            "os" : "3736027072,4000037341",            "simid" : "3573371370,419920444",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=2408832888,2338900850&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=2408832888,2338900850&fm=214&gp=0.jpg","FromURL":"http:\/\/www.51fyj.com\/product\/home\/125.html"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=2408832888,2338900850&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=2408832888,2338900850&fm=27&gp=0.jpg",            "pageNum":10,            "objURL":"http://www.51fyj.com/images/product/125.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bc8uy3_z&e3Bv54AzdH3Fr6517vpAzdH3Fi54jAzdH3F8dc_z&e3Bip4s",            "fromURLHost":"www.51fyj.com","currentIndex":"",            "width":300,            "height":367,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"69667632980",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"照顾半自理<strong>王秀英<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2408832888,2338900850",            "os" : "872827928,275023797",            "simid" : "35715412,535363415",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=3309077722,870912690&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=3309077722,870912690&fm=214&gp=0.jpg","FromURL":"http:\/\/www.wenming.cn\/jingtai\/sbhr_news\/sbhr_zrwl.htm"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=3309077722,870912690&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=3309077722,870912690&fm=27&gp=0.jpg",            "pageNum":11,            "objURL":"http://archive.wenming.cn/jingtai/sbhr_news/5/zrwl/images/A6c5a46e7-8882-4733-9fc0-cf5a0bdcbe0f.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bojg4tg2_z&e3BvgAzdH3F3tg2pwtAzdH3Ffki6_gjofAzdH3Ffki6_z6os_z&e3Bip4",            "fromURLHost":"www.wenming.cn","currentIndex":"",            "width":230,            "height":278,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"119196605550",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"湖北宜昌<strong>王秀英<\/strong>:80岁志愿者真心付出 倾情社区30载",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3309077722,870912690",            "os" : "58878062,3030607125",            "simid" : "3472975493,264943728",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=741564737,560975396&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=741564737,560975396&fm=214&gp=0.jpg","FromURL":"http:\/\/media.workercn.cn\/sites\/media\/ldwb\/2013_10\/16\/GR1501.htm"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=741564737,560975396&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=741564737,560975396&fm=27&gp=0.jpg",            "pageNum":12,            "objURL":"http://media.workercn.cn/sites/media/ldwb/2013_10/16/15/1_b.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F4j1tw_z&e3Bo56hj6vg_z&e3BvgAzdH3FftpjfAzdH3F4j1twAzdH3Fs1okAzdH3Fda8n_8aAzdH3F8mAzdH3FGR8ca8_z&e3Bip4",            "fromURLHost":"media.workercn.cn","currentIndex":"",            "width":400,            "height":302,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"108732664700",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"图中右为<strong>王秀英<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "741564737,560975396",            "os" : "3318976236,437417",            "simid" : "3493790567,203787832",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=2179746451,3966423862&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=2179746451,3966423862&fm=214&gp=0.jpg","FromURL":"http:\/\/sc.tuxi.com.cn\/viewtsg-15-0814-10-8321943_491552505.html"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=2179746451,3966423862&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=2179746451,3966423862&fm=27&gp=0.jpg",            "pageNum":13,            "objURL":"http://fan.cnr.cn/gate/big5/edu.cnr.cn/voe2012/xiaozhang/hd/201203/W020120312574662898072.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Ffv_z&e3Bp7xt_z&e3Bv54_z&e3BvgAzdH3Fetjopf2-8c-ab89-8a-bnd8l9n_9l8ccdcac_z&e3Bip4s",            "fromURLHost":"sc.tuxi.com.cn","currentIndex":"",            "width":500,            "height":350,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"111011867120",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"黄全跃.<strong>王秀英<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2179746451,3966423862",            "os" : "1019554344,38619897",            "simid" : "4217532074,649951649",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=502429639,1177316489&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=502429639,1177316489&fm=214&gp=0.jpg","FromURL":"http:\/\/blog.sina.com.cn\/s\/blog_5f9f30700100usi5.html"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=502429639,1177316489&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=502429639,1177316489&fm=27&gp=0.jpg",            "pageNum":14,            "objURL":"http://s9.sinaimg.cn/middle/5f9f3070xa674a5d22898&690&690",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fks52_z&e3Bftgw_z&e3Bv54_z&e3BvgAzdH3FfAzdH3Fks52_culuna0aa8aa7ftc_z&e3Bip4s",            "fromURLHost":"blog.sina.com.cn","currentIndex":"",            "width":690,            "height":517,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"44515388170",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"昆明知青<strong>王秀英<\/strong>精彩的60岁生日庆典",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "502429639,1177316489",            "os" : "987651180,1000785843",            "simid" : "3529569909,363250041",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=616093994,4098862180&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=616093994,4098862180&fm=214&gp=0.jpg","FromURL":"http:\/\/lactase.cn\/page\/experts\/wangxiuying.php"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=616093994,4098862180&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=616093994,4098862180&fm=27&gp=0.jpg",            "pageNum":15,            "objURL":"http://lactase.cn/page/pics/20140707/201407071404703707957.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fswvpwfj_z&e3BvgAzdH3Frw2jAzdH3Fjxrj6pfAzdH3Fowg2xt7ytg2_z&e3Brir",            "fromURLHost":"lactase.cn","currentIndex":"",            "width":517,            "height":377,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"25423482590",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"> 著名儿科专家<strong>王秀英<\/strong>教授",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "616093994,4098862180",            "os" : "883869501,3575253370",            "simid" : "52484270,760159639",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=1453956666,1356559823&fm=11&gp=0.jpg","adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=1453956666,1356559823&fm=11&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":16,            "objURL":"http://5b0988e595225.cdn.sohucs.com/images/20180515/bc4b5406882f440b90256c0b5c0be2aa.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fp6wejs_z&e3Bf5i7_z&e3Bv54AzdH3Fda8bac8cAzdH3Fgcn000d0dd_z&e3Bfip4s",            "fromURLHost":"travel.sohu.com","currentIndex":"",            "width":597,            "height":398,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"11",            "di":"30391656930",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong>老人(左)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1453956666,1356559823",            "os" : "695404067,1731884188",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=1944281340,668391902&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=1944281340,668391902&fm=214&gp=0.jpg","FromURL":"http:\/\/baike.sogou.com\/h56034056.htm?sp=l76826256"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=1944281340,668391902&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=1944281340,668391902&fm=27&gp=0.jpg",            "pageNum":17,            "objURL":"http://pic.baike.soso.com/p/20131112/20131112170503-937748583.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fkwthj_z&e3Bf5257_z&e3Bv54AzdH3Ficman9acm_z&e3Bip4?fr=s0mbdmdcm",            "fromURLHost":"baike.sogou.com","currentIndex":"",            "width":283,            "height":350,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"50871402670",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1944281340,668391902",            "os" : "483737587,2957320016",            "simid" : "4214213714,773597376",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=3453073851,938528907&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=3453073851,938528907&fm=214&gp=0.jpg","FromURL":"http:\/\/blog.sina.com.cn\/s\/blog_53ce2e4d0100u1ij.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=3453073851,938528907&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=3453073851,938528907&fm=27&gp=0.jpg",            "pageNum":18,            "objURL":"http://s13.sinaimg.cn/middle/53ce2e4dxa623b58e526c&690",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fks52_z&e3Bftgw_z&e3Bv54_z&e3BvgAzdH3FfAzdH3Fks52_cnvjdj91a8aa78t3_z&e3Bip4s",            "fromURLHost":"blog.sina.com.cn","currentIndex":"",            "width":517,            "height":690,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"167703179930",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong>60寿庆活动小记",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3453073851,938528907",            "os" : "1869275684,1426917073",            "simid" : "3621758997,523446159",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=2658512265,975484357&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=2658512265,975484357&fm=214&gp=0.jpg","FromURL":"http:\/\/www.yihu.com\/doctor\/js\/8fd87292fa474bd5b3c2c57ce987c527.shtml"},{"ObjURL":"http:\/\/guahao.16099.net\/upload\/doctor\/20140125094820.jpg","FromURL":"http:\/\/99jkom.com\/guahao\/guahao_doctor.aspx?hospitalid=1&sectionid=51&doctorid=73089&info=all"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=2658512265,975484357&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=2658512265,975484357&fm=27&gp=0.jpg",            "pageNum":19,            "objURL":"http://images.91160.com/upload/doctor/4/doctor_3073_14514023814932.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bl88ma_z&e3Bv54AzdH3F15vp56fAzdH3Ftg1jxAzdH3F15vt1-8aadm8l0c_z&e3Bip4s",            "fromURLHost":"www.91160.com","currentIndex":"",            "width":500,            "height":750,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"135604284750",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2658512265,975484357",            "os" : "151370797,3764574092",            "simid" : "3474724126,251991883",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=3685201490,1584685074&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=3685201490,1584685074&fm=214&gp=0.jpg","FromURL":"http:\/\/blog.sina.com.cn\/s\/blog_53ce2e4d0100u1ij.html"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=3685201490,1584685074&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=3685201490,1584685074&fm=27&gp=0.jpg",            "pageNum":20,            "objURL":"http://s1.sinaimg.cn/middle/53ce2e4dx7703a2d76300&690",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fks52_z&e3Bftgw_z&e3Bv54_z&e3BvgAzdH3FfAzdH3Fks52_cnvjdj91a8aa78t3_z&e3Bip4s",            "fromURLHost":"blog.sina.com.cn","currentIndex":"",            "width":690,            "height":517,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"68026378310",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong>60寿庆活动小记",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3685201490,1584685074",            "os" : "21323000,3978624224",            "simid" : "3482822110,317103344",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=2778318322,3434993967&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=2778318322,3434993967&fm=214&gp=0.jpg","FromURL":"http:\/\/blog.sina.com.cn\/s\/blog_53ce2e4d0100u1ij.html"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=2778318322,3434993967&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=2778318322,3434993967&fm=27&gp=0.jpg",            "pageNum":21,            "objURL":"http://s1.sinaimg.cn/middle/53ce2e4dxa62366abeae0&690",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fks52_z&e3Bftgw_z&e3Bv54_z&e3BvgAzdH3FfAzdH3Fks52_cnvjdj91a8aa78t3_z&e3Bip4s",            "fromURLHost":"blog.sina.com.cn","currentIndex":"",            "width":690,            "height":517,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"88192894020",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong>60寿庆活动小记",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2778318322,3434993967",            "os" : "2727752555,1961526136",            "simid" : "4111408356,601895208",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=1121607259,1049436751&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=1121607259,1049436751&fm=214&gp=0.jpg","FromURL":"http:\/\/blog.sina.com.cn\/s\/blog_4ea119530100jrp8.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=1121607259,1049436751&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=1121607259,1049436751&fm=27&gp=0.jpg",            "pageNum":22,            "objURL":"http://s11.sinaimg.cn/middle/4ea11953t8a5ee6585caa&690",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fks52_z&e3Bftgw_z&e3Bv54_z&e3BvgAzdH3FfAzdH3Fks52_9jw88lcna8aa36rb_z&e3Bip4s",            "fromURLHost":"blog.sina.com.cn","currentIndex":"",            "width":504,            "height":690,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"5321804400",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"河北梆子三号选手<strong>王秀英<\/strong>演唱《狸猫换太子》",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1121607259,1049436751",            "os" : "2518853143,1618248512",            "simid" : "3444599724,293850606",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=1716249919,2199061945&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=1716249919,2199061945&fm=214&gp=0.jpg","FromURL":"http:\/\/joymother.com\/bmdetail-1311.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=1716249919,2199061945&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=1716249919,2199061945&fm=27&gp=0.jpg",            "pageNum":23,            "objURL":"http://joymother.com/public/uploads/20140711/b_53bf91373a66c.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F35y45pij6_z&e3Bv54AzdH3Fk41jpwts-8n88_z&e3Bip4s",            "fromURLHost":"joymother.com","currentIndex":"",            "width":600,            "height":800,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"111792072810",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1716249919,2199061945",            "os" : "3850819687,734102116",            "simid" : "3396158562,468398854",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=271121780,527051286&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=271121780,527051286&fm=214&gp=0.jpg","FromURL":"http:\/\/www.bjdaban.com\/Archives\/IndexArchives\/index\/a_id\/21750.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=271121780,527051286&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=271121780,527051286&fm=27&gp=0.jpg",            "pageNum":24,            "objURL":"http://www.bjdaban.com/upload/other/image/20161212148151332077.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bk31wkwg_z&e3Bv54AzdH3FA6vitejfAzdH3FIg1jxA6vitejfAzdH3Ftg1jxAzdH3Fw_t1AzdH3Fd80ca_z&e3Bip4s",            "fromURLHost":"www.bjdaban.com","currentIndex":"",            "width":2000,            "height":1500,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"57286455160",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "271121780,527051286",            "os" : "3403361268,812732101",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=1103771455,2583470360&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=1103771455,2583470360&fm=214&gp=0.jpg","FromURL":"http:\/\/blog.sina.com.cn\/s\/blog_53ce2e4d0100u1ij.html"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=1103771455,2583470360&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=1103771455,2583470360&fm=27&gp=0.jpg",            "pageNum":25,            "objURL":"http://s7.sinaimg.cn/middle/53ce2e4dxa613caf85526&690",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fks52_z&e3Bftgw_z&e3Bv54_z&e3BvgAzdH3FfAzdH3Fks52_cnvjdj91a8aa78t3_z&e3Bip4s",            "fromURLHost":"blog.sina.com.cn","currentIndex":"",            "width":690,            "height":552,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"124533813030",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>王秀英<\/strong>60寿庆活动小记",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1103771455,2583470360",            "os" : "1605431052,665352372",            "simid" : "4240430542,745393229",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=2129388696,506511150&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=2129388696,506511150&fm=214&gp=0.jpg","FromURL":"http:\/\/xwzx.cqupt.edu.cn\/xwzx.\/news.php?id=9428"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=2129388696,506511150&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=2129388696,506511150&fm=27&gp=0.jpg",            "pageNum":26,            "objURL":"http://xwzx.cqupt.edu.cn/xwzx/upload/201101/20110114172404311_s.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fxozx_z&e3Bvq7rp_z&e3Bj17_z&e3BvgAzdH3Fxozx_z&e3BAzdH3Fgjof_z&e3Brir?t1=l9db",            "fromURLHost":"xwzx.cqupt.edu.cn","currentIndex":"",            "width":500,            "height":356,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"182548763980",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"重庆市总工会副主席<strong>王秀英<\/strong>在学校2010年工会工作年会上讲话",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2129388696,506511150",            "os" : "2755013289,1553308084",            "simid" : "3458628061,481373854",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=32099241,178591280&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=32099241,178591280&fm=214&gp=0.jpg","FromURL":"http:\/\/ylxf.yn.gov.cn\/Html\/News\/2016\/12\/9\/194357.html"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=32099241,178591280&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=32099241,178591280&fm=27&gp=0.jpg",            "pageNum":27,            "objURL":"http://ylxf.yn.gov.cn/Uploads/NewsPhoto/2016-12-09/a1fbda08-605c-47d1-a5ec-eb9ff6bae8f0_m.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fysxu_z&e3Byg_z&e3B25e_z&e3BvgAzdH3FHp4sAzdH3FNjofAzdH3Fda8mAzdH3F8dAzdH3FlAzdH3F8l9nc0_z&e3Bip4s",            "fromURLHost":"ylxf.yn.gov.cn","currentIndex":"",            "width":686,            "height":483,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"83317792690",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"落泪的<strong>王秀英<\/strong>:\"石宏真的回不来了!\"",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "32099241,178591280",            "os" : "4168156016,3647648450",            "simid" : "3012174478,3746487034",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=2914156335,3062223856&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=2914156335,3062223856&fm=214&gp=0.jpg","FromURL":"http:\/\/baby.bao-jian.net\/ertong-hhbjvvbwj.htm"},{"ObjURL":"http:\/\/sichuan.scol.com.cn\/zgxw\/img\/attachement\/jpg\/site2\/20130130\/f04da22e38dc1272d1572c.jpg","FromURL":"http:\/\/www.baiyundou.net\/ji-1497951770387445739.html"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=2914156335,3062223856&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=2914156335,3062223856&fm=27&gp=0.jpg",            "pageNum":28,            "objURL":"http://sichuan.scol.com.cn/zgxw/img/attachement/jpg/site2/20130130/f04da22e38dc1272d1572c.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fftvi7wg_z&e3Bfv5s_z&e3Bv54_z&e3BvgAzdH3Fz2xoAzdH3Fv5gpjgpAzdH3Fda8n-a8AzdH3FnaAzdH3Fv5gpjgp_9m0cddd_z&e3Bip4",            "fromURLHost":"sichuan.scol.com.cn","currentIndex":"",            "width":450,            "height":302,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"198085358790",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"市总工会组织民管部部长<strong>王秀英<\/strong>发表讲话",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2914156335,3062223856",            "os" : "3435467347,2306519077",            "simid" : "4155918499,476492355",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=2063192514,1252626073&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=2063192514,1252626073&fm=214&gp=0.jpg","FromURL":"http:\/\/www.tvzn.com\/6102\/role\/144920.html"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=2063192514,1252626073&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=2063192514,1252626073&fm=27&gp=0.jpg",            "pageNum":29,            "objURL":"http://i3.sinaimg.cn/ent/v/2009-04-21/U3461P28T3D2484507F346DT20090421172921.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bpezg_z&e3Bv54AzdH3Fm8adAzdH3F65sjAzdH3F899lda_z&e3Bip4s",            "fromURLHost":"www.tvzn.com","currentIndex":"",            "width":550,            "height":405,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"57305083880",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"晚婚 <strong>王秀英<\/strong>扮演者王玉梅",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2063192514,1252626073",            "os" : "2153570065,3573715259",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{}]}
+);
+    app.setData('fcadData', {"fcData":[],"fcMidData":[],"fcBtData":[],"fcType":"","adType":0,"fcAdDatasLen":"0"}
+);
+    app.setData('xgMidData', {"xgMidData":[],"xgMidDataLen":"0"});
+    app.setData('rpData', {"data": []});
+    app.setData('fsData', {    "result" :{ "StdStg": 91, "StdStl": 1, "_update_time": "1504940891", "loc": "http:\/\/baike.baidu.com\/4440367", "lastmod": "2017-09-09", "changefreq": "always", "priority": "1.0", "name": "王秀英", "original_name": "王秀英", "name_info": { "@text": "", "@attr": { "name": "王秀英", "original_name": "王秀英", "url": "http:\/\/baike.baidu.com\/item\/%E7%8E%8B%E7%A7%80%E8%8B%B1\/4440367?fr=aladdin", "totalurl": "http:\/\/baike.baidu.com\/item\/%E7%8E%8B%E7%A7%80%E8%8B%B1?force=1&fr=aladdin", "determiner": "感动威海十佳人物" } }, "sublemmaid": "5855497", "new_id": "4440367", "pic": "http:\/\/imgsrc.baidu.com\/baike\/pic\/item\/dc854fdacbfd4395b6fd48a1.jpg", "pic_width": "353", "pic_height": "500", "keytype": "people", "field": { "@text": "", "@attr": { "name": "生日：", "value": "1921年10月" } }, "content": "王秀英，女，1921年10月出生，环翠区鲸园办事处东山居委会居民。", "link": [ { "@text": "", "@attr": { "txt": "简介", "url": "#1" } }, { "@text": "", "@attr": { "txt": "生平", "url": "#2" } } ], "link#num#baidu": 2, "tip": { "@text": "", "@attr": { "horizontal": "false", "isSquare": "false", "noStructure": "false" } }, "original_url": "http:\/\/baike.baidu.com\/item\/%E7%8E%8B%E7%A7%80%E8%8B%B1\/4440367", "card_kv": [ { "@text": "", "@attr": { "key": "中文名", "value": "王秀英" } }, { "@text": "", "@attr": { "key": "国籍", "value": "中国" } }, { "@text": "", "@attr": { "key": "出生日期", "value": "1921年10月" } }, { "@text": "", "@attr": { "key": "性别", "value": "女" } } ], "card_kv#num#baidu": 4, "album_url": "http:\/\/baike.baidu.com\/album\/320415\/5855497?fr=alading", "pic_in_album_url": "http:\/\/baike.baidu.com\/picture\/320415\/5855497\/0\/dc854fdacbfd4395b6fd48a1?fr=alading", "showurl": "baike.baidu.com\/", "date": "2011-05-24", "newpic1": "http:\/\/t10.baidu.com\/it\/u=2759177955,3720687727&fm=58&u_exp_0=2453573020,3634888091&fm_exp_0=86&bpow=353&bpoh=500", "newpic2": "http:\/\/t10.baidu.com\/it\/u=2759177955,3720687727&fm=58&u_exp_0=2453573020,3634888091&fm_exp_0=86&bpow=353&bpoh=500", "newpic3": "http:\/\/t10.baidu.com\/it\/u=2759177955,3720687727&fm=58&u_exp_0=2453573020,3634888091&fm_exp_0=86&bpow=353&bpoh=500", "SiteId": 2003041, "_version": 1504940878, "_select_time": 1504940878 },    "link" : "http:\/\/imgsrc.baidu.com\/baike\/pic\/item\/dc854fdacbfd4395b6fd48a1.jpg"});
+    app.setData('browserRsData', {    "Status" : "0",    "query" : "",    "desc" : "",    "id" : "",    "photos" :[]}
+);
+    app.setData('rsQuery', [["凌迟周秀英", "%C1%E8%B3%D9%D6%DC%D0%E3%D3%A2", "0", "0"],["萧俊贤", "%CF%F4%BF%A1%CF%CD", "0", "0"],["周江波", "%D6%DC%BD%AD%B2%A8", "0", "0"],["韦秀英", "%CE%A4%D0%E3%D3%A2", "0", "0"],["萧燕燕", "%CF%F4%D1%E0%D1%E0", "0", "0"],["周秀英", "%D6%DC%D0%E3%D3%A2", "0", "0"],["杨秀英", "%D1%EE%D0%E3%D3%A2", "0", "0"],["舒巧周秀英", "%CA%E6%C7%C9%D6%DC%D0%E3%D3%A2", "0", "0"],["萧凤霞", "%CF%F4%B7%EF%CF%BC", "0", "0"],["许秀英", "%D0%ED%D0%E3%D3%A2", "0", "0"],["周嘉宁", "%D6%DC%BC%CE%C4%FE", "0", "0"]]);
+    app.setData('hotWords', [{            "query": "重庆4.8级地震",            "flag": "重庆4.8级地震",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%87%8D%E5%BA%864.8%E7%BA%A7%E5%9C%B0%E9%9C%87",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "内蒙古现罕见日柱",            "flag": "内蒙古现罕见日柱",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%86%85%E8%92%99%E5%8F%A4%E7%8E%B0%E7%BD%95%E8%A7%81%E6%97%A5%E6%9F%B1",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "女歌手本兮22岁逝世",            "flag": "女歌手本兮22岁逝世",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%A5%B3%E6%AD%8C%E6%89%8B%E6%9C%AC%E5%85%AE22%E5%B2%81%E9%80%9D%E4%B8%96",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "蒋劲夫托举佟丽娅",            "flag": "蒋劲夫托举佟丽娅",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E8%92%8B%E5%8A%B2%E5%A4%AB%E6%89%98%E4%B8%BE%E4%BD%9F%E4%B8%BD%E5%A8%85",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "打工钱被咬成碎片",            "flag": "打工钱被咬成碎片",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%89%93%E5%B7%A5%E9%92%B1%E8%A2%AB%E5%92%AC%E6%88%90%E7%A2%8E%E7%89%87",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "村民发现奇石似飞碟",            "flag": "村民发现奇石似飞碟",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%9D%91%E6%B0%91%E5%8F%91%E7%8E%B0%E5%A5%87%E7%9F%B3%E4%BC%BC%E9%A3%9E%E7%A2%9F",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "环卫夫妻身高不足一米四",            "flag": "环卫夫妻身高不足一米四",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E7%8E%AF%E5%8D%AB%E5%A4%AB%E5%A6%BB%E8%BA%AB%E9%AB%98%E4%B8%8D%E8%B6%B3%E4%B8%80%E7%B1%B3%E5%9B%9B",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "沙滩现巨大黑色怪物",            "flag": "沙滩现巨大黑色怪物",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%B2%99%E6%BB%A9%E7%8E%B0%E5%B7%A8%E5%A4%A7%E9%BB%91%E8%89%B2%E6%80%AA%E7%89%A9",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "黄子韬搂何炅",            "flag": "黄子韬搂何炅",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%BB%84%E5%AD%90%E9%9F%AC%E6%90%82%E4%BD%95%E7%82%85",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "2016nba圣诞大战",            "flag": "2016nba圣诞大战",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=2016nba%E5%9C%A3%E8%AF%9E%E5%A4%A7%E6%88%98",            "hot": "0",            "fromurl": "",            "photos": []        }]);
+        app.init();
+    app.run();
+    });
+    }();
+!function(){    require.async(['common:widget/ui/monitorRequest/monitorRequest'],function(monitorRequest){
+	var userid = "";
+	var q = "%E7%8E%8B%E7%A7%80%E8%8B%B1";
+	var tn = "result";
+	var host = "//imgstat.baidu.com/4.gif";
+	var hostSweb = "//image.baidu.com/pv/pv2.gif";
+    var rsw = "";
+    if(location.href !== document.referrer && document.referrer != ""){
+        rsw = "&rs=";
+    }
+    else{
+        rsw = '';
+    }
+    var samplekey = window.samplekey || '';
+    var img = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    monitorRequest( host + "?logid=8731449414330035539&ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=result_pullface.page&fr=ala" + rsw);
+    var imgSweb = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    imgSweb.src = hostSweb + "?ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=&fr=ala" + rsw + '&' + new Date() * Math.random();
+    });
+}();
+!function(){    require.async(["common:widget/ui/fmCheck/fmCheck"],function(fmCheck){
+        fmCheck.init();
+    });
+}();
+!function(){require.async(['common:widget/ui/base/base'], function($) {
+    var userFrom = '';
+
+    var elem = document.createElement('a');
+    elem.href = document.referrer;
+    var hostname = elem['hostname'];
+    var urlfr = 'ala';
+    var chenjin = '';
+    var urlword = '%CD%F5%D0%E3%D3%A2';
+
+    if (hostname !== 'image.baidu.com') {
+        if (urlfr) {
+            userFrom += urlfr;
+            if (chenjin === '1') {
+                userFrom += 'chenjin1';
+            } else if (chenjin === '0') {
+                var wordList = ["%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8%E5%9B%BE%E7%89%87",
+                    "%E5%A4%B4%E5%83%8F",
+                    "%E5%A4%B4%E5%83%8F%E5%9B%BE%E7%89%87"];
+                if (wordList.indexOf(urlword) >= 0) {
+                    userFrom += 'chenjin0';
+                }
+            }
+        } else {
+            userFrom = hostname;
+        }
+    } else {
+        userFrom = $.cookie('userFrom') || '';
+    }
+
+    if (userFrom.length > 0) {
+        var date = new Date();
+        date.setTime(date.getTime() + (10 * 60 * 1000));
+        $.cookie('userFrom', userFrom, {path: '/', expires: date, domain: '.baidu.com'});
+    } else {
+        $.cookie('userFrom', null, {path: '/', domain: '.baidu.com'});
+    }
+});
+}();
+!function(){            require.async(["common:widget/ui/durationStat/durationStat"],function(durationStat){
+            durationStat.heartStart({
+                pageId: 2 - 0,
+                sid: 'a534d80978556660e202d96fdc10e60fc6189e3c',
+                cs: '',
+                word: '王秀英'
+            });
+        });
+    }();</script>   </html> <!--14968959480609647370060218-->
+<script> var _trace_page_logid = 1496895948; </script><!--14968941330610565130060218-->
+<script> var _trace_page_logid = 1496894133; </script>

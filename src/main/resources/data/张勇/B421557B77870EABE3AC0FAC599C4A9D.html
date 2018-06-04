@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>张勇__当代艺术家_艺高高artgogo艺术网</title>
+<link href="/css/201405/base.css" rel="stylesheet" />
+<link href="/css/201405/new.css" rel="stylesheet" />
+<link href="/css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+<script src="/js/jquery-1.9.1.js"></script>
+<script src="/201405/all.js"></script>
+<script>
+var artist_gid='1017870';
+var artist_id='230';
+var art_id='1017870';
+var is_print='原作';//表示原作	是：表示版画
+//增加艺术家的浏览数
+random=Math.random();
+jQuery.get("/auction/item_view.php", { item_id: artist_gid, type: 'add' ,random: random} );	
+
+$(function(){
+
+var tabtype='';
+var page=1;
+//ajax读取艺术品
+
+loadS('artistinsert');//评论
+loadComment(art_id,"artist","pl_list");//评论显示
+
+$('.tabtip li').each(function(){
+//if(tabtype==$(this).attr('id')){
+//	$(this).addClass('on');
+//}
+
+
+$(this).mouseover(function(){
+if(tabtype!=$(this).attr('id')){
+tabtype=$(this).attr('id');
+page=1;//更换选项卡时page重置为1
+
+ajax(tabtype,is_print);
+
+}
+
+});
+
+});
+
+//定义查询艺术品的函数
+//tabtype	查询的选项： keshou,zhanshi,yishou,yuzhan
+function ajax(tabtype,is_print){
+//alert(tabtype);
+
+$.ajax({
+type:'POST',
+dataType:'json',
+async:false,
+url:'/yishujia/ajax_search.shtml?artist_id='+encodeURI(artist_id)+'&artist_gid='+encodeURI(artist_gid)+'&page='+encodeURI(page)+'&tabtype='+tabtype+'&is_print='+encodeURI(is_print),
+success:function(data){
+//alert(data.html);
+$('.print_count').html('（'+data.total_top_kuan+'款 '+data.total_print_top+'张）');
+$('.yuan_count').html('（'+data.total_top+'张）');
+$('.page').html(data.pagehtml);
+
+if(is_print=='版画'){
+
+if(tabtype=='all' || tabtype==''){
+$('#new_artist_con_main_1').html(data.html);
+$('#all').html('全部版画('+data.count+'款'+data.count_all+'张)');
+}else if(tabtype=='keshou'){
+$('#new_artist_con_main_2').html(data.html);
+$('#keshou').html('可售版画('+data.count+'款'+data.count_all+'张)');
+}else if(tabtype=='zhanshi'){
+$('#new_artist_con_main_3').html(data.html);
+$('#zhanshi').html('展示版画('+data.count+'款'+data.count_all+'张)');
+}else if(tabtype=='yishou'){
+$('#new_artist_con_main_4').html(data.html);
+$('#yishou').html('已售出版画('+data.total_yishou+'款'+data.count_all+'张)');
+}else if(tabtype=='yuzhan'){
+//$('#new_artist_con_main_5').html(data.html);
+$('#new_artist_con_main_5').hide();
+//$('#yuzhan').html('预展版画('+data.count+'款'+data.count_all+'张)');
+$('#yuzhan').hide();
+}
+}else{
+
+if(tabtype=='all' || tabtype==''){
+$('#new_artist_con_main_1').html(data.html);
+$('#all').children('.count').html(data.count+'张');
+}else if(tabtype=='keshou'){
+$('#new_artist_con_main_2').html(data.html);
+$('#keshou').children('.count').html(data.count+'张');
+}else if(tabtype=='zhanshi'){
+$('#new_artist_con_main_3').html(data.html);
+$('#zhanshi').children('.count').html(data.count+'张');
+}else if(tabtype=='yishou'){
+$('#new_artist_con_main_4').html(data.html);
+$('#yishou').children('.count').html(data.count+'张');
+}else if(tabtype=='yuzhan'){
+$('#new_artist_con_main_5').html(data.html);
+$('#yuzhan').children('.count').html(data.count+'张');
+}
+}
+
+
+
+
+//$('.page').after(data.sql_art+'<br>');
+attention();//载入关注信息
+}
+
+
+});
+}
+
+
+//开始载入艺术品
+ajax('zhanshi',is_print);
+ajax('yishou',is_print);
+ajax('yuzhan',is_print);
+ajax('keshou',is_print);
+ajax('all',is_print);
+
+//点击第几页传入页码查询
+$('.page span a').live('click',function(){
+
+page=$(this).html();
+//page_href=$(this).parents('.page').find('.page_href').val();
+
+if(page=='确定'){// 跳页
+page=$(this).parents('.page').find('.select_page').val();
+//alert(page);
+//var url=" http://www.artgogo.com"+page_href+"?page="+page;
+}
+//alert(page);
+ajax(tabtype,is_print);
+});
+
+$('.page .prev').live('click',function(){
+page=$(this).attr('value');
+//alert(page);
+
+ajax(tabtype,is_print);
+
+});
+
+//筛选条件
+function is_print_list(){
+$('.is_print li').each(function(){
+var is_print_val=$(this).attr('val');
+
+if(is_print=='版画'){
+//$(this).addClass('on');
+$('.print_2').addClass('li2');
+}else{
+$('.print_1').addClass('li1');
+}
+
+$(this).click(function(){
+//$('.is_print li span').each(function(){
+//	$(this).removeClass('on');
+//});
+//$(this).addClass('on');
+
+is_print=is_print_val;
+//alert(is_print);
+var url="/yishujia/search.shtml?gid="+artist_gid+"&is_print="+is_print+"#sou";
+window.location.href=url;
+//载入艺术品列表
+/*ajax('zhanshi',is_print);
+ajax('yishou',is_print);
+ajax('yuzhan',is_print);
+ajax('keshou',is_print);
+ajax('all',is_print);*/
+});
+});
+}
+is_print_list();
+
+});
+
+</script>
+</head>
+
+<body>
+ <link type="text/css" rel="stylesheet" href="/css/201405/headIndex.css" /> 
+<style>
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+
+    .useage_mask{
+        display: none;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+        opacity: 0.6;
+        filter: alpha(opacity=0.6);
+        position: fixed;
+        top: 0;
+        left:0;
+        z-index:10003;
+    }
+    
+    #useage_wrap.useage_show{
+        display: none;
+    }
+
+    #useage_wrap{
+        display:none;
+        /*width:58.63%;*/
+        width: 1116px;
+        height:690px; 
+        /*height: 65.68%;*/
+        background: #fff;
+        z-index:10009; 
+        position: absolute; 
+        margin:auto;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+    }
+
+    #useage_wrap h1{
+        width: 100%;
+        box-sizing: border-box;
+        height: 44px;
+        background: #f3f3f3;
+        line-height:44px;
+        padding-left: 24px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .menu_box{
+        width: 100%;
+        height: 96px;
+        /*height: 13.91%;*/
+        background: #fff;
+        position: absolute;
+        bottom:0;
+        left:0;
+        /*z-index: 1001;*/
+        background: #fff;
+    }
+  
+    .menu_box .menu{
+        margin:12px auto;
+        width: 38.53%;
+        height: 56.25%;
+    }
+
+    .menu_box a{
+        display:inline-block;
+        width:45%;
+        height:55px;
+        /*height:100%;*/
+        text-align: center;
+        line-height:55px;
+        color:#fff;
+        font-size: 16px;
+    } 
+
+    .text_con{
+        box-sizing: border-box;
+        padding-right: 24px;
+        /*width: 1074px;*/
+        width: 95.23%;
+        height: 506px;
+        /*height:80%;*/
+        margin-left:24px;
+        overflow-y: scroll;
+        margin-top:28px;
+    }
+
+    .text_con p{
+        color:#050505;
+        line-height: 22px;
+        font-size: 16px;
+        font-family: "微软雅黑";
+    }
+    .menu_box .menu .refuse{
+        background: #e3e4e6;
+        color:#8d8d8d;
+        /*margin-right: 25px;*/
+        margin-right: 5.8%;
+    }
+
+
+    .menu_box .menu .agree{
+        background: #ef2324;
+        color:#fff;
+    }
+</style>
+<!--div class="top_1"></div-->
+<div class="top_2">
+    <div class="top_2_top">
+
+        <div class="top_2_left">
+            <!--ul>
+               <li> <a href="/center/main.php">artgogo</a></li>
+               <li>|</li>
+               <li><a href="/center/logout.php">退出</a></li>
+            </ul-->
+        </div>
+        <!--<div class="top_2_left">
+            <ul>
+               <li class="h_icon_1"><a href="/login.shtml">登录</a></li>
+               <li>|</li>
+               <li><a href="/center/register.php">快速注册</a></li>
+            </ul>
+        </div>-->
+        <!--<script src="/201405/checkuser.js"></script>-->
+        <div class="top_2_right">
+            <ul>
+                <li>
+                    <a href="/center/buyer_center/my_order.php">我的订单</a>
+                </li>
+                <li>|</li>
+                <li class="h_icon_bur_car">
+                    <a href="/banhua/cart.php">
+                        购物车 <span class='head_cart'>0</span> 件
+                    </a>
+                </li>
+                <li>|</li>
+                <li class="h_icon_phone">
+                    <span>客服电话：021-62227736</span>
+                </li>
+                <!--li>|</li>
+                <li>
+                    <img src="/img/201405/header_03.png">
+                    <a href="http://m.artgogo.com/">手机版本</a>
+                </li-->
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div class="top_main">
+<div class="top_main_left">
+<a class="h-logo" href="/" style="background-position: 8px -63px;"></a>
+</div>
+    <div class="top_main_main">
+        <div class="sreach-new" style="position: relative;">
+        <input type="text" class="textsousuo" id="search_enter" value="Search...." style="">
+        <input type="button" class="sreach_button" style="margin:0;" value="搜 索">
+        </div>
+        <div class="top_main_bottom">
+             <ul>
+                 <li><a href="/yishujia/zhouchunya_1020534.shtml">周春芽</a></li>
+                 <li>|</li>
+                 <li><a href="/yishujia/panyuliang_1057830.shtml">潘玉良</a></li>
+                 <li>|</li>
+                 <li><a href="/banhua/list.php">版画</a></li>
+             </ul>
+        </div>
+        <div class="clear"></div>
+
+
+        <div class="search_suoyin" style="display:none;">
+            <!--<div class="clear"></div>
+            <ul>
+                <li>艺术品搜索结果：</li>
+                <li><a href="">假面騎士</a></li>
+            </ul>
+
+            <ul>
+                <li>艺术家搜索结果：</li>
+                <li><a class="myxgxx" style="color:#ccc" href="">未搜索到相关信息</a></li>
+            </ul>
+
+            <ul>
+                <li>店铺搜索结果：</li>
+                <li><a href="">假面騎士</a></li>
+            </ul>-->
+        </div>
+
+
+    </div>
+    <div class="top_main_right">
+        <a href="/center/seller_manage/publish/" id="top_up_click"><span>上传作品</span></a>
+    </div>
+
+</div>
+<div style="clear: both;"></div>
+<div class="nav">
+    <div class="nav_1">
+        <div class="nav_box">
+            <ul class='quickview'>
+                <li><a href="/">首页</a></li>
+                <li class="art">
+                    <a class="h_icon_sanjiao"  href="/yishupin">艺术品</a>
+                    <div attr='bd' class="art_list" style="display: none;">
+                    <ul>
+<li><a style="color:#F00" href="http://www.artgogo.com/yishupin/?page=1&show_people=%E6%98%AF">万人展作品</a></li>
+                    <li><a href="/banhua/list.php">版画</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=艺术衍生品">艺术衍生品</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=油画">油画</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=丙烯">丙烯</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=国画">国画</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=综合材料">综合材料</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=摄影">摄影</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=雕塑">雕塑</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=装置">装置</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=水彩">水彩</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=素描">素描</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=插画">插画</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=书法">书法</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=数码绘图">数码绘图</a></li>
+                    <li><a href="/yishupin/?page=1&pinlei=其他">其他</a></li>
+                    </ul>
+                    </div>
+                </li>
+                <!--<li><a href="/banhua/">版画世界</a></li>-->
+                <li><a href="/yishujia/">艺术家</a></li>
+                <li><a href="/shop/index.php">艺术机构</a></li>
+                <li>
+                    <a class="h_icon_sanjiao" href="http://www.artgogo.com/as/wrz_hd_list.shtml">万人展</a>
+                    <div attr='bd' class="erji_l" style="display:none;">
+                         <ul>
+<li><a href="http://www.artgogo.com/as/wrz_hd_list.shtml">万人展专题</a></li>
+                             <li><a href="/huodong/">活动展销</a></li>
+                             <li><a href="/jinggou/">竞购秀</a></li>
+                         </ul>
+                    </div>
+                </li>
+
+
+                <li class="art_esp">
+                    <a  class="h_icon_sanjiao" href="javascript:void(0);">特色频道</a>
+                    <div attr='bd' class="art_esp_list" style="display:none;">
+                    <ul>
+                    <li><a href="/ag/zixun_list.shtml">艺术资讯</a></li>
+                    <li><a href="/ysbk/ysbk_list.shtml">艺术百科</a></li>
+                    <li><a href="/video/zishuozihua/">自说自“画”</a></li>
+                    <li><a href="/video/artgogo-video/">artgogo那点事</a></li>
+                    <!--li><a href="/museum">3D空间秀</a></li-->
+                    <li><a href="/yishupin?agg_channel=%E5%A4%8F%E5%8A%A0%E5%84%BF">万人展kids</a></li>
+                    </ul>
+                    </div>
+                </li>
+            </ul>
+            <div class="nav_right">
+                <ol>
+                    <li  class="h_icon_fangwei" >
+                        <a href="/media/news/content_69.shtml">独家防伪标</a>
+                    </li>
+                    <!--<li class="h_icon_qq" style="padding-left: 12px;">
+                        <a target='_blank' href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4008566108&aty=0&a=0&curl=&ty=1" style="line-height: 26px;">在线客服</a>
+                    </li >-->
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 广告位开始  -->
+<div class="swiper-container" id="ads_area" style="display:none;">
+  <div class="swiper-wrapper" id="ads_list">
+
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+<!-- 广告位结束  -->
+<!-- 使用条款弹框 -->
+<div class="useage_mask"></div>
+<div id="useage_wrap">
+            <h1>artgogo艺高高用户法律条款</h1>
+            <div class="text_con">
+            <p>artgogo艺高高用户法律条款</p>
+            <p>2017/12/15</p>
+            <p>1,artgogo艺高高免责声明</p>
+            <p>2,artgogo艺高高与浏览用户（仅限浏览权限）的服务协议</p>
+            <p>3,artgogo艺高高店家准则</p>
+            <p>4,artgogo艺高高店家交易规则协议</p>
+            <p>artgogo艺高高免责声明</p>
+            <p> artgogo艺高高平台所收集或转载的部分公开资料来源于互联网，转载的目的在于传递更多信息及用于网络分享，并不代表本站赞同其观点和对其真实性负责，也不为其版权负责，不承担用户或任何人士就浏览网站所提供的信息或任何链接所引致的任何直接、间接、附带、从属、特殊、惩罚性或惩戒性的损害赔偿。
+            </p>
+            <p>本站部分作品是由网友自主投稿和发布、编辑整理上传，对此类作品本站仅提供交流平台，不为其版权负责。</p>
+            <p>如果您发现网站上有侵犯您的知识产权的内容，请与我们取得联系,service@artgogo.com，我们会及时修改或删除。</p>
+            <p>artgogo艺高高与浏览用户（仅限浏览权限）的服务协议</p>
+            <p>artgogo艺高高提醒您：在使用artgogo艺高高平台各项服务前，请您务必仔细阅读并透彻理解本声明。您可以选择不使用artgogo艺高高平台服务，但如果您使用artgogo艺高高平台服务，您的使用行为将被视为对本声明全部内容的认可。“artgogo艺高高平台”指由上海龙彩信息科技有限公司（简称“artgogo艺高高”）运营的网络交易平台，域名为artgogo.com以及artgogo艺高高启用的其他域名。</p>
+            <p>鉴于artgogo艺高高提供的服务属于电子公告牌（BBS）服务，artgogo艺高高平台上关于artgogo艺高高平台会员或其发布的相关商品（包括但不限于店铺名称、公司名称、 联系人及联络信息，产品的描述和说明，相关图片、视讯等）的信息均由会员自行提供，会员依法应对其提供的任何信息承担全部责任。</p>
+            <p>任何单位或个人认为artgogo艺高高平台网页内容（包括但不限于artgogo艺高高平台会员发布的商品信息）可能涉嫌侵犯其合法权益，应该及时向artgogo艺高高提出书面权利通知，并提供身份证明、权属证明、具体链接（URL）及详细侵权情况证明。artgogo艺高高在收到上述法律文件后，将会依法尽快移除相关涉嫌侵权的内容。</p>
+            <p>artgogo艺高高平台转载作品（包括论坛内容）出于传递更多信息之目的，并不意味artgogo艺高高（包括artgogo艺高高关联企业）赞同其观点或证实其内容的真实性。artgogo艺高高尊重合法版权，反对侵权盗版。若本网有部分文字、摄影作品等侵害了您的权益，在此深表歉意，请您立即将侵权链接及侵权信息邮件至我们的版权投诉邮箱：service@artgogo.com，我们会尽快与您联系并解决。</p>
+            <p>知识产权声明</p>
+            <p>artgogo艺高高拥有artgogo艺高高平台网站内所有信息内容（除artgogo艺高高平台会员发布的商品信息外，包括但不限于文字、图片、软件、音频、视频）的版权。</p>
+            <p>任何被授权的浏览、复制、打印和传播属于artgogo艺高高平台网站内信息内容都不得用于商业目的且所有信息内容及其任何部分的使用都必须包括此版权声明；</p>
+            <p>artgogo艺高高平台所有的产品、技术与所有程序均属于artgogo艺高高知识产权。“artgogo”、“艺高高”“artgogo艺高高”以及artgogo艺高高其他产品服务名称及相关图形、标识等为artgogo艺高高的注册商标。未经artgogo艺高高许可，任何人不得擅自（包括但不限于：以非法的方式复制、传播、展示、镜像、上传、下载）使用。否则，artgogo艺高高将依法追究法律责任。</p>
+            <p>隐私权政策</p>
+            <p>artgogo艺高高尊重并保护所有使用artgogo艺高高平台服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，artgogo艺高高会按照本隐私权政策的规定使用和披露您的个人信息。但artgogo艺高高将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，artgogo艺高高不会将这些信息对外披露或向第三方提供。artgogo艺高高会不时更新本隐私权政策。 您在同意artgogo艺高高服务协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于artgogo艺高高服务协议不可分割的一部分。</p>
+            <p>1. 适用范围</p>
+            <p>a） 在您注册或激活可以登录artgogo艺高高平台的账户时，您在artgogo艺高高平台提供的个人注册信息（应法律法规要求需公示的企业名称等相关工商注册信息以及自然人经营者的信息除外）；</p>
+            <p>b） 在您使用artgogo艺高高平台服务，或访问artgogo艺高高平台网页时，artgogo艺高高自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；</p>
+            <p>c） artgogo艺高高通过合法途径从商业伙伴处取得的用户个人数据。
+            </p>
+            <p>您了解并同意，以下信息不适用本隐私权政策：</p>
+            <p>a）您在使用artgogo艺高高平台提供的搜索服务时输入的关键字信息；</p>
+            <p>b）您在使用“购买”、“议价”和/或“评论”功能时，artgogo艺高高收集到的您在artgogo艺高高进行交易的有关数据，包括但不限于出价、成交信息及评论详情；</p>
+            <p>c）信用评价、违反法律规定或违反artgogo艺高高规则行为及artgogo艺高高已对您采取的措施。</p>
+            <p>2. 信息使用</p>
+            <p>a) artgogo艺高高不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和artgogo艺高高（含artgogo艺高高关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。</p>
+            <p>b) artgogo艺高高亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何artgogo艺高高平台用户如从事上述活动，一经发现，artgogo艺高高有权立即终止与该用户的服务协议。</p>
+            <p>c) 为服务用户的目的，artgogo艺高高可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与artgogo艺高高合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。</p>
+            <p>3. 信息披露</p>
+            <p>在如下情况下，artgogo艺高高将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：</p>
+            <p>a) 经您事先同意，向第三方披露；</p>
+            <p>b) 如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；</p>
+            <p>c) 根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；</p>
+            <p>d) 如您出现违中华人民共和国有关法律、法规或者artgogo艺高高服务协议或相关规则的情况，需要向第三方披露；</p> 
+            <p>e) 为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；</p> 
+            <p>f) 在artgogo艺高高平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，artgogo艺高高有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。</p>
+            <p>g) 其它artgogo艺高高根据法律、法规或者网站政策认为合适的披露。</p>
+            <p>4. 信息存储和交换</p>
+            <p>artgogo艺高高收集的有关您的信息和资料将保存在artgogo艺高高及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或artgogo艺高高收集信息和资料所在地的境外并在境外被访问、存储和展示。</p>
+            <p>5. Cookie的使用</p>
+            <p>a) 在您未拒绝接受cookies的情况下，artgogo艺高高会在您的计算机上设定或取用cookies，以便您能登录或使用依赖于cookies的artgogo艺高高平台服务或功能。artgogo艺高高使用cookies可为您提供更加周到的个性化服务，包括推广服务。</p>
+            <p>b) 您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的artgogo艺高高平台服务或功能。</p>
+            <p>c) 通过artgogo艺高高所设cookies所取得的有关信息，将适用本政策；</p>
+            <p>6. 信息安全</p>
+            <p>a) 您的账户均有安全保护功能，请妥善保管您的账户及密码信息。artgogo艺高高将通过向其它服务器备份、对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。</p>
+            <p>b) 在使用artgogo艺高高平台服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是你的账户及密码发生泄露，请您立即联络artgogo艺高高客服，以便artgogo艺高高采取相应措施。</p>
+            <p>7. 未成年人的特别注意事项</p>
+            <p>如果您不是具备完全民事权利能力和完全民事行为能力的自然人，您无权使用artgogo艺高高平台服务，因此artgogo艺高高希望您不要向我们提供任何个人信息。</p>
+            <p>artgogo艺高高店家准则</p>
+            <p>artgogo艺高高提醒店家：在使用artgogo艺高高平台各项服务前，请店家务必仔细阅读并透彻理解本声明。店家可以选择不使用artgogo艺高高平台服务，但如果店家使用artgogo艺高高平台服务的，店家的使用行为将被视为对本声明全部内容的认可。“artgogo艺高高平台”指由上海龙彩信息科技有限公司 （简称“artgogo艺高高”）运营的网络交易平台，域名为artgogo.com以及artgogo艺高高启用的其他域名。“店家”是指包含艺术家个人、机构、画廊及公司团体在artgogo艺高高平台开设的可交易账号。</p>
+            <p>第一章交易</p>
+            <p>第一节 注册</p>
+            <p>第一条 店家必须满足以下条件，才有权申请加入artgogo艺高高：</p>
+            <p>（一）店家及其销售的商品符合《artgogo艺高高店家准则》；</p>
+            <p>（二）店家有效签署《artgogo艺高高用户法律条款》及其相关附属协议；</p>
+            <p>（三）店家符合artgogo艺高高要求的其他条件。</p>
+            <p>第二条店家若发生以下任一情形，artgogo艺高高有权清退：</p>
+            <p>（一）未经商品所有人同意，刊登其商品进行销售的；</p>
+            <p>（二）符合本规则中不当使用他人权利且情节严重的；</p>
+            <p>（三）向artgogo艺高高提供虚假、伪造、变造的店家资质或商品资料；</p>
+            <p>（四）店家违反《artgogo艺高高店家准则》的；</p>
+            <p>（五）店家发生盗用他人账户、泄露他人信息、骗取他人财物、扰乱市场秩序、出售假冒商品、假冒材质成份（是指店家对商品全部材质或成份信息的描述与买家收到的商品完全不符的）等情况的；</p>
+            <p>（六）店家出售未经报关进口商品（是指出售未经正常中国海关报关程序的进口商品）的；</p>
+            <p>（七）店家不正当谋利的，无论是否获得利益的。</p>
+            <p>有以下情形的，视同为不正当谋利行为：</p>
+            <p>卖家为artgogo艺高高工作人员或关联人士且该artgogo艺高高工作人员未依据《artgogo艺高高店家准则》规定进行如实申报，或有利用artgogo艺高高工作人员职务便利条件而谋取不当利益的。</p>
+            <p>第二节 经营</p>
+            <p>第三条 店家会员的会员名、店铺名的命名应当严格遵守《artgogo艺高高店家准则》</p>
+            <p>第四条 店家在artgogo艺高高发布商品应当严格遵守《artgogo艺高高店家准则》</p>
+            <p>第二章 artgogo艺高高市场管理</p>
+            <p>第五条 artgogo艺高高店家及商品参与由artgogo艺高高组织参与的其他市场的活动及展现时，应同时遵循其他市场的市场管理规定。</p>
+            <p>第六条 店家应根据协议约定或规则规定缴纳空间使用保证金（如有） 。</p>
+            <p>第七条 店家应严格遵守《artgogo艺高高店家准则》。店家若违反《artgogo艺高高店家准则》中关于产品发布的规定，artgogo艺高高将有权对其违规商品予以下架处理。</p>
+             <p>第三章 违规</p>
+             <p>第八条 发布违禁信息，依据《artgogo艺高高店家准则》的相关规定执行。</p>
+             <p>第九条 滥发信息：</p>
+             <p>店家滥发有关商品或信息的，依据《artgogo艺高高店家准则》的相关规定执行。</p>
+             <p>店家若发布有违公序良俗和《 artgogo艺高高店家交易规则协议》的商品或信息，artgogo艺高高可对商品或信息进行临时性下架或删除。</p>
+             <p>第十条 虚假交易：</p>
+             <p>店家发生虚假交易所述情形的，artgogo艺高高将限制发布商品、限制买家行为等临时性管控措施。</p>
+             <p>虚假交易指：</p>
+             <p>（一）店家在接获artgogo艺高高发出的买家购买申请核覆时同意并承诺发货后以任何理由拒不执行发货者。</p>
+             <p>（二）店家在发货后以任何理由主张取消发货并要求返还商品者。</p>
+             <p>第十一条 延迟发货：</p>
+             <p>延迟发货，是指除特殊商品外，店家实际未在约定时间内发货，妨害买家购买权益的行为。店家的发货时间，以快递公司系统内记录的时间为准。</p>
+             <p>延迟发货的，店家需向买家支付该商品实际成交金额的百分之十（不低于¥500元）作为违约金。</p>
+             <p>（一）店家在买家付款前且商品信息显示正常的情况下，以任何理由表示不能在3个工作日内回覆“商品可售确认”的。</p>
+             <p>（二）店家在artgogo艺高高客服人员联系确认可售状态后，以任何理由表示不能在3个工作日内发货的。</p>
+             <p>（三）店家在artgogo艺高高客服人员联系确认已经发货后，以任何理由表示不能在3个工作日内送达artgogo艺高高服务中心的。</p>
+              <p>第十二条 描述不符：</p>
+              <p>描述不符，是指实物画面、品相等情况与在artgogo艺高高平台显示的不同，artgogo艺高高有权将商品做下架处理。</p>
+             <p>第第十三条 违背承诺，是指店家未按照承诺向买家提供以下服务，妨害买家权益的行为。artgogo艺高高官方发布的其他管理内容（包括但不限于规则、规范、类目管理标准、行业标准等）另有规定的从其特殊规定。</p>
+            <p>（一）店家违背以下任一承诺的，artgogo艺高高将限制发布商品、限制买家行为等临时性管控措施：</p>
+            <p>1、artgogo艺高高判定店家确实应该承担退货退款等售后保障责任但店家拒绝承担的；</p>
+            <p>2、店家参与“拍卖Show”的活动，但却在买家出价成功后拒绝向买家发送或延迟发送已承诺提供的拍卖商品的；</p>
+            <p>3、店家拒绝提供或者拒绝按照承诺的方式提供发票的（特定商品除外）；</p>
+            <p>4、店家通过任何方式引导买家在artgogo艺高高外进行交易的；</p>
+            <p>5、店家拒绝提供或者拒绝按照承诺的方式提供前述服务的；</p>
+            <p>6、加入artgogo艺高高官方活动的店家，未按照活动要求（除发货时间外）履行的。</p>
+            <p>第十四条 买家竞拍成交后不履行订单，须按照相关规定处理拍卖流程中最终冻结的拍卖保证金。</p>
+            <p>第十五条 不当注册。</p>
+            <p>对于artgogo艺高高排查到的涉嫌不当注册的会员，artgogo艺高高将视情节采取警告、身份验证、限制创建店铺、限制发布商品、限制网站登录、限制买家行为等临时性管控措施。</p>
+            <p>第十六条 未依法公开或更新营业执照信息的，或未在其营业执照信息变更完成之日起三十天内未更新的，artgogo艺高高将限制发布商品、限制买家行为等临时性管控措施。</p>
+             <p>第三节 违规的执行</p>
+             <p>第十七条 用户的违规行为，通过artgogo艺高高会员、权利人的投诉或artgogo艺高高排查发现。</p>
+             <p>第十八条 对违规行为的投诉，除滥发信息、虚假交易、不当注册、发布违禁信息、出售假冒商品、出售未经进口报关商品、假冒材质成份、不当使用他人权利、盗用他人账户、泄露他人信息、发布非约定商品可随时提交投诉外，其余须在以下规定时间内进行投诉；未在规定时间内投诉的，不予受理：</p>
+             <p>（一）违背承诺的投诉时间为交易关闭后十五天内；</p>
+             <p>（二）描述不符、骗取他人财物的投诉时间为交易成功后十五天内。</p>
+             <p>第十九条 对延迟发货、违背承诺及恶意评价的违规行为，被投诉人须在被投诉之日起三天内提交证据。逾期未提交证据的，artgogo艺高高有权根据当时所掌握的情况进行判断与处理。对其余违规行为的判断与处理，artgogo艺高高在收到投诉后立即进行。</p>
+             <p>第二十条 店家自行作出的承诺或说明与本规则相悖的，artgogo艺高高不予采信。除证据有误或判断错误的情形外，对违规行为的处理不中止、不撤销。</p>
+             <p>第二十一条 若店家滥发信息、虚假交易、不当注册、发布违禁信息、出售假冒商品、出售未经进口报关商品、假冒材质成份、不当使用他人权利、盗用他人账户、泄露他人信息、发布非约定商品等违规行为或其他违法行为，造成消费者、其他店家、artgogo艺高高或者他人损失的，除严格执行以上扣发政策外，须全额承担造成的损失，并承担相应的违约责任。</p>
+             <p>附则</p>
+             <p>第二十二条 artgogo艺高高用户的行为，发生在本规则生效或修订以前的，适用当时的规则；发生在本规则生效或修订以后的，适用本规则。</p>
+             <p>第二十三条 本规则中的以上，包含本数；本规则中的以下，不包含本数。</p>
+             <p>artgogo艺高高  店家交易规则协议</p>
+            <p>artgogo艺高高提醒店家：在使用artgogo艺高高平台各项服务前，请店家务必仔细阅读并透彻理解本声明。店家可以选择不使用artgogo艺高高平台服务，但如果店家使用artgogo艺高高平台服务的，店家的使用行为将被视为对本声明全部内容的认可。“artgogo艺高高平台”指由上海龙彩信息科技有限公司 （简称“artgogo艺高高”）运营的网络交易平台，域名为artgogo.com以及artgogo艺高高启用的其他域名。“店家”是指包含艺术家个人、机构、画廊及公司团体在artgogo艺高高平台开设的可交易账号。</p>
+            <p>artgogo艺高高店家通过注册使用服务。店家同意接受本协议条款约束，包括针对店家注册申请的每项服务所适用的服务条款和计划政策。</p>
+            <p>一，通则</p>
+            <p>1. 资格</p>
+            <p>入驻artgogo艺高高之前，店家必须完成服务的实名注册和验证过程。服务使用者必须能够依据所适用法律合法订立合同。店家在详细阅读并完全同意artgogo艺高高所有已经公布的相关协议、规则、声明、合约等条例后始完成入驻程序。</p>
+            <p>2. 交易</p>
+            <p>店家在artgogo艺高高进行的所有商品广告、描述、宣传、销售、售后服务、数据利用等商业行为视为交易行为，俱应接受本交易规则约束规范。</p>
+            <p>3, 流程</p>
+            <p>店家有义务充分详尽理解artgogo艺高高店家交易规则，并对于artgogo艺高高店家交易流程进行完整阅读掌握。</p>
+
+            <p>4, 商品</p>
+            <p>店家所上传刊载于artgogo艺高高平台上的所有商品，应严格遵照《artgogo艺高高店家准则》所载明之规定。</p>
+            <p>5, 店家命名</p>
+            <p>店家必须实名登记注册，并通过artgogo艺高高验证通过后始能激活店铺。店家于artgogo艺高高平台上的使用名称（昵称），应严格遵照《artgogo艺高高店家准则》所载明之规定。</p>
+            <p>6, 商品命名</p>
+            <p>店家可以自行决定商品名称，惟需符合国家相关公共传播法律之准则规范。artgogo有权利对于店家自行订定的商品名称进行审核和筛检，过滤及屏蔽不适宜的名称，或要求店家进行更改。</p>
+            <p>7, 商品资讯</p>
+            <p>店家应当在登录商品时详细提供填写商品相关资料（包括但不限于：艺术家／作者名称、尺寸、所在地、持有人、材质、风格、类型、得奖／参展记录、描述等）及上传。并对于该商品资料负有核实保真之责任。</p>
+            <p>8, 帐户</p>
+            <p>店家应提交使用于artgogo艺高高平台所有交易之对应唯一帐号，包含该账号所有相关资讯，并有义务保证该资讯正确无误及合法有效。该帐号之变更必须经由artgogo艺高高书面同意核准后方为有效，在artgogo艺高高未核准通过变更申请前所产生的因帐户讯息不正确而导致的一切损失由店家自行负责。</p>
+            <p>9, 定价及币值</p>
+            <p>店家保有自行订定商品价格的权利，artgogo艺高高将不会进行任何改动及干预。店家在制定价格时应完全考虑到所必须承担之费用包括但不限于税费、物流运送等。惟店家所订定的价格一旦上线公布即表示店家对于该价格的完全认可及负责。</p>
+            <p>无论境内或境外，所有上架作品标价均为人民币，均以人民币做结算。</p>
+            <p>- 以上定价仅限于境内的交付，如为跨境交易，则买家需额外支付相关跨境费用，包括关税、报关手续费、运费、银行手续费、外币汇兑差异等。</p>
+            <p>- 跨境交易额外费用以实际产生金额为准。</p>
+            <p>- 所有海外店家之交易收款必须开立人民币账户或是委托代理人执行人民币收款。</p>
+            <p>10, 展示</p>
+            <p>店家对于在其店铺中所陈列商品及价格负有诚信责任，惟商品无标示价格时表示该商品为“展示”，仅仅提供展示作用。</p>
+            <p>11, 可售</p>
+            <p>店家对于在其店铺中所陈列商品及价格负有诚信责任，其可售状态包含：价格、品相完整、无破损（除非在平台上注明）、完全与平台刊登图像及讯息一致。商品上传时店家填写价格即为店家对于该商品认定可以出售的价格（包含但不限于店家对于此一商品所有的成本、货本、宣传、营销、包装、物流、利润、税费等费用）。在商品交易过程中，店家不得再以任何理由提出价格变动之主张。</p>
+            <p>12, 改动</p>
+            <p>店家可以于价格／可售／展示状态进行调整，即可自行调整改动其获得授权的店家页面内相关的价格栏位／可售／展示状态，artgogo艺高高有权利在数据改动后的一个工作日内进行内容筛检，在该数据资料变动并通过artgogo艺高高的审核后发布该改动。在此，对于所有数据改动在发布前之期间所产生的交易行为，店家同意依照未改动前之价格／状态为事实。在此变更价格期间所产生之一切价格／状态认定，店家同意依照artgogo艺高高依据数据发布资料判定的结果，无异议的承担全部责任。店家有义务对于商品状态的改动即时进行资料／数据的更新。</p>
+            <p>13, 接受订单</p>
+            <p>当买家提出“购买申请”或直接付款后，artgogo艺高高将及时向店家以电话／邮件／短信确认该商品的可售状态。除非店家提出邮件形式的正式延时申请，否则店家有义务必须在3个工作日（以artgogo艺高高后台终端显示之首次购买意愿送达时间为准）内答覆商品为可售／不可售状态。店家未及时接收及回覆讯息，则artgogo艺高高有权利视该购买申请遭遇“无效卖家”，并且有权利进行记录或公布。并对于该店家或该商品施行必要之处置。</p>
+            <p>14, 商品交付</p>
+            <p>店家在确认商品为可售状态后，即视为已经接受该订单。店家有义务在接受订单后3个工作日内对artgogo艺高高服务中心发货。店家承担一切由店家发货至artgogo艺高高服务中心的物流费用及商品安全的责任。</p>
+            <p>店家未及时在规定时间内发货，则artgogo艺高高有权利视该购买申请遭遇“无效卖家”，并且有权利进行记录或公布。并对于该店家或该商品施行必要之处置。</p>
+            <p>15, 实物验证</p>
+            <p>artgogo艺高高提供实物验证服务。当店家之商品送抵artgogo艺高高服务中心随即进行开封验证，并对商品实际情况进行拍照记录，对于合格、合规、合于店家商品描述的商品现状予以验证通过。对于不合格、不合规、不合于店家商品描述的商品现状予以实物验证不通过。未通过实物验证之商品，artgogo艺高高将按照实际工作流程安排进行商品返送。</p>
+            <p>16, 商品返送</p>
+            <p>对于未通过实物验证商品，artgogo艺高高将以原包装材料进行包装后实施商品返送（若依据artgogo艺高高判定该原包装材料为不堪使用，则artgogo艺高高可以依据原包装标准重新包装，店家必须支付该包装费用）。artgogo艺高高在返送通知送达店家（以artgogo艺高高后台终端显示数据为准）后的1个工作日内承担仓储费用及安全责任。店家可以选择到artgogo艺高高服务中心自提返送商品，但须承担超时的仓储保管费用。店家亦可以选择artgogo艺高高加值服务之物流配送服务，店家必须承担该物流费用，同样，如发生仓储超时，店家亦须支付相应之仓储保管费用。以上所有由店家支付费用，在店家完成向artgogo艺高高支付到帐后，商品始能进行返送作业，离开artgogo艺高高服务中心。</p>
+            <p>17, 逾期及处置</p>
+            <p>商品在任何理由下（除有《artgogo艺高高代存协议》者除外）在artgogo艺高高滞留超过六十日者，视为“保管逾期”商品。有关“保管逾期”商品，视同其所有店家自动放弃所有权，artgogo艺高高将不承担任何污损、破损、遗失等损失责任。并且artgogo艺高高有权对该商品进行任何处置。</p>
+            <p>18, 交易</p>
+            <p>18.1 付款</p>
+            <p>店家成功在artgogo艺高高平台上完成交易，指商品送达买家，并经过买家确认无误，artgogo艺高高收到店家开具的正规销售发票后，并对店家进行商品货款支付完成为止。</p>
+            <p>artgogo艺高高将依据《artgogo艺高高服务费率规定》在扣除该笔交易之交易服务费后进行对店家支付（每月8号、18号、28号为付款日），并向店家开具交易服务的服务费发票。</p>
+            <p>artgogo艺高高仅对店家邮件确认“卖家请款确认函”所载明的唯一帐号进行支付。</p>
+            <p>18.2 税费</p>
+            <p>在artgogo艺高高平台中商家作品所标示价格均为含税价格。买家购买artgogo艺高高自营部分艺术品，由artgogo艺高高开具正规销售发票给买家；买家购买非artgogo艺高高自营部分艺术品则由店家自行开具正规销售发票给买家。</p>
+            <p>19, 加值服务</p>
+            <p>19.1 防伪标签服务</p>
+            <p>artgogo防伪标签制作使商品具有认证唯一性及确保流传有序。artgogo防伪标签服务使商品确保唯一性。由于商品由artgogo介入服务，为了建立公信，artgogo要求所有经由artgogo平台销售商品必须制作artgogo纳米防伪标签。此一费用将由艺高高承担。凡经过artgogo艺高高防伪标签制作的商品即可得到商品页面中的“防伪标签”标章。</p>
+            <p>19.2 标准包装服务</p>
+            <p>artgogo标准包装服务使商品确保在物流运送交付过程中的保护，保证运输安全性。由于商品由卖家送抵artgogo后会拆装检验，必须再度以专业性重新包装才可以发送买家，此一费用将由艺高高承担。</p>
+            <p>19.3 物流服务</p>
+            <p>artgogo物流服务指由artgogo艺高高组织的第三方物流配送整合方案。该方案保障商品由artgogo艺高高安全送达买家。</p>
+            <p>19.4 特殊服务</p>
+            <p>artgogo特殊服务指由artgogo艺高高设计及负责的包括礼物包装、贺卡、指定送达时间、指定送达口令等服务。</p>
+            <p>20, 数据</p>
+            <p>“数据”指店家在artgogo艺高高平台上交付artgogo艺高高使用记载之一切与店家相关的数据资料， 除法律规定保障的个人资讯（如银行帐号）外，包括但不限于商品资讯、文字、图像、视频、语音、评论、交易记录、登录记录、来往邮件、协议、合同等。artgogo艺高高拥有永久且不受其它第三方干涉之无限制使用权利，包括但不限于刊登、印刷、出版、重组、编辑、修改、引用、转载、再制等。artgogo艺高高有权使用店家提供的数据进行商业应用，包括但不限于进行衍生品的开发、制作与销售，并将所得部分利润以授权费的方式支付于店家，其比例将另行议定之。结算周期为半年，于每年6月30日和12月31日与店家结算之前半年的授权费用。</p>
+            <p>21, 排序说明</p>
+            <p>artgogo艺高高提供各种商品排序原则。artgogo艺高高保有不经过公告或通知更动排序原则的权利。排序原则包括：商品制造日期、上架日期、价格、商品数量、商品尺寸、辅助说明资料（包括视频）等。</p>
+            <p>22, 商品推荐</p>
+            <p>artgogo艺高高提供各种商品推荐原则。artgogo艺高高保有不经过公告或通知更动推荐原则的权利。推荐原则包括：商品性价比、店家销售、艺术家销售、类别商品销售、收藏指数、投资指数、广告版位购买、合作营销、店家活跃度、店家贡献度…等。</p>
+            <p>23, 责任归属</p>
+            <p>artgogo艺高高为商品交易提供平台。店家所有提供销售与展示商品的合法性、税负、来源、真实性等artgogo艺高高不承担相应责任，店家对于其所刊载展示销售的商品负有完全的法律责任。通过artgogo艺高高介入服务的（包含artgogo艺高高加值服务）交易将由artgogo艺高高数据库加以记录保存，非经过artgogo艺高高介入服务的（包含artgogo艺高高加值服务）交易与artgogo艺高高无涉，artgogo艺高高亦不会将其记录于artgogo艺高高数据库。</p>
+            <p>未经过artgogo艺高高介入服务的（包含artgogo艺高高加值服务）交易，即使买家是通过artgogo艺高高平台关注该商品而在平台外私下与卖家联系进行交易，artgogo艺高高将不予承认。其所牵涉的所有交易纠纷亦与artgogo艺高高无关。</p>
+            <p>二，交易流程及相关规则说明</p>
+            <p>24, 店家入驻</p>
+            <p>店家应完成artgogo艺高高要求之实名认证程序，经过artgogo艺高高审核通过后准予入驻。artgogo艺高高保有不说明任何理由而拒绝某一店家的注册申请的权利。入驻店家对于其所提供注册资料的真实性及合法负有完全责任。</p>
+            <p>25, 注册名及密码</p>
+            <p>店家依照artgogo艺高高所核可之注册名及密码进行登录，并在店家页面依照artgogo艺高高提示的程序方法规范的进行基本资料填写、商品图像及资料上传、艺术家资料提供、商业资料提供、页面设计素材提供、视频资料上传等操作。店家可以随时更改密码。店家对注册名及密码负有妥善保管的责任，因为注册名及密码泄漏造成的损失由店家自行承担全部责任。</p>
+            <p>26, 商品上架</p>
+            <p>店家依照artgogo艺高高相关规定及指导进行商品上传上架的操作，并应有责任及尽力促使商品资讯完整丰富，共同增进artgogo艺高高平台的整体内容完整度及专业性。</p>
+            <p>27, 审核及发布</p>
+            <p>店家有关任何一项对于店家操作页面的更动都需要通过artgogo艺高高的审核后方能得到发布，发布即为公众可见。惟经过审核发布后的任何资讯、素材、材料、视频，artgogo艺高高仍旧保有随时不经过店家同意的更动、编辑、屏蔽、下架的所有处置权利。</p>
+            <p>28, 艺术家注册</p>
+            <p>店家展示、销售、上拍之商品应注明创作者艺术家。artgogo艺高高有权利对于艺术家资料进行审核，审核完成后该艺术家资料可以进入artgogo艺术家数据库，并提供会员检索、浏览、研究、分析、分享等数据应用。</p>
+            <p>29, 价格订定</p>
+            <p>店家可以自行对于所提供商品进行价格订定，如价格栏位为空白则视为该商品不可售（亦即仅供展示）。店家改动价格依照《artgogo艺高高店家交易规则协议》“通则”规定进行。</p>
+            <p>30, 价格构成</p>
+            <p>店家所售商品画作之“定价“，须理解并已包括以下所列数项：</p>
+            <p>1）画作价款</p>
+            <p>2）店家发货至artgogo会员中心（上海）的物流费用</p>
+            <p>3）各类税负（增值税、营业税、消费税、所得税等）</p>
+            <p>4）artgogo艺高高交易服务费（交易价格之15%/25%，画作交易服务费为15%，雕塑交易服务费为25%）</p>
+            <p>31, 可售状态</p>
+            <p>店家接获artgogo艺高高通知有买家提出购买申请，即应详实检查商品状态，确认无误后发出该商品为可售状态之确认。店家对商品状态负有保证诚信的责任。</p>
+            <p>32, 订单成立</p>
+            <p>店家发出商品为可售状态后即视为该笔订单成立（店家方）。由此至订单交易程序全部完成前，店家不得以任何理由拒绝交易进行。拒绝交易行为包括：无法发货、拒不发货、拖延发货、逾期发货、毁损商品、以假乱真、以次充好等，有前述行为者，该店家将承担成交价格10％（不低于¥500元）作为违约赔偿金支付给予artgogo艺高高。</p>
+            <p>33, 买家责任</p>
+            <p>承前款，店家接获artgogo艺高高发出“发货通知”并已经发货者，视同该笔订单成立（买家方）。由此至订单交易程序全部完成前，如因为买家的任何原因而致使该笔交易无法完成者，视同买家违约。买家需承担商品返送所有相关费用及责任。</p>
+            <p>34, 发货</p>
+            <p>店家于订单成立后，3个工作日内应该发货。店家可以自行选择递送方式。店家应该在发货后于订单页面上注明发货细节备注，包括：发货地、包装方式、第三方物流明细、物流单号、发货时间等。</p>
+            <p>35, 实物验证</p>
+            <p>artgogo艺高高于收到商品后即进行实物验证。</p>
+            <p>36, 验证通过</p>
+            <p>artgogo艺高高将进行该商品的次级订单执行工作。包括：加值服务及物流服务。</p>
+            <p>37, 商品返送</p>
+            <p>artgogo艺高高对于未通过实物验证之商品进行返送流程执行。</p>
+            <p>38, 付款</p>
+            <p>当该笔订单完全执行完毕，artgogo艺高高即对店家支付应付款项。</p>
+            <p>39, 时间周期</p>
+            <p>店家自商品送达artgogo艺高高服务中心之日起算，交易完成的时间周期为最少7天至14天，artgogo艺高高以20天为保障作业周期。</p>
+            <p>店家交易时间周期计算基础描述：卖家发货－收件（起算）（1-3天）－实物认证、执行次级订单作业（1－2天）－发货给买家（1－3天）－买家确认收货（1天）。全过程依据1,次级订单内容，2,物流时间，合计需要7天－14天的全流程时间。若有框裱等其他价值服务，商品送达时间将有7-10天顺延。</p>
+            <p>40, 加值服务费用</p>
+            <p>依据加值服务实际产生的费用为准。</p>
+            <p>41, 服务费用</p>
+            <p>依据artgogo艺高高“artgogo艺高高服务费率规定”为准。</p>
+            <p>42, 罚则</p>
+            <p>店家如发生需要支付违约赔偿金情节，artgogo艺高高有权自其它笔订单交易所产生之对于该店家应付款项（如有），或，该店家有存放于artgogo艺高高之商品（如有）中扣除。</p>
+            <p>店家如发生需要支付违约赔偿金而未履行者，artgogo艺高高保留法律追诉权，并可以依照情节予以公示、商品下架、关闭店家等处置</p>
+             <p>artgogo艺高高“服务费率规定”</p>
+             <p>artgogo艺高高“创始店家服务费率特别方案”规则说明：于2013年成功入驻artgogo艺高高平台之店家是“VIP特级店家”，为感谢“VIP特级店家”对于artgogo的支持，该VIP店家可以享有“2014年全年交易服务费artgogo艺高高只收取交易价格10％”的优惠。该店家次年（2015年）之交易服务费率，依照“服务费率优惠方案”标准核定。</p>
+             <p>artgogo艺高高“服务费率优惠方案”规则说明：正式上线后的入驻店家之交易服务费率为商品（最终成交）交易价格15％/25%（画作交易服务费为15%，雕塑交易服务费为25%）。</p>
+             <p>artgogo艺高高“竞价拍卖活动”收费规则说明：</p>
+             <p>artgogo艺高高所举行之“竞价拍卖Show活动”无论是线上或线下，卖家都依照其相应的比率级别缴付服务费。买家（除出价保证金外）须缴付按最终成交价格的10％为竞价成交服务费。而卖家线上拍卖的上架费是¥100元／件，线下是¥500元／件，并且须承担发货至artgogo艺高高服务中心进行实物验证入库。所产生的包装及物流费用由卖家承担。</p>
+             <p>artgogo艺高高“交易取消补偿费”规则说明：</p>
+             <p>artgogo艺高高平台上的艺术品交易主张公平诚信，在购买订单成立后，如因为买家因素取消订单，则因应而产生之物流费用（由卖家发货至服务中心以及由服务中心返送回给卖家）及对于artgogo艺高高相应付出之服务成本应全部由买家承担。为此，artgogo艺高高订定向买家收取“交易取消补偿费“为交易金额的10%且不低于¥500元。</p>
+             <p>如是卖家因素取消订单，则物流费用（由中心发回给卖家）即是由卖家承担。artgogo艺高高向卖家收取的费用亦为10%且不低于¥500元的订金。收取方式是自卖家余额帐户上扣除。如无余额则要求卖家支付。</p>
+             <p>以上。</p>
+             </div>
+            <div class="menu_box">
+                <div class="menu">
+                    <a href="#" class="refuse">拒绝</a>
+                    <a href="#" class="agree">同意并继续</a>
+                </div>
+                
+            </div>
+        </div>
+<script src="/js/jquery-migrate-1.2.1.js" type="text/javascript"></script>
+<script src="/js/201405/head_index.js" type="text/javascript"></script>
+<script src="/js/jquery.fancybox.pack.js"></script>
+
+
+
+<!--nav-->
+<div class="wrap">
+<!--aritst_tx-->
+        <div class="crumbs">
+                <a href="http://www.artgogo.com" class="none_margin">首页</a>/<a href="/yishujia/">艺术家</a>/<a href="#">张勇</a>
+        </div>
+    <div class="aritst_top">
+        <div class="art_tx fl"> 
+        	<img src="/images/2013/12/27/201312271388124432079_246.jpg" />
+        </div>
+        <div class="art_jieshao">
+            <h3  id="bak_name">张勇</h3>
+            <ul>
+                <li>艺术品类：</li>
+                <li>所在地：</li>
+                <li>出生年月：</li>
+<!--分享start-->
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!--分享end-->
+            </ul>
+        </div>
+        <div class="fg blogcen_ph">
+            <ul>
+                <li>2185<p>访问量</p></li>
+                <li>0<p>粉丝</p></li>
+                <li>36<p>作品</p></li>
+            </ul>
+        </div>
+        
+    </div><!--aritst_tx end-->
+    <div class="art_jianjie" id="art_jianjie_shop">
+                    <h3>艺术家简介</h3>
+                    <dl>
+                        
+                        <dd>
+                            
+<div class="dj_mo_1"><div class="dj_p_con">
+<p>姓名：张勇
+              
+出生年月：1971年4月
+              
+教育：大学本科 先任复旦大学艺术系教师
+
+展览：
+2013年 “上海愚人码头行为艺术节”策展         上海溧阳路111艺术中心
+2013年   OPEN国际行为艺术节                  北京空白空间
+2012年   “帘”                               台北中正纪念馆
+2011年  “绿野仙踪之696”开放展               上海威海路696艺术区
+2011年  “敏感地带”行为艺术展                北京当代美术馆
+2010年  “离合之道”                          莫干山路50号99艺术空间
+2010年  “政治联姻”                           1918艺术空间
+2009年   2009首届中国当代青年美展             上海外滩艺术馆
+2008年   个展                                 斯民国际艺苑  新加坡
+2006年   第十一届海平线绘画雕塑联展           海刘海粟美术馆
+2005年  “杂种”当代艺术展                    上海东大名创库
+2004年   “重叠”浙沪当代绘画艺术展              浙江艺术馆  杭州
+2004年   “催情剂”展                            上海海上山艺术中心</p>
+</div></div>
+ <div class="yskj_infor_more" id="info_more" type="1"></div>                      </dd>
+                    </dl>
+
+                   
+                </div>
+<style>
+.tablist{width:978px; height:70px;border:1px solid #d4d4d4;}
+.tablist ul li{text-align: center; float: left; line-height: 70px;height:85px;width:489px;font-size: 28px;cursor:pointer;}
+.tablist ul li span{font-size: 14px;}
+.tablist ul .li1{background: url(/img/bg1_03.jpg) no-repeat;background-size: 489px;margin-top: -0px;color: #fff;font-size: 28px;}
+.tablist ul .li2{background: url(/img/bg_03.jpg);background-size: 500px;margin-top: -1px;color: #fff;font-size: 28px;}
+.tablist ul .li1 span{font-size: 14px;}
+.tablist ul .li2 span{font-size: 14px;}
+</style> 
+<div id="sou" class="tablist">
+<ul class="is_print">
+<li class="print_1" val="原作">原作<span class="yuan_count"></span></li>
+<li class="print_2" val="版画">版画<span class="print_count"></span></li>
+</ul>
+</div>
+
+    <div class="tab_show">
+        <ul id="new_artist_con" class="tabtip">
+            <li id="all" class="on">全部(<span class="count">0</span>)</li>
+            <li id="keshou">可售艺术品(<span class="count">0</span>)</li>
+            <li id="zhanshi">展示艺术品(<span class="count">0</span>)</li>
+            <li id="yishou">已售的艺术品(<span class="count">0</span>)</li>
+            <li id="yuzhan">预展的艺术品(<span class="count">0</span>)</li>
+        </ul>
+    </div>
+    <div id="content">
+
+<style>
+.zhigou {
+margin-left: 129px;
+margin-top: 10px;
+padding: 3px 6px;
+border-radius: 5px;
+background: #f9a923;
+color: #fff;
+width: 46px;
+height: 20px;
+line-height: 33px;
+}
+
+.smwz {
+display: ;
+background: url(/img/prints/smwz.png) no-repeat;
+position: absolute;
+width: 347px;
+height: 171px;
+top: 200px;
+z-index: 100;
+}
+
+.smwz p {
+padding-left: 40px;
+padding-top: 40px;
+line-height: 24px;
+}
+</style>
+<div class="smwz" style="display:none;">
+<p>
+<strong>在artgogo官方购买可以享受以下特权：</strong><br>
+1、可进行置换。<br>
+2、可获得art币<br>
+3、可存入artgogo版画银行-无需取画，坐享升值。
+</p>
+</div>
+
+
+<div class="zuopin" id="new_artist_con_main_1"></div>
+        <div class="zuopin" id="new_artist_con_main_2" style="display:none;">
+               <ul>
+                </ul>
+         </div>
+         <div class="zuopin" id="new_artist_con_main_3" style="display:none;"></div>
+         <div class="zuopin" id="new_artist_con_main_4" style="display:none;"></div>
+         <div class="zuopin" id="new_artist_con_main_5" style="display:none;"></div>
+
+    </div>
+<div class="page">
+                    <!--<span class="prev">上一页</span>
+                    <span><a href="#" class="on">1</a></span><span><a href="#">2</a></span><span><a href="#">3</a></span><span><a href="#">4</a></span><span><a href="#">5</a></span><span><a href="#">6</a></span><span><a href="#">7</a></span><span><a href="#">8</a></span><span><a href="#">9</a></span><span><a href="#">...</a></span>
+                    <span class="prev">下一页</span>
+                    <b><a>跳转</a></b>
+                    <span><input type="text"></span>
+                    <b><a>页</a></b>-->
+                   
+    </div>
+ <div class="clear"></div>
+<!-- <h3>评论</h3>-->
+ <ul id="pl_list">
+
+     </ul>
+<div class="fbpl">
+            <a class="tx"><img id="pics" src="/img/default_avatar128.jpg"></a>
+            <span class="ba_name" style="display:none;">CAO YONG</span>
+            <div class="ds-textarea-wrapper"><textarea id="contents" name="message" title="Ctrl+Enter快捷提交" placeholder="人人都是评论家…"></textarea></div>
+            <div class="ds-post-toolbar"><div class="ds-post-options"><span class="ds-sync"></span></div><button id="submits" class="ds-post-button" type="submit">发布</button></div>
+            <div class="f_b_share">
+            	
+<p>*请遵循法律发言</p>
+            </div>
+            
+        </div>
+</div>
+<div class="clear"></div>
+<!--footer start-->
+       <div class="footer_1">
+            <a href="/help_center/greenhand.shtml">
+            <div class="footer_1_list1">
+                <div class="footerpic1 f_icon_1">
+                    <div class="f_p_r"><span>艺术品如何购买？</span>
+                    <p>从网络到你家的过程只需几步。</p>
+                    </div>
+                </div>
+            </div>
+            </a>
+            <a href="/help_center/package.shtml">
+            <div class="footer_1_list1">
+                <div class="footerpic1 f_icon_2">
+                    <div class="f_p_r"><span>如何包装&装裱&防伪？</span>
+                    <p>动动手指，您的礼物就已打包完毕。</p>
+                    </div>
+                </div>
+            </div>
+            </a>
+            <a href="/help_center/logistics.shtml">
+            <div class="footer_1_list1">
+                <div class="footerpic1 f_icon_3">
+                    <div class="f_p_r"><span>艺术品如何物流？</span>
+                    <p>安全有序的物流让您更安心。</p>
+                    </div>
+                </div>
+            </div>
+            </a>
+            <div style="clear:both"></div>
+
+                <a href="http://www.artgogo.com/help_center/payment.shtml">
+            <div class="footer_1_list1">
+                <div class="footerpic1 f_icon_4">
+                    <div class="f_p_r"><span>选择银联在线支付</span>
+                    <p>轻松点击，让支付如此简单。</p>
+                    </div>
+                </div>
+            </div>
+            </a>
+            <a href="http://www.artgogo.com/help_center/baozhuang.shtml">
+            <div class="footer_1_list1">
+                <div class="footerpic1 f_icon_5">
+                    <div class="f_p_r"><span>艺术品价格包含？</span>
+                    <p>已涵盖精美的包装与防伪验证技术</p>
+                    </div>
+                </div>
+            </div>
+            </a>
+            <a href="http://www.artgogo.com/help_center/secondcode.shtml">
+            <div class="footer_1_list1">
+                <div class="footerpic1 f_icon_6">
+                    <div class="f_p_r" style="width: 200px;"><span>第二代防伪码登场</span>
+                    <p>双重认证，双层效果，服务升级</p>
+                    </div>
+                </div>
+            </div>
+            </a>
+            <div style="clear:both"></div>
+        </div>
+    <!--footer_box-->
+        <div class="footer">
+            <!--fot_le-->
+            <div class="fot_le fl">
+    <div class="fo_box1 fl">
+                <ul>
+                    <li class="first"><strong>研究院</strong></li>
+                    <li><a href="/yanjiuyuan/institute_articles/">学术文章</a></li>
+                    <li><a href="/yanjiuyuan/guwen/">艺术顾问</a></li>
+                    <li><a href="http://www.artgogo.com/yanjiuyuan/yuanpeixuetang/">元培学堂</a></li>
+                </ul>
+    </div>
+    <div class="fo_box2 fl">
+                    <ul>
+                    <li class="first"><strong>卖家须知</strong></li>
+                    <li><a href="/help_center/how-to-upload.shtml">上传作品</a></li>
+                    <li><a href="/help_center/Q_A.shtml">常见Q&A</a></li>                                                                                                                                                        </ul>
+    </div>
+    <div class="fo_box3 fl">
+                    <ul>
+                        <li class="first"><strong>买家须知</strong></li>
+                        <li><a href="/help_center/greenhand.shtml">新手上路</a></li>                                
+                        <li><a href="/help_center/package.shtml">包装说明</a></li>                    
+                        <li><a href="/help_center/logistics.shtml">提货物流</a></li>                   
+                        <li><a href="/help_center/payment.shtml">支付方式</a></li>                    
+                        
+                    </ul>
+    </div>
+    <div class="fo_box4 fl">
+                    <ul>
+                        <li class="first"><strong>专业服务</strong></li>
+                        <li><a href="/help_center/services.shtml">展览/活动服务</a></li>                    
+                        <li><a href="/help_center/services.shtml">企业艺术服务</a></li>                    
+                        <li><a href="/help_center/multiple.shtml">多元跨界合作</a></li>                   
+                        <li><a href="/help_center/promotion.shtml">广告与推广</a></li>                     </ul>
+    </div>
+    <div class="fo_box5 fl">
+                    <ul>
+                        <li class="first"><strong>媒体中心</strong></li>
+                        <li><a href="/media/news/">艺高高公告</a></li>                    
+                        <li><a href="/huodong/">展览活动</a></li>                    
+                        <li><a href="/media/reports/">媒体新闻</a></li>                    
+
+                    </ul>
+    </div>
+    <div class="fo_box6 fl">
+                    <ul>
+                        <li class="first"><strong>关于我们</strong></li>
+                        <li><a href="/help_center/abouts.shtml">艺高高介绍</a></li>                    
+                        <li><a href="/201405/nav_contact.shtml">联系我们</a></li>                    
+                        <li><a href="/help_center/memorabilia.shtml">大事记</a></li>                  
+                        <li><a href="/help_center/partners.shtml">合作伙伴</a></li>                                                                           
+                    </ul>
+    </div>
+            </div><!--fot_le end-->
+            <!--contact-->
+            <div class="contact fl">
+                 <ul>
+                    <li class="first">把您的艺术圈儿放在手中</li>
+                    <li class="cont_bk"></li>
+                 </ul>
+            </div><!--contact end-->
+        </div>
+    <!--footer_box-->
+    <!--footer_la_box-->
+        <div class="footer_la_box">
+            <div class="footet_la">
+                artgogo艺高高。保留所有权利。  <a>隐私政策</a> | <a href="/help_center/users_law.shtml">使用条款</a> | <a href="/help_center/cooperation.shtml">商务合作</a> | <a href="/help_center/Counselor.shtml">法律顾问</a> | <a href="http://www.artgogo.com/ysplist.shtml">艺术品索引</a> | <a href="http://www.artgogo.com/bhlist.shtml">版画索引</a> | <a href="http://www.artgogo.com/yishujialist.shtml">艺术家索引</a>  | <a>沪ICP备13037310号</a>
+            </div>
+         </div>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5a39743a86de50a2475155ba514968f4' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+
+
+
+
+<script>         
+tabs_hover("new_artist_con","on","li");       
+</script>
+</body>
+</html>

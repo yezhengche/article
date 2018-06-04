@@ -1,0 +1,1341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+<title>张伟_黑龙江中医药大学附属第一医院</title>
+<link rel="stylesheet" type="text/css" href="http://i1.hdfimg.com/partner/sohu/950.css" />
+<link rel="stylesheet" type="text/css"	href="http://i1.hdfimg.com/partner/css/page_bar.css" />
+<link rel="stylesheet" type="text/css"	href="http://i1.hdfimg.com/partner/css/common.css?1350483410" />
+<link href="http://i1.hdfimg.com/partner/css/css.css" rel="stylesheet"	type="text/css" />
+<script language="javascript" src="http://i1.hdfimg.com/js/jquery.js"></script>
+<script language="javascript" src="http://i1.hdfimg.com/partner/js/common.js"></script>
+<style>
+body {
+	margin: 0px auto;
+	font-size: 12px;
+	background-color: #ffffff;
+	text-align:left;
+}
+</style>
+<script language="javascript">
+//看病过程,如果有选不满意则弹出联系方式让填写
+function check_skill_attitude()
+{
+	$('#moreinputbox_mobile_3').css('display', 'none');
+    if($('#skill').attr('value')==0 
+        || $('#skill').attr('value')==1)
+	{
+		$('#moreinputbox_mobile_3').css('display', 'block');
+	}		
+}
+//改造一下
+function checkMobile2(mobile)
+{
+    var reg0=/^(1[34578][0-9]{9})$/;   //1开头。至少7位
+	 if (reg0.test(mobile)){
+	 	return true;
+	 }else
+	 {
+	 	return false;
+	 }
+}
+function checkform()
+{
+    var obj = $("#inputform")[0];
+	if (($.trim(obj.disease.value) == "") || (obj.disease.value == "请填入正确的疾病名称")) {
+		alert("请输入疾病名称!");
+		obj.disease.focus();
+		return false;
+	}
+	if (obj.disease.value.length > 100) {
+		alert("疾病名称不能大于50字！");
+		obj.disease.focus();
+		return false;
+	}
+	if (obj.skill.value == -2) {
+		alert("请选择疗效！");
+		obj.skill.focus();
+		return false;
+	}
+	if (obj.attitude.value == -2) {
+		alert("请选择态度！");
+		obj.attitude.focus();
+		return false;
+	}
+	if (obj.registerrate.value == -2) {
+		alert("请选择挂号难度！");
+		obj.registerrate.focus();
+		return false;
+	}
+	var reg = /^请注意/;
+	if (reg.test(obj.content_fix_0.value)) {
+		alert("请输入的评论内容");
+		obj.content_fix_0.focus();
+		return false;
+	}
+	/*
+    if(obj.verifystr.value =='')
+    {
+        alert('请输入验证码');
+        return false;
+    }
+	 */
+	if ($.trim(obj.content_fix_0.value).length < 50) {
+		alert("您输入的评论内容不能少于50个字!");
+		obj.content_fix_0.focus();
+		return false;
+	}
+	if (obj.content_fix_0.value.length > 5000) {
+		alert("您输入的评论内容不能大于5000个字!");
+		obj.content_fix_0.focus();
+		return false;
+	}
+	obj.fld_UserRealName.value = jQuery.trim(obj.fld_UserRealName.value);
+	if ((obj.fld_UserRealName.value == "")) {
+		alert("请输入真实姓名!");
+		obj.fld_UserRealName.focus();
+		return false;
+	}
+	if(obj.fld_UserRealName.value.replace(/([\u4E00-\u9FA5\uf900-\ufa2d])/g,'**').length>20)
+	{
+		alert("患者姓名不能超过20个字符");
+		obj.fld_UserRealName.focus();
+		return false;
+	}
+
+	obj.fld_UserMobile.value = jQuery.trim(obj.fld_UserMobile.value);		
+	if ((obj.fld_UserMobile.value == "")) {
+		alert("请输入手机号码!");
+		obj.fld_UserMobile.focus();
+		return false;
+	}		
+	if (checkMobile2(obj.fld_UserMobile.value)==false) {
+		alert("请输入正确的手机号码!");
+		obj.fld_UserMobile.focus();
+		return false;
+	}
+	tmp_content = "";	
+	
+	if(obj.content_fix_0.value.length>1)
+	{
+		tmp_content += jQuery.trim(obj.content_fix_0.value);
+		tmp_content += "\r\n";
+	}
+
+    $.post('ajaxCheckSensComment',{'content':tmp_content},function(data){
+        var odata = eval('(' + data + ')');
+        if (odata.issens == 1)
+        {
+            alert("内容内包含敏感词,无法提交");
+        }
+        else
+        {
+            alert("看病过程发表成功，我们将在3个工作日内进行审核，通过后才能被展示！");
+            obj.content.value = jQuery.trim(tmp_content);
+
+            obj.btn.value='发表中...';
+            obj.btn.disabled = true;
+            obj.submit();
+            return true;
+        }
+    });
+}
+function showVoteBox(){
+	tb_show("给大夫投票", "#TB_inline?height=166&width=260&inlineId=voteFormContent&modal=true");
+}
+function showJieShao(){
+	tb_show("大夫介绍", "#TB_inline?height=300&width=550&inlineId=jieshaoContent");
+}
+function closePopDiv(){
+	tb_remove();
+}
+
+function wordNumberNotice(input_el, notice_el, word_number){
+	var num = Math.ceil($(input_el).val().length);
+	if (word_number-num > 0) {
+		$(notice_el).html('你还需要输入'+(word_number-num)+'个字才能发表');
+	} else {
+		$(notice_el).html('');
+	}
+}
+</script>
+</head>
+<body>
+<div align="center"> 
+<iframe src="http://health.sohu.com/7/0803/17/column212301760.shtml
+" frameBorder=0 scrolling=no class="navi" width="990" height="130"></iframe> 
+</div>  
+
+<div class="width_yy"><a href="/">搜狐健康</a>
+&gt; <a href="/province/all.htm">医院列表</a> &gt; <a
+	href="/province/heilongjiang.htm">黑龙江</a>
+&gt; <a
+	href="/yiyuan/DE4roiYGYZwnyU65Sxq9XkxnU.htm">黑龙江中医药大学附属第一医院</a>
+&gt; <a
+	href="/faculty/DE4r08xQdKSLBSXKO2Y2Krrpb6FW.htm">儿科</a>
+&gt; <a
+	href="/doctor/DE4r0BCkuHzdeKp0ib4fz6DLFjxaq.htm">张伟</a>
+</div>
+<div class="width_yy" id="ss">
+<ul>
+	<li class="bg_l"><a href="/" class="bg_l" style="text-decoration:   none">医生 <span>Doctor</span></a></li>
+	<li class="bg_c">
+	<form action="/search/showlist" method="get">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td><input class="top_input" name="k" /></td>
+			<td width="10"></td>
+			<td width="60">
+			<input type="image"	src="http://i1.hdfimg.com/partner/images/search.gif" width="48" height="23" style="border: none" />
+			</td>
+            			<td width="60">
+			<a href="/thread/ask.htm"><img src="http://i1.hdfimg.com/partner/images/wytw.gif" /></a>
+			</td>
+			<td align="right" valign="middle">&nbsp;&nbsp;全国<span>3175</span>家重点医院,<span>303367</span>名专家</td>
+            		</tr>
+	</table>
+</form>
+	</li>
+	<li class="bg_r"></li>
+</ul>
+</div>
+<div class="width_yy">
+<div class="yyleft">
+<div class="yy">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="title">
+	<tr>
+		<td class="bg_l">&nbsp;</td>
+		<td class="bg_c">
+		<table border="0" cellspacing="0" cellpadding="0" class="tit_bg">
+			<tr>
+				<td>张伟</td>
+				<td class="tit_bg_r">&nbsp;</td>
+			</tr>
+		</table>
+	 </td>
+		<td class="bg_r">&nbsp;</td>
+	</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="listxx font14">
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/faculty16.gif" width="10"
+			height="14" /></td>
+		<td width="95%">科 室: <a
+			href="/faculty/DE4r08xQdKSLBSXKO2Y2Krrpb6FW.htm"
+			class="blue font14">黑龙江中医药大学附属第一医院儿科</a>
+		( <a
+			href="/yiyuan/DE4roiYGYZwnyU65Sxq9XkxnU.htm"
+			class="blue font14">医院联系方式</a> <a
+			href="/faculty/DE4r08xQdKSLBSXKO2Y2Krrpb6FW.htm"
+			class="blue font14">科室介绍</a> )</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/icon_post.gif" width="12"
+			height="14" /></td>
+		<td width="95%">职 称: 主任医师 教授</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/icon_flag.gif" width="12"
+			height="14" /></td>
+		<td width="95%">擅 长: 治疗小儿呼吸系统疾病、脾胃疾病和多种疑难杂症。对小儿反复感冒、咳嗽、支原体肺炎、小儿哮喘、厌食等常见多发病及病毒性心肌炎、紫癜、抽动-秽语综合征、小儿遗尿、肾炎、铅中毒等疑难杂症治疗有专长</td>
+	</tr>
+    <!--start add element-->
+    <style>
+       .sohu-zixun{ padding-top:5px;}
+       .sohu-zixun-l{ width:10%; background:url( http://i1.hdfimg.com/www/images/icon_xxzxy_03.gif) no-repeat left center; padding-left:33px; }
+       .sohu-jiahao-l { width:10%; background:url( http://i1.hdfimg.com/www/images/icon_xxzxy_11.gif) no-repeat left center; padding-left:33px; }
+       .sohu-zixun-c{ width:65%;}
+       .sohu-zixun p{ line-height:220%;}
+       .sohu-zixun-b{ width:19%;}
+       .fl{ display:inline; float:left;}
+       .fr{ display:inline; float:right;}
+       .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+        }
+        .clearfix{display:inline-block;}
+        * html .clearfix{height:1%;}
+        .clearfix{display:block;}
+        .xxzx_button {
+        background: url("http://i1.hdfimg.com/www/images/anniu_xxzxy_03.gif") no-repeat scroll 0 0 transparent;
+        display: block;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        text-decoration: none;
+        width: 100px;
+        margin-left:30px;
+    }
+    </style>
+               <!--end add element-->
+	<tr>
+		<td colspan="2" class="blue_line">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/icon_flower.gif" width="12"
+			height="14" /></td>
+		<td width="95%">患者投票</td>
+	</tr>
+	<tr>
+		<td width="5%">&nbsp;</td>
+		<td width="95%">		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td> <a href="http://dise.health.sohu.com/disease-1752.shtml"	class="blue">小儿咳嗽</a>(4票)&nbsp;
+					 <a href="http://dise.health.sohu.com/disease-1776.shtml"	class="blue">抽动症</a>(2票)&nbsp;
+					 <a href="http://dise.health.sohu.com/disease-1785.shtml"	class="blue">发烧</a>(1票)&nbsp;
+					 <a href="http://www.haodf.com/jibing/xiaoerchuanqibing.htm"	class="blue">川崎病</a>(1票)&nbsp;
+					 <a href="http://dise.health.sohu.com/disease-3448.shtml"	class="blue">小儿肺炎</a>(0票)&nbsp;
+					 <a href="http://dise.health.sohu.com/disease-1624.shtml"	class="blue">小儿感冒</a>(0票)&nbsp;
+					</td>
+			</tr>
+            <tr>
+                <td><a href="#comment"><img
+					src="http://i1.hdfimg.com/images/common/tou.gif" /></a></td>
+            </tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu//icon_introduce.gif" width="14"
+			height="14" /></td>
+		<td width="95%">大夫介绍</td>
+	</tr>
+	<tr>
+		<td width="5%">&nbsp;</td>
+		<td width="95%"> 张伟，女，主任医师，教授，儿科一科主任，医学硕士，硕士生导师，中华中药学会儿科分会常务委员；全国中医药高等教育学会儿科分		...<a
+			href="javascript:display_div('block', 'doctorintro');" class="blue">完整介绍&gt;&gt;</a>
+			</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="blue_line">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu//icon_date.gif" width="14"
+			height="14" /></td>
+		<td width="95%">出诊时间</td>
+	</tr>
+	<tr>
+		<td width="5%"></td>
+		<td width="95%" style="font-size: 12px;">
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td align="right">
+				<table width="100%" cellpadding="1" cellspacing="0">
+					<tr>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_green.gif" align="absmiddle" /><span class="normal">普通门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_red.gif" align="absmiddle" /><span class="normal">专家门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_yellow.gif" align="absmiddle" /><span class="normal">特需门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_blue.gif" align="absmiddle" /><span class="normal">专科门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_purple.gif" align="absmiddle" /><span class="normal">会诊中心</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_blue2.gif" align="absmiddle" /><span class="normal">夜间门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_red.gif" align="absmiddle" /><span class="normal">门诊+手术门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_brown.png" align="absmiddle" /><span class="normal">其他门诊</span></td>
+                        					</tr>
+				</table>
+
+				<table width="100%" cellpadding="0" cellspacing="0"
+					class="table_yellow">
+					<tr>
+						<td width="16%" class="yellowtext">&nbsp;</td>
+						<td width="12%" align="center" class="yellowtext">周一</td>
+						<td width="12%" align="center" class="yellowtext">周二</td>
+						<td width="12%" align="center" class="yellowtext">周三</td>
+						<td width="12%" align="center" class="yellowtext">周四</td>
+						<td width="12%" align="center" class="yellowtext">周五</td>
+						<td width="12%" align="center" class="yellowtext">周六</td>
+						<td width="12%" align="center" class="yellowtext">周日</td>
+					</tr>
+										<tr>
+						<td class="yellowtext">上午</td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+											</tr>
+										<tr>
+						<td class="yellowtext">下午</td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+											</tr>
+										<tr>
+						<td class="yellowtext">夜间</td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+											</tr>
+									</table>
+
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</div>
+<div class="yy">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="title">
+	<tr>
+		<td class="bg_l">&nbsp;</td>
+		<td class="bg_c">
+		<table border="0" cellspacing="0" cellpadding="0" class="tit_bg">
+			<tr>
+				<td>找张伟大夫的看病经验</td>
+				<td class="tit_bg_r">&nbsp;</td>
+			</tr>
+		</table>
+		</td>
+		<td class="bg_r">&nbsp;</td>
+	</tr>
+</table>
+<div style="font-size: 14px; text-align: right">
+<a href="#comment" class="red">发表就医经验>></a></div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="listxx">
+	<tr>
+		<td class="gray">以下言论未经核实，仅为网友个人观点，不代表本站同意其说法，本站不承担由此引起的法律责任。请阅读者谨慎参考。</td>
+	</tr>
+	<tr>
+    <td>		<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 王*** </td>
+				<td>时间：2018年05月20日10时05分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-1624.shtml" class="blue">小儿感冒</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				效果还行，就是贵，21天1400元，中药加中成药，现在能吃饭了，消化还行 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 113.5.3.*(来自黑龙江省哈尔滨市) </td>
+				<td>时间：2018年03月02日23时05分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-3448.shtml" class="blue">小儿肺炎</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>宝宝反复低烧，感谢主任的耐心。<br> 
+				态度很好，很有耐心，很热心。而且每一次打电话咨询都很热情。态度非常的好。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 218.10.226.*(来自黑龙江省哈尔滨市) </td>
+				<td>时间：2014年07月16日10时51分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://www.haodf.com/jibing/xiaoerchuanqibing.htm" class="blue">川崎病</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"> 
+				张伟大夫医术高明，态度热情 诚恳 有耐心 不懂我问题都会给一一解答，就像对待家人一样她一切都站在患者的角度，不会像有些医生那样只为了赚钱，谢谢您张大夫，我们能遇到您这么好的大夫是我们的荣幸。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 61.138.21.*(来自黑龙江省绥化市) </td>
+				<td>时间：2014年03月12日16时17分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-1785.shtml" class="blue">发烧</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>中药治疗<br> 
+				我们是黑河低热待查患者,自2013年4月初开始游走于黑河与哈尔滨之间四处求医都没检查出是什么原因导致孩子连续低热,直至2013年春节前夕找到张伟教授,终将病因查出才得以针对性中药治疗,,每个孩子都是父母的心头肉,面对一次次抽血,一次次化验,做为母亲的我那种心情是无以言表的痛,我的孩子经用药后温度已经恢复正常,每天健康快乐的茁壮成长,他也从而确定了理想,长大后也想好好学习中医,发扬国药疗效,为更多的人解除病痛,我们真的很感谢张伟大夫,也希望她能好人一生平安. </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 1.58.218.*(来自黑龙江省哈尔滨市) </td>
+				<td>时间：2013年10月20日15时23分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-3448.shtml" class="blue">小儿肺炎</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物治疗<br> 
+				先前在儿童医院，因病情严重后转到中医药大学附属第一医院，主治医师为张伟教授。到达该医院后由张伟等医务人员的精心治疗，使董文墨患儿逐渐趋于好转，使百感交集的父母看到了希望，经过一周的治疗，患儿的病和免疫力得到了彻底的治愈和增强，回家后至今患儿再未出现此类病症，父母十分感激中医药大学附属第一医院主治医师张伟教授及医务人员。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 1.58.35.*(来自黑龙江省哈尔滨市) </td>
+				<td>时间：2013年03月20日08时56分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-1752.shtml" class="blue">小儿咳嗽</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"> 
+				 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 1.62.101.*(来自黑龙江省哈尔滨市) </td>
+				<td>时间：2013年03月02日13时05分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-1752.shtml" class="blue">小儿咳嗽</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"> 
+				 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 122.158.38.*(来自黑龙江省大庆市) </td>
+				<td>时间：2011年10月22日20时29分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-1776.shtml" class="blue">抽动症</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>中药<br> 
+				张大夫医德好，没架子，病人百问不烦，医术高，记得有一次，我的孩子半夜犯了抽动症，急的我们一家人不知怎么办好，于是就打电话给张大夫，我们当时担心张大夫一定不能接，我们抱着试试看地态度，没想到张大夫真的接电话了，并且耐心的给我们讲解如何缓解孩子的病情，我们按照张大夫告诉的办法去做，果然孩子的病情得到了缓解，后来吃了几副张大夫的药，我孩子的病已经得到了控制，现在已经痊愈了，感谢张大夫治好我孩子的病，我们一辈子都忘不了您的！ </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 110.111.1.*(来自黑龙江省大庆市) </td>
+				<td>时间：2011年06月09日14时10分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-1776.shtml" class="blue">抽动症</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>中药治疗<br> 
+				张伟大夫是我见过的最有医德的大夫，她没架子，医术高，对患者非常有耐心，有好几次我的孩子晚上九点多犯病，来不及去医院，就打电话给张大夫，张大夫耐心的给我们讲解怎么缓解孩子的紧张情况，而且我和张大夫非亲非故，我们真的非常感激张大夫，我的孩子在张大夫的治疗下病情已经基本稳定住了，在这里我发自内心的向张大夫说一声：“谢谢你”！ </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 123.165.77.*(来自黑龙江省哈尔滨市) </td>
+				<td>时间：2010年05月12日11时12分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-1752.shtml" class="blue">小儿咳嗽</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"> 
+				 </td>
+			</tr>
+		</table>
+		 
+
+		</td>
+	</tr>
+</table>
+</div>
+<div class="yy">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="title">
+	<tr>
+		<td class="bg_l">&nbsp;</td>
+		<td class="bg_c">
+		<table border="0" cellspacing="0" cellpadding="0" class="tit_bg">
+			<tr>
+				<td>发表就医经验，帮助更多患友了解张伟大夫！<a id="comment"
+					name="comment"></a>&nbsp;<!--这个空格不要删除，这关系到ie兼容性--></td>
+				<td class="tit_bg_r">&nbsp;</td>
+			</tr>
+		</table>
+		</td>
+		<td class="bg_r">&nbsp;</td>
+	</tr>
+</table>
+<form action="http://www.haodf.com/api/doctor/addcomment"
+	method="post" name="inputform" id="inputform">
+    <input name="patient[id]" value="-1" type="hidden">
+<table id="inputcomment" width="100%" cellpadding="0" cellspacing="0"
+	style="border: 1px solid #ddd;">
+	<tr>
+		<td colspan="2" class="hdf_content" style="padding: 8px">
+		<table width="100%" cellpadding="0" cellspacing="0">
+
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				疾病名称:&nbsp;</td>
+				<td><input name="disease" style="width: 180px; font-size: 12px;"
+					maxlength="10" /> <span class=red>*</span></td>
+			</tr>
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				治疗方式:&nbsp;</td>
+				<td><input name="fld_DoctorCommentRemedy"
+					style="width: 180px; font-size: 12px;" maxlength="10" /> <span
+					class="gray">如：药品名、手术名(腹腔镜、介入治疗)...</span></td>
+			</tr>
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr>
+				<td align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				疗效/医术:&nbsp;</td>
+				<td><select id="skill" name="skill" style="width: 140px;">
+					<option value="-2" selected="selected">请选择</option>
+					<option value="5">很满意</option>
+					<option value="3">满意</option>
+					<option value="1">一般</option>
+					<option value="0">不满意</option>
+					<option value="-1">还不知道</option>
+				</select> <span class=red>*</span> &nbsp;&nbsp;&nbsp;&nbsp;<img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				耐心/态度:&nbsp; <select id="attitude" name="attitude"
+					style="width: 140px;">
+					<option value="-2" selected="selected">请选择</option>
+					<option value="5">很满意</option>
+					<option value="3">满意</option>
+					<option value="1">一般</option>
+					<option value="0">不满意</option>
+				</select> <span class=red>*</span></td>
+			</tr>
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr align="left">
+				<td align=right valign=top><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				看病过程:&nbsp;</td>
+				<td><textarea
+					onkeyup="wordNumberNotice(this, $('#notice_word_number'), 50)"
+					rows="12" style="font-size: 12px; color: #666" class="tex_width"
+					name="content_fix_0"
+					onfocus="var reg = /^请注意/;if (reg.test(this.value)){this.value='';this.style.color='#000'}">请注意:
+1. 只有您在张伟大夫处就医后，才能发表看病经验。
+2. 分享看病经验要求公正、客观、详实。涉及“医疗纠纷”的，需提供法院已生效的法律文书，经审核，对事实清楚、证据充分、合法有效的，可予以发表。
+3. 无事实根据，发布损毁医生名誉的不实言论，发布者需承担相应法律责任。
+					</textarea> <span class=red>*</span><br />
+				<span id="notice_word_number" style="color: #F00;"></span></td>
+			</tr>
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+		</table>
+
+		<div id="moreinputbox_mobile_3">
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				真实姓名:&nbsp;</td>
+				<td><input style="WIDTH: 140px; FONT-SIZE: 12px" size="18"
+					name="fld_UserRealName" maxlength="20" /> <span class="orange">*</span></td>
+			</tr>
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				手机号码:&nbsp;</td>
+				<td><input style="WIDTH: 140px; FONT-SIZE: 12px" size="18"
+					name="fld_UserMobile" maxlength="11" /> <span class="orange">*</span></td>
+			</tr>
+			<!--
+				<tr>
+						<td>请输入计算结果:</td>
+						<td>
+                        <span id="show_captcha_article"><img id='captcha' name='captcha' src="http://www.haodf.com/captcha.php?type=article&width=120&height=35&token=VGJVLFM7UWgBNVEyAGxaNQdjVjJTdwAxAG5WNQdkXjICN1U3VzcBM1ZuBzYBM1xsADkCMwJoXysJYAhvVDUAbVRmVTc" /></span>
+                        <input type="text" size="4" style="height:28px" name="verifystr" id="verifystr" value="" />
+						</td>
+				</tr>
+				-->
+			<tr>
+				<td></td>
+				<td>1.您必须自己在大夫处就医过，才能发表。<br />
+				2.就医过程需要公正，客观，详实。无事实依据有可能被删除。 <br />
+				注意：请填写您的真实姓名和手机号码，联系方式不会在网页上公开。
+				如遇到投诉的时候我们会及时联系您。如果无法联系到您本人核实，您的评论可能会被删除。</td>
+			</tr>
+		</table>
+		</div>
+
+		<table width="100%" cellpadding="0" cellspacing="0">
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr align="left">
+
+				<td width="15%" align=right valign=top></td>
+				<td><input type="button" name="btn" style="padding-top: 3px;" onclick="return checkform();" value="发表就医经验" /> 
+                            <input type="hidden" name="token" id="token" value="VGJVLFM7UWgBNVEyAGxaNQdjVjJTdwAxAG5WNQdkXjICN1U3VzcBM1ZuBzYBM1xsADkCMwJoXysJYAhvVDUAbVRmVTc" />
+					<input
+					type="hidden" name="expenserate" value="-2" /> <input type="hidden"
+					name="doctor_id_primary" value="265845" /> <input
+					type="hidden" name="doctor_id" value="265845" /> <input
+					type="hidden" name="doctor_name" value="张伟" /> <input
+					type="hidden" name="type" value="2" id="TYPE" /> <input
+					type="hidden" name="from" value="" /> <input type="hidden"
+					name="domain" value="" /> <input type="hidden" name="registerrate"
+					value="-1" /> <input type="hidden" name="content" value="" /> <input
+					type="hidden" name="comment_type" value="3" /></td>
+                    <input type="hidden" name="crumb" value="02b01144" />
+                    <input type="hidden" name="isHezuo" value="1" />
+			</tr>
+		</table>
+
+
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+</div>
+
+<div class="yyright">
+<div class="clear yyright_s"><script type="text/javascript">
+function check(obj) {
+	if (obj.case_title.value == '输入问题标题，点击提问按钮，立刻咨询万名正规医院实名大夫...') {
+		obj.case_title.value = '';
+	}
+}
+</script>
+<div class="clear">
+<div class="top_bg">在线咨询专家</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+        <form action="/thread/ask.htm"
+			method="get" onsubmit="check(this)">
+		<div class="hdf_que">
+		<div class="clear"><textarea name="case_title" style="color: #666;"
+			rows="3" cols="28"
+			onclick="this.style.color='black';if(this.value=='输入问题标题，点击提问按钮，立刻咨询万名正规医院实名大夫...'){this.value=''}">输入问题标题，点击提问按钮，立刻咨询万名正规医院实名大夫...</textarea>
+		<input type="submit" value="" class="q" /></div>
+        <div class="zjks">
+        .<a href="/thread/22.htm">妇科</a> 
+        .<a href="/thread/25.htm">儿内科</a>
+		.<a href="/thread/12.htm">外科</a>
+		.<a href="/thread/38.htm">眼科</a>
+		.<a href="/thread/44.htm">男科</a>
+
+		.<a href="/thread/45.htm">肿瘤</a>
+		.<a href="/thread/57.htm">心理</a>
+		.<a href="/thread/46.htm">中医</a>
+        .<a href="/thread/index.htm">更多&gt;&gt;</a></div>
+		</div>
+		</form>
+		</td>
+
+	</tr>
+</table>
+</div>
+  <div class="top_bg">张伟 同专业推荐大夫</div>
+<table width="94%" cellspacing="0" cellpadding="0"
+	style="margin-left: 7px; margin-top: 7px">
+
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-1752.shtml" class="blue">小儿咳嗽</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdexpNwEI0-22oNxVxB.htm">
+			房定珠</a>(319票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhIOyZJ9SvRJb8.htm"
+			title="新华医院">
+			新华医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLfwbXCBFq-tVG1BZ1.htm">
+			孙广荣</a>(316票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwaCOsp9b25Lgbma.htm"
+			title="青岛妇女儿童医院">
+			青岛妇女儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdewUW-qceCoEzBhPT2.htm">
+			嵇若旭</a>(235票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhIOyZJ9SvRJb8.htm"
+			title="新华医院">
+			新华医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBSRvkwMEBi1InoYl.htm">
+			陈虹</a>(65票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXC25IqlG3HelVn.htm"
+			title="中山三院">
+			中山三院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-1752.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-1776.shtml" class="blue">抽动症</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZRZHuGIUHKEpXkgLG4be.htm">
+			孙克兴</a>(181票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhno-DwIIFQwlR.htm"
+			title="上海儿童医学中心">
+			上海儿童医学中心</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUnQsdG0lPR5qqdfm.htm">
+			陆小彦</a>(174票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONgokwMDQuPMuk.htm"
+			title="北京儿童医院">
+			北京儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLvKozTIyyMxUNjSNk.htm">
+			陈莹</a>(99票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhno-DwIIFQwlR.htm"
+			title="上海儿童医学中心">
+			上海儿童医学中心</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPSMVkGNoD0ioO33P.htm">
+			温兆春</a>(87票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXJp7o5nM-zfnJT.htm"
+			title="山东省立医院">
+			山东省立医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-1776.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-1785.shtml" class="blue">发烧</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZYiaRTMyUcsGElip2trg.htm">
+			叶盛</a>(105票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0Co0LPQrVFGoqUr.htm"
+			title="浙江省儿童医院">
+			浙江省儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLuKIHVLdX6gWDmEzh.htm">
+			徐灵敏</a>(72票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLUXJbq3Urabz6vEQg.htm"
+			title="中山医院青浦分院">
+			中山医院青浦分院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeibXzekTMFHdvkQ4C.htm">
+			石永言</a>(38票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXyO7o5nM-zfnJT.htm"
+			title="盛京医院">
+			盛京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuZXjOpRh5nWNTs3BGmMGOc.htm">
+			董川</a>(41票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwX-2sp9b25Lgbma.htm"
+			title="广东省妇幼保健院">
+			广东省妇幼保健院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-1785.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/xiaoerchuanqibing.htm" class="blue">川崎病</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLVi3alQsHYQ8uQGIO.htm">
+			沈捷</a>(132票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhno-DwIIFQwlR.htm"
+			title="上海儿童医学中心">
+			上海儿童医学中心</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSMh0J1q6b1viZLC3b3s8R.htm">
+			伊迎春</a>(64票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXJp7o5nM-zfnJT.htm"
+			title="山东省立医院">
+			山东省立医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduxnzuCtgYZIMDlWg3.htm">
+			蹇强</a>(31票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwIx165Sxq9XkxnU.htm"
+			title="西安儿童医院">
+			西安儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuwlGMJ3rPtg1OdBHBTXzVa.htm">
+			谢小斐</a>(29票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXxOqNN8Z2K18e0.htm"
+			title="广州市妇女儿童医疗中心">
+			广州市妇女儿童医疗中心</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/xiaoerchuanqibing.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-3448.shtml" class="blue">小儿肺炎</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LugzZydFyeeNQ4z9ZEju-cx.htm">
+			耿刚</a>(136票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmxUrEpjdCy8jrf.htm"
+			title="重庆儿童医院">
+			重庆儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZYiaRTMyUcsGElip2trg.htm">
+			叶盛</a>(148票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0Co0LPQrVFGoqUr.htm"
+			title="浙江省儿童医院">
+			浙江省儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLf-qpnmKSvlgzgq2c.htm">
+			季伟</a>(139票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwaJreFEgXN3cgkJ.htm"
+			title="苏州儿童医院">
+			苏州儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSNgWxIWzq1VxD-uCU22Ut.htm">
+			王汉久</a>(90票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0Canlfmw7E-sSlj.htm"
+			title="安徽省儿童医院">
+			安徽省儿童医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-3448.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-1624.shtml" class="blue">小儿感冒</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeibXzekTMFHdvkQ4C.htm">
+			石永言</a>(56票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXyO7o5nM-zfnJT.htm"
+			title="盛京医院">
+			盛京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdewUYZNNi3poYKbews.htm">
+			薛海虹</a>(88票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhIOyZJ9SvRJb8.htm"
+			title="新华医院">
+			新华医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduSYCrq9Vy3s6uiTQK.htm">
+			郑洪</a>(61票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0Canlfmw7E-sSlj.htm"
+			title="安徽省儿童医院">
+			安徽省儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLfwbYi8upZO0ZUs6x.htm">
+			柳方娥</a>(46票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLUmJb21ObWl99uMTa.htm"
+			title="齐鲁医院青岛院区">
+			齐鲁医院青岛院区</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-1624.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+	</table>
+ 
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- 添加 -->
+<div id="doctorintro"
+	style="display: none; width: 100%; text-align: center; position: absolute; top: 150px; left: 0px; z-index: 1">
+<table align="center" width="500" style="margin: 0 auto;">
+	<tr>
+		<td class="hdf_frame_popbox">
+		<table width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="95%" class="hdf_title">大夫介绍</td>
+				<td width="5%" align="left" class="hdf_title"><input type="button"
+					value="╳" onClick="display_div('none', 'doctorintro')" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="left" class="hdf_content">
+				<div style="height: 400px; width: 500px; overflow: auto">张伟，女，主任医师，教授，儿科一科主任，医学硕士，硕士生导师，中华中药学会儿科分会常务委员；全国中医药高等教育学会儿科分会常务理事；世中联儿科分会常务理事；中国中药协会药物临床评价会委员会常委；中国中药协会药物临床评价研究专业委员会儿童中药评价研究学组常委；省中西医结合学会儿科呼吸病学会主任委员；省中西医结合医药学会儿科学会副主任委员；省中医药学会儿科学会副主任委员；黑龙江省医师协会第三届理事会理事；黑龙江省中西医结合医药学会第五届理事会理事；省妇幼保健协会常务委员，香坊区卫生系统第一届德艺双馨服务明星。1985年毕业于黑龙江中医药大学中医系，同年分配到中医药大学附属医院儿科工作至今，一直从事儿科医疗、科研及教学工作。曾先后在成都中医学院　全国中医儿科高师班中医理论提高班及北京协和医院小儿科进修学习儿科理论及临床。<br />
+<br />
+主编出版了《儿科疾病常用药物》、《儿科疑难病例分析》、《小儿疾病家庭中医巧治法》、《儿科医案选》、《中医儿科学》等儿科专业著作8部。在国家级期刊杂志上发表“凉血化瘀益肾法治疗紫癜性肾炎32例临床分析”、“芩百合剂治疗治疗小儿支原体<!--HAODF:8:feiyan-->肺炎<!--HAODF:/8:feiyan-->疗效观察”、“清热解毒，祛痰散瘀法治疗小儿传染性单核细胞增多症”、“熄风缓哮法治疗小儿支气管<!--HAODF:8:xiaochuan-->哮喘<!--HAODF:/8:xiaochuan-->临床研究”、“芩百合剂治疗治疗小儿支原体<!--HAODF:8:feiyan-->肺炎<!--HAODF:/8:feiyan-->临床疗效分析”等学术论文10余篇，主持及参与国家级、省级、校级科研课题《芩百颗粒治疗小儿支原体<!--HAODF:8:feiyan-->肺炎<!--HAODF:/8:feiyan-->作用机制的研究》、《驱铅健脑冲剂对儿童铅中毒防治作用机制的研究》、《驱铅健脑冲剂对实验性铅中毒大鼠作用机制的研究》、《小儿<!--HAODF:8:feiyan-->肺炎<!--HAODF:/8:feiyan-->中医证治规律研究》及《七年制中医儿科学教学中培养学生创新能力及实践技能的方法与模式的研究与实践》等十余项，其中《小儿哮病的基础与实验研究》、《抗支口服液治疗小儿支原体<!--HAODF:8:feiyan-->肺炎<!--HAODF:/8:feiyan-->的临床与实验研究》等6项课题已结题。《中医儿科学》获黑龙江省高等教育学会一等奖，《抗支口服液治疗小儿<!--HAODF:8:feiyan-->肺炎<!--HAODF:/8:feiyan-->支原体<!--HAODF:8:feiyan-->肺炎<!--HAODF:/8:feiyan-->的临床与实验研究》获黑龙江省人民政府科技进步三等奖，黑龙江省高校科学技术一等奖。<br />
+<br />
+擅长运用中西医结合方法治疗小儿咳嗽、<!--HAODF:8:feiyan-->肺炎<!--HAODF:/8:feiyan-->喘嗽、<!--HAODF:8:xiaochuan-->哮喘<!--HAODF:/8:xiaochuan-->、紫癜、厌食、腹泻、抽动－秽语综合征、<!--HAODF:8:dianxian-->癫痫<!--HAODF:/8:dianxian-->、心肌炎、肾病等儿科常见病多发病及水痘、痄腮、传染性单核细胞增多症、手足口病等小儿多重传染性疾病。近年来不断总结前人古方经验，结合现代中药药理研究的中药药效，运用中药治疗小儿过敏性疾病取得一定疗效。<br />
+<br />
+当前研究方向①运用中医中药治疗小儿呼吸系统疾病。②运用中医中药治疗小儿神经、精神疾病。<br />
+<br />
+教学中主要教授《中医儿科学》、《儿科学》课程，讲课内容生动形象，课堂气氛活跃，学生对所讲内容能扎实掌握，结合不同学生特点从拓宽知识领域，优化知识结构为出发点，以培养学生适应未来岗位为目标，加强理论与实践的结合，加强学生实践技能的培养，不断改革，更新，充实，完善教学内容，紧密联系临床实际。</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">好大夫网站收集整理，未经允许，请勿转载</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center" class="hdf_content"><input
+					type="button" value=" 关 闭 "
+					onClick="display_div('none', 'doctorintro')" /></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div class="hzfoot">本页信息由<a href="http://www.haodf.com/" target="_blank">好大夫在线</a>提供。所有门诊时间仅供参考，最终以医院当日公布为准。任何关于疾病的建议都不能替代执业医师的面对面诊断。<br />
+				网友言论仅代表其个人观点，并不代表本站同意其说法，本站不担由此引起的法律责任。   <a href="http://www.haodf.com/senderr/" class="lightblue" target="_blank">错误报告</a></div>
+ <script type="text/javascript">
+var protocol = document.location.protocol;
+    document.writeln("<script type='text/javascript' src='//i2.hdfimg.com/js/pvstat.js?20171106'><"+"/script>");
+</script>
+ <div id="foot" class="Area"  align="center"> 
+Copyright &copy; 2009 Sohu.com Inc. All Rights Reserved. 搜狐公司 <span class="unline"><a href="http://corp.sohu.com/s2007/copyright/" target="_blank">版权所有</a></span><br />
+</div>
+<SCRIPT language=JavaScript src="http://js.sohu.com/pv.js"></SCRIPT>
+<script language="javascript" src="http://js.sohu.com/wrating0820.js"></script>
+<script language="javascript">
+var  _wratingId = null;
+try{
+_wratingId = _getAcc();
+}catch(e){}
+if(_wratingId !=null){
+document.write('<scr'+'ipt type="text/javascript" src="http://sohu.wrating.com/a1.js"></scr'+'ipt>');
+}
+</script>
+<style type="text/css" media="screen">
+.sys_message { display: none; }
+</style>
+<script language="javascript">
+if(_wratingId !=null){
+document.write('<scr'+'ipt type="text/javascript">');
+document.write('var vjAcc="'+_wratingId+'";');
+document.write('var wrUrl="http://sohu.wrating.com/";');
+document.write('try{vjTrack();}catch(e){}');
+document.write('</scr'+'ipt>');
+}
+</script>
+<span class='sys_message'></span>
+<script type="text/javascript" src="http://js.tongji.linezing.com/431464/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/431464/tongji.gif"/></a></noscript>
+</body>
+</html>

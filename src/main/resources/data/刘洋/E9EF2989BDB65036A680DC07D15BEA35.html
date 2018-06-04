@@ -1,0 +1,3004 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+<title>刘洋_北大口腔医院</title>
+<link rel="stylesheet" type="text/css" href="http://i1.hdfimg.com/partner/sohu/950.css" />
+<link rel="stylesheet" type="text/css"	href="http://i1.hdfimg.com/partner/css/page_bar.css" />
+<link rel="stylesheet" type="text/css"	href="http://i1.hdfimg.com/partner/css/common.css?1350483410" />
+<link href="http://i1.hdfimg.com/partner/css/css.css" rel="stylesheet"	type="text/css" />
+<script language="javascript" src="http://i1.hdfimg.com/js/jquery.js"></script>
+<script language="javascript" src="http://i1.hdfimg.com/partner/js/common.js"></script>
+<style>
+body {
+	margin: 0px auto;
+	font-size: 12px;
+	background-color: #ffffff;
+	text-align:left;
+}
+</style>
+<script language="javascript">
+//看病过程,如果有选不满意则弹出联系方式让填写
+function check_skill_attitude()
+{
+	$('#moreinputbox_mobile_3').css('display', 'none');
+    if($('#skill').attr('value')==0 
+        || $('#skill').attr('value')==1)
+	{
+		$('#moreinputbox_mobile_3').css('display', 'block');
+	}		
+}
+//改造一下
+function checkMobile2(mobile)
+{
+    var reg0=/^(1[34578][0-9]{9})$/;   //1开头。至少7位
+	 if (reg0.test(mobile)){
+	 	return true;
+	 }else
+	 {
+	 	return false;
+	 }
+}
+function checkform()
+{
+    var obj = $("#inputform")[0];
+	if (($.trim(obj.disease.value) == "") || (obj.disease.value == "请填入正确的疾病名称")) {
+		alert("请输入疾病名称!");
+		obj.disease.focus();
+		return false;
+	}
+	if (obj.disease.value.length > 100) {
+		alert("疾病名称不能大于50字！");
+		obj.disease.focus();
+		return false;
+	}
+	if (obj.skill.value == -2) {
+		alert("请选择疗效！");
+		obj.skill.focus();
+		return false;
+	}
+	if (obj.attitude.value == -2) {
+		alert("请选择态度！");
+		obj.attitude.focus();
+		return false;
+	}
+	if (obj.registerrate.value == -2) {
+		alert("请选择挂号难度！");
+		obj.registerrate.focus();
+		return false;
+	}
+	var reg = /^请注意/;
+	if (reg.test(obj.content_fix_0.value)) {
+		alert("请输入的评论内容");
+		obj.content_fix_0.focus();
+		return false;
+	}
+	/*
+    if(obj.verifystr.value =='')
+    {
+        alert('请输入验证码');
+        return false;
+    }
+	 */
+	if ($.trim(obj.content_fix_0.value).length < 50) {
+		alert("您输入的评论内容不能少于50个字!");
+		obj.content_fix_0.focus();
+		return false;
+	}
+	if (obj.content_fix_0.value.length > 5000) {
+		alert("您输入的评论内容不能大于5000个字!");
+		obj.content_fix_0.focus();
+		return false;
+	}
+	obj.fld_UserRealName.value = jQuery.trim(obj.fld_UserRealName.value);
+	if ((obj.fld_UserRealName.value == "")) {
+		alert("请输入真实姓名!");
+		obj.fld_UserRealName.focus();
+		return false;
+	}
+	if(obj.fld_UserRealName.value.replace(/([\u4E00-\u9FA5\uf900-\ufa2d])/g,'**').length>20)
+	{
+		alert("患者姓名不能超过20个字符");
+		obj.fld_UserRealName.focus();
+		return false;
+	}
+
+	obj.fld_UserMobile.value = jQuery.trim(obj.fld_UserMobile.value);		
+	if ((obj.fld_UserMobile.value == "")) {
+		alert("请输入手机号码!");
+		obj.fld_UserMobile.focus();
+		return false;
+	}		
+	if (checkMobile2(obj.fld_UserMobile.value)==false) {
+		alert("请输入正确的手机号码!");
+		obj.fld_UserMobile.focus();
+		return false;
+	}
+	tmp_content = "";	
+	
+	if(obj.content_fix_0.value.length>1)
+	{
+		tmp_content += jQuery.trim(obj.content_fix_0.value);
+		tmp_content += "\r\n";
+	}
+
+    $.post('ajaxCheckSensComment',{'content':tmp_content},function(data){
+        var odata = eval('(' + data + ')');
+        if (odata.issens == 1)
+        {
+            alert("内容内包含敏感词,无法提交");
+        }
+        else
+        {
+            alert("看病过程发表成功，我们将在3个工作日内进行审核，通过后才能被展示！");
+            obj.content.value = jQuery.trim(tmp_content);
+
+            obj.btn.value='发表中...';
+            obj.btn.disabled = true;
+            obj.submit();
+            return true;
+        }
+    });
+}
+function showVoteBox(){
+	tb_show("给大夫投票", "#TB_inline?height=166&width=260&inlineId=voteFormContent&modal=true");
+}
+function showJieShao(){
+	tb_show("大夫介绍", "#TB_inline?height=300&width=550&inlineId=jieshaoContent");
+}
+function closePopDiv(){
+	tb_remove();
+}
+
+function wordNumberNotice(input_el, notice_el, word_number){
+	var num = Math.ceil($(input_el).val().length);
+	if (word_number-num > 0) {
+		$(notice_el).html('你还需要输入'+(word_number-num)+'个字才能发表');
+	} else {
+		$(notice_el).html('');
+	}
+}
+</script>
+</head>
+<body>
+<div align="center"> 
+<iframe src="http://health.sohu.com/7/0803/17/column212301760.shtml
+" frameBorder=0 scrolling=no class="navi" width="990" height="130"></iframe> 
+</div>  
+
+<div class="width_yy"><a href="/">搜狐健康</a>
+&gt; <a href="/province/all.htm">医院列表</a> &gt; <a
+	href="/province/beijing.htm">北京</a>
+&gt; <a
+	href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm">北大口腔医院</a>
+&gt; <a
+	href="/faculty/DE4r0BCkuHzduTWgEJflZMGILTrbd.htm">口腔粘膜科</a>
+&gt; <a
+	href="/doctor/DE4r0BCkuHzdewUkVzZaNDNGERReY.htm">刘洋</a>
+</div>
+<div class="width_yy" id="ss">
+<ul>
+	<li class="bg_l"><a href="/" class="bg_l" style="text-decoration:   none">医生 <span>Doctor</span></a></li>
+	<li class="bg_c">
+	<form action="/search/showlist" method="get">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td><input class="top_input" name="k" /></td>
+			<td width="10"></td>
+			<td width="60">
+			<input type="image"	src="http://i1.hdfimg.com/partner/images/search.gif" width="48" height="23" style="border: none" />
+			</td>
+            			<td width="60">
+			<a href="/thread/ask.htm"><img src="http://i1.hdfimg.com/partner/images/wytw.gif" /></a>
+			</td>
+			<td align="right" valign="middle">&nbsp;&nbsp;全国<span>3175</span>家重点医院,<span>303367</span>名专家</td>
+            		</tr>
+	</table>
+</form>
+	</li>
+	<li class="bg_r"></li>
+</ul>
+</div>
+<div class="width_yy">
+<div class="yyleft">
+<div class="yy">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="title">
+	<tr>
+		<td class="bg_l">&nbsp;</td>
+		<td class="bg_c">
+		<table border="0" cellspacing="0" cellpadding="0" class="tit_bg">
+			<tr>
+				<td>刘洋</td>
+				<td class="tit_bg_r">&nbsp;</td>
+			</tr>
+		</table>
+	  
+<span><a href="/thread/ask.htm?host_id=561945890" style="color: #F00;">刘洋大夫已开通个人网站，向刘洋咨询</a></span>
+</td>
+		<td class="bg_r">&nbsp;</td>
+	</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="listxx font14">
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/faculty16.gif" width="10"
+			height="14" /></td>
+		<td width="95%">科 室: <a
+			href="/faculty/DE4r0BCkuHzduTWgEJflZMGILTrbd.htm"
+			class="blue font14">北京大学口腔医院口腔粘膜科</a>
+		( <a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			class="blue font14">医院联系方式</a> <a
+			href="/faculty/DE4r0BCkuHzduTWgEJflZMGILTrbd.htm"
+			class="blue font14">科室介绍</a> )</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/icon_post.gif" width="12"
+			height="14" /></td>
+		<td width="95%">职 称: 主治医师 </td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/icon_flag.gif" width="12"
+			height="14" /></td>
+		<td width="95%">擅 长: 口腔粘膜病常见病以及疑难疾病。擅长中西医结合诊疗口腔黏膜疾病.</td>
+	</tr>
+    <!--start add element-->
+    <style>
+       .sohu-zixun{ padding-top:5px;}
+       .sohu-zixun-l{ width:10%; background:url( http://i1.hdfimg.com/www/images/icon_xxzxy_03.gif) no-repeat left center; padding-left:33px; }
+       .sohu-jiahao-l { width:10%; background:url( http://i1.hdfimg.com/www/images/icon_xxzxy_11.gif) no-repeat left center; padding-left:33px; }
+       .sohu-zixun-c{ width:65%;}
+       .sohu-zixun p{ line-height:220%;}
+       .sohu-zixun-b{ width:19%;}
+       .fl{ display:inline; float:left;}
+       .fr{ display:inline; float:right;}
+       .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+        }
+        .clearfix{display:inline-block;}
+        * html .clearfix{height:1%;}
+        .clearfix{display:block;}
+        .xxzx_button {
+        background: url("http://i1.hdfimg.com/www/images/anniu_xxzxy_03.gif") no-repeat scroll 0 0 transparent;
+        display: block;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        text-decoration: none;
+        width: 100px;
+        margin-left:30px;
+    }
+    </style>
+        <tr>
+          <td colspan="2">
+             <div class="sohu-zixun clearfix">
+                <div class="sohu-zixun-l fl"><p>网上咨询：</p></div>
+                <div class="sohu-zixun-c fl">
+
+                    <p>（1、网上不回复加号问题  2、咨询病情，上传清晰的病损照片以及其他检查结果，详细描述病情，这样利于大夫给你详细的建议，如果...</p>
+                    <p>(患者提问:<span class="orange">3131</span>问 刘洋本人已回复:<span class="orange">3131</span>问)</p>
+                </div>
+                <div class="sohu-zixun-r fr">
+                    <a class="xxzx_button" href="/thread/ask.htm?host_id=561945890">咨询刘洋</a>
+                </div>
+             </div>
+          </td>
+   </tr>
+              <!--end add element-->
+	<tr>
+		<td colspan="2" class="blue_line">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/icon_flower.gif" width="12"
+			height="14" /></td>
+		<td width="95%">患者投票</td>
+	</tr>
+	<tr>
+		<td width="5%">&nbsp;</td>
+		<td width="95%">		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="12%">疗效:</td>
+				<td width="28%"><img
+					src="http://i1.hdfimg.com/partner/images/purple1.gif" height="8"
+					width="98" /></td>
+				<td width="30%">满意度:98%</td>
+				<td rowspan="2" width="30%"><a href="#comment"><img
+					src="http://i1.hdfimg.com/images/common/tou.gif" /></a></td>
+			</tr>
+			<tr>
+				<td>态度:</td>
+				<td><img
+					src="http://i1.hdfimg.com/partner/images/purple1.gif" height="8"
+					width="99" /></td>
+				<td>满意度:99%</td>
+			</tr>
+			<tr>
+				<td colspan="4"> <a
+					href="http://www.haodf.com/jibing/kouqiangbianpingtaixian.htm"
+					class="blue">口腔扁平苔藓</a>(53票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-1895.shtml"
+					class="blue">口腔粘膜病</a>(51票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2068.shtml"
+					class="blue">口腔溃疡</a>(19票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/quchi.htm"
+					class="blue">龋齿</a>(9票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/shejibing.htm"
+					class="blue">舌疾病</a>(7票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/tianbaochuang.htm"
+					class="blue">天疱疮</a>(5票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/genguanzhiliao.htm"
+					class="blue">根管治疗</a>(4票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/buya.htm"
+					class="blue">补牙</a>(3票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/genjianzhouyan.htm"
+					class="blue">根尖周炎</a>(1票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/houbaibanbing.htm"
+					class="blue">喉白斑病</a>(1票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2167.shtml"
+					class="blue">扁平苔藓</a>(1票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2610.shtml"
+					class="blue">多形红斑</a>(1票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/kouqianghemianbuzhongliu.htm"
+					class="blue">口腔颌面部肿瘤</a>(1票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-1956.shtml"
+					class="blue">牙体病</a>(1票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/sheai.htm"
+					class="blue">舌癌</a>(1票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/baya.htm"
+					class="blue">拔牙</a>(1票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/jixinglinbaxibaobaixuebing.htm"
+					class="blue">急性淋巴细胞白血病</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/chunyan.htm"
+					class="blue">唇炎</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/zaoxueganxibaoyizhi.htm"
+					class="blue">造血干细胞移植</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/kouyan.htm"
+					class="blue">口炎</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/nianyenangzhong.htm"
+					class="blue">粘液囊肿</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/leitianbaochuan.htm"
+					class="blue">类天疱疮</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/linzhuangxibaoai.htm"
+					class="blue">鳞状细胞癌</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-1337.shtml"
+					class="blue">干燥综合征</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/diseaseSearch.sip?item=癣&pageNo=1&onePageNo=20&flag=common"
+					class="blue">癣</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/diseaseSearch.sip?item=感染&pageNo=1&onePageNo=20&flag=common"
+					class="blue">感染</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-1006.shtml"
+					class="blue">红斑狼疮</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/ditushe.htm"
+					class="blue">地图舌</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/hongbanxingtianpaochuang.htm"
+					class="blue">红斑型天疱疮</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/kouganzheng.htm"
+					class="blue">口干症</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/kouqiangbaibanbing.htm"
+					class="blue">口腔白斑病</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/kouqiangdanchunxingpaozhen.htm"
+					class="blue">口腔单纯性疱疹</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/gancaozheng.htm"
+					class="blue">干槽症</a>(0票)&nbsp;
+					</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+				<table width="60%" cellpadding="0" cellspacing="0" align="right">
+					<tr>
+						<td>图例:</td>
+						<td>满意</td>
+						<td><img height="5" src="http://i1.hdfimg.com/partner/images/purple1.gif"
+							width="20" /></td>
+						<td>一般</td>
+						<td><img height="5" src="http://i1.hdfimg.com/partner/images/purple2.gif"
+							width="20" /></td>
+						<td>不满意</td>
+						<td><img height="5" src="http://i1.hdfimg.com/partner/images/purple3.gif"
+							width="20" /></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu//icon_introduce.gif" width="14"
+			height="14" /></td>
+		<td width="95%">大夫介绍</td>
+	</tr>
+	<tr>
+		<td width="5%">&nbsp;</td>
+		<td width="95%"> 刘洋，女，主治医师，毕业于北京大学，从事口腔黏膜病学临床工作十余年。擅长诊治口腔黏膜常见疾病例如复发性口腔溃疡，口腔扁平		...<a
+			href="javascript:display_div('block', 'doctorintro');" class="blue">完整介绍&gt;&gt;</a>
+			</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="blue_line">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu//icon_date.gif" width="14"
+			height="14" /></td>
+		<td width="95%">出诊时间</td>
+	</tr>
+	<tr>
+		<td width="5%"></td>
+		<td width="95%" style="font-size: 12px;">
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td align="right">
+				<table width="100%" cellpadding="1" cellspacing="0">
+					<tr>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_green.gif" align="absmiddle" /><span class="normal">普通门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_red.gif" align="absmiddle" /><span class="normal">专家门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_yellow.gif" align="absmiddle" /><span class="normal">特需门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_blue.gif" align="absmiddle" /><span class="normal">专科门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_purple.gif" align="absmiddle" /><span class="normal">会诊中心</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_blue2.gif" align="absmiddle" /><span class="normal">夜间门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_red.gif" align="absmiddle" /><span class="normal">门诊+手术门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_brown.png" align="absmiddle" /><span class="normal">其他门诊</span></td>
+                        					</tr>
+				</table>
+
+				<table width="100%" cellpadding="0" cellspacing="0"
+					class="table_yellow">
+					<tr>
+						<td width="16%" class="yellowtext">&nbsp;</td>
+						<td width="12%" align="center" class="yellowtext">周一</td>
+						<td width="12%" align="center" class="yellowtext">周二</td>
+						<td width="12%" align="center" class="yellowtext">周三</td>
+						<td width="12%" align="center" class="yellowtext">周四</td>
+						<td width="12%" align="center" class="yellowtext">周五</td>
+						<td width="12%" align="center" class="yellowtext">周六</td>
+						<td width="12%" align="center" class="yellowtext">周日</td>
+					</tr>
+										<tr>
+						<td class="yellowtext">上午</td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_green.gif" />
+							                            <span class="normal">
+                            50.00元                            </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_green.gif" />
+							                            <span class="normal">
+                            50.00元                            </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_green.gif" />
+							                            <span class="normal">
+                            50.00元                            </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+											</tr>
+										<tr>
+						<td class="yellowtext">下午</td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_green.gif" />
+							                            <span class="normal">
+                            50.00元                            </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+											</tr>
+										<tr>
+						<td class="yellowtext">夜间</td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+											</tr>
+									</table>
+
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+<table width="100%" cellpadding="3" cellspacing="0"
+	style="margin-top: 10px">
+	<tr>
+		<td align="left" style="background-color: #FFF4E3; color: #E3961E;">刘洋大夫发布的门诊提示</td>
+	</tr>
+	<tr>
+		<td>
+		<table width="100%" cellpadding="0" cellspacing="0">
+								<tr>
+				<td align="left" class="black">出诊提示：周三上午，周四上午，周五全天</td>
+			</tr>
+						<tr>
+				<td align="right"><span class="gray">(由刘洋大夫本人发表于2018-05-27 18:29)</span></td>
+			</tr>
+
+			<tr>
+				<td height="40" align="right"><a
+					href="http://www.haodf.com/senderr/" class="blue">信息有错误？请点击这里&gt;&gt;</a></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+			</div>
+<div class="yy">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="title">
+	<tr>
+		<td class="bg_l">&nbsp;</td>
+		<td class="bg_c">
+		<table border="0" cellspacing="0" cellpadding="0" class="tit_bg">
+			<tr>
+				<td>找刘洋大夫的看病经验</td>
+				<td class="tit_bg_r">&nbsp;</td>
+			</tr>
+		</table>
+		</td>
+		<td class="bg_r">&nbsp;</td>
+	</tr>
+</table>
+<div style="font-size: 14px; text-align: right">
+<a href="#comment" class="red">发表就医经验>></a></div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="listxx">
+	<tr>
+		<td class="gray">以下言论未经核实，仅为网友个人观点，不代表本站同意其说法，本站不承担由此引起的法律责任。请阅读者谨慎参考。</td>
+	</tr>
+	<tr>
+    <td>		<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 关*** </td>
+				<td>时间：2018年05月17日08时08分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-1895.shtml" class="blue">口腔粘膜病</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				刘洋医生态度严谨，医德高尚，平易近人，为患者着想，医术高超。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 王*** </td>
+				<td>时间：2018年05月11日18时08分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://www.haodf.com/jibing/kouqiangbianpingtaixian.htm" class="blue">口腔扁平苔藓</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				刘洋医生对待患者就如同对待自己的家人一样热情，做病理的时候我差点把刘洋医生的手指给咬了，结果刘洋医生却笑着跟我说，你的牙齿又不是鲨鱼，哪有那么严重，我当时就放松了做病理的痛苦心情，非常感谢刘洋医生。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 赵*** </td>
+				<td>时间：2018年04月29日16时06分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://www.haodf.com/jibing/kouqiangbianpingtaixian.htm" class="blue">口腔扁平苔藓</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				刘洋医生态度非常好，经验丰富，在这次诊疗过程中非常细心，使我病情大有好转 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 郭*** </td>
+				<td>时间：2018年04月22日16时17分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://www.haodf.com/jibing/kouqiangbianpingtaixian.htm" class="blue">口腔扁平苔藓</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				首先刘大夫给病人的感觉是亲和力强，让患者的紧张感不是那么强。其次是刘大夫能耐心解答患者的疑问。让患者在心里上有一丝安慰。谢谢您了！ </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 康*** </td>
+				<td>时间：2018年04月19日11时10分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-2068.shtml" class="blue">口腔溃疡</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				刘大夫医术成熟，热情，对病人很负责，又结合家庭情况开药，网上回复又即时，对刘大夫很满意 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 武*** </td>
+				<td>时间：2018年04月18日19时57分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-1895.shtml" class="blue">口腔粘膜病</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				一百个赞，刘医生态度极好。主要的是还一心想着给病患省钱从山东跑北京给母亲看病不容易。还好碰到了刘医生这样一个负责的大夫。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 刘*** </td>
+				<td>时间：2018年04月17日16时49分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://www.haodf.com/jibing/kouqiangbianpingtaixian.htm" class="blue">口腔扁平苔藓</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>其他<br> 
+				刘医生的助手也很好，工作细致认真，提前预约的号，以后复查可以给加号 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 张*** </td>
+				<td>时间：2018年04月13日11时28分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-1895.shtml" class="blue">口腔粘膜病</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				得了唇炎要坚持用药，不要等到严重再看。北大口腔看的很好，是专业的口腔医院值得去选择。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 赵*** </td>
+				<td>时间：2018年04月09日21时09分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://www.haodf.com/jibing/kouqiangbianpingtaixian.htm" class="blue">口腔扁平苔藓</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>手术<br> 
+				刘洋医生很专业，水平很高，通过诊疗，对自己的病有了一定认识，人也很好。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 刘*** </td>
+				<td>时间：2018年04月07日22时57分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://www.haodf.com/jibing/kouqiangbianpingtaixian.htm" class="blue">口腔扁平苔藓</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				刘洋大夫对病人很有耐心，仔细询问病情并对症诊治，让远道而来的病人倍感温暖，心里特别安慰！ </td>
+			</tr>
+		</table>
+		 
+
+		</td>
+	</tr>
+</table>
+</div>
+<div class="yy">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="title">
+	<tr>
+		<td class="bg_l">&nbsp;</td>
+		<td class="bg_c">
+		<table border="0" cellspacing="0" cellpadding="0" class="tit_bg">
+			<tr>
+				<td>发表就医经验，帮助更多患友了解刘洋大夫！<a id="comment"
+					name="comment"></a>&nbsp;<!--这个空格不要删除，这关系到ie兼容性--></td>
+				<td class="tit_bg_r">&nbsp;</td>
+			</tr>
+		</table>
+		</td>
+		<td class="bg_r">&nbsp;</td>
+	</tr>
+</table>
+<form action="http://www.haodf.com/api/doctor/addcomment"
+	method="post" name="inputform" id="inputform">
+    <input name="patient[id]" value="-1" type="hidden">
+<table id="inputcomment" width="100%" cellpadding="0" cellspacing="0"
+	style="border: 1px solid #ddd;">
+	<tr>
+		<td colspan="2" class="hdf_content" style="padding: 8px">
+		<table width="100%" cellpadding="0" cellspacing="0">
+
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				疾病名称:&nbsp;</td>
+				<td><input name="disease" style="width: 180px; font-size: 12px;"
+					maxlength="10" /> <span class=red>*</span></td>
+			</tr>
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				治疗方式:&nbsp;</td>
+				<td><input name="fld_DoctorCommentRemedy"
+					style="width: 180px; font-size: 12px;" maxlength="10" /> <span
+					class="gray">如：药品名、手术名(腹腔镜、介入治疗)...</span></td>
+			</tr>
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr>
+				<td align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				疗效/医术:&nbsp;</td>
+				<td><select id="skill" name="skill" style="width: 140px;">
+					<option value="-2" selected="selected">请选择</option>
+					<option value="5">很满意</option>
+					<option value="3">满意</option>
+					<option value="1">一般</option>
+					<option value="0">不满意</option>
+					<option value="-1">还不知道</option>
+				</select> <span class=red>*</span> &nbsp;&nbsp;&nbsp;&nbsp;<img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				耐心/态度:&nbsp; <select id="attitude" name="attitude"
+					style="width: 140px;">
+					<option value="-2" selected="selected">请选择</option>
+					<option value="5">很满意</option>
+					<option value="3">满意</option>
+					<option value="1">一般</option>
+					<option value="0">不满意</option>
+				</select> <span class=red>*</span></td>
+			</tr>
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr align="left">
+				<td align=right valign=top><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				看病过程:&nbsp;</td>
+				<td><textarea
+					onkeyup="wordNumberNotice(this, $('#notice_word_number'), 50)"
+					rows="12" style="font-size: 12px; color: #666" class="tex_width"
+					name="content_fix_0"
+					onfocus="var reg = /^请注意/;if (reg.test(this.value)){this.value='';this.style.color='#000'}">请注意:
+1. 只有您在刘洋大夫处就医后，才能发表看病经验。
+2. 分享看病经验要求公正、客观、详实。涉及“医疗纠纷”的，需提供法院已生效的法律文书，经审核，对事实清楚、证据充分、合法有效的，可予以发表。
+3. 无事实根据，发布损毁医生名誉的不实言论，发布者需承担相应法律责任。
+					</textarea> <span class=red>*</span><br />
+				<span id="notice_word_number" style="color: #F00;"></span></td>
+			</tr>
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+		</table>
+
+		<div id="moreinputbox_mobile_3">
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				真实姓名:&nbsp;</td>
+				<td><input style="WIDTH: 140px; FONT-SIZE: 12px" size="18"
+					name="fld_UserRealName" maxlength="20" /> <span class="orange">*</span></td>
+			</tr>
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				手机号码:&nbsp;</td>
+				<td><input style="WIDTH: 140px; FONT-SIZE: 12px" size="18"
+					name="fld_UserMobile" maxlength="11" /> <span class="orange">*</span></td>
+			</tr>
+			<!--
+				<tr>
+						<td>请输入计算结果:</td>
+						<td>
+                        <span id="show_captcha_article"><img id='captcha' name='captcha' src="http://www.haodf.com/captcha.php?type=article&width=120&height=35&token=UGYCe1I7XGpQZ1AxXDMNYFczAGQDJws6AG5UNwFiUT0EMVc1A2JXY11lU2Jdbww8UmsBMFI4Cn4LYgNhWjcHYFBmAm0" /></span>
+                        <input type="text" size="4" style="height:28px" name="verifystr" id="verifystr" value="" />
+						</td>
+				</tr>
+				-->
+			<tr>
+				<td></td>
+				<td>1.您必须自己在大夫处就医过，才能发表。<br />
+				2.就医过程需要公正，客观，详实。无事实依据有可能被删除。 <br />
+				注意：请填写您的真实姓名和手机号码，联系方式不会在网页上公开。
+				如遇到投诉的时候我们会及时联系您。如果无法联系到您本人核实，您的评论可能会被删除。</td>
+			</tr>
+		</table>
+		</div>
+
+		<table width="100%" cellpadding="0" cellspacing="0">
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr align="left">
+
+				<td width="15%" align=right valign=top></td>
+				<td><input type="button" name="btn" style="padding-top: 3px;" onclick="return checkform();" value="发表就医经验" /> 
+                            <input type="hidden" name="token" id="token" value="UGYCe1I7XGpQZ1AxXDMNYFczAGQDJws6AG5UNwFiUT0EMVc1A2JXY11lU2Jdbww8UmsBMFI4Cn4LYgNhWjcHYFBmAm0" />
+					<input
+					type="hidden" name="expenserate" value="-2" /> <input type="hidden"
+					name="doctor_id_primary" value="239208" /> <input
+					type="hidden" name="doctor_id" value="239208" /> <input
+					type="hidden" name="doctor_name" value="刘洋" /> <input
+					type="hidden" name="type" value="2" id="TYPE" /> <input
+					type="hidden" name="from" value="" /> <input type="hidden"
+					name="domain" value="" /> <input type="hidden" name="registerrate"
+					value="-1" /> <input type="hidden" name="content" value="" /> <input
+					type="hidden" name="comment_type" value="3" /></td>
+                    <input type="hidden" name="crumb" value="02b01144" />
+                    <input type="hidden" name="isHezuo" value="1" />
+			</tr>
+		</table>
+
+
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+</div>
+
+<div class="yyright">
+<div class="clear yyright_s"> <div class="clear yyright_s" style="border-top: 1px solid #dddddd">
+<div style="padding: 16px; text-align: center;">
+<button style="height:29px; line-height: 24px; padding: 0 5px;" onclick="window.open('http://shannonpku.haodf.com/','newwindow');">访问刘洋个人网站</button>
+</div>
+ <div class="top_bg">刘洋 同专业推荐大夫</div>
+<table width="94%" cellspacing="0" cellpadding="0"
+	style="margin-left: 7px; margin-top: 7px">
+
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/kouqiangbianpingtaixian.htm" class="blue">口腔扁平苔藓</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEyU151t4xLBGs4w.htm">
+			孙正</a>(192票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPwNhb1I6Imj3t-5V.htm">
+			王卫之</a>(104票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmGIOyZJ9SvRJb8.htm"
+			title="山东大学齐鲁医院">
+			山东大学齐鲁医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSzvj594JmLyrGNzFx56fU.htm">
+			蒋红钢</a>(69票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmxnUz-mzZSmmxP.htm"
+			title="华西口腔医院">
+			华西口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZzgHPSkzas5SMh1oor0a.htm">
+			黄小瑾</a>(111票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmxnUz-mzZSmmxP.htm"
+			title="华西口腔医院">
+			华西口腔医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/kouqiangbianpingtaixian.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-1895.shtml" class="blue">口腔粘膜病</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEyU151t4xLBGs4w.htm">
+			孙正</a>(147票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPwNhb1I6Imj3t-5V.htm">
+			王卫之</a>(47票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmGIOyZJ9SvRJb8.htm"
+			title="山东大学齐鲁医院">
+			山东大学齐鲁医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSzvj594JmLyrGNzFx56fU.htm">
+			蒋红钢</a>(53票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmxnUz-mzZSmmxP.htm"
+			title="华西口腔医院">
+			华西口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBfNfzwMEBi1InoYl.htm">
+			周永梅</a>(30票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhXnG6rsvdwrU4.htm"
+			title="上海第九人民医院">
+			上海第九人民医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-1895.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2068.shtml" class="blue">口腔溃疡</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEyU151t4xLBGs4w.htm">
+			孙正</a>(146票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPwNhb1I6Imj3t-5V.htm">
+			王卫之</a>(109票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmGIOyZJ9SvRJb8.htm"
+			title="山东大学齐鲁医院">
+			山东大学齐鲁医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSzvj594JmLyrGNzFx56fU.htm">
+			蒋红钢</a>(15票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmxnUz-mzZSmmxP.htm"
+			title="华西口腔医院">
+			华西口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBfNTzhY2Krrpb6FW.htm">
+			周曾同</a>(20票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhXnG6rsvdwrU4.htm"
+			title="上海第九人民医院">
+			上海第九人民医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2068.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/quchi.htm" class="blue">龋齿</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNw0JoORFYeE-DzfWSIbkQ.htm">
+			王鹏</a>(69票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduSNSEQSmHsBZYJwWN.htm">
+			王世强</a>(107票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduSNSEHT0-22oNxVxB.htm">
+			杨洋</a>(50票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeKUlwaonLBKpXQJ1u.htm">
+			许桐楷</a>(41票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			title="北大口腔医院">
+			北大口腔医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/quchi.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/shejibing.htm" class="blue">舌疾病</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEyU151t4xLBGs4w.htm">
+			孙正</a>(30票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSzvj594JmLyrGNzFx56fU.htm">
+			蒋红钢</a>(8票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmxnUz-mzZSmmxP.htm"
+			title="华西口腔医院">
+			华西口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZzgHPSkzas5SMh1oor0a.htm">
+			黄小瑾</a>(7票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmxnUz-mzZSmmxP.htm"
+			title="华西口腔医院">
+			华西口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdFg0h1U5tvC5s9enjZ.htm">
+			单小峰</a>(5票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			title="北大口腔医院">
+			北大口腔医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/shejibing.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/tianbaochuang.htm" class="blue">天疱疮</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLViqnWj3KCctdxdDa.htm">
+			骆肖群</a>(106票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGaOyZJ9SvRJb8.htm"
+			title="上海华山医院">
+			上海华山医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdehbYx3tgYZIMDlWg3.htm">
+			王明悦</a>(82票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSNTHfj6gzfmiZLC3b3s8R.htm">
+			彭洋</a>(24票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUmiOImi88QpNK6eR.htm">
+			陈喜雪</a>(37票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/tianbaochuang.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/genguanzhiliao.htm" class="blue">根管治疗</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdehOLvJT0-22oNxVxB.htm">
+			李国正</a>(111票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLDK3nlj3KCctdxdDa.htm">
+			蒋备战</a>(100票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwIC1tsGQuzElQch.htm"
+			title="同济大学口腔医院">
+			同济大学口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLDxUYQD-CyPwMiuK4.htm">
+			凌建军</a>(151票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLfi1ERJ2Duj49TpEn.htm">
+			王培新</a>(74票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwaJ2d9CWC6I0WTb.htm"
+			title="南京市口腔医院">
+			南京市口腔医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/genguanzhiliao.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/buya.htm" class="blue">补牙</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNw0JoORFYeE-DzfWSIbkQ.htm">
+			王鹏</a>(113票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuZWwnl8xdctHcyq6vJdZnb.htm">
+			周小洁</a>(51票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONgokwMDQuPMuk.htm"
+			title="北京儿童医院">
+			北京儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdehOLvJT0-22oNxVxB.htm">
+			李国正</a>(48票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZWwlJ1o3lYZs9VRuHhQJ.htm">
+			王岐麟</a>(56票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			title="北大口腔医院">
+			北大口腔医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/buya.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/genjianzhouyan.htm" class="blue">根尖周炎</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLDK3nlj3KCctdxdDa.htm">
+			蒋备战</a>(28票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwIC1tsGQuzElQch.htm"
+			title="同济大学口腔医院">
+			同济大学口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduSNSEHT0-22oNxVxB.htm">
+			杨洋</a>(13票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduK2Mgm0QBvLvytk8z.htm">
+			王瑶</a>(11票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwIyb86yaYLonaQx.htm"
+			title="河北医科大学第一医院">
+			河北医科大学第一医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdFgXC45T0-22oNxVxB.htm">
+			彭娇</a>(11票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/genjianzhouyan.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/houbaibanbing.htm" class="blue">喉白斑病</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBTNZNz9LoalFRy9w.htm">
+			吴海涛</a>(56票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGopHKRSoDWRPl.htm"
+			title="上海市五官科医院">
+			上海市五官科医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUECbU2m0TUy35vjf.htm">
+			李进让</a>(15票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0KXnG6rsvdwrU4.htm"
+			title="海军总医院">
+			海军总医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0JOpakhlkqINLVW.htm">
+			王军</a>(8票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCoglyo3WJbWRFh5.htm"
+			title="北京同仁医院">
+			北京同仁医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPGX-5uD9XRfC4Kpr.htm">
+			蒋中秋</a>(5票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXy1tsGQuzElQch.htm"
+			title="江苏省中医院">
+			江苏省中医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/houbaibanbing.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2167.shtml" class="blue">扁平苔藓</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEyU151t4xLBGs4w.htm">
+			孙正</a>(4票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPwNhb1I6Imj3t-5V.htm">
+			王卫之</a>(9票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmGIOyZJ9SvRJb8.htm"
+			title="山东大学齐鲁医院">
+			山东大学齐鲁医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdehURSYRwE-9BS0ak-.htm">
+			张斌</a>(7票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONgokwMDQuPMuk.htm"
+			title="北京儿童医院">
+			北京儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdei2XReRwE-9BS0ak-.htm">
+			徐秀莲</a>(6票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLUm-qoU0lPR5qqdfm.htm"
+			title="中国医学科学院皮肤病医院（研究所）">
+			中国医学科学院皮肤病医院（研究所）</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2167.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2610.shtml" class="blue">多形红斑</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUI-1U51t4xLBGs4w.htm">
+			刘晓雁</a>(6票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OmK5b7qp0yaqEm.htm"
+			title="儿研所">
+			儿研所</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSlTQuCU5Xkj7CIoXi9Fjh.htm">
+			郭晓霞</a>(3票)</td>
+		<td><a
+			href="/yiyuan/DE4r0Fy0C9LuSlTyvCU6OO7rGNzFx56fU.htm"
+			title="潞安集团总医院">
+			潞安集团总医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZlKmy9tKXmCFC7PDXngc.htm">
+			史传奎</a>(4票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwEJb65Sxq9XkxnU.htm"
+			title="济南市儿童医院">
+			济南市儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSlDMZQVYdCPTs3BGmMGOc.htm">
+			田庆均</a>(4票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwm-O5IqlG3HelVn.htm"
+			title="武汉市第一医院">
+			武汉市第一医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2610.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/kouqianghemianbuzhongliu.htm" class="blue">口腔颌面部肿瘤</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUnC354tx00uSYNw1.htm">
+			毛驰</a>(197票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			title="北大口腔医院">
+			北大口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUniOEmi88QpNK6eR.htm">
+			张雷</a>(316票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			title="北大口腔医院">
+			北大口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduSNTYG9Vy3s6uiTQK.htm">
+			韩正学</a>(139票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdexpN-a3cdu-554j7S.htm">
+			王佃灿</a>(176票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			title="北大口腔医院">
+			北大口腔医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/kouqianghemianbuzhongliu.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-1956.shtml" class="blue">牙体病</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSkDz8SWRstj7CIoXi9Fjh.htm">
+			董丽平</a>(7票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeCUmjtK1qIYC2U8VE.htm">
+			季洋</a>(4票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0-On0h7UcoLDoWk.htm"
+			title="沈阳军区总医院">
+			沈阳军区总医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUni2aOljbt3pIpm0.htm">
+			丁瑞宇</a>(3票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			title="北大口腔医院">
+			北大口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLDxUYQD-CyPwMiuK4.htm">
+			凌建军</a>(5票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-1956.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/sheai.htm" class="blue">舌癌</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBZXGUqEsNJ7qcZX0.htm">
+			潘朝斌</a>(96票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXCUrEpjdCy8jrf.htm"
+			title="中山二院">
+			中山二院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUnC354tx00uSYNw1.htm">
+			毛驰</a>(45票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			title="北大口腔医院">
+			北大口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSMZkgNVph2Bf3o2p0zvkj.htm">
+			彭小伟</a>(23票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwny5eFEgXN3cgkJ.htm"
+			title="湖南省肿瘤医院">
+			湖南省肿瘤医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUniOEmi88QpNK6eR.htm">
+			张雷</a>(30票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			title="北大口腔医院">
+			北大口腔医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/sheai.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/baya.htm" class="blue">拔牙</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeC2Wy3ej6dZX-ciU9.htm">
+			刘洪飞</a>(1609票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduSNTWidwE-9BS0ak-.htm">
+			王峰</a>(1553票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSzFwqnNCXLyrGNzFx56fU.htm">
+			张晓辉</a>(510票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmxnUz-mzZSmmxP.htm"
+			title="华西口腔医院">
+			华西口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLfiqpmYSdpUn-8HdJ.htm">
+			邹昌宁</a>(788票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwaJ2d9CWC6I0WTb.htm"
+			title="南京市口腔医院">
+			南京市口腔医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/baya.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/jixinglinbaxibaobaixuebing.htm" class="blue">急性淋巴细胞白血病</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwXyq65Sxq9XkxnU.htm">
+			范芸</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUXiaIYw1mnSzFYx4.htm">
+			黄仲夏</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwYGlldz13dpO1a1.htm"
+			title="朝阳医院西院">
+			朝阳医院西院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUXJbp2m0TUy35vjf.htm">
+			王昭</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6O0K3OUNZWCWNv0.htm"
+			title="北京友谊医院">
+			北京友谊医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUmJUOpWkcw-2p57V.htm">
+			任汉云</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/jixinglinbaxibaobaixuebing.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/chunyan.htm" class="blue">唇炎</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZw0GY0voi5u5tiO7.htm">
+			张春玲</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwnKaqNN8Z2K18e0.htm">
+			谢志强</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0y32rbc1P6dS2aO.htm">
+			杨秀敏</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCoglyo3WJbWRFh5.htm"
+			title="北京同仁医院">
+			北京同仁医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUXhOYztx00uSYNw1.htm">
+			马小丽</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCoglyo3WJbWRFh5.htm"
+			title="北京同仁医院">
+			北京同仁医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/chunyan.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/zaoxueganxibaoyizhi.htm" class="blue">造血干细胞移植</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUmJUOpWkcw-2p57V.htm">
+			任汉云</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSRSHPKobjuYwBFNKaEMw4.htm">
+			廖建云</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXCO1YXfLKC7fiV.htm"
+			title="广州南方医院">
+			广州南方医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNwlhYKoXle0G6uJ8FLja7.htm">
+			董征</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLUXKmkG0lPR5qqdfm.htm"
+			title="307医院">
+			307医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZYhNycshQKEpXkgLG4be.htm">
+			王涛</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4r0eJWGqZNZWZ0C1pqnoLH6TmC9xRR.htm"
+			title="山西大医院">
+			山西大医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/zaoxueganxibaoyizhi.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/kouyan.htm" class="blue">口炎</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUX-qUbnnx8s59Gnn.htm">
+			刘永生</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OEh5b7qp0yaqEm.htm"
+			title="航空总医院">
+			航空总医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUmy7sugURjIHBzPQ.htm">
+			马蕾</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OmG3OUNZWCWNv0.htm"
+			title="中日医院">
+			中日医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUmHs7Fh7UcoLDoWk.htm">
+			夏仲元</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OmG3OUNZWCWNv0.htm"
+			title="中日医院">
+			中日医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUECbOpWkcw-2p57V.htm">
+			孙建军</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0KXnG6rsvdwrU4.htm"
+			title="海军总医院">
+			海军总医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/kouyan.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/nianyenangzhong.htm" class="blue">粘液囊肿</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUXjr2s7Vg1MFyDkh.htm">
+			张韬</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEyU151t4xLBGs4w.htm">
+			孙正</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUnC354tx00uSYNw1.htm">
+			毛驰</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			title="北大口腔医院">
+			北大口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUnCrp3Urabz6vEQg.htm">
+			彭歆</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			title="北大口腔医院">
+			北大口腔医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/nianyenangzhong.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/leitianbaochuan.htm" class="blue">类天疱疮</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwnKIbML76GGU71e.htm">
+			徐敏丽</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUmComNTaJfDy6Cbc.htm">
+			陆海英</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUmiO0NTaJfDy6Cbc.htm">
+			王爱平</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUmJbqrbc1P6dS2aO.htm">
+			周常青</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/leitianbaochuan.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/linzhuangxibaoai.htm" class="blue">鳞状细胞癌</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZw0G0XD2kvYsPktj.htm">
+			葛蒙梁</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0hnNiUrabz6vEQg.htm">
+			肖越勇</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0KOYztx00uSYNw1.htm">
+			张海钟</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0KOnlfmw7E-sSlj.htm">
+			胡敏</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/linzhuangxibaoai.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-1337.shtml" class="blue">干燥综合征</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUIi53tPQrVFGoqUr.htm">
+			董振华</a>(457票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduCp0y7VkFGpEHP0h6.htm">
+			赵岩</a>(28票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPS0wppMEBi1InoYl.htm">
+			孙凌云</a>(40票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXyq65Sxq9XkxnU.htm"
+			title="南京鼓楼医院">
+			南京鼓楼医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBVlVjVGvdhaHfIMj.htm">
+			朱剑</a>(37票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-1337.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/diseaseSearch.sip?item=癣&pageNo=1&onePageNo=20&flag=common" class="blue">癣</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdewplZWRwE-9BS0ak-.htm">
+			胡小平</a>(10票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwEhp1YXfLKC7fiV.htm"
+			title="北京大学深圳医院">
+			北京大学深圳医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNKRxaNTYLcwNNZanyuW8l.htm">
+			帅茂圣</a>(11票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwayqPBM4FM2b44i.htm"
+			title="泰州人民医院">
+			泰州人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeGmJ88LgYZIMDlWg3.htm">
+			弓娟琴</a>(8票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLUm-qoU0lPR5qqdfm.htm"
+			title="中国医学科学院皮肤病医院（研究所）">
+			中国医学科学院皮肤病医院（研究所）</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZlKmy9tKXmCFC7PDXngc.htm">
+			史传奎</a>(10票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwEJb65Sxq9XkxnU.htm"
+			title="济南市儿童医院">
+			济南市儿童医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/diseaseSearch.sip?item=癣&pageNo=1&onePageNo=20&flag=common"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/diseaseSearch.sip?item=感染&pageNo=1&onePageNo=20&flag=common" class="blue">感染</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBTMTRCI6Imj3t-5V.htm">
+			朱利平</a>(12票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGaOyZJ9SvRJb8.htm"
+			title="上海华山医院">
+			上海华山医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSLwzVirdcFnj-p35r6Dll.htm">
+			张健</a>(10票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXCO1YXfLKC7fiV.htm"
+			title="广州南方医院">
+			广州南方医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSWZYi316cdHcyq6vJdZnb.htm">
+			李云涛</a>(4票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXJ2c2dcByMhc7g.htm"
+			title="天津医院">
+			天津医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdux2EQBJtvC5s9enjZ.htm">
+			李双杰</a>(4票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwnyq86yaYLonaQx.htm"
+			title="湖南省儿童医院">
+			湖南省儿童医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/diseaseSearch.sip?item=感染&pageNo=1&onePageNo=20&flag=common"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-1006.shtml" class="blue">红斑狼疮</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPwYgXXGvdhaHfIMj.htm">
+			舒强</a>(162票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmGIOyZJ9SvRJb8.htm"
+			title="山东大学齐鲁医院">
+			山东大学齐鲁医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPgny9D-CyPwMiuK4.htm">
+			沈凌汛</a>(274票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXyUc2dcByMhc7g.htm"
+			title="武汉协和医院">
+			武汉协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduhOWwInWKEMSMwtPM.htm">
+			黄建林</a>(181票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwEKp3XIhpq-4h0m.htm"
+			title="中山六院">
+			中山六院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduTWZaHGUIHuKomU0X.htm">
+			王迁</a>(149票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-1006.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/ditushe.htm" class="blue">地图舌</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEyU151t4xLBGs4w.htm">
+			孙正</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBDzdh3oBq7c5PLvm.htm">
+			龚群</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXKmaCFVHDuJVht.htm"
+			title="上海儿童医院">
+			上海儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBGIQuyqZSnk6w5sT.htm">
+			张鹏</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONgokwMDQuPMuk.htm"
+			title="北京儿童医院">
+			北京儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPDRPCdBIFkeSa2ob.htm">
+			张原华</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwX-U7o5nM-zfnJT.htm"
+			title="上海龙华医院">
+			上海龙华医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/ditushe.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/hongbanxingtianpaochuang.htm" class="blue">红斑型天疱疮</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuGYy355bBdGrbvK9uwpomO.htm">
+			朱建建</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLUXKOWztx00uSYNw1.htm"
+			title="常德市第一人民医院">
+			常德市第一人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNgzFKUYQVG99C2br23VVO.htm">
+			李军友</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLUmxnYQ4wkiNDMHtx.htm"
+			title="兰州大学第二医院">
+			兰州大学第二医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNSlVj99fmvUYX-4THvahP.htm">
+			杨宝琦</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0xoEMVWVmvC3uh7.htm"
+			title="山东省皮肤病医院">
+			山东省皮肤病医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdei2XReRwE-9BS0ak-.htm">
+			徐秀莲</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLUm-qoU0lPR5qqdfm.htm"
+			title="中国医学科学院皮肤病医院（研究所）">
+			中国医学科学院皮肤病医院（研究所）</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/hongbanxingtianpaochuang.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/kouganzheng.htm" class="blue">口干症</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0hal-bc1P6dS2aO.htm">
+			刘湘源</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUXhOXLPQrVFGoqUr.htm">
+			廉海红</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCoglyo3WJbWRFh5.htm"
+			title="北京同仁医院">
+			北京同仁医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEyU151t4xLBGs4w.htm">
+			孙正</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEy53deRtJXK298J.htm">
+			杨春花</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/kouganzheng.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/kouqiangbaibanbing.htm" class="blue">口腔白斑病</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEyU151t4xLBGs4w.htm">
+			孙正</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEz138VWVmvC3uh7.htm">
+			王宏伟</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUnCrp3Urabz6vEQg.htm">
+			彭歆</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			title="北大口腔医院">
+			北大口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUniOEmi88QpNK6eR.htm">
+			张雷</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0CXaCFVHDuJVht.htm"
+			title="北大口腔医院">
+			北大口腔医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/kouqiangbaibanbing.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/kouqiangdanchunxingpaozhen.htm" class="blue">口腔单纯性疱疹</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEyU151t4xLBGs4w.htm">
+			孙正</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBvzuxs3KCctdxdDa.htm">
+			朱红</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONgokwMDQuPMuk.htm"
+			title="北京儿童医院">
+			北京儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBGIQuyqZSnk6w5sT.htm">
+			张鹏</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONgokwMDQuPMuk.htm"
+			title="北京儿童医院">
+			北京儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPTRVJvKSvlgzgq2c.htm">
+			骆丹</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwX-bc2dcByMhc7g.htm"
+			title="江苏省人民医院">
+			江苏省人民医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/kouqiangdanchunxingpaozhen.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/gancaozheng.htm" class="blue">干槽症</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuwYKoWwnoisgRNvXH4DNxe.htm">
+			赵厚明</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwaC243vTNHYjTjw.htm"
+			title="山东省口腔医院">
+			山东省口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9Lugzf-99dk35TQH5Fy7BKbP.htm">
+			张涛</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYZUWQs9tDws38.htm"
+			title="北京口腔医院">
+			北京口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LugzexpER-lQZlXG59tZIW0.htm">
+			卓绍杨</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwaC243vTNHYjTjw.htm"
+			title="山东省口腔医院">
+			山东省口腔医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSWxXQ4fWFyZlXG59tZIW0.htm">
+			郑相淮</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXxEOyZJ9SvRJb8.htm"
+			title="广东省口腔医院">
+			广东省口腔医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/gancaozheng.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+	</table>
+
+<div class="yyright_s">
+<div class="top_bg">刘洋大夫最新文章和回复的咨询</div>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+		<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/hz/images/sohu//document.gif" width="16"
+			height="16" /></td>
+		<td width="70%"><a
+            href="http://www.haodf.com/zhuanjiaguandian/shannonpku_5563042552.htm" class="blue">我院开通最新的app预约挂号。在手机下载即可预约。</a>
+		</td>
+		
+	</tr>
+		<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/hz/images/sohu//document.gif" width="16"
+			height="16" /></td>
+		<td width="70%"><a
+            href="http://www.haodf.com/zhuanjiaguandian/shannonpku_4818987076.htm" class="blue">北大口腔预约挂号须知</a>
+		</td>
+		
+	</tr>
+		<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/hz/images/sohu//document.gif" width="16"
+			height="16" /></td>
+		<td width="70%"><a
+            href="http://www.haodf.com/zhuanjiaguandian/shannonpku_4212098119.htm" class="blue">黏膜科常用药物的用法</a>
+		</td>
+		
+	</tr>
+	</table>
+<hr color="#999" size="1"></hr>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/shannonpku_g_6160434614.htm"
+			class="blue">找刘洋大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/shannonpku_g_6215169564.htm"
+			class="blue">找刘洋大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/shannonpku_g_5803018128.htm"
+			class="blue">找刘洋大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/shannonpku_g_6217003763.htm"
+			class="blue">口腔扁平苔癣</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/shannonpku_g_6242934091.htm"
+			class="blue">找刘洋大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/shannonpku_g_5850956352.htm"
+			class="blue">找刘洋大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/shannonpku_g_6231612625.htm"
+			class="blue">怎么用药控制？或则需要手术吗？</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/shannonpku_g_5901237253.htm"
+			class="blue">找刘洋大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/shannonpku_g_6238611796.htm"
+			class="blue">上腭粘膜充血</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/shannonpku_g_6212129677.htm"
+			class="blue">一切听大夫的</a></td>
+		
+	</tr>
+</table>
+</div>
+ 
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- 添加 -->
+<div id="doctorintro"
+	style="display: none; width: 100%; text-align: center; position: absolute; top: 150px; left: 0px; z-index: 1">
+<table align="center" width="500" style="margin: 0 auto;">
+	<tr>
+		<td class="hdf_frame_popbox">
+		<table width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="95%" class="hdf_title">大夫介绍</td>
+				<td width="5%" align="left" class="hdf_title"><input type="button"
+					value="╳" onClick="display_div('none', 'doctorintro')" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="left" class="hdf_content">
+				<div style="height: 400px; width: 500px; overflow: auto">刘洋，女，主治医师，毕业于北京大学，从事<!--HAODF:8:kouqiangnianmobing-->口腔黏膜病<!--HAODF:/8:kouqiangnianmobing-->学临床工作十余年。擅长诊治口腔黏膜常见疾病例如复发性<!--HAODF:8:kouqiangkuiyang-->口腔溃疡<!--HAODF:/8:kouqiangkuiyang-->，口腔扁平苔藓，<!--HAODF:8:kouqiangnianmobing-->口腔念珠菌<!--HAODF:/8:kouqiangnianmobing-->病和慢性唇炎等，并进行中西医结合治疗。对口腔黏膜疑难疾病的诊断和治疗方面具有丰富的经验例如口腔黏膜下纤维化，天疱疮，副肿瘤性天疱疮，硬皮病，盘状红斑狼疮，肉芽肿性唇炎等。<br />
+2013-2014年在美国密歇根大学做访问学者，2015年进入北京市西学中高级研修班开始学习中医。主要研究领域为口腔黏膜癌前疾病，中西医结合诊疗口腔黏膜疾病以及和全身系统疾病相关的口腔黏膜疾病。在中华口腔医学会中西医结合学专业委员会、北京口腔医学会<!--HAODF:8:kouqiangnianmobing-->口腔黏膜病<!--HAODF:/8:kouqiangnianmobing-->专业委员会，北京中西医结合学会口腔专委会等学会任职青年委员和委员。主持和参加了多项国家级、省市级和院级科研项目。</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">好大夫网站收集整理，未经允许，请勿转载</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center" class="hdf_content"><input
+					type="button" value=" 关 闭 "
+					onClick="display_div('none', 'doctorintro')" /></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div class="hzfoot">本页信息由<a href="http://www.haodf.com/" target="_blank">好大夫在线</a>提供。所有门诊时间仅供参考，最终以医院当日公布为准。任何关于疾病的建议都不能替代执业医师的面对面诊断。<br />
+				网友言论仅代表其个人观点，并不代表本站同意其说法，本站不担由此引起的法律责任。   <a href="http://www.haodf.com/senderr/" class="lightblue" target="_blank">错误报告</a></div>
+ <script type="text/javascript">
+var protocol = document.location.protocol;
+    document.writeln("<script type='text/javascript' src='//i2.hdfimg.com/js/pvstat.js?20171106'><"+"/script>");
+</script>
+ <div id="foot" class="Area"  align="center"> 
+Copyright &copy; 2009 Sohu.com Inc. All Rights Reserved. 搜狐公司 <span class="unline"><a href="http://corp.sohu.com/s2007/copyright/" target="_blank">版权所有</a></span><br />
+</div>
+<SCRIPT language=JavaScript src="http://js.sohu.com/pv.js"></SCRIPT>
+<script language="javascript" src="http://js.sohu.com/wrating0820.js"></script>
+<script language="javascript">
+var  _wratingId = null;
+try{
+_wratingId = _getAcc();
+}catch(e){}
+if(_wratingId !=null){
+document.write('<scr'+'ipt type="text/javascript" src="http://sohu.wrating.com/a1.js"></scr'+'ipt>');
+}
+</script>
+<style type="text/css" media="screen">
+.sys_message { display: none; }
+</style>
+<script language="javascript">
+if(_wratingId !=null){
+document.write('<scr'+'ipt type="text/javascript">');
+document.write('var vjAcc="'+_wratingId+'";');
+document.write('var wrUrl="http://sohu.wrating.com/";');
+document.write('try{vjTrack();}catch(e){}');
+document.write('</scr'+'ipt>');
+}
+</script>
+<span class='sys_message'></span>
+<script type="text/javascript" src="http://js.tongji.linezing.com/431464/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/431464/tongji.gif"/></a></noscript>
+</body>
+</html>

@@ -1,0 +1,4067 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset="utf-8" />
+
+<meta name="Description" content="人人网 校内是一个真实的社交网络，联络你和你周围的朋友。 加入人人网校内你可以:联络朋友，了解他们的最新动态；和朋友分享相片、音乐和电影；找到老同学，结识新朋友；用照片和日志记录生活,展示自我。" />
+<meta name="Keywords" content="Xiaonei,Renren,校内,大学,同学,同事,白领,个人主页,博客,相册,群组,社区,交友,聊天,音乐,视频,校园,人人,人人网" />
+
+
+
+
+
+<link rel="shortcut icon" type="image/x-icon" href="http://a.xnimg.cn/favicon-rr.ico?ver=3" />
+<link rel="apple-touch-icon" href="http://a.xnimg.cn/wap/apple_icon_.png" />
+
+
+<link href="http://s.xnimg.cn/n/core/global2-all-min.css?ver=$revxxx$" rel="stylesheet" />
+
+
+<script>
+
+XN = {get_check:'',get_check_x:'cbf87ea1',env:{domain:'renren.com',shortSiteName:'人人',siteName:'人人网'}};
+photoSeedSrc= 'http://s.xnimg.cn/n/apps/photo/photoSeed.js?ver=$revxxx$';
+</script>
+
+<script src="http://s.xnimg.cn/n/core/base-all2.js?ver=$revxxx$"></script>
+
+	<script>
+		XN.namespace('user');
+		XN.$extend(XN.user, {
+			'isGuide':true,
+        	'stage':''
+		});
+	</script>
+
+
+
+
+
+<script>
+
+
+
+	if (window.asyncHTMLManager) {
+		window.asyncHTMLManager.addEvent('load', function() {
+			load_jebe_ads(1, false, true);
+		});
+	} else {
+		load_jebe_ads(1);
+	}
+
+
+
+XN.getFileVersion([
+	'http://s.xnimg.cn/csspro/apps/profile.css?ver=$revxxx$',
+	'http://s.xnimg.cn/csspro/module/friendSelector.css?ver=$revxxx$',
+	'http://s.xnimg.cn/csspro/module/status-pop.css?ver=$revxxx$',
+	'http://s.xnimg.cn/csspro/module/school-selector.css?ver=$revxxx$',
+	'http://s.xnimg.cn/csspro/module/minieditor.css?ver=$revxxx$',
+	'http://s.xnimg.cn/jspro/xn.app.recommendFriend.js?ver=$revxxx$',
+	'http://s.xnimg.cn/jspro/xn.app.status.js?ver=$revxxx$',
+	'http://s.xnimg.cn/jspro/xn.app.share.js?ver=$revxxx$',
+	'http://s.xnimg.cn/jspro/xn.app.ilike.js?ver=$revxxx$',
+	'http://s.xnimg.cn/jspro/xn.ui.pager.js?ver=$revxxx$',
+	'http://s.xnimg.cn/jspro/xn.ui.multiFriendSelectorBox.js?ver=$revxxx$',
+	'http://s.xnimg.cn/jspro/xn.app.addFriend.js?ver=$revxxx$',
+	'http://s.xnimg.cn/jspro/xn.ui.multiFriendSelectorBox.forGuide.js?ver=$revxxx$',
+	'http://s.xnimg.cn/jspro/lib/mediaplayer.js?ver=$revxxx$',
+	'http://s.xnimg.cn/jspro/xn.ui.schoolSelectors.js?ver=$revxxx$',
+	'http://s.xnimg.cn/jspro/album/ZeroClipboard.js?ver=$revxxx$',
+	'http://s.xnimg.cn/jspro/xn.ui.emoticons.js?ver=$revxxx$',
+	'http://s.xnimg.cn/n/apps/home/modules/drag-upload/drag-upload.js?ver=$revxxx$',
+	'http://a.xnimg.cn/swf/album/ZeroClipboard.swf?ver=$revxxx$',
+	'http://a.xnimg.cn/n/core/modules/flashUploader/flashUploader.js',
+	'http://s.xnimg.cn/n/core/modules/flashUploader/upload-pop-all-min.css?ver=$revxxx$',
+	'http://s.xnimg.cn/apps/wiki/css/wiki-card-all-min.css?ver=$revxxx$',
+	'http://s.xnimg.cn/apps/wiki/js/wiki_model.js?ver=$revxxx$',
+	'http://s.xnimg.cn/apps/wiki/js/wikicard-load.js?ver=$revxxx$'
+]);
+
+XN.namespace( 'user' );
+XN.$extend(XN.user, {
+	'id':'',
+	'ruid':'',
+	'tinyPic':'',
+	'name':"",
+	'pageVersion':6
+});
+
+
+
+XN.event.addEvent(window, 'load', function(){
+	var r = parseInt(Math.random()*150);
+	if (r == 5 && window.UGC) UGC.Network.ping.performance.start("100000","sns.home.performance");
+});
+
+
+
+
+object.predefine('xn/namecard', 'http://s.xnimg.cn/modules/namecard/js/namecard.js?ver=$revxxx$');
+object.predefine('xn/showShareFriend', 'http://s.xnimg.cn/n/core/modules/show-share-friend/showShareFriendsModule.js?ver=$revxxx$');
+object.predefine('xn/mentionMain', 'http://s.xnimg.cn/n/core/modules/mention/index.js?ver=$revxxx$');
+object.predefine('xn/site-nav/switch-account', 'http://s.xnimg.cn/n/core/modules/site-nav/switch-account.js?ver=$revxxx$');
+object.predefine('xn/site-nav/drop-menu-profile xn/site-nav/drop-menu-app', 'http://s.xnimg.cn/n/core/modules/site-nav/drop-menu.js?ver=$revxxx$');
+object.predefine('xn/site-nav/search', 'http://s.xnimg.cn/n/core/modules/site-nav/search.js?ver=$revxxx$');
+object.predefine('xn/ilike', 'http://s.xnimg.cn/n/core/modules/ilike/index.js?ver=$revxxx$');
+object.predefine('xn/group/vote', 'http://s.xnimg.cn/n/core/feed/group/group-vote.js?ver=$revxxx$');
+object.predefine('xn/lib/switch', 'http://s.xnimg.cn/n/core/lib/switch.js?ver=$revxxx$');
+object.predefine('xn/lib/scrollFix', 'http://s.xnimg.cn/n/core/lib/scrollFix.js?ver=$revxxx$');
+object.predefine('xnapp/birthday', 'http://s.xnimg.cn/apps/home/compatible/birthday.js?ver=$revxxx$');
+object.predefine('xn/apps/toolsBox', 'http://s.xnimg.cn/jspro/modules/tools-box/tools-box.js?ver=$revxxx$');
+</script>
+
+
+
+
+<title>李敏和-【热词推荐-人人网】</title>
+
+
+
+<link href="http://s.xnimg.cn/a53072/n/core/global2-all-min.css"
+
+	rel="stylesheet" />
+
+<link href="http://s.xnimg.cn/a53638/n/apps/usergrowth/css/usergrowth.css"
+
+	rel="stylesheet" />
+
+<script src="http://s.xnimg.cn/a51159/n/core/base-all2.js"
+
+	type="text/javascript"></script>
+
+<script type="text/javascript"
+
+	data-src="http://s.xnimg.cn/a41752/n/core/modules/site-nav/switch-account.js"
+
+	data-module="xn/site-nav/switch-account"></script>
+
+
+
+<script type="text/javascript">
+
+	XN.namespace('user');
+
+	XN
+
+			.$extend(
+
+					XN.user,
+
+					{
+
+						'id' : '',
+
+						'ruid' : '',
+
+						'tinyPic' : '',
+
+						'name' : "",
+
+						'pageVersion' : 6
+
+					});
+
+</script>
+
+
+
+</head>
+
+<body>
+
+	
+
+	
+
+
+<input type="hidden" id="userGuideType" value="" /><div id="dropmenuHolder" class="dropmenu-holder dropmenu-holder-new rr">
+				
+					<div id="moredownWeb" class="dropdown" style="position:absolute; top:-9999px; left:-9999px;">
+						<div class="menu-dropdown-border">
+							<div class="weblist">
+								<ul class="clearfix">
+									<li><a href="http://share.renren.com">分享</a></li>
+                                    <li><a href="http://app.renren.com">应用程序</a></li>
+                                    <li><a href="http://page.renren.com">公共主页</a></li>
+                                    <li><a href="http://life.renren.com">人人生活</a></li>
+                                    <li><a href="http://xiaozu.renren.com/">人人小组</a></li>
+                                    <li><a href="http://name.renren.com">同名同姓</a></li>
+                                    <li><a href="http://school.renren.com/allpages.html">校园百科</a></li>
+                                    <li><a href="http://school.renren.com/daxue/">大学百科</a></li>
+                                    <li><a href="http://life.renren.com/hot">人人热点</a></li>
+									<li><a href="http://zhan.renren.com/">人人小站</a></li>
+                            		<li><a href="http://j.renren.com/">人人逛街</a></li>
+                            		<li><a href="http://xiaozhao.renren.com/">人人校招</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				
+			</div>
+			<div id="topbar"></div>
+			<div id="header">
+					<div id="navBar" class="site-nav rr">
+						<div class="navigation-wrapper">
+							<div class="navigation navigation-new clearfix">
+							
+								
+									
+									
+									   <div id="logo2">
+											<h1>
+												<a title="人人网 renren.com - 人人网校内是一个真实的社交网络，联系朋友，一起玩游戏" href="http://www.renren.com"><img width="159" height="35" src="http://s.xnimg.cn/imgpro/v6/logo.png" title="人人网 renren.com - 人人网校内是一个真实的社交网络，联系朋友，一起玩游戏" alt="人人网 renren.com - 人人网校内是一个真实的社交网络，联系朋友，一起玩游戏">
+												</a>
+											</h1>
+									   </div>                  
+									
+								
+
+								<div class="nav-body clearfix">
+									
+									<div class="nav-other">
+										
+										
+											
+											
+												<div class="menu">
+													<div class="menu-title">
+														<strong>
+															<a id="reg_link" title="注册" stats="homenav_reg" href="http://wwv.renren.com/xn.do?ss=10113&amp;rt=27">注册</a>
+														</strong>
+													</div>
+												</div>
+												<div class="menu">
+													<div class="menu-title">
+														<strong>
+															<a title="登录" stats="homenav_login" href="http://www.renren.com/">登录</a>
+														</strong>
+													</div>
+												</div>
+												
+												<div class="menu">
+													<div class="menu-title">
+														<strong>
+															<a title="帮助" stats="homenav_help" href="http://support.renren.com/helpcenter">帮助</a>
+														</strong>
+													</div>
+												</div>
+												<div class="menu">
+													<div class="menu-title">
+														<strong>
+															<a title="给我们提建议" stats="homenav_suggest" href="http://support.renren.com/link/suggest">给我们提建议</a>
+														</strong>
+													</div>
+												</div>
+												
+													<div class="menu last">
+														<div class="menu-title" stats="homenav_more" id="moreWeb"><a href="#" onclick="this.blur();">更多</a></div>
+													</div>
+												
+											
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		
+				
+		
+
+
+
+
+
+	<!-- 为了适应广告位而改变的样式 -->
+	<style type="text/css">
+		.ug-sidebar{
+			width: 300px;
+		}
+		.ug-content{
+			width: 643px;
+		}
+		.ug-sidebar-item{
+			width: 282px;
+		}
+		.ug-c-sidebar-i-c{
+			width: 199px;
+		}
+		.ug-c-r{
+			width: 500px !important;
+		}
+	</style>
+
+
+     <div class="ug-container ">
+
+
+
+   <div id="keyAD01" data-pv="m01">
+
+        <script type="text/javascript">
+   		 /*原生顶部广告*/
+   		 var cpro_id = "u2941417";
+		</script>
+		<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+
+        <br>
+
+    </div>
+
+    <div style="position:fixed; bottom:100px; right:10px; z-index:100">
+
+        <script type="text/javascript">
+
+        /*300*250 悬浮右下角视窗广告创建于 2016/8/7*/
+
+        var cpro_id = "u2726154";
+
+        </script>
+
+        <script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/f.js"></script>
+
+    </div>
+
+
+
+	<div class="ug-title clearfix">
+
+		<h1>
+
+			<b>李敏和</b>
+
+		</h1>
+
+	</div>
+
+	<div class="ug-wrapper clearfix">
+
+		<div class="ug-content">
+
+			<ul class="ug-content-ul">
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/220769211/3541599306?from=0"> 大学校园生活 </a> <br /> <a target="_blank" href="http://share.renren.com/share/220769211/3541599306?from=0"> 前女友叫<font color='red'>李敏</font>住6号楼，后来分手后又找一女友叫张婷在7号楼。两人对楼。一日去找张婷，碰巧遇到敏，敏非要拉着偶<font color='red'>和</font>张婷一起吃饭，三个人对坐无语，上菜，成习惯给敏夹菜……巨汗，虽然后又立刻给婷夹双份菜，三天 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">史成敏</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/220958840/5329924507?from=0"> 好久没写日志了，好久不玩点名了。。。 </a> <br /> <a target="_blank" href="http://share.renren.com/share/220958840/5329924507?from=0"> 1. 你的大名：<font color='red'>李敏</font>2. 大号：李肉肉、米米、妞子。。。3. 谁传的：诗娴姐5. 生日最想得到什么礼物：<font color='red'>和</font>爸妈一起过7. 跟情人最想去哪儿：他的&amp;我的家乡。。。8. 最想跟谁过圣诞：刘伟男9 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李诗娴</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/221078583/4072725618?from=0"> 1113 后记。。。不上岸是我 唯一的承诺。。。。 </a> <br /> <a target="_blank" href="http://share.renren.com/share/221078583/4072725618?from=0"> 悲催的南京con，我之所以悲催，大概<font color='red'>和</font>心情有关，进场前的争吵，去南京前的受批评，在南京路上的心事，一切搞的我淡定的看完了南京con，看完之后 之所以很失落是因为，没有把神童<font color='red'>和</font><font color='red'>李敏</font>的唐装人品的送出去， </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">纪晓宇</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/221580207/2258622665?from=0"> 07年的一件小事 </a> <br /> <a target="_blank" href="http://share.renren.com/share/221580207/2258622665?from=0"> 话说，我还真遇到过这种情况。07年，大二下学期的时候，我<font color='red'>和</font><font color='red'>李敏</font>去两路。貌似那次去，是她去参加法学的自考，我没事，陪她去，顺便溜达溜达~~我没记错的话，芒果是在金港国际实验小学考试。开考后，我四处晃悠 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">魏鹏飞</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/224285169/3517522608?from=0"> 上海感受（2） </a> <br /> <a target="_blank" href="http://share.renren.com/share/224285169/3517522608?from=0"> 不知道是前一晚没有休息好还是来时旅途的劳累，吃过饭之后竟然躺在床上就睡着了……等我再醒过来的时候已经快五点了。老邱说去他住的地方看看，<font color='red'>和</font><font color='red'>李敏</font>说了一声就离开了。其实他们住的挺进的，隔壁单元，本想问 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">董文静</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/224895232/3293725035?from=0"> 【我受打击了 不是接受不了 而是心疼……】 </a> <br /> <a target="_blank" href="http://share.renren.com/share/224895232/3293725035?from=0"> 刚刚看到一个比三巡SOLO还让我震惊的消息 <font color='red'>李敏</font>有纹身…… 一开始还跟着亲们的思维说可能是贴的 但是慢慢的看了下面的留言<font color='red'>和</font>照片 我接受了<font color='red'>李敏</font>有纹身的事实…… （出处见LOGO） 早在三辑的时候就有了 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">薛静</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/229219629/9080887813?from=0"> 【民生周刊】对外汉语教师执业纷乱---转自对外汉语-信息分享 </a> <br /> <a target="_blank" href="http://share.renren.com/share/229219629/9080887813?from=0"> 协会虽然是被政府认证的机构，但是协会所举办的资格考试却始终没有相应的政府部门所认证。    　　<font color='red'>李敏</font>今年28岁，2009年独自来北京发展。几年漂泊，终于寻找到了适合自己的工作<font color='red'>和</font>属于自己的爱情，算是 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李媛媛Victoria</a>
+
+										
+
+									</span> <span class="f-right">点击：1</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/230504008/3324724402?from=0"> 大家都看看吧 </a> <br /> <a target="_blank" href="http://share.renren.com/share/230504008/3324724402?from=0"> 其实这是算是作为纪念吴尘做的东西，三分钟的饰品是3年的梦想<font color='red'>和</font>心血，呵呵love baseball~！出场不分先后：吴尘，莫林恩，陈传威，陈雪琪，姚舜，栾新龙，杜恩杰，郑文辉，陈文，辛卓，今村祥平， </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李慢慢</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/231082295/4017279765?from=0"> 曾经的413语录 </a> <br /> <a target="_blank" href="http://share.renren.com/share/231082295/4017279765?from=0"> 勇往直前~2007年1、<font color='red'>李敏</font>上体育课，课后往回抬运动用的垫子。先是<font color='red'>和</font>几个女生一起抬，后... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李敏</a>
+
+										
+
+									</span> <span class="f-right">点击：1</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/231852085/2171166155?from=0"> 毕业论文答辩相关事宜 </a> <br /> <a target="_blank" href="http://share.renren.com/share/231852085/2171166155?from=0"> 由<font color='red'>李敏</font>指导毕业论文下周开始答辩，为期两周。具体时间<font color='red'>和</font>顺序为：10号三四节：邹亚楠、宋磊、乔宇、苏万龙、张晓达、张慧、张宁远。12号七八节：郑梅、董娇娇、张雯雯、张鑫、刘丹丹、杨天琪、董秉峰。14号 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">百玲</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/232466253/5687332361?from=0"> 推进教学督导工作 提升本科教学质量——我校教学督导工作研讨会召开 </a> <br /> <a target="_blank" href="http://share.renren.com/share/232466253/5687332361?from=0"> 推进教学督导工作 提升本科教学质量——我校教学督导工作研讨会召开    校教学信息部李晓洲3月18日下午，我校教学督导工作研讨会议在行政楼第二会议室召开。<font color='red'>李敏</font>副校长、教务处相关负责人、校教学督导团<font color='red'>和</font> </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">刘孝庆</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/234990588/3253484816?from=0"> 100911上海SMT后记【我就来个简短版的，详细请参考琪琪和歌仔的~(*^__^*)~】 </a> <br /> <a target="_blank" href="http://share.renren.com/share/234990588/3253484816?from=0"> 为了看SMT我0909就回到家了，10号我就<font color='red'>和</font>糖宝去了浦东机场接那群傻男人，结果又是走VIP。弄得我再也不想去浦东机场了。        本来10号晚上就住酒店的，然后各种原因还是回家了。但是接机的 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">王芳荃〆艾爾♫</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/237119892/6234962886?from=0"> 郭廷龙过来感受一下哈！ </a> <br /> <a target="_blank" href="http://share.renren.com/share/237119892/6234962886?from=0"> ，他跑去杭州玩了，<font color='red'>李敏</font><font color='red'>和</font>大力还没有到，刚打电话在浦东机场。浦东机场你知道吗？就是浦... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">郭廷龙</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/237599267/12802987042?from=0"> ☠视频☠120426 仁川机场送机。附下载。【整个视频就看李东海有多么的撒欢儿<font color='red'>和</font><font color='red'>李敏</font>野桑蝈蝈多宠他(﹁&quot;﹁) 。<font color='red'>和</font><font color='red'>李敏</font>得瑟完了还大大的抱抱。蓝后还抱着野桑蝈蝈脖子摇啊摇。李东海已经被捧.. </a> <br /> <a target="_blank" href="http://share.renren.com/share/237599267/12802987042?from=0"> @fallenelf笋笋：【在线+下载】120426 仁川机场#东海##晟敏##艺声#CR：VitaminDH 整个视频李东海就开心的咧~跟敏哥说什么哪又是笑得嘴巴大张~还抱抱&gt;&lt; 最后！一定要看到最后！掐着大云蝈蝈脖子摇... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">何婷▁Trésor。</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/240089379/1789986754?from=0"> 报笑料 </a> <br /> <a target="_blank" href="http://share.renren.com/share/240089379/1789986754?from=0"> 在这边 我要补充的管管的日志主要是关于栋栋老师<font color='red'>和</font><font color='red'>李敏</font>的对话李敏：老师 你看佛洛依德的怎么样栋栋：我觉得他颜色不好看 画的太紧 你画的比他松！李敏：老师我现在画的够不够浓郁~栋栋：恩 可以了 就是要又 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">郭虹宏</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/241805308/4388167117?from=0"> 这个很有意思，日志里面的名字中肯定有你曾经的同学，你的同事肯定也有叫这个名字的。 </a> <br /> <a target="_blank" href="http://share.renren.com/share/241805308/4388167117?from=0"> 如果<font color='red'>和</font>标题说的一样，请分享哦！这个很有意思，下面的名字中肯定有你曾经的同学，你的同事肯定也有叫这个名字的。1．张伟 ；2．王伟；3．王芳；4．李娜；5．刘伟； 6．张敏；7．李静；8．张丽；9．王静 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">朱茜</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/242642426/4830693308?from=0"> 考试后遗症------用自己的一份心意 留给学弟学妹们 </a> <br /> <a target="_blank" href="http://share.renren.com/share/242642426/4830693308?from=0"> 第一章 教育与教育学 <font color='red'>李敏</font>（国二） 一整天手都抽了，得此劳动成果，大家我们一起分享    第一节 教育概述教育的含义：教育有广义<font color='red'>和</font>狭义之分。广义的教育，是指有目的、有意识地的以影响人的身心发展为直接 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李泳金</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/243693958/2278447396?from=0"> 世博预热篇【第一卷】（重点放在C片区） </a> <br /> <a target="_blank" href="http://share.renren.com/share/243693958/2278447396?from=0"> 写这篇文章，完全是为了5。29日的世博游提前做了下准备。首先要感谢<font color='red'>李敏</font>同学提供的世博园区导游图（发现在去世博之前，先有一份导游图，那是非常有用的，可以准确定位场馆的位置<font color='red'>和</font>游览的行程，所以打算去世博的 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李敏</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/243736889/3072037046?from=0"> 猫，你睡了吗？ </a> <br /> <a target="_blank" href="http://share.renren.com/share/243736889/3072037046?from=0"> 猫，你不知道，昨天晚上每给你发一条短信，我都有一种想哭的冲动。朋友之间有一种心电感应我是相信的，那天我刚<font color='red'>和</font>戴进<font color='red'>李敏</font>吃饭，说到你，我们猜，你也许在上海过得并不轻松。那天我们吃饭，四方桌坐了三个人。我 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">高占平</a>
+
+										
+
+									</span> <span class="f-right">点击：1</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/247687175/2171614889?from=0"> 被点名了，嘿嘿 </a> <br /> <a target="_blank" href="http://share.renren.com/share/247687175/2171614889?from=0"> 幸福接力棒（sweet heart ） Q1:你的大名 <font color='red'>李敏</font>Q2:你认为什么才算是真正幸福？ 做自己喜欢的事情，<font color='red'>和</font>自己喜欢的人在一起Q3:你们觉得友情重要还是爱情重要，为什么? 都重要！Q4:你相信 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">王秀</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/248109786/2765630130?from=0"> 李小海你那可憐的存在感啊......啊哈哈哈~~~~~ </a> <br /> <a target="_blank" href="http://share.renren.com/share/248109786/2765630130?from=0"> 事情發生經過是如此如此這般這般.....(= =+)首先是小東海在推特上更新了<font color='red'>和</font>洗碗君去泰國幹啥啥啥拍啥啥啥CF.....具體不翻譯了...= =於是....金阿澈<font color='red'>和</font><font color='red'>李敏</font>幾看見之後發出了以下提問.. </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">胡楚Fish</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/251555848/3398179409?from=0"> 小学生优秀通讯作品（省报版） </a> <br /> <a target="_blank" href="http://share.renren.com/share/251555848/3398179409?from=0"> 六（2）班班干部探望五保孤寡老人及福利院孤儿 　　本站讯（校园小记者　张丹） 11月22日，班长王刚在学习委员<font color='red'>李敏</font>、生活委员刘华陪同下慰问了官僚镇五保孤寡老人及福利院的小朋友们，向他们送去了同学们 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">马发平</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/253886982/2166293473?from=0"> 是时候了 </a> <br /> <a target="_blank" href="http://share.renren.com/share/253886982/2166293473?from=0"> 失败，昨天看到褪褪为柯松<font color='red'>和</font><font color='red'>李敏</font>写的日志，很感动，但感动的同时又觉得自己很惭愧，因为... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">涂毓敏❤mimi</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/254264855/2334223307?from=0"> (转)最近又对淘宝上瘾了 </a> <br /> <a target="_blank" href="http://share.renren.com/share/254264855/2334223307?from=0"> (转)最近又对淘宝上瘾了~~<font color='red'>和</font>大家分享下~~~淘宝上卖东西最便宜最好的店铺~~(转到自己日志里~~这样就不会找不见了) 来源： <font color='red'>李敏</font>的日志                               </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">秦晓琳^^</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/254731660/6256934081?from=0"> 新校区建设专题采访过程 </a> <br /> <a target="_blank" href="http://share.renren.com/share/254731660/6256934081?from=0"> 3月7日，<font color='red'>和</font>钮雍蓉、鲁蓓蓓两位伙伴一起（从那时起，她们就成了我忠实的伙伴。非常感谢丁舰丰同志的荐举，也感谢孙部长让她们与我一起工作），开始了新校区采访的准备工作。之前与<font color='red'>李敏</font>主任的接触中，他让我们先到 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">钮雍蓉</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/257717277/4654235029?from=0"> 转载《新疆两名特警为保护学生被酒驾车辆撞伤》http://www.tianshannet.com 天山网　　 2011年01月07日 00:15:53  </a> <br /> <a target="_blank" href="http://share.renren.com/share/257717277/4654235029?from=0"> 天山网讯（记者<font color='red'>李敏</font> 通讯员刘振华 鲍林摄影报道）1月6日下午，记者在新疆医科大学第六附属医院脊柱外科病房，见到了两名为保护乌鲁木齐市86中学生过马路而被酒驾车辆撞伤的年轻特警。据了解，1月5日19时 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">．.霸ˋ怒·!`</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/260448969/2212900293?from=0"> 如果里面有你的名字就顶一下 </a> <br /> <a target="_blank" href="http://share.renren.com/share/260448969/2212900293?from=0"> 上化学课前闲来无事就<font color='red'>和</font>于潇雯统计了下中队的姓氏，O(∩_∩)O~附注：顺序是先按人数由多到少，一样多的按字母先后顺序排名，希望不会引起争议！李（5人）：李奉洋、李国萍、<font color='red'>李敏</font>、李涛、李晓波张（5人）： </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">刘兆泽</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/262453120/5870336218?from=0"> 成都：乡村骑游悄然流行 </a> <br /> <a target="_blank" href="http://share.renren.com/share/262453120/5870336218?from=0"> 四川新闻网成都4月2日讯（记者 <font color='red'>李敏</font>）川西平原&ldquo;宜居宜玩&rdquo;的生活环境造就了成都人&ldquo;知快守慢、张弛有序&rdquo;的生活态度。2011年的春季，成都旅游又推出新的 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">可呆先森</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/263037053/10122960390?from=0"> 别忘记享受生活 </a> <br /> <a target="_blank" href="http://share.renren.com/share/263037053/10122960390?from=0"> 上身着彩虹线条毛衣，下身着毛线裤<font color='red'>和</font>黑色打底裤，一双红色帆布鞋，<font color='red'>李敏</font>就是这样的打扮骑着她的电动折叠车，这天，风有点大，在逆风行驶的过程中她的长发翩翩起舞。阳光照耀下，她净白的脸庞露出怡然自得的笑容，她 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">昆仔</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/263252906/5603557727?from=0"> 软通动力实习机会 </a> <br /> <a target="_blank" href="http://share.renren.com/share/263252906/5603557727?from=0"> 实习机会：软通动力某部门助理。简历发送至luzou@isoftstone.com,她叫邹璐，你可以<font color='red'>和</font>她说是看到了<font color='red'>李敏</font>发布的信息，所以投简历应聘。具体工作内容<font color='red'>和</font>时间等安排你可以邮件询问她，不过性质就是 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">王婧怡</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/265137100/8517559672?from=337749371"> 走远了，靠得更近了。（致心铃协会的亲人） </a> <br /> <a target="_blank" href="http://share.renren.com/share/265137100/8517559672?from=337749371"> 能诠释的清楚。今晚还看到了<font color='red'>李敏</font><font color='red'>和</font>张雪专门给我发的状态，在此谢过了，记在心里了一路你... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李政</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/270379156/5800656327?from=0"> 谢霆锋 - 我想飞-----歌词好好 </a> <br /> <a target="_blank" href="http://share.renren.com/share/270379156/5800656327?from=0"> 谢霆锋 - 我想飞作词：<font color='red'>李敏</font>作曲：谢霆锋专辑：Believe我想飞得起 远至天边去失去那可追 转身人离去这一刻有如停顿了的空气 再没法追往後退 发现太多假面具如同徘徊命途里 遇灰心失意事没有一句闭着 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">祖小妖しovの</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+						<!-- 图文并排内容区 -->
+
+						<li class="ug-c-pic clearfix"><a target="_blank" href="http://share.renren.com/share/270583279/13836479065?from=0":
+
+							class="ug-c-img"> <img src="http://i3.tdimg.com/141/815/666/p.jpg" alt=""></a>
+
+							<div class="ug-c-r">
+
+								<div class="ug-c-word">
+
+									<a target="_blank" href="http://share.renren.com/share/270583279/13836479065?from=0"> Running Man 111211 E72郑容<font color='red'>和</font>.<font color='red'>李敏</font> </a>
+
+								</div>
+
+								<p class="ug-c-from">
+
+									来自：
+
+									
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">王卓然JW</a>
+
+										
+
+									
+
+								</p>
+
+								<p class="ug-c-click">点击：3</p>
+
+							</div></li>
+
+
+
+					
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/271316507/15237504792?from=0"> 【青岛公布各部门热线 原四方胶南电话仍有效】青岛市公布27个热线平台...黄岛胶南... </a> <br /> <a target="_blank" href="http://share.renren.com/share/271316507/15237504792?from=0"> 大众网青岛1月29日讯（记者 <font color='red'>李敏</font>）1月29日，青岛市公布27个热线平台网络电话。其中包括合区之后的新黄岛、新市北有关部门公开电话。与此同时，市北<font color='red'>和</font>原四方，黄岛和原胶南市目前均分别接听有关来话。 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">朱先栋</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/277482063/3562310282?from=0"> 李书记去世让我想起了那一年 </a> <br /> <a target="_blank" href="http://share.renren.com/share/277482063/3562310282?from=0"> 昨天晚上居然是在校内上看到了母校原党委书记<font color='red'>李敏</font>的去世消息，虽然在高中的时候<font color='red'>和</font>书记并不熟悉，但是作为一名育才的学生，也是有义务去哀悼的。当我看到了这个消息，一下回想起几年前，地理孟老师的离开。那个时候 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">郑婷婷ღKathyღ</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/278354775/4702598806?from=266847279"> 第二批第七届全国高校社团会长年会审核通过名单 </a> <br /> <a target="_blank" href="http://share.renren.com/share/278354775/4702598806?from=266847279">                 <font color='red'>李敏</font>    安庆师范学院    旅游协会<font color='red'>和</font>社会工作... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">王宇新Bartholem</a>
+
+										
+
+									</span> <span class="f-right">点击：1</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/280027126/4606218859?from=0"> ❀ 110104晟敏UFO连回3条，李敏你是暖男 带着包去拍摄(ㄒoㄒ) </a> <br /> <a target="_blank" href="http://share.renren.com/share/280027126/4606218859?from=0"> 转围脖    @只唯<font color='red'>李敏</font>先森的33：预感今天晟敏会回 没想到还是连回= =昨晚发的&ldquo;晟敏哥你是不是万年童颜&rdquo;早上他回&ldquo;不是啊 想稍微变成熟点~^^&rdquo;  </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李伊莎。Lisa</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/280232574/13890224014?from=0"> 杨浦小学 首届4班聚会 </a> <br /> <a target="_blank" href="http://share.renren.com/share/280232574/13890224014?from=0"> 看到齐思嘉动手了，我表示不能忍不知道留学众现在都在上海不……由于留学人数实在过于多，在USA的大概已经超过在大陆的，还有在GBR<font color='red'>和</font>FRC、JPN的……具体情况是：8月中旬（10号到20号）我可以<font color='red'>和</font>夏 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">陈明操</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/281969989/4102858644?from=0"> 【寶石家族◢Top Family →13儿子 超级无敌小暖人+超级无敌小喇叭+超级无敌小迷糊の唯一乖女兒 李敏ღ혁】 </a> <br /> <a target="_blank" href="http://share.renren.com/share/281969989/4102858644?from=0"> 【寶石家族◢Top Family →13儿子超级无敌小暖人+超级无敌小喇叭+超级无敌小迷糊の唯一乖女兒<font color='red'>李敏</font>ღ혁】——我的后缀首先昂，谢谢妈咪给我家族的后缀，因为这是妈咪开始接受我喜欢我疼爱我的表现！ </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">庚澈叭</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/285415962/7164809357?from=0"> 对外汉语教师执业纷乱 </a> <br /> <a target="_blank" href="http://share.renren.com/share/285415962/7164809357?from=0"> 张小青 本刊记者 张子琦 《 民生周刊 》（2011年第13期）          协会虽然是被政府认证的机构，但是协会所举办的资格考试却始终没有相应的政府部门所认证。         <font color='red'>李敏</font>今年28 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">郭思阳</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/286944555/11064479242?from=0"> 中国医学者克隆首个“舞蹈手足徐动症”致病基因[zz] </a> <br /> <a target="_blank" href="http://share.renren.com/share/286944555/11064479242?from=0"> 中南大学湘雅医院21日对外透露，他们与合作者在国际上首次发现<font color='red'>和</font>克隆了&ldquo;舞蹈手足徐动症&rdquo;的第一个致病基因PRRT2。　　12岁的学生<font color='red'>李敏</font>(化名)最近被老师<font color='red'>和</font>同学指责上课搞& </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">肖巧</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/294712231/2301271753?from=0"> 文学院召开东北抗联精神宣传分队成立大会 </a> <br /> <a target="_blank" href="http://share.renren.com/share/294712231/2301271753?from=0"> 文学院召开东北抗联精神宣传分队成立大会                         5月19日下午，文学院东北抗联精神宣传分队成立大会在梦溪宾馆召开。黑龙江省政协原副主席、抗联老战士<font color='red'>李敏</font>，校党委 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">张成</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/296695247/5624822598?from=0"> 送货上门的是是非非 </a> <br /> <a target="_blank" href="http://share.renren.com/share/296695247/5624822598?from=0"> 10广电新闻 <font color='red'>李敏</font> 在大一新生看来，当上学期的“送饭上门”已成为常事时，这学期又多了“送奶上门”以及最近的“接送换洗衣服”<font color='red'>和</font>“送水果上门”，诚然当服务越来越周到越来越普及，同学们无疑享受到了如家居 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">殷莉</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/299405371/8083919068?from=0"> 回顾与感受 </a> <br /> <a target="_blank" href="http://share.renren.com/share/299405371/8083919068?from=0"> 小半个月了。怎么说，如果按去年暑假的套路，七月旅行八月实习，也不知道能获得什么。记得前期策划阶段<font color='red'>李敏</font>找到我邀请我加入这个项目的时候，我二话不说地同意了。之后<font color='red'>和</font>亚璠说起，俩人都表示很想不通当时自己怎么 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">陈皇yoga</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/301031149/8992592581?from=0"> ▏微博图 ▎亲。这帮挑内裤的SJB是你们家的么⊙﹏⊙b </a> <br /> <a target="_blank" href="http://share.renren.com/share/301031149/8992592581?from=0"> 、    @楓葉之國的bb兔：【111002 名人帶路】幫自己<font color='red'>和</font>成員挑內褲 <font color='red'>李敏</font>直接指著說&quot;我要黑色的&quot;，厲旭更誇張用中文問&quot;有網紗的嗎?要涼快的&quot;，接著集體 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">刘天霞❤ELF</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/301623010/2990719735?from=0"> 世界最全的咖啡知识（扫盲ing）(转) </a> <br /> <a target="_blank" href="http://share.renren.com/share/301623010/2990719735?from=0"> 世界最全的咖啡知识（扫盲ing）(转) 来源： <font color='red'>李敏</font>的日志 拿铁咖啡拿铁咖啡是意大利浓缩咖啡与牛奶的经典混合，意大利人也很喜欢把拿铁作为早餐的饮料。意大利人早晨的厨房里，照得到阳光的炉子上通常会同时 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">Emma</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/302818162/4758474921?from=0"> 【转载新闻】110119《城市猎人》李敏镐最想“牵手”全度妍 </a> <br /> <a target="_blank" href="http://share.renren.com/share/302818162/4758474921?from=0"> 演员李敏镐表示最想<font color='red'>和</font>全度妍搭档拍戏。　　李敏镐最近在录制MBC早间访谈节目《心情好的一天》时表示：“虽然有年龄差距，但还是非常想<font color='red'>和</font>全度妍前辈出演情侣。”至于在合作过的演员中，与谁搭档最默契，<font color='red'>李敏</font>搞的 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">徐糖衣๑⌒﹏⌒๑</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/305755607/8632394332?from=0"> 经济学院第十九届学生会纳新活动圆满完成 </a> <br /> <a target="_blank" href="http://share.renren.com/share/305755607/8632394332?from=0"> 文/吴沁 图/刘敏2011年9月14日晚7点，经济学院第十九届学生会纳新面试活动在兴隆山校区教学楼1307室<font color='red'>和</font>1407室如期举行。学生会主席宋瀚志、执行秘书长姜琛琛、副主席王京京、<font color='red'>李敏</font>等亲临纳新现场 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">徐帆</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/306211795/3098366080?from=0"> ❤曺圭贤❤100815 super show③  NO OTHER圭法老圭剪辑视频，哎呦喂，您最后<font color='red'>和</font><font color='red'>李敏</font>站一起，我泪流 </a> <br /> <a target="_blank" href="http://share.renren.com/share/306211795/3098366080?from=0"> FR：圭贤吧拍摄 BY雯雯... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李孽猴</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/316610880/4655772981?from=0"> 帮个忙 </a> <br /> <a target="_blank" href="http://share.renren.com/share/316610880/4655772981?from=0"> 我推荐并支持广东金融学院 的<font color='red'>李敏</font> 同学参加由团中央、全国学联主办，中国青年报社<font color='red'>和</font>中国高校传媒联盟承办，新东方教育科技集团协办的2010年度寻访“中国大学生自强之星”活动，赢取 穷且益坚，自强不息。 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李==亚</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/322147747/7316213209?from=0"> 眨眼，四年 </a> <br /> <a target="_blank" href="http://share.renren.com/share/322147747/7316213209?from=0"> 辰姐说我还欠着一篇日志，好吧，说好的日志，还是要写的，虽然这个夜晚，已经没有飞儿<font color='red'>和</font>冰哥陪我熬夜了。。。 大四开始前，我就跟<font color='red'>李敏</font>提到，一年后，或许有些朋友一辈子都见不到了，或许不知道哪一面就是同学之间 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">朴小素</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/322334329/7220270462?from=0"> [在线]啊啊啊啊要疯了啊~晟真的声音好好听&gt; &lt;<font color='red'>和</font>他哥<font color='red'>李敏</font>的声音太像了  071212晟敏的天方地轴-晟敏的弟弟探班cut.李晟真好温柔〒▽〒〒▽〒〒▽〒〒▽〒〒▽〒!!!!!!!!!! </a> <br /> <a target="_blank" href="http://share.renren.com/share/322334329/7220270462?from=0"> @BABY五辑的Lva柠檬茶：啊啊啊啊要疯了啊~晟真的声音好好听&gt; &lt;<font color='red'>和</font>他哥<font color='red'>李敏</font>的声音太像了  071212晟敏的天方地轴-晟敏的弟弟探班cut~~~- http://t.cn/ </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">冯莹❤성민</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/323660327/7577316613?from=0"> 大吧翻旧帖我才知道，<font color='red'>李敏</font><font color='red'>和</font>花花 关系好？！ 两个好可爱... </a> <br /> <a target="_blank" href="http://share.renren.com/share/323660327/7577316613?from=0"> ... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">郭祎然 Gloria</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/324819599/11660569068?from=0"> 笑话一则，消遣专用 </a> <br /> <a target="_blank" href="http://share.renren.com/share/324819599/11660569068?from=0"> 1.<font color='red'>李敏</font>忧郁的站在魔镜面前，对魔镜说&ldquo;魔镜魔镜告诉我，我<font color='red'>和</font>许建辉哪个能够成为丝袜教教主，不回答我我就把你做掉&rdquo;，然后就没有然后了.....2.<font color='red'>李敏</font>拿着丝袜<font color='red'>和</font>白棉袜站在魔镜前面 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">唐昕蔚</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/326014963/9463359348?from=0"> 第一次抽奖结果出来了！！ </a> <br /> <a target="_blank" href="http://share.renren.com/share/326014963/9463359348?from=0"> 在下午5点左右我们进行了本次抽奖！！    本次获奖者是上外的<font color='red'>李敏</font>同学，恭喜她哦，很想知道她是<font color='red'>和</font>谁去呢，呵呵谢谢其它没有得奖同学的参与，你们的信息仍留在抽奖箱中，这意味着你们可以继续等待申花对国安的 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">聂佳娜</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/328426451/4088204832?from=0"> 朴特受~~生日粗卡~~我管你叫什么~~我就喜欢叫你朴特受~~~ </a> <br /> <a target="_blank" href="http://share.renren.com/share/328426451/4088204832?from=0"> 喂、朴特受、你这个不负责任的妈咪，今天满月了、先说一句恭喜吧。 你这个不负责任的女人、自从<font color='red'>李敏</font>攻把我领回来之后、你就把我放养，你好意思的嘛你！你连我的满月<font color='red'>和</font>百天都忘记、你说说你又多不负责吧你、话说你 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">朴诱特ღLeeTeuk</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/329121143/7704255264?from=0"> 参加新闻发布会 </a> <br /> <a target="_blank" href="http://share.renren.com/share/329121143/7704255264?from=0"> 07.20 天气：晴转阵雨转晴 地点：香港浸会大学赛马会中医药学院809室15:00 pm 记者见面会开始浸会大学<font color='red'>李敏</font>博士向诸位新闻媒体人员介绍一项新研发的中药复方“钩藤”，可有效治疗帕金逊症。新闻 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">马思锐</a>
+
+										
+
+									</span> <span class="f-right">点击：1</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+						<!-- 图文并排内容区 -->
+
+						<li class="ug-c-pic clearfix"><a target="_blank" href="http://share.renren.com/share/329775962/8346115118?from=0":
+
+							class="ug-c-img"> <img src="http://www.yinyuetai.com/uploads/artists/6/9E0F0132068106E53FF92D72E2767181.jpg?t=20110826223511" alt=""></a>
+
+							<div class="ug-c-r">
+
+								<div class="ug-c-word">
+
+									<a target="_blank" href="http://share.renren.com/share/329775962/8346115118?from=0"> 我光荣的爬回来了。。厉旭<font color='red'>和</font>希澈<font color='red'>和</font><font color='red'>李敏</font>~~~~~~~~~~~Superman KBS2 2011大邱田径世锦赛助演现场版 11/08/26-Super Junior 高清MV-音悦台 		 </a>
+
+								</div>
+
+								<p class="ug-c-from">
+
+									来自：
+
+									
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">安声</a>
+
+										
+
+									
+
+								</p>
+
+								<p class="ug-c-click">点击：7</p>
+
+							</div></li>
+
+
+
+					
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/330866437/6940534683?from=0"> 然后我写这篇水日志想骗点访问量的。毕竟这么晚了大家都不容易。。。。。 </a> <br /> <a target="_blank" href="http://share.renren.com/share/330866437/6940534683?from=0"> 今天高考完了，我自己感觉也挺轻松的，挂念着<font color='red'>李敏</font>，曹宇杰，小凯<font color='red'>和</font>健健。总感觉突然今天就轻松许多。大家刷的状态也都是关于怀念去年的高考的。可以说，我们解放了一周年可以说，我们离开了天堂一周年可以说，给 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">刘晗 晗晗晗 晗晗 晗</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/331193051/8299873061?from=0"> 你到底要怎样的感觉？ </a> <br /> <a target="_blank" href="http://share.renren.com/share/331193051/8299873061?from=0"> 今天碰到高中时候的<font color='red'>李敏</font><font color='red'>和</font>尤天甲，我知道很长一段时间以来大家都没有遇到满意的，我问她，是不是要求太高了？是不是要那种高学历，高收入，高身材的？因为熟，所以我的语气中明显带着一些调侃。她笑笑说，不是啊， </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李俊妍❀Lydia、</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/332432964/9927812723?from=0"> 公共管理学院专业再选择宣讲会圆满结束 </a> <br /> <a target="_blank" href="http://share.renren.com/share/332432964/9927812723?from=0"> <font color='red'>李敏</font>教授、劳动与社会保障系主任蒲晓红<font color='red'>和</font>... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">尚翔</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/333807985/6238966091?from=0"> 总裁判长接受本报采访，总结本届运动会 </a> <br /> <a target="_blank" href="http://share.renren.com/share/333807985/6238966091?from=0"> （本报讯 记者李煜、<font color='red'>李敏</font>）在结束了忙碌的比赛之后，本次春季校运会总裁判长张传忠老师接受了记者的采访，对本届运动会进行了总结<font color='red'>和</font>评价。 “裁判决定运动员命运”，总裁判长张传忠老师在给所有主裁判员进行赛前 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李煜</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/334543650/3492943154?from=0"> 李敏攻❤sungmin~~满月粗卡~~晚来的满月文、对不起、但我爱你~~ </a> <br /> <a target="_blank" href="http://share.renren.com/share/334543650/3492943154?from=0"> <font color='red'>李敏</font>攻❤sungmin、你是在这里第一个找到我的人、并且把我带回了家、我爱你、谢谢你。 你是第一个给我写满月文的人、谢谢你、我爱你。 你是圈圈个叉叉家族里、唯一一个<font color='red'>和</font>我发短信的人、谢谢你、我爱你。  </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李敏攻❤SungMin</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/337098490/3421997084?from=0"> 【故事】小13，人家兔子赢了你高兴个什么劲= =丨 红红的池水嗷~~~~ </a> <br /> <a target="_blank" href="http://share.renren.com/share/337098490/3421997084?from=0"> 不喜请点击窗口右上角的 ×    勿掐架（针对CP）    勿对任何人进行任何形式的攻击    转自百度贤兔吧    1：40左右 小旭<font color='red'>和</font><font color='red'>李敏</font> 剪刀石头布 曺圭左晃右晃 非常关心的样子1：45左右  </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">曺圭贤ღ</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/337274440/7703401893?from=0"> 【2011实践教学周专题】日语系配音大赛欢乐上演 </a> <br /> <a target="_blank" href="http://share.renren.com/share/337274440/7703401893?from=0"> 截止至2011年7月21日，为期两周的日语系实践周活动之一：日语系配音大赛、已经在武末正守、谢韵茜<font color='red'>和</font>鄢玲三位老师的指导下完成了在最终汇演之前的比赛与评定。在7月21日的评定中得获得第一名的节目是：《 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">魏佐力</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/338383250/6812677532?from=0"> 纪念今年的篮球 </a> <br /> <a target="_blank" href="http://share.renren.com/share/338383250/6812677532?from=0"> 还记得去年山大杯的时候，我们被环院压着打完球那个晚上，我一直到凌晨3点多睡的，知道2点多还<font color='red'>和</font><font color='red'>李敏</font>在互相安慰。今天，我们的山大杯打完了，虽然留下遗憾，惜败体育学院，但是，篮球队几个队员你们是英雄，你们 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">王佳楠</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/338924401/6958142867?from=0"> 声明：这不是高考周年祭 </a> <br /> <a target="_blank" href="http://share.renren.com/share/338924401/6958142867?from=0"> 今天本来不打算写日志的，尽管今天很特殊……这篇<font color='red'>和</font>高考无关，其实我当时本来就没把它当成太大的事，当然，它也没把我认真对待，囧。还是祝贺孩子们~<font color='red'>李敏</font>、长&mdash;&mdash;波、 以及我表哥~不过 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">高晓会</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/345520664/8986623490?from=0"> 【在线及下载】111003.晟敏Naver更新倒红酒视频一则。。（可以说应景么，今儿个在仁川机场圭贤还逛免税店去买红酒来着，兔纸就更新倒红酒的视频了，#贤兔#神马的不解释。） </a> <br /> <a target="_blank" href="http://share.renren.com/share/345520664/8986623490?from=0"> 下载【http://t.cn/aDHaSg】又见红酒敏 TVT <font color='red'>李敏</font>说这是以前<font color='red'>和</font>曺圭还有另外一个哥和一个老师一起品红酒的时候拍的~嗯~说现在比那时候的技术要好很多~而且还要多多练习噗....... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">韓庚★한경﹏°•</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/346931508/12701071639?from=0"> ☠视频☠你们是在代言还是在嗨皮 。朴叔叔带头接着金厉旭也加入。仰着头好楞。然后赫海也开始了。攻君使劲摇头小东海手挥啊挥的。神童偶吧好像都喷草菇亲头发上了。最后<font color='red'>李敏</font>也同流合污。只有野桑<font color='red'>和</font>始源最乖 </a> <br /> <a target="_blank" href="http://share.renren.com/share/346931508/12701071639?from=0"> 兰芝遇见SUJU... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">-李樱桃　　呀Hyuk☁</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/348173991/8975963364?from=0"> ●ω●   把 那个死人节目中 特特<font color='red'>和</font><font color='red'>李敏</font>被打的动图放在一个日志里 一起诅咒那个制作人 诅咒那个打人的 麻痹的不要粘  ●ω● </a> <br /> <a target="_blank" href="http://share.renren.com/share/348173991/8975963364?from=0"> [GIF] 原来哪里都能打的...可是大腿内侧更疼啊...尼玛还不能叫出声来！    GIF] 变态节目你真是名副其实啊！ 这个仪器是测分贝的，游戏规则就是看谁耳光打得响.....分贝越高越好.....于是....东烨叔你下手轻点啊！ “啪”的一声好响T^... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">田沫★SuJu</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/349063308/9798123644?from=0"> 《裸婚时代2》证实已备案 启用原班人马拍摄时间未定 </a> <br /> <a target="_blank" href="http://share.renren.com/share/349063308/9798123644?from=0"> 金鹰网讯(记者 <font color='red'>李敏</font>)都市情感大戏《裸婚时代》前段时间在各大电视台热播引起广泛社会共鸣，成为继《奋斗》<font color='red'>和</font>《蜗居》之后又一部描述时下年轻人现实生活题材的经典都市剧，剧中台词还被细心的网友们节选出来奉做 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">王丹丹</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/349936939/7729572978?from=0"> 2011.07.26 金独尊<font color='red'>和</font><font color='red'>李敏</font>❤澈婚礼安排 </a> <br /> <a target="_blank" href="http://share.renren.com/share/349936939/7729572978?from=0"> 此日志过程转载于洛可可http://www.renren.com/profile.do?id=332059734    时间：2011年07月26日【这天是我半年啊！！！好日子啊！！】    【相关人员安排】 →持续招人ing~招人啊！！！还缺伴娘 神父 歌唱队什么的啊... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李俏兔✿﹎αγάπη </a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/352669442/5809241407?from=0"> ❤动图❤我表示<font color='red'>李敏</font>的胸<font color='red'>和</font>希澈的胸形成了强烈对比哦！这个胸包邮嘛！！亲！！！ </a> <br /> <a target="_blank" href="http://share.renren.com/share/352669442/5809241407?from=0"> 转自新浪微博：@廿八囧囧半脱饭啦：你自己看嘛，这衣服拉链的弧度，只有大Xiong哥哥才会有呢@Zombie0808我烦死你 ~＼(≧▽≦)/~啦啦啦... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">李宝石❤멸치</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/353309837/7342966644?from=0"> ❀__‖新闻゛0701‖李敏镐和朴敏英浴室约会 甜蜜浪漫惹人羡 </a> <br /> <a target="_blank" href="http://share.renren.com/share/353309837/7342966644?from=0"> 李敏镐<font color='red'>和</font>朴敏英甜蜜浴室约会拍摄的幕后故事曝光，吸引了众人的目光。        30日晚播出的SBS TV周三，四电视剧《城市猎人》第12集描绘了甜蜜奢华的浴室约会情节。        朴敏英肩部 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">朴灿烈</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/362933060/7615996335?from=0"> 这是 我们的纪念日 李敏❤澈  Would you marry me?——金独尊＆李敏❤澈百天粗卡 </a> <br /> <a target="_blank" href="http://share.renren.com/share/362933060/7615996335?from=0"> 首先 大吼一句：金独尊<font color='red'>和</font><font color='red'>李敏</font>❤澈100天啦！！！！！下面是正文 嗯嗯！！很多人都会说 时光飞逝。这句话 一点都不错。100天 就这么 悄无声息的到来了。娘子 我<font color='red'>和</font>你 CP100天了！！在这里 能遇到 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">金俊儿❤chérir</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/365036837/10742590327?from=0"> ☠推特☠【111220】圭贤推特庚心。【曺圭贤暖男！！！虽然推得应援照草鸡暖心但是除了宣传各种活动各种节目你能来点别的吗！！嫌弃死你了我！！！！你<font color='red'>和</font><font color='red'>李敏</font>真心绝配！！！！】 </a> <br /> <a target="_blank" href="http://share.renren.com/share/365036837/10742590327?from=0"> 差点忘记（公开）城南三剑客最后一场应援了~~，吃得很好，我人生中第一次的演出顺利完成了 ^^三剑客的演员，所有陪伴我们的各位，谢谢了 _ _）... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">这是一个小号</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/395042379/14404888351?from=0"> 关于开展“抗联老战士走进黑大”主题教育活动的通知 </a> <br /> <a target="_blank" href="http://share.renren.com/share/395042379/14404888351?from=0"> 根据在国防生中深入开展&ldquo;学党史、铸军魂&rdquo;教育实践活动方案计划安排，为进一步深化活动成果，培养国防生爱国主义情怀，加强全校学生的国防观念，学校拟聘请原黑龙江省政协副主席<font color='red'>李敏</font>同志 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">叶圣雄</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/397561507/13736552931?from=0"> 【韩语中字】120715 SNL (28禁) “今天，你做了吗”部分，海旭贤敏CUT。（我<font color='red'>和</font>xx做過，還<font color='red'>和</font>xx，還有xx也做過.....有跟<font color='red'>李敏</font>一样想歪的都面壁去￢﹀￢ ） </a> <br /> <a target="_blank" href="http://share.renren.com/share/397561507/13736552931?from=0"> 【中字】120715 SNL 海旭贤敏CUT - 今天，你做了吗？
+厲旭:「我和智允在練習室做了」東海:「我們還在鏡子前做了」圭賢:「我和xx做過，還和xx，還有xx也做過……晟敏哥你難道只和女朋友做麼?」「哥我們一起做吧」……………... </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">孙玲玲⌒hyuk♥</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/400544764/8450162148?from=0"> 雅思写作顺理成章  轻松摘取高分（二） </a> <br /> <a target="_blank" href="http://share.renren.com/share/400544764/8450162148?from=0"> 朗阁海外考试研究中心<font color='red'>李敏</font>     上一篇章中，为了给雅思考生们讲解如何增强雅思写作段落内部的连贯性，朗阁海外考试研究中心写作组的专家结合多年的考试及教学经验，主要介绍了正确使用指代词<font color='red'>和</font>正确使用意思相 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">吕章嵘</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+						<!-- 图文并排内容区 -->
+
+						<li class="ug-c-pic clearfix"><a target="_blank" href="http://share.renren.com/share/437340305/12199204269?from=0":
+
+							class="ug-c-img"> <img src="http://i3.tdimg.com/009/185/542/p.jpg" alt=""></a>
+
+							<div class="ug-c-r">
+
+								<div class="ug-c-word">
+
+									<a target="_blank" href="http://share.renren.com/share/437340305/12199204269?from=0"> <font color='red'>李敏</font>《葬花<font color='red'>和</font>采茶舞曲》 </a>
+
+								</div>
+
+								<p class="ug-c-from">
+
+									来自：
+
+									
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">夏鑫炎</a>
+
+										
+
+									
+
+								</p>
+
+								<p class="ug-c-click">点击：1</p>
+
+							</div></li>
+
+
+
+					
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/445635614/14967879390?from=0"> 李敏ing&nbsp;原词曲/编曲/演唱:五月天 </a> <br /> <a target="_blank" href="http://share.renren.com/share/445635614/14967879390?from=0"> 今天上课带听写本我要考单词背篇课文能加分拿拖布也可以我对我现在的生活感觉挺满意十七班从来都不吃小零食&hellip;（吃小零食，吃小零食，不吃小零食）＊搞基inghappying<font color='red'>和</font><font color='red'>李敏</font>搞在一起搞基在 </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">王源源</a>
+
+										
+
+									</span> <span class="f-right">点击：7</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+					
+
+						<!-- 图文并排内容区 -->
+
+						<li class="ug-c-pic clearfix"><a target="_blank" href="http://share.renren.com/share/450782218/14965435556?from=0":
+
+							class="ug-c-img"> <img src="http://fmn.rrimg.com/fmn056/20121218/2210/main_EKal_405900000dc9118f.jpg" alt=""></a>
+
+							<div class="ug-c-r">
+
+								<div class="ug-c-word">
+
+									<a target="_blank" href="http://share.renren.com/share/450782218/14965435556?from=0"> 은정이를 만나고...... </a>
+
+								</div>
+
+								<p class="ug-c-from">
+
+									来自：
+
+									
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">朴世光</a>
+
+										
+
+									
+
+								</p>
+
+								<p class="ug-c-click">点击：6</p>
+
+							</div></li>
+
+
+
+					
+
+					
+
+				
+
+					
+
+					
+
+						<!-- 纯文字内容区 -->
+
+						<li class="ug-c-txt clearfix">
+
+							<div class="ug-c-word">
+
+								<a target="_blank" href="http://share.renren.com/share/9969/7693566039?from=0"> 一中同学遍天下，西环附近特别挤 </a> <br /> <a target="_blank" href="http://share.renren.com/share/9969/7693566039?from=0"> 前天在超市买菜，出来的时候一下撞到了<font color='red'>李敏</font>，才发现她住的地方离我们只有5分钟脚程。于是约吃饭，昨天在厚<font color='red'>和</font>街吃咖喱蟹，宋然、<font color='red'>李敏</font>、黄碧君竟然都住在步行范围之内，距离近的恐龙，比当年一中宿舍到教学楼还近； </a>
+
+							</div>
+
+							<p class="ug-c-from clearfix">
+
+								<span class="ug-c-txt-from f-left">来自： 
+
+										
+
+										
+
+											<a target="_blank" href="http://reg.renren.com">宋然</a>
+
+										
+
+									</span> <span class="f-right">点击：0</span>
+
+							</p>
+
+						</li>
+
+					
+
+				
+
+
+
+			</ul>
+
+
+
+			<p class="ug-c-more">
+
+				
+
+					
+
+					
+
+						<a target="_blank" href="http://reg.renren.com">更多热门内容&gt;&gt;</a>
+
+					
+
+				
+
+			</p>
+
+
+
+		</div>
+
+		<!-- 侧边栏 -->
+
+		<div class="ug-sidebar">
+
+			<!-- 侧边栏精选推荐 -->
+
+			<div class="ug-sidebar-item"
+
+				style="white-space: nowrap; text-overflow: ellipsis; -o-text-overflow: ellipsis; overflow: hidden">
+
+				<div class="ug-sidebar-title clearfix">
+
+					<h3 class="f-left">精选推荐</h3>
+
+					<a target="_blank" href="/keywords" class="f-right">更多</a>
+
+				</div>
+
+				<ul class="ug-sidebar-c">
+
+					
+
+
+
+						<li class="clearfix "><a target="_blank" href="/keywords/4203954"
+
+							class="ug-sidebar-img f-left"> <img
+
+								src="http://i0.ku6img.com/encode/picpath/2010/9/8/16/1286978993718/6.jpg" alt="" /></a>
+
+							<div class="ug-c-sidebar-i-c f-right">
+
+								<h3>
+
+									<a target="_blank" href="/keywords/4203954">人人直播</a>
+
+								</h3>
+
+
+
+								<ul class="ug-sidebar-c-ul-in">
+
+									
+
+										<li><a target="_blank" href="http://share.renren.com/share/223050986/3217212534?from=0">日本女星竹內结子拍戏...</a></li>
+
+									
+
+										<li><a target="_blank" href="http://share.renren.com/share/229918165/3511864424?from=0">直播30分：自行车运...</a></li>
+
+									
+
+								</ul>
+
+
+
+							</div></li>
+
+					
+
+
+
+						<li class="clearfix "><a target="_blank" href="/keywords/4199980"
+
+							class="ug-sidebar-img f-left"> <img
+
+								src="http://i01.img.tudou.com/data/imgs/i/057/583/364/p.jpg" alt="" /></a>
+
+							<div class="ug-c-sidebar-i-c f-right">
+
+								<h3>
+
+									<a target="_blank" href="/keywords/4199980">青奥会开幕式</a>
+
+								</h3>
+
+
+
+								<ul class="ug-sidebar-c-ul-in">
+
+									
+
+										<li><a target="_blank" href="http://share.renren.com/share/250146672/3052074725?from=0">2010年青年奥运会...</a></li>
+
+									
+
+										<li><a target="_blank" href="http://share.renren.com/share/253613035/3171731598?from=0">新加坡青奥会主席开幕...</a></li>
+
+									
+
+								</ul>
+
+
+
+							</div></li>
+
+					
+
+
+
+						<li class="clearfix "><a target="_blank" href="/keywords/4203776"
+
+							class="ug-sidebar-img f-left"> <img
+
+								src="http://i1.tdimg.com/094/586/928/p.jpg" alt="" /></a>
+
+							<div class="ug-c-sidebar-i-c f-right">
+
+								<h3>
+
+									<a target="_blank" href="/keywords/4203776">权志龙生日</a>
+
+								</h3>
+
+
+
+								<ul class="ug-sidebar-c-ul-in">
+
+									
+
+										<li><a target="_blank" href="http://share.renren.com/share/249628334/8020836620?from=0">《【VIP】權志龍生...</a></li>
+
+									
+
+										<li><a target="_blank" href="http://share.renren.com/share/292376999/16475002932?from=0">无标题</a></li>
+
+									
+
+								</ul>
+
+
+
+							</div></li>
+
+					
+
+
+
+				</ul>
+
+			</div>
+			
+			<div id="keyAD02" data-pv="s01">
+
+			
+				<!-- <script type="text/javascript">
+				    /*300*250 创建于 2017/3/31*/
+				    var cpro_id = "u2941264";
+				</script>
+				<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script> -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 300*250 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-8232851689359628"
+     data-ad-slot="2710353595"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+			</div>
+
+			<!-- 侧边栏热词推荐 -->
+
+			<div class="ug-sidebar-item ug-sidebar-hot">
+
+				<div class="ug-sidebar-title clearfix">
+
+					<h3 class="f-left">更多热词推荐</h3>
+
+					<a target="_blank" href="/keywords" class="f-right">更多</a>
+
+				</div>
+
+				<div class="ug-sidebar-c clearfix">
+
+					
+
+						
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4203456" class="ug-hot-words-big">纽卡斯尔vs曼城</a>
+
+						
+
+					
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4203304" class="ug-hot-words">福州公交</a>
+
+						
+
+						
+
+					
+
+						
+
+							<a target="_blank" href="/keywords/4203536" class="ug-hot-words-small">杜德伟演唱会</a>
+
+
+
+						
+
+						
+
+						
+
+					
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4198772" class="ug-hot-words">中国面孔</a>
+
+						
+
+						
+
+					
+
+						
+
+							<a target="_blank" href="/keywords/4201780" class="ug-hot-words-small">青年奥林匹克运动会</a>
+
+
+
+						
+
+						
+
+						
+
+					
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4203934" class="ug-hot-words">花样爷爷</a>
+
+						
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4203844" class="ug-hot-words-big">南京音乐节</a>
+
+						
+
+					
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4198770" class="ug-hot-words">红星发展</a>
+
+						
+
+						
+
+					
+
+						
+
+							<a target="_blank" href="/keywords/4198852" class="ug-hot-words-small">青奥会主题曲</a>
+
+
+
+						
+
+						
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4203610" class="ug-hot-words-big">街球制霸赛</a>
+
+						
+
+					
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4203310" class="ug-hot-words">美国男篮热身赛</a>
+
+						
+
+						
+
+					
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4203540" class="ug-hot-words">罗马教皇</a>
+
+						
+
+						
+
+					
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4201984" class="ug-hot-words">国际奥委会主席</a>
+
+						
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4203860" class="ug-hot-words-big">财神爷生日</a>
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4203952" class="ug-hot-words-big">假冒洗发水</a>
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4203606" class="ug-hot-words-big">青年奥运会开幕式</a>
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4201654" class="ug-hot-words-big">爸爸去哪儿第二季</a>
+
+						
+
+					
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4198938" class="ug-hot-words">微软手机</a>
+
+						
+
+						
+
+					
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4203306" class="ug-hot-words">gopro相机</a>
+
+						
+
+						
+
+					
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4200052" class="ug-hot-words">美国之音</a>
+
+						
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4201660" class="ug-hot-words-big">南京青奥会开幕式</a>
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4201646" class="ug-hot-words-big">新加坡总统</a>
+
+						
+
+					
+
+						
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4202006" class="ug-hot-words-big">美国男篮vs巴西</a>
+
+						
+
+					
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4202504" class="ug-hot-words">长治爆炸</a>
+
+						
+
+						
+
+					
+
+						
+
+							<a target="_blank" href="/keywords/4201648" class="ug-hot-words-small">阿sa陈伟霆</a>
+
+
+
+						
+
+						
+
+						
+
+					
+
+						
+
+						
+
+							<a target="_blank" href="/keywords/4199972" class="ug-hot-words">航天食品</a>
+
+						
+
+						
+
+					
+
+						
+
+							<a target="_blank" href="/keywords/4203956" class="ug-hot-words-small">白百何</a>
+
+
+
+						
+
+						
+
+						
+
+					
+
+				</div>
+
+			</div>
+
+			<div id="keyAD03" data-pv="s02">
+				<script type="text/javascript">
+				    /*300*250 创建于 2017/3/31*/
+				    var cpro_id = "u2941264";
+				</script>
+				<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+			</div>
+
+		</div>
+
+	</div>
+
+	</div>
+	<script type="text/javascript" src="http://s.xnimg.cn/a89653/js/adstats.js"></script>
+	<script type="text/javascript">
+
+
+
+        var oad1 = document.getElementById('keyAD01');
+        var oad2 = document.getElementById('keyAD02');
+        var oad3 = document.getElementById('keyAD03');
+             
+        scrollReq(oad1,function(){console.log('m01-ad曝光');});
+        scrollReq(oad2,function(){console.log('s01-ad曝光');});
+        scrollReq(oad3,function(){console.log('s02-ad曝光');});
+                
+                    window.addEventListener("scroll",function(){
+                        var scrollTimer;
+                        if (scrollTimer) {
+                            clearTimeout(scrollTimer);
+                        }
+                        scrollTimer=setTimeout(function(){
+                             scrollReq(oad1,function(){console.log('m01-ad曝光');});
+                            scrollReq(oad2,function(){console.log('s01-ad曝光');});  
+                            scrollReq(oad3,function(){console.log('s02-ad曝光');});
+                        },400);        
+    })
+console.log('hotlist');
+	</script>
+	
+
+
+	
+	<div id="footer">
+			
+		<div class="site-footer" style="background:#fff;position:relative;">
+			<div class="main">
+				<ul class="link">
+					<li><a href="http://www.renren.com/siteinfo/about">关于</a></li>
+					<li><a href="http://dev.renren.com">开放平台</a></li>
+					<li><a href="http://wan.renren.com">人人游戏</a></li>
+					<li><a href="http://page.renren.com/register/regGuide/">公共主页</a></li>
+					<li><a href="http://mobile.renren.com/mobilelink.do?psf=40002">手机人人</a></li>
+					<li><a href="http://www.nuomi.com">团购</a></li>
+					<li><a href="http://www.jiexi.com">皆喜网</a></li>
+					<li><a href="http://ads.renren.com">营销服务</a></li>
+					<li><a href="http://job.renren-inc.com/">招聘</a></li>
+					<li><a href="http://www.renren.com/siteinfo/link">友情链接</a></li>
+					<li><a href="http://support.renren.com/helpcenter">客服帮助</a></li>
+					<li><a href="http://www.renren.com/siteinfo/privacy">隐私</a></li>
+				</ul>
+				<span class="copyright">
+					人人网<span title="revision$revxxx$; YZSJHL37-82.opi.com">&copy;</span>2018
+				</span>
+
+				<!-- dj埋码 -->
+				<script type="text/javascript">
+
+				function goPAGE() {
+				var currentUrl = window.location.href.split('#')[0];
+				if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+				    return "wap";
+				}
+				else {
+				     return "pc";
+				 }
+				}
+				var judge = goPAGE();
+				    (function(){
+				        XN.net.sendStats('http://dj.renren.com/seostat?j={"from":"'+window.location.hostname+'","dev":"'+judge+'","page":"'+encodeURIComponent(window.location.href)+'"}');
+				        console.log('dj!!');
+				    })();
+				</script>
+			</div>
+			<div class="haoes">
+				<span class="company-name">北京千橡网景科技发展有限公司：</span>
+				<span>文网文[2009]169号</span><span class="dot">·</span><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP证090254号</a><span class="dot">·</span><span>京公网安备110000000009号</span><span class="dot">·</span><span>甲测资字11002066</span><span class="dot">·</span><span>文化部监督电子邮箱：wlwh@vip.sina.com</span><span class="dot">·</span><a href="http://a.xnimg.cn/n/core/res/certificate.jpg" target="_blank">互联网药品信息服务资格证</a><br>
+				<p class="special-add"><span>文明办网文明上网举报电话：4000803580 举报邮箱：admin1@renren-inc.com</span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.bjjubao.org/" target="_blank"><img src="http://s.xnimg.cn/imgpro/civilization/c_1.jpg" width="25" height="24">不良信息举报中心</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.bj.cyberpolice.cn/index.jsp" target="_blank"><img src="http://s.xnimg.cn/imgpro/civilization/c_2.jpg" width="25" height="24">网络110报警服务</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.bjwhzf.gov.cn/accuse.do" target="_blank"><img src="http://s.xnimg.cn/imgpro/civilization/c_3.jpg" width="25" height="24">北京文化市场举报热线</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://wan.renren.com/safe/jzjk.html" target="_blank">家长监护工程</a>
+			</div>
+		</div>
+	</div>
+	
+
+</div>
+
+
+
+
+	<div id="toolBackTo" class="back-to" style="display:none;">
+		<a stats="site_footer_back_to_top" class="backtotop" href="#top">返回顶部
+			<img stats="site_footer_back_to_top" src="http://a.xnimg.cn/imgpro/button/back-tip.png" class="back-tip" />
+		</a>
+	</div>
+
+
+
+<script src="http://s.xnimg.cn/jspro/beacon.js?ver=$revxxx$"></script>
+<script>
+COMSCORE.beacon({ c1:2, c2:6934070, c3:"", c4:"", c5:"", c6:"", c15:"" });
+</script>
+<noscript>
+<img src="http://b.scorecardresearch.com/p?c1=2&c2=6934070&c3=&c4=&c5=&c6=&c15=&cj=1" />
+</noscript>
+
+
+
+
+
+</body>
+ 
+</html>
+

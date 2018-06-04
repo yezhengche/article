@@ -1,0 +1,904 @@
+<!DOCTYPE html>           
+
+<script>
+    (function (context) {
+        var data = {};
+        var url = '//imgstat.baidu.com/17.gif';
+        var start = +new Date;
+        var createQuery = function (data) {
+            var ret = [];
+            for (var key in data) {
+                ret.push(key + '=' + data[key]);
+            }
+            return ret.join('&');
+        };
+
+        var _mergeCommPara = function (data) {
+            data.etype = 'speed';
+            data.page = 'result';
+            data.logid = "7662407341057954897";
+            data.sid = '08ae61d9ca530675211cd70e3ae0dac0e9e8cf0a';
+            data.wh = window.screen.width + 'x' + window.screen.height ;
+            data.sampid = '-1';
+            data.app = 'searchresult';
+            data.spat = 0 + '-' + '';
+            data.protocol = window.location.protocol.replace(':', '');
+            if ('2' - 0) {
+                data.ishttps = '2';
+            }
+            
+            data.sync = "";
+            return data;
+        };
+        var _profiles = {
+            'slider': {
+                _url: '//imgstat.baidu.com/17.gif',
+                etype: 'slide'
+            }
+        };
+        var speed = {
+            set: function (key, value) {
+                if (key) {
+                    data[key] = value || 0;
+                }
+            },
+            get: function (key) {
+                return data[key] || ('start' === key && start);
+            },
+            mark: function (key, value, ts) {
+                if (undefined === value) {
+                    value = new Date - start;
+                }
+                if (true === ts) {
+                    value = value - start;
+                }
+                data[key] = value;
+            },
+            send: function (ext) {
+                if (ext) {
+                    for (var key in ext) {
+                        data[key] = ext[key];
+                    }
+                }
+                _mergeCommPara(data);
+                var queryString = createQuery(data);
+                new Image().src = url + '?' + queryString;
+            },
+            loadmark: function () {
+                value = new Date - start;
+
+                if (speed.firstScCount) {
+                    speed.firstScCount += 1;
+                }else{
+                    speed.firstScCount = 1;
+                }
+
+                data['firstSc'] = value;
+
+            },
+            log: function (profile, data) {
+                var queryString = createQuery(data);
+                var pf = _profiles[profile];
+                var a = [];
+
+                _mergeCommPara(data);
+                for (var p in pf) {
+                    if (p.indexOf('_') !== 0) {
+                        data[p] = pf[p];
+                    }
+
+                }
+                for (var p in data) {
+                    a.push(p + '=' + data[p]);
+                }
+
+
+                (new Image).src = pf._url + '?' + a.join('&');
+            }
+        };
+        context.speed = speed;
+        speed.firstScCount = 0;
+        (function () {
+            window.logid = "7662407341057954897";
+            loaded = 0;
+            var addWindowEvent = window.addEventListener ?
+                function(type, fn) { window.addEventListener(type, fn, false); } :
+                function(type, fn) { window.attachEvent('on' + type, fn); };
+            addWindowEvent('beforeunload', function () {
+                if (!loaded) {
+                    speed.mark('leave');
+                    speed.send();
+                }
+            });
+
+            addWindowEvent('load', function () {
+                loaded = 1;
+            });
+        })();
+    })(window);
+</script>
+<script>
+    // ala进入打点
+    try {
+        if (!window._alaEnter) {
+            window._alaEnter = true;
+            function query2Json(query) {
+                var json = {};
+                var search = query.split("&");
+                for (var i = search.length - 1; i >= 0; i--) {
+                    var s = search[i].split('=');
+                    json[s[0]] = s[1];
+                }
+                return json;
+            }
+            var query = query2Json((location.search || '').replace('?', ''));
+            if (+query.hs && query.tn === 'baiduimage') {
+                var payload = 'dsp=pc&tn=result&hs=' + query.hs;
+                (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload + '&type=enter&t=' + (+new Date);
+                window._alaEnter = function (type) {
+                    (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload
+                        + '&type=' + type + '&t=' + (+new Date);
+                };
+                var sid = "c3437dbc7c1255d3a21d444d86ebf2e9234c22bd";
+                if (window.localStorage
+                    && window.localStorage.sid
+                    && window.localStorage.sid !== sid) {
+                    window._alaEnter('change');
+                }
+                window.localStorage.sid = sid;
+            }
+        }
+    } catch(e) {}
+</script>
+   <html>   <!--STATUS OK-->  <head>  
+<meta http-equiv='Content-Type' content="text/html; charset=utf-8">
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<noscript>
+<meta http-equiv="refresh" content="0;url=/i?ct=201326592&lm=-1&tn=baiduimagenojs&ipn=rnj&pv=&word=%E5%BC%A0%E4%BC%9F&z=0&pn=0&rn=20&cl=2&ie=utf-8">
+
+<style>table,.p{display:none}</style>
+
+</noscript>
+ <title>
+张伟_百度图片搜索</title> <link rel="shortcut icon" href="https://www.baidu.com/cache/icon/favicon.ico" type="image/x-icon"> <link rel="icon" sizes="any" href="https://www.baidu.com/cache/icon/favicon.svg">  <script>
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>     
+   <script>
+        var Ihttps_agent_config = {"http:\/\/nssug.baidu.com":"https:\/\/sp1.baidu.com\/8qUZeT8a2gU2pMbgoY3K\/su","http:\/\/img.baidu.com":"https:\/\/gss2.bdstatic.com\/70cFsjip0QIZ8tyhnq","http:\/\/himg.bdimg.com":"https:\/\/ss1.bdstatic.com\/7Ls0a8Sm1A5BphGlnYG","http:\/\/apps.bdimg.com":"https:\/\/ss0.bdstatic.com\/9_QWf8Sm1A5BphGlnYG","http:\/\/f3.baidu.com":"https:\/\/sp3.baidu.com\/-uV1bjeh1BF3odCf","http:\/\/bzclk.baidu.com":"https:\/\/gsp0.baidu.com\/9q9JcDHa2gU2pMbgoY3K","http:\/\/img0.imgtn.bdimg.com":"https:\/\/ss0.bdstatic.com\/70cFvHSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img1.imgtn.bdimg.com":"https:\/\/ss1.bdstatic.com\/70cFvXSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img2.imgtn.bdimg.com":"https:\/\/ss2.bdstatic.com\/70cFvnSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img3.imgtn.bdimg.com":"https:\/\/ss3.bdstatic.com\/70cFv8Sh_Q1YnxGkpoWK1HF6hhy","http:\/\/img4.imgtn.bdimg.com":"https:\/\/ss0.bdstatic.com\/70cFuHSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img5.imgtn.bdimg.com":"https:\/\/ss1.bdstatic.com\/70cFuXSh_Q1YnxGkpoWK1HF6hhy","http:\/\/bdimg.share.baidu.com":"https:\/\/gss0.baidu.com\/9rA4cT8aBw9FktbgoI7O1ygwehsv","http:\/\/dispatcher.video.qiyi.com":"https:\/\/gss0.bdstatic.com\/-LsZfDe52w9JkxG9m9iS_HFjgAkrreHg-_","http:\/\/passport.bdimg.com":"https:\/\/ss0.bdstatic.com\/5LMZfyabBhJ3otebn9fN2DJv"};
+    </script> <script type="text/javascript" src="//img0.bdstatic.com/static/common/mod_6f6741d.js"></script> 
+<script>
+    //记录页面开始时间, 也用于vs埋点
+    window.pageStartTime = (new Date()).getTime();
+    window.shootBannerData = [];
+    window.isBigFu = '';
+   // window.scrollTo(0, 0);
+</script>
+
+<script>
+    // 时效性热点
+        </script>
+ <link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/pkg/co_b1eb78d.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/pkg/result_50ca984.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/widget/ui/slider/slider_ecce195.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/common/widget/ui/userInfo/userInfo_5bd6198.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvFilterView/AvFilterView_5709328.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvMuiltSizeFilterView/AvMuiltSizeFilterView_5a57aa1.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvTypeFilterView/AvTypeFilterView_cea6b92.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorWallFilterView/AvColorWallFilterView_cf8a646.css"/><link rel="stylesheet" type="text/css" href="//img2.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorFilterView/AvColorFilterView_5b1da63.css"/><link rel="stylesheet" type="text/css" href="//img2.bdstatic.com/static/common/widget/loginbar/loginbar_e8a6507.css"/></head>  <script> alog('speed.set', 'ht', +new Date); </script>  <body class=""> <script type="text/javascript">require.siteNS && require.siteNS(["searchresult", "common"]);require.resourceMap({"res":{"searchresult:widget/ui/app/noResultPage.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/app/noResultPage_ee2374d.js","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/relsearchBox/relsearchBox.js","common:widget/ui/userInfo/userInfo.js","searchresult:widget/ui/controls/hotwordBox/hotwordBox.js","searchresult:widget/ui/controls/suggBox/suggBox.js","searchresult:widget/ui/statistic/statistic.js"]},"common:widget/shitu/static/animate.js":{"url":"//img1.bdstatic.com/static/common/widget/shitu/static/animate_d5993fc.js","deps":["common:widget/ui/base/base.js"]},"common:widget/shitu/run.js":{"url":"//img0.bdstatic.com/static/common/widget/shitu/run_bd921f8.js","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/shitu/static/animate.js"]},"common:widget/ui/historyRecord/historyRecord.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/historyRecord/historyRecord_31e31e1.js","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/loginBox/loginBox.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/loginBox/loginBox_ea459f5.js"},"common:widget/loginbar/loginbar.js":{"url":"//img2.bdstatic.com/static/common/widget/loginbar/loginbar_f08c999.js","deps":["common:widget/ui/base/base.js","common:widget/ui/loginBox/loginBox.js","common:widget/ui/base/EventDispatcher.js"]},"common:widget/ui/sourcehttps/sourcehttps.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/sourcehttps/sourcehttps_a8b93d5.js"},"common:widget/ui/fmCheck/fmCheck.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/fmCheck/fmCheck_e6197fc.js","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/durationStat/durationStat.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/durationStat/durationStat_d292e9f.js","deps":["common:widget/ui/utils/utils.js","common:widget/ui/base/base.js"]}}});</script> 
+
+<div id="search" class="">
+<script>
+        (function() {
+            var search = document.getElementById('search');
+            var width = window.innerWidth
+                || (document.documentElement && document.documentElement.clientWidth)
+                || (document.body && document.body.clientWidth);
+            if (search && width < 1217) {
+                search.className = 'narrow ' + search.className;
+            }
+        })();
+    </script>
+<div class="s_search">
+<a href="/" class="s_logo">
+<img src="//img0.bdstatic.com/static/searchresult/img/logo-2X_b99594a.png" alt="到 百度图片首页 来" title="返回 百度图片首页">
+</a>
+<div class="s_nav">
+<form action="/search/index" class="searchform" name="f1" onsubmit="return s_submit(this,true)">
+<input type="hidden" name="tn" value="baiduimage">
+<input type="hidden" name="ipn" value="r">
+<input name="ct" type="hidden" value="201326592">
+<input name="cl" type="hidden" value="2">
+<input name="lm" type="hidden" value="-1">
+<input name="st" type="hidden" value="-1">
+<input name="fm" type="hidden" value="result">
+<input name="fr" type="hidden" value="">
+<input name="sf" type="hidden" value="1">
+<input name="fmq" type="hidden" value="">
+<input name="pv" type="hidden" value="">
+<input name="ic" type="hidden" value="0">
+<input name="nc" type="hidden" value="1">
+<input name="z" type="hidden" value="">
+<input name="se" type="hidden" value="">
+<input name="showtab" type="hidden" value="0">
+<input name="fb" type="hidden" value="0">
+<input name="width" type="hidden" value="">
+<input name="height" type="hidden" value="">
+<input name="face" type="hidden" value="0">
+<input name="istype" type="hidden" value="2">
+<input name="ie" type="hidden" value="utf-8">
+<input name="hs" type="hidden" value="2">
+<input name="ctd" type="hidden" value="">
+<span class="s_ipt_wr"><input id="kw" name="word" class="s_ipt" value="张伟" autocomplete="off" onfocus="this.parentNode.className='s_ipt_wr active'" onblur="this.parentNode.className='s_ipt_wr'"/></span><span class="s_btn_wr"><input type="submit" class="s_btn" onmousedown="this.className='s_btn s_btn_h'" onmouseout="this.className='s_btn'"  value="百度一下"   /></span>
+</form><div id="stcontent" class="common-shitu"> <a class="sttb" hidefocus="true" id="sttb" href="javascript:void(0)" title="上传图片，搜索相关信息"> <img class="st_camera_off" src="//img1.bdstatic.com/static/common/widget/shitu/images/camera_new_off_a552294.png" width="20" height="20"> <img class="st_camera_on" src="//img2.bdstatic.com/static/common/widget/shitu/images/camera_new_on_4e3e250.png" width="20" height="20"> <div class="st_tips" id="stTipsBox">上传图片，搜索相关信息</div> <div class="st_tips_arrow_in" id="stTipArrowIn"></div> <div class="st_tips_arrow_out" id="stTipArrowOut"></div> </a> <div id="stsug" class="stsug" style="display:none"> <div id="sthead"><span>识图</span><img id="sthelp" width="13" height="13" src="//img2.bdstatic.com/static/common/widget/shitu/images/mark_b68ff2e.png" /></div> <div class="stf"> <form id="form2" target="_self" enctype="multipart/form-data" name="form2"> <a id="uploadImg" href="javascript:void(0)" data-nsclick="p=1811102&tn=index&event_type=shitu.search.click&pos=upload">本地上传<input type="file" name="file" id="stfile" size="2"></a> <div class="st_dragtg" id="dragtg" style="display:none;">提示：您也可以把图片拖到这里</div> <input id="shitu2" name="pos" value="" type="hidden"> <input name="uptype" value="upload_pc" type="hidden"> <input name="fm" value="index" type="hidden"> </form> <form id="form1" target="_self" enctype="multipart/form-data" method="get" name="form1"> <div id="sturl"> <span class="stuwr"> <input type="text" id="stuurl" placeholder="在此处粘贴图片网址" value="" autocomplete="off"  class="stuurl" name="objurl"> </span> <span class="stsb"> <input type="submit" id="sbobj" class="stsb2" onmousedown="this.className='stsb2 stsb3'" onmouseout="this.className='stsb2'" onmouseover="this.className='stsb2 stsb4'" value="识图一下"> </span> </div> <input name="filename" id="filename" value="" type="hidden"> <input name="rt" value="0" type="hidden"> <input name="rn" value="10" type="hidden"> <input id="stftn" name="ftn" value="wantu" type="hidden"> <input name="ct" value="1" type="hidden"> <input name="stt" value="0" type="hidden"> <input name="tn" value="shituresultpc" type="hidden"> <input id="shitu1" name="uptype" value="paste" type="hidden"> <input name="fm" value="index" type="hidden"> </form> </div> <div class="drag-text-tip" id="dttip">拖拽图片到此处试试</div> <div id="stmore" style="display:none;"> <div class="stmore-header">百度识图</div> <ul> <li>识别人物、搜索服饰、寻找高清素材、浏览相似美图，尽在百度识图!</li> </ul> <div class="stmore_arrow_in"></div> <div class="stmore_arrow_out"></div> </div> <a id="closest" href="javascript:void(0);" title="关闭"></a> <div id="point" style="display:none;"> <img src="//img1.bdstatic.com/img/image/shitu/feimg/uploading.gif" /><span>正在识别中，请稍候...</span> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div class="undrag-text-tip" id="undragtip"> <p>抱歉，Safari不支持拖拽识图。<br/> 请保存图片到本地，通过本地上传或在搜索框粘贴图片url进行识图。</p> </div> <div id="dragtip" style="display:none;"> <span>请拖拽图片到此处</span> <div class="drag_dot_area drag_dot_left_top"></div> <div class="drag_dot_area drag_dot_left_bottom"></div> <div class="drag_dot_area drag_dot_right_top"></div> <div class="drag_dot_area drag_dot_right_bottom"></div> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div class="left-border"></div> <div class="right-border"></div> </div> <div id="mock-stsug"></div> </div>  </div>
+<div id="imgfilter">
+<a id="imgfilter-btn" class="filter-open" href="javascript:;">
+<span class="imgfilter-text">图片筛选</span>
+<span class="imgfilter-arrow"></span>
+</a>
+<div id="filter-holder" style="display:none">
+<span class="holder-arrow"></span>
+<div id="top-filter-hoder">
+<div id="filter-container">
+<div class="filter" id="filter">
+<div id="sizeFilter" class="subFilter sizeFilter"></div>
+<div id="colorFilter" class="subFilter"></div>
+<div id="typeFilter" class="subFilter"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='userInfo'>
+<a target='_blank' href='http://www.baidu.com/'>百度首页</a>
+</div>
+</div>
+<div id="pageLayoutTipWindow">
+<div class="page-layouttip-banner">
+<div class="page-layouttip-describe">温馨提示：由于您的浏览器安装了某些插件，导致页面布局失败，重新加载可恢复布局</div>
+<div class="page-layouttip-loadbtn">重新加载</div>
+<div class="page-layouttip-viewbtn">继续查看</div>
+</div>
+</div><script>
+var commonHeaderConf = {
+	sugProdName: "image",
+	searchInputId: "kw"
+};
+void function(w){
+	window.setHeadUrl= function(o){
+		var links = {
+		i_news:['word','http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&ie=utf-8',1],
+        i_webpage:['wd','https://www.baidu.com/s?ie=utf-8',1],
+		i_tieba:['kw','http://tieba.baidu.com/f?ie=utf-8',1],
+		i_zhidao:['word','http://zhidao.baidu.com/q?ct=17&pn=0&tn=ikaslist&rn=10&lm=0&ie=utf-8',1],
+		i_mp3:['key','http://music.baidu.com/search?fr=img&ie=utf-8',1],
+		i_video:['word','http://v.baidu.com/v?ct=301989888&s=25&ie=utf-8',1],
+		i_map:['wd','http://map.baidu.com/?newmap=1&ie=utf-8&s=s',2],
+		i_baike:['word','http://baike.baidu.com/search/word?pic=1&sug=1&enc=utf8',1],
+		i_wenku:['word','http://wenku.baidu.com/search?ie=utf-8',1]
+		},
+		name = o.name,
+		items = links[name],
+		kw = document.getElementById(w),
+		reg = new RegExp('^\\s+|\\s+\x24'),
+		key = kw.value.replace(reg,'');
+		if(items){
+			if(key.length > 0){
+				var wd = items[0],
+					url = items[1],
+					proSign = items[2];
+				url = pro(url,wd,key,proSign);
+				o.href = url;
+
+			}else{
+				o.href = o.href.match(new RegExp('^http:\/\/.+\\.baidu\\.com'))[0];
+			}
+            if(!o.clickHandle){
+                o.onclick = function(e){
+                    if(typeof p === 'function'){
+                        e = e || window.event;
+                        p(e, 52, {isAsyn : true, to : this.name, href : this.href});
+                    }
+
+                };
+                o.clickHandle = true;
+            }
+		}
+		function pro(url,wd,key,proSign){
+			/*日文片假部分乱码\u30f7--\u30fb,转换成实体*/
+			function HtmlEncodeAndComponent(inTXT){
+				/*地图，uri编码，不转换成实体*/
+				if(proSign==2){
+					return encodeURIComponent(key);
+				}
+				var hexArray =[],entityCode = '',finalKey = '', character='',tmpInt=0;
+				for(i=0; i<inTXT.length; i++){
+					character = inTXT.charCodeAt(i).toString(16).toUpperCase();
+					tmpInt = parseInt(character,16);
+					if(tmpInt>=0x30f7&&tmpInt<=0x30fb){
+						decCode = tmpInt.toString(10);
+						entityCode = '&#'+decCode+';';
+						finalKey += encodeURIComponent(entityCode);
+
+					}else{
+						entityCode = inTXT.charAt(i);
+						if(proSign>0){
+							finalKey += encodeURIComponent(entityCode);
+						}else{
+							finalKey += entityCode;
+						}
+					}
+				}
+				return finalKey;
+			}
+			var prefix = (url.indexOf('?')>0?'&':'?') + wd +'=';
+			if(proSign == 2){
+				prefix = encodeURIComponent(prefix);
+			}
+			key = HtmlEncodeAndComponent(key);
+			return url + prefix + key;
+		}
+	}
+}(commonHeaderConf.searchInputId);
+</script>
+<div class="s_tab">
+<a href="https://www.baidu.com/"  onmousedown="setHeadUrl(this)" name="i_webpage" >网页</a>
+<a href="http://news.baidu.com/" onmousedown="setHeadUrl(this)" name="i_news">新闻</a>
+<a href="http://tieba.baidu.com/" onmousedown="setHeadUrl(this)" name="i_tieba">贴吧</a>
+<a href="http://zhidao.baidu.com/" onmousedown="setHeadUrl(this)" name="i_zhidao" >知道</a>
+<a href="http://music.baidu.com/" onmousedown="setHeadUrl(this)" name="i_mp3" class="eng">音乐</a>
+<b>图片</b>
+<a href="http://v.baidu.com/" onmousedown="setHeadUrl(this)" name="i_video" >视频</a>
+<a href="http://map.baidu.com/" onmousedown="setHeadUrl(this)" name="i_map" >地图</a>
+<a href="http://wenku.baidu.com/" onmousedown="setHeadUrl(this)" name="i_wenku">文库</a>
+<a href="https://www.baidu.com/more/" onmousedown="setHeadUrl(this)" name="i_more">更多»</a>
+</div>
+<div id="topInfoBar">
+<div id="topRS">
+<em class="pull-rs-title">相关搜索：</em><a class="pull-rs" title="查看 张伟表情包"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%BC%A0%E4%BC%9F%E8%A1%A8%E6%83%85%E5%8C%85&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">张伟表情包</a><a class="pull-rs" title="查看 张伟头像"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%BC%A0%E4%BC%9F%E5%A4%B4%E5%83%8F&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">张伟头像</a><a class="pull-rs" title="查看 爱情公寓张伟伴娘服"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E7%88%B1%E6%83%85%E5%85%AC%E5%AF%93%E5%BC%A0%E4%BC%9F%E4%BC%B4%E5%A8%98%E6%9C%8D&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">爱情公寓张伟伴娘服</a><a class="pull-rs" title="查看 张伟吃小龙虾"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%BC%A0%E4%BC%9F%E5%90%83%E5%B0%8F%E9%BE%99%E8%99%BE&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">张伟吃小龙虾</a><a class="pull-rs" title="查看 爱情公寓张伟吃小龙虾"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E7%88%B1%E6%83%85%E5%85%AC%E5%AF%93%E5%BC%A0%E4%BC%9F%E5%90%83%E5%B0%8F%E9%BE%99%E8%99%BE&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">爱情公寓张伟吃小龙虾</a><a class="pull-rs" title="查看 凉山州组织部长 张伟"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%87%89%E5%B1%B1%E5%B7%9E%E7%BB%84%E7%BB%87%E9%83%A8%E9%95%BF+%E5%BC%A0%E4%BC%9F&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">凉山州组织部长 张伟</a><a class="pull-rs" title="查看 张伟 中国好声音high"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%BC%A0%E4%BC%9F+%E4%B8%AD%E5%9B%BD%E5%A5%BD%E5%A3%B0%E9%9F%B3high&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">张伟 中国好声音high</a><a class="pull-rs" title="查看 张伟爱情公寓扮演者"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%BC%A0%E4%BC%9F%E7%88%B1%E6%83%85%E5%85%AC%E5%AF%93%E6%89%AE%E6%BC%94%E8%80%85&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">张伟爱情公寓扮演者</a><a class="pull-rs" title="查看 圈圈集团张伟车祸现场"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%9C%88%E5%9C%88%E9%9B%86%E5%9B%A2%E5%BC%A0%E4%BC%9F%E8%BD%A6%E7%A5%B8%E7%8E%B0%E5%9C%BA&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">圈圈集团张伟车祸现场</a><a class="pull-rs" title="查看 方丹琼老公张伟呜"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E6%96%B9%E4%B8%B9%E7%90%BC%E8%80%81%E5%85%AC%E5%BC%A0%E4%BC%9F%E5%91%9C&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">方丹琼老公张伟呜</a><a class="pull-rs" title="查看 锦州银行行长张伟妻子"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E9%94%A6%E5%B7%9E%E9%93%B6%E8%A1%8C%E8%A1%8C%E9%95%BF%E5%BC%A0%E4%BC%9F%E5%A6%BB%E5%AD%90&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">锦州银行行长张伟妻子</a><a class="pull-rs" title="查看 安国黑社会张伟照片"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%AE%89%E5%9B%BD%E9%BB%91%E7%A4%BE%E4%BC%9A%E5%BC%A0%E4%BC%9F%E7%85%A7%E7%89%87&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">安国黑社会张伟照片</a><a class="pull-rs" title="查看 天津眼科医院张伟"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%A4%A9%E6%B4%A5%E7%9C%BC%E7%A7%91%E5%8C%BB%E9%99%A2%E5%BC%A0%E4%BC%9F&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">天津眼科医院张伟</a><a class="pull-rs" title="查看 爱情公寓张伟海绵宝宝"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E7%88%B1%E6%83%85%E5%85%AC%E5%AF%93%E5%BC%A0%E4%BC%9F%E6%B5%B7%E7%BB%B5%E5%AE%9D%E5%AE%9D&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">爱情公寓张伟海绵宝宝</a><a class="pull-rs" title="查看 张伟黄玲high歌视频"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%BC%A0%E4%BC%9F%E9%BB%84%E7%8E%B2high%E6%AD%8C%E8%A7%86%E9%A2%91&hs=2&oriquery=%25E5%25BC%25A0%25E4%25BC%259F&ofr=%25E5%25BC%25A0%25E4%25BC%259F&sensitive=0">张伟黄玲high歌视频</a></div>
+<div id="timeliness" class="hotpot-container">
+</div>
+<script type="text/juicer" id="timeliness-tpl">
+    <div id="timeliness-bless">
+        <div class="blessing-img-wrapper">
+            <img class="blessing-img" src="${icon.normal}" alt="" />
+            <img class="blessing-img icon-zoomup" src="${icon.normal}" alt="" />
+        </div>
+        <span class="blessing-content">
+            ${title}
+        </span>
+        <div class="blessing-count-wrapper">
+            (<span class="blessing-count"></span>人)
+        </div>
+    </div>
+    <div class="egg">
+        <img class="blessing-img-egg" src="${egg}" alt="" />
+    </div>
+</script>
+</div>
+<div id="specialQuery"></div>
+<div id="browser-hotword"></div>
+
+</div>
+ 
+
+<script>
+    window.vsid = '8105761a1eac8f454cbb59020901e0431680c15b';
+</script>
+<div id="wrapper">
+<div id="pnlBeforeContent">
+<div class="news-slider"></div>
+<div id="smeContainer" style="display:none;">
+</div>
+</div>
+<div id="imgContainer" class="">
+<div id="timeliness-title">
+<img class="blessing-img guideIcon" src="">
+<span class="timeliness-desc"></span>
+</div>
+<div id="pnlBeforeImgList">
+<div class="memory-con" id="memoryBar" style="display: none;">您收藏时已经看到第<span class="memory-page">10</span>页，<span><a class="memory-link">点击直达</a></span><a class="memory-close"></a></div>
+</div>
+<div id="specialRecommend"></div>
+
+<div id="imgid">
+</div>
+<div id="lastPage" style="position:relative;overflow:hidden;padding-left:50px;zoom:1;display:none;">
+为给您提供最相关的图片结果，百度已省略与以上结果相类似的图片，您可<a href="/">点此查看更多搜索结果</a>。</div>
+<div id="ajaxInfo"></div>
+<div id="noPage" >
+<div id="dataNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+抱歉，在该筛选条件下，没有找到与<font color="#C60A00">张伟</font>相关的图片。</div>
+<div id="stdNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+<br>
+<br>
+<font class="fB" style="font-size:14px">百度建议您：</font>
+<div style="font-size:14px;margin-top:0px;">
+<li id="listSetDefault">将筛选功能<a href="/search/index?ct=201326592&z=&s=&tn=baiduimage&ipn=r&word=%E5%BC%A0%E4%BC%9F&ie=utf-8&oe=utf-8&lm=-1&st=-1&z=&se=0&fr=ala&pn=0&width=&height=&face=0&ct=503316480" onclick="" >恢复默认状态</a></li>
+<li>修改当前的筛选条件</li>
+<li >看看输入的文字是否有误</li>
+</div>
+<div id=DivPost style="margin-top:0px;margin-left:15px;"></div>
+</div>
+</div>
+</div>
+<div style="clear:both;"></div>
+<p href="javascript:void(0);" id="loading"><img style="width:50px;height:54px;"/></p>
+<div id="pageMoreWrap">
+<a href="javascript:void(0);" onmousedown="p(null,499,{domid:'pageMore',type:'click'})" id="pageMore">加载更多图片</a>
+<div id="resultInfo">找到相关图片约115,000张</div>
+</div><div id="pnlAfterContent" style="display:none">
+<div id="cmsimage">
+<div id="hotWordDiv"></div>
+</div>
+<div id="relecom54">
+</div>
+</div>
+</div>
+<div id="loginbar" style="display:none;"> <div class="loginbar-inner"> <div class="login-png"></div> <a class="baidulogin" href="javascript:;">百度账号登陆</a> <span>或</span> <a class="baidureg" href="javascript:void(0);">注册</a> </div> <a class="loginbar-close" href="javascript:;">关闭</a> </div>  <script>
+    window.alogObjectConfig = {
+        product: '11',
+        page: '2', 
+        speed_page: '2',  
+ 
+        speed: {
+            sample: '0.01'   
+        },
+ 
+       
+        monkey: {
+            sample: '0.01'   
+        },
+ 
+        exception: { 
+            sample: '0.01' 
+        },
+ 
+        feature: {
+            sample: '0.01'
+        },
+ 
+        
+        cus: {
+            sample: '0.01' 
+        },
+ 
+        csp: {
+            sample: '0.01',
+            'default-src': [
+                {match: '*bae.baidu.com', target: 'Accept,Warn'},
+                {match: '*.baidu.com,*.bdstatic.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com', target: 'Accept'},
+                {match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept'},
+                {match: '*', target: 'Accept,Warn'}
+            ]
+        }
+    };
+ 
+    // pc和mobile端会稍有不同，必须严格按照该文档来部署，该段代码必须放在上面的window.alogObjectConfig配置之后
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>  <script>
+    void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("speed.set",{fsItems:i,fs:a})}(window,document);
+</script> 
+<a id="backTop" href="javascript:;" data-title="返回顶部"><div class="btn-inner-text"></div></a>
+<a href="javascript:;" id="report_link" data-title="反馈图片"><div class="btn-inner-text">反馈</div></a>
+ 
+<script>
+    (function () {
+        var pos = '';
+        if (pos == 1) {
+            pos = '-title';
+        } else if (pos == 3) {
+            pos = '-more';
+        } else {
+            pos = '';
+        }
+
+        document.addEventListener && document.addEventListener('DOMContentLoaded', function () {
+
+            var net = 0;
+            var isPreLoaded = 0;
+            var start = speed.get('start');
+
+            if(window.performance){
+                net = window.performance.timing.navigationStart;
+            }
+            net && speed.mark('net', start - net);
+            speed.mark('preloaded', isPreLoaded);
+            speed.mark('domc');
+            // 针对chrome细分数据
+            if (window.performance && window.performance.timing) {
+                var timing = window.performance.timing;
+                // tcp connct时间
+                speed.mark('dnst', timing.domainLookupEnd - timing.domainLookupStart);
+                // dns解析时间
+                speed.mark('cot', timing.connectEnd - timing.connectStart);
+                // 首字节返回时间点
+                speed.mark('rpnt', timing.responseStart);
+                if (net) {
+                    // tc跳板时间
+                    speed.mark('tct', timing.navigationStart - net);
+                    // 网络开始时间点
+                    speed.mark('nets', net);
+                }
+                speed.mark('connectStart', timing.connectStart);
+            }
+        }, false);
+
+        var addWindowEvent = window.addEventListener ?
+            function(type, fn) { window.addEventListener(type, fn, false); } :
+            function(type, fn) { window.attachEvent('on' + type, fn); };
+        addWindowEvent('load', function () {
+            var url = location.href;
+            url = url.replace(/&ctd=([^&]+)/, '');
+            if (url) {
+                window.history && window.history.replaceState && window.history.replaceState(null, "", url + '');
+            }
+
+            speed.mark('load');
+            LazySend();
+        });
+
+        function LazySend() {
+            if (speed.firstScCount >= 5) {
+                speed.mark('frm', '');
+                speed.send();
+            } else {
+                setTimeout(LazySend, 1000);
+            }
+        }
+    })();
+</script>
+<script>
+    (function () {
+        if (window._alaEnter && window._alaEnter !== true) {
+            window._alaEnter('end');
+            var oldOnerror = window.onerror;
+            window.onerror = function (msg, source, lineno, colno) {
+                try {
+                    oldOnerror && oldOnerror.apply(window, arguments);
+                    var str = 'error&source=' + source + '&msg=' + msg + '&ln=' + lineno + '&cn=' + colno;
+                    window._alaEnter(str);
+                } catch (e) {}
+            };
+        }
+    })();
+</script>
+<script>
+    </script>
+                    <script>
+    void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d,k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+</script>   </body><script type="text/javascript"  src="//img0.bdstatic.com/static/common/widget/ui/base/base_a66ce51.js" ></script>
+<script type="text/javascript"  src="//img0.bdstatic.com/static/common/pkg/cores_2cc0104.js" ></script>
+<script type="text/javascript"  src="//img1.bdstatic.com/static/common/widget/ui/juicer/juicer_59c3d50.js" ></script>
+<script type="text/javascript"  src="//img1.bdstatic.com/static/searchresult/pkg/result_e750c91.js" ></script>
+<script type="text/javascript">!function(){    window._alaEnter && window._alaEnter !== true && window._alaEnter('sample');
+    var sample = [];
+    var keyValue = '';
+    for(var name in sample) {
+        keyValue +=  name + ':' + sample[name] + ',';
+    }
+    window.samplekey = keyValue.substr(0, keyValue.length - 1);
+}();
+!function(){// ala进入问题调查
+window._alaEnter && window._alaEnter !== true && window._alaEnter('prerequire');
+require.async(['searchresult:widget/ui/app/app'], function (app) {
+    window._alaEnter && window._alaEnter !== true && window._alaEnter('postrequire');
+    require.async(['searchresult:widget/ui/action/base/base']);
+    app.setPageInfo({
+        // 在后端对query进行抽样的时候，用这个来统计实验组和对照组
+        queryPageType : '0',
+        tag_type: '',
+        tag: '',
+        subtag: '',
+        gsm: '1e',
+        listNum : '1980',
+        dispNum : '115995',
+        bdIsClustered : '1',
+        fr : 'ala',
+        sme : '',
+        ie : 'utf-8',
+        oe : 'utf-8',
+        fInsertNum : "0",
+        queryWordEnc: '%E5%BC%A0%E4%BC%9F',
+        queryWordGBKEnc: '%D5%C5%CE%B0',
+        queryWord : '张伟',
+        queryUrlWord : '%E5%BC%A0%E4%BC%9F',
+        bdFmtDispNum : '115995',
+        bdSearchTime : '',
+        gbkword:'%D5%C5%CE%B0',
+        resTabs : [],
+        userid:'',
+        useSign:'',
+        userNumID:'', // 这个才是真正的 userid
+        encodeUserNumId:'',
+        spaceUrl:'',
+        hasUserName: ('' == '0'),
+        bdstoken : '',
+        thirdLogo :'0', // 第三方网站登录的logo，为空则不显示
+        se:'',
+        needIE:'1',
+        jit:'',
+        showHot:'',
+        hasResult: '1',
+        aspSID:'6a5656e1281ad451',
+        oriquery: '',
+        fm: '',
+        hs: '2',
+        adBigPicPos: -1,
+                checkHttps: 1,
+                strategyType: 'normal',
+                                        personalized:'0'
+    });
+    app.setData('jsConfs', {    "normal": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,"lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,"pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,"maxImgWidth": 400,"pageMoreNum": 10,"leftMenu": 0    },    "comic": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 190,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "ald": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 190,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "star": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 260,        "maxBaseLineHeight": 280,        "minBaseLineHeight": 250,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu":0    },    "avatar_brand": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 300,        "maxBaseLineHeight": 320,        "minBaseLineHeight": 280,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 500,        "pageMoreNum": 10,"leftMenu": 0    },    "avatar_star": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 260,        "maxBaseLineHeight": 280,        "minBaseLineHeight": 250,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,"leftMenu": 0    },    "avatar_head": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 190    },    "avatar_wallpaper": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 180,        "maxBaseLineHeight": 200,        "minBaseLineHeight": 160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 190    },    "single": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,        "pageLineNum": 1,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "personalized": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,        "pageLineNum": 2,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    }}
+);
+    app.setData('imgData', {    "queryEnc":"%E5%BC%A0%E4%BC%9F",    "displayNum":115995,    "bdIsClustered" : "1",    "listNum":1980,    "bdFmtDispNum" : "115995",    "bdSearchTime" : "",    "isNeedAsyncRequest":0,"data":[{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=1991988856,3566957358&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=1991988856,3566957358&fm=214&gp=0.jpg","FromURL":"http:\/\/www.ablesky.com\/org\/7845_ms_0_1"},{"ObjURL":"http:\/\/www.1wangxiao.com\/uploads\/140723\/16408-140h316401c16.jpg","FromURL":"http:\/\/www.1wangxiao.com\/teacher\/detail\/id\/574"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=1991988856,3566957358&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=1991988856,3566957358&fm=27&gp=0.jpg",            "pageNum":0,            "objURL":"http://img.houxue.com/FileStore/56/4329.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bi57x7j_z&e3Bv54AzdH3Fsw5fitAzdH3F089nnAzdH3F",            "fromURLHost":"www.houxue.com","currentIndex":"",            "width":433,            "height":446,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"123268991010",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1991988856,3566957358",            "os" : "3693301995,3337873429",            "simid" : "4183673167,835840255",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=666038482,846924979&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=666038482,846924979&fm=214&gp=0.jpg","FromURL":"http:\/\/www.enterdesk.com\/bizhi\/9524-84565.html"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=666038482,846924979&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=666038482,846924979&fm=27&gp=0.jpg",            "pageNum":1,            "objURL":"http://up.enterdesk.com/edpic/65/ec/51/65ec519c7a82319689b774d3e48916cf.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bjgpj61jfh_z&e3Bv54AzdH3FktzitAzdH3Flcd9-b9cmc_z&e3Bip4s",            "fromURLHost":"www.enterdesk.com","currentIndex":"",            "width":1600,            "height":1200,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"160420125800",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"爱情公寓4<strong>张伟<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "666038482,846924979",            "os" : "394773833,3266825673",            "simid" : "3477059601,409689415",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=3194984167,3576709373&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=3194984167,3576709373&fm=214&gp=0.jpg","FromURL":"http:\/\/dy.163.com\/v2\/article\/detail\/D98DSUNR0517RTVL.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=3194984167,3576709373&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=3194984167,3576709373&fm=27&gp=0.jpg",            "pageNum":2,            "objURL":"http://dingyue.nosdn.127.net/9s2QfjI968I5jmEin1zvkrRUsVLgaSJbe845rB3TJs8df1517123289771.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F1y_z&e3B8mn_z&e3Bv54AzdH3FedAzdH3Fw6ptvsjAzdH3F1jpwtsAzdH3FDlbDSUNRac80RTVL_z&e3Bip4s",            "fromURLHost":"dy.163.com","currentIndex":"",            "width":634,            "height":487,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"112855296290",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"关于《爱情公寓》<strong>张伟<\/strong>,你了解多少呢?",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3194984167,3576709373",            "os" : "2135515274,1916567502",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=3628210375,1586399528&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=3628210375,1586399528&fm=214&gp=0.jpg","FromURL":"http:\/\/www.fang.com\/xinfangbang\/u\/40790613\/xmtp_other_1.htm"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=3628210375,1586399528&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=3628210375,1586399528&fm=27&gp=0.jpg",            "pageNum":3,            "objURL":"http://img4.soufunimg.com/xfbang/2014_04/26/M03/06/66/wKgHk1NbHf-IOt53AAQnn_pQyroAAKAOwM0cr0ABCe3124.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Buwg2_z&e3Bv54AzdH3Fxtguwg2kwg2AzdH3F7AzdH3F9a0lam8nAzdH3Fx4pr_5pij6_8_z&e3Bip4",            "fromURLHost":"www.fang.com","currentIndex":"",            "width":640,            "height":480,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"39573830120",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>的网上旗舰店铺",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3628210375,1586399528",            "os" : "3507519967,1875381406",            "simid" : "3370295619,315334867",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=1078851390,1815044522&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=1078851390,1815044522&fm=214&gp=0.jpg","FromURL":"http:\/\/baike.sogou.com\/h55465514.htm?sp=Sprev&sp=l65677323"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=1078851390,1815044522&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=1078851390,1815044522&fm=27&gp=0.jpg",            "pageNum":4,            "objURL":"http://pic.baike.soso.com/p/20140115/20140115114843-145638425.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fkwthj_z&e3Bf5257_z&e3Bv54AzdH3Ficc9mcc89_z&e3Bip4?fr=Sr6je&fr=smcm00ndn",            "fromURLHost":"baike.sogou.com","currentIndex":"",            "width":352,            "height":296,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"91931279440",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"李佳航 饰 <strong>张伟<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1078851390,1815044522",            "os" : "368105873,2889151723",            "simid" : "4156077419,551792808",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=2479198140,3078614193&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=2479198140,3078614193&fm=214&gp=0.jpg","FromURL":"http:\/\/www.jia.com\/zx\/beijing\/shejishi\/30515_comment\/"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=2479198140,3078614193&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=2479198140,3078614193&fm=27&gp=0.jpg",            "pageNum":5,            "objURL":"http://imgmall.tg.com.cn/group2/M00/3C/77/CgooeFjwo5vBY6deAAJnNBLGfe8932.JPG",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B3tw_z&e3Bv54AzdH3FzxAzdH3Fkjt3tg2AzdH3Ffij3tfitAzdH3Fnac8c_v544jgpAzdH3F",            "fromURLHost":"www.jia.com","currentIndex":"",            "width":788,            "height":811,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"61137763610",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2479198140,3078614193",            "os" : "355050059,1521951733",            "simid" : "3473219843,314694410",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=3867674420,574120585&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=3867674420,574120585&fm=214&gp=0.jpg","FromURL":"http:\/\/cd.sofang.com\/brokerinfo\/949431.html"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=3867674420,574120585&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=3867674420,574120585&fm=27&gp=0.jpg",            "pageNum":6,            "objURL":"http://img.tuituifang.com/12/u/201507/08/14631436318872213594.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fv1_z&e3Bf5uwg2_z&e3Bv54AzdH3Fk65hj6tgu5AzdH3Fl9l9n8_z&e3Bip4s",            "fromURLHost":"cd.sofang.com","currentIndex":"",            "width":853,            "height":1280,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"37098155490",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>的店铺",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3867674420,574120585",            "os" : "1346272650,3036362522",            "simid" : "4201278947,575187963",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=3740086222,939202468&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=3740086222,939202468&fm=214&gp=0.jpg","FromURL":"http:\/\/news.hexun.com\/2016-03-27\/182986788.html"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=3740086222,939202468&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=3740086222,939202468&fm=27&gp=0.jpg",            "pageNum":7,            "objURL":"http://i1.hexunimg.cn/2016-03-27/182986790.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgjof_z&e3Bijx7g_z&e3Bv54AzdH3Fda8m-an-d0AzdH3F8bdlbm0bb_z&e3Bip4s",            "fromURLHost":"news.hexun.com","currentIndex":"",            "width":500,            "height":365,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"180981378600",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"中科创董事长<strong>张伟<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3740086222,939202468",            "os" : "3445314652,617105301",            "simid" : "3453193715,416749469",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=3851898924,4158830009&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=3851898924,4158830009&fm=214&gp=0.jpg","FromURL":"http:\/\/tupian.baike.com\/a3_21_46_01300000241358128227463707964_jpg.html&prd=so_tupian"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=3851898924,4158830009&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=3851898924,4158830009&fm=27&gp=0.jpg",            "pageNum":8,            "objURL":"http://a3.att.hudong.com/21/46/01300000241358128227463707964.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fp7rtwg_z&e3Bkwthj_z&e3Bv54AzdH3Fwn_d8_9m_a8naaaaad98ncb8dbdd09mn0a0lm9_3r2_z&e3Bip4s&r61=f5_p7rtwg",            "fromURLHost":"tupian.baike.com","currentIndex":"",            "width":340,            "height":226,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"177990519080",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3851898924,4158830009",            "os" : "1087155393,368462500",            "simid" : "3145092316,3737540694",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=2202297133,2121563879&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=2202297133,2121563879&fm=214&gp=0.jpg","FromURL":"http:\/\/www.cctvfendou.com\/html\/renwu_20130113_393.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=2202297133,2121563879&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=2202297133,2121563879&fm=27&gp=0.jpg",            "pageNum":9,            "objURL":"http://www.cctvfendou.com/Up/day_110427/201104271644336482.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bvvpeujg157_z&e3Bv54AzdH3Fip4sAzdH3F6jgo7_da8na88n_nln_z&e3Bip4s",            "fromURLHost":"www.cctvfendou.com","currentIndex":"",            "width":500,            "height":360,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"106256484840",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>:让你轻轻松松做大厨",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2202297133,2121563879",            "os" : "2270726505,2866405276",            "simid" : "3407768834,296725577",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=1800436121,3078315569&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=1800436121,3078315569&fm=214&gp=0.jpg","FromURL":"http:\/\/www.genshuixue.com\/329161218"},{"ObjURL":"http:\/\/www.qyqzj.com\/img\/bd7859711.jpg","FromURL":"http:\/\/www.qyqzj.com\/meinv\/145986\/"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=1800436121,3078315569&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=1800436121,3078315569&fm=27&gp=0.jpg",            "pageNum":10,            "objURL":"http://i3.letvimg.com/yunzhuanma/201410/09/c58320b027051236103112f5f6e8fee1/thumb/1_682_418.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B2jgfi7tx7j_z&e3Bv54AzdH3Fndl8m8d8b",            "fromURLHost":"www.genshuixue.com","currentIndex":"",            "width":682,            "height":418,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"203968549730",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1800436121,3078315569",            "os" : "2352931295,3849065889",            "simid" : "3401230096,273995798",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=2821899867,329145631&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=2821899867,329145631&fm=214&gp=0.jpg","FromURL":"http:\/\/www.eoemarket.com\/soft\/272241.html"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=2821899867,329145631&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=2821899867,329145631&fm=27&gp=0.jpg",            "pageNum":11,            "objURL":"http://c15.eoemarket.net/app0/272/272241/screen/1511930.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bj5j4w6hjp_z&e3Bv54AzdH3Ff5upAzdH3Fd0dd98_z&e3Bip4s",            "fromURLHost":"www.eoemarket.com","currentIndex":"",            "width":384,            "height":640,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"90822082230",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"爱情公寓第四季壁纸(<strong>张伟<\/strong>版)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2821899867,329145631",            "os" : "530620874,2569529662",            "simid" : "3455705474,362241245",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=3294023204,415665219&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=3294023204,415665219&fm=214&gp=0.jpg","FromURL":"http:\/\/www.fang.com\/xinfangbang\/u\/52003117\/zytj.htm"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=3294023204,415665219&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=3294023204,415665219&fm=27&gp=0.jpg",            "pageNum":12,            "objURL":"http://img7.soufunimg.com/xfbang/2014_11/12/M06/05/7F/wKgEK1Ri8d6ICHZ8AARWTjEcF7QAAIlqQJeHmUABFZm874.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Buwg2_z&e3Bv54AzdH3Fxtguwg2kwg2AzdH3F7AzdH3Fcdaan880AzdH3Fzyp3_z&e3Bip4",            "fromURLHost":"www.fang.com","currentIndex":"",            "width":640,            "height":480,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"83499161570",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>的网上旗舰店铺",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3294023204,415665219",            "os" : "2354276107,1508023308",            "simid" : "3475274193,322804823",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=1083068327,2761046547&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=1083068327,2761046547&fm=214&gp=0.jpg","FromURL":"http:\/\/www.057191.com\/Person\/Resume\/Resume_1.asp?Param=VRywkt8r870p6714"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=1083068327,2761046547&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=1083068327,2761046547&fm=27&gp=0.jpg",            "pageNum":13,            "objURL":"http://www.057191.com/UpLoadFiles/PersonFile/2011225745446035.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bac08l8_z&e3Bv54AzdH3FPj6f5gAzdH3FRjf74jAzdH3FRjf74j_8_z&e3Bwfr?Pw6w4=VRyohpb6b0arm089",            "fromURLHost":"www.057191.com","currentIndex":"",            "width":1024,            "height":768,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"150597402670",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>个人简历",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1083068327,2761046547",            "os" : "2172148903,2692209682",            "simid" : "4253477101,780363133",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=3840168612,1599977344&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=3840168612,1599977344&fm=214&gp=0.jpg","FromURL":"http:\/\/www.sohu.com\/a\/119476055_115510"},{"ObjURL":"http:\/\/5b0988e595225.cdn.sohucs.com\/images\/20170721\/ed14517e05ab4c848ae1b081bf60447f.png","FromURL":"http:\/\/www.sohu.com\/a\/158763503_117802"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=3840168612,1599977344&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=3840168612,1599977344&fm=27&gp=0.jpg",            "pageNum":14,            "objURL":"http://n.sinaimg.cn/sd/transform/20161121/Zqzc-fxxwrwh4795701.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Ff1_z&e3Bftgw_z&e3Bv54_z&e3BvgAzdH3FgjofAzdH3FkAzdH3Fda8m-88-d8AzdH3F1jpwts-tuxxo6oh8c998m0_z&e3Bfip4s?u654=f1_vgxi",            "fromURLHost":"sd.sina.com.cn","currentIndex":"",            "width":533,            "height":800,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"191202075900",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"烟台龙口小伙<strong>张伟<\/strong>大火中勇救昏迷女孩",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3840168612,1599977344",            "os" : "807351769,3759802634",            "simid" : "3436012094,216600329",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=2540487075,3501134992&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=2540487075,3501134992&fm=214&gp=0.jpg","FromURL":"http:\/\/www.dwk.gov.cn\/xwdt\/gnyw\/284435.htm"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=2540487075,3501134992&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=2540487075,3501134992&fm=27&gp=0.jpg",            "pageNum":15,            "objURL":"http://www.nxszs.gov.cn/CMSdwkcms/201604/201604220356042.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B1oh_z&e3B25e_z&e3BvgAzdH3Fxo1pAzdH3F2gyoAzdH3Fdb99nc_z&e3Bip4",            "fromURLHost":"www.dwk.gov.cn","currentIndex":"",            "width":600,            "height":378,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"53589493760",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>主持召开区委2016年度第5次常委会议",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2540487075,3501134992",            "os" : "3860969362,2481218798",            "simid" : "4127666837,597805159",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=3092472064,1407982803&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=3092472064,1407982803&fm=214&gp=0.jpg","FromURL":"http:\/\/baike.so.com\/doc\/search?word=\u9416\u8fa8\u510f\u934f\ue100\u762c4"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=3092472064,1407982803&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=3092472064,1407982803&fm=27&gp=0.jpg",            "pageNum":16,            "objURL":"http://p4.qhimg.com/t0106a7af7397c72b04.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fkwthj_z&e3Bf5_z&e3Bv54AzdH3F15vAzdH3Ffjw6vi?o561=%El%la%lm%Eb%BE%Ab%Ec%b9%bF%El%bD%bF%EE%b9%ba%E0%lb%AC9",            "fromURLHost":"baike.so.com","currentIndex":"",            "width":406,            "height":545,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"111796069110",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"《爱情公寓4》",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3092472064,1407982803",            "os" : "2333924840,462215508",            "simid" : "3445021975,311603982",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=4054822501,1121834946&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=4054822501,1121834946&fm=214&gp=0.jpg","FromURL":"http:\/\/www.sohu.com\/a\/152139088_399846"},{"ObjURL":"http:\/\/tc.sinaimg.cn\/maxwidth.800\/tc.service.weibo.com\/mmbiz_qpic_cn\/f9540593ae154c66dae06c7be272fded.jpg","FromURL":"http:\/\/blog.sina.com.cn\/s\/blog_53cf3ea30102wq4l.html"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=4054822501,1121834946&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=4054822501,1121834946&fm=27&gp=0.jpg",            "pageNum":17,            "objURL":"http://pic.92to.com/201701/05/f54ddea039ff4a989a789834f004ce6e_th.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bldp5_z&e3Bv54AzdH3FxtgojgAzdH3Fda80AzdH3Fa8-acAzdH3F8ccm0ac9_z&e3Bip4s",            "fromURLHost":"www.92to.com","currentIndex":"",            "width":600,            "height":345,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"161899852180",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"k2无氧攀登 无氧k2的征程,他叫<strong>张伟<\/strong>,最有可能创造历史的人",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4054822501,1121834946",            "os" : "2788276597,3616025629",            "simid" : "3480729739,521739263",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=802991992,2912196105&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=802991992,2912196105&fm=214&gp=0.jpg","FromURL":"http:\/\/www.enterdesk.com\/bizhi\/9524-84561.html"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=802991992,2912196105&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=802991992,2912196105&fm=27&gp=0.jpg",            "pageNum":18,            "objURL":"http://up.enterdesk.com/edpic/15/c2/d7/15c2d75229a2b8695b16cc62e9121340.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bjgpj61jfh_z&e3Bv54AzdH3FktzitAzdH3Flcd9-b9cm8_z&e3Bip4s",            "fromURLHost":"www.enterdesk.com","currentIndex":"",            "width":1600,            "height":1200,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"131005063970",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"爱情公寓4<strong>张伟<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "802991992,2912196105",            "os" : "3297397189,2157692030",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=2730944304,3098800440&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=2730944304,3098800440&fm=214&gp=0.jpg","FromURL":"http:\/\/www.sohu.com\/a\/190548099_390655"},{"ObjURL":"http:\/\/i2.sinaimg.cn\/ent\/v\/m\/2013-02-05\/u1326p28t3d3852620f326dt20130205100154.jpg","FromURL":"http:\/\/ent.sina.com.cn\/v\/m\/2013-02-05\/10013852620.shtml"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=2730944304,3098800440&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=2730944304,3098800440&fm=27&gp=0.jpg",            "pageNum":19,            "objURL":"http://wenwen.soso.com/p/20140115/20140115143402-445561724.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fojgojg_z&e3Bf5f5_z&e3Bv54AzdH3FzAzdH3Fqdaammlam0d_z&e3Bip4",            "fromURLHost":"wenwen.soso.com","currentIndex":"",            "width":450,            "height":299,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"141165938760",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>—李佳航",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2730944304,3098800440",            "os" : "4064149351,1652681034",            "simid" : "4155843920,415217575",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=1232745277,3862203104&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=1232745277,3862203104&fm=214&gp=0.jpg","FromURL":"http:\/\/www.365heart.com\/show\/showpic.asp?id=142612"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=1232745277,3862203104&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=1232745277,3862203104&fm=27&gp=0.jpg",            "pageNum":20,            "objURL":"http://www.365heart.com/meeting/xinjian/fzgzdmb2013/%E4%B8%AA%E4%BA%BA%E7%85%A7%E7%89%87/%E5%BC%A0%E4%BC%9F/fzgzdmb2013-0000049.JPG",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bnmcijw6p_z&e3Bv54AzdH3Ffi5oAzdH3Ffi5ortv_z&e3Bwfr?t1=89dm8d",            "fromURLHost":"www.365heart.com","currentIndex":"",            "width":700,            "height":468,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"108286949650",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1232745277,3862203104",            "os" : "835328069,2856261947",            "simid" : "4132550314,450360609",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=3469674360,2335069901&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=3469674360,2335069901&fm=214&gp=0.jpg","FromURL":"http:\/\/www.meipai.com\/user\/1003592467"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=3469674360,2335069901&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=3469674360,2335069901&fm=27&gp=0.jpg",            "pageNum":21,            "objURL":"http://mvimg1.meitudata.com/550a3bf7ef9614123.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B4jtrwt_z&e3Bv54AzdH3F7fj6AzdH3F8aancld9m0",            "fromURLHost":"www.meipai.com","currentIndex":"",            "width":480,            "height":481,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"77302288140",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"小<strong>张伟<\/strong>.的美拍",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3469674360,2335069901",            "os" : "3512659354,2827545301",            "simid" : "4270130044,566239723",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=2592581256,4258787544&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=2592581256,4258787544&fm=214&gp=0.jpg","FromURL":"http:\/\/app.xinjiangnet.com.cn\/print.php?contentid=1706651"},{"ObjURL":"http:\/\/upload.xinjiangnet.com.cn\/2016\/1209\/1481270674772.jpg","FromURL":"http:\/\/www.zuowenzhai.com\/yao-1431907352802458219.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=2592581256,4258787544&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=2592581256,4258787544&fm=27&gp=0.jpg",            "pageNum":22,            "objURL":"http://upload.xinjiangnet.com.cn/2016/1209/1481270674772.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bxtg3twg2gjp_z&e3Bv54_z&e3BvgAzdH3Fda8mAzdH3F8d8nAzdH3F80ammc8_z&e3Bfip4s",            "fromURLHost":"www.xinjiangnet.com.cn","currentIndex":"",            "width":844,            "height":1098,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"187150281670",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"【最美警察】:<strong>张伟<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2592581256,4258787544",            "os" : "4121119773,2924695630",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=2706735514,2598779247&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=2706735514,2598779247&fm=214&gp=0.jpg","FromURL":"http:\/\/springnews.cuepa.cn\/show_more.php?doc_id=990830"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=2706735514,2598779247&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=2706735514,2598779247&fm=27&gp=0.jpg",            "pageNum":23,            "objURL":"http://springnews.cuepa.cn/newspics/2014/04/s_c39b248a410f3ca70a328bc5b4df9b80468262.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Ffr6tg2gjof_z&e3Bv7jrw_z&e3BvgAzdH3Ffi5o_456j_z&e3Brir?15v_t1=llabna",            "fromURLHost":"springnews.cuepa.cn","currentIndex":"",            "width":600,            "height":900,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"58092528450",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"俗世有何欢乐,任我逃向诗意———专访微信公号\"世相\"作者<strong>张伟<\/strong>□本报",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2706735514,2598779247",            "os" : "2830086750,1082042509",            "simid" : "4155873107,598583073",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=3136959591,899261380&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=3136959591,899261380&fm=214&gp=0.jpg","FromURL":"http:\/\/www.daiyin.com\/newsinfo_rw.asp?articleid=1333"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=3136959591,899261380&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=3136959591,899261380&fm=27&gp=0.jpg",            "pageNum":24,            "objURL":"http://www.daiyin.com/uploadfiles/20150331144221595.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B1wtytg_z&e3Bv54AzdH3Fgjoftgu5_6o_z&e3Bwfr?w6ptvsjt1=8nnn",            "fromURLHost":"www.daiyin.com","currentIndex":"",            "width":2304,            "height":3456,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"198612959050",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3136959591,899261380",            "os" : "1786292248,1871006326",            "simid" : "3376109566,385348384",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=513927791,3320991217&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=513927791,3320991217&fm=214&gp=0.jpg","FromURL":"http:\/\/www.kugou.com\/song\/c5m8249.html?from_sogou"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=513927791,3320991217&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=513927791,3320991217&fm=27&gp=0.jpg",            "pageNum":25,            "objURL":"http://imge.kugou.com/stdmusic/20160129/20160129020212908524.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bh7257_z&e3Bv54AzdH3Ff5g2AzdH3Fvc4bd9l_z&e3Bip4s?u654_f5257",            "fromURLHost":"www.kugou.com","currentIndex":"",            "width":600,            "height":600,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"165419080530",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"小<strong>张伟<\/strong> - 多想做你的爱人",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "513927791,3320991217",            "os" : "3408795403,178172969",            "simid" : "3378257622,456018437",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=2636370800,1229943983&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=2636370800,1229943983&fm=214&gp=0.jpg","FromURL":"http:\/\/www.lydx.gov.cn\/show.asp?id=654"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=2636370800,1229943983&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=2636370800,1229943983&fm=27&gp=0.jpg",            "pageNum":26,            "objURL":"http://www.lydx.gov.cn/upfiles/201711/20171130105116488.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bsy1x_z&e3B25e_z&e3BvgAzdH3Ffi5o_z&e3Bwfr?t1=mc9",            "fromURLHost":"www.lydx.gov.cn","currentIndex":"",            "width":448,            "height":299,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"54367191560",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2636370800,1229943983",            "os" : "551466287,4146416101",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=1901396647,526152726&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=1901396647,526152726&fm=214&gp=0.jpg","FromURL":"http:\/\/www.gamelook.com.cn\/2013\/10\/133948\/comment-page-1"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=1901396647,526152726&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=1901396647,526152726&fm=27&gp=0.jpg",            "pageNum":27,            "objURL":"http://www.gamelook.com.cn/wp-content/uploads/2013/10/boyahudogn.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B2w4js55h_z&e3Bv54_z&e3BvgAzdH3Fda8nAzdH3F8aAzdH3F8nnl9bAzdH3Fv544jgp-rw2j-8",            "fromURLHost":"www.gamelook.com.cn","currentIndex":"",            "width":443,            "height":396,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"36452775810",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"博雅互动ceo<strong>张伟<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1901396647,526152726",            "os" : "499729641,2824032461",            "simid" : "4273701410,549252875",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=3734487630,1789876451&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=3734487630,1789876451&fm=214&gp=0.jpg","FromURL":"http:\/\/www.sznews.com\/zhuanti\/content\/2016-04\/13\/content_13029620.htm"},{"ObjURL":"http:\/\/www.akandian.com\/uploads\/allimg\/160414\/204ph2u-0.png","FromURL":"http:\/\/www.akandian.com\/kuaibao\/2016\/0414\/507734.shtml"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=3734487630,1789876451&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=3734487630,1789876451&fm=27&gp=0.jpg",            "pageNum":28,            "objURL":"http://www.sznews.com/zhuanti/images/attachement/png/site3/20160413/8c89a5be1e851877e3644b.png",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bfzgjof_z&e3Bv54AzdH3Fzi7wgptAzdH3Fv5gpjgpAzdH3Fda8m-a9AzdH3F8nAzdH3Fv5gpjgp_8nadl09m_8m_z&e3Bip4",            "fromURLHost":"www.sznews.com","currentIndex":"",            "width":503,            "height":573,            "type":"png",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"139406952960",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3734487630,1789876451",            "os" : "2731942515,560071660",            "simid" : "3428900143,208478937",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=733389773,1884065166&fm=27&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=733389773,1884065166&fm=214&gp=0.jpg","FromURL":"http:\/\/www.fang.com\/xinfangbang\/u\/40562012\/grfc.htm"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=733389773,1884065166&fm=27&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=733389773,1884065166&fm=27&gp=0.jpg",            "pageNum":29,            "objURL":"http://img4.soufunimg.com/xfbang/2014_03/15/M02/01/FD/wKgHv1MkciqIZJhEAAK21oyA2fYAADHJAO3sbMAArbu092.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Buwg2_z&e3Bv54AzdH3Fxtguwg2kwg2AzdH3F7AzdH3F9acmda8dAzdH3F26uv_z&e3Bip4",            "fromURLHost":"www.fang.com","currentIndex":"",            "width":640,            "height":480,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"169701833730",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>张伟<\/strong>的网上旗舰店铺",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "733389773,1884065166",            "os" : "3199932915,3182563381",            "simid" : "3406721724,395116292",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{}]}
+);
+    app.setData('fcadData', {"fcData":[],"fcMidData":[],"fcBtData":[],"fcType":"","adType":0,"fcAdDatasLen":"0"}
+);
+    app.setData('xgMidData', {"xgMidData":[],"xgMidDataLen":"0"});
+    app.setData('rpData', {"data": []});
+    app.setData('shootBannerData', window.shootBannerData);
+    app.setData('browserRsData', {    "Status" : "0",    "query" : "",    "desc" : "",    "id" : "",    "photos" :[]}
+);
+    app.setData('rsQuery', [["张伟表情包", "%D5%C5%CE%B0%B1%ED%C7%E9%B0%FC", "0", "0"],["张伟头像", "%D5%C5%CE%B0%CD%B7%CF%F1", "0", "0"],["爱情公寓张伟伴娘服", "%B0%AE%C7%E9%B9%AB%D4%A2%D5%C5%CE%B0%B0%E9%C4%EF%B7%FE", "0", "0"],["张伟吃小龙虾", "%D5%C5%CE%B0%B3%D4%D0%A1%C1%FA%CF%BA", "0", "0"],["爱情公寓张伟吃小龙虾", "%B0%AE%C7%E9%B9%AB%D4%A2%D5%C5%CE%B0%B3%D4%D0%A1%C1%FA%CF%BA", "0", "0"],["凉山州组织部长 张伟", "%C1%B9%C9%BD%D6%DD%D7%E9%D6%AF%B2%BF%B3%A4%20%D5%C5%CE%B0", "0", "0"],["张伟 中国好声音high", "%D5%C5%CE%B0%20%D6%D0%B9%FA%BA%C3%C9%F9%D2%F4high", "0", "0"],["张伟爱情公寓扮演者", "%D5%C5%CE%B0%B0%AE%C7%E9%B9%AB%D4%A2%B0%E7%D1%DD%D5%DF", "0", "0"],["圈圈集团张伟车祸现场", "%C8%A6%C8%A6%BC%AF%CD%C5%D5%C5%CE%B0%B3%B5%BB%F6%CF%D6%B3%A1", "0", "0"],["方丹琼老公张伟呜", "%B7%BD%B5%A4%C7%ED%C0%CF%B9%AB%D5%C5%CE%B0%CE%D8", "0", "0"],["锦州银行行长张伟妻子", "%BD%F5%D6%DD%D2%F8%D0%D0%D0%D0%B3%A4%D5%C5%CE%B0%C6%DE%D7%D3", "0", "0"],["安国黑社会张伟照片", "%B0%B2%B9%FA%BA%DA%C9%E7%BB%E1%D5%C5%CE%B0%D5%D5%C6%AC", "0", "0"],["天津眼科医院张伟", "%CC%EC%BD%F2%D1%DB%BF%C6%D2%BD%D4%BA%D5%C5%CE%B0", "0", "0"],["爱情公寓张伟海绵宝宝", "%B0%AE%C7%E9%B9%AB%D4%A2%D5%C5%CE%B0%BA%A3%C3%E0%B1%A6%B1%A6", "0", "0"],["张伟黄玲high歌视频", "%D5%C5%CE%B0%BB%C6%C1%E1high%B8%E8%CA%D3%C6%B5", "0", "0"],["泰安市教育局局长张伟", "%CC%A9%B0%B2%CA%D0%BD%CC%D3%FD%BE%D6%BE%D6%B3%A4%D5%C5%CE%B0", "0", "0"],["天津市津南区张伟", "%CC%EC%BD%F2%CA%D0%BD%F2%C4%CF%C7%F8%D5%C5%CE%B0", "0", "0"],["南京杰克逊张伟的妻子", "%C4%CF%BE%A9%BD%DC%BF%CB%D1%B7%D5%C5%CE%B0%B5%C4%C6%DE%D7%D3", "0", "0"],["金甲战士张伟表情包", "%BD%F0%BC%D7%D5%BD%CA%BF%D5%C5%CE%B0%B1%ED%C7%E9%B0%FC", "0", "0"],["爱情公寓张伟剧照", "%B0%AE%C7%E9%B9%AB%D4%A2%D5%C5%CE%B0%BE%E7%D5%D5", "0", "0"],["张伟小龙虾", "%D5%C5%CE%B0%D0%A1%C1%FA%CF%BA", "0", "0"],["南通大学张伟", "%C4%CF%CD%A8%B4%F3%D1%A7%D5%C5%CE%B0", "0", "0"],["张伟身份证", "%D5%C5%CE%B0%C9%ED%B7%DD%D6%A4", "0", "0"],["资中县张伟", "%D7%CA%D6%D0%CF%D8%D5%C5%CE%B0", "0", "0"],["张伟 吉林白城", "%D5%C5%CE%B0%20%BC%AA%C1%D6%B0%D7%B3%C7", "0", "0"],["张伟high歌", "%D5%C5%CE%B0high%B8%E8", "0", "0"],["张伟龙虾动图", "%D5%C5%CE%B0%C1%FA%CF%BA%B6%AF%CD%BC", "0", "0"],["张伟伴娘服", "%D5%C5%CE%B0%B0%E9%C4%EF%B7%FE", "0", "0"],["新世相张伟", "%D0%C2%CA%C0%CF%E0%D5%C5%CE%B0", "0", "0"],["张伟 中化", "%D5%C5%CE%B0%20%D6%D0%BB%AF", "0", "0"]]);
+    app.setData('hotWords', [{            "query": "重庆4.8级地震",            "flag": "重庆4.8级地震",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%87%8D%E5%BA%864.8%E7%BA%A7%E5%9C%B0%E9%9C%87",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "内蒙古现罕见日柱",            "flag": "内蒙古现罕见日柱",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%86%85%E8%92%99%E5%8F%A4%E7%8E%B0%E7%BD%95%E8%A7%81%E6%97%A5%E6%9F%B1",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "女歌手本兮22岁逝世",            "flag": "女歌手本兮22岁逝世",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%A5%B3%E6%AD%8C%E6%89%8B%E6%9C%AC%E5%85%AE22%E5%B2%81%E9%80%9D%E4%B8%96",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "蒋劲夫托举佟丽娅",            "flag": "蒋劲夫托举佟丽娅",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E8%92%8B%E5%8A%B2%E5%A4%AB%E6%89%98%E4%B8%BE%E4%BD%9F%E4%B8%BD%E5%A8%85",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "打工钱被咬成碎片",            "flag": "打工钱被咬成碎片",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%89%93%E5%B7%A5%E9%92%B1%E8%A2%AB%E5%92%AC%E6%88%90%E7%A2%8E%E7%89%87",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "村民发现奇石似飞碟",            "flag": "村民发现奇石似飞碟",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%9D%91%E6%B0%91%E5%8F%91%E7%8E%B0%E5%A5%87%E7%9F%B3%E4%BC%BC%E9%A3%9E%E7%A2%9F",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "环卫夫妻身高不足一米四",            "flag": "环卫夫妻身高不足一米四",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E7%8E%AF%E5%8D%AB%E5%A4%AB%E5%A6%BB%E8%BA%AB%E9%AB%98%E4%B8%8D%E8%B6%B3%E4%B8%80%E7%B1%B3%E5%9B%9B",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "沙滩现巨大黑色怪物",            "flag": "沙滩现巨大黑色怪物",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%B2%99%E6%BB%A9%E7%8E%B0%E5%B7%A8%E5%A4%A7%E9%BB%91%E8%89%B2%E6%80%AA%E7%89%A9",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "黄子韬搂何炅",            "flag": "黄子韬搂何炅",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%BB%84%E5%AD%90%E9%9F%AC%E6%90%82%E4%BD%95%E7%82%85",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "2016nba圣诞大战",            "flag": "2016nba圣诞大战",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=2016nba%E5%9C%A3%E8%AF%9E%E5%A4%A7%E6%88%98",            "hot": "0",            "fromurl": "",            "photos": []        }]);
+
+    
+        app.init();
+    app.run();
+});
+}();
+!function(){    window.tn = 'result';
+    window.vsid = 'f0c3314a3e392104c5aa6e96d68ab570de8b5c97';
+    if ('index' === window.tn
+        || 'result' === window.tn
+        || 'detail' === window.tn) {
+        var sttb = document.getElementById('sttb');
+        sttb.removeAttribute && sttb.removeAttribute('title');
+    }
+    /**
+     * 统计代码
+    **/
+    window.ss = function(){
+        var URL = '//imgstat.baidu.com/9.gif?rainbow=1&';
+        function request(url){
+            var seed = Math.random();
+            var img = window[seed] = new Image;
+            img.onload = img.onerror = function(){
+                window[seed] = null;
+                img.onload = img.onerror = null;
+                img = null;
+            };
+            img.src = url;
+        }
+
+        /* p = 0, 首页八张demo图片点击统计
+         * p = 1, 结果页tab相关： name=stu相同tab显示；name=face 人脸搜索tab显示; type=show展现；type=click点击
+         * p = pv, 结果页PV统计：data=1，有结果；data=0无结果；data=-1，down页面
+         **/
+
+        return function(arg, url, e){
+            var s = URL + json2Query(arg) + '&' + Math.random();
+            request(s);
+            if(url){
+                setTimeout(function(){
+                    location.href = url;
+                }, 300);
+                e = e || window.event;
+                if(e){
+                    if(e.preventDefault){
+                        e.preventDefault();
+                    }else{
+                        e.returnValue = false;
+                    }
+                }
+
+            }
+        };
+
+    }();
+    window.__originTitle = document.title;
+    function json2Query(json){
+        if(json == null || typeof json != 'object') return json;
+        var query = [];
+        for(var i in json){
+            if(i != '')
+                query[query.length] = i + '=' + json[i];
+        }
+        return query.join('&');
+    }
+
+    require.async(["common:widget/ui/base/base","common:widget/shitu/run"],function($, shitu){
+        window.$ = $;
+        $(document).ready(function() {
+            var st = new shitu();
+            st.init();
+            window.stInstance = st;
+        });
+    });
+}();
+!function(){require.async(["searchresult:widget/searchBox/imgFilter/init"],function(filter){
+	filter.init();
+})
+
+
+}();
+!function(){    if (window.hotspotData) {
+        require.async(['searchresult:widget/pagelets/base/timeliness/init'], function (Timeliness) {
+            new Timeliness().init(window.hotspotData);
+        });
+    }
+}();
+!function(){/**
+* isRefresh 用来判断禁止se或查询的参数是否生效,false表示无须清零，true表示需要清零
+*/
+require.async(["common:widget/ui/base/base","searchresult:widget/ui/utils/utils","common:widget/ui/historyRecord/historyRecord"],function( $, utils, HistoryRecord){
+
+    window.s_submit = function(form,isRefresh){
+
+
+//图片url检索跳转
+var keyword = form.word.value;
+
+if ($.trim(keyword).length > 0) {
+    var historyRecord = new HistoryRecord({historyKey: 'indexPageSugList'});
+    historyRecord.setRecord(keyword);
+    $.cookie.set('cleanHistoryStatus', 0, {path: '/'});
+}
+
+
+var tiaoma = /^[\s]*http[s]*\:\/\/[\s\S]*\.[jpg|gif|png|bmp|jpeg]*[\s]*$/.test(keyword) ||/img5\.imgtn\.bdimg\.com/.test(keyword) || /mt1\.baidu\.com\/timg/.test(keyword);
+var jumpURL = '/pcdutu?queryImageUrl='+encodeURIComponent(keyword)+'&fm=searchresult&pos=urlsearch&uptype=urlsearch';
+
+
+        if (tiaoma) {
+            // speed
+            $.cookie('uploadTime', new Date().getTime(), {path: '/'});
+
+           location.href = jumpURL;
+           return false;
+        }
+
+
+        var searchConf = utils.query2Json(utils.escapeXSS(window.location.search.substring(1)));
+        if(typeof searchConf.fm == "undefined"){searchConf.fm = '';}
+        if(typeof searchConf.fmq == "undefined"){searchConf.fmq = '';}
+        if(utils.trim(searchConf.queryWord) == form.word.value){
+            form.fmq.value = utils.fmqValueSet();
+        }else{
+            var fmqDate = new Date();
+            var T = fmqDate.getTime();
+            if(searchConf.fmq.indexOf('m') > -1 && searchConf.fmq.indexOf('_m') == -1 && searchConf.fmq.indexOf('_R') == -1){
+                var fmqvalue = searchConf.fmq;
+                form.fmq.value = T + '_' +fmqvalue + '_R';
+            }else{
+                form.fmq.value =  T + '_R';
+            }
+
+        }
+        var isflip = $('body').hasClass('flip');
+        form.tn.value = "baiduimage";
+
+        form.ct.value = "201326592";
+        form.cl.value = "2";
+        form.lm.value = "-1";
+        form.pv.value = "";
+        form.action = "/search/index";
+        if (window.canUseHttps) {
+            form.action = 'https://' + window.location.host + '/search/index';
+        }
+
+        if(isflip) {
+            form.action = "/search/flip";
+        }
+        if(isRefresh == true){
+            // submit直接提交新query
+            form.se.value = "1";
+        }else{
+            var showtab =  parseInt(searchConf.showtab);
+            if(!isNaN(showtab)&&showtab>0){
+                form.showtab.value = showtab;
+            }
+        }
+        form.ctd.value = (+new Date()) + "^00_" + $(window).width() + "X" +  window.innerHeight;
+
+        return true;
+    }
+})
+
+}();
+!function(){
+		window.bid = -1;
+
+	if(!window.passport){
+	    var script = document.createElement("script");
+	    script.src = '//passport.baidu.com/passApi/js/uni_login_wrapper.js?cdnversion=' + (new Date).getTime();
+	    document.body.appendChild(script);
+	}
+	require.async(["common:widget/loginbar/loginbar"],function(loginbar){
+
+	    loginbar.init();        
+
+	});
+
+
+}();
+!function(){    require.async(['searchresult:widget/pagelets/base/backTop/init']);
+
+    require.async(['common:widget/ui/feedback/feedback'], function (feedback) {
+        var callbacks = {};
+        feedback.init(callbacks);
+    });
+}();
+!function(){    
+    }();
+!function(){    require.async(['common:widget/ui/monitorRequest/monitorRequest'],function(monitorRequest){
+	var userid = "";
+	var q = "%E5%BC%A0%E4%BC%9F";
+	var tn = "result";
+	var host = "//imgstat.baidu.com/4.gif";
+	var hostSweb = "//image.baidu.com/pv/pv2.gif";
+    var rsw = "";
+    if(location.href !== document.referrer && document.referrer != ""){
+        rsw = "&rs=";
+    }
+    else{
+        rsw = '';
+    }
+    var samplekey = window.samplekey || '';
+    var img = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    monitorRequest( host + "?logid=7662407341057954897&ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=result.page&fr=ala" + rsw);
+    var imgSweb = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    imgSweb.src = hostSweb + "?ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=&fr=ala" + rsw + '&' + new Date() * Math.random();
+    });
+}();
+!function(){    require.async(["common:widget/ui/fmCheck/fmCheck"],function(fmCheck){
+        fmCheck.init();
+    });
+}();
+!function(){require.async(['common:widget/ui/base/base'], function($) {
+    var userFrom = '';
+
+    var elem = document.createElement('a');
+    elem.href = document.referrer;
+    var hostname = elem['hostname'];
+    var urlfr = 'ala';
+    var chenjin = '';
+    var urlword = '%D5%C5%CE%B0';
+
+    if (hostname !== 'image.baidu.com') {
+        if (urlfr) {
+            userFrom += urlfr;
+            if (chenjin === '1') {
+                userFrom += 'chenjin1';
+            } else if (chenjin === '0') {
+                var wordList = ["%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8%E5%9B%BE%E7%89%87",
+                    "%E5%A4%B4%E5%83%8F",
+                    "%E5%A4%B4%E5%83%8F%E5%9B%BE%E7%89%87"];
+                if (wordList.indexOf(urlword) >= 0) {
+                    userFrom += 'chenjin0';
+                }
+            }
+        } else {
+            userFrom = hostname;
+        }
+    } else {
+        userFrom = $.cookie('userFrom') || '';
+    }
+
+    if (userFrom.length > 0) {
+        var date = new Date();
+        date.setTime(date.getTime() + (10 * 60 * 1000));
+        $.cookie('userFrom', userFrom, {path: '/', expires: date, domain: '.baidu.com'});
+    } else {
+        $.cookie('userFrom', null, {path: '/', domain: '.baidu.com'});
+    }
+});
+}();
+!function(){            require.async(["common:widget/ui/durationStat/durationStat"],function(durationStat){
+            durationStat.heartStart({
+                pageId: 2 - 0,
+                sid: '4f34c62116a437aeb80fc2366d765086d1aeabed',
+                cs: '',
+                word: '张伟'
+            });
+        });
+    }();</script>   </html> <!--14250128250693533450060218-->
+<script> var _trace_page_logid = 1425012825; </script><!--14250100370811170570060218-->
+<script> var _trace_page_logid = 1425010037; </script>

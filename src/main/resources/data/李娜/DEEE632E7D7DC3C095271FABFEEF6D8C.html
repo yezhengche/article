@@ -1,0 +1,1245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>李娜个人官网_个人作品推介、展示平台_雅昌艺术家网</title>
+<meta name="description" content="雅昌艺术家网(artist.artron.net)是提供李娜作品推介、展示的艺术品推介平台，包括李娜简介、生平、年表、作品推介、代表作欣赏、参展经历等资料，为您投资收藏李娜系列作品提供全面的参考。" />
+<meta name="keywords" content="李娜,李娜作品推介、展示,李娜作品价格,李娜个人官网,李娜系列作品" />
+<link href="/static/css/common.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/theme.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/works_gray.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/static/js/imageToggle.js"></script>
+<script type="text/javascript" src="/static/js/public.js?1483697888917"></script>
+</head>
+
+<body style="padding-top:40px;">
+<div id="BgDiv"></div>
+<div id="topFix">
+      <link href="//pubunder.artron.net/issue_public/issue_top/css/common.css" rel="stylesheet" type="text/css" />
+<link href="//pubunder.artron.net/issue_public/issue_top/css/newTop.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="//pubunder.artron.net/issue_public/issue_top/js/newLogin.js"></script>
+<div id="sso_topbar" class="sso_bg">
+    <div class="sso_pw fix">
+        <div id="sso_loginBar">
+        	<a target="_blank" title="雅昌首页" href="http://www.artron.net/" class="sso_home sso_btn">雅昌首页</a>
+            <div class="sso_optionInput">
+            	
+                <script type="text/javascript"
+                    src="//passport.artron.net/client/sso.js"></script>
+                <script type="text/javascript">
+                    var sso = new sso();
+                </script>
+                <!-- 登录后 -->
+                <div id="member_after_login" style="display:none;">
+                    <span class="sso_wel"><b></b></span><a target="_self" class="sso_login" href="javascript:void(0)" onclick="sso.go(this, 'logout')">退出</a>
+                </div>
+                <!-- 登录前 -->
+                <div id="member_before_login" style="display:none;">
+                    <span class="sso_wel sso_fl">您好！</span><a href="javascript:;" onclick="sso.go(this, 'login')" class="sso_login sso_fl">请登录</a><a target="_self" href="javascript:void(0)" onclick="sso.go(this, 'register')" class="sso_reg sso_fl">免费注册</a>
+                </div>
+                <script type="text/javascript">
+                    $.ajax({
+                        type : "get",
+                        async : true,
+                        url : "//passport.artron.net/status",
+                        dataType : "jsonp",
+                        jsonp : "jsonpCallback",
+                        success : function(data) {
+                            if (data.status == 1) {
+                                $("#member_after_login").find("b").html(
+                                        data.username);
+                                $("#member_after_login").show();
+								$(".sso_news").show();
+                                $(".sso_buying").addClass("sso_buyLog");
+                                if(data.orderSum > 0){
+                                    $(".sso_buyLog").children("span").addClass("sso_buyNum").html("（"+data.orderSum+"）");
+                                }else{
+									$(".sso_buyLog").children("span").removeClass("sso_buyNum").html("（0）");
+								}
+                            } else {
+                                $("#member_before_login").show();
+                                $(".sso_buying").removeClass("sso_buyLog");
+                            }
+                        },
+                        error : function() {
+                        }
+                    });
+                </script>
+            </div>
+            <div class="sso_select sso_myArtron">
+                <div class="sso_site">
+                    <div class="sso_dropdown oh">
+                        <a class="sso_siteTit icon-artron" href="http://passport.artron.net/memCenter/index/" title="我的雅昌" target="_blank">我的雅昌</a><b class="sso_dropBtn"></b>
+                    </div>
+                    <ul class="sso_siteList">
+                        <li><a class="icon-buy" href="http://passport.artron.net/memCenter/buyer/" target="_blank">求购作品</a></li>
+                        <li><a class="icon-release" href="http://passport.artron.net/service/product/" target="_blank">发布作品</a></li>
+                        <li><a class="icon-attention" href="http://passport.artron.net/memCenter/attention/" target="_blank">我的关注</a></li>
+                        <li><a class="icon-collect" href="http://passport.artron.net/memCenter/collection/index" target="_blank">我的收藏</a></li>
+                        <li><a class="icon-SetUp" href="http://passport.artron.net/service/product/company" target="_blank">服务中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a class="sso_buying" href="http://passport.artron.net/memCenter/buyer/" target="_blank">求购单<span>（0）</span></a>
+            <a class="sso_news" href="http://passport.artron.net/memCenter/message/index/" target="_blank">消息<!--<span>（0）</span>--></a>
+        </div>
+        <div class="sso_other">
+            <a href="http://help.artron.net/" title="帮助中心" target="_blank">帮助中心</a>
+        </div>
+        <div class="sso_select sso_artSite">
+            <div class="sso_site">
+                <div class="sso_dropdown oh">
+                    <a target="_self" class="sso_siteTit" href="###" title="雅昌子站">雅昌子站</a><b class="sso_dropBtn"></b>
+                </div>
+                <ul style="overflow: hidden;" class="sso_siteList">
+                    <li><a href="http://huanan.artron.net/" target="_blank">华南站</a></li>
+                    <li><a href="http://huadong.artron.net/" target="_blank">华东站</a></li>
+                    <!--<li><a href="http://fj.artron.net/" target="_blank">福建站</a></li>-->
+                    <li><a href="http://gd.artron.net" target="_blank">广东站</a></li>
+                    <!--<li><a href="http://jx.artron.net" target="_blank">江西站</a></li>-->
+                    <!--<li><a target="_blank" href="http://hn.artron.net/">河南站</a></li>-->
+                    <li><a target="_blank" href="http://sxsh.artron.net/">山西书画</a></li>
+                    <li><a href="http://ebook.artron.net/" target="_blank">图书网</a></li>
+                    <li><a href="http://en.artron.net/" target="_blank">英文站</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sso_topTel">
+            <a href="http://help.artron.net/service/" target="_blank"><b class="sso_fl">客服热线：</b><span>400 669 0999</span></a>
+        </div>
+        <div class="sso_select sso_homeSer">
+            <div class="sso_site">
+                <div class="sso_dropdown oh">
+                    <a class="sso_siteTit" style="color:#666;">主页服务</a><b class="sso_dropBtn"></b>
+                </div>
+                <ul class="sso_siteList">
+                    <li class="first"><span class="sso_serArist"><a href="http://artist.artron.net/" target="_blank">艺术家</a></span><span class="sso_serGal"><a href="http://gallery.artron.net/" target="_blank">画廊</a><i>/</i><a href="http://crc.artron.net" target="_blank">古玩店</a></span><span class="sso_serAuc"><a href="http://auction.artron.net/" target="_blank">拍卖</a></span></li>
+                    <li><span class="sso_serArist"><a href="http://artist.artron.net/yishujiaintroduce/" target="_blank">特权介绍</a></span><span class="sso_serGal"><a href="http://gallery.artron.net/help/introduce/" target="_blank">特权介绍</a></span><span class="sso_serAuc"><a href="http://auction.artron.net/help/introduce/html/introduce_brand.html" target="_blank">特权介绍</a></span></li>
+                    <li><span class="sso_serArist"><a href="http://passport.artron.net/service/artist/" target="_blank">现在开通</a></span><span class="sso_serGal"><a href="http://passport.artron.net/service/gallery/" target="_blank">现在开通</a></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+<script>
+var d_name="/yishujia0262473/sale-0-0-0-0-1/";
+function selfsearch(){
+ var kv = $.trim($('#keyword').val());
+ if(kv=='' || kv=='请输入作品名称、证书编号或作品编号'){
+    alert('请输入关键词');
+    $('#keyword').focus()
+	return false;
+ }
+ window.location=d_name+"?keyword="+kv;
+}
+
+function guanzhuartist(obj){
+    jQuery.ajax({
+	        type: 'POST',
+	        dataType: 'json',
+	        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+	        url: "/yishujia0262473/guanzhu/",
+	        data: null,
+	        cache: false,
+	        success: function(data) {
+			if(data.code==1){
+                jQuery("#gzitt").remove();
+				jQuery(".shareWrap").before('<em class="focusBtn focused" ><i></i>已关注</em>');
+			}
+	        alert(data.message);	
+	        return false;
+	        },
+	        error: function(XMLHttpRequest) {}
+	    });
+}
+
+function guanzhuworks(id){
+    jQuery.ajax({
+	        type: 'POST',
+	        dataType: 'json',
+	        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+	        url: "/yishujia0262473/guanzhu/works/"+id+'/',
+	        data: null,
+	        cache: false,
+	        success: function(data) {
+			if(data.code==1){
+                jQuery("#scworks").remove();
+				jQuery(".share").before('<em class=" favorBig favorited" ><i></i>已收藏</em>');
+			}
+	        alert(data.message);	
+	        return false;
+	        },
+	        error: function(XMLHttpRequest) {}
+	    });
+}
+</script>
+<div class="pw fix" id="top">
+    <div id="logo"><strong><a title="艺术家网" target="_blank" href="http://artist.artron.net/">艺术家网</a></strong><strong class="bbsLogo"><a title="雅昌博客" target="_blank" href="http://blog.artron.net/">雅昌博客</a></strong></div>
+    <div class="fr search" id="topSearch">
+    <!--<a target="_parent" style="cursor:pointer" class="sbtn sAll">搜全站</a>--><a target="_parent" class="sbtn sShop" onclick="selfsearch();return false;">搜本人</a><div id="sForm"><input type="text" class="sInput" id='keyword' value="请输入作品名称、证书编号或作品编号" onfocus="if(this.value=='请输入作品名称、证书编号或作品编号'){this.value='';}"  onblur="if(this.value==''){this.value='请输入作品名称、证书编号或作品编号';}" /></div>
+    </div>
+</div>
+<div class="pw fi pRela banner">
+
+     <img src="http://img10.artimg.net/newart/2013/1230/1388402838_558563.jpg.bgmiddle.jpg" width="980" height="180" />
+
+  <div id="logoName" style="background:url(/static/image/alpha/png60.png)"><h1>李娜<strong>
+       
+     官方网站
+     </strong>
+       <img id="minQr" class="minQr" src="/static/imgs/com/qr.png" width="18" height="18" alt="二维码图标" />
+  
+  </h1>
+      <p>http://lina.artron.net</p>
+    
+  
+  </div>
+</div>
+<a id="w"></a>
+<div id="subNav" class="mt10 pw">
+  <div class="level0">
+    <ul>
+      <li  class="current" ><a href="/yishujia0262473/">首页</a></li>
+      <li ><a href="/yishujia0262473/resume.html">艺术简历</a></li>
+      <li ><a href="/yishujia0262473/news/">市场行情</a></li>      <li ><a href="/yishujia0262473/sale/">作品</a></li>
+      <!--<li ><a href="/yishujia0262473/artworks/">展示作品</a></li>-->
+      <li ><a href="/yishujia0262473/exhibition.html">参展经历</a></li>
+      <li ><a href="/yishujia0262473/info/">资讯</a></li>
+      <li ><a href="/yishujia0262473/album/">相册</a></li>
+      <li ><a href="/yishujia0262473/guestbook/" style="padding:0 4px;" class="last">留言</a></li>
+    </ul>
+  </div>
+   <div class="levelList">
+  <div class="level1 currentShow"> </div>
+  <div class="level1"></div>
+  <div class="level1"></div>
+  <div class="level1"></div>
+  <div class="level1 "></div>
+  <div class="level1"></div>
+  <div class="level1 "></div>
+  <div class="level1"></div>
+  <div class="level1"></div>
+  </div>
+</div>
+<div class="pw mainBg fix mt20">
+	<div class="lay250 fl">
+      <div class="lay250 fl">
+    <!--[if lte IE 6]>
+    <script type="text/javascript" src="/static/js/DD_belatedPNG.js"></script>
+    <script>
+        DD_belatedPNG.fix('.memInfo dd h3 img');
+    </script>
+    <![endif]-->
+    <!--个人信息开始-->
+    <script language="JavaScript">
+        var flag = false;
+        function DrawImage(ImgD, w, h) {
+            var image = new Image();
+            image.src = ImgD.src;
+            if (image.width > 0 && image.height > 0) {
+                flag = true;
+                if (image.width / image.height >= w / h) {
+                    if (image.width > w) {
+                        ImgD.width = w;
+                        ImgD.height = (image.height * w) / image.width;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                    //ImgD.alt=image.width+"x"+image.height;
+                }
+                else {
+                    if (image.height > h) {
+                        ImgD.height = h;
+                        ImgD.width = (image.width * h) / image.height;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                    ImgD.alt = image.width + "x" + image.height;
+                    /*
+                     if(image.width>w){
+                     ImgD.width=w;
+                     ImgD.height=(image.height*w)/image.width;
+                     }else{
+                     ImgD.width=image.width;
+                     ImgD.height=image.height;
+                     }
+                     */
+                    //ImgD.alt=image.width+"x"+image.height;
+                }
+            }
+        }
+    </script>
+    <img src="//auction3.img.artimg.net/wximg/?type=img&src=http://img10.artimg.net/newart/2015/1221/1450696580_657693.jpg?1527935061"
+         class="weixinImg" height="0" width="0">
+    <div class="memInfo">
+
+        <h2 class="fTxt nobt"><span>个人信息</span></h2>
+        <dl>
+            <dt>
+            <table width="100%" bgcolor="#F1F1F1">
+                <tr>
+                    <td align="center" valign="middle" height="210"><img
+                            onerror="this.src='/static/imgs/person_logo.jpg';" src="http://img10.artimg.net/newart/2015/1221/1450696580_657693.jpg?1527935061" width="210"
+                            onload="javascript:DrawImage(this, 210, 210);"/></td>
+                </tr>
+            </table>
+            </dt>
+            <dd>
+                <p class="slideBg"></p>
+                <h3><span>李娜</span> <img src="/static/imgs/com/silver.png" title="银牌会员"/></h3>
+            </dd>
+        </dl>
+        <div class="memNum">
+            <ul class="memNumO">
+                <li class="memWorks">
+                    <a href="/yishujia0262473/sale/" target="_blank">
+                        <span>作品</span>
+                        <b>45</b>
+                    </a>
+                </li>
+                <li class="memNumEx">
+                    <a href="/yishujia0262473/info/" target="_blank">
+                        <span>资讯</span>
+                        <b>3</b>
+                    </a>
+                </li>
+                <li class="memNumNew">
+                    <span>粉丝</span>
+                    <b>780</b>
+                </li>
+            </ul>
+        </div>
+                <div class="favorShare">
+            <div class="favorWrap fix">
+                <a class="gz" id='gzitt' href="javascript:guanzhuartist(this)"><b></b>加关注</a>
+                                <div class="shareWrap">
+                    <!-- JiaThis Button BEGIN -->
+                    <!--<div class="jiathis_style"><span class="jiathis_txt">分享到：</span>-->
+                        <!--<a class="jiathis_button_tsina"></a>-->
+                        <!--<a class="jiathis_button_weixin"></a>-->
+                        <!--<a class="jiathis_button_tqq"></a>-->
+                        <!--<a href="http://www.jiathis.com/share"-->
+                           <!--class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>-->
+                    <!--</div>-->
+                    <!--<script type="text/javascript">-->
+                        <!--var jiathis_config = {-->
+                            <!--summary: "",-->
+                            <!--shortUrl: false,-->
+                            <!--hideMore: false-->
+                        <!--}-->
+                    <!--</script>-->
+                    <!--<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>-->
+                    <!-- JiaThis Button END -->
+                    <span class="shareBtn">
+                         <!--<i>分享到</i>-->
+                      <div class="shareCon">
+                          <div class="fl share">
+                              <div class="bdsharebuttonbox">
+                                  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin:0 3px;"></a>
+                                  <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin:0 3px;"></a>
+                                  <!--<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>-->
+                                  <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ" style="margin:0 3px;"></a>
+                                  <a href="#" class="bds_more" data-cmd="more" style="margin:0 3px;"></a>
+                              </div>
+                              <script>
+                                  window._bd_share_config = {
+                                      "common": {
+                                          "bdSnsKey": {},
+                                          "bdText": "",
+                                          "bdMini": "2",
+                                          "bdMiniList": false,
+                                          "bdPic": "",
+                                          "bdStyle": "0",
+                                          "bdSize": "24"
+                                      }, "share": {}
+                                  };
+                                  with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+                          </div>
+
+                      </div>
+                 </span>
+
+                </div>
+                <div class="popAlert" style="display:none;">
+                    <p>关注成功！</p>
+                </div>
+            </div>
+        </div>
+        
+        <!--微官网二维码 start-->
+                <div class="qrArtist ">
+            <img src="http://qrcode.artron.net/?type=artist&id=A0262473&el=12&margin=2" alt="艺术家手机官网二维码" width="80" height="80"/>
+            <p>扫描二维码访问<br/>艺术家手机官网</p>
+        </div>
+        
+
+        <!--微官网二维码 end-->
+        <div class="memTxt memLine">
+            <p></p>
+            <p><strong>开通服务：</strong><span><b
+                class="blog"><a href="http://blog.artron.net/space-106315.html" target="_blank">雅昌博主</a></b><b
+                class="sell" style="display:none"><a href="/yishujia0262473/sale/" target="_blank">雅昌代售</a></b></span>
+        </p>        </div>
+
+        <div class="memTxt">
+
+            <p><strong>性&nbsp;&nbsp;&nbsp;&nbsp;别：</strong><span>女</span></p>
+            <p>
+            <strong>出生年份：</strong><span>1980年</span></p>
+            <p>
+            <strong>籍&nbsp;&nbsp;&nbsp;&nbsp;贯：</strong><span>黑龙江</span></p>
+            <p><strong>擅&nbsp;&nbsp;&nbsp;&nbsp;长：</strong><span>国画</span></p>
+            
+            <p>
+            <strong>毕业院校：</strong><span>中央美术学院</span></p>            
+            
+            
+            
+            <p><strong>头&nbsp;&nbsp;&nbsp;&nbsp;衔：</strong><span>中国美术家协会会员</span>
+        </p>
+            <p><strong>学&nbsp;&nbsp;&nbsp;&nbsp;历：</strong><span>硕士</span>
+        </p> 
+        </div>
+
+                <div class="memTxt memTxt01">
+            <p><strong>注册时间：</strong><span>2013-12-02 </span></p>
+
+            <p><strong>今日访问：</strong><span>6</span></p>
+
+            <p><strong>总访问量：</strong><span>185062</span></p>
+        </div>
+        
+    </div>
+
+    <!--个人信息结束-->
+
+
+    <!--个人简介开始-->
+
+    
+    <h2 class="fTxt"><span>个人简介</span></h2>
+
+    <div class="aboutPer">
+
+
+        李娜
+1980  生于黑龙江省哈尔滨市
+2004  毕业于哈尔滨师范大学中国画专业，获学士学位
+2013  毕业于中央美术学院中国画学院材料与表现工作室，获硕士学位
+中国美术家协会会员  现工作生活于北京
+
+ ...<a href="/yishujia0262473/resume.html" target="_blank">详细</a>
+
+
+    </div>
+
+    
+    <!--个人简介结束-->
+
+    
+    <h3 class="wTxt"><a href="/yishujia0262473/resume.html#ex" target="_blank">参展经历</a></h3>
+
+    <ul class="aboutList">
+
+        
+        <li><strong>2017年</strong><span title=''>心像.双重奏——李娜 </span>
+        </li>
+
+        
+        <li><strong>2017年</strong><span title=''>动物统治--2017水墨巴</span>
+        </li>
+
+        
+        <li><strong>2017年</strong><span title=''>中国当代水墨年鉴2016</span>
+        </li>
+
+        
+        <li><strong>2017年</strong><span title=''>青年水墨年鉴2017</span>
+        </li>
+
+        
+    </ul>
+
+    
+                        <h3 class="wTxt"><a href="/yishujia0262473/resume.html#publish" target="_blank">出版经历</a></h3>
+    <ul class="aboutList">
+        
+        <li><strong>2017年</strong><span title="唯美新视界-李娜工笔花鸟画精品集">唯美新视界-李娜工笔花</span>
+        </li>
+
+        
+        <li><strong>2017年</strong><span title="中国青年当代水墨年鉴">中国青年当代水墨年鉴</span>
+        </li>
+
+        
+        <li><strong>2016年</strong><span title="盛气青年-2016年中国当代青年艺术家作品集">盛气青年-2016年中国当</span>
+        </li>
+
+        
+        <li><strong>2016年</strong><span title="敞开视野-水墨的生态">敞开视野-水墨的生态</span>
+        </li>
+
+        
+    </ul>
+        
+    <!--合作画廊开始-->
+                <!--合作画廊结束-->
+
+    <!--热门商品开始-->
+
+    <h2 class="fTxt fLabel"><span class="curr">热门展示</span><b>|</b><span>热门推介</span></h2>
+    <div class="hotPic">
+
+        
+        
+        <dl>
+
+            <dt>
+            <div class="pic"><a href="/yishujia0262473/2-196.html" target="_blank"><img
+                    src="http://img10.artimg.net/newart/2013/1202/1385978756_837263.jpg.small.jpg" width="60" height="60"
+                    onload="javascript:DrawImage(this, 60, 60);"/></a></div>
+            </dt>
+
+            <dd>
+
+                <h3><a href="/yishujia0262473/2-196.html" target="_blank"
+                       title="你眼中的我">你眼中的我</a>
+                </h3>
+
+
+            </dd>
+
+        </dl>
+
+        
+        <dl>
+
+            <dt>
+            <div class="pic"><a href="/yishujia0262473/2-43249.html" target="_blank"><img
+                    src="http://img10.artimg.net/newart/2014/0913/1410583643_397776.jpg.small.jpg" width="60" height="60"
+                    onload="javascript:DrawImage(this, 60, 60);"/></a></div>
+            </dt>
+
+            <dd>
+
+                <h3><a href="/yishujia0262473/2-43249.html" target="_blank"
+                       title="桃花源4">桃花源4</a>
+                </h3>
+
+
+            </dd>
+
+        </dl>
+
+        
+        <dl>
+
+            <dt>
+            <div class="pic"><a href="/yishujia0262473/2-181.html" target="_blank"><img
+                    src="http://img10.artimg.net/newart/2013/1202/1385969425_906345.jpg.small.jpg" width="60" height="60"
+                    onload="javascript:DrawImage(this, 60, 60);"/></a></div>
+            </dt>
+
+            <dd>
+
+                <h3><a href="/yishujia0262473/2-181.html" target="_blank"
+                       title="晚宴8">晚宴8</a>
+                </h3>
+
+
+            </dd>
+
+        </dl>
+
+        
+        <dl>
+
+            <dt>
+            <div class="pic"><a href="/yishujia0262473/2-43248.html" target="_blank"><img
+                    src="http://img10.artimg.net/newart/2014/0913/1410583191_343034.jpg.small.jpg" width="60" height="60"
+                    onload="javascript:DrawImage(this, 60, 60);"/></a></div>
+            </dt>
+
+            <dd>
+
+                <h3><a href="/yishujia0262473/2-43248.html" target="_blank"
+                       title="桃花源7">桃花源7</a>
+                </h3>
+
+
+            </dd>
+
+        </dl>
+
+        
+        <dl>
+
+            <dt>
+            <div class="pic"><a href="/yishujia0262473/2-198.html" target="_blank"><img
+                    src="http://img10.artimg.net/newart/2013/1202/1385979258_740034.jpg.small.jpg" width="60" height="60"
+                    onload="javascript:DrawImage(this, 60, 60);"/></a></div>
+            </dt>
+
+            <dd>
+
+                <h3><a href="/yishujia0262473/2-198.html" target="_blank"
+                       title="关于他的猜想2">关于他的猜想2</a>
+                </h3>
+
+
+            </dd>
+
+        </dl>
+
+        
+        
+        <div align="right" class="f12 mr20"> <a
+                href="/yishujia0262473/sale-0-1-0-0-1/" target="_blank">更多</a>        </div>
+
+    </div>
+    <div class="hotPic" style="display:none;">
+
+        
+        <div class="noInfo">暂无代售热门作品</div>
+
+        
+        <div align="right" class="f12 mr20">         </div>
+
+    </div>
+
+
+    <!--热门商品结束-->
+</div>
+    </div>
+    <div class="lay710 fr">
+    	<!--幻灯片开始-->
+        <div class="slide">
+            <div class="imgShow">
+                <ul>
+                 	             	                                   <li><a href="http://artist.artron.net/yishujia0262473/2-198.html" target="_blank"></a><div class="pic"><span><img src="http://img10.artimg.net/newart/2013/1217/1387244764_150899.jpg.small.jpg"  onload="DrawImage(this, 710, 270);"/></span></div>
+            		<b class="slideBg"></b>
+                    <div class="txt">关于他的猜想2局部</div>
+                    </li>
+                                        	                                   <li><a href="http://artist.artron.net/yishujia0262473/2-177.html" target="_blank"></a><div class="pic"><span><img src="http://img10.artimg.net/newart/2013/1217/1387244831_900672.jpg.small.jpg"  onload="DrawImage(this, 710, 270);"/></span></div>
+            		<b class="slideBg"></b>
+                    <div class="txt">晚宴2局部</div>
+                    </li>
+                                        	                                   <li><a href="http://artist.artron.net/yishujia0262473/2-181.html" target="_blank"></a><div class="pic"><span><img src="http://img10.artimg.net/newart/2013/1217/1387244875_262030.jpg.small.jpg"  onload="DrawImage(this, 710, 270);"/></span></div>
+            		<b class="slideBg"></b>
+                    <div class="txt">晚宴8局部</div>
+                    </li>
+                                        	                                   <li><a href="http://artist.artron.net/yishujia0262473/2-203192.html#w" target="_blank"></a><div class="pic"><span><img src="http://img10.artimg.net/newart/2016/1026/1477482908_874416.jpg.small.jpg"  onload="DrawImage(this, 710, 270);"/></span></div>
+            		<b class="slideBg"></b>
+                    <div class="txt">大圣4</div>
+                    </li>
+                                        	                                   <li><a href="http://artist.artron.net/yishujia0262473/2-203193.html#w" target="_blank"></a><div class="pic"><span><img src="http://img10.artimg.net/newart/2016/1026/1477483093_154083.jpg.small.jpg"  onload="DrawImage(this, 710, 270);"/></span></div>
+            		<b class="slideBg"></b>
+                    <div class="txt">无人之境1</div>
+                    </li>
+                                                         
+                </ul>
+            </div>
+            <div class="thumbTag">
+			 	                             <span class="current"></span>
+				                   <span ></span>
+				                   <span ></span>
+				                   <span ></span>
+				                   <span ></span>
+				                    
+            </div>
+        </div>
+        <!--幻灯片结束-->
+        <!-- 推荐作品 start-->
+	               <div class="column mt20">
+                <h2 class="fTxt"><span>推荐作品</span><a class="front" href="javascript:void(0)"></a>
+                    <a class="next" href="javascript:void(0)"></a></h2>
+                <div class="picList" id="trailerList">
+                    <div class="picListBox">
+                        <ul class="trailerUl">
+                                                     <li>
+                            <div class="imgWrap">
+                            <a class="imgCell" href="/yishujia0262473/2-219560.html#w" target="_blank" title="逝去的风景49">
+                            <img src="http://img10.artimg.net/newart/2017/0522/1495420593_269191.jpg.small.jpg"  onload="DrawImage(this, 140, 140);" />
+                            </a>
+                            </div>
+                            <h3><a href="/yishujia0262473/2-219560.html#w" target="_blank" title="逝去的风景49">逝去的风景49</a></h3>
+                            </li>  
+                                                      <li>
+                            <div class="imgWrap">
+                            <a class="imgCell" href="/yishujia0262473/2-234090.html#w" target="_blank" title="大圣2">
+                            <img src="http://img10.artimg.net/newart/2017/0904/1504518744_734274.jpg.small.jpg"  onload="DrawImage(this, 140, 140);" />
+                            </a>
+                            </div>
+                            <h3><a href="/yishujia0262473/2-234090.html#w" target="_blank" title="大圣2">大圣2</a></h3>
+                            </li>  
+                                                      <li>
+                            <div class="imgWrap">
+                            <a class="imgCell" href="/yishujia0262473/2-234091.html#w" target="_blank" title="逝去的风景42">
+                            <img src="http://img10.artimg.net/newart/2017/0904/1504518921_799516.jpg.small.jpg"  onload="DrawImage(this, 140, 140);" />
+                            </a>
+                            </div>
+                            <h3><a href="/yishujia0262473/2-234091.html#w" target="_blank" title="逝去的风景42">逝去的风景42</a></h3>
+                            </li>  
+                                                      <li>
+                            <div class="imgWrap">
+                            <a class="imgCell" href="/yishujia0262473/2-190380.html#w" target="_blank" title="游园惊梦4">
+                            <img src="http://img10.artimg.net/newart/2016/0625/1466823908_339062.jpg.small.jpg"  onload="DrawImage(this, 140, 140);" />
+                            </a>
+                            </div>
+                            <h3><a href="/yishujia0262473/2-190380.html#w" target="_blank" title="游园惊梦4">游园惊梦4</a></h3>
+                            </li>  
+                                                      <li>
+                            <div class="imgWrap">
+                            <a class="imgCell" href="/yishujia0262473/2-190379.html#w" target="_blank" title="游园惊梦1">
+                            <img src="http://img10.artimg.net/newart/2016/0625/1466823908_517405.jpg.small.jpg"  onload="DrawImage(this, 140, 140);" />
+                            </a>
+                            </div>
+                            <h3><a href="/yishujia0262473/2-190379.html#w" target="_blank" title="游园惊梦1">游园惊梦1</a></h3>
+                            </li>  
+                                                      <li>
+                            <div class="imgWrap">
+                            <a class="imgCell" href="/yishujia0262473/2-160294.html#w" target="_blank" title="逝去的风景1">
+                            <img src="http://img10.artimg.net/newart/2015/1221/1450699005_170625.jpg.small.jpg"  onload="DrawImage(this, 140, 140);" />
+                            </a>
+                            </div>
+                            <h3><a href="/yishujia0262473/2-160294.html#w" target="_blank" title="逝去的风景1">逝去的风景1</a></h3>
+                            </li>  
+                                                      <li>
+                            <div class="imgWrap">
+                            <a class="imgCell" href="/yishujia0262473/2-160298.html#w" target="_blank" title="逝去的风景5">
+                            <img src="http://img10.artimg.net/newart/2015/1221/1450699030_665012.jpg.small.jpg"  onload="DrawImage(this, 140, 140);" />
+                            </a>
+                            </div>
+                            <h3><a href="/yishujia0262473/2-160298.html#w" target="_blank" title="逝去的风景5">逝去的风景5</a></h3>
+                            </li>  
+                                
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                  <!--作品列表开始-->
+                <h2 class="fTxt mt20"><span>作品赏析</span> <a href="/yishujia0262473/sale/" target="_blank" class="all">更多</a></h2>
+        <div class="proList">
+        	<ul class="picListUl">
+            	            	<li>
+                	<div class="imgWrap">
+                    	<a class="imgCell" target="_blank" href="/yishujia0262473/2-43249.html#w"><img src="http://img10.artimg.net/newart/2014/0913/1410583643_397776.jpg.small.jpg"  title=""/></a>
+                    </div>
+                    <div class="proBg">
+                    	<div class="proBack">
+							<div class="proText">
+								<div class="proType"><span>展示中</span><a href="/yishujia0262473/quickPic-0-0-0-0-1/?pid=43249" target="_blank" class="show">快速查看</a></div>
+							</div>
+							<b class="alpha"></b>
+						</div>
+                      
+                    </div>
+                    <h3><a title="桃花源4 " target="_blank" href="/yishujia0262473/2-43249.html#w">桃花源4</a></h3>
+                </li>
+                            	<li>
+                	<div class="imgWrap">
+                    	<a class="imgCell" target="_blank" href="/yishujia0262473/2-43248.html#w"><img src="http://img10.artimg.net/newart/2014/0913/1410583191_343034.jpg.small.jpg"  title=""/></a>
+                    </div>
+                    <div class="proBg">
+                    	<div class="proBack">
+							<div class="proText">
+								<div class="proType"><span>展示中</span><a href="/yishujia0262473/quickPic-0-0-0-0-1/?pid=43248" target="_blank" class="show">快速查看</a></div>
+							</div>
+							<b class="alpha"></b>
+						</div>
+                      
+                    </div>
+                    <h3><a title="桃花源7 " target="_blank" href="/yishujia0262473/2-43248.html#w">桃花源7</a></h3>
+                </li>
+                            	<li>
+                	<div class="imgWrap">
+                    	<a class="imgCell" target="_blank" href="/yishujia0262473/2-9367.html#w"><img src="http://img10.artimg.net/newart/2014/0613/1402663781_370051.jpg.small.jpg"  title=""/></a>
+                    </div>
+                    <div class="proBg">
+                    	<div class="proBack">
+							<div class="proText">
+								<div class="proType"><span>展示中</span><a href="/yishujia0262473/quickPic-0-0-0-0-1/?pid=9367" target="_blank" class="show">快速查看</a></div>
+							</div>
+							<b class="alpha"></b>
+						</div>
+                      
+                    </div>
+                    <h3><a title="变色记6 " target="_blank" href="/yishujia0262473/2-9367.html#w">变色记6</a></h3>
+                </li>
+                            	<li class="mr0">
+                	<div class="imgWrap">
+                    	<a class="imgCell" target="_blank" href="/yishujia0262473/2-86474.html#w"><img src="http://img10.artimg.net/newart/2015/0128/1422419904_120203.jpg.small.jpg"  title=""/></a>
+                    </div>
+                    <div class="proBg">
+                    	<div class="proBack">
+							<div class="proText">
+								<div class="proType"><span>展示中</span><a href="/yishujia0262473/quickPic-0-0-0-0-1/?pid=86474" target="_blank" class="show">快速查看</a></div>
+							</div>
+							<b class="alpha"></b>
+						</div>
+                      
+                    </div>
+                    <h3><a title="最美时光，235x145cm，2... " target="_blank" href="/yishujia0262473/2-86474.html#w">最美时光，235x145cm，2...</a></h3>
+                </li>
+                            	<li>
+                	<div class="imgWrap">
+                    	<a class="imgCell" target="_blank" href="/yishujia0262473/2-197.html#w"><img src="http://img10.artimg.net/newart/2013/1202/1385979098_921132.jpg.small.jpg"  title=""/></a>
+                    </div>
+                    <div class="proBg">
+                    	<div class="proBack">
+							<div class="proText">
+								<div class="proType"><span>展示中</span><a href="/yishujia0262473/quickPic-0-0-0-0-1/?pid=197" target="_blank" class="show">快速查看</a></div>
+							</div>
+							<b class="alpha"></b>
+						</div>
+                      
+                    </div>
+                    <h3><a title="关于他的猜想1 " target="_blank" href="/yishujia0262473/2-197.html#w">关于他的猜想1</a></h3>
+                </li>
+                            	<li>
+                	<div class="imgWrap">
+                    	<a class="imgCell" target="_blank" href="/yishujia0262473/2-196.html#w"><img src="http://img10.artimg.net/newart/2013/1202/1385978756_837263.jpg.small.jpg"  title=""/></a>
+                    </div>
+                    <div class="proBg">
+                    	<div class="proBack">
+							<div class="proText">
+								<div class="proType"><span>展示中</span><a href="/yishujia0262473/quickPic-0-0-0-0-1/?pid=196" target="_blank" class="show">快速查看</a></div>
+							</div>
+							<b class="alpha"></b>
+						</div>
+                      
+                    </div>
+                    <h3><a title="你眼中的我 " target="_blank" href="/yishujia0262473/2-196.html#w">你眼中的我</a></h3>
+                </li>
+                            	<li>
+                	<div class="imgWrap">
+                    	<a class="imgCell" target="_blank" href="/yishujia0262473/2-194.html#w"><img src="http://img10.artimg.net/newart/2013/1202/1385975675_249354.jpg.small.jpg"  title=""/></a>
+                    </div>
+                    <div class="proBg">
+                    	<div class="proBack">
+							<div class="proText">
+								<div class="proType"><span>展示中</span><a href="/yishujia0262473/quickPic-0-0-0-0-1/?pid=194" target="_blank" class="show">快速查看</a></div>
+							</div>
+							<b class="alpha"></b>
+						</div>
+                      
+                    </div>
+                    <h3><a title="窃听者 " target="_blank" href="/yishujia0262473/2-194.html#w">窃听者</a></h3>
+                </li>
+                            	<li class="mr0">
+                	<div class="imgWrap">
+                    	<a class="imgCell" target="_blank" href="/yishujia0262473/2-181.html#w"><img src="http://img10.artimg.net/newart/2013/1202/1385969425_906345.jpg.small.jpg"  title=""/></a>
+                    </div>
+                    <div class="proBg">
+                    	<div class="proBack">
+							<div class="proText">
+								<div class="proType"><span>展示中</span><a href="/yishujia0262473/quickPic-0-0-0-0-1/?pid=181" target="_blank" class="show">快速查看</a></div>
+							</div>
+							<b class="alpha"></b>
+						</div>
+                      
+                    </div>
+                    <h3><a title="晚宴8 " target="_blank" href="/yishujia0262473/2-181.html#w">晚宴8</a></h3>
+                </li>
+                            	<li>
+                	<div class="imgWrap">
+                    	<a class="imgCell" target="_blank" href="/yishujia0262473/2-177.html#w"><img src="http://img10.artimg.net/newart/2013/1202/1385967562_257709.jpg.small.jpg"  title=""/></a>
+                    </div>
+                    <div class="proBg">
+                    	<div class="proBack">
+							<div class="proText">
+								<div class="proType"><span>展示中</span><a href="/yishujia0262473/quickPic-0-0-0-0-1/?pid=177" target="_blank" class="show">快速查看</a></div>
+							</div>
+							<b class="alpha"></b>
+						</div>
+                      
+                    </div>
+                    <h3><a title="晚宴2 " target="_blank" href="/yishujia0262473/2-177.html#w">晚宴2</a></h3>
+                </li>
+                            	<li>
+                	<div class="imgWrap">
+                    	<a class="imgCell" target="_blank" href="/yishujia0262473/2-178.html#w"><img src="http://img10.artimg.net/newart/2013/1202/1385968162_701443.jpg.small.jpg"  title=""/></a>
+                    </div>
+                    <div class="proBg">
+                    	<div class="proBack">
+							<div class="proText">
+								<div class="proType"><span>展示中</span><a href="/yishujia0262473/quickPic-0-0-0-0-1/?pid=178" target="_blank" class="show">快速查看</a></div>
+							</div>
+							<b class="alpha"></b>
+						</div>
+                      
+                    </div>
+                    <h3><a title="晚宴3 " target="_blank" href="/yishujia0262473/2-178.html#w">晚宴3</a></h3>
+                </li>
+                            	<li>
+                	<div class="imgWrap">
+                    	<a class="imgCell" target="_blank" href="/yishujia0262473/2-786.html#w"><img src="http://img10.artimg.net/newart/2013/1230/1388401691_298096.jpg.small.jpg"  title=""/></a>
+                    </div>
+                    <div class="proBg">
+                    	<div class="proBack">
+							<div class="proText">
+								<div class="proType"><span>展示中</span><a href="/yishujia0262473/quickPic-0-0-0-0-1/?pid=786" target="_blank" class="show">快速查看</a></div>
+							</div>
+							<b class="alpha"></b>
+						</div>
+                      
+                    </div>
+                    <h3><a title="晚宴20 " target="_blank" href="/yishujia0262473/2-786.html#w">晚宴20</a></h3>
+                </li>
+                            	<li class="mr0">
+                	<div class="imgWrap">
+                    	<a class="imgCell" target="_blank" href="/yishujia0262473/2-785.html#w"><img src="http://img10.artimg.net/newart/2013/1230/1388401426_964286.jpg.small.jpg"  title=""/></a>
+                    </div>
+                    <div class="proBg">
+                    	<div class="proBack">
+							<div class="proText">
+								<div class="proType"><span>展示中</span><a href="/yishujia0262473/quickPic-0-0-0-0-1/?pid=785" target="_blank" class="show">快速查看</a></div>
+							</div>
+							<b class="alpha"></b>
+						</div>
+                      
+                    </div>
+                    <h3><a title="晚宴13 " target="_blank" href="/yishujia0262473/2-785.html#w">晚宴13</a></h3>
+                </li>
+                 
+            </ul>
+        </div>
+        		<!--        <h2 class="fTxt mt20"><span>推介作品</span> <a href="/yishujia0262473/sale/" target="_blank" class="all">更多</a></h2>
+        <div class="proList">
+		
+        	<ul>              
+	                       	<li><a href="/yishujia0262473/1-43249.html" target="_blank"></a>
+                	<table>
+                    	<tr>
+                        	<td><img src="http://img10.artimg.net/newart/2014/0913/1410583643_397776.jpg.small.jpg"  title=""/></td>
+                        </tr>
+                    </table>
+                    <p title="桃花源4">
+                    	<b>桃花源4</b>
+                        <i>￥ 0</i>
+                    </p>
+                </li>
+                                	<li><a href="/yishujia0262473/1-43248.html" target="_blank"></a>
+                	<table>
+                    	<tr>
+                        	<td><img src="http://img10.artimg.net/newart/2014/0913/1410583191_343034.jpg.small.jpg"  title=""/></td>
+                        </tr>
+                    </table>
+                    <p title="桃花源7">
+                    	<b>桃花源7</b>
+                        <i>￥ 0</i>
+                    </p>
+                </li>
+                                	<li><a href="/yishujia0262473/1-9367.html" target="_blank"></a>
+                	<table>
+                    	<tr>
+                        	<td><img src="http://img10.artimg.net/newart/2014/0613/1402663781_370051.jpg.small.jpg"  title=""/></td>
+                        </tr>
+                    </table>
+                    <p title="变色记6">
+                    	<b>变色记6</b>
+                        <i>￥ 0</i>
+                    </p>
+                </li>
+                                	<li class="mr0"><a href="/yishujia0262473/1-86474.html" target="_blank"></a>
+                	<table>
+                    	<tr>
+                        	<td><img src="http://img10.artimg.net/newart/2015/0128/1422419904_120203.jpg.small.jpg"  title=""/></td>
+                        </tr>
+                    </table>
+                    <p title="最美时光，235x145cm，2014，纸本综合">
+                    	<b>最美时光，235x145cm，2...</b>
+                        <i>￥ 0</i>
+                    </p>
+                </li>
+                                	<li><a href="/yishujia0262473/1-197.html" target="_blank"></a>
+                	<table>
+                    	<tr>
+                        	<td><img src="http://img10.artimg.net/newart/2013/1202/1385979098_921132.jpg.small.jpg"  title=""/></td>
+                        </tr>
+                    </table>
+                    <p title="关于他的猜想1">
+                    	<b>关于他的猜想1</b>
+                        <i>￥ 0</i>
+                    </p>
+                </li>
+                                	<li><a href="/yishujia0262473/1-196.html" target="_blank"></a>
+                	<table>
+                    	<tr>
+                        	<td><img src="http://img10.artimg.net/newart/2013/1202/1385978756_837263.jpg.small.jpg"  title=""/></td>
+                        </tr>
+                    </table>
+                    <p title="你眼中的我">
+                    	<b>你眼中的我</b>
+                        <i>￥ 0</i>
+                    </p>
+                </li>
+                                	<li><a href="/yishujia0262473/1-194.html" target="_blank"></a>
+                	<table>
+                    	<tr>
+                        	<td><img src="http://img10.artimg.net/newart/2013/1202/1385975675_249354.jpg.small.jpg"  title=""/></td>
+                        </tr>
+                    </table>
+                    <p title="窃听者">
+                    	<b>窃听者</b>
+                        <i>￥ 0</i>
+                    </p>
+                </li>
+                                	<li class="mr0"><a href="/yishujia0262473/1-181.html" target="_blank"></a>
+                	<table>
+                    	<tr>
+                        	<td><img src="http://img10.artimg.net/newart/2013/1202/1385969425_906345.jpg.small.jpg"  title=""/></td>
+                        </tr>
+                    </table>
+                    <p title="晚宴8">
+                    	<b>晚宴8</b>
+                        <i>￥ 0</i>
+                    </p>
+                </li>
+                                	<li><a href="/yishujia0262473/1-177.html" target="_blank"></a>
+                	<table>
+                    	<tr>
+                        	<td><img src="http://img10.artimg.net/newart/2013/1202/1385967562_257709.jpg.small.jpg"  title=""/></td>
+                        </tr>
+                    </table>
+                    <p title="晚宴2">
+                    	<b>晚宴2</b>
+                        <i>￥ 0</i>
+                    </p>
+                </li>
+                                	<li><a href="/yishujia0262473/1-178.html" target="_blank"></a>
+                	<table>
+                    	<tr>
+                        	<td><img src="http://img10.artimg.net/newart/2013/1202/1385968162_701443.jpg.small.jpg"  title=""/></td>
+                        </tr>
+                    </table>
+                    <p title="晚宴3">
+                    	<b>晚宴3</b>
+                        <i>￥ 0</i>
+                    </p>
+                </li>
+                                	<li><a href="/yishujia0262473/1-786.html" target="_blank"></a>
+                	<table>
+                    	<tr>
+                        	<td><img src="http://img10.artimg.net/newart/2013/1230/1388401691_298096.jpg.small.jpg"  title=""/></td>
+                        </tr>
+                    </table>
+                    <p title="晚宴20">
+                    	<b>晚宴20</b>
+                        <i>￥ 0</i>
+                    </p>
+                </li>
+                                	<li class="mr0"><a href="/yishujia0262473/1-785.html" target="_blank"></a>
+                	<table>
+                    	<tr>
+                        	<td><img src="http://img10.artimg.net/newart/2013/1230/1388401426_964286.jpg.small.jpg"  title=""/></td>
+                        </tr>
+                    </table>
+                    <p title="晚宴13">
+                    	<b>晚宴13</b>
+                        <i>￥ 0</i>
+                    </p>
+                </li>
+                                  
+            </ul>				
+        </div>
+				 -->
+        <!--作品列表结束-->
+        <!--最新资讯开始-->
+		         <h2 class="fTxt mt20"><span>最新资讯</span>  <a href="/yishujia0262473/info/" target="_blank" class="all">更多</a></h2>
+        <div class="indexNews">
+		             	<dl>
+            	<dt class="fix" ><a href="/yishujia0262473/3-6528.html" target="_blank" >[评论] 妙笔丹青 清雅传世 ——谈李娜的绘画</a></dt>
+                <dd>
+	妙笔丹青 清雅传世
+
+	&mdash;&mdash;谈李娜的绘画
+
+	&nbsp;
+
+	王春辰
+
+	&nbsp;
+
+	中国绘画之特殊，在于它有自身的绵延历史，形成了独特的品画鉴赏原则。经过20世纪的现代美术风潮，可以看到这个独特的绘画审美原则</dd>
+            </dl>
+			        	<dl>
+            	<dt class="fix" ><a href="/yishujia0262473/3-1890.html" target="_blank" >[评论] 民胞物與</a></dt>
+                <dd>
+	民胞物與
+
+	趙力
+
+	&nbsp;
+
+	宋代張載在《西銘》中指出，&ldquo;民吾同胞，物吾與也&rdquo;，即是說民為同胞，物為同類，一切皆為上天所賜，故人類應時刻抱持愛人愛物之心。愛，是人類情感的源泉，也是藝術創作的動</dd>
+            </dl>
+			        	<dl>
+            	<dt class="fix" ><a href="/yishujia0262473/3-349.html" target="_blank" >[评论] 动物主宰与人的世界 ——读李娜的画</a></dt>
+                <dd>
+	新工笔和新水墨，是中国艺术界炙手可热的名词。中国画如何出新意，这是好几代中国画家为之奋斗的目标。在近年来兴起的新水墨和新工笔中，中国画从材料、技法、题材和境界等方面，都获得了重大的突破。中国画进入了</dd>
+            </dl>
+			        	
+        </div>
+		        <!--最新资讯结束-->
+        <!--最新博文开始-->
+                         <h2 class="fTxt mt20"><span>最新博文</span><i>来自艺术家雅昌博客</i><a href="http://blog.artron.net/space-106315.html" target="_blank" class="all">更多</a></h2>		
+        <ul class="blogTxt mt10">         
+                      </ul>
+		  <!-- <div class="noInfo"> 该艺术家暂未发布博文</div> -->
+		                     <!--最新博文结束-->
+        <!--拍卖纪录开始-->
+		         <h2 class="fTxt mt20"><span>拍卖纪录</span><a href="/yishujia0262473/news/#auctionTarget" target="_blank" class="all">更多</a></h2>  
+        <table class="record mt10">
+        	<thead>
+            	<tr>
+                	<th>名称</th>
+                    <th width="180">估价</th>
+                    <th width="100">成交价</th>
+                    <th width="90">拍卖公司</th>
+                    <th width="90">拍卖日期</th>
+                </tr>
+            </thead>
+            <tbody>
+				            	<tr>
+                	<td><a href="http://auction.artron.net/paimai-art0075500425/" target="_blank" title="大圣">大圣</a></td>
+                    <td class="price">RMB 25,000 - 40,000</td>
+                    <td class="strike">--</td>
+                    <td>天津同方</td>
+                    <td class="fmE">2018-06-13</td>
+                </tr>
+            	            	<tr>
+                	<td><a href="http://auction.artron.net/paimai-art0074360243/" target="_blank" title="逝去的风景18">逝去的风景18</a></td>
+                    <td class="price">RMB 40,000 - 45,000</td>
+                    <td class="strike">--</td>
+                    <td>中贸圣佳</td>
+                    <td class="fmE">2018-05-20</td>
+                </tr>
+            	            	<tr>
+                	<td><a href="http://auction.artron.net/paimai-art0071050059/" target="_blank" title="小丫二咪">小丫二咪</a></td>
+                    <td class="price">RMB 15,000 - 15,000</td>
+                    <td class="strike">RMB 16,500</td>
+                    <td>北京古吴轩</td>
+                    <td class="fmE">2017-11-26</td>
+                </tr>
+            	            	<tr>
+                	<td><a href="http://auction.artron.net/paimai-art0062640164/" target="_blank" title="青蛙王子">青蛙王子</a></td>
+                    <td class="price">RMB 8,000 - 8,000</td>
+                    <td class="strike">--</td>
+                    <td>天津德隆</td>
+                    <td class="fmE">2016-12-10</td>
+                </tr>
+            	            	<tr>
+                	<td><a href="http://auction.artron.net/paimai-art0061901731/" target="_blank" title="桃花源44">桃花源44</a></td>
+                    <td class="price">RMB 30,000 - 50,000</td>
+                    <td class="strike">RMB 34,500</td>
+                    <td>北京荣宝</td>
+                    <td class="fmE">2016-12-03</td>
+                </tr>
+            	            	<tr>
+                	<td><a href="http://auction.artron.net/paimai-art5086471739/" target="_blank" title="游园惊梦4">游园惊梦4</a></td>
+                    <td class="price">RMB 8,000 - 15,000</td>
+                    <td class="strike">RMB 101,200</td>
+                    <td>中国嘉德</td>
+                    <td class="fmE">2016-05-16</td>
+                </tr>
+            	           
+            
+            </tbody>
+        </table>
+		         <!--拍卖纪录结束-->
+    </div>
+</div>
+ <div class="pw">
+	<p class="oh contact">买家服务中心: <span class="tel">400 669 0999</span> <a href="mailto:help@artron.net" class="mail">help@artron.net</a></p>
+</div>
+<!-- issue_public/footer.html -->
+<link href="//pubunder.artron.net/issue_public/issue_footer/css/footer.css" rel="stylesheet" type="text/css" />
+<div id="sso_bNav" class="bNav">
+    <a style="background-image: none;" href="http://www.artron.net/aboutus/aboutus.php" target="_blank">关于我们</a><a href="http://minisite.artron.net/product/" target="_blank">产品介绍</a><a href="http://job.artron.net/" target="_blank">人才招聘</a><a href="https://news.artron.net/morenews.php?column_id=119" target="_blank">雅昌动态</a><a href="http://minisite.artron.net/contact/" target="_blank">联系我们</a><a href="http://www.artron.net/map.php" target="_blank">网站地图</a><a href="http://www.artron.net/aboutus/copyright.php" target="_blank">版权说明</a><a href="http://www.artron.net/aboutus/mzsm.php" target="_blank">免责声明</a><a href="http://www.artron.net/aboutus/privacy.php" target="_blank">隐私权保护</a><a href="http://www.artron.net/link.html" target="_blank">友情链接</a><a href="http://www.artron.com.cn" target="_blank">雅昌集团</a><a href="http://www.artron.net/aboutus/adviser.php" target="_blank">专家顾问</a><a href="http://www.artron.net/aboutus/law.php" target="_blank">法律顾问</a>
+</div>
+<div id="sso_copyright">
+    <p><span>Copyright Reserved 2000-2018</span>&nbsp;雅昌艺术网&nbsp;版权所有</p>
+    <p><a href="http://www.artron.net/aboutus/zs.php" target="_blank">电信与信息服务业务经营许可证（粤）<span>B2-20030053</span></a><a href="http://www.artron.net/aboutus/zz_artron.php" target="_blank">广播电视制作经营许可证（粤）字第<span>717</span>号</a><a href="http://www.artron.net/aboutus/yyzzfb.php" target="_blank">企业法人营业执照</a></p>
+    <p><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011302000792" style="display:inline-block;"><img src="//pubunder.artron.net/pubimgs/web/ghs.png" style="float:left;margin-right:5px"><span>京公网安备 11011302000792号</span></a><a href="http://www.miibeian.gov.cn" target="_blank">粤<span>ICP</span>备<span>17056390</span>号-<span>4</span></a><a href="http://www.artron.net/aboutus/vz_artron.php" target="_blank">信息网络传播视听节目许可证<span>1909402</span>号</a><a href="http://www.artron.net/aboutus/hlwymzczs.php" target="_blank">互联网域名注册证书</a><a style="margin-right:0;" href="http://www.12377.cn/" target="_blank">中国互联网举报中心</a></p>
+    <p><a href="http://www.artron.net/aboutus/wh_artron.php" target="_blank">网络文化经营许可证粤网文<span>［2015］1282-139</span>号</a><a href="http://www.artron.net/aboutus/cb_artron.php" target="_blank">网络出版服务许可证<span>（总）网出证（粤）字第021号</span></a><a href="http://www.artron.net/aboutus/cbwjyxkz.php" target="_blank">出版物经营许可证</a><a href="http://www.artron.net/aboutus/zs_site.php" target="_blank">可信网站验证服务证书<span>2012040503023850</span>号</a></p>
+</div>
+
+<div style="bottom: 40px; margin-left: 510px;" id="anchor">
+  <!--<div class="qrCode" style="">
+  	  <b></b>
+      <div class="qr">
+        <div id="code">
+        	<ul>
+            	<li><img src="http://gallery.artron.net/galimgs/weibo.png" alt="微博二维码"><br>
+微博</li>
+                <li class="last"><img src="http://gallery.artron.net/galimgs/weixin.jpg" alt="微信二维码"><br>
+微信</li>
+            </ul>
+        </div>
+      </div>
+  </div>-->
+  <div style="display: block;" id="toTop" class="ah" title="返回顶部">返回顶部</div>
+  <a id="message" href="http://help.artron.net/service.php" target="_blank" title="意见反馈">意见反馈</a></div>
+
+<div id="mask"></div>
+<div id="qrPop">
+	<div class="qrLeft"></div>
+    <div class="qrRight">
+    <a class="qrClose" href="javascript:;" title="关闭">关闭</a>
+		        <dl>
+        	<dt><img id="qrPopImg" src="http://qrcode.artron.net/?type=artist&id=A0262473&el=12&margin=2" width="158" height="158" alt="微官网二维码" /></dt>
+            <dd><h3>李娜</h3><p class="qrPs">扫一扫上面的二维码图形<br />就可以关注我的手机官网</p></dd>
+        </dl>
+		
+<div class="bdsharebuttonbox" data-tag="share_new">
+<span>分享到：</span>
+<a class="bds_tsina" data-cmd="tsina"></a>
+<a class="bds_tqq" data-cmd="tqq"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+</div>
+<img id="counts" src="" width="0" height="0">
+<script>
+window._bd_share_config = {
+	common : {
+		bdText : '欢迎订阅李娜艺术家微官网',
+		//bdDesc : '摘要',
+		bdUrl : 'http://artist.artron.net/yishujia0262473',
+		bdPic : 'http://qrcode.artron.net/?type=artist&id=A0262473&el=12&margin=2'
+	},
+	share : [{
+		"bdSize" : 24
+	}],
+
+	image : [{
+	   "tag" : "share_new",
+		viewType : 'list',
+		viewPos : 'top',
+		viewColor : 'black',
+		viewSize : '24',
+		viewList : ['qzone','tsina','huaban','tqq','renren']
+	}]
+}
+with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+$("#counts").attr("src","/yishujia0262473/count/add");
+</script>
+		<!--统计代码-->
+		<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'hm.baidu.com/hm.js?851619594aa1d1fb8c108cde832cc127';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</div>
+</div>
+</body>
+</html>

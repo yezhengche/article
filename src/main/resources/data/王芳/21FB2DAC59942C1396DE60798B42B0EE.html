@@ -1,0 +1,3399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+<title>王芳_广医三院</title>
+<link rel="stylesheet" type="text/css" href="http://i1.hdfimg.com/partner/sohu/950.css" />
+<link rel="stylesheet" type="text/css"	href="http://i1.hdfimg.com/partner/css/page_bar.css" />
+<link rel="stylesheet" type="text/css"	href="http://i1.hdfimg.com/partner/css/common.css?1350483410" />
+<link href="http://i1.hdfimg.com/partner/css/css.css" rel="stylesheet"	type="text/css" />
+<script language="javascript" src="http://i1.hdfimg.com/js/jquery.js"></script>
+<script language="javascript" src="http://i1.hdfimg.com/partner/js/common.js"></script>
+<style>
+body {
+	margin: 0px auto;
+	font-size: 12px;
+	background-color: #ffffff;
+	text-align:left;
+}
+</style>
+<script language="javascript">
+//看病过程,如果有选不满意则弹出联系方式让填写
+function check_skill_attitude()
+{
+	$('#moreinputbox_mobile_3').css('display', 'none');
+    if($('#skill').attr('value')==0 
+        || $('#skill').attr('value')==1)
+	{
+		$('#moreinputbox_mobile_3').css('display', 'block');
+	}		
+}
+//改造一下
+function checkMobile2(mobile)
+{
+    var reg0=/^(1[34578][0-9]{9})$/;   //1开头。至少7位
+	 if (reg0.test(mobile)){
+	 	return true;
+	 }else
+	 {
+	 	return false;
+	 }
+}
+function checkform()
+{
+    var obj = $("#inputform")[0];
+	if (($.trim(obj.disease.value) == "") || (obj.disease.value == "请填入正确的疾病名称")) {
+		alert("请输入疾病名称!");
+		obj.disease.focus();
+		return false;
+	}
+	if (obj.disease.value.length > 100) {
+		alert("疾病名称不能大于50字！");
+		obj.disease.focus();
+		return false;
+	}
+	if (obj.skill.value == -2) {
+		alert("请选择疗效！");
+		obj.skill.focus();
+		return false;
+	}
+	if (obj.attitude.value == -2) {
+		alert("请选择态度！");
+		obj.attitude.focus();
+		return false;
+	}
+	if (obj.registerrate.value == -2) {
+		alert("请选择挂号难度！");
+		obj.registerrate.focus();
+		return false;
+	}
+	var reg = /^请注意/;
+	if (reg.test(obj.content_fix_0.value)) {
+		alert("请输入的评论内容");
+		obj.content_fix_0.focus();
+		return false;
+	}
+	/*
+    if(obj.verifystr.value =='')
+    {
+        alert('请输入验证码');
+        return false;
+    }
+	 */
+	if ($.trim(obj.content_fix_0.value).length < 50) {
+		alert("您输入的评论内容不能少于50个字!");
+		obj.content_fix_0.focus();
+		return false;
+	}
+	if (obj.content_fix_0.value.length > 5000) {
+		alert("您输入的评论内容不能大于5000个字!");
+		obj.content_fix_0.focus();
+		return false;
+	}
+	obj.fld_UserRealName.value = jQuery.trim(obj.fld_UserRealName.value);
+	if ((obj.fld_UserRealName.value == "")) {
+		alert("请输入真实姓名!");
+		obj.fld_UserRealName.focus();
+		return false;
+	}
+	if(obj.fld_UserRealName.value.replace(/([\u4E00-\u9FA5\uf900-\ufa2d])/g,'**').length>20)
+	{
+		alert("患者姓名不能超过20个字符");
+		obj.fld_UserRealName.focus();
+		return false;
+	}
+
+	obj.fld_UserMobile.value = jQuery.trim(obj.fld_UserMobile.value);		
+	if ((obj.fld_UserMobile.value == "")) {
+		alert("请输入手机号码!");
+		obj.fld_UserMobile.focus();
+		return false;
+	}		
+	if (checkMobile2(obj.fld_UserMobile.value)==false) {
+		alert("请输入正确的手机号码!");
+		obj.fld_UserMobile.focus();
+		return false;
+	}
+	tmp_content = "";	
+	
+	if(obj.content_fix_0.value.length>1)
+	{
+		tmp_content += jQuery.trim(obj.content_fix_0.value);
+		tmp_content += "\r\n";
+	}
+
+    $.post('ajaxCheckSensComment',{'content':tmp_content},function(data){
+        var odata = eval('(' + data + ')');
+        if (odata.issens == 1)
+        {
+            alert("内容内包含敏感词,无法提交");
+        }
+        else
+        {
+            alert("看病过程发表成功，我们将在3个工作日内进行审核，通过后才能被展示！");
+            obj.content.value = jQuery.trim(tmp_content);
+
+            obj.btn.value='发表中...';
+            obj.btn.disabled = true;
+            obj.submit();
+            return true;
+        }
+    });
+}
+function showVoteBox(){
+	tb_show("给大夫投票", "#TB_inline?height=166&width=260&inlineId=voteFormContent&modal=true");
+}
+function showJieShao(){
+	tb_show("大夫介绍", "#TB_inline?height=300&width=550&inlineId=jieshaoContent");
+}
+function closePopDiv(){
+	tb_remove();
+}
+
+function wordNumberNotice(input_el, notice_el, word_number){
+	var num = Math.ceil($(input_el).val().length);
+	if (word_number-num > 0) {
+		$(notice_el).html('你还需要输入'+(word_number-num)+'个字才能发表');
+	} else {
+		$(notice_el).html('');
+	}
+}
+</script>
+</head>
+<body>
+<div align="center"> 
+<iframe src="http://health.sohu.com/7/0803/17/column212301760.shtml
+" frameBorder=0 scrolling=no class="navi" width="990" height="130"></iframe> 
+</div>  
+
+<div class="width_yy"><a href="/">搜狐健康</a>
+&gt; <a href="/province/all.htm">医院列表</a> &gt; <a
+	href="/province/guangdong.htm">广东</a>
+&gt; <a
+	href="/yiyuan/DE4roiYGYZwXCnUz-mzZSmmxP.htm">广医三院</a>
+&gt; <a
+	href="/faculty/DE4rO-XCoLUE-b21ObWl99uMTa.htm">妇科</a>
+&gt; <a
+	href="/doctor/DE4r0BCkuHzdeGIJ8VmRDydDzVOlL.htm">王芳</a>
+</div>
+<div class="width_yy" id="ss">
+<ul>
+	<li class="bg_l"><a href="/" class="bg_l" style="text-decoration:   none">医生 <span>Doctor</span></a></li>
+	<li class="bg_c">
+	<form action="/search/showlist" method="get">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td><input class="top_input" name="k" /></td>
+			<td width="10"></td>
+			<td width="60">
+			<input type="image"	src="http://i1.hdfimg.com/partner/images/search.gif" width="48" height="23" style="border: none" />
+			</td>
+            			<td width="60">
+			<a href="/thread/ask.htm"><img src="http://i1.hdfimg.com/partner/images/wytw.gif" /></a>
+			</td>
+			<td align="right" valign="middle">&nbsp;&nbsp;全国<span>3175</span>家重点医院,<span>303367</span>名专家</td>
+            		</tr>
+	</table>
+</form>
+	</li>
+	<li class="bg_r"></li>
+</ul>
+</div>
+<div class="width_yy">
+<div class="yyleft">
+<div class="yy">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="title">
+	<tr>
+		<td class="bg_l">&nbsp;</td>
+		<td class="bg_c">
+		<table border="0" cellspacing="0" cellpadding="0" class="tit_bg">
+			<tr>
+				<td>王芳</td>
+				<td class="tit_bg_r">&nbsp;</td>
+			</tr>
+		</table>
+	  
+<span><a href="/thread/ask.htm?host_id=2872593" style="color: #F00;">王芳大夫已开通个人网站，向王芳咨询</a></span>
+</td>
+		<td class="bg_r">&nbsp;</td>
+	</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="listxx font14">
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/faculty16.gif" width="10"
+			height="14" /></td>
+		<td width="95%">科 室: <a
+			href="/faculty/DE4rO-XCoLUE-b21ObWl99uMTa.htm"
+			class="blue font14">广州医科大学附属第三医院妇科</a>
+		( <a
+			href="/yiyuan/DE4roiYGYZwXCnUz-mzZSmmxP.htm"
+			class="blue font14">医院联系方式</a> <a
+			href="/faculty/DE4rO-XCoLUE-b21ObWl99uMTa.htm"
+			class="blue font14">科室介绍</a> )</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/icon_post.gif" width="12"
+			height="14" /></td>
+		<td width="95%">职 称: 主任医师 副教授</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/icon_flag.gif" width="12"
+			height="14" /></td>
+		<td width="95%">擅 长: 不孕不育的诊断与药物治疗；因卵巢功能异常造成的不孕，夫精人工授精技术，绝经相关疾病与激素治疗，月经病（如闭经、溢乳、闭经综合征多，卵巢综合征 卵巢早衰和子宫内膜异位症的药物治疗等；复发性流产的治疗</td>
+	</tr>
+    <!--start add element-->
+    <style>
+       .sohu-zixun{ padding-top:5px;}
+       .sohu-zixun-l{ width:10%; background:url( http://i1.hdfimg.com/www/images/icon_xxzxy_03.gif) no-repeat left center; padding-left:33px; }
+       .sohu-jiahao-l { width:10%; background:url( http://i1.hdfimg.com/www/images/icon_xxzxy_11.gif) no-repeat left center; padding-left:33px; }
+       .sohu-zixun-c{ width:65%;}
+       .sohu-zixun p{ line-height:220%;}
+       .sohu-zixun-b{ width:19%;}
+       .fl{ display:inline; float:left;}
+       .fr{ display:inline; float:right;}
+       .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+        }
+        .clearfix{display:inline-block;}
+        * html .clearfix{height:1%;}
+        .clearfix{display:block;}
+        .xxzx_button {
+        background: url("http://i1.hdfimg.com/www/images/anniu_xxzxy_03.gif") no-repeat scroll 0 0 transparent;
+        display: block;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        text-decoration: none;
+        width: 100px;
+        margin-left:30px;
+    }
+    </style>
+        <tr>
+          <td colspan="2">
+             <div class="sohu-zixun clearfix">
+                <div class="sohu-zixun-l fl"><p>网上咨询：</p></div>
+                <div class="sohu-zixun-c fl">
+
+                    <p>不孕不育的诊断与药物治疗；因卵巢功能异常造成的不孕，夫精人工授精技术，绝经相关疾病与激素治疗，月经病（如闭经、溢乳、闭经...</p>
+                    <p>(患者提问:<span class="orange">789</span>问 王芳本人已回复:<span class="orange">789</span>问)</p>
+                </div>
+                <div class="sohu-zixun-r fr">
+                    <a class="xxzx_button" href="/thread/ask.htm?host_id=2872593">咨询王芳</a>
+                </div>
+             </div>
+          </td>
+   </tr>
+              <!--end add element-->
+	<tr>
+		<td colspan="2" class="blue_line">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu/icon_flower.gif" width="12"
+			height="14" /></td>
+		<td width="95%">患者投票</td>
+	</tr>
+	<tr>
+		<td width="5%">&nbsp;</td>
+		<td width="95%">		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="12%">疗效:</td>
+				<td width="28%"><img
+					src="http://i1.hdfimg.com/partner/images/purple1.gif" height="8"
+					width="97" /><img
+					src="http://i1.hdfimg.com/partner/images/purple3.gif" height="8"
+					width="2" /></td>
+				<td width="30%">满意度:97%</td>
+				<td rowspan="2" width="30%"><a href="#comment"><img
+					src="http://i1.hdfimg.com/images/common/tou.gif" /></a></td>
+			</tr>
+			<tr>
+				<td>态度:</td>
+				<td><img
+					src="http://i1.hdfimg.com/partner/images/purple1.gif" height="8"
+					width="95" /><img
+					src="http://i1.hdfimg.com/partner/images/purple3.gif" height="8"
+					width="4" /></td>
+				<td>满意度:95%</td>
+			</tr>
+			<tr>
+				<td colspan="4"> <a
+					href="http://dise.health.sohu.com/disease-2783.shtml"
+					class="blue">不孕不育</a>(31票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2747.shtml"
+					class="blue">多囊卵巢综合征</a>(14票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2777.shtml"
+					class="blue">习惯性流产</a>(3票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/chanqianjiancha.htm"
+					class="blue">产前检查</a>(3票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/gongqiangjing.htm"
+					class="blue">宫腔镜</a>(3票)&nbsp;
+					 <a
+					href="http://health.sohu.com/s2007/yunyushouce/index.shtml"
+					class="blue">孕前检查</a>(2票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/luanchaozaoshuai.htm"
+					class="blue">卵巢早衰</a>(2票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/liuchan.htm"
+					class="blue">流产</a>(2票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2753.shtml"
+					class="blue">闭经</a>(2票)&nbsp;
+					 <a
+					href="http://health.sohu.com/gyneoopathy/"
+					class="blue">妇科病</a>(2票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2774.shtml"
+					class="blue">月经失调</a>(1票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/shuluanguandusai.htm"
+					class="blue">输卵管堵塞</a>(1票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/weichanbaojian.htm"
+					class="blue">围产保健</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/gongjingmilan.htm"
+					class="blue">宫颈糜烂</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/buyunzheng.htm"
+					class="blue">不孕症</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/rengongshoujing.htm"
+					class="blue">人工授精</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/penqiangyan.htm"
+					class="blue">盆腔炎</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/zaoyunfanying.htm"
+					class="blue">早孕反应</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/gaomirusuxuezheng.htm"
+					class="blue">高泌乳素血症</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/xianzhaoliuchan.htm"
+					class="blue">先兆流产</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/taiting.htm"
+					class="blue">胎停</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/ziranliuchan.htm"
+					class="blue">自然流产</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/qiaokelinangzhong.htm"
+					class="blue">巧克力囊肿</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/shiguanyinger.htm"
+					class="blue">试管婴儿</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2925.shtml"
+					class="blue">子宫内膜息肉</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2752.shtml"
+					class="blue">功能性子宫出血</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2784.shtml"
+					class="blue">子宫肌瘤</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2776.shtml"
+					class="blue">子宫内膜异位症</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2742.shtml"
+					class="blue">宫颈炎</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/diseaseSearch.sip?item=阴道炎&pageNo=1&onePageNo=20&flag=common"
+					class="blue">阴道炎</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2781.shtml"
+					class="blue">宫外孕</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2777.shtml"
+					class="blue">人流</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2746.shtml"
+					class="blue">更年期综合症</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2741.shtml"
+					class="blue">卵巢囊肿</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2733.shtml"
+					class="blue">男性不育</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/disease-2776.shtml"
+					class="blue">子宫腺肌症</a>(0票)&nbsp;
+					 <a
+					href="http://dise.health.sohu.com/dept-2025.shtml"
+					class="blue">妇科检查</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/jihuashengyu.htm"
+					class="blue">计划生育</a>(0票)&nbsp;
+					 <a
+					href="http://health.sohu.com/fkyz/"
+					class="blue">妇科炎症</a>(0票)&nbsp;
+					 <a
+					href="http://www.haodf.com/jibing/juejing.htm"
+					class="blue">绝经</a>(0票)&nbsp;
+					</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+				<table width="60%" cellpadding="0" cellspacing="0" align="right">
+					<tr>
+						<td>图例:</td>
+						<td>满意</td>
+						<td><img height="5" src="http://i1.hdfimg.com/partner/images/purple1.gif"
+							width="20" /></td>
+						<td>一般</td>
+						<td><img height="5" src="http://i1.hdfimg.com/partner/images/purple2.gif"
+							width="20" /></td>
+						<td>不满意</td>
+						<td><img height="5" src="http://i1.hdfimg.com/partner/images/purple3.gif"
+							width="20" /></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu//icon_introduce.gif" width="14"
+			height="14" /></td>
+		<td width="95%">大夫介绍</td>
+	</tr>
+	<tr>
+		<td width="5%">&nbsp;</td>
+		<td width="95%"> 王芳，女，主任医师，副教授，从1997年西安医科大学毕业后一直从事妇产科临床、教学及科研工作。2002年攻读中科院海洋生		...<a
+			href="javascript:display_div('block', 'doctorintro');" class="blue">完整介绍&gt;&gt;</a>
+			</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="blue_line">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top"><img style="margin-top: 4px;"
+			src="http://i1.hdfimg.com/hz/images/sohu//icon_date.gif" width="14"
+			height="14" /></td>
+		<td width="95%">出诊时间</td>
+	</tr>
+	<tr>
+		<td width="5%"></td>
+		<td width="95%" style="font-size: 12px;">
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td align="right">
+				<table width="100%" cellpadding="1" cellspacing="0">
+					<tr>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_green.gif" align="absmiddle" /><span class="normal">普通门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_red.gif" align="absmiddle" /><span class="normal">专家门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_yellow.gif" align="absmiddle" /><span class="normal">特需门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_blue.gif" align="absmiddle" /><span class="normal">专科门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_purple.gif" align="absmiddle" /><span class="normal">会诊中心</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_blue2.gif" align="absmiddle" /><span class="normal">夜间门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_red.gif" align="absmiddle" /><span class="normal">门诊+手术门诊</span></td>
+                                                <td><img src="http://i1.hdfimg.com/images/doctor/star_brown.png" align="absmiddle" /><span class="normal">其他门诊</span></td>
+                        					</tr>
+				</table>
+
+				<table width="100%" cellpadding="0" cellspacing="0"
+					class="table_yellow">
+					<tr>
+						<td width="16%" class="yellowtext">&nbsp;</td>
+						<td width="12%" align="center" class="yellowtext">周一</td>
+						<td width="12%" align="center" class="yellowtext">周二</td>
+						<td width="12%" align="center" class="yellowtext">周三</td>
+						<td width="12%" align="center" class="yellowtext">周四</td>
+						<td width="12%" align="center" class="yellowtext">周五</td>
+						<td width="12%" align="center" class="yellowtext">周六</td>
+						<td width="12%" align="center" class="yellowtext">周日</td>
+					</tr>
+										<tr>
+						<td class="yellowtext">上午</td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+											</tr>
+										<tr>
+						<td class="yellowtext">下午</td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+													 
+							<img src="http://i1.hdfimg.com/images/doctor/star_red.gif" />
+							                            <span class="expert">
+                                                        </span>
+							<br> 
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+											</tr>
+										<tr>
+						<td class="yellowtext">夜间</td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+						
+						<td><nobr>
+												</nobr></td>
+											</tr>
+									</table>
+
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+<table width="100%" cellpadding="3" cellspacing="0"
+	style="margin-top: 10px">
+	<tr>
+		<td align="left" style="background-color: #FFF4E3; color: #E3961E;">王芳大夫发布的门诊提示</td>
+	</tr>
+	<tr>
+		<td>
+		<table width="100%" cellpadding="0" cellspacing="0">
+								<tr>
+				<td align="right"><span class="gray">(由王芳大夫本人发表于2018-05-23 17:20)</span></td>
+			</tr>
+
+			<tr>
+				<td height="40" align="right"><a
+					href="http://www.haodf.com/senderr/" class="blue">信息有错误？请点击这里&gt;&gt;</a></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+			</div>
+<div class="yy">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="title">
+	<tr>
+		<td class="bg_l">&nbsp;</td>
+		<td class="bg_c">
+		<table border="0" cellspacing="0" cellpadding="0" class="tit_bg">
+			<tr>
+				<td>找王芳大夫的看病经验</td>
+				<td class="tit_bg_r">&nbsp;</td>
+			</tr>
+		</table>
+		</td>
+		<td class="bg_r">&nbsp;</td>
+	</tr>
+</table>
+<div style="font-size: 14px; text-align: right">
+<a href="#comment" class="red">发表就医经验>></a></div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="listxx">
+	<tr>
+		<td class="gray">以下言论未经核实，仅为网友个人观点，不代表本站同意其说法，本站不承担由此引起的法律责任。请阅读者谨慎参考。</td>
+	</tr>
+	<tr>
+    <td>		<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 邓*** </td>
+				<td>时间：2018年05月28日13时45分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://www.haodf.com/jibing/luanchaozaoshuai.htm" class="blue">卵巢早衰</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				王主任是位经验丰富、和蔼可亲、认真负责、为病人着想，耐心指导用药，用药后睡眠、焦虑、月经紊乱有所缓解 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 唐*** </td>
+				<td>时间：2018年05月26日17时41分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-2783.shtml" class="blue">不孕不育</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物、其他<br> 
+				朋友，表姐，都是王医生治好的。我心里有着希望，虽然每次都要连夜赶高铁提前过去。辛苦也愿意。希望我能在王医生治疗下尽快好孕。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 王*** </td>
+				<td>时间：2018年05月22日16时37分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://www.haodf.com/jibing/chanqianjiancha.htm" class="blue">产前检查</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				好医生，很负责任的一个医生，对患者都很认真负责，第一次到广医三院就是找王芳医生的。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 龚*** </td>
+				<td>时间：2018年05月12日22时39分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-2783.shtml" class="blue">不孕不育</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				王芳医生。很仔细且行且珍惜。这次机会，非常感谢！以前来大姨妈肚子痛。吃过王芳主任医师开的要现在不痛了。 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 陆*** </td>
+				<td>时间：2018年05月07日18时44分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-2783.shtml" class="blue">不孕不育</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				王主任看不孕很厉害，14年的时候我经别人介绍去看病，半年的时间我怀孕了生了一个健康的宝宝，现在老公想要二胎，一直都没有怀上，今年又去找王主任，正在等待中，希望我好孕 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 潘*** </td>
+				<td>时间：2018年05月03日08时51分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-2747.shtml" class="blue">多囊卵巢综合征</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				自青春期就月经不好，2.3月不来，多囊，经亲戚介绍找的王主任，调理跟监测卵泡差不多一年，已成功怀孕，希望一切顺利平安，多谢王主任的帮忙，服务态度好，给人感觉亲切，不看到最后一个病人不下班，辛苦了，非常感激 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 陈*** </td>
+				<td>时间：2018年04月27日07时25分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-2783.shtml" class="blue">不孕不育</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>手术<br> 
+				王医生！看病速度快，准，稳！细心，认真，非常复责任！值得大家信任！ </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 黄*** </td>
+				<td>时间：2018年04月20日13时45分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-2783.shtml" class="blue">不孕不育</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				积极配合医生的治疗方案，按时按量服药，自身多运动，锻炼身体，保持积极的心态 </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 朱*** </td>
+				<td>时间：2018年04月05日18时46分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-2783.shtml" class="blue">不孕不育</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				王芳主任看病时很认真仔细，态度很好，即使很忙，也会耐心跟病人讲解，很负责任，能站在病人角度考虑，能为病人着想，是一位有责任心有医德的好医生。希望自己能在王主任的帮助下成功怀孕(^O^) </td>
+			</tr>
+		</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="tab_top">
+			<tr>
+				<td width="15%" rowspan="4" align="center"
+					style="vertical-align: top; padding-top: 10px"><img
+					src="http://i1.hdfimg.com/hz/images/sohu//portrait_2.gif" />&nbsp;</td>
+				<td width="35%">患者： 李*** </td>
+				<td>时间：2018年04月03日11时00分</td>
+			</tr>
+			<tr>
+                <td>疾病：<span class="black"> 				 <a href="http://dise.health.sohu.com/disease-2783.shtml" class="blue">不孕不育</a></span></td>
+				<td>态度：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td>疗效：<span class="maroon">很满意</span></td>
+			</tr>
+			<tr>
+				<td height="28" colspan="3"><span class=gray>治疗方式：</span>药物<br> 
+				灰常好好 </td>
+			</tr>
+		</table>
+		 
+
+		</td>
+	</tr>
+</table>
+</div>
+<div class="yy">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"
+	class="title">
+	<tr>
+		<td class="bg_l">&nbsp;</td>
+		<td class="bg_c">
+		<table border="0" cellspacing="0" cellpadding="0" class="tit_bg">
+			<tr>
+				<td>发表就医经验，帮助更多患友了解王芳大夫！<a id="comment"
+					name="comment"></a>&nbsp;<!--这个空格不要删除，这关系到ie兼容性--></td>
+				<td class="tit_bg_r">&nbsp;</td>
+			</tr>
+		</table>
+		</td>
+		<td class="bg_r">&nbsp;</td>
+	</tr>
+</table>
+<form action="http://www.haodf.com/api/doctor/addcomment"
+	method="post" name="inputform" id="inputform">
+    <input name="patient[id]" value="-1" type="hidden">
+<table id="inputcomment" width="100%" cellpadding="0" cellspacing="0"
+	style="border: 1px solid #ddd;">
+	<tr>
+		<td colspan="2" class="hdf_content" style="padding: 8px">
+		<table width="100%" cellpadding="0" cellspacing="0">
+
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				疾病名称:&nbsp;</td>
+				<td><input name="disease" style="width: 180px; font-size: 12px;"
+					maxlength="10" /> <span class=red>*</span></td>
+			</tr>
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				治疗方式:&nbsp;</td>
+				<td><input name="fld_DoctorCommentRemedy"
+					style="width: 180px; font-size: 12px;" maxlength="10" /> <span
+					class="gray">如：药品名、手术名(腹腔镜、介入治疗)...</span></td>
+			</tr>
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr>
+				<td align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				疗效/医术:&nbsp;</td>
+				<td><select id="skill" name="skill" style="width: 140px;">
+					<option value="-2" selected="selected">请选择</option>
+					<option value="5">很满意</option>
+					<option value="3">满意</option>
+					<option value="1">一般</option>
+					<option value="0">不满意</option>
+					<option value="-1">还不知道</option>
+				</select> <span class=red>*</span> &nbsp;&nbsp;&nbsp;&nbsp;<img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				耐心/态度:&nbsp; <select id="attitude" name="attitude"
+					style="width: 140px;">
+					<option value="-2" selected="selected">请选择</option>
+					<option value="5">很满意</option>
+					<option value="3">满意</option>
+					<option value="1">一般</option>
+					<option value="0">不满意</option>
+				</select> <span class=red>*</span></td>
+			</tr>
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr align="left">
+				<td align=right valign=top><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				看病过程:&nbsp;</td>
+				<td><textarea
+					onkeyup="wordNumberNotice(this, $('#notice_word_number'), 50)"
+					rows="12" style="font-size: 12px; color: #666" class="tex_width"
+					name="content_fix_0"
+					onfocus="var reg = /^请注意/;if (reg.test(this.value)){this.value='';this.style.color='#000'}">请注意:
+1. 只有您在王芳大夫处就医后，才能发表看病经验。
+2. 分享看病经验要求公正、客观、详实。涉及“医疗纠纷”的，需提供法院已生效的法律文书，经审核，对事实清楚、证据充分、合法有效的，可予以发表。
+3. 无事实根据，发布损毁医生名誉的不实言论，发布者需承担相应法律责任。
+					</textarea> <span class=red>*</span><br />
+				<span id="notice_word_number" style="color: #F00;"></span></td>
+			</tr>
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+		</table>
+
+		<div id="moreinputbox_mobile_3">
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				真实姓名:&nbsp;</td>
+				<td><input style="WIDTH: 140px; FONT-SIZE: 12px" size="18"
+					name="fld_UserRealName" maxlength="20" /> <span class="orange">*</span></td>
+			</tr>
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+			<tr>
+				<td width="15%" align=right><img
+					src="http://i1.hdfimg.com/hz/images/sohu/orange_arrow.gif" />
+				手机号码:&nbsp;</td>
+				<td><input style="WIDTH: 140px; FONT-SIZE: 12px" size="18"
+					name="fld_UserMobile" maxlength="11" /> <span class="orange">*</span></td>
+			</tr>
+			<!--
+				<tr>
+						<td>请输入计算结果:</td>
+						<td>
+                        <span id="show_captcha_article"><img id='captcha' name='captcha' src="http://www.haodf.com/captcha.php?type=article&width=120&height=35&token=UGZeJwBmATEAMwZgUDsKZ1czCm4FIVtqCmQIa1MwUj5SZwNhAGBcZFxuATBWZF1tWmMKOwdtDHgOZ1YzVzAFYFBiXjo" /></span>
+                        <input type="text" size="4" style="height:28px" name="verifystr" id="verifystr" value="" />
+						</td>
+				</tr>
+				-->
+			<tr>
+				<td></td>
+				<td>1.您必须自己在大夫处就医过，才能发表。<br />
+				2.就医过程需要公正，客观，详实。无事实依据有可能被删除。 <br />
+				注意：请填写您的真实姓名和手机号码，联系方式不会在网页上公开。
+				如遇到投诉的时候我们会及时联系您。如果无法联系到您本人核实，您的评论可能会被删除。</td>
+			</tr>
+		</table>
+		</div>
+
+		<table width="100%" cellpadding="0" cellspacing="0">
+
+			<tr>
+				<td height="5" colspan=2></td>
+			</tr>
+
+			<tr align="left">
+
+				<td width="15%" align=right valign=top></td>
+				<td><input type="button" name="btn" style="padding-top: 3px;" onclick="return checkform();" value="发表就医经验" /> 
+                            <input type="hidden" name="token" id="token" value="UGZeJwBmATEAMwZgUDsKZ1czCm4FIVtqCmQIa1MwUj5SZwNhAGBcZFxuATBWZF1tWmMKOwdtDHgOZ1YzVzAFYFBiXjo" />
+					<input
+					type="hidden" name="expenserate" value="-2" /> <input type="hidden"
+					name="doctor_id_primary" value="243043" /> <input
+					type="hidden" name="doctor_id" value="243043" /> <input
+					type="hidden" name="doctor_name" value="王芳" /> <input
+					type="hidden" name="type" value="2" id="TYPE" /> <input
+					type="hidden" name="from" value="" /> <input type="hidden"
+					name="domain" value="" /> <input type="hidden" name="registerrate"
+					value="-1" /> <input type="hidden" name="content" value="" /> <input
+					type="hidden" name="comment_type" value="3" /></td>
+                    <input type="hidden" name="crumb" value="02b01144" />
+                    <input type="hidden" name="isHezuo" value="1" />
+			</tr>
+		</table>
+
+
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+</div>
+
+<div class="yyright">
+<div class="clear yyright_s"> <div class="clear yyright_s" style="border-top: 1px solid #dddddd">
+<div style="padding: 16px; text-align: center;">
+<button style="height:29px; line-height: 24px; padding: 0 5px;" onclick="window.open('http://wangfangkx.haodf.com/','newwindow');">访问王芳个人网站</button>
+</div>
+ <div class="top_bg">王芳 同专业推荐大夫</div>
+<table width="94%" cellspacing="0" cellpadding="0"
+	style="margin-left: 7px; margin-top: 7px">
+
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2783.shtml" class="blue">不孕不育</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdexpYCp78SzvH6fbnp.htm">
+			艾爱</a>(254票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeKULhWWJs56FCrgRH.htm">
+			孙贇</a>(188票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwX-IqNN8Z2K18e0.htm"
+			title="仁济医院">
+			仁济医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdexbnQBHeCoEzBhPT2.htm">
+			嵇玉蓉</a>(175票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwECnbML76GGU71e.htm"
+			title="苏北人民医院">
+			苏北人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeGEHBwb1qIYC2U8VE.htm">
+			徐步芳</a>(194票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhEaCFVHDuJVht.htm"
+			title="上海瑞金医院">
+			上海瑞金医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2783.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2747.shtml" class="blue">多囊卵巢综合征</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeipYJ1Pi3poYKbews.htm">
+			柳顺玉</a>(202票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6Omx7149dVHU9sf.htm"
+			title="北京妇产医院">
+			北京妇产医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduw0J55vRDydDzVOlL.htm">
+			杜伯涛</a>(113票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmhXIKBtDEBxt8k.htm"
+			title="哈医大二院">
+			哈医大二院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPvzFx49LoalFRy9w.htm">
+			郁琦</a>(65票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBvlFCBFq-tVG1BZ1.htm">
+			阮祥燕</a>(98票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6Omx7149dVHU9sf.htm"
+			title="北京妇产医院">
+			北京妇产医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2747.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2777.shtml" class="blue">习惯性流产</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLuGmC4fCGGbOLh9BQ.htm">
+			郑鹏生</a>(402票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmxabML76GGU71e.htm"
+			title="西安交通大学第一附属医院">
+			西安交通大学第一附属医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdexo0-psPGYy9dgccG.htm">
+			鲍时华</a>(298票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LugRZkTzvNPhdeozGolC54J.htm">
+			李国华</a>(163票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLFhokgIyyMxUNjSNk.htm">
+			付锦华</a>(155票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwEy5uuYe-Bqregr.htm"
+			title="潍坊市人民医院">
+			潍坊市人民医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2777.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/chanqianjiancha.htm" class="blue">产前检查</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNgzfyc7PzUduYK1csFmfb.htm">
+			王大鹏</a>(223票)</td>
+		<td><a
+			href="/yiyuan/DE4r0Fy0C9LuhMhWi2U3XWLPECdSRGpar.htm"
+			title="北京圣宝妇产医院">
+			北京圣宝妇产医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLuGYir8upZO0ZUs6x.htm">
+			贺译平</a>(315票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmKOqNN8Z2K18e0.htm"
+			title="西北妇女儿童医院">
+			西北妇女儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLFwXKr8upZO0ZUs6x.htm">
+			段明英</a>(158票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwEy186yaYLonaQx.htm"
+			title="济南市妇幼保健院">
+			济南市妇幼保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLFwXK7Pv5LwmK7DLi.htm">
+			韩万凤</a>(179票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwEy186yaYLonaQx.htm"
+			title="济南市妇幼保健院">
+			济南市妇幼保健院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/chanqianjiancha.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/gongqiangjing.htm" class="blue">宫腔镜</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNKNZNhaMkrDyZYjeZpcO4.htm">
+			谢晖亮</a>(261票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwX-IqNN8Z2K18e0.htm"
+			title="仁济医院">
+			仁济医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNDy4dh0yPDoLH6TmC9xRR.htm">
+			马宁</a>(169票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWgORxEH4FVECt.htm"
+			title="北京复兴医院">
+			北京复兴医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdehnJ4VWJs56FCrgRH.htm">
+			汪清</a>(187票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNDQVgojeN5hXILgazS1lW.htm">
+			帅文</a>(231票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/gongqiangjing.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://health.sohu.com/s2007/yunyushouce/index.shtml" class="blue">孕前检查</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdexOMhWYj6dZX-ciU9.htm">
+			张颖</a>(30票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXJb9quPKsNiPfO.htm"
+			title="天津总医院">
+			天津总医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNwzexpnMHEqIqpOOMCeP0.htm">
+			苟江</a>(22票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwIxb9quPKsNiPfO.htm"
+			title="西安市第四医院">
+			西安市第四医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLeDNVl-pF9fQsVXyf.htm">
+			邱波</a>(40票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0yU22m0TUy35vjf.htm"
+			title="成都市妇女儿童中心医院">
+			成都市妇女儿童中心医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNwWwMipmmT1o55twNygxV.htm">
+			马瑞芝</a>(14票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwEJrBdz13dpO1a1.htm"
+			title="胜利油田中心医院">
+			胜利油田中心医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://health.sohu.com/s2007/yunyushouce/index.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/luanchaozaoshuai.htm" class="blue">卵巢早衰</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUaLBv0h7UcoLDoWk.htm">
+			滕秀香</a>(100票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXwIaCFVHDuJVht.htm"
+			title="北京中医医院">
+			北京中医医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdexpYCp78SzvH6fbnp.htm">
+			艾爱</a>(16票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLf-UYkZLYsexE0YC8.htm">
+			房繄恭</a>(16票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXKpqNN8Z2K18e0.htm"
+			title="中医科学院针灸医院">
+			中医科学院针灸医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLeD0Son-CyPwMiuK4.htm">
+			朱梅</a>(89票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXwIaCFVHDuJVht.htm"
+			title="北京中医医院">
+			北京中医医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/luanchaozaoshuai.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/liuchan.htm" class="blue">流产</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZMvJPTQgywNNZanyuW8l.htm">
+			吕蓓丽</a>(67票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSLTzfGpqWyTQH5Fy7BKbP.htm">
+			阳艳</a>(34票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmiOrEpjdCy8jrf.htm"
+			title="湖北省妇幼保健院">
+			湖北省妇幼保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeiUlHsflZMGILTrbd.htm">
+			车映</a>(32票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LugRZkTzvNPhdeozGolC54J.htm">
+			李国华</a>(39票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/liuchan.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2753.shtml" class="blue">闭经</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLeD0Son-CyPwMiuK4.htm">
+			朱梅</a>(114票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXwIaCFVHDuJVht.htm"
+			title="北京中医医院">
+			北京中医医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPvRViPv5LwmK7DLi.htm">
+			张炜</a>(17票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPvzFK9sHYQ8uQGIO.htm">
+			陈蓉</a>(15票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPvzFx49LoalFRy9w.htm">
+			郁琦</a>(17票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2753.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://health.sohu.com/gyneoopathy/" class="blue">妇科病</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuwlKNQ99hkg3UuDINgIYJg.htm">
+			刘晓燕</a>(62票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwIQ4ZyZJ9SvRJb8.htm"
+			title="山西省儿童医院(山西省妇幼保健院)">
+			山西省儿童医院(山西省妇幼保健院)</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZMhXysrfGcsGElip2trg.htm">
+			顾峥嵘</a>(53票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLegIQ8ioBq7c5PLvm.htm">
+			罗仪</a>(51票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLUXJbq3Urabz6vEQg.htm"
+			title="中山医院青浦分院">
+			中山医院青浦分院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuglwXHq388T3UuDINgIYJg.htm">
+			王秀英</a>(38票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0xoWQ4wkiNDMHtx.htm"
+			title="宁波市妇女儿童医院">
+			宁波市妇女儿童医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://health.sohu.com/gyneoopathy/"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2774.shtml" class="blue">月经失调</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LugYZXJ11e6ws7CIoXi9Fjh.htm">
+			王东红</a>(177票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmJ29quPKsNiPfO.htm"
+			title="中医科学院眼科医院">
+			中医科学院眼科医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZMvJ98wqNlvoNi46Z7n1.htm">
+			黄建琴</a>(58票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuwlKNQ99hkg3UuDINgIYJg.htm">
+			刘晓燕</a>(125票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwIQ4ZyZJ9SvRJb8.htm"
+			title="山西省儿童医院(山西省妇幼保健院)">
+			山西省儿童医院(山西省妇幼保健院)</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZMvJPSNk3eZs9VRuHhQJ.htm">
+			李欣荣</a>(46票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2774.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/shuluanguandusai.htm" class="blue">输卵管堵塞</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSlDLgy4GzvOlXG59tZIW0.htm">
+			苗杰</a>(1154票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6Omx7149dVHU9sf.htm"
+			title="北京妇产医院">
+			北京妇产医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdewpNTWkTMFHdvkQ4C.htm">
+			王添平</a>(690票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdewpNZWMhoLSNZn1O5.htm">
+			张国福</a>(530票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZRSJduKP8z6ysPJqswJw.htm">
+			王士甲</a>(308票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/shuluanguandusai.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/weichanbaojian.htm" class="blue">围产保健</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4raCNSz6OlSIjVGEjdcGNQ.htm">
+			冯力民</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OYw20RBSRSxBFl.htm"
+			title="北京天坛医院">
+			北京天坛医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0hal-bc1P6dS2aO.htm">
+			刘湘源</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0ipYMVWVmvC3uh7.htm">
+			张丽菊</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogWH26171mm-bs.htm"
+			title="北京地坛医院">
+			北京地坛医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0-aNztx00uSYNw1.htm">
+			秦翔娟</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/weichanbaojian.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/gongjingmilan.htm" class="blue">宫颈糜烂</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwExprEpjdCy8jrf.htm">
+			韩劲松</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0-aNztx00uSYNw1.htm">
+			秦翔娟</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWZplJ2IkvT2YR.htm"
+			title="北京积水潭医院">
+			北京积水潭医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUXxO0ReRtJXK298J.htm">
+			宋学红</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6Omic7eSMfL7SHT.htm"
+			title="北京朝阳医院">
+			北京朝阳医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUXi11rbc1P6dS2aO.htm">
+			王建捷</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6O0K3OUNZWCWNv0.htm"
+			title="北京友谊医院">
+			北京友谊医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/gongjingmilan.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/buyunzheng.htm" class="blue">不孕症</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwYZWldz13dpO1a1.htm">
+			王少为</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwIyreFEgXN3cgkJ.htm">
+			李东</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0hal-bc1P6dS2aO.htm">
+			刘湘源</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0xmMxaOQhHsdycT.htm">
+			何学酉</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/buyunzheng.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/rengongshoujing.htm" class="blue">人工授精</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0Jq2qaOQhHsdycT.htm">
+			任海颖</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6Omic7eSMfL7SHT.htm"
+			title="北京朝阳医院">
+			北京朝阳医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUXHq251t4xLBGs4w.htm">
+			李宏军</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUoRtTmi88QpNK6eR.htm">
+			朱亮</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0xp0ReRtJXK298J.htm"
+			title="威海市立第二医院">
+			威海市立第二医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBVku-49LoalFRy9w.htm">
+			徐阳</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/rengongshoujing.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/penqiangyan.htm" class="blue">盆腔炎</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZMhXysrfGcsGElip2trg.htm">
+			顾峥嵘</a>(13票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZMvJPSNk3eZs9VRuHhQJ.htm">
+			李欣荣</a>(15票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdehOYwaonLBKpXQJ1u.htm">
+			郭延荣</a>(17票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuZLhkwXGts4J1SHSYhq37w.htm">
+			朱郑霞</a>(11票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0jpaakhlkqINLVW.htm"
+			title="萧山医院">
+			萧山医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/penqiangyan.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/zaoyunfanying.htm" class="blue">早孕反应</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPvNDQwMEBi1InoYl.htm">
+			范格英</a>(3票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXxnpHKRSoDWRPl.htm"
+			title="广东省人民医院">
+			广东省人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuwNZlwOlH31FhFZqqOoERk.htm">
+			李绅</a>(2票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0xIRiUrabz6vEQg.htm"
+			title="日照市人民医院">
+			日照市人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuZ0JookTOC5fJKXY-1sBh8.htm">
+			张燕</a>(2票)</td>
+		<td><a
+			href="/yiyuan/DE4r0Fy0C9LuZWhaz8hcU2ccyq6vJdZnb.htm"
+			title="临潼区人民医院">
+			临潼区人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduZozBh5tvC5s9enjZ.htm">
+			常琦</a>(2票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0-OXNTaJfDy6Cbc.htm"
+			title="沈河区妇婴医院">
+			沈河区妇婴医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/zaoyunfanying.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/gaomirusuxuezheng.htm" class="blue">高泌乳素血症</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUmKn0Q4wkiNDMHtx.htm">
+			连伟</a>(24票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0xpYLPQrVFGoqUr.htm">
+			孟祥辉</a>(5票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeGUzTM-4uSXys8lfo.htm">
+			林杰</a>(6票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0ypnEJefaGY-Fi8.htm"
+			title="自贡市妇幼保健院">
+			自贡市妇幼保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUIj98Knnx8s59Gnn.htm">
+			邓姗</a>(3票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/gaomirusuxuezheng.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/xianzhaoliuchan.htm" class="blue">先兆流产</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuwRh0J22t34hmqEELeHuif.htm">
+			谢小花</a>(12票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0Jaomi88QpNK6eR.htm"
+			title="江西省妇幼保健院">
+			江西省妇幼保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSLgMDRvWdCPTs3BGmMGOc.htm">
+			李政</a>(8票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwI-Oc2dcByMhc7g.htm"
+			title="天津市中心妇产科医院">
+			天津市中心妇产科医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuwMwRwlC84u0hFZqqOoERk.htm">
+			徐美容</a>(7票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0Jaomi88QpNK6eR.htm"
+			title="江西省妇幼保健院">
+			江西省妇幼保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuZXj3bIWz3cKn52sdVLS0n.htm">
+			张淑珍</a>(7票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0jpaakhlkqINLVW.htm"
+			title="萧山医院">
+			萧山医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/xianzhaoliuchan.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/taiting.htm" class="blue">胎停</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdexo0-psPGYy9dgccG.htm">
+			鲍时华</a>(270票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LugRZkTzvNPhdeozGolC54J.htm">
+			李国华</a>(207票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLFhokgIyyMxUNjSNk.htm">
+			付锦华</a>(216票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwEy5uuYe-Bqregr.htm"
+			title="潍坊市人民医院">
+			潍坊市人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdexOMhWYj6dZX-ciU9.htm">
+			张颖</a>(65票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXJb9quPKsNiPfO.htm"
+			title="天津总医院">
+			天津总医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/taiting.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/ziranliuchan.htm" class="blue">自然流产</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0hal-bc1P6dS2aO.htm">
+			刘湘源</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUExomNTaJfDy6Cbc.htm">
+			张淞文</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6Omx7149dVHU9sf.htm"
+			title="北京妇产医院">
+			北京妇产医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUE-5q94wkiNDMHtx.htm">
+			王以新</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6Om-9cfC2nM4CIa.htm"
+			title="安贞医院">
+			安贞医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUE-514tx00uSYNw1.htm">
+			张军</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6Om-9cfC2nM4CIa.htm"
+			title="安贞医院">
+			安贞医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/ziranliuchan.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/qiaokelinangzhong.htm" class="blue">巧克力囊肿</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwYwYWuYe-Bqregr.htm">
+			吕秋波</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogMJI2QVhlQ68-.htm"
+			title="北京医院">
+			北京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4roiYGYZwExo1YXfLKC7fiV.htm">
+			张璐芳</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0hXRwWkcw-2p57V.htm">
+			汪龙霞</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hEIKBtDEBxt8k.htm"
+			title="301医院">
+			301医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLU0Jq2qaOQhHsdycT.htm">
+			任海颖</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6Omic7eSMfL7SHT.htm"
+			title="北京朝阳医院">
+			北京朝阳医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/qiaokelinangzhong.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/shiguanyinger.htm" class="blue">试管婴儿</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdexpYCp78SzvH6fbnp.htm">
+			艾爱</a>(367票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduCpYi1tgYZIMDlWg3.htm">
+			傅永伦</a>(249票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXhXnG6rsvdwrU4.htm"
+			title="上海第九人民医院">
+			上海第九人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduZoRFjVkFGpEHP0h6.htm">
+			谭季春</a>(216票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXyO7o5nM-zfnJT.htm"
+			title="盛京医院">
+			盛京医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeKULhWWJs56FCrgRH.htm">
+			孙贇</a>(223票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwX-IqNN8Z2K18e0.htm"
+			title="仁济医院">
+			仁济医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/shiguanyinger.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2925.shtml" class="blue">子宫内膜息肉</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuwRSRSRvnDYmiZLC3b3s8R.htm">
+			陈春晓</a>(32票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXiEUz-mzZSmmxP.htm"
+			title="中山一院">
+			中山一院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdFgXK75ej6dZX-ciU9.htm">
+			宋冬梅</a>(57票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OWgORxEH4FVECt.htm"
+			title="北京复兴医院">
+			北京复兴医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBGECrBFq-tVG1BZ1.htm">
+			成九梅</a>(57票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6Omx7149dVHU9sf.htm"
+			title="北京妇产医院">
+			北京妇产医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdei3oXyej6dZX-ciU9.htm">
+			吴文湘</a>(32票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2925.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2752.shtml" class="blue">功能性子宫出血</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUIj98Knnx8s59Gnn.htm">
+			邓姗</a>(17票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBVk8xrpF9fQsVXyf.htm">
+			李克敏</a>(13票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBGECrBFq-tVG1BZ1.htm">
+			成九梅</a>(13票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6Omx7149dVHU9sf.htm"
+			title="北京妇产医院">
+			北京妇产医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPvzFitdX6gWDmEzh.htm">
+			王亚平</a>(8票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2752.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2784.shtml" class="blue">子宫肌瘤</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBfkdSUNoD0ioO33P.htm">
+			邱伟民</a>(412票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduKORGXWJs56FCrgRH.htm">
+			刘海元</a>(203票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduKoWxIOaNDNGERReY.htm">
+			龚晓明</a>(251票)</td>
+		<td><a
+			href="/yiyuan/DE4r0Fy0C9LuwWJa0J5vDMLPECdSRGpar.htm"
+			title="沃医妇产名医集团">
+			沃医妇产名医集团</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUXy3qs7Vg1MFyDkh.htm">
+			潘凌亚</a>(197票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2784.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2776.shtml" class="blue">子宫内膜异位症</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduKORGXWJs56FCrgRH.htm">
+			刘海元</a>(89票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUXy11s7Vg1MFyDkh.htm">
+			冷金花</a>(131票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPvReQVGvdhaHfIMj.htm">
+			陆鹏荣</a>(114票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBSLDzwMEBi1InoYl.htm">
+			李华军</a>(91票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2776.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2742.shtml" class="blue">宫颈炎</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuZLhkwXGts4J1SHSYhq37w.htm">
+			朱郑霞</a>(92票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0jpaakhlkqINLVW.htm"
+			title="萧山医院">
+			萧山医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdexoWwEnWKEMSMwtPM.htm">
+			雷巍</a>(135票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmKobML76GGU71e.htm"
+			title="华西妇产儿童医院">
+			华西妇产儿童医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdehnJ4VWJs56FCrgRH.htm">
+			汪清</a>(96票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZMhXysrfGcsGElip2trg.htm">
+			顾峥嵘</a>(201票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2742.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/diseaseSearch.sip?item=阴道炎&pageNo=1&onePageNo=20&flag=common" class="blue">阴道炎</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLv-raWMupZO0ZUs6x.htm">
+			李淑霞</a>(98票)</td>
+		<td><a
+			href="/yiyuan/DE4r0Fy0C9LuhlCpXJ3euQwWIyvz8Kq1V.htm"
+			title="天津天孕医院">
+			天津天孕医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuZLhkwXGts4J1SHSYhq37w.htm">
+			朱郑霞</a>(45票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0jpaakhlkqINLVW.htm"
+			title="萧山医院">
+			萧山医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLfx2NQvKSvlgzgq2c.htm">
+			李晓艳</a>(57票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXyUc2dcByMhc7g.htm"
+			title="武汉协和医院">
+			武汉协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNZMhXysrfGcsGElip2trg.htm">
+			顾峥嵘</a>(31票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/diseaseSearch.sip?item=阴道炎&pageNo=1&onePageNo=20&flag=common"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2781.shtml" class="blue">宫外孕</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LugRSLV-sSwO7rGNzFx56fU.htm">
+			王晏鹏</a>(21票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmhpqNN8Z2K18e0.htm"
+			title="浙江省人民医院">
+			浙江省人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdex1YJ3VkFGpEHP0h6.htm">
+			吴莺</a>(22票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmiOrEpjdCy8jrf.htm"
+			title="湖北省妇幼保健院">
+			湖北省妇幼保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdehpYx25tvC5s9enjZ.htm">
+			孟军</a>(15票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLUmJb151t4xLBGs4w.htm"
+			title="蛇口人民医院">
+			蛇口人民医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSYCXjtPl6g1OdBHBTXzVa.htm">
+			於利刚</a>(7票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0jpaakhlkqINLVW.htm"
+			title="萧山医院">
+			萧山医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2781.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2777.shtml" class="blue">人流</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeiUlHsflZMGILTrbd.htm">
+			车映</a>(287票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNwWxXQ9vYuXKBSmlvNl4j.htm">
+			甘雪芬</a>(28票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLUmippoRinOCoXXJe.htm"
+			title="重庆荣昌区妇幼保健院">
+			重庆荣昌区妇幼保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0eJWGqZNDQVgojeN5hXILgazS1lW.htm">
+			帅文</a>(49票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSLgMDRvWdCPTs3BGmMGOc.htm">
+			李政</a>(23票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwI-Oc2dcByMhc7g.htm"
+			title="天津市中心妇产科医院">
+			天津市中心妇产科医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2777.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2746.shtml" class="blue">更年期综合症</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSRDy8Ph4b5Dj-p35r6Dll.htm">
+			金鸿雁</a>(111票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LugYZXJ11e6ws7CIoXi9Fjh.htm">
+			王东红</a>(30票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmJ29quPKsNiPfO.htm"
+			title="中医科学院眼科医院">
+			中医科学院眼科医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPvzFK9sHYQ8uQGIO.htm">
+			陈蓉</a>(19票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduxnLfyDWKEMSMwtPM.htm">
+			李浩</a>(34票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGWNBM4FM2b44i.htm"
+			title="西苑医院">
+			西苑医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2746.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2741.shtml" class="blue">卵巢囊肿</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduKORGXWJs56FCrgRH.htm">
+			刘海元</a>(108票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLPvReQVGvdhaHfIMj.htm">
+			陆鹏荣</a>(188票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUXy3qs7Vg1MFyDkh.htm">
+			潘凌亚</a>(102票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdei3oXyej6dZX-ciU9.htm">
+			吴文湘</a>(55票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2741.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2733.shtml" class="blue">男性不育</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduGoQTzgnLBKpXQJ1u.htm">
+			唐文豪</a>(390票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwWGNldz13dpO1a1.htm"
+			title="北医三院">
+			北医三院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeCaMSYRwE-9BS0ak-.htm">
+			陈亮</a>(351票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUXHq251t4xLBGs4w.htm">
+			李宏军</a>(284票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdFg0hqO1799F-37hmI.htm">
+			高明</a>(187票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwmKOqNN8Z2K18e0.htm"
+			title="西北妇女儿童医院">
+			西北妇女儿童医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2733.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/disease-2776.shtml" class="blue">子宫腺肌症</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeGURgYRwE-9BS0ak-.htm">
+			郭文波</a>(105票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXiEUz-mzZSmmxP.htm"
+			title="中山一院">
+			中山一院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduSNTakGUIHuKomU0X.htm">
+			张羽</a>(189票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdewpNZWMhoLSNZn1O5.htm">
+			张国福</a>(49票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXGnaCFVHDuJVht.htm"
+			title="上海红房子医院">
+			上海红房子医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzduKORGXWJs56FCrgRH.htm">
+			刘海元</a>(35票)</td>
+		<td><a
+			href="/yiyuan/DE4rIxMvCogR-EoxrURJ3U3.htm"
+			title="北京协和医院">
+			北京协和医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/disease-2776.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://dise.health.sohu.com/dept-2025.shtml" class="blue">妇科检查</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuZYCERvR-YHZlXG59tZIW0.htm">
+			李文红</a>(10票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0Jaomi88QpNK6eR.htm"
+			title="江西省妇幼保健院">
+			江西省妇幼保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LugWioMTkJOmIQH5Fy7BKbP.htm">
+			王艺</a>(10票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0Jaomi88QpNK6eR.htm"
+			title="江西省妇幼保健院">
+			江西省妇幼保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuZNiElFyvZmOlXG59tZIW0.htm">
+			张永萍</a>(9票)</td>
+		<td><a
+			href="/yiyuan/DE4rO-XCoLU0-bppWkcw-2p57V.htm"
+			title="秦皇岛妇幼保健院">
+			秦皇岛妇幼保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSRDy8Ph4b5Dj-p35r6Dll.htm">
+			金鸿雁</a>(5票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://dise.health.sohu.com/dept-2025.shtml"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/jihuashengyu.htm" class="blue">计划生育</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdeiUlHsflZMGILTrbd.htm">
+			车映</a>(47票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXK0nG6rsvdwrU4.htm"
+			title="上海市第一妇婴保健院">
+			上海市第一妇婴保健院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuSlTQBw0IS0EJKXY-1sBh8.htm">
+			呼亚清</a>(12票)</td>
+		<td><a
+			href="/yiyuan/DE4r0Fy0C9LuSlTyvCU6OO7rGNzFx56fU.htm"
+			title="潞安集团总医院">
+			潞安集团总医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLBVkeh7qZSnk6w5sT.htm">
+			于晓兰</a>(15票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONSaQTyscBtyq4.htm"
+			title="北大医院">
+			北大医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuwMgYCIWWuw4tMuLDQvLT1.htm">
+			李莉</a>(4票)</td>
+		<td><a
+			href="/yiyuan/DE4r0Fy0C9LuZWhaz8hcU2ccyq6vJdZnb.htm"
+			title="临潼区人民医院">
+			临潼区人民医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/jihuashengyu.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://health.sohu.com/fkyz/" class="blue">妇科炎症</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuwlKNQ99hkg3UuDINgIYJg.htm">
+			刘晓燕</a>(10票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwIQ4ZyZJ9SvRJb8.htm"
+			title="山西省儿童医院(山西省妇幼保健院)">
+			山西省儿童医院(山西省妇幼保健院)</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r08xQdKSLfx2NQvKSvlgzgq2c.htm">
+			李晓艳</a>(8票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXyUc2dcByMhc7g.htm"
+			title="武汉协和医院">
+			武汉协和医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0Fy0C9LuwlgkfRPXuCVxD-uCU22Ut.htm">
+			胡敏</a>(6票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwXiEUz-mzZSmmxP.htm"
+			title="中山一院">
+			中山一院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4r0BCkuHzdFg0xc3ej6dZX-ciU9.htm">
+			邱丽华</a>(6票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZwX-IqNN8Z2K18e0.htm"
+			title="仁济医院">
+			仁济医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://health.sohu.com/fkyz/"
+			class="blue">更多大夫...</a></td>
+	</tr>
+		<tr>
+    <td colspan="3">&nbsp;&nbsp; 
+     <a href="http://www.haodf.com/jibing/juejing.htm" class="blue">绝经</a>:
+
+		</td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUmy221ObWl99uMTa.htm">
+			陈庆云</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6OmG3OUNZWCWNv0.htm"
+			title="中日医院">
+			中日医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUEC222m0TUy35vjf.htm">
+			张兰梅</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4roiYGYZw0hopHKRSoDWRPl.htm"
+			title="306医院">
+			306医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUE-514tx00uSYNw1.htm">
+			张军</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6Om-9cfC2nM4CIa.htm"
+			title="安贞医院">
+			安贞医院</a></td>
+	</tr>
+		<tr align="left">
+		<td>&nbsp;</td>
+		<td width="40%"><a
+			href="/doctor/DE4rO-XCoLUnj37PTaJfDy6Cbc.htm">
+			周蓉</a>(0票)</td>
+		<td><a
+			href="/yiyuan/DE4raCNSz6ONDnJPvy76rvKc.htm"
+			title="北大人民医院">
+			北大人民医院</a></td>
+	</tr>
+	    	<tr align="right">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><a
+			href="http://www.haodf.com/jibing/juejing.htm"
+			class="blue">更多大夫...</a></td>
+	</tr>
+	</table>
+
+<div class="yyright_s">
+<div class="top_bg">王芳大夫最新文章和回复的咨询</div>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	</table>
+<hr color="#999" size="1"></hr>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/wangfangkx_g_6252548037.htm"
+			class="blue">不确定是否为腺肌症？贫血严重，月经不调</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/wangfangkx_g_5474845928.htm"
+			class="blue">最近要酸胀痛，心情不好，月经提</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/wangfangkx_g_5275558165.htm"
+			class="blue">找王芳大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/wangfangkx_g_6179288974.htm"
+			class="blue">找王芳大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/wangfangkx_g_5643603993.htm"
+			class="blue">找王芳大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/wangfangkx_g_5045418899.htm"
+			class="blue">找王芳大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/wangfangkx_g_6242318077.htm"
+			class="blue">找王芳大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/wangfangkx_g_5947131495.htm"
+			class="blue">找王芳大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/wangfangkx_g_5641833315.htm"
+			class="blue">找王芳大夫就诊的诊后报到成功</a></td>
+		
+	</tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="listyy">
+	<tr>
+		<td width="10%" valign="top"><img
+			src="http://i1.hdfimg.com/images/common/user1_message.png" width="16"
+			height="16" /></td>
+		<td width="70%"><a href="http://www.haodf.com/wenda/wangfangkx_g_6228396034.htm"
+			class="blue">产前检查科</a></td>
+		
+	</tr>
+</table>
+</div>
+ 
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- 添加 -->
+<div id="doctorintro"
+	style="display: none; width: 100%; text-align: center; position: absolute; top: 150px; left: 0px; z-index: 1">
+<table align="center" width="500" style="margin: 0 auto;">
+	<tr>
+		<td class="hdf_frame_popbox">
+		<table width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="95%" class="hdf_title">大夫介绍</td>
+				<td width="5%" align="left" class="hdf_title"><input type="button"
+					value="╳" onClick="display_div('none', 'doctorintro')" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="left" class="hdf_content">
+				<div style="height: 400px; width: 500px; overflow: auto">王芳，女，主任医师，副教授，从1997年西安医科大学毕业后一直从事妇产科临床、教学及科研工作。2002年攻读中科院海洋生物学博士学位，2005年毕业。从事妇产科临床、教学及科研工作二十年，任中国老年学会<!--HAODF:8:guzhishusong-->骨质疏松<!--HAODF:/8:guzhishusong-->委员会委员、广东省医学会妇产科内分泌学组委员 。熟练掌握妇产科各种疾病的诊断和处理，尤其是妇科内分泌方面疾病。有扎实的妇科内分泌理论知识。在国内外发表近30篇研究论文，其中3篇发表在SCI收录期刊中。参与省部级课题3项，主持省级课题1项，市厅级课题5项，获市级科技进步奖2项，参与多部书籍编写工作。曾多次参加国际会议进行学术交流。</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">好大夫网站收集整理，未经允许，请勿转载</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center" class="hdf_content"><input
+					type="button" value=" 关 闭 "
+					onClick="display_div('none', 'doctorintro')" /></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div class="hzfoot">本页信息由<a href="http://www.haodf.com/" target="_blank">好大夫在线</a>提供。所有门诊时间仅供参考，最终以医院当日公布为准。任何关于疾病的建议都不能替代执业医师的面对面诊断。<br />
+				网友言论仅代表其个人观点，并不代表本站同意其说法，本站不担由此引起的法律责任。   <a href="http://www.haodf.com/senderr/" class="lightblue" target="_blank">错误报告</a></div>
+ <script type="text/javascript">
+var protocol = document.location.protocol;
+    document.writeln("<script type='text/javascript' src='//i2.hdfimg.com/js/pvstat.js?20171106'><"+"/script>");
+</script>
+ <div id="foot" class="Area"  align="center"> 
+Copyright &copy; 2009 Sohu.com Inc. All Rights Reserved. 搜狐公司 <span class="unline"><a href="http://corp.sohu.com/s2007/copyright/" target="_blank">版权所有</a></span><br />
+</div>
+<SCRIPT language=JavaScript src="http://js.sohu.com/pv.js"></SCRIPT>
+<script language="javascript" src="http://js.sohu.com/wrating0820.js"></script>
+<script language="javascript">
+var  _wratingId = null;
+try{
+_wratingId = _getAcc();
+}catch(e){}
+if(_wratingId !=null){
+document.write('<scr'+'ipt type="text/javascript" src="http://sohu.wrating.com/a1.js"></scr'+'ipt>');
+}
+</script>
+<style type="text/css" media="screen">
+.sys_message { display: none; }
+</style>
+<script language="javascript">
+if(_wratingId !=null){
+document.write('<scr'+'ipt type="text/javascript">');
+document.write('var vjAcc="'+_wratingId+'";');
+document.write('var wrUrl="http://sohu.wrating.com/";');
+document.write('try{vjTrack();}catch(e){}');
+document.write('</scr'+'ipt>');
+}
+</script>
+<span class='sys_message'></span>
+<script type="text/javascript" src="http://js.tongji.linezing.com/431464/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/431464/tongji.gif"/></a></noscript>
+</body>
+</html>

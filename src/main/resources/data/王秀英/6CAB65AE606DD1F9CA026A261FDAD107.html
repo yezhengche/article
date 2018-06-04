@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="yihu.com" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>健康之路(医护网)_网上统一预约挂号平台</title>
+    <meta name="keywords" content="医院大全，预约挂号，网上医院，三甲医院，咨询医生">
+    <meta name="description" content="健康之路医护网提供最权威最专业的网上统一预约挂号平台，包含医院大全，预约挂号、网上医院、咨询医生等，你可以根据情况选择医院，祝你健康。">
+    <link rel="stylesheet" href="/Public/iconfont/iconfont.css?d=20171109001">
+    <link rel="stylesheet" href="//f1.yihuimg.com/concat/mobile/??cross/css/cross.min.css,cross/css/ui.all.min.css">
+    <link rel="stylesheet" href="/Public/css/3g-new.css?d=20171109001">
+</head>
+
+<body>
+    <div class="c-main">
+        <div class="download-box">
+            <a href="https://at.umeng.com/onelink/H55L5D"><img src="/Public/images/download.jpg" alt="" /></a>
+        </div>
+        <div class="header">
+            <div class="banner" id="slideBox">
+                <div class="bd">
+                    <ul>
+                        <li>
+                            <a href="javascript:;"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hd">
+                    <ul></ul>
+                </div>
+                <div class="banner-space"></div>
+            </div>
+            <div class="c-ser-hold">
+                <div class="c-ser-div">
+                    <div class="c-ser-main">
+                        <form action="javascript:return true;">
+                            <i class="ser-icon ser-icon-search"></i>
+                            <input type="search" class="c-ser-input c-f14" style="-webkit-appearance: none;" placeholder="搜索医院、医生、科室、疾病" data-form="clear" id="searchKeywords" onsearch="searchKeyword();">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <ul class="c-blocks-2 quick-nav">
+                <li>
+                    <a href="//mhospital.yihu.com/DefaultHospital/SelectedHospital.aspx?platformType=4&sourceType=0&sourceId=0" class="bg-yy">
+                        <h3>预约挂号</h3>
+                        <p>直达医院 快速挂号</p>
+                        <span class="tag-hollow mt5">热门</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://mobileask.yihu.com/xwjk/SearchDoctor.aspx?platformType=4&sourceType=1&sourceId=1" class="bg-zx">
+                        <h3>咨询医生</h3>
+                        <p>特邀专家 在线咨询</p>
+                        <span class="tag-hollow mt5">极速</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="slide-list bgc-fff ptb15 mt10">
+            <ul>
+                <li>
+                    <a href="//pzweb.yihu.com/VasPzWeb/web/index.html?platformType=4&sourceType=1&sourceId=999999">
+                        <span class="icon-circle bgc-ff5986"><i class="iconfont icon-peizhen1"></i></span>
+                        <p class="mt5">就医陪诊</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="//www.yihu.com/zhongan.php/Index/index/fromType/clientID/referCode/hd_zabx_1002/platformType/1000006.html">
+                        <span class="icon-circle bgc-ff6390"><i class="iconfont icon-jiankangbaoxian"></i></span>
+                        <p class="mt5">健康保险</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="//jkzltjk.yihu.com/ExaminationCard/Index.aspx?platformType=4&sourceType=0&sourceId=0">
+                        <span class="icon-circle bgc-43c9a8"><i class="iconfont icon-jiankangtijian"></i></span>
+                        <span class="icon-hot"><i>Hot</i></span>
+                        <p class="mt5">健康体检</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="//vshop.yihu.com?platformType=4&sourceType=0&sourceId=0">
+                        <span class="icon-circle bgc-df001f"><i class="iconfont icon-xiaoweiyouxuan"></i></span>
+                        <p class="mt5">小薇优选</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="//smartguide.yihu.com/SmartGuideUI/guideIndex.html?platformType=4&sourcetype=0&sourceId=0">
+                        <span class="icon-circle bgc-fb696b"><i class="iconfont icon-zhinengdaozhen"></i></span>
+                        <p class="mt5">智能导诊</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="section mt10">
+            <div class="section-hd">
+                <a href="//vshop.yihu.com?platformType=4&sourceType=0&sourceId=0" class="more">更多<i class="iconfont icon-xiangyou"></i></a>
+                <h2>小薇优选</h2>
+            </div>
+            <div class="section-bd">
+                <ul class="goods-list clearfix"></ul>
+            </div>
+            <div class="section-ft">
+                <i class="iconfont icon-weibiaoti c-fe5b2a fl"></i>
+                <div class="pl10 c-f12 c-nowrap goods-keywordlist"></div>
+            </div>
+        </div>
+        <div class="section mt10">
+            <div class="section-hd">
+                <a href="//www.yihu.com/zhongan.php/Index/index/fromType/clientID/referCode/hd_zabx_1002/platformType/1000006.html" class="more">更多<i class="iconfont icon-xiangyou"></i></a>
+                <h2>健康保险</h2>
+            </div>
+            <div class="section-bd plr7 ptb10">
+                <ul class="c-blocks-2 baoxian-list">
+                </ul>
+            </div>
+        </div>
+        <div class="section mt10">
+            <div class="section-hd">
+                <a href="//jkzlact.yihu.com/web/DailyHealth/DailyHealth.aspx?platformType=4&sourceType=0&sourceId=0" class="more">更多<i class="iconfont icon-xiangyou"></i></a>
+                <h2>健康必读</h2>
+            </div>
+            <div class="section-bd" id="home-article-list">
+                <ul class="info-list"></ul>
+            </div>
+        </div>
+        <div class="h50 mt10">
+            <div class="footer" id="footer">
+                <ul class="c-blocks-5">
+                    <li class="curr">
+                        <a href="/">
+                            <i class="iconfont icon-shouyexian"></i>
+                            <p>首页</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://mobileask.yihu.com/xwjk/SearchDoctor.aspx?platformType=4&sourceType=1&sourceId=1">
+                            <i class="iconfont icon-zixunxian"></i>
+                            <p>咨询</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:getJkgjUrl();">
+                            <i class="icon-vip"></i>
+                            <p>健康管家</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="//mcenter.yihu.com/UserCenter/web/notices/noticesList.html?platformType=4&sourceId=0&sourceType=0">
+                            <i class="iconfont icon-xiaoxixian"></i>
+                            <i class="icon-num">1</i>
+                            <p>消息</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="//mcenter.yihu.com/UserCenter/web/index/index.html?platformType=4&sourceId=0&sourceType=0">
+                            <i class="iconfont icon-wode-xian"></i>
+                            <p>我的</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="//f1.yihuimg.com/concat/mobile/cross/js/jquery/2.1.3/jquery.js"></script>
+    <script type="text/javascript" src="/Public/js/TouchSlide.1.1.js"></script>
+    <script src="//kx.yihu.cn/js/adverjs.js"></script>
+    <script>
+        $(function() {
+            //底部
+            $('#footer li').click(function() {
+                var _this = $(this);
+                $(this).addClass('curr').siblings().removeClass('curr');
+                $(this).find('a').addClass('dot');
+                $(this).siblings().find('a').removeClass('dot');
+            });
+
+            var xwbanner = homeXwyxService.create({
+                pos: 1,
+                num: 6,
+                getAdvar: homeXwyxService.dataToHtmlBanner
+            });
+            var xwyx1 = homeXwyxService.create({
+                pos: 22,
+                num: 1,
+                getAdvar: homeXwyxService.dataToHtmlOne
+            });
+            var xwyx2 = homeXwyxService.create({
+                pos: 24,
+                num: 2,
+                getAdvar: homeXwyxService.dataToHtmlTwo
+            });
+            var xwyx3 = homeXwyxService.create({
+                pos: 14,
+                num: 10,
+                getAdvar: homeXwyxService.dataToHtmlThree
+            });
+            var xwbx = homeXwyxService.create({
+                pos: 25,
+                num: 2,
+                getAdvar: homeXwyxService.dataToHtmlBx
+            });
+            xwbanner.loadAdver();
+            xwyx1.loadAdver();
+            xwyx2.loadAdver();
+            xwyx3.loadAdver();
+            xwbx.loadAdver();
+
+            homeArticleService.getData();
+            getNoticeCount();
+        });
+
+        function searchKeyword() {
+            var keyword = $("#searchKeywords").val();
+            $("#searchKeywords").blur();
+            location.href = "/index.php/Home/Search/index.html?keyword=" + keyword;
+        }
+        //消息数量
+        var getNoticeCount = function() {
+            $.ajax({
+                url: "/index.php/Home/Index/getUserNoticeCount.html",
+                type: 'POST',
+                success: function(data) {
+                    if (data && data.Code == 10000) {
+                        if (parseInt(data.count) > 0) {
+                            $("#claut-user-notice").html(data.count);
+                            $("#claut-user-notice").show();
+                        }
+                    }
+                }
+            });
+        };
+
+
+        //健康管家
+        function getJkgjUrl() {
+            $.ajax({
+                url: "/index.php/Home/Index/getJkgjUrl.html",
+                type: 'POST',
+                data: {
+                    'fu': location.href
+                },
+                success: function(data) {
+                    location.href = data;
+                }
+            });
+        }
+
+        //今日健康
+        var homeArticleService = {
+            page: 0,
+            total: 0,
+            container: '#home-article-list ul',
+            getData: function() {
+                var that = this;
+                $.ajax({
+                    url: "/index.php/Home/Index/getArticleList.html",
+                    type: 'POST',
+                    data: {
+                        page: that.page
+                    },
+                    beforeSend: function() {
+                        $(".claut-get-more").remove();
+                    },
+                    success: function(data) {
+                        that.dataToHtml(data);
+                    },
+                    error: function() {
+
+                    }
+                });
+            },
+            dataToHtml: function(data) {
+                var that = this;
+                if (data.Code == 10000 && data.Data != null && data.Data.Items.length > 0) {
+                    var vhtml = '';
+                    for (var i = 0, len = data.Data.Items.length; i < len; i++) {
+                        var item = data.Data.Items[i];
+                        vhtml += '<li>';
+                        vhtml += '<a href="//jkzlact.yihu.com/web/DailyHealth/ArticleDetails.aspx?platformType=4&article_id=' + item.article_id + '">';
+                        vhtml += '<img src="' + item.article_image + '" alt="" />';
+                        vhtml += '<div class="txt">';
+                        vhtml += '<h3 class="c-nowrap">' + item.article_title + '</h3>';
+                        vhtml += '<p class="mt5">';
+                        vhtml += '<span class="tag tag-angle mr5">' + item.article_typename + '</span>';
+                        vhtml += '<span class="c-f12 c-909090">' + item.updatetime.substring(0, 10) + '</span>';
+                        vhtml += '</p></div></a></li>';
+                    }
+                    that.total = that.total === 0 ? data.Data.TotalCount : that.total;
+                    if (that.page > 0) {
+                        $(that.container).append(vhtml);
+                    } else {
+                        $(that.container).html(vhtml);
+                    }
+                    if (that.total > (that.page * 10)) {
+                        $(that.container).parent().append('<div class="section-ft claut-get-more"><p class="c-t-center">加载更多</p></div>')
+                        $(".claut-get-more").on("click", function() {
+                            that.getMore();
+                        })
+                    }
+                }
+            },
+            getMore: function() {
+                this.page = this.page + 1;
+                this.getData();
+            }
+        };
+
+        //adver
+        var homeXwyxService = {
+            create: function(p) {
+                p = $.extend({
+                    pos: 0,
+                    num: 0,
+                    getAdvar: null
+                }, p);
+                var rets = {};
+                rets.param = {
+                    pos: p.pos, //广告位id
+                    num: p.num, //取多少条
+                    channelId: 1000006 //渠道id
+                };
+                rets.getAdvar = p.getAdvar;
+                rets.loadAdver = function() {
+                    var that = rets;
+                    window.adver.createNew().getAdverList(that.param, that.getAdvar);
+                };
+                return rets;
+            },
+            dataToHtmlOne: function(data) {
+                if (data.Code === 10000 && data.Result && data.Result.length > 0) {
+                    var advList = "";
+                    var item = data.Result[0];
+                    var html = '<li class="advar_hot"><a href="' + item.adverlink.replace('clientid%3D9000050%26', 'clientid%3D1000006%26').replace('platformType%3D51%26', 'platformType%3D4%26') + '" style="background-image:url(' + item.adverimgurl + ')"></a></li>';
+                    $(".goods-list").prepend(html);
+                }
+            },
+            dataToHtmlTwo: function(data) {
+                if (data.Code === 10000 && data.Result && data.Result.length > 0) {
+                    var html = '<li class="has-two">';
+                    $.each(data.Result, function(index, item) {
+                        if (index > 3) {
+                            return false;
+                        }
+                        if (index === 2) {
+                            html += '</li><li class="has-two">';
+                        }
+                        html += '<a href="' + item.adverlink.replace('clientid%3D9000050%26', 'clientid%3D1000006%26').replace('platformType%3D51%26', 'platformType%3D4%26') + '" style="background-image:url(' + item.adverimgurl + ')"></a>';
+                    });
+                    html += '</li>';
+                    $(".goods-list").append(html);
+                }
+            },
+            dataToHtmlThree: function(data) {
+                if (data.Code === 10000 && data.Result && data.Result.length > 0) {
+                    var html = '';
+                    $.each(data.Result, function(index, item) {
+                        html += '<a href="' + item.adverlink.replace('clientid%3D9000050%26', 'clientid%3D1000006%26').replace('platformType%3D51%26', 'platformType%3D4%26') + '" class="c-909090 mr10">' + item.advername + '</a>';
+                    });
+                    $(".goods-keywordlist").html(html);
+                }
+            },
+            dataToHtmlBx: function(data) {
+                if (data.Code === 10000 && data.Result && data.Result.length > 0) {
+                    var html = '';
+                    $.each(data.Result, function(index, item) {
+                        html += '<li><a href="' + item.adverlink.replace('platformType%2F9000050', 'platformType%2F1000006').replace('%2FfromType%2Fapp%2F', '%2FfromType%2Fweb3g%2F') + '" class="plr3 c-block"><img src="' + item.adverimgurl + '" alt=""/></a></li>';
+                    });
+                    $(".baoxian-list").html(html);
+                }
+            },
+            dataToHtmlBanner: function(data) {
+                if (data.Code === 10000 && data.Result && data.Result.length > 0) {
+                    var html = '';
+                    $.each(data.Result, function(index, item) {
+                        html += '<li><a href="' + item.adverlink.replace('clientid%3D9000050%26', 'clientid%3D1000006%26').replace('platformType%3D51%26', 'platformType%3D4%26') + '" style="background-image:url(' + item.adverimgurl + ')"></a></li>';
+                    });
+                    $("#slideBox ul").html(html);
+                    TouchSlide({
+                        slideCell: "#slideBox",
+                        titCell: ".hd ul",
+                        mainCell: ".bd ul",
+                        effect: "leftLoop",
+                        autoPage: true,
+                        autoPlay: true
+                    });
+                }
+            }
+        };
+    </script>
+    <script type="text/javascript">
+ try {
+
+        (function (para) {
+            var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script', x = null, y = null, r = 'yihu';
+            w['yihuAnalytic2018start'] = (new Date()).getTime();
+            w['yihuAnalytic2018'] = n;
+            w['yihuAnalytic2017'] = r;
+            w['yihuAnalytic2018url'] = para.server_url;
+            w[n] = w[n] || function (a) { return function () { (w[n]._q = w[n]._q || []).push([a, arguments]); } };
+            var ifs = ['track', 'load'];
+            for (var i = 0; i < ifs.length; i++) {
+                w[n][ifs[i]] = w[n].call(null, ifs[i]);
+            }
+            w[r] = w[r] || function () {
+                (w[r]._m = w[r]._m || []).push(arguments)
+            }
+            if (!w[n]._t) {
+                x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+                x.async = 1;
+                x.src = p;
+                x.crossorigin = 1;
+                var oDate = new Date();
+                x.src = p + "?t=a" + oDate.getFullYear() + (oDate.getMonth() + 1) + oDate.getDate();
+                y.parentNode.insertBefore(x, y);
+                w[n].para = para;
+            }
+        })({
+            sdk_url: '//f1.yihuimg.com/TFS/upfile/realfile/1000000/yihuSjax2.js',
+            server_url: '//sso.yihu.cn/site/info/save2',
+            name: 'jkzlAn'
+        });
+        
+        jkzlAn.load({
+            channelid: '1000006',
+            refercode: '',
+            utm_source: '',
+            userid: '',
+            province: '-1',
+            city: '-1'
+        });
+
+        var pageName = "3gpage1001";
+        var __yihuAbOther = {'provinceid':0,'cityid':0,'areaid':0};
+        if (pageName != "") {
+            yihu('send', 'pageview', pageName, __yihuAbOther);
+        }
+    } catch (e) { };
+</script>
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?416f2ccd10f6fd4c0596162ec048dd1c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+
+</html>

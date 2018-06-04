@@ -1,0 +1,1001 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>刘洋-军嫂网—中国钢铁长城最坚实的后盾和基石</title>
+    <meta name="keywords" content="军嫂网,军嫂,军人家庭,军婚,最美军嫂,军嫂风采,信息,女兵,军嫂投票,军嫂书画中心" />
+    <meta name="description" content="刘洋每天早晨打开办公室门的第一件事，便是整理她的那些“心愿星”，因为在她看来，这每一颗星星，都倾注着她对战友们浓浓的关爱与祝愿，更代表着是官兵的幸福与健康……" />
+    <link rel="shortcut icon" href="http://www.junsaozg.com/favicon.ico" type="image/x-icon" />
+    <link href="http://www.junsaozg.com/templets/default/style/dedecms1.css" rel="stylesheet" media="screen" type="text/css" />
+    <link href="http://www.junsaozg.com/templets/default/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen" />
+    <link href="http://www.junsaozg.com/templets/default/css/css.css" rel="stylesheet" media="screen" type="text/css" />
+    <!--判断是否是手机访问-->
+    <script>
+        var userAgentInfo = navigator.userAgent;
+        var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone");
+        var flag = false;
+        var v = 0
+        for (v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = true;
+                break;
+            }
+        }
+        if (flag) {
+            window.location = 'http://www.junsaozg.com/wap.php?action=toupiaotwo&id=42908'; //如果是移动设备访问，就跳转到。     
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="/images/toupiao/sweetalert.css">
+    <script src="/images/toupiao/sweetalert.min.js"></script>
+    <script src="/images/toupiao/jquery-1.8.2.min.js"></script>
+
+    <script type="text/javascript" src="http://www.junsaozg.com/templets/default/js/content/jquery-1.js"></script>
+    <script type="text/javascript" src="http://www.junsaozg.com/templets/default/js/content/jquery.js"></script>
+    <script type="text/javascript" src="http://www.junsaozg.com/templets/default/js/new_scroll.js"></script>
+    <script type="text/javascript" src="http://assets.changyan.sohu.com/upload/plugins/plugins.count.js">
+    </script>
+
+
+    <script>
+        function tijiao(aid) {
+
+
+            $.ajax({
+                url: "http://www.junsaozg.com/member/ajax_getuser.php",
+                data: {
+                    "aid": aid
+                },
+                type: "post",
+                success: function(data) {
+                    /*if(data=='fal'){
+						alert('请先登录');
+						window.location.href="http://www.junsaozg.com/member/login.php";
+				        exit();
+					}*/
+                    if (data == -1) {
+                        alert('您已经投过票了，请1小时后再来!');
+                    }else if(data==-2){
+					    alert('最美军嫂活动投票还没开始！');
+					} else {
+                        alert('投票成功，感谢您的参与!');
+                        //alert(data);
+                        $("#"+aid).html(data);
+                        //alert(data);
+                    }
+                }
+            });
+        }
+    </script>
+    <style>
+        .toup {
+            display: block;
+            width: 160px;
+            height: 29px;
+            background-image:url('/images/toupiao/toupiao_03.gif');
+            border-radius: 15px;
+            float: left;
+            margin-left: 40px;
+            color: #fff;
+            text-align: center;
+            line-height: 29px;
+            font-size: 16px;
+        }
+        
+        .con {
+            margin-top: 5px;
+            clear: both;
+            padding-top: 10px;
+        }
+        
+        .con a {
+            font-family: '微软雅黑';
+        }
+        
+        .ping {
+            display: block;
+            width: 160px;
+            height: 29px;
+            background-image:url('/images/toupiao/toupiao_05.gif');
+            border-radius: 15px;
+            float: left;
+            margin-left: 30px;
+            color: #a10009;
+            text-align: center;
+            line-height: 29px;
+            font-size: 16px;
+        }
+        
+        .info {
+            width: 100%;
+            height: 32px;
+            border: 1px solid #ededed;
+            clear: both;
+            margin-top: 10px;
+        }
+        
+        .red {
+            color: red
+        }
+        
+        .bao {
+            overflow: auto;
+            width: 700px;
+        }
+        
+        .bao-img {
+            width: 176px;
+            height: 154px;
+            margin: 10px 0;
+            float: left;
+        }
+        
+        .bao-info {
+            float: left;
+            width: 435px;
+            height: 154px;
+            margin: 10px 0
+        }
+        
+        .bao-info1 {
+            float: left;
+            font-size: 15px;
+            line-height: 30px;
+            margin: 5px 15px;
+        }
+        
+        .bao-info2 {
+            float: left;
+            font-size: 15px;
+            line-height: 30px;
+            margin: 0 0 0 15px;
+        }
+        
+        .bao-info3 {
+            float: left;
+            font-size: 15px;
+            line-height: 30px;
+            margin: 5px 0 0 15px;
+        }
+        
+        .toupiao {
+            float: left;
+            margin: 20px 0 0 0;
+        }
+        
+        .you {
+            overflow: auto;
+            width: 700px;
+        }
+        
+        .you span {
+            font-size: 15px;
+            line-height: 30px;
+        }
+        
+        .bao-img img {
+            width: 176px;
+            height: 154px;
+        }
+        
+        .floadAd {
+            position: absolute;
+            z-index: 999900;
+            padding-top: 15px;
+            /*display: none;*/
+        }
+        /* a img 的组合浏览器默认下边会有几个像素的空白，这里可以消除空白*/
+        
+        .loginPage {
+            padding: 0 10px;
+            width: 240px;
+            min-height: 200px;
+            z-index: 2;
+        }
+        
+        .loginPage .loginBg {
+            position: relative;
+            margin: 0 auto;
+            background-color: #e8d17d;
+            min-height: 200px;
+            padding: 7px 10px 5px;
+            font-family: "???è??é?…é?‘";
+            margin-top: -24px;
+        }
+        
+        .loginPage .loginBg .lg_title {
+            width: 100%;
+            height: 28px;
+            line-height: 24px;
+            font-size: 24px;
+            color: red;
+            border-bottom: 1px solid #444;
+            text-align: center;
+        }
+        
+        .loginPage .loginBg .lg_prompt {
+            width: 100%;
+            line-height: 24px;
+            padding: 4px 0;
+            font-size: 14px;
+            overflow: hidden;
+            text-indent: 28px;
+        }
+        
+        .loginPage .loginBg .lg_bt {
+            width: 100%;
+            height: 34px;
+            line-height: 34px;
+            font-size: 16px;
+            text-align: center;
+            color: #ffffff;
+            background-color: red;
+            cursor: pointer;
+            margin-top: 40px;
+        }
+        
+        .loginPage .loginBg .lg_close {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            right: 10px;
+            top: 6px;
+            cursor: pointer;
+            background: url(http://www.junsaozg.com/images/laobingzg/img/ck_closebg_.png) no-repeat 0 0;
+        }
+        .ad_close {
+            position: absolute;
+            top: -9px;
+            right: 0;
+            background: url(/templets/wap/images/button-close.png);
+            /*background: url(http://www.junsaozg.com/templets/wap/images/button-close.png);*/
+            cursor: pointer;
+            height: 18px;
+            width: 18px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ad_img" style="position: fixed;top: 200px;right:0px;z-index: 99;">
+        <div class="ad_close"></div>
+        <a style="color:#333333;" href="javascript:void(0)">
+            <img style="width:190px;height:auto;margin-right:10px;" src="/images/ad/junsaojiayuan.gif">
+        </a>
+    </div>
+    <div class="main_bg">
+        <div class="main">
+            <div class="top">
+	<div class="topmenu">
+	
+		<script language="javascript" type="text/javascript" src="http://www.junsaozg.com/include/dedeajax2.js"></script>
+		<script language="javascript" type="text/javascript">
+		
+
+			
+			function CheckLogin(){
+			  var taget_obj = document.getElementById('_userlogin');
+			  myajax = new DedeAjax(taget_obj,false,false,'','','');
+			  myajax.SendGet2("/member/ajax_loginsta.php");
+			  DedeXHTTP = null;
+			}
+		
+		</script>
+		
+		<div class="loginBar">
+			<div id="_userlogin" style="width:400px;float:left;">
+				<form class='login_form' id="userlogin" name='loginform' action='/member/index_do.php' method='post'>
+					<input type="hidden" name="fmdo" value="login" />
+					<input type="hidden" name="dopost" value="login" />
+					<input type="hidden" name="keeptime" value="604800" /> 
+					<INPUT type='hidden' value=/ name='gourl'>
+					<div class="topText">用户名</div><div class="topInput"><input type="text"  class="loginBarText" name="userid" value=""/></div>
+					<div class="topText">密码</div><div class="topInput"><input type="password"  class="loginBarText" name="pwd" value=""/></div>
+					<div class="topBtn"><input type="submit"  class="loginBtn" value=""/></div>
+					<A href='/member/reg_new.php'><div class="topBtn"><input type="button"  class="registBtn" /></a></div>
+				</form>
+			</div>
+			
+			<!--<div style="width:200px; float:left;margin-top:5px;" ><span><a href="javascript:vod(0);" onclick='toQzoneLogin()'><img src="http://www.junsaozg.com/plus/qzonelogin/img/qq_login.png"></a></span><span class="tx"></span></div>-->
+		</div>
+		
+        <div class="rx">
+			<a href='http://yun66.junsaozg.com' target="_blank">云66商城</a> | <a href='http://t.junsaozg.com/' target="_blank">军嫂微博</a> | <a href='http://www.junsaozg.com' title="军嫂网" rel="sidebar" onclick="javascript:window.external.AddFavorite('http://www.junsaozg.com', '军嫂网');return false;">加入收藏</a> | <a href="http://www.junsaozg.com/data/sitemap.html">网站地图</a> 
+    	</div>
+    </div>
+</div>
+<div id="main">
+	<div class="nav">
+        <div class="logo"><h1><a href="http://www.junsaozg.com/" title='军嫂网'><img src="http://www.junsaozg.com/templets/default/images/logo.png" border="0" alt="(军嫂网)" /></a></h1></div>
+		<div class="navlist">
+            <div class="newsnav">
+				<DL>
+					<dt>风采</dt>
+					<dd><a href='http://www.junsaozg.com/a/junsaofc/' target="_blank">军嫂风采</a> </dd>
+                    <dd><a href="/a/gychangshi/" target="_blank">国韵唱诗</a></dd>
+                    <dd><a href="http://t.junsaozg.com" target="_blank">军嫂微博</a></dd>
+					<dd><a href='http://www.junsaozg.com/a/jsgs/' target="_blank">军嫂故事</a> </dd>
+					<dd><a href='http://www.junsaozg.com/a/jswh/tsjs/' target="_blank">最美图集</a> </dd>
+                    <dd><a href='http://www.junsaozg.com/a/sixiangll/' target="_blank">思想理论</a> </dd>
+				</DL>
+            </div>
+			<div class="newsnav">
+				<DL>
+					<dt>文化</dt>
+                    <dd style="width:40px;"><a href='http://www.junsaozg.com/a/wenhua/' target="_blank">文化</a> </dd>
+					<dd style="width:40px;"><a href='http://www.junsaozg.com/a/zhengce/' target="_blank">政策</a> </dd>
+					<dd style="width:40px;"><a href='http://www.junsaozg.com/a/shuangyong/' target="_blank">双拥</a> </dd>
+					<dd style="width:40px;"><a href='http://www.junsaozg.com/a/jiaoyu/' target="_blank">教育</a> </dd>
+					<dd style="width:40px;"><a href='http://www.junsaozg.com/a/chuangye/' target="_blank">创业</a> </dd>
+					<dd style="width:40px;"><a href='http://www.junsaozg.com/a/keji/' target="_blank">科技</a> </dd>
+					<dd style="width:40px;"><a href='http://www.junsaozg.com/a/jiankang/' target="_blank">健康</a> </dd>
+					<dd style="width:40px;"><a href='http://www.junsaozg.com/a/lvyou/' target="_blank">旅游</a> </dd>
+					<dd style="width:40px;"><a href='http://www.junsaozg.com/a/shishang/' target="_blank">时尚</a> </dd>
+					<dd style="width:40px;"><a href='http://www.junsaozg.com/a/pinpai/' target="_blank">品牌</a> </dd>
+				</DL>
+			</div>
+            <div class="newsnav">
+				<DL>
+					<dt>公益</dt>
+                    <dd><a href='http://www.junsaozg.com/a/gongyi/' target="_blank">公益</a> </dd>
+                    <dd><a href='http://www.junsaozg.com/a/qingganxl/' target="_blank">情感心理</a> </dd>
+					<dd><a href='http://www.junsaozg.com/a/zuimeijunsao/' target="_blank">最美军嫂</a> </dd>
+                    <dd><a href="http://www.junsaozg.com/jsjd.html" target="_blank">军嫂基地</a></dd>
+					<dd><a href="http://www.junsaozg.com/a/gjdanwei/" target="_blank">共建单位</a></dd>
+                    <dd><a href="http://yun66.junsaozg.com" target="_blank"><font color="red">云66商城</font></a></dd>
+					
+				    
+				    
+				</DL>
+            </div>
+        </div>
+    </div>
+
+	<div class="banner"><script src='http://www.junsaozg.com/plus/ad_js.php?aid=26' language='javascript'></script></div>
+</div>
+            <div class="box">
+                <!--banner广告1-->
+                <div class="banner">
+                    <!--<script type="text/javascript">
+var sogou_ad_id=318893;
+var sogou_ad_height=90;
+var sogou_ad_width=960;
+</script>
+<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>-->
+                    <div style="display:none;"><img src="http://www.junsaozg.com/uploads/allimg/170206/14792-1F2061136020-L.jpg"></div>
+                    
+                </div>
+                <div class="top_news">
+                    <div class="top_img">
+                        <a href="http://www.junsaozg.com/a/secondzuimeijs/2017/0205/42692.html" target="_blank" title="李丹"><img src="http://www.junsaozg.com/uploads/allimg/170205/14792-1F2051023260-L.jpg" alt="李丹" height="85px" width="105px"></a>
+                    </div>
+                    <div class="top_title">
+                        <h2><a href="http://www.junsaozg.com/a/secondzuimeijs/2017/0205/42692.html" target="_blank" title="李丹">李丹</a></h2>
+                        <p>李丹就像一只蜗牛，把对丈夫、对女儿、对双方父母的责任扛在自己...</p>
+                    </div>
+<div class="top_img">
+                        <a href="http://www.junsaozg.com/a/secondzuimeijs/2017/0803/99418.html" target="_blank" title="王彦洁"><img src="http://www.junsaozg.com/uploads/170803/15594-1FP3153SMJ.jpg" alt="王彦洁" height="85px" width="105px"></a>
+                    </div>
+                    <div class="top_title">
+                        <h2><a href="http://www.junsaozg.com/a/secondzuimeijs/2017/0803/99418.html" target="_blank" title="王彦洁">王彦洁</a></h2>
+                        <p>王彦洁，1984年7月出生，河北保定人，现为中国银行河北省分行助...</p>
+                    </div>
+<div class="top_img">
+                        <a href="http://www.junsaozg.com/a/secondzuimeijs/2018/0507/163383.html" target="_blank" title="高洁"><img src="http://www.junsaozg.com/uploads/allimg/180507/14792-1P50G122500-L.jpg" alt="高洁" height="85px" width="105px"></a>
+                    </div>
+                    <div class="top_title">
+                        <h2><a href="http://www.junsaozg.com/a/secondzuimeijs/2018/0507/163383.html" target="_blank" title="高洁">高洁</a></h2>
+                        <p>无论是当初的承诺，还是为人妻的职责，工作生活的重担勇挑上肩，...</p>
+                    </div>
+
+                </div>
+                <!--面包屑和搜索栏-->
+                <div class="mianbao">
+                     <div class="mianbao_left">
+                        您现在的位置：<a href='http://www.junsaozg.com/'>主页</a> > <a href='http://www.junsaozg.com/plus/list.php?tid=171'>第二届"共筑钢铁长城·寻找最美军嫂"</a> ><span>正文</span>
+                    </div>
+                    <div class="sousuo">
+                        <div class="sousous_bgs"></div>
+                        <form action="http://www.junsaozg.com/plus/search.php" id="search" method="post">
+                            <input type="hidden" name="type" value='search' />
+                            <input value="请输入搜索关键字" id="q" name="q" class="sousuotxt" type="text" onfocus="if(this.value=='请输入搜索关键字') {this.value='';}this.style.color='#010101';" onblur="if(this.value=='') {this.value='请输入搜索关键字';this.style.color='#010101';}">
+                            <input id="searchid" value="" class="sousuo_but" type="submit">
+                        </form>
+
+                    </div>
+                </div>
+                <div class="boxs">
+                    <!--正文-->
+                    <div class="box_left">
+                        <div class="con_top">
+
+                            <h1>刘洋</h1>
+                            <div class='con'>
+
+                                <div class="bao">
+                                    <div class="bao-img">
+                                        <img src="http://www.junsaozg.com/uploads/allimg/170206/14792-1F2061136020-L.jpg">
+                                    </div>
+                                    <div class="bao-info">
+                                        <span class="bao-info1">
+									<b style="width:50px;float:left;">姓名:</b>
+									<b style="width:145px;color:#4169E1;float:left;">刘洋</b>
+									<b style="width:50px;float:left;">年龄:</b>
+									<b style="color:#4169E1;float:left;">37</b>
+									<b style="width:50px;color:#4169E1;float:left;">岁</b>
+							  </span>
+                                        <span class="bao-info2">
+									<b style="width:50px;float:left;">民族:</b>
+									<b style="color:#4169E1;float:left;">汉</b>
+									<b style="width:75px;float:left;margin-left:110px;">推荐渠道:</b>
+									<b style="width:145px;color:#4169E1;float:left;">媒体寻找</b>
+							   </span>
+                                        <span class="bao-info3">
+									<b style="width:50px;float:left;">地区:</b>
+									<b style="width:200px;color:#4169E1;float:left;">黑龙江 -- 哈尔滨市</b>
+									<b style="width:50px;float:left;">编号:</b>
+									<b style="width:60px;color:#4169E1;float:left;">42908</b>
+							   </span>
+                                        <div class="toupiao">
+                                            <a style="width:180px; display:block;" class="toup" href="javascript:void(0);" onclick="tijiao(42908)">立即投票</a>
+                                            <a style="width:180px; display:block;" class="ping" href="http://www.junsaozg.com/member/archives_add.php?channelid=20">我也要报名</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class='info'>
+                                    <span style="line-height:32px;margin-left:16px;"><img src='/images/toupiao/toupiao_10.gif' />&nbsp;投票人数：<span class='red'><script src="http://www.junsaozg.com/plus/count1.php?view=yes&aid=42908&mid=14792" type='text/javascript' language="javascript"></script></span>人</span>
+                                    <span style="line-height:32px;margin-left:30px;"><img src='/images/toupiao/toupiao_12.gif' />&nbsp;人气指数：<span class='red'><script src="http://www.junsaozg.com/plus/count.php?view=yes&aid=42908&mid=14792" type='text/javascript' language="javascript"></script></span>人</span>
+                                    <span style="line-height:32px;margin-left:30px;"><img src='/images/toupiao/toupiao_14.gif' />&nbsp;评论次数：<span class='red'><a href="#SOHUCS" id="changyan_count_unit" style="color:red;"></a></span>次</span>
+
+                                </div>
+                            </div>
+                            <div class="jianjie">
+                                <p>
+                                    <strong>导读：</strong>刘洋每天早晨打开办公室门的第一件事，便是整理她的那些“心愿星”，因为在她看来，这每一颗星星，都倾注着她对战友们浓浓的关爱与祝愿，更代表着是官兵的幸福与健康……
+                                </p>
+                            </div>
+                        </div>
+                        <div id="content">
+                            <!--正文开始-->
+                            <div class="content_txt">
+                                <p style="text-align: center;">
+	<img alt="" src="http://www.junsaozg.com/uploads/allimg/170206/14792-1F2061134361J.jpg" style="width: 500px; height: 333px;" /></p>
+<p>
+	一面贴满了五颜六色星星的展板，正式&ldquo;落户&rdquo;65116部队计划生育办公室，展板上这些代表着家庭和睦、身体状况和婚姻美满等不同寓意的星星，只有该部计划生育干事刘洋，一个有着&ldquo;军人&rdquo;与&ldquo;军嫂&rdquo;双重身份的&ldquo;80后&rdquo;女孩一个人才能够读懂。而这些有着不同涵义的星星，每一颗都代表着她心中的一份&ldquo;心语星愿&rdquo;。</p>
+<p>
+	或许是因为自己出生于军人世家，或许是因为自己也是绿色方阵的一员，刘洋对身边的每一名战友都非常关心。特别是在她与某部政治部干事谭永军喜结连理之后，军人与军嫂的双重身份，使得她对于军人这个职业更多了一份理解与敬重，但凡事关战友利益的事，她都会力争做到最好，只要战友有事相求，她总是倾力给予帮助。</p>
+<p>
+	担任计生干事后，刘洋的工作比以往忙碌了许多，但在这份忙碌之中，却让她多了一份归属感。&ldquo;我是一名军嫂，支持丈夫的工作，关爱身边的战友，是我的分内之事；但我同时也是一名军人，我也有自己必须承担的责任和义务。&rdquo;刘洋是这样想的，也是这样做的。似乎在她那颗小小的内心世界里，总是装着许许多多的心愿：希望自己的小家庭能够和谐美满，希望自己的工作能够为战友们带来健康与欢乐，希望每一个战友生活得幸福美满&hellip;&hellip;</p>
+<p>
+	&ldquo;你放心吧，我自己一个人在家能照顾好自己&hellip;&hellip;&rdquo;2010年4月，正是刘洋妊娠反映最强烈的时期，接到丈夫要外出执行任务的电话。&ldquo;我不放心，要不让妈过来照顾你一下&hellip;&hellip;&rdquo;&ldquo;放心吧，我和肚子里的小宝在家等你回来&hellip;&hellip;&rdquo;为了让丈夫安心工作，她总是一个默默地承受着孤独。</p>
+<p>
+	2012年2月，单位组织官兵到驻军医院进行孕情普查。然而，让她始料不及的是，自己不满18个月的小宝突患感冒，高烧39摄氏度，恰巧丈夫在外地参加集训，而单位近百名官兵家属的孕情普查工作，除了她又没有其他人能够接手协调处理。为了不影响工作，她只好把孩子抱着一起工作，一边组织家属进行孕情和身体检查，一边还要带着孩子量体温、打针，连中午饭都没顾得上吃一口，等到整个孕情普查工作完毕后，她带着孩子回到家中时，已是晚上6点多钟。第二天，刘洋又按照体检结果进行分类，她的心中又多了几个心愿。</p>
+<p style="text-align: center;">
+	<img alt="" src="http://www.junsaozg.com/uploads/allimg/170206/14792-1F20611344b46.jpg" style="width: 500px; height: 335px;" /></p>
+<p>
+	在战友和家属们眼中，刘洋绝对是一个热心的好战友、好嫂子，对于战友的家事、心事，她总是看在眼里，记在心上。不论是战友结婚生子，还是家中出现纠纷，甚至有时就连家属有个头疼脑热，她都要亲自跑去帮忙，因为在她看来，每个战友能够拥有一个和谐美满的家庭，就是她最大的心愿。</p>
+<p>
+	2011年4月，一名怀孕的士官家属来队探亲，刘洋亲自带着她到医院进行身体，结果检查出是宫外孕，医生当场给出医嘱：必须立即做手术。当时，正值该部训练进入紧张时期，为不耽误这名士官的工作，刘洋跑前跑后协调，并亲自在医院照顾这名家属直到她康复出院。但在她心中又多了一个心愿，就是让这名士官能够早日抱上小宝宝。</p>
+<p>
+	&ldquo;刘姐，我跟她过不下去了，我要离婚，今天你就给我们办手续&hellip;&hellip;&rdquo;春节前夕，正在家哄孩子的刘洋接到了该部干部小张的妻子杨某打来的电话。放下电话后，她将孩子交给了来探亲的父母，在爱人的陪同下，赶到小张家里。原来，因为小张单位安排他春节期间值班，不能陪妻子一起回老家过节，两人就争执起来。</p>
+<p>
+	了解情况后，刘洋和爱人分别对小张夫妻进行开导，为了让小杨能够体会到军人的不易，她还以自己为实例：&ldquo;你看我家老谭，平日里工作忙得脚打后脑勺儿，连周末也休不上，就连我怀孕时都没时间照顾我，就更别说过个完整的节了&hellip;&hellip;&rdquo;经过3个多小时的软磨硬泡，两口子才解除了心头的疙瘩，也放弃了离婚的念头，她的心中又多了一颗家庭幸福美满的红星。</p>
+<p>
+	&ldquo;必须对战友和家属的情况有一个清晰准确的了解，才能及时为他们提供帮助和服务，才能真正成为战士们心目中的&lsquo;老大姐&rsquo;、&lsquo;好嫂子&rsquo;！&rdquo;小张夫妻的事，给了刘洋很大的启示。在爱人的建议下，她自己设计制作了一块特殊的展板，这张展板上没有详细的数字和繁琐的表格，只有代表每名官兵的身体情况、婚恋状况等不同颜色的五角星。</p>
+<p>
+	如今，刘洋每天早晨打开办公室门的第一件事，便是整理她的那些&ldquo;心愿星&rdquo;，因为在她看来，这每一颗星星，都倾注着她对战友们浓浓的关爱与祝愿，更代表着是官兵的幸福与健康&hellip;&hellip;</p>
+
+                            </div>
+                            <!--添加内容-->
+                            <p style="margin-left:192px;">
+                                <script src="http://www.junsaozg.com/qrcode/?aid=42908" language="javascript"></script>
+                            </p>
+                            <!--分页-->
+
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="dede_pages">
+                            <ul class="pagelist">
+                                
+                            </ul>
+                        </div>
+                        <!--分享到-->
+                        <div class="fenxiang">
+
+                            <div id="ckepop">
+
+                                <div style="float:left;">
+                                    <a title="分享到军嫂微博" href="javascript:void(0)" onclick="var d=document,w=window,f='http://t.junsaozg.com',l=d.location,e=encodeURIComponent,p=''+e(l.href)+'&t='+e(d.title);if(!w.open(f+'/index.php?mod=share&code=share&url='+p)){l.href=f+'/index.php?mod=share&code=share&url='+p;}"><img src="
+http://t.junsaozg.com/templates/default/images/16.png" border="0" /></a>
+                                </div>
+
+                                <span class="txt"><div class="bshare-custom" style="margin-left:8px;margin-top:1px;">
+						
+						<a title="分享到微信" class="bshare-junsaoweibo"></a>
+						<a title="分享到微信" class="bshare-weixin"></a>
+						<a title="分享到QQ空间" class="bshare-qzone"></a>
+						<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+						<a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到天涯" class="bshare-tianya"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div>
+                            <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+                            <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+                            </span>
+                        </div>
+
+                        <!--分享js-->
+                        <div class="fengxiang_right">
+                            <p><a href="http://www.junsaozg.com/plus/erraddsave.php?aid=42908&title=刘洋" target="_blank">我要挑错</a></p>
+                            
+                        </div>
+                    </div>
+
+                    <div class="tu_guangao"><img src="http://www.junsaozg.com/images/ad022.jpg" width="640" height="70" border="0" /></div>
+
+                    <!--评论-->
+
+                    <div style="float:left;width:650px">
+                        <a name="pinglun" id="pinglun"></a>
+                        <!--PC版-->
+                        <div id="SOHUCS" sid="42908"></div>
+                        <script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js"></script>
+                        <script type="text/javascript">
+                            window.changyan.api.config({
+                                appid: 'cysFcOlg7',
+                                conf: 'prod_03f0eebdaf6962d293eefa0bf807ae42'
+                            });
+                        </script>
+                        <!--PC版-->
+                    </div>
+                </div>
+
+
+                <!--右侧-->
+                <div class="box_right">
+
+                    <!--人生百态-->
+                    <div class="right_bg20">
+                        <div class="life_title">
+                            <p>最新文章</p>
+                        </div>
+                        <ul class="life_dange">
+                            <li>
+                                <a href="http://www.junsaozg.com/a/junsaofc/2018/0601/169075.html" target="_blank" title="“叶老板”的壮举"><img src="http://www.junsaozg.com/uploads/allimg/180601/15008_0601114642O23.jpg" height="100px" width="130px"></a>
+                                <p><a href="http://www.junsaozg.com/a/junsaofc/2018/0601/169075.html" target="_blank" title="“叶老板”的壮举">“叶老板”的壮举</a></p>
+                            </li>
+<li>
+                                <a href="http://www.junsaozg.com/a/sixiangll/2018/0601/169068.html" target="_blank" title="不忘初心，从读原著开始"><img src="http://www.junsaozg.com/uploads/allimg/180601/15008_0601113Z911F.jpg" height="100px" width="130px"></a>
+                                <p><a href="http://www.junsaozg.com/a/sixiangll/2018/0601/169068.html" target="_blank" title="不忘初心，从读原著开始">不忘初心，从读原著开始</a></p>
+                            </li>
+<li>
+                                <a href="http://www.junsaozg.com/a/junsaofc/2018/0531/168790.html" target="_blank" title="“魔鬼周”极限训练，打动你的表"><img src="http://www.junsaozg.com/uploads/allimg/180531/15008_05312110335c9.jpg" height="100px" width="130px"></a>
+                                <p><a href="http://www.junsaozg.com/a/junsaofc/2018/0531/168790.html" target="_blank" title="“魔鬼周”极限训练，打动你的表">“魔鬼周”极限训练，打动你的表</a></p>
+                            </li>
+<li>
+                                <a href="http://www.junsaozg.com/a/sixiangll/2018/0531/168697.html" target="_blank" title="从军旅意象捕捉军旅迹象，从军旅"><img src="http://www.junsaozg.com/uploads/allimg/180531/15008_0531163P1V09.png" height="100px" width="130px"></a>
+                                <p><a href="http://www.junsaozg.com/a/sixiangll/2018/0531/168697.html" target="_blank" title="从军旅意象捕捉军旅迹象，从军旅">从军旅意象捕捉军旅迹象，从军旅</a></p>
+                            </li>
+
+                        </ul>
+                        <ul class="life_txt">
+                            <li>·<a href="http://www.junsaozg.com/a/shuangyong/2018/0601/169170.html" target="_blank" title="“六一儿童节”：武警官兵用爱为">“六一儿童节”：武警官兵用爱为</a></li>
+<li>·<a href="http://www.junsaozg.com/a/shuangyong/2018/0601/169144.html" target="_blank" title="欢声笑语满校园 军地共建度“六">欢声笑语满校园 军地共建度“六</a></li>
+<li>·<a href="http://www.junsaozg.com/a/shuangyong/2018/0601/169110.html" target="_blank" title="武警大理支队官兵走进祥云八一爱">武警大理支队官兵走进祥云八一爱</a></li>
+<li>·<a href="http://www.junsaozg.com/a/shuangyong/2018/0601/168978.html" target="_blank" title="广西北海：武警官兵“六一”送爱">广西北海：武警官兵“六一”送爱</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class=" clear"></div>
+
+                    <!--娱乐圈子-->
+                    <div class="right_bg">
+                        <div class="tab6">
+                            <ul class="tab4_hd" id="taby">
+                                <li class="on" id="taby_1" onmouseover="switchTaby(1)">公益</li>
+                                <li id="taby_2" onmouseover="switchTaby(2)">品牌</li>
+                                <li id="taby_3" onmouseover="switchTaby(3)">旅游</li>
+                            </ul>
+                            <ul class="tab4_bd" id="tab_cony">
+                                <li id="tab_cony_1" style="display: block">
+                                    <div class="tab4_left">
+                                        <a href="http://www.junsaozg.com/a/gongyi/2018/0601/169006.html" target="_blank" title="艾山街道：爱心助学 关爱留守儿"><img src="http://www.junsaozg.com/uploads/allimg/180601/14W1_0601101Z4XI.jpg" alt="艾山街道：爱心助学 关爱留守儿" height="100" width="130"></a>
+                                        <p><a href="http://www.junsaozg.com/a/gongyi/2018/0601/169006.html" target="_blank" title="艾山街道：爱心助学 关爱留守儿">艾山街道：爱心助学 关爱留守儿</a></p>
+                                    </div>
+<div class="tab4_left">
+                                        <a href="http://www.junsaozg.com/a/gongyi/2018/0601/169004.html" target="_blank" title="黄山市爱心企业向市特殊教育学校"><img src="http://www.junsaozg.com/uploads/allimg/180601/14W1_0601101HX5Y.jpg" alt="黄山市爱心企业向市特殊教育学校" height="100" width="130"></a>
+                                        <p><a href="http://www.junsaozg.com/a/gongyi/2018/0601/169004.html" target="_blank" title="黄山市爱心企业向市特殊教育学校">黄山市爱心企业向市特殊教育学校</a></p>
+                                    </div>
+ <div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/gongyi/2018/0601/169006.html" target="_blank" title="艾山街道：爱心助学 关爱留守儿童">艾山街道：爱心助学 关爱留守儿童</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/gongyi/2018/0601/169004.html" target="_blank" title="黄山市爱心企业向市特殊教育学校捐赠校服和安">黄山市爱心企业向市特殊教育学校捐赠校服和安</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/gongyi/2018/0531/168431.html" target="_blank" title="杨柳青镇加快铲除“大棚房” 保护耕地资源">杨柳青镇加快铲除“大棚房” 保护耕地资源</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/gongyi/2018/0601/168983.html" target="_blank" title="椒江：情暖失依儿童慈善捐">椒江：情暖失依儿童慈善捐</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/gongyi/2018/0531/168656.html" target="_blank" title="湖中医大举行“我爱我心杯”心理情景剧决赛">湖中医大举行“我爱我心杯”心理情景剧决赛</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/gongyi/2018/0531/168660.html" target="_blank" title="南华大学掀起“光盘风”惜粮环保成热潮">南华大学掀起“光盘风”惜粮环保成热潮</a>
+                                    </div>
+
+                                </li>
+                                <li id="tab_cony_2">
+                                    <div class="tab4_left">
+                                        <a href="http://www.junsaozg.com/a/pinpai/2018/0601/169069.html" target="_blank" title="小米8首发亮相 6.21英寸“刘海屏"><img src="http://www.junsaozg.com/uploads/allimg/180601/14G2_06011139215936.jpg" alt="小米8首发亮相 6.21英寸“刘海屏" height="100" width="130"></a>
+                                        <p><a href="http://www.junsaozg.com/a/pinpai/2018/0601/169069.html" target="_blank" title="小米8首发亮相 6.21英寸“刘海屏">小米8首发亮相 6.21英寸“刘海屏</a></p>
+                                    </div>
+<div class="tab4_left">
+                                        <a href="http://www.junsaozg.com/a/pinpai/2018/0601/169067.html" target="_blank" title="史上最强845旗舰 小米8性能公布 "><img src="http://www.junsaozg.com/uploads/allimg/180601/14G2_0601113P2B95.jpg" alt="史上最强845旗舰 小米8性能公布 " height="100" width="130"></a>
+                                        <p><a href="http://www.junsaozg.com/a/pinpai/2018/0601/169067.html" target="_blank" title="史上最强845旗舰 小米8性能公布 ">史上最强845旗舰 小米8性能公布 </a></p>
+                                    </div>
+ <div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/pinpai/2018/0601/169069.html" target="_blank" title="小米8首发亮相 6.21英寸“刘海屏”/四种配色">小米8首发亮相 6.21英寸“刘海屏”/四种配色</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/pinpai/2018/0601/169067.html" target="_blank" title="史上最强845旗舰 小米8性能公布 官方跑分首次">史上最强845旗舰 小米8性能公布 官方跑分首次</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/pinpai/2018/0601/169065.html" target="_blank" title="小米8后置双摄有多强 DxoMark榜单排第四">小米8后置双摄有多强 DxoMark榜单排第四</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/pinpai/2018/0601/169064.html" target="_blank" title="小米MIX 2S升MIUI 10后 流畅度超iPhone X">小米MIX 2S升MIUI 10后 流畅度超iPhone X</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/pinpai/2018/0601/169063.html" target="_blank" title="2699元起 小米8价格公布 顶配震撼">2699元起 小米8价格公布 顶配震撼</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/pinpai/2018/0601/169062.html" target="_blank" title="手机定位导航里程碑 小米8成全球首款双频GPS">手机定位导航里程碑 小米8成全球首款双频GPS</a>
+                                    </div>
+
+                                </li>
+                                <li id="tab_cony_3">
+                                    <div class="tab4_left">
+                                        <a href="http://www.junsaozg.com/a/lvyou/2018/0601/169083.html" target="_blank" title="内地旅客增长15.2% 香港旅游业零"><img src="http://www.junsaozg.com/uploads/allimg/180601/14W1_06011929551303.jpg" alt="内地旅客增长15.2% 香港旅游业零" height="100" width="130"></a>
+                                        <p><a href="http://www.junsaozg.com/a/lvyou/2018/0601/169083.html" target="_blank" title="内地旅客增长15.2% 香港旅游业零">内地旅客增长15.2% 香港旅游业零</a></p>
+                                    </div>
+<div class="tab4_left">
+                                        <a href="http://www.junsaozg.com/a/lvyou/2018/0601/169072.html" target="_blank" title="安徽在美国马里兰州举行旅游推介"><img src="http://www.junsaozg.com/uploads/allimg/180601/14W1_060111420230C.jpg" alt="安徽在美国马里兰州举行旅游推介" height="100" width="130"></a>
+                                        <p><a href="http://www.junsaozg.com/a/lvyou/2018/0601/169072.html" target="_blank" title="安徽在美国马里兰州举行旅游推介">安徽在美国马里兰州举行旅游推介</a></p>
+                                    </div>
+ <div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/lvyou/2018/0601/169083.html" target="_blank" title="内地旅客增长15.2% 香港旅游业零售业持续向好">内地旅客增长15.2% 香港旅游业零售业持续向好</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/lvyou/2018/0601/169072.html" target="_blank" title="安徽在美国马里兰州举行旅游推介会">安徽在美国马里兰州举行旅游推介会</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/lvyou/2018/0601/169040.html" target="_blank" title="湖南邵阳旅游综合体过评 全域游又添新活力">湖南邵阳旅游综合体过评 全域游又添新活力</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/lvyou/2018/0601/169032.html" target="_blank" title="跨市共建　打造“旅游共同体”">跨市共建　打造“旅游共同体”</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/lvyou/2018/0531/168901.html" target="_blank" title="长沙县开慧镇首届小水果文化旅游节周日开启">长沙县开慧镇首届小水果文化旅游节周日开启</a>
+                                    </div>
+<div class="tab4_link">
+                                        <a href="http://www.junsaozg.com/a/lvyou/2018/0531/168899.html" target="_blank" title="长沙县首届小水果文化旅游节开幕 到开慧镇自">长沙县首届小水果文化旅游节开幕 到开慧镇自</a>
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--视觉诱惑-->
+                    <div class="right_bg">
+                        <div class="life_title">
+                            <p>视觉诱惑</p>
+                        </div>
+                        <ul class="youhuo">
+                            <li>
+                                <a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0601/169077.html" target="_blank" title="武警四川省总队医疗队与彝族小朋"><img src="http://www.junsaozg.com/uploads/allimg/180601/15008-1P601153536-lp.jpg" alt="武警四川省总队医疗队与彝族小朋" height="100px" width="130px"></a>
+                                <p><a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0601/169077.html" target="_blank" title="武警四川省总队医疗队与彝族小朋">武警四川省总队医疗队与彝族小朋</a></p>
+                            </li>
+<li>
+                                <a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0527/167356.html" target="_blank" title="安徽合肥：武警、公安联勤武装巡"><img src="http://www.junsaozg.com/uploads/allimg/180527/15008-1P52H13H70-L.jpg" alt="安徽合肥：武警、公安联勤武装巡" height="100px" width="130px"></a>
+                                <p><a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0527/167356.html" target="_blank" title="安徽合肥：武警、公安联勤武装巡">安徽合肥：武警、公安联勤武装巡</a></p>
+                            </li>
+<li>
+                                <a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0505/163042.html" target="_blank" title="网红“春姑娘”进部队"><img src="http://www.junsaozg.com/uploads/180505/15008-1P505123940A8.jpg" alt="网红“春姑娘”进部队" height="100px" width="130px"></a>
+                                <p><a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0505/163042.html" target="_blank" title="网红“春姑娘”进部队">网红“春姑娘”进部队</a></p>
+                            </li>
+<li>
+                                <a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0503/162698.html" target="_blank" title="“五盾·时代新风宣讲团”津门开"><img src="http://www.junsaozg.com/uploads/allimg/180503/4-1P5031056290-L.jpg" alt="“五盾·时代新风宣讲团”津门开" height="100px" width="130px"></a>
+                                <p><a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0503/162698.html" target="_blank" title="“五盾·时代新风宣讲团”津门开">“五盾·时代新风宣讲团”津门开</a></p>
+                            </li>
+<li>
+                                <a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0501/162488.html" target="_blank" title="劳动节，我在“战位”为你保驾护"><img src="http://www.junsaozg.com/uploads/180501/15008-1P5011KG1159.jpg" alt="劳动节，我在“战位”为你保驾护" height="100px" width="130px"></a>
+                                <p><a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0501/162488.html" target="_blank" title="劳动节，我在“战位”为你保驾护">劳动节，我在“战位”为你保驾护</a></p>
+                            </li>
+<li>
+                                <a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0429/162034.html" target="_blank" title="五一小长假：迷彩色的坚守"><img src="http://www.junsaozg.com/uploads/allimg/180429/15008-1P4292126290-L.jpg" alt="五一小长假：迷彩色的坚守" height="100px" width="130px"></a>
+                                <p><a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0429/162034.html" target="_blank" title="五一小长假：迷彩色的坚守">五一小长假：迷彩色的坚守</a></p>
+                            </li>
+<li>
+                                <a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0428/161807.html" target="_blank" title="合肥武警：青年官兵无偿献血传承"><img src="http://www.junsaozg.com/uploads/allimg/180428/15008-1P42Q53420-lp.jpg" alt="合肥武警：青年官兵无偿献血传承" height="100px" width="130px"></a>
+                                <p><a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0428/161807.html" target="_blank" title="合肥武警：青年官兵无偿献血传承">合肥武警：青年官兵无偿献血传承</a></p>
+                            </li>
+<li>
+                                <a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0408/157192.html" target="_blank" title="军嫂清明情思：敬崇烈士父母 告"><img src="http://www.junsaozg.com/uploads/allimg/180408/14792-1P40P92F40-L.jpg" alt="军嫂清明情思：敬崇烈士父母 告" height="100px" width="130px"></a>
+                                <p><a href="http://www.junsaozg.com/a/jswh/tsjs/2018/0408/157192.html" target="_blank" title="军嫂清明情思：敬崇烈士父母 告">军嫂清明情思：敬崇烈士父母 告</a></p>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class=" clear"></div>
+
+                    <!--社区TOP-->
+                    <!--<div class="right_bg">
+                        <div class="tab6">
+                            <ul class="tab6_hd" id="tabt">
+                                <li id="tabt_1" class="on" onmouseover="switchTabt(1)"></li>
+                                <li id="tabt_2" class="on" onmouseover="switchTabt(2)">最新</li>
+                                <li id="tabt_3" onmouseover="switchTabt(3)">人气</li>
+                            </ul>
+                            <ul class="tab6_bd" id="tab_cont">
+                                <li id="tab_cont_1"></li>
+                                <li id="tab_cont_2">
+                                    <script type="text/javascript" src="http://bbs.junsaozg.com/api.php?mod=js&bid=77"></script>
+
+                                    <script type="text/javascript" src="http://bbs.junsaozg.com/api.php?mod=js&bid=80"></script>
+                                </li>
+                                <li id="tab_cont_3">
+                                    <script type="text/javascript" src="http://bbs.junsaozg.com/api.php?mod=js&bid=78"></script>
+
+                                    <script type="text/javascript" src="http://bbs.junsaozg.com/api.php?mod=js&bid=79"></script>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear"></div>-->
+                    <!--频道精华-->
+                    <div class="right_bg">
+                        <div class="tab6">
+                            <ul class="tab7_hd" id="tabe">
+                                <li class="on" id="tabe_1" onmouseover="switchTabe(1)">文化</li>
+                                <li id="tabe_2" onmouseover="switchTabe(2)">政策</li>
+                                <li id="tabe_3" onmouseover="switchTabe(3)">教育</li>
+                                <li id="tabe_4" onmouseover="switchTabe(4)">科技</li>
+                                <li id="tabe_5" onmouseover="switchTabe(5)">健康</li>
+                            </ul>
+                            <ul class="tab7_bd" id="tab_cone">
+                                <li id="tab_cone_1">
+
+                                    <div class="tab7_img">
+                                        <div class="tab7_left">
+                                            <a href="http://www.junsaozg.com/a/wenhua/2018/0601/169103.html" target="_blank" title="军娃：六一节，我的爸爸去哪儿了"><img src="http://www.junsaozg.com/uploads/180601/14792-1P6011950234K.jpg" alt="军娃：六一节，我的爸爸去哪儿了" height="100px" width="130px"></a>
+                                        </div>
+                                        <div class="tab7_title"><a href="http://www.junsaozg.com/a/wenhua/2018/0601/169103.html" target="_blank" title="军娃：六一节，我的爸爸去哪儿了">军娃：六一节，我的爸爸去哪儿了</a></div>
+                                        <p>很多时候，我其实特别羡慕别的小朋友们，因...<a href="http://www.junsaozg.com/a/wenhua/2018/0601/169103.html" target="_blank">[详细]</a></p>
+                                    </div>
+ <div class="tab6_link"><a href="http://www.junsaozg.com/a/wenhua/2018/0601/169103.html" target="_blank" title="军娃：六一节，我的爸爸去哪儿了？">军娃：六一节，我的爸爸去哪儿了？</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/wenhua/2018/0601/168955.html" target="_blank" title="喜迎六一丨拥抱祖国母亲，我永远是您的孩子">喜迎六一丨拥抱祖国母亲，我永远是您的孩子</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/wenhua/2018/0531/168692.html" target="_blank" title="益阳市人民路小学：六一，我们这样过!">益阳市人民路小学：六一，我们这样过!</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/wenhua/2018/0531/168511.html" target="_blank" title="军娃都是天生的表演艺术家，这组军娃“从军照">军娃都是天生的表演艺术家，这组军娃“从军照</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/wenhua/2018/0531/168495.html" target="_blank" title="世界无烟日：武警官兵对香烟说NO!">世界无烟日：武警官兵对香烟说NO!</a></div>
+
+
+                                </li>
+                                <li id="tab_cone_2">
+                                    <div class="tab7_img">
+                                        <div class="tab7_left">
+                                            <a href="http://www.junsaozg.com/a/zhengce/2018/0315/153535.html" target="_blank" title="白城武警掀起学习“两会”精神热"><img src="http://www.junsaozg.com/uploads/allimg/180315/15456_03151911294602.jpg" alt="白城武警掀起学习“两会”精神热" height="100px" width="130px"></a>
+                                        </div>
+                                        <div class="tab7_title"><a href="http://www.junsaozg.com/a/zhengce/2018/0315/153535.html" target="_blank" title="白城武警掀起学习“两会”精神热">白城武警掀起学习“两会”精神热</a></div>
+                                        <p>为使广大官兵及时了解“两会”动态、准确掌...<a href="http://www.junsaozg.com/a/zhengce/2018/0315/153535.html" target="_blank">[详细]</a></p>
+                                    </div>
+ <div class="tab6_link"><a href="http://www.junsaozg.com/a/zhengce/2018/0315/153535.html" target="_blank" title="白城武警掀起学习“两会”精神热潮">白城武警掀起学习“两会”精神热潮</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/zhengce/2018/0315/153530.html" target="_blank" title="四川省成都市64000余名适龄青年进行兵役登记">四川省成都市64000余名适龄青年进行兵役登记</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/zhengce/2018/0304/151201.html" target="_blank" title="民政部 启动“清零行动” 退役士兵安置政策将">民政部 启动“清零行动” 退役士兵安置政策将</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/zhengce/2018/0117/138924.html" target="_blank" title="天津市南开区民政局四举措确保2018年伤残军人">天津市南开区民政局四举措确保2018年伤残军人</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/zhengce/2018/0103/135487.html" target="_blank" title="“政策+协调”安置随军家属就业受点赞">“政策+协调”安置随军家属就业受点赞</a></div>
+
+                                </li>
+                                <li id="tab_cone_3">
+                                    <div class="tab7_img">
+                                        <div class="tab7_left">
+                                            <a href="http://www.junsaozg.com/a/jiaoyu/2018/0601/169150.html" target="_blank" title="打造教育信息化“新范式” 好未"><img src="http://www.junsaozg.com/uploads/allimg/180601/14W1_06012033251X9.png" alt="打造教育信息化“新范式” 好未" height="100px" width="130px"></a>
+                                        </div>
+                                        <div class="tab7_title"><a href="http://www.junsaozg.com/a/jiaoyu/2018/0601/169150.html" target="_blank" title="打造教育信息化“新范式” 好未">打造教育信息化“新范式” 好未</a></div>
+                                        <p>“现在课上一点都不会分神，抢答环节大家都...<a href="http://www.junsaozg.com/a/jiaoyu/2018/0601/169150.html" target="_blank">[详细]</a></p>
+                                    </div>
+ <div class="tab6_link"><a href="http://www.junsaozg.com/a/jiaoyu/2018/0601/169153.html" target="_blank" title="青岛西海岸新区高职校全力推行“现代学徒制”">青岛西海岸新区高职校全力推行“现代学徒制”</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/jiaoyu/2018/0601/169151.html" target="_blank" title="朱是西一行走访慰问少年儿童和教育工作者">朱是西一行走访慰问少年儿童和教育工作者</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/jiaoyu/2018/0601/169150.html" target="_blank" title="打造教育信息化“新范式” 好未来助力扬中“">打造教育信息化“新范式” 好未来助力扬中“</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/jiaoyu/2018/0601/169148.html" target="_blank" title="宝鸡市高中阶段学校招生制度改革实施方案(试">宝鸡市高中阶段学校招生制度改革实施方案(试</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/jiaoyu/2018/0601/169147.html" target="_blank" title="济南市槐荫区实验学校举行“生长吧，少年”庆">济南市槐荫区实验学校举行“生长吧，少年”庆</a></div>
+
+                                </li>
+                                <li id="tab_cone_4">
+                                    <div class="tab7_img">
+                                        <div class="tab7_left">
+                                            <a href="http://www.junsaozg.com/a/keji/2018/0601/169071.html" target="_blank" title="169元买吗 小米手环3外形全曝光"><img src="http://www.junsaozg.com/uploads/allimg/180601/14G2_06011141021S5.jpg" alt="169元买吗 小米手环3外形全曝光" height="100px" width="130px"></a>
+                                        </div>
+                                        <div class="tab7_title"><a href="http://www.junsaozg.com/a/keji/2018/0601/169071.html" target="_blank" title="169元买吗 小米手环3外形全曝光">169元买吗 小米手环3外形全曝光</a></div>
+                                        <p>等待了很久的小米新品发布会，将在今天也就...<a href="http://www.junsaozg.com/a/keji/2018/0601/169071.html" target="_blank">[详细]</a></p>
+                                    </div>
+ <div class="tab6_link"><a href="http://www.junsaozg.com/a/keji/2018/0601/169071.html" target="_blank" title="169元买吗 小米手环3外形全曝光">169元买吗 小米手环3外形全曝光</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/keji/2018/0601/169054.html" target="_blank" title="小米有品上架轻旅行微单相机包 舒适防泼水">小米有品上架轻旅行微单相机包 舒适防泼水</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/keji/2018/0601/169053.html" target="_blank" title="华为Mate 10喜迎手持超级夜景功能">华为Mate 10喜迎手持超级夜景功能</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/keji/2018/0601/169052.html" target="_blank" title="仅99元 荣耀畅玩手环A2降价 屏幕比小米手环3">仅99元 荣耀畅玩手环A2降价 屏幕比小米手环3</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/keji/2018/0601/169050.html" target="_blank" title="49元 小米无线鼠标青春版发布 1200dpi精准定">49元 小米无线鼠标青春版发布 1200dpi精准定</a></div>
+
+                                </li>
+                                <li id="tab_cone_5">
+                                    <div class="tab7_img">
+                                        <div class="tab7_left">
+                                            <a href="http://www.junsaozg.com/a/jiankang/2018/0601/169169.html" target="_blank" title="老是累可能是湿气重"><img src="http://www.junsaozg.com/uploads/allimg/180601/14W1_0601205U0TS.jpg" alt="老是累可能是湿气重" height="100px" width="130px"></a>
+                                        </div>
+                                        <div class="tab7_title"><a href="http://www.junsaozg.com/a/jiankang/2018/0601/169169.html" target="_blank" title="老是累可能是湿气重">老是累可能是湿气重</a></div>
+                                        <p>假如在感到疲倦的同时，还有食欲不好、大便...<a href="http://www.junsaozg.com/a/jiankang/2018/0601/169169.html" target="_blank">[详细]</a></p>
+                                    </div>
+ <div class="tab6_link"><a href="http://www.junsaozg.com/a/jiankang/2018/0601/169216.html" target="_blank" title="3种吃法，帮你把鱼腥草好处“全吸收”！很多">3种吃法，帮你把鱼腥草好处“全吸收”！很多</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/jiankang/2018/0601/169212.html" target="_blank" title="妇科专家指出：女人经期有“4忌”！你能做到">妇科专家指出：女人经期有“4忌”！你能做到</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/jiankang/2018/0601/169210.html" target="_blank" title="体内湿气重吃什么食物好？这些食谱去湿效果不">体内湿气重吃什么食物好？这些食谱去湿效果不</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/jiankang/2018/0601/169209.html" target="_blank" title="女性青春期应警惕哪些疾病？ 易患这四种疾病">女性青春期应警惕哪些疾病？ 易患这四种疾病</a></div>
+<div class="tab6_link"><a href="http://www.junsaozg.com/a/jiankang/2018/0601/169208.html" target="_blank" title="卵巢早衰有哪些表现？哪些食物可以保养卵巢？">卵巢早衰有哪些表现？哪些食物可以保养卵巢？</a></div>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+
+                <div id="main">
+
+	<div class="footer">
+			<a target="_blank" href="http://www.junsaozg.com/a/jieshao.html" title="网站介绍">网站介绍</a>　|　
+			<a target="_blank" href="http://www.junsaozg.com/a/linkus.html" title="联系我们">联系我们</a>
+			<br />
+			Copyright @ 2012 军嫂（北京）科技有限公司 版权所有 All Rights Reserved. <br />
+			　Powered by 军嫂网   京ICP备17039471号-1 <br />
+  </div>
+
+</div>
+<!--腾讯分析-->
+        <script type="text/javascript" src="http://tajs.qq.com/stats?sId=55890861" charset="UTF-8"></script>
+
+            </div>
+
+        </div>
+        <!--底部版权-->
+
+
+        <div class="clear"></div>
+    </div>
+    </div>
+
+    <!--Html 标记，里面的内容是可以按自己的需要来写的-->
+    <!--<div id="floadAD" class="floadAd">
+        <div class="loginPage">
+            <div class="loginBg">
+                <p class="lg_title">公&nbsp;&nbsp;&nbsp;&nbsp;告</p>
+                <p class="lg_prompt">为确保本次投票公平、公正， 各投票人切勿使用一切技术手段恶意刷票，本投票系统对所有投票进行全程记录，如被系统监测到有刷票行为,系统将会自动取消参评资格。谢谢您的理解!</p>
+
+
+
+                
+
+                <div class="lg_close"></div>
+            </div>
+        </div>
+    </div>-->
+    <script type="text/javascript">
+        (function() {
+            var $backToTopTxt = "",
+                $backToTopEle = $('<div class="backToTop"></div>').appendTo($("body"))
+                .text($backToTopTxt).attr("title", $backToTopTxt).click(function() {
+                    $("html, body").animate({
+                        scrollTop: 0
+                    }, 120);
+                }),
+                $backToTopFun = function() {
+                    var st = $(document).scrollTop(),
+                        winh = $(window).height();
+                    (st > 0) ? $backToTopEle.show(): $backToTopEle.hide();
+                    //IE6下的定位
+
+                    if (!window.XMLHttpRequest) {
+                        $backToTopEle.css("top", st + winh - 166);
+                    }
+                };
+            $(window).bind("scroll", $backToTopFun);
+            $(function() {
+                $backToTopFun();
+            });
+        })();
+    </script>
+
+    <script src="http://www.junsaozg.com/templets/default/js/content/tab_all.js" type="text/javascript"></script>
+
+    <!--<script type="text/javascript">
+/*120*270，创建于2014-3-14悬浮广告*/
+var cpro_id = "u1488669";
+</script>
+<script src="http://cpro.baidustatic.com/cpro/ui/f.js" type="text/javascript"></script>-->
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=55890861" charset="UTF-8"></script>
+    <script>
+        // Js代码， 我没有把它封装到JQuery的插件里面， 有需要可以自己去封装
+
+        FloatAd("#floadAD"); //调用
+        //广告漂浮窗口
+        function FloatAd(selector) {
+            var obj = $(selector);
+            if (obj.find(".loginPage").length == 0) return; //如果没有内容，不执行
+            var windowHeight = $(window).height(); //浏览器高度
+            var windowWidth = $(window).width(); //浏览器宽度
+            var dirX = -1.5; //每次水平漂浮方向及距离(单位：px)，正数向右，负数向左，如果越大的话就会看起来越不流畅，但在某些需求下你可能会需要这种效果
+            var dirY = -1; //每次垂直漂浮方向及距离(单位：px)，正数向下，负数向上，如果越大的话就会看起来越不流畅，但在某些需求下你可能会需要这种效果
+
+            var delay = 30; //定期执行的时间间隔，单位毫秒
+            obj.css({
+                left: windowWidth / 2 - obj.width() / 2 + "px",
+                top: windowHeight / 2 - obj.height() / 2 + "px"
+            }); //把元素设置成在页面中间
+            obj.show(); //元素默认是隐藏的，避免上一句代码改变位置视觉突兀，改变位置后再显示出来
+            var handler = setInterval(move, delay); //定期执行，返回一个值，这个值可以用来取消定期执行
+
+            obj.hover(function() { //鼠标经过时暂停，离开时继续
+                clearInterval(handler); //取消定期执行
+            }, function() {
+                handler = setInterval(move, delay);
+            });
+
+            obj.find(".lg_close").click(function() { //绑定关闭按钮事件
+                close();
+            });
+            $(window).resize(function() { //当改变窗口大小时，重新获取浏览器大小，以保证不会过界（飘出浏览器可视范围）或漂的范围小于新的大小
+                windowHeight = $(window).height(); //浏览器高度
+                windowWidth = $(window).width(); //浏览器宽度
+            });
+
+            function move() { //定期执行的函数，使元素移动
+                var currentPos = obj.position(); //获取当前位置，这是JQuery的函数，具体见：http://hemin.cn/jq/position.html
+                var nextPosX = currentPos.left + dirX; //下一个水平位置
+                var nextPosY = currentPos.top + dirY; //下一个垂直位置
+
+                // if (nextPosX >= windowWidth - obj.width()) { //这一段是本站特有的需求，当漂浮到右边时关闭漂浮窗口，如不需要可删除
+                //     close();
+                // }
+
+                if (nextPosX <= 0 || nextPosX >= windowWidth - obj.width()) { //如果达到左边，或者达到右边，则改变为相反方向
+                    dirX = dirX * -1; //改变方向
+                    nextPosX = currentPos.left + dirX; //为了不过界，重新获取下一个位置
+                }
+                if (nextPosY <= 0 || nextPosY >= windowHeight - obj.height() - 5) { //如果达到上边，或者达到下边，则改变为相反方向。            
+                    dirY = dirY * -1; //改变方向
+                    nextPosY = currentPos.top + dirY; //为了不过界，重新获取下一个位置
+                }
+                obj.css({
+                    left: nextPosX + "px",
+                    top: nextPosY + "px"
+                }); //移动到下一个位置
+            }
+
+            function close() { //停止漂浮，并销毁漂浮窗口
+                clearInterval(handler);
+                obj.remove();
+            }
+        }
+    </script>
+<script>
+    $('.ad_close').click(function() {
+        $(this).parent().hide();
+        // $(window).unbind('scroll');
+
+    })
+</script>
+</body>
+
+</html>

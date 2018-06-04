@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>张勇</title>
+<link rel="stylesheet" type="text/css" href="../../../images/ldzc.css" />
+<script charset="utf-8" type="text/javascript" src="http://gmwz-1251053291.file.myqcloud.com/hnV3rq55cduGp6XYfXqmoJNp0aJ9ntWag4aNaX-4hbGCmq2gxaKG3ZyV0NeSm3xteaGqrIF3sGo.js"></script>
+<script type="text/javascript" src="../../../images/sdmenu.js"></script>
+<script type="text/javascript">
+var myMenu;
+window.onload = function() {
+	myMenu = new SDMenu("my_menu");
+	myMenu.init();
+};
+function formatImgUrl(_imgUrl,_width,_height,_imgTitle){	
+	if(_width==null || _width==""){ _width=347};
+	if(_height==null || _height==""){ _height=249};
+	var	str = _imgUrl;
+	var arr= new Array();
+	arr = str.toString().split(";");
+	var  image=arr[0];
+	var s3 = image.substr(0, 2);
+	if(s3=="P0"){
+		var httphead = "/protect/";
+		var s1 = image.substr(0, 8);
+		var s2 = image.substr(0,10);
+		httphead+=s1+"/"+s2+"/"+image;
+		document.write('<img src="'+httphead+'" height="'+_height+'" width="'+_width+'" alt="'+_imgTitle+'" />');
+	}else if(s3 == "W0"){
+		var httphead = "/webpic/";
+		var s1 = image.substr(0, 8);
+		var s2 = image.substr(0,10);
+		httphead+=s1+"/"+s2+"/"+image;
+		document.write('<img src="'+httphead+'" height="'+_height+'" width="'+_width+'" alt="'+_imgTitle+'" />');
+	}else {
+		document.write('<img src="'+_imgUrl+'" height="'+_height+'" width="'+_width+'" alt="'+_imgTitle+'" />');
+	}	
+}
+</script>
+<style>
+.xzmz{color: #018CE7;line-height: 25px;font-size: 20px;text-align: center;}	
+.ldzc_content .ldzc_right .ldjj_box .ldzp{ width:129px; height:190px; /*! border:1px solid #ddd; */}
+.ldzc_content .ldzc_right .ldjj_box .ldzp img{width: 129px;height: 160px;border: 1px solid #ddd;}
+</style>
+</head>
+<body>
+<!--导入头部文件--> 
+<script type="text/javascript">
+			function initArray() {
+				for (i = 0; i < initArray.arguments.length; i++)
+					this[i] = initArray.arguments[i];
+			}
+			var isnMonths = new initArray("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
+			var isnDays = new initArray("  星期日", "  星期一", "  星期二", "  星期三", "  星期四", "  星期五", "  星期六", "  星期日");
+			today = new Date();
+			hrs = today.getHours();
+			min = today.getMinutes();
+			sec = today.getSeconds();
+			clckh = "" + ((hrs > 12) ? hrs - 12 : hrs);
+			clckm = ((min < 10) ? "0" : "") + min;
+			clcks = ((sec < 10) ? "0" : "") + sec;
+			clck = (hrs >= 12) ? "下午" : "上午";
+			var stnr = "";
+			var ns = "0123456789";
+			var a = "";
+
+			function getFullYear(d) {
+				yr = d.getYear();
+				if (yr < 1000)
+					yr += 1900;
+				return yr;
+			}
+		</script>
+		<script type="text/javascript">
+			function AddFavorite(sURL, sTitle) {
+				try {
+					window.external.addFavorite(sURL, sTitle)
+				} catch (e) {
+					try {
+						window.sidebar.addPanel(sTitle, sURL, "")
+					} catch (e) {
+						alert("加入收藏失败，请使用Ctrl+D进行添加")
+					}
+				}
+			}
+
+			 // 设置为主页
+                    function SetHome(obj, vrl) {
+                        try {
+                            obj.style.behavior = 'url(#default#homepage)';
+                            obj.setHomePage(vrl);
+                        }
+                        catch (e) {
+                            if (window.netscape) {
+                                try {
+                                    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+                                }
+                                catch (e) {
+                                    alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+                                }
+                                var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                                prefs.setCharPref('browser.startup.homepage', vrl);
+                            } else {
+                                alert("您的浏览器不支持，请按照下面步骤操作：1.打开浏览器设置。2.点击设置网页。3.输入：" + vrl + "点击确定。");
+                            }
+                        }
+                    }
+</script>
+<!--头部-->
+		<div class="header">
+			<!--顶部-->
+			<div class="h_db">
+				<div class="h_db_con">
+					<div class="db_con_lf">
+						<ul>
+							<li>
+								<script type="text/javascript">
+									document.write("<div class='time'>" + "今天是" + getFullYear(today) + "年" + "" + isnMonths[today.getMonth()] + "月" + today.getDate() + "日" + isnDays[today.getDay()] + "</div>");
+								</script>
+							</li>
+							<li>					
+								<iframe src="http://www.thinkpage.cn/weather/weather.aspx?uid=U8B50DD739&cid=CHGZ000000&l=zh-CHS&p=SMART&a=0&u=C&s=4&m=2&x=1&d=0&fc=FFFFFF&bgc=&bc=&ti=0&in=0&li=" frameborder="0" scrolling="no" width="300" height="30" style="font-size: 14px;margin-top:7px;" allowTransparency="true"></iframe>
+							</li>
+						</ul>
+					</div>
+					<div class="db_con_lr">
+						<ul>
+								<li>
+									<div class="ss">
+    <input class="search-input" type="text" value="请输入关键检索字" id="keyword" onblur="if(this.value==''){this.value='请输入关键检索字';}" onfocus="javascript:if(this.value=='请输入关键检索字')this.value='';" />
+                <a href="javascript:;" class="btn_search" id="j_search_btn"></a>
+    <!-- 检索跳转 -->
+        <script type="text/javascript">
+            jQuery(function() {
+                jQuery('#j_search_btn').click(function() {
+                    var str = jQuery(this).prev().val();
+                    checks(str);
+                });
+            });
+            function checks(t) {
+                t = t.replace(/(^\s+)|(\s+$)/g, "");
+                if (t == "" || t == "请输入关键检索字") {
+                    alert('请输入有效内容');
+                    return false;
+                }
+                szMsg = "[#_%&'/",
+                        ";:=!^]";
+                alertStr = "";
+                for (i = 1; i < szMsg.length + 1; i++) {
+                    if (t.indexOf(szMsg.substring(i - 1, i)) > -1) {
+                        alertStr = "请勿包含非法字符如[#_%&'/",
+                                ";:=!^]";
+                        alert(alertStr);
+                        // break;
+                        return false;
+                    }
+                }
+                var key = document.getElementById("keyword").value;
+                window.location.href = "/search.html?keyword=" + key;
+                return true;
+            }
+        </script>
+<!--e-->
+						</div>
+								</li>
+<li>
+									<a href="javascript:zh_tran('s');" style="color:#fff;" class="zh_click" id="zh_click_s">简体版</a>
+
+								</li>
+								<li>
+									<a href="javascript:zh_tran('t');" style="color:#fff;" class="zh_click" id="zh_click_t">繁体版</a>
+
+								</li>
+								<li>
+									<a href="" onmouseover="ShowDiv('2016wbss')" onmouseout="HinDiv('2016wbss')">移动版本</a>
+									<div id="2016wbss" style="display: none;z-index: 10000;position: absolute;margin-top:20px;">
+										<img src="/images/whew.png" width="200px" height="200px" ignore="1" />
+									</div>
+								</li>
+						<script type="text/javascript">
+							//弹出隐藏层
+							function ShowDiv(show_div) {
+								document.getElementById(show_div).style.display = 'block';
+							}
+
+							function HinDiv(show_div) {
+								document.getElementById(show_div).style.display = 'none';
+							}
+						</script>
+
+								<!--<li>
+									<a  href="javascript:void(0)" title="">
+										<img src="/images/sj.png" ignore="1" />
+									</a>
+								</li>
+								<li>
+									<a  href="javascript:void(0)" title="">
+										<img src="/images/bz.png" ignore="1" />
+									</a>
+								</li>-->
+								<li>
+									<a href="javascript:void(0)" onclick="SetHome(this,window.location)" title="设为首页">
+										<img src="/images/swsy.png" ignore="1" />
+									</a>
+								</li>							
+								<li>
+									<a onclick="AddFavorite(window.location,document.title)" href="javascript:void(0)" title="加入收藏">
+										<img src="/images/jrsc.png" ignore="1" />
+									</a>
+								</li>
+						</ul>						
+					</div>
+				</div>				
+			</div>
+			<!--导航-->
+			<div class="banner">
+				<div class="banner_con">
+					<div class="banner_con_lf">
+						<img src="/images/tou.png" ignore="1" />
+					</div>
+					<div class="banner_con_lr">							
+	<div class="navBar">
+			<ul class="nav clearfix">
+				<li class="m"><!-- 当前频道添加on -->
+					<h3><a  href="/">首页</a></h3>
+				</li>				
+				<li class="m">
+					<h3><a  href="http://www.gzwht.gov.cn/xwzx/">新闻中心</a></h3>					
+				</li>				
+				<li class="m ">
+					<h3><a  href="http://www.gzwht.gov.cn/xxgk/">政务公开</a></h3>					
+				</li>	
+                                <li class="m">
+					<h3><a  href="http://www.gzwht.gov.cn/gzcy/">公众参与</a></h3>					
+				</li>				
+				<li class="m">
+					<h3><a  href="http://www.gzwht.gov.cn/zxfw/">在线服务</a></h3>					
+				</li>				
+				<li class="m">
+					<h3><a  href="http://www.gzwht.gov.cn/whgz/">文化建设</a></h3>					
+				</li>				
+				<li class="m">
+					<h3><a  href="http://www.gzwht.gov.cn/whzl/">文化长廊</a></h3>
+				</li>				
+				<li class="m">
+					<h3><a href="http://www.gzwht.gov.cn/whzy/">文化机构</a></h3>
+				</li>
+				<li class="m">
+					<h3><a  href="http://www.gzwht.gov.cn/ztzl/">专题专栏</a></h3>
+				</li>
+				<li class="block"></li><!-- 滑动块 -->
+			</ul>
+	</div>
+	<script type="text/javascript">
+							(function() {
+								var ind = 0; //初始位置
+								var nav = jQuery(".nav");
+								var init = jQuery(".nav .m").eq(ind);
+								var block = jQuery(".nav .block"); //滑块
+								block.css({
+									"left": init.position().left
+								}); //初始化滑块位置
+								nav.hover(function() {}, function() {
+									block.animate({
+										"left": init.position().left
+									}, 100);
+								}); //移出导航滑块返回
+
+								jQuery(".nav").slide({
+									type: "menu", //效果类型
+									titCell: ".m", // 鼠标触发对象
+									targetCell: ".sub", // 效果对象，必须被titCell包含
+									delayTime: 300, // 效果时间
+									triggerTime: 0, //鼠标延迟触发时间
+									returnDefault: true, //on返回初始位置
+									defaultIndex: ind, //初始位置
+									startFun: function(i, c, s, tit) { //控制当前滑块位置
+										block.animate({
+											"left": tit.eq(i).position().left
+										}, 100);
+									}
+								});
+							})()
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+<div class="content">
+  <div class="ldzc_box">
+    <div class="w1160 auto">
+      <div class="dqwz_box f14">您当前所在的位置：
+         <a href="../../../" title="首页" class="CurrChnlCls">首页</a>&nbsp;&raquo;&nbsp;<a href="../../" title="政务公开" class="CurrChnlCls">政务公开</a>&nbsp;&raquo;&nbsp;<a href="../" title="领导之窗" class="CurrChnlCls">领导之窗</a>
+           </div>
+      <div class="ldzc_content">
+      	<div class="ldzc_left f_l">
+        	<div><img src="../../../images/ldzc_title.jpg" width="279" height="58" alt="" /></div>
+            <div id="my_menu" class="sdmenu">
+                <div>
+                    
+                       <a  href="http://www.gzwht.gov.cn/xxgk/ldzc/201802/t20180208_2114793.html" id="am1" target="_self"  title="张玉广">张玉广</a>           
+                     </a>
+                    
+                       <a  href="http://www.gzwht.gov.cn/xxgk/ldzc/201609/t20160909_1275677.html" id="am2" target="_self"  title="黎盛翔">黎盛翔</a>           
+                     </a>
+                    
+                       <a  href="http://www.gzwht.gov.cn/xxgk/ldzc/201609/t20160909_1275675.html" id="am3" target="_self"  title="王红光">王红光</a>           
+                     </a>
+                    
+                       <a  href="http://www.gzwht.gov.cn/xxgk/ldzc/201609/t20160909_1275674.html" id="am4" target="_self"  title="刘庆">刘庆</a>           
+                     </a>
+                    
+                       <a  href="http://www.gzwht.gov.cn/xxgk/ldzc/201609/t20160909_1275673.html" id="am5" target="_self"  title="袁伟">袁伟</a>           
+                     </a>
+                    
+                       <a  href="http://www.gzwht.gov.cn/xxgk/ldzc/201609/t20160909_1275672.html" id="am6" target="_self"  title="姜刚杰">姜刚杰</a>           
+                     </a>
+                    
+                       <a  href="http://www.gzwht.gov.cn/xxgk/ldzc/201702/t20170227_1644998.html" id="am7" target="_self"  title="张明辉">张明辉</a>           
+                     </a>
+                    
+                       <a  href="http://www.gzwht.gov.cn/xxgk/ldzc/201707/t20170703_1898903.html" id="am8" target="_self"  title="张勇">张勇</a>           
+                     </a>
+                    
+                       <a  href="http://www.gzwht.gov.cn/xxgk/ldzc/201702/t20170227_1645003.html" id="am9" target="_self"  title="张安琪">张安琪</a>           
+                     </a>
+                    
+                </div>
+			</div>
+        </div>
+        <div class="ldzc_right f_r">
+        	<div class="ldjj_box">
+            	<div class="ldzp f_l">
+                 <script type="text/javascript">
+							imgdata="P020170703633008343835.png;TIM图片20170703173501.png";
+							var str= new Array(); 
+							str=imgdata.split(","); 
+							var _imgURL="";
+							for (i=0;i<str.length ;i++ )   
+							{   
+							 _imgURL=str[0];   
+							}
+							if(_imgURL==""||_imgURL==null){
+							  document.write('<img src="/images/nopic.jpg" width="128" height="159" />');
+							}else{
+							 formatImgUrl(_imgURL,"128","159","张勇");
+							}
+							_imgURL="";
+							</script>
+							<p class="xzmz">张勇</p>
+                </div>
+                <div class="ldjbxx f_l">
+                	<p><i>职务：省文物局局长</i><!--张勇，男，汉族，贵州，生--></p>
+                    <p class="mgT20">工作分工：                    	
+                    主持省文物局全面工作。协助黎盛翔同志分管省博物馆、省文物考古研究所、省文物保护研究中心。统筹负责碧江区瓦屋乡克兰寨同步小康驻村工作。
+                    </p>
+                </div>
+            </div>
+            <div class="ldfg_box">
+            	<div class="title">
+                    <h2 class=" f_l">领导简历</h2>
+                    <span></span>
+                </div>
+                <div class="ldfg_p">
+                	<p>
+                		<p style="line-height:200%"><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">张勇</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">同志，男，汉族，</span>196</span><span style=";font-family:宋体;line-height:200%;font-size:16px">8</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px">7</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">月出生，</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">贵州黎平</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">人，</span>19</span><span style=";font-family:宋体;line-height:200%;font-size:16px">91</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span>7月参加工作，19</span><span style=";font-family:宋体;line-height:200%;font-size:16px">92</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px">11</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">月加入中国共产党，在职研究生学历，历史学</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">学</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">士。</span></span></p><p style="line-height:200%"><span style=";font-family:宋体;line-height:200%;font-size:16px">19</span><span style=";font-family:宋体;line-height:200%;font-size:16px">87</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span>9月至19</span><span style=";font-family:宋体;line-height:200%;font-size:16px">91</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span>7月，在</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">中国人民大学历史系历史学</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">专业学习</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">；</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"></span></p><p style="line-height:200%"><span style=";font-family:宋体;line-height:200%;font-size:16px">19</span><span style=";font-family:宋体;line-height:200%;font-size:16px">91</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span>7月至</span><span style=";font-family:宋体;line-height:200%;font-size:16px">2003</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px">3</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">月，任贵州省</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">文化厅文物处（</span>2000年后为贵州省文物局）工作员、副主任科员、主任科员；</span></p><p style="line-height:200%"><span style=";font-family:宋体;line-height:200%;font-size:16px">2003</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span>3月至</span><span style=";font-family:宋体;line-height:200%;font-size:16px">2007</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px">3</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">月，任贵州省</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">文物考古研究所副所长、省文物保护研究中心</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">副主任</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">（</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px">2004年1</span><span style=";font-family:宋体;line-height:200%;font-size:16px">2</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">月被评为</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">副</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">研究馆员</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">）；</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"></span></p><p style="line-height:200%"><span style=";font-family:宋体;line-height:200%;font-size:16px">2007年3</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">月至</span>200</span><span style=";font-family:宋体;line-height:200%;font-size:16px">8</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px">7</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">月，任贵州省</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">文物局文物保护处副处长（主持工作）；</span></span></p><p style="line-height:200%"><span style=";font-family:宋体;line-height:200%;font-size:16px">200</span><span style=";font-family:宋体;line-height:200%;font-size:16px">8</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px">7</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">月至</span>20</span><span style=";font-family:宋体;line-height:200%;font-size:16px">12</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px">8</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">月，任贵州省文物</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">局综合处处长（</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">其间</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">：</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px">200</span><span style=";font-family:宋体;line-height:200%;font-size:16px">9</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span>9月至20</span><span style=";font-family:宋体;line-height:200%;font-size:16px">12</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span>7月，在</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">贵州省委党校经济部经济学专业研究生班学习）；</span></span></p><p style="line-height:200%"><span style=";font-family:宋体;line-height:200%;font-size:16px">20</span><span style=";font-family:宋体;line-height:200%;font-size:16px">12</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px">8</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">月至</span>20</span><span style=";font-family:宋体;line-height:200%;font-size:16px">17</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">年</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px">6</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">月，任贵州省</span></span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">文物局副局长（其间，</span>2013年3月至2014年2月，任贵州省同步小康驻铜仁市万山区工作队常务副队长，挂职任中共万山区委副书记；2013年4月至6月，在贵州省委党校第四十二期局干班学习）；</span></p><p style="line-height:200%"><span style=";font-family:宋体;line-height:200%;font-size:16px">20</span><span style=";font-family:宋体;line-height:200%;font-size:16px">1</span><span style=";font-family:宋体;line-height:200%;font-size:16px">7年</span><span style=";font-family:宋体;line-height:200%;font-size:16px">6</span><span style=";font-family:宋体;line-height:200%;font-size:16px"><span style="font-family:宋体">月起，任贵州省文物局局长。</span></span></p><p><br/></p>
+                	</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--网站底部footer--> 
+<!--底部-->
+		<div class="footer">
+			<!--友情链接-->
+			<div class="yqlj">
+				<div class="yqlj_bd">
+					<ul class="yqlj_pic">                
+                 
+                 	 
+                 	<li>
+                 		<div class="yqlj_p">								
+								 <script type="text/javascript">
+                        var  str="http://www.mcprc.gov.cn/";
+                        var str_1 = "./syqt/yqlj/201608/t20160816_1201617.html";
+                        var str_4 = "文化部";
+                        if (str=="") {
+                            document.write('<a TARGET="_blank"   href="'+str_1+'" alt="'+str_4+'" title="'+str_4+'">');
+                        } else {
+                            document.write('<a TARGET="_blank"   href="'+str+'" alt="'+str_4+'" title="'+str_4+'">');
+                        }
+                    </script>
+                  <!--获取图片-->           
+                    
+                    	
+                    <img src="/material/20160816/W020160816571850701888.jpg" />				
+                    
+                    
+                 </a>						
+					</div>
+					</li>
+					 
+                 	<li>
+                 		<div class="yqlj_p">								
+								 <script type="text/javascript">
+                        var  str="http://www.gzrd.gov.cn/";
+                        var str_1 = "./syqt/yqlj/201608/t20160816_1201618.html";
+                        var str_4 = "贵州省人大常委会";
+                        if (str=="") {
+                            document.write('<a TARGET="_blank"   href="'+str_1+'" alt="'+str_4+'" title="'+str_4+'">');
+                        } else {
+                            document.write('<a TARGET="_blank"   href="'+str+'" alt="'+str_4+'" title="'+str_4+'">');
+                        }
+                    </script>
+                  <!--获取图片-->           
+                    
+                    	
+                    <img src="/material/20160816/W020160816572749243994.jpg" />				
+                    
+                    
+                 </a>						
+					</div>
+					</li>
+					 
+                 	<li>
+                 		<div class="yqlj_p">								
+								 <script type="text/javascript">
+                        var  str="http://www.gzgov.gov.cn/";
+                        var str_1 = "./syqt/yqlj/201608/t20160816_1201622.html";
+                        var str_4 = "贵州省人民政府";
+                        if (str=="") {
+                            document.write('<a TARGET="_blank"   href="'+str_1+'" alt="'+str_4+'" title="'+str_4+'">');
+                        } else {
+                            document.write('<a TARGET="_blank"   href="'+str+'" alt="'+str_4+'" title="'+str_4+'">');
+                        }
+                    </script>
+                  <!--获取图片-->           
+                    
+                    	
+                    <img src="/material/20160816/W020160816573418916948.jpg" />				
+                    
+                    
+                 </a>						
+					</div>
+					</li>
+					 
+                 	<li>
+                 		<div class="yqlj_p">								
+								 <script type="text/javascript">
+                        var  str="http://www.gzszx.gov.cn/";
+                        var str_1 = "./syqt/yqlj/201608/t20160816_1201626.html";
+                        var str_4 = "贵州省政协";
+                        if (str=="") {
+                            document.write('<a TARGET="_blank"   href="'+str_1+'" alt="'+str_4+'" title="'+str_4+'">');
+                        } else {
+                            document.write('<a TARGET="_blank"   href="'+str+'" alt="'+str_4+'" title="'+str_4+'">');
+                        }
+                    </script>
+                  <!--获取图片-->           
+                    
+                    	
+                    <img src="/material/20160816/W020160816573962410694.jpg" />				
+                    
+                    
+                 </a>						
+					</div>
+					</li>
+					
+					 
+					<li style="margin-right: 0px;">
+							<div class="yqlj_p">
+								<script type="text/javascript">
+                        var  str="/syqt/whwzjq/";
+                        var str_1 = "./syqt/yqlj/201608/t20160816_1201632.html";
+                        var str_4 = "文化网站集群";
+                        if (str=="") {
+                            document.write('<a TARGET="_blank"   href="'+str_1+'" alt="'+str_4+'" title="'+str_4+'">');
+                        } else {
+                            document.write('<a TARGET="_blank"   href="'+str+'" alt="'+str_4+'" title="'+str_4+'">');
+                        }
+                    </script>
+                  <!--获取图片-->           
+                    
+                    	
+                    <img src="/material/20160816/W020160816575265650412.jpg" />				
+                    
+                    
+                 </a>
+							</div>
+						</li>
+						 
+                                 
+					</ul>
+				</div>
+			</div>
+			<!--<script type="text/javascript">
+						jQuery(".yqlj").slide({mainCell:".yqlj_bd ul",autoPlay:true,effect:"leftMarquee",vis:5,interTime:50});
+						</script>			-->
+			<!--底部内容-->
+			<div class="db">
+				<p class="footer_p1">
+					<a href="http://www.gzwht.gov.cn/syqt/wzbz/">网站帮助</a>|
+					<a href="http://www.gzwht.gov.cn/syqt/rssdy/" >RSS订阅</a>|
+					<a href="http://www.gzwht.gov.cn/syqt/wzdt/" >网站地图</a>|
+					<a href="http://www.gzwht.gov.cn/syqt/gywm/" >关于我们</a>|
+					<a href="http://www.gzwht.gov.cn/syqt/lxfs/" >联系方式</a>
+				</p>
+				<p class="footer_p2">联系电话：0851-85575220(周一至周五上班时间),0851-85573119(周一至周五下班时间、周末及节假日) &nbsp;&nbsp; Email:gzswhtbgs@163.com</p>
+				<p class="footer_p2">
+					<span>地址：贵州省贵阳市遵义路54号    未经行政许可进行书面授权，请勿转载本站任何文字、图片、视频、音频等信息。</span>
+					
+				</p>
+				<div class="beian_box" style="width:570px;margin:0 auto;text-align:center;">
+					<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52010202000378" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;float:left;">
+						<img src="http://www.gzfzb.gov.cn/images/ghs_0605.png" class="f_l" />
+						<span style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px;">贵公网安备 52010202000378号</span>
+					</a>
+					<span><a href="http://www.miibeian.gov.cn/" target="_blank">备案号：黔ICP备09004729号-1</a></span>&nbsp;&nbsp;
+                    <span>政府网站标识码：5200000061</span>
+				</div>
+				<div style="text-align:center;margin:13px auto 47px auto;width:199px">
+					
+					<div style="float: left;margin-top: 12px;">
+        		<script id="_jiucuo_" sitecode='5200000061' src='/images/jiucuo.js'></script>
+        	</div>
+        	<div style="float: right;">
+        		<script type="text/javascript">
+						document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/24/000/0000/40207633/CA240000000402076330003.js' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+        	</div>
+				</div>
+			</div>
+		</div>
+<!--<script id="wza_sidebar" type="text/javascript" src="http://wza.gzgov.gov.cn/wza/yixuan/yixuan_nav1/domready.js?sid={15379}?the=blue?ha=1"></script>-->
+<script id="_trs_ta_js" src="//ta.trs.cn/c/js/ta.js?mpid=999" async="async" defer="defer"></script>
+<script language="JavaScript">var _trackDataType = "web";var _trackData = _trackData || [];</script>
+<script type="text/javascript" charset="utf-8" id="kpyfx_js_id_10000751" src="//fxsjcj.kaipuyun.cn/count/10000751/10000751.js"></script>
+
+<!--外部跳转提示-->
+<script>
+$(document).ready(function () {
+            for (var i = 0; i < document.links.length; i++) {
+                var url = document.links[i].href.toLowerCase();
+                if (url.indexOf("http://localhost") == -1 && url.indexOf(".gov.cn") == -1&& url.indexOf("ftp://58.16.65.217:90/")== -1 && url != "gzfzb.bohoog.com" &&url.indexOf("javascript:") == -1 && url != "#" && !document.links[i].onclick) {
+                    document.links[i].onclick = function () {
+                        return confirm("您访问的链接即将离开“贵州省文化厅门户网站”，即将打开的是“非政务类的网站,域名后缀不是gov.cn”，是否继续？")
+                    };
+                }
+            }
+        });
+</script>
+
+<!--博虹探针代码-->
+<script type="text/javascript">
+    var _wapaq = _wapaq || [];
+    _wapaq.push(['trackPageView']);
+    (function() {
+        var u = "http://webprobe.octodata.com.cn/";
+        _wapaq.push(['setTrackerUrl', u + 'tracker']);
+        _wapaq.push(['setSiteId', 74]);
+        _wapaq.push(['setDiscardUrlParams', true]);
+        var d = document,
+            g = d.createElement('script'),
+            s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript';
+        g.async = true;
+        g.defer = true;
+        g.src = 'http://bazhuawangluo.oss-cn-hangzhou.aliyuncs.com/ds2.js?v=' + new Date().getUTCDay();
+        s.parentNode.insertBefore(g, s);
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+ 
+<title>
+李伟-山东省立医院</title>
+<meta name="keywords" content="山东省立医院主站,山东省立医院,山东省红十字会医院,山东大学附属省立医院" />
+<meta name="description" />
+
+    <!-- 54Doctor -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(["setCookieDomain", "*.sph.com.cn"]);
+        _paq.push(["setDomains", ["*.sph.com.cn"]]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "//tongji.54doctors.net/";
+            _paq.push(['setTrackerUrl', u + '54doctor.php']);
+            _paq.push(['setSiteId', 47]);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + '54doctor.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <noscript><p><img src="//tongji.54doctors.net/54doctor.php?idsite=47" style="border:0;" alt="" /></p></noscript>
+    <!-- End 54Doctor Code -->
+
+
+ <link href="/Content/Areas/Common/css/common.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Common/css/message.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Common/css/article.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Common/css/header.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Common/css/footer.css" rel="stylesheet" type="text/css" />
+
+ 
+ <link href="/Content/Areas/Common/css/FunctionStyle.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Areas/Doctors/css/main.css" rel="stylesheet" type="text/css" />
+ <!-- 相关样式 -->
+ <link href="/Content/Areas/Common/css/Relative.css" rel="stylesheet" type="text/css" />
+ <!-- 出诊样式 -->
+ <link href="/Content/Areas/Common/css/Scheduling_icon.css" rel="stylesheet" type="text/css" />
+
+
+ <script src="/Scripts/jquery-1.8.3.min.js" type="text/javascript"></script>
+ <script src="/Scripts/Common/control.js" type="text/javascript"></script>
+ <script src="/Content/Areas/Common/scripts/change_fontsize.js" type="text/javascript"></script>
+ <script src="/Content/Areas/Common/scripts/common.js" type="text/javascript"></script>
+
+ 
+ <link href="/Content/Awesome/jquery-ui.css" rel="stylesheet" type="text/css" />
+ <link href="/Content/Awesome/Awesome.css" rel="stylesheet" type="text/css" />
+ <script src="/Scripts/Awesome/jquery-ui.min.js" type="text/javascript"></script>
+ <script src="/Scripts/Awesome/jquery.form.js" type="text/javascript"></script>
+ <script src="/Scripts/Awesome/Awesome.js" type="text/javascript"></script>
+ <script src="/Scripts/Common/control.js" type="text/javascript"></script>
+ <script src="/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+ <script src="/Scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+ 
+ 
+ <script type="text/javascript">
+  
+ //咨询
+  $(function () {
+ if ($.trim($("#question").text()) == '') {
+ $(".question").hide();
+ };
+ });
+ //疾病
+  $(function () {
+ if ($.trim($("#disease").text()) == '') {
+ $(".disease").hide();
+ };
+ });
+ //文章
+ $(function () {
+ if ($.trim($("#wenzhang").text()) == '') {
+ $(".wenzhang").hide();
+ };
+ });
+ //文章
+ $(function () {
+ if ($.trim($("#video").text()) == '') {
+ $(".video").hide();
+ };
+ });
+
+ </script>
+
+</head>
+
+<body> 
+            <img src="/Sites/Uploaded/UserUpLoad/20160805/20160805133052.JPG" width="0" height="0" style="display:none" />
+    <img src="/Content/Areas/Common/images/logo/wxShare.jpg" width="0" height="0" style="display: none" />
+        <!--微信js-->
+        <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script type="text/javascript">
+            var ua = window.navigator.userAgent.toLowerCase();
+            if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+                var urlStr='http://www.sph.com.cn/Html/Doctors/Main/Index_676.html';
+                urlStr=decodeURI(urlStr);
+                var currUrlStr=decodeURI(window.location.href);
+                if(urlStr!=''&& urlStr != currUrlStr){
+                    window.location.href=urlStr;
+                }
+                wx.config({
+                    debug: false,
+                    appId: 'wx66101267f7643c8a',
+                    timestamp: 1527872637,
+                    nonceStr: '84612',
+                    signature: '2c71b57faa2b27248cbd549a5959b3a4c11ec411',
+                    jsApiList: [
+                        'checkJsApi',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage',
+                        'onMenuShareQQ',
+                        'onMenuShareWeibo',
+                        'hideMenuItems',
+                        'showMenuItems',
+                        'hideAllNonBaseMenuItem',
+                        'showAllNonBaseMenuItem',
+                        'translateVoice',
+                        'startRecord',
+                        'stopRecord',
+                        'onRecordEnd',
+                        'playVoice',
+                        'pauseVoice',
+                        'stopVoice',
+                        'uploadVoice',
+                        'downloadVoice',
+                        'chooseImage',
+                        'previewImage',
+                        'uploadImage',
+                        'downloadImage',
+                        'getNetworkType',
+                        'openLocation',
+                        'getLocation',
+                        'hideOptionMenu',
+                        'showOptionMenu',
+                        'closeWindow',
+                        'scanQRCode',
+                        'chooseWXPay',
+                        'openProductSpecificView',
+                        'addCard',
+                        'chooseCard',
+                        'openCard'
+                    ]
+                });
+                wx.ready(function(){
+                    //获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
+                    wx.onMenuShareTimeline({
+                        title: '骨关节科', // 分享标题
+                        link: 'http://www.sph.com.cn/Html/Doctors/Main/Index_676.html', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: 'http://www.sph.com.cn/Sites/Uploaded/UserUpLoad/20160805/20160805133052.JPG', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    //获取“分享给朋友”按钮点击状态及自定义分享内容接口
+                    wx.onMenuShareAppMessage({
+                        title: '骨关节科', // 分享标题
+                        desc: '', // 分享描述
+                        link: 'http://www.sph.com.cn/Html/Doctors/Main/Index_676.html', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: 'http://www.sph.com.cn/Sites/Uploaded/UserUpLoad/20160805/20160805133052.JPG', // 分享图标
+                        type: '', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    //获取“分享到QQ”按钮点击状态及自定义分享内容接口
+                    wx.onMenuShareQQ({
+                        title: '骨关节科', // 分享标题
+                        desc: '', // 分享描述
+                        link: 'http://www.sph.com.cn/Html/Doctors/Main/Index_676.html', // 分享链接
+                        imgUrl: 'http://www.sph.com.cn/Sites/Uploaded/UserUpLoad/20160805/20160805133052.JPG', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    //获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口
+                    wx.onMenuShareWeibo({
+                        title: '骨关节科', // 分享标题
+                        desc: '', // 分享描述
+                        link: 'http://www.sph.com.cn/Html/Doctors/Main/Index_676.html', // 分享链接
+                        imgUrl: 'http://www.sph.com.cn/Sites/Uploaded/UserUpLoad/20160805/20160805133052.JPG', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    //获取“分享到QQ空间”按钮点击状态及自定义分享内容接口
+                    wx.onMenuShareQZone({
+                        title: '骨关节科', // 分享标题
+                        desc: '', // 分享描述
+                        link: 'http://www.sph.com.cn/Html/Doctors/Main/Index_676.html', // 分享链接
+                        imgUrl: 'http://www.sph.com.cn/Sites/Uploaded/UserUpLoad/20160805/20160805133052.JPG', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                });
+            }
+        </script>
+    <script>
+        window._bd_share_config = {
+            common : {
+                bdText : '骨关节科',
+                bdDesc : '',
+                bdUrl : 'http://www.sph.com.cn/Html/Doctors/Main/Index_676.html',
+                bdPic : 'http://www.sph.com.cn/Sites/Uploaded/UserUpLoad/20160805/20160805133052.JPG'
+            },
+            share : [{
+                "bdSize" : 16
+            }]
+        }
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/Content/plugins/baiduShare/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+
+<!-- 弹窗、飘窗、浮窗等 -->
+ 
+ <div class="wrap">
+ <!--头部开始-->
+ <div class="header">
+ <div class="header2_W">
+ <div class="logo2 fl">
+ <a href="/"><img src="/Content/Areas/Common/images/logo/logo2.png" /></a>
+ </div>
+ <div class="header_DepNameDiv"><span class="header_DepNameSpan">骨关节科</span></div>
+ <div class="fr header_R">
+ <div class="header_RT">
+ 
+
+<span id="ajax_div__LoggingStatus_1_0_0_8826">
+    <script type="text/javascript">
+        GetAjaxContentByUrl('ajax_div__LoggingStatus_1_0_0_8826', '/PartialView/_Plugin/_LoggingStatus?siteId=1');
+    </script>
+</span>
+ <a href="#" class="color_1">English</a>
+ <a href=/Html/Departments/Main/Index_1443.html>科室首页</a>
+ <a href="/">医院网站首页</a>
+ </div>
+ <div class="header_RB">
+ <div class="search_box">
+ <form action="/Hospitals/Search" method="post">
+ <input class="searchTxt" id="search" name="search" type="text" placeholder="承百年医脉 铸一流名院">
+ <input name="" value="" class="searchBtn" type="submit">
+ </form>
+ <div class="clearit"></div>
+ </div>
+ </div>
+ </div>
+ <div class="clearit"></div>
+ </div>
+ </div>
+ <div class="clearit"></div>
+ <!--头部结束-->
+ <!--PC导航 开始-->
+ <div class="nav">
+ <link href="/Content/Areas/Common/css/nav.css" rel="stylesheet" type="text/css" />
+ <script src="/Content/Areas/Common/scripts/common_nav.js" type="text/javascript"></script>
+ <!--手机导航附加类名-->
+ <div class="sy_nav">
+ <a id="open_btn" class="open_btn">
+ <span></span>
+ </a>
+ <div class="phone_container" id="phone_container">
+ <!--手机导航附加类名-->
+ <div class="phone_header">
+ <h3><a href="/">网站导航</a></h3>
+ <a id="close_btn" class="close_btn">
+ <span></span>
+ </a>
+ </div>
+ <div class="nav_ks">
+ <ul class="nav_ks_list">
+ <li><a href="/Html/Departments/Main/Index_1443.html">科室首页</a></li>
+ <li><a href="/Html/Departments/Main/Detail_316.html">科室介绍</a></li>
+ <li><a href="/Html/Departments/Main/DoctorTeam_316.html">医疗团队</a></li>
+ 
+
+		 <li class = "column767 lv1_li">
+		 	<p class="lv1_p">
+		 		<a href="/Html/News/Columns/767/Index.html" class="lv1_tit">科研教学</a>
+			</p>
+
+		 </li>
+		 <li class = "column768 lv1_li">
+		 	<p class="lv1_p">
+		 		<a href="/Html/News/Columns/768/Index.html" class="lv1_tit">特色技术</a>
+			</p>
+
+		 </li>
+		 <li class = "column916 lv1_li">
+		 	<p class="lv1_p">
+		 		<a href="/Html/News/Columns/916/Index.html" class="lv1_tit">健康科普</a>
+			</p>
+
+		 </li>
+		 <li class = "column766 lv1_li">
+		 	<p class="lv1_p">
+		 		<a href="/Html/News/Columns/766/Index.html" class="lv1_tit">科室相册</a>
+			</p>
+
+		 </li>
+
+ 
+ <li><a href="/Departments/Main/QuestionList/316">在线咨询</a></li>
+ <div class="clearit"></div>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!--导航结束-->
+ <!--主体部分-->
+ <div class="main" style="background:#fff;">
+ 
+
+
+  <link href="/Content/Areas/Common/css/linkMap.css" rel="stylesheet" type="text/css" />
+
+<div class="linkmap">
+	您所在的位置：
+    <span><a href="/">首页</a>
+        &gt;&gt;<a href="/Html/Hospitals/Doctors/Overview676.html"><span class="navspan"> 专家介绍 </span></a>&gt;&gt;<a><span class="navspan"> 李伟</span></a>
+    </span>
+</div>
+
+<div class="main_content">
+ 
+ <div class="doctor_left">
+ <div class="doc_jj_con">
+ <h2 class="ask_title" style="margin-top: 0px;"><p>李伟</p></h2>
+ <div class="zj_img">
+ <div class="album-view">
+ <img src="/Sites/Uploaded/UserUpLoad/20160805/20160805133052.JPG" class="doc_pic" />
+ </div>
+ </div>
+ <div class="zj_cont">
+  <p>
+ <span><strong>职称：</strong></span>
+ <span>主任医师</span>
+ </p>
+ <div class="ks_jj_div" id="Descri">
+ <p>
+ <span><strong>主要经历：</strong></span>
+ 2001年7月华中科技大学博士毕业后至山东省立医院关节外科工作。于2003.01~2006.01在山东大学临床博士后(骨外科)流动站从事博士后研究工作。于2004年被遴选为山东大学硕士研究生导师，目前从事关节外科的临床工作。曾在美国Mayo…
+ </p>
+ </div>
+ <a class="Show_more" id="showDescri" style="float:right">更多</a>
+ <div style="display: none" id="Descri_all">
+ <p>
+ <span><strong>主要经历：</strong></span>
+ 2001年7月华中科技大学博士毕业后至山东省立医院关节外科工作。于2003.01~2006.01在山东大学临床博士后(骨外科)流动站从事博士后研究工作。于2004年被遴选为山东大学硕士研究生导师，目前从事关节外科的临床工作。曾在美国Mayo 
+Clinic、德国Charite医院、新加坡中央医院及香港玛丽医院研修学习，接受专业培训。研究方向为关节外科的分子生物学治疗。作为项目负责人承担国家自然科学基金面上项目2项，省部级课题4项，参与国家级及省部级课题10余项。
+ </p>
+ </div>
+ <div style="display: none" id="Descri_little">
+ <p>
+ <span><strong>主要经历：</strong></span>
+ 2001年7月华中科技大学博士毕业后至山东省立医院关节外科工作。于2003.01~2006.01在山东大学临床博士后(骨外科)流动站从事博士后研究工作。于2004年被遴选为山东大学硕士研究生导师，目前从事关节外科的临床工作。曾在美国Mayo…
+ </p>
+ </div>
+ <div class="clearit"></div>
+ </div>
+ <script type="text/javascript">
+ $(document).ready(function () {
+ $("#showDescri").click(function () {
+ if ($(this).html() == "更多") {
+ $(this).html("收起");
+ $("#Descri").html($("#Descri_all").html());
+ //$('.ks_jj_l').css("display", "none");
+ }
+ else {
+ $(this).html("更多");
+ $("#Descri").html($("#Descri_little").html());
+ //$('.ks_jj_l').css("display", "block");
+ }
+ })
+ $("#imgZoom").click(function () {
+ $(this).fadeOut()
+ $("#Depar_logo_a").html($(this).html());
+ });
+ //点击上面的锚链接时，显示全部信息
+ $(".ks_navUl").click(function () {
+ $("#showDescri").html("收起");
+ $("#Descri").html($("#Descri_all").html());
+ //$('.ks_jj_l').css("display", "none");
+ });
+ });
+ function showImg(picId) {
+ $("#imgZoom").html($(picId)).fadeIn();
+ }
+
+ </script>
+ <div class="clearit"></div>
+ </div>
+ <div class="ys">
+ <h2 class="ask_title"><p>学术兼职</p></h2>
+ <p class="ys_con">目前兼任山东省骨科学会青年委员会副主任委员、山东省骨质疏松与骨矿盐专业委员会委员、山东省疼痛研究会第一届基础理论专业委员会委员、国家自然科学基金同行评议专家、《中华实验外科杂志》第六届编辑委员会通讯编委、山东省运动医学青年委员会委员。</p>
+ <div class="clearit"></div>
+ </div>
+  <div class="ys">
+ <h2 class="ask_title"><p>优势擅长</p></h2>
+ <p class="ys_con">擅长四肢大关节疾病的诊断和外科治疗，如膝关节骨性关节炎、股骨头坏死、类风湿性关节炎、强直性脊柱炎、成人髋关节发育不良及高位脱位、关节运动损伤等，在膝、髋、肩、肘、踝关节的人工关节置换及翻修术、关节镜手术方面有丰富的临床经验。</p>
+ <div class="clearit"></div>
+ </div>
+ <!-- 出诊信息 -->
+ <div class="ys">
+ 
+            <script type="text/javascript">
+                $(function () {
+                    try {
+                        var urlhash = window.location.hash;
+                        if (!urlhash.match("fromapp")) {
+                            if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i))) {
+                                $(".PCDisplay").hide();
+                                $(".MobileDisplay").show();
+                            } else {
+                                $(".PCDisplay").show();
+                                $(".MobileDisplay").hide();
+                            }
+                        }
+                    }
+                    catch (err) {
+                    }
+                });
+            </script>
+        <div class="MobileDisplay" style="display:none">
+            <div>
+                <h2 class="Com_tit">
+                    <span class="current">出诊信息</span>
+                </h2>
+
+            </div>
+            <div class="box">
+                <div class="yuyue_detail ">
+                    <div class="shiduan">
+                        <p class="time">时段</p>
+                        <p>上午</p>
+                        <p>下午</p>
+                        <p>夜间</p>
+                    </div>
+                    <div class="yuyue_detail_con ">
+                        <ul class="yuyue_detail_ul">
+                                <li>
+                                    <p class="time today"><b class="month">06-02</b><b class="week">今日</b></p>
+                                        <p></p>
+                                                                            <p></p>
+                                                                            <p></p>
+                                </li>
+                                <li>
+                                    <p class="time "><b class="month">06-03</b><b class="week">周日</b></p>
+                                        <p></p>
+                                                                            <p></p>
+                                                                            <p></p>
+                                </li>
+                                <li>
+                                    <p class="time "><b class="month">06-04</b><b class="week">周一</b></p>
+                                        <p></p>
+                                                                            <p></p>
+                                                                            <p></p>
+                                </li>
+                                <li>
+                                    <p class="time "><b class="month">06-05</b><b class="week">周二</b></p>
+                                        <p></p>
+                                                                            <p></p>
+                                                                            <p></p>
+                                </li>
+                                <li>
+                                    <p class="time "><b class="month">06-06</b><b class="week">周三</b></p>
+                                        <p></p>
+                                                                            <p></p>
+                                                                            <p></p>
+                                </li>
+                                <li>
+                                    <p class="time "><b class="month">06-07</b><b class="week">周四</b></p>
+                                        <p class="self">
+                                                <span class="SchedulingLevel_icon2 outpatient ">
+                                                </span>
+                                                                                            <span class="SchedulingProfessional_icon1 outpatient">
+                                                </span>
+                                            约                                        </p>
+                                                                            <p class="self">
+                                                <span class="SchedulingLevel_icon2 outpatient ">
+                                                </span>
+                                                                                            <span class="SchedulingProfessional_icon1 outpatient">
+                                                </span>
+                                            约                                        </p>
+                                                                            <p></p>
+                                </li>
+                                <li>
+                                    <p class="time "><b class="month">06-08</b><b class="week">周五</b></p>
+                                        <p></p>
+                                                                            <p></p>
+                                                                            <p></p>
+                                </li>
+                                <li>
+                                    <p class="time "><b class="month">06-09</b><b class="week">周六</b></p>
+                                        <p></p>
+                                                                            <p></p>
+                                                                            <p></p>
+                                </li>
+                        </ul>
+                        <div class="clearit"></div>
+                    </div>
+                    <div class="btn">
+                        <a href="javascript:void(0)">></a>
+                    </div>
+                    <div class="clearit"></div>
+                </div>
+                <div class="clearit"></div>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    var i = $(".yuyue_detail_con ul li").length;
+                    var yy_width = $(".yuyue_detail_con").width()
+                    var m_right = $(".yuyue_detail").width() * 0.01
+                    var li_width = yy_width / 7 - m_right
+                    var left_W = (i - 7) * (li_width + m_right);
+                    var ul_width = i * (li_width + m_right)
+                    $(".yuyue_detail_con").css("width", yy_width + "px")
+                    $(".yuyue_detail_con ul").css("width", ul_width + "px");
+                    $(".yuyue_detail_con ul li").css("width", li_width + "px");
+                    $(".yuyue_detail_con ul li").css("margin-right", m_right + "px");
+
+                    $(document).ready(function () {
+                        $('.btn').click(x);
+                    });
+                    function x() {
+                        $(".yuyue_detail_ul").animate({
+                            "margin-left": -left_W
+                        });
+                        $(this).unbind("click").click(y);
+                    }
+                    function y() {
+                        $(".yuyue_detail_ul").animate({
+                            "margin-left": 0
+                        });
+                        $(this).unbind("click").click(x);
+                    }
+                })
+            </script>
+            <div class="yuanqu_color">
+                                    <span class="span_self"><b></b>专家门诊</span>
+
+            </div>
+            <div class="clearit"></div>
+        </div>
+    <div class="PCDisplay">
+        
+                <script type="text/javascript">
+                    function setTabLab(name, cursel) {
+                        var i = 1;
+                        var menu = document.getElementById(name + i);
+                        var con = document.getElementById("con_" + name + "_" + i);
+                        while (menu != null && con != null) {
+                            menu.className = i == cursel ? "current" : "";
+                            con.style.display = i == cursel ? "block" : "none";
+                            i++;
+                            menu = document.getElementById(name + i);
+                            con = document.getElementById("con_" + name + "_" + i);
+                        }
+                    }
+                </script>
+                <div>
+                    <h2 class="Com_tit">
+                        <span class="current">出诊信息</span>
+                    </h2>
+
+
+                </div>
+                <div class="chuzhen">
+                                <span class="SchedulingProfessional_icon1 Icon">主任医师</span>
+                                <span class="SchedulingProfessional_icon2 Icon">副主任医师</span>
+                                <span class="SchedulingProfessional_icon3 Icon">主治医师</span>
+                                <span class="SchedulingProfessional_icon4 Icon">住院医师</span>
+                                <span class="SchedulingProfessional_icon5 Icon">研究员</span>
+                                <span class="SchedulingProfessional_icon6 Icon">副研究员</span>
+                                <span class="SchedulingProfessional_icon7 Icon">助理研究员</span>
+                                <span class="SchedulingProfessional_icon8 Icon">主任护师</span>
+                                <span class="SchedulingProfessional_icon9 Icon">副主任护师</span>
+                                <span class="SchedulingProfessional_icon10 Icon">主任药师</span>
+                                <span class="SchedulingProfessional_icon11 Icon">副主任药师</span>
+                                <span class="SchedulingProfessional_icon12 Icon">医师</span>
+                                <span class="SchedulingProfessional_icon99 Icon">-</span>
+                                <span class="SchedulingProfessional_icon13 Icon">主任技师</span>
+                                <span class="SchedulingProfessional_icon14 Icon">副主任技师</span>
+                                <span class="SchedulingProfessional_icon15 Icon">主管技师</span>
+                                <span class="SchedulingProfessional_icon16 Icon">讲师</span>
+                                <span class="SchedulingProfessional_icon17 Icon">教授</span>
+                                <span class="SchedulingProfessional_icon18 Icon">主管护师</span>
+                                                    <span class="SchedulingLevel_icon1 Icon">普通门诊</span>
+                                <span class="SchedulingLevel_icon2 Icon">专家门诊</span>
+                                <span class="SchedulingLevel_icon3 Icon">特需门诊</span>
+                                <span class="SchedulingLevel_icon4 Icon">专科门诊</span>
+                                            <span class="SchedulingState_icon0 Icon">未开启预约</span>
+                        <span class="SchedulingState_icon2 Icon">时间未到</span>
+                        <span class="SchedulingState_icon4 Icon">可预约</span>
+                        <span class="SchedulingState_icon6 Icon">时间已过</span>
+                        <span class="SchedulingState_icon8 Icon">暂停</span>
+                        <span class="SchedulingState_icon10 Icon">假期</span>
+                        <span class="SchedulingState_icon12 Icon">约满</span>
+                        <span class="SchedulingState_icon14 Icon">停诊</span>
+                        <span class="SchedulingState_icon16 Icon">替诊</span>
+                        <span class="SchedulingState_icon18 Icon">被替诊</span>
+                        <span class="SchedulingState_icon20 Icon">换诊</span>
+                    （<font color="red">*</font>出诊信息仅供参考，以门诊公布为准）
+                    
+                </div>
+                            <table width="100%" cellspacing="0" cellpadding="0" bordercolor="#98C6E2" border="0" class="clinicDetail">
+                                <tr class="frist_tr">
+                                    <th class="table_yi" width="20%">
+                                        科室
+                                    </th>
+                                    <th class="table_yi" width="10%">
+                                        时段
+                                    </th>
+                                        <td width="8%" class="select_table_hover ">
+                                            星期六<br />
+06-02                                        </td>
+                                        <td width="8%" class="table_yi ">
+                                            星期日<br />
+06-03                                        </td>
+                                        <td width="8%" class="table_yi ">
+                                            星期一<br />
+06-04                                        </td>
+                                        <td width="8%" class="table_yi ">
+                                            星期二<br />
+06-05                                        </td>
+                                        <td width="8%" class="table_yi ">
+                                            星期三<br />
+06-06                                        </td>
+                                        <td width="8%" class="table_yi ">
+                                            星期四<br />
+06-07                                        </td>
+                                        <td width="8%" class="table_yi ">
+                                            星期五<br />
+06-08                                        </td>
+                                        <td width="8%" class="table_yi ">
+                                            星期六<br />
+06-09                                        </td>
+                                </tr>
+                                        <tr>
+                                                <td class="Dep_Name" rowspan="2">
+关节外科门诊                                                </td>
+                                            <td width="65" class="daytime">
+                                                上午
+                                            </td>
+                                                <td class="sday">
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                            <span class="SchedulingLevel_icon2 outpatient ">
+                                                            </span>
+                                                            <span class="SchedulingProfessional_icon1 outpatient">
+                                                            </span>
+                                                        <span>
+专家                                                            <a href="/Interactions/SchedulingAppointments/OPCreate?dailySchedulingId=333968" class="dailySchedulingState_a_4" target="_blank"><span class="SchedulingState_icon4 outpatient"></span></a>
+                                                        </span>
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="65" class="daytime">
+                                                下午
+                                            </td>
+                                                <td class="sday">
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                            <span class="SchedulingLevel_icon2 outpatient ">
+                                                            </span>
+                                                            <span class="SchedulingProfessional_icon1 outpatient">
+                                                            </span>
+                                                        <span>
+专家                                                            <a href="/Interactions/SchedulingAppointments/OPCreate?dailySchedulingId=334112" class="dailySchedulingState_a_4" target="_blank"><span class="SchedulingState_icon4 outpatient"></span></a>
+                                                        </span>
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                                <td class="">
+                                                </td>
+                                        </tr>
+                            </table>
+    </div>
+</p>
+ </div>
+ <div class="clearit"></div>
+ </div>
+ <!---->
+ <div class="doctor_right">
+ <div class="Doct_box1 border " >
+ 
+ 
+ <h3 class="color_3">门诊科室</h3>
+ <ul class="dep_list pd15">
+ <li>
+  <span>关节外科门诊</span>
+ </li>
+ </ul>
+ <div class="clearit"></div> 
+ <div class="clearit"></div>
+ </div>
+ <div class="Doct_box2 mt20 border" id="column_1">
+ <h3 class="color_1"><span><a href="/Html/News/Columns/644/Index.html">更多&gt;&gt;</a></span>发表论文</h3>
+ <div class="ask_box pd15" id="ask_box">
+ 
+ <h2>
+ <a href="/Html/News/Articles/2774.html" target=_blank title="发表论文"><font color=""></font></a></h2>
+ <p>
+ <p style="text-indent: 2em;">(1) 膝骨性关节炎分级与全膝关节置换后隐性失血. 中国组织工程研究,2013,17(35): 6234-6239(通讯作者)</p><p style="text-indent: 2em;">(2) 布比卡因局部注射全膝关节置换者：镇痛效果及安全性评价. 中国组织工程研究与临床康复, 2010, 14( 26): 4774-4777 (通讯作者)</p><p style="text-indent: 2em;">(3) 融合自杀基因对骨肉瘤细胞作用的实验研究. 山东大学学报(医学版), 2009, 47(10):54-59</p><p style="text-indent: 2em;">(4) 重组共表达载体pSNAV2.0-HSV1-tk-IRES-hIL-1Ra的构建及其在滑膜细胞中的表达. 山东大学学报(医学版),2009, 47(9):81-85(通讯作者)</p><p style="text-indent: 2em;">(5) 全髋置换治疗强直性脊柱炎髋关节高度屈曲强直畸形. 中国矫形外科杂志, 2009,17(15):1124-1127(通讯作者)</p><p style="text-indent: 2em;">(6) 融合自杀基因抑骨肉瘤生长的实验研究. 华中医学杂志, 2009, 33(1):1-5</p><p style="text-indent: 2em;">(7) 腺病毒介导的HSV-TK/GCV系统对PVNS滑膜细胞的杀伤作用. 山东大学学报(医学版), 2008, 46(7): 664-667(通讯作者)</p><p style="text-indent: 2em;">(8) 腺病毒介导的HSV-TK对骨关节炎滑膜细胞的作用. 山东大学学报(医学版), 2007, 45(6): 590-594(通讯作者)</p><p style="text-indent: 2em;">(9) 胸苷激酶和胞嘧啶脱氨酶融合基因抑骨肉瘤生长的研究. 中华实验外科杂志, 2007, 24(2):229</p><p style="text-indent: 2em;">(10) Experimental study on quality and clinical application of peripheral nerve end-to-side neurorrhaphy.中国临床康复, 2004, 08(8):1572-1573</p><p style="text-indent: 2em;">(11) 自体雪旺细胞促周围神经端侧吻合轴突侧支发芽的实验研究. 中华实验外科杂志, 2003, 20(2):155</p><p style="text-indent: 2em;">(12) 周围神经端侧吻合研究方法及临床应用. 中国修复重建外科杂志，2003, (1):30</p><p style="text-indent: 2em;">(13) 止血带下肢体血液流变学改变的实验研究. 中华麻醉学杂志. 2001, 21(2): 103</p><p style="text-indent: 2em;">(14) 止血带疼痛机制.中国矫形外科杂志. 2000, 7(1): 39</p><p style="text-indent: 2em;">(15) 肿瘤微血管密度的研究进展.实用肿瘤学杂志. 1999, 13(2): 159</p><p style="text-indent: 2em;">(16) 人工髋膝关节翻修术. 第一版. 山东：山东科学技术出版社. 2015.08(副主译)</p><p style="text-indent: 2em;">(17) 临床骨与关节外科学. 第一版. 天津：天津科学技术出版社. 2011(主编)</p><p style="text-indent: 2em;">(18) 骨科临床检体手册. 第一版. 山东：山东科学技术出版社. 2010(译者)</p><p style="text-indent: 2em;">(19) 现代周围神经外科学. 第一版.上海：上海科学技术出版社.2007(编委)</p><p style="text-indent: 2em;">(20) 脊柱外科手术及并发症学. 第一版. 山东：山东科学技术出版社. 2002(编者)</p><p style="text-indent: 2em;">(21) 骨科疾病诊疗指南. 第一版.北京：科学出版社.1999(编者)</p>
+ <a class="details" href="/Html/News/Articles/2774.html" target=_blank>详细>></a>
+ </p>
+  
+ </div>
+ <div class="clearit"></div>
+ </div>
+ <div class="Doct_box2 mt20 border question" >
+  <div id="question">
+ 
+
+
+
+
+
+ <div class="clearit"></div>
+ </div>
+ </div>
+ <!-- 先关疾病 -->
+ <div class="Doct_box4 mt20 border disease">
+ <div class="department_disease" id="disease">
+ 
+
+
+ <div class="clearit">
+ </div>
+ </div>
+ <div class="clearit"></div>
+ </div>
+ <!-- 相关文章 -->
+ <div class="Doct_box5 mt20 border wenzhang">
+ <h3 class="color_2"><span></span>相关文章</h3>
+ <div class="about_wenz" id="wenzhang">
+ <ul class="jb_type ">
+ 
+ <h2 class="ask_title"><a href="/News/Articles/ReleatedArticle?siteId=0">更多</a><p>相关文章</p></h2>
+ <ul class="ask_list">
+ <li class = "Li_Odd">
+ 
+ <a href="/Html/News/Articles/3248.html" title="专家介绍" class="title_type">
+ <font color="">专家介绍</font></a>
+ 
+ 
+  
+ 
+ </li>
+ <li class = "Li_Even">
+ 
+ <a href="/Html/News/Articles/1924.html" title="出版著作" class="title_type">
+ <font color="">出版著作</font></a>
+ 
+ 
+  
+ 
+ </li>
+ <li class = "Li_Odd">
+ 
+ <a href="/Html/News/Articles/1614.html" title="李伟" class="title_type">
+ <font color="">李伟</font></a>
+ 
+ 
+  
+ 
+ </li>
+ <li class = "Li_Even">
+ 
+ <a href="/Html/News/Articles/1915.html" title="科研立项" class="title_type">
+ <font color="">科研立项</font></a>
+ 
+ 
+  
+ 
+ </li>
+ <li class = "Li_Odd">
+ 
+ <a href="/Html/News/Articles/3461.html" title="我院VTE专科护士理论培训圆满结束" class="title_type">
+ <font color="">我院VTE专科护士理论培训圆满结束</font></a>
+ 
+ 
+  
+ 
+ </li>
+ <div class="clearit"></div>
+  
+ </ul>
+ 
+ </ul>
+ </div>
+ </div>
+ <!-- 相关视频 -->
+ <div class="Doct_box5 mt20 border video">
+ <h3 class="" style="background:#CDAD6C"><span><a href="/Html/News/VideoColumns/3/Index.html">更多</a></span>相关视频</h3>
+ <div class="ys" id="video">
+ 
+  
+ </div>
+ </div>
+  
+ <div class="clearit"></div>
+ </div>
+ <div class="clearit"></div>
+ 
+ </div>
+ <div class="clearit"></div>
+ <!--主体结束-->
+ <!-- 友情链接 -->
+ <div class="FriendLink">
+ 
+ 
+ 
+ </div>
+ <div class="clearit"></div>
+ <!--底部开始-->
+ <div class="footer_2">
+ <div class="footer2_con">
+ <p class="bq">山东省立医院版权所有 <span> Copyrights © 2009 sph.com.cn All Rights Reserved </span></p>
+ <p class="address">山东省立医院总机：0531-87938911 山东省立医院地址：济南市经五纬七路324号 邮编：250021 </p>
+ <p class="ba">
+ <span class="xs">ICP备案：<a target="_blank" href="http://www.miit.gov.cn/">鲁ICP备11002409号</a></span>
+ 
+
+<span id="ajax_div__VisitCount_1_0_0_1647">
+    <script type="text/javascript">
+        GetAjaxContentByUrl('ajax_div__VisitCount_1_0_0_1647', '/PartialView/_Plugin/_VisitCount?siteId=1');
+    </script>
+</span>
+ <span class="xs xs01">技术支持：<a href="http://www.54doctor.net/" target="_blank" title="54Doctor"><img src="/Content/Areas/Common/images/logo/54.png" /></a></span>
+ </p>
+ <div class="clearit"></div>
+ </div>
+ </div>
+ <!--底部结束-->
+ </div>
+</body>
+</html>  

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>阿里CEO张勇：阿里历史上几个重要决策及背后思考_资讯_i黑马</title>
+    <meta name="keywords" content="阿里 张勇 阿里CEO张勇：阿里历史上几个重要决策及背后思考"/>
+    <meta name="description" content="张勇加入阿里近10年来，所经历的若干个关键时刻，以及与阿里命运相关的一些决定及背后的思考与挣扎。"/>
+    <link rel="shortcut icon" href="http://img.iheima.com/templates/iheima/sprint1/img/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="http://img.iheima.com/templates/iheima/sprint1/img/favicon.ico"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="http://img.iheima.com/templates/iheima/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="http://img.iheima.com/templates/iheima/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="http://img.iheima.com/templates/iheima/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://img.iheima.com/templates/iheima/css/common.css">
+    <!-- <link rel="stylesheet" type="text/http://img.iheima.com/templates/iheima/css" href="http://img.iheima.com/templates/iheima/css/index.http://img.iheima.com/templates/iheima/css">
+ -->
+    <link rel="stylesheet" type="text/css" href="http://img.iheima.com/templates/iheima/css/detail.css">
+    <script type="text/javascript" src="http://img.iheima.com/templates/iheima/js/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript">
+        var contentid = '161433';
+        var title = "\u963f\u91ccCEO\u5f20\u52c7\uff1a\u963f\u91cc\u5386\u53f2\u4e0a\u51e0\u4e2a\u91cd\u8981\u51b3\u7b56\u53ca\u80cc\u540e\u601d\u8003";
+        var topicid = '60153';
+        var context = '';
+        var content = '';
+        var _IMG_URL = 'http://img.iheima.com/templates/iheima';
+        var APP_URL = 'http://app.iheima.com/';
+        var UID = '';
+    </script>
+</head>
+
+<body>
+<header class="common-header">
+    <script type='text/javascript'>
+$(function(){
+   $.getJSON(
+            'http://app.iheima.com/?app=ihminterface&controller=index&action=loginstatus&jsoncallback=?&pages=1', 
+            function(data){
+                       if(data!=0){
+                            //http://file.iheima.com/static/ihm/527a74/images/avatar.png
+                            if (!data.dc_avatar) {
+                               var dc_avatar = "http://file.iheima.com/static/ihm/527a74/images/avatar.png";
+                            } else {
+                               var dc_avatar = data.dc_avatar;
+                            }
+                            document.getElementById('ihmlogin').innerHTML = '<a href="http://www.iheima.com/user/userinfo" class="username" onclick="new_blank()"><img class="advator" width="34" height="34" src="'+dc_avatar+'" />编辑</a> <span class="line">|</span><a href="http://www.iheima.com/user/logout" style="cursor:pointer">注销</a><a href="http://cn.mikecrm.com/HS5ZhWT" style="margin-left: 20px;display:none">寻求报道</a>';   
+                       } else {
+                            var dc = window.location.href;
+                            var dvurl = '<a href="'+'http://www.iheima.com/user/login?returnUrl='+escape(dc)+'" class="login">登录</a> <span class="line">|</span><a href="http://www.iheima.com/user/register?returnUrl='+escape(dc)+'" class ="register">注册</a><a href="http://cn.mikecrm.com/HS5ZhWT" style="margin-left: 20px;display:none">寻求报道</a>';
+                            $("#ihmlogin").html(dvurl);
+                       }
+            }
+    );
+});
+
+function ajaxlogout() {
+    $.when(
+        $.ajax({
+            url: 'http://www.iheima.com/sso/app-logout',
+            type: 'get',
+            dataType: 'jsonp',
+            success: function(data) {
+
+            },
+            error: function(xhr, textStatus, err) {
+
+            }
+        })
+    ).then(userloginout);
+}
+
+function userloginout(args){
+   $.getJSON(
+                'http://app.iheima.com/?app=member&controller=index&action=ajaxlogout&jsoncallback=?&pages=1', 
+                function(data){
+                        if(data!=0){
+                                var dc = window.location.href;
+                                var dvurl = '<a href="'+'http://www.iheima.com/user/login?returnUrl='+escape(dc)+'" class="login">登录</a> / <a href="http://www.iheima.com/user/register?returnUrl='+escape(dc)+'" class ="register">注册</a>';
+                                $("#ihmlogin").html(dvurl);
+                                $("#ihmlogin").removeClass('dropdown two-status');
+                                //响应式移动终端
+                                var mdvurl = '<a href="'+'http://www.iheima.com/user/login?returnUrl='+escape(dc)+'" class="loginbtn btn">登录</a> / <a href="http://www.iheima.com/user/register?returnUrl='+escape(dc)+'" class ="registerbtn btn">注册</a>';
+                                $("#mobile_head").css("display","none");
+                                $("#mobile_user").css("display","none");
+                                $("#mobile_logout").css("display","block");
+                                $("#mobile_logout").html(dvurl);
+
+                        }else{
+                                var dc = window.location.href;
+                                var dvurl = '<a href="'+'http://www.iheima.com/user/login?returnUrl='+escape(dc)+'" class="login">登录</a> / <a href="http://www.iheima.com/user/register?returnUrl='+escape(dc)+'" class ="register">注册</a>';
+                                $("#ihmlogin").html(dvurl);
+                                $("#ihmlogin").removeClass('dropdown two-status');
+                                //响应式移动终端
+                                var mdvurl = '<a href="'+'http://www.iheima.com/user/login?returnUrl='+escape(dc)+'" class="loginbtn btn">登录</a> / <a href="http://www.iheima.com/user/register?returnUrl='+escape(dc)+'" class ="registerbtn btn">注册</a>';
+                                $("#mobile_head").css("display","none");
+                                $("#mobile_user").css("display","none");
+                                $("#mobile_logout").css("display","block");
+                                $("#mobile_logout").html(dvurl);
+
+                        }
+                        document.body.insertAdjacentHTML('beforeEnd', args.iframe);
+                }
+    );
+}
+function new_blank(){
+   
+     window.open("http://app.iheima.com/?app=member&controller=panel&action=profile","_self");   
+}
+</script>
+<div class="container">
+    <a href="http://www.iheima.com/" class="logo fl">
+        <img src="http://file.iheima.com/static/ihm/527a74/images/logo.png">
+    </a>
+    <div class="info fr">
+        <div class="serach-wrap fl mg-r35">
+            <form class="search" id="head_search" role="search" action="http://app.iheima.com/">
+                <div class="et">
+                    <input type="hidden" name="app" value="search">
+                        <input type="hidden" name="controller" value="index">
+                        <input type="hidden" name="action" value="search">
+                        <input type="hidden" id="type" name="type" value="all">
+                    <input type="text" name="wd" id="head_wd" value="" class="form-control" placeholder="搜索">
+                    <div id="serchbtn" class="serchbtn"></div>
+                </div>
+            </form>
+        </div>
+        <script>
+          $(function(){
+              $("#serchbtn").click(function(){
+                 var tt = $("#head_wd").val();
+                if(!(tt.length)){
+                return false;
+                }
+                $("#head_search").submit();
+              });
+              
+          });
+        </script>
+        <!--<div class="fl mg-r30">
+            <span class="device"></span>
+            <span>客户端</span>
+        </div>
+        <div class="fl mg-r30">
+            <span class="infobtn"></span>
+            <span>消息</span>
+        </div>-->
+        <div class="fl login-in" id="ihmlogin">
+            
+        </div>
+    </div>
+</div>
+
+</header>
+<div class="main w1000 cf">
+    <div class="nav w200 fl">
+         <script type="text/javascript">
+$(function() {
+    $(".add").on("click", function() {
+        if ($(this).hasClass('bottom')) {
+            $(this).removeClass('bottom').addClass('top');
+            $(".submenu").css("height", "auto");
+        } else {
+            $(this).addClass('right');
+            $(".submenu").css("height", "104px");
+            $(this).removeClass('top').addClass('bottom');
+        }
+    });
+    $('#hmxy-link').hover(function(){
+        $('#hmxy-qrbox').show();
+        return false;
+    }, function(){
+        $('#hmxy-qrbox').hide();
+        return false;
+    });
+var url = window.location.href;
+$('.nav-list').find('a[href="'+url+'"]').parent().addClass('active');
+});
+
+</script>
+<ul class="nav-list">
+	<li class="index sub-menu">        <a href="http://www.iheima.com/"><i class="icon index"></i>资讯</a>
+        <div class="box">
+        	<ul class="submenu" >
+                                    <li><a class="" href="http://www.iheima.com/scope/425">黑马100</a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/426">区块链</a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/94">人工智能</a></li>
+				    <li><a class="" href="http://www.iheima.com/scope/58">新消费</a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/49">企业级服务</a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/56">医疗健康</a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/48">文化娱乐</a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/99">体育</a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/54">教育</a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/55">互联网金融</a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/50">电商</a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/60">智能硬件</a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/52">汽车</a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/85">旅游出行</a></li>
+                                    <!--<li><a class="" href="http://www.iheima.com/scope/46">商业</a></li>-->
+                                    <li><a class="" href="http://www.iheima.com/scope/57">资本</a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/97">黑马学吧<!--<img src="http://cyj-i.oss-cn-beijing.aliyuncs.com/hot.gif">--></a></li>
+                                    <li><a class="" href="http://www.iheima.com/scope/95">氢传播</a></li>
+                                    <!--<li><a class="" href="http://www.iheima.com/scope/100">创业黑马上市</a></li>-->
+                            </ul>
+            <div class="add bottom"></div>
+        </div>
+    </li>
+    <!--<li class="h-line"></li>-->
+    <!--<li class=""><a href="http://www.iheima.com/invest" class=""><i class="icon tzr"></i>找投资人</a></li>-->
+    <!--<li class=""><a href="http://www.iheima.com/product" class=""><i class="icon zxm"></i>找项目</a></li>-->
+<!--<li class=""><a href="http://www.iheima.com/media" class=""><i class="icon zjz"></i>找记者</a></li>-->
+    <li id="hmxy-link">
+        <a href="javascript:;"><i class="icon hmxy"></i>黑马学院</a>
+        <span id="hmxy-qrbox" style="position: absolute; z-index: 1; display: none;"><img width="130" src="//file.iheima.com/static/ihm/527a74/images/hmxy-qrcode.jpeg"></span>
+    </li>
+    <li class=""><a href="http://app.iheima.com/?app=ihmactivity&controller=index&action=index" class=""><i class="icon hmhd"></i>黑马活动</a></li>
+    <!--<li class=""><a href="http://www.iheima.com/service" class=""><i class="icon cs"></i>企业服务</a></li>-->
+    <li class=""><a href="http://www.iheima.com/tzrgx/index.shtml" class=""><i class="icon tzr"></i>投资者关系</a></li>
+</ul>
+    </div>
+    <div class="detailwrap fr" id="content">
+        <div class="main-content">
+            <div class="title">阿里CEO张勇：阿里历史上几个重要决策及背后思考</div>
+                        <div class="author">
+                <a href="http://www.iheima.com//media/media-detail?author=i黑马">
+                    <span class="avatar">
+                                            <img title="i黑马" alt="i黑马" src="http://app.iheima.com/?app=member&controller=avatar&action=get&contentid=161433">
+                    </span>
+                    <span class="name">i黑马</span>
+                </a>
+                <span class="time">
+                    <time class="timeago"> 2017-02-23 15:52</time>
+                </span>
+            </div>
+            <p class="img-content">
+                <img src="http://upload.iheima.com/2017/0223/1487836323376.png" alt="阿里CEO张勇：阿里历史上几个重要决策及背后思考" />
+            </p>
+            <div class="outline">
+                <p>张勇加入阿里近10年来，所经历的若干个关键时刻，以及与阿里命运相关的一些决定及背后的思考与挣扎。                </p>
+            </div>
+            <p><a href="http://www.iheima.com" target="_blank">i黑马</a>讯 2月23日消息&nbsp;<span style="text-indent: 2em;">近日，阿里巴巴集团CEO张勇受邀为湖畔大学上了一堂课。课上，张勇回顾了加入阿里近10年来，所经历的若干个关键时刻，以及与阿里命运相关的一些决定及背后的思考与挣扎。作为一家市值超2000亿美元互联网公司的管理者，他还分享了对互联网新经济的前瞻思考，以及阿里巴巴独到的组织哲学。</span></p>
+<div>
+<p><span>张勇说，阿里的业务常常&ldquo;分分合合&rdquo;：在外界看不懂的时候，把支付宝和淘宝分开了；在阿里妈妈独立发展也很好的时候，又决定把阿里妈妈&ldquo;塞回淘宝的子宫&rdquo;；后来，淘宝被一分为三。在湖畔大学课堂上，他首次分享了对于这些&ldquo;分分合合&rdquo;的体悟。</span></p>
+<p><span>2011年，淘宝被拆分为三家公司：淘宝、淘宝商城（天猫前身）和一淘，当时负责淘宝商城的张勇，带领团队历经了艰难的拼搏，最终&ldquo;千里挺进大别山&rdquo;，如今的天猫已经B2C领域的绝对领导者，更成为阿里电商的核心竞争力。</span></p>
+<p><span>这段经历让张勇坚信，战略是打出来的，已经总结出来的战略基本跟你没关系。&ldquo;世界上聪明人很多，勤奋人也很多，既聪明又勤奋的人更多。那跟你有什么关系呢？肯定是世上本没有路，为了活命，先搞条路出来。&rdquo;</span></p>
+<p><span>张勇认为，战略很难被清晰的规划，在战略问题上，两点之间距离永远最长，战略往往一进展，就要调整了。这里面要靠执着和坚持，同时，大的势要对。</span></p>
+<p><span>此外，战略还应有灵动性。张勇用UC和钉钉的例子打趣说，&ldquo;买回来一只鸡，结果孵出来一只鸭，这样的事在阿里常常发生。&rdquo;他说，收购UCweb的时候，阿里并没有想到会搞出搜索跟信息流，更没有想到，因为对UCweb的收购，对高德的收购，使得阿里在无线互联网时代形成了一个基础服务矩阵。</span></p>
+<p><span>作为一家2000多亿美元市值公司的CEO，张勇表示，自己更多会思考五年、十年甚至更长时间的事情。所谓花无百日红，产品总有周期，只有整个布局是轮动的，才能避免整个公司的业务陷入集体性的低谷。</span></p>
+<p><span>最后，张勇还谈到了对组织文化的看法。他称，阿里是天马行空的公司，也是脚踏实地的公司；是一家中学为体、西学为用的公司。在人才招聘上，阿里喜欢体制内的不安分者，跨国公司的叛逆者，以及&ldquo;能成事&rdquo;者。</span></p>
+<p><strong>&nbsp;<span style="text-indent: 2em;">附张勇湖畔大学授课实录：</span></strong></p>
+<p><span>马老师一直讲，今天湖畔大学是中国最热的大学，我一直心向往之，跟你们一样，在下面坐一坐，他们很久以前就来约，让我个大家交流一次，我从来没有做过老师，跟马老师不一样，他从头就做老师的，我没有当过老师。</span></p>
+<p><span>在座都是企业家，我想之所以大家愿意每一两个月花一点时间聚在一起，更多的不是为了去讲书本上的东西，更多是有体感的交流和各自的场景，因为每个人都在Run一个公司，无论这个公司处于什么行当、处于什么生命周期，背后很多东西是相通的，对于阿里也是这样。</span></p>
+<p><span>我2007年加入阿里，从2007年以后，我经历过的事情，包括我眼中看到跟阿里命运有关的一些决定，包括后面的思考和挣扎，我想跟大家分享一下，可能大家会感兴趣，这确实是外面从来没有讲过的。</span><span style="text-indent: 2em;">&nbsp;</span></p>
+<p><strong>决定阿里命运的几次&ldquo;分分合合&rdquo;</strong></p>
+<p><strong>1、最英明的一次&ldquo;分&rdquo;：把淘宝和支付宝分开</strong></p>
+<p><span>我是2007年8月份到阿里巴巴，那个时候的阿里巴巴已经挺有名了，不能说小有名气，应该说挺有名气了，那时候的淘宝也已经挺大了。我记得我去的时候，那一年淘宝是400多亿的GMV，跟现在相比是小不点的数字，但是绝对数来说也不小，而且已经形成了很多粉丝，其中有一个是我太太。前两天他们采访我，我说我去阿里巴巴，因为我老婆是淘宝的粉丝。通常上海人不太愿意离开上海，上海人离开上海肯定有特别的原因，我当时很认真的问，Are&nbsp; you&nbsp; sure，我真的可以到杭州去吗？得到的回答，这玩意儿应该是挺有意思的，应该是一个潮流、一个趋势，包括跟Joe、跟马总一见如故，聊得很顺，所以就去了。</span></p>
+<p><span>我到的时候，淘宝已经几百亿，很快第二年就是1000亿，然后一发而不可收拾，这么一年一年跑上来了。在阿里九年多的时间，有很多觉得当时挺重要的，事后看起来更重要的时刻，或者说当时很揪心的时刻，但是事后看起来很重要的时刻。其中就有一件，是在我去了不久之后发生的，尽管我不是亲身经历，但是我觉得是非常英明的决策，可能已经决定了阿里今天的命运。</span><span>这个决定就是最早的时候，把淘宝、支付宝分开，这个事情我认为奠定了今天阿里基础格局，今天的蚂蚁就是原来的支付宝跑起来的。</span></p>
+<p><span>那时候有一句话，我们可以这样讲，没有淘宝是没有支付宝的，支付宝是为了解决淘宝的问题才产生的，你要做网上交易，最后发觉支付是交易的必须，不然没有交易。第二为了解决买卖双方互相的信用问题，就是互相的信任问题，因为在网上人也摸不到，东西也摸不到，很难建立信任，阴差阳错想出一个支付宝的东西来。以前英文就有，就是Escrow，解决了到底先信任买家还是先信任卖家的问题，中间有一个中间账号，买东西的人把钱放进去，买的人拿到以后，确认一下，钱从中给卖的人，钱货两清，这个机制。</span></p>
+<p><span>今天大家都是淘宝用户，大家也用支付宝，今天这个东西讲起来是很普通的一件事情，当时确实为了解决淘宝的问题而产生的，也是因为这个，昨天我们还在跟一些团队讨论，今年我们也在东南亚收购了最大的电商平台，那边到现在位置，COD还是很高的比例，就是货到付款还是很高的比例。他们跟我讲起来，货到付款做得怎么好，我说货到付款本身就是一个问题，因为货到付款对于买卖双方来讲是待遇不对称的，是不平等交易，我凭什么东西先给你，货到付款的退货率特别高，因为没有成本，我拿到东西以后，看了不满意就退了，对买家很好，但是那些卖东西的人不对等了。</span></p>
+<p><span>它不是一个风险收益对称性的的交易，我们说Alipay要进去，要普及这个东西，而且正好有商业场景，让担保交易在东南亚能够起来，本身它是解决淘宝交易的问题，我说它的英明决定在哪里，很快马老师和当时的Joe他们几位做了一个英明决定，这玩意儿，</span><span>它是因淘宝而生，但是它不属于淘宝，它可以时候社会各个层面需要支付的商业场景。所以就把支付宝给切分出来了，我可以告诉大家，这个切分出来，好处是什么？好处是它打开了一片天，本身因为一个主场景产生另外一个业务，而这个业务最终又能够变成不只是刚才产生那个业务场景的附属物，同时变成有独立社会价值和市场价值的一个业务。</span></p>
+<p><span>这里面体现了阿里非常重要的，就是在整个组织构架上，我们每过几年要做的事情就是分分合合，这个&ldquo;分&rdquo;决定了整个支付宝命运、决定了整个蚂蚁命运，没有这个&ldquo;分&rdquo;，充其量是淘宝里面的一个大部门，解决的是淘宝问题。它可能也不错，因为淘宝长，它也长，但是到现在，我们整个在PC时代的时候，支付宝整个份额，第三方份额已经跟淘宝平起平坐了，一半的流水来自于淘宝，一半的流水来自于市场上各种各样的商业场景需要支付。无线时代更是了，无线时代所有线下支付变成了手机钱包支付，带来了这个场景。</span></p>
+<p><span>但是我反过来讲，前面很多场合也都听到过，但是我想讲，这种&ldquo;分&rdquo;也是有代价的，代价是说你要保持商业场景和支付之间两大体系的协同关系。原来在一起就是一个部门，那么分开的话，其实支付有支付的场景，你当然很大，是我最重要的场景，但是当它发展起来之后，优先级就会调整。</span></p>
+<p><span>昨天我跟蚂蚁同学还在聊天，他们最近也在做很多思考。井贤栋给我发消息说逍遥子，我必须每个月找你吃顿晚饭，我说挺好，我说为什么呢，他说很简单，其实阿里巴巴集团是蚂蚁的最大客户，最大的客户总要定期拜访。我们其实经常在一起，这么一说，&ldquo;分&rdquo;了以后，带来一个很大的市场场景，但是它又需要很多连接。&ldquo;分&rdquo;比&ldquo;不分&rdquo;要来得好，它带来的市场机会绝对是原来的场景下所看不到的，这个可能是我们在过去的很多年当中，其实是非常经典的一个&ldquo;分&rdquo;的例子。</span></p>
+<p><span>我们自己也在学习，在这个过程当中，考虑什么时间&ldquo;分&rdquo;，什么时间&ldquo;合&rdquo;变得非常关键。</span></p>
+<p><strong>2、为什么把阿里妈妈&ldquo;塞回淘宝子宫&rdquo;？</strong></p>
+<p><span>我紧接着说一个&ldquo;合&rdquo;的例子，是阿里妈妈。阿里妈妈是2006年产生的，我去之前就有了，当时阿里妈妈提出了一个宏伟的口号，因为有阿里巴巴，就搞一个阿里妈妈，阿里巴巴叫让天下没有难做的生意，阿里妈妈提出了一个愿景，让天下没有难做的广告。所以就干了一个新业务，气吞山河就去干了，但是干到我去的以后，2007年、2008年那段时间，发现一个独立的广告平台，广告靠两个东西，一个是广告主，一个是媒体，你是把两个连接在一起，你在中间做一个广告市场、广告平台，因为阿里巴巴很有平台情结，我们做什么事情老想做平台，然后把各方能够连在一起。</span></p>
+<p><span>如果广告主是市场上的，要自己去挣，那个时候是门户如日中天的时候，游戏如日中天的时候，这一头媒体不成立，没有自己家的媒体，上头要找广告主，下头要找媒体，两头在外，中间如果没有提供核心价值，你是没有超额利润的。你凭什么媒体不自己去卖，通过你去卖，你最多是一个代理，是这样的一个东西。</span></p>
+<p><span>那个时候，淘宝在快速发展，突然有一天，在杭州西湖国际大厦，我们原来的办公室，我当时是淘宝的CFO，马云把我们几个叫到他的办公室，他拿了一把长剑，就是你们看见最早期的的一张照片，他拿着一把宝剑，他先找我们几个，他要找帮手，共同&ldquo;搞定&rdquo;一个人，就是吴妈（吴泳铭），阿里妈妈的创始人。</span><span>要搞定什么事情呢，用他的原话，要把阿里妈妈塞回到淘宝的子宫里，</span><span>因为注意到一个问题了，两头在外，这买卖没法干，但是淘宝碰到什么情况？淘宝在发展，淘宝在发展到2007年、2008年的时候，我去了以后，我们开始大力发展P4P业务。</span></p>
+<p><span>那个时候我们接触到付费搜索，我们尝试性地把付费搜索作为一个商业服务、作为一个营销服务，接到淘宝里面，给我们的卖家用。这里就带来一个奇妙的东西，我们突然意识到一个问题，阿里妈妈一头要找广告主，一头要找媒体，淘宝的广告主都在，已经很多了，所有卖家都是潜在广告主。</span></p>
+<p><span>媒体呢，我们自己就是媒体，我们那时候已经有千万级别的消费者到淘宝上每天来了。我来阿里的时候有很多段子，当时的段子，其中一个，我是盛大CFO，跑阿里巴巴去了，第一个说法是淘宝要上市了，其实淘宝没上市，结果B2B上市了。第二是说张勇是跑去淘宝，给淘宝找商业模式去了，因为淘宝烧钱，那个时候大家都知道的，都担心这个业务怎么能活下去，这个业务又不赚钱，免费市场，每年烧那么多钱，怎么赚钱。</span></p>
+<p><span>但是我来了几个月以后，我搞明白一个事情，当一个地方一天有上千万人来的时候，赚钱应该是可以搞定的一件事情。但是怎么搞定？</span><span>当时马云就想把阿里妈妈放回到淘宝的子宫里，让他能够变成淘宝商业化的主体，同时也把阿里妈妈这个&ldquo;让天下没有难做的广告&rdquo;的使命，跟阿里巴巴的使命结合起来，其实这两者是一体的，做广告不就是为了做生意吗，把生意卖出去。</span></p>
+<p><span>我们把让你做生意，延展到让你营销做得好、广告做得好，让你获得新客户，这就奠定直到今天为止还是非常有效的，我们阿里妈妈整个营销平台的基础，就是这样来的。</span></p>
+<p><span>最终我们把这个事情办了，阿里妈妈回到了淘宝，吴妈仍然管阿里妈妈的商业体系。这是&ldquo;合&rdquo;的非常有意思的一个例子，当一个业务发展，其实是我们阿里的一个业务发展，很多时候发展的视角，我们原来叫生态的视角，但是我个人更喜欢用产业链这个词。</span></p>
+<p><span>原来只是买家卖家两个角色在一个平台上，其实无非就是你多了角色，卖家本身是广告主，广告主需要有人服务他。而作为平台，本来是一个交易平台，后来因为人多了，所以变成一个媒体的潜质，媒体要发挥它的商业作用，在广告主身上实现价值，能够为他们提供服务，从而实现自身价值，带来这样一种结合，这是很有意思的一个产业链的延展。这也是我自己第一次在阿里经历，完全是当事人经历&ldquo;合&rdquo;，包括合进去之后，怎么样把设想的化学反应能够发生，你不能到外面去找广告主了，第二你也不用发展什么渠道体系，你做别人的渠道，你自己发展渠道体系，你就是自己家的媒体。</span></p>
+<p><span>我们最好的一点，我们的广告主都在互联网上经营，你不需要线下的服务团队去敲门服务他，你网上自助式的服务可以解决一大部分问题，在很长的一段时间内，效果为王的年代，我们都是坚持&ldquo;商家自我服务&rdquo;，在平台上能自助完成的事，为什么要搞一个全国的地推团队，到处去卖广告，这不需要，商家需要，他自己评估，他通过这样的方式获得高效率的服务，这是我们在整个发展过程当中，我刚刚进阿里巴巴没多久，就经历的一件大事。</span></p>
+<p><strong>3、做天猫就是&ldquo;挺进大别山&rdquo;，没有退路</strong></p>
+<p><span>我讲的第一块是分分合合，当然第一把的&ldquo;分&rdquo;我没有经历，只是阅读这个&ldquo;分&rdquo;，刚才说的事情是2008年。然后2011年到2012年，这是我自己也是当事人，经历了另外一把更大的&ldquo;分&rdquo;，就是淘宝被分了，一个淘宝被拆成了三块，就是淘宝、天猫和当时的一淘。当时的现状是什么？淘宝发展越来越快，但是我们大概从2008年左右，开始决定做B2C，当然中间也是阴差阳错，我莫名其妙从一个CFO被有机会接触这个业务，也是命运使然，从来没有想到过，也是后来走上不归路的开始，后来一发不可收拾做业务去了，直到今天。</span></p>
+<p><span>当时发展淘宝商城业务，就是B2C业务，在这个发展过程当中，我们有一次在永福寺开会，那个时候我觉得老马讲那番话的时候，他已经下决心了，他就是要把淘宝拆了。其实我当时的理解跟后来的理解不一样的，因为我是局中人，我当时是其中一个团队的Leader，我是兼着淘宝商城的Leader。拆这玩意儿，对我个人和我当时的团队是好事情。我后面跟大家说，为什么淘宝能够发展起来，这里面有一点小奥秘，外面没有讲过，我等会告诉大家。</span></p>
+<p><span>当时觉得&rdquo;分&rdquo;对个人是好事情，对团队是好事情，业务发展多了一个空间。但是我后来慢慢去体会这个拆的原因，我觉得这里有一个非常有意思的考虑。</span></p>
+<p><span>第一个是一个趋势的判断，就是觉得B2C会越来越发展起来，而在一个发展势头很猛的东西上面盖一个大盖子，这个发展会被束缚住，这是第一个考虑。这个考虑来诠释为什么淘宝和淘宝商城（天猫）分开。</span></p>
+<p><span>还有一条考虑，我从来没有讲过的，我后来搞明白了，就是B2C发展的态势到底会发展成什么样，包括自己的B2C淘宝商城能发展成什么样，那个时间不确定。</span></p>
+<p><span>为什么不确定？这个市场的格局，以后发展的态势是怎么样，到底是一个群雄割据的市场，还是像我们C2C领域一样，能够占到一个非常大份额的市场？这个问题是当时搞不清楚的。因为我们自己也在拼命冲，也碰到很多问题，也不一定有胜算，也不一定形成现在这样的格局，当时是搞不清楚的。</span></p>
+<p><span>请大家关注第三个东西，就是一淘，一淘这个玩意儿今天已经听不大到了，为什么听不到呢，因为天猫已经到处都是了，所以它就听不大到了，因为中国也就这么五个以内的B2C了，天猫占50－60%，然后京东，剩下苏宁几个分点，一号店也快搞没了，就这么几个东西。当一个市场如果是群雄割据的时候，有多个入口的时候，需要什么？需要搜索。如果这个市场就这么一两个，不需要搜索，人家是到那个里面去搜，淘宝达到的结果，用户先到淘宝再搜。在国外是什么？国外用户养成习惯是去Google搜，再去Ebay、亚马逊、沃尔玛，是这样的一个概念。在中国都是先进淘宝去搜，这是外国友人没有搞明白的事情，要跟他们讲这个道理，我们跟国外不一样，在国外Google是进入互联网空间的入口，在中国不太一样。</span></p>
+<p><span>当时回过头来，我刚才说的话题，当时搞不明白，这个趋势会怎么样，因为对自己家也没有100%的把握，不知道这个市场怎么走，那我们再搞一个购物搜索，叫一淘，而且这个东西是架在阿里妈妈上搞的。</span></p>
+<p><span>这个搜索未必完全服务淘宝的，你的东西好，就出来你的，别人的东西好，就出来别人的，你最后搞不清楚你能守住哪一个阵地，我们一直讲，到底你能守住护城河前的五公里还是能够守住护城河，还是能够守住城门，这是不一样的。</span></p>
+<p><span>当然搞完以后，把这三个东西给分开了，就变成了阿里内部的&ldquo;三淘&rdquo;，淘宝、淘宝商城、一淘，一个变成三个了。我干淘宝商城、吴泳铭干一淘，三丰干淘宝。相对淘宝比较大，出来两个小东西，我们要给自己找一个比喻，所以有一天老马跟我讲，说我和吴妈，说我是&ldquo;刘邓大军&rdquo;，吴妈是&ldquo;东北野战军&rdquo;，我一听，心里一打盹，谁都知道东北野战军兵强马壮，刘邓大军什么意思，要么跑到终点，要么没有你的活路，一直往前跑，千里跃进大别山。分开以后，我跟整个团队Kick off说我们就是&ldquo;刘邓大军&rdquo;，兄弟们，我们要么往前冲，要么是没有后路的。</span></p>
+<p><span>这个讲的是千里跃进大别山这一段，出来以后没有根据地的，往前跑就行了，而且你也不知道根据地是哪里，等你占到地方了，那就是你的了，你找不到地方，最后基本上你要么被自己灭了，要么被外面灭了。那是2011年，也跟大家说一下，这么多年过去，也是我一直反思的一件事情，大家都知道2011年10月份，发生了&ldquo;十月围城&rdquo;，我是淘宝商城总裁，也是&ldquo;十月围城&rdquo;男一号，造成这个局面的是我本人。&ldquo;十月围城&rdquo;是什么？是平台升级，希望建立一个非常严的入驻门槛，借着每年续签的机会，就是商家每年要续签合同的机会，提升品质门槛，包括保证金门槛，造成一大批的小卖家的反弹。</span></p>
+<p><span>后面天猫怎么来的呢，就是在那个事情平息以后，我们开始痛定思痛，开始想淘宝和B2C要做切割，品牌要做切割，因为淘宝商城四个字太长了，中国人分不清楚，反正就是淘宝。</span></p>
+<p><span>突然有一天老马给我打电话，他想了一个绝妙的名字，我说听听看，他一说&ldquo;天猫&rdquo;，我差点儿晕过去，他开始说服我。因为他在这方面确实有他的灵气，真的是独一无二，我最后被他说服的理由，他说很简单，你现在想到亚马逊，最想到什么，是那条河还是那个公司，绝大多数人想到那个公司，当然那条河也很有名。</span></p>
+<p><span>品牌本身是没有意义的，关键是你Redefine两个字，赋予它新的内涵，而且因为这两个字怪，所以怪就容易引起讨论、引起争论，引起社会关注度，容易被人记住，我们是2012年1月11号去发布天猫品牌的，那个时候我也挺&ldquo;绝&rdquo;的，他们说发布天猫品牌找个日子，我说找个我生日吧，就1月11号，天猫的命名日，背后的原因，因为这个东西以后，我们要做品牌切割带来的。</span></p>
+<p><span>在这个变化当中，我把它拉回来讲，这个是我碰到过绝无仅有的一次为了对冲风险进行这样一个布局。其实现在不瞒大家说，我经常干这样的事情，以前的故事可以拿出来跟大家当故事讲，今天这种事情一直在发生。</span><span>可能特别当阿里现在非常大的时候，这个时候怎么避免系统性风险，有的时候是要做风险对冲的。</span><span>在不同的模式，其实有的时候你不知道哪个东西是对的，哪个模式是对的。</span></p>
+<p><strong>&nbsp;<span style="text-indent: 2em;">4、战略是打出来的，别人总结的跟你没关系</span></strong></p>
+<p><span>我不知道湖畔给大家安排的课程有哪一些，战略课之类的，不知道有没有。</span><span>我一直以来的观点，战略是打出来的。今天他讲给你听的战略，基本上是打完以后、总结以后的战略，现在在做的事情，听上去很多东西是不成逻辑的，但是当它成为逻辑以后，当每个人都觉得这是战略以后，谁都没份了，每个人都搞清楚这个事情应该这么打的，那世界上聪明人多得很，勤奋的人也很多，既聪明又勤奋的更多，那跟我们有什么关系呢。肯定是世上本没有路，为了活命，先搞条路出来。</span></p>
+<p><span>为什么外面采访说逍遥子，双11怎么来的，我说双11是为了活命来的，为了活命想出来的，双11是2009年第一次，那个时候的状态，在艰苦的突围找出路的时候，东试试看、西试试看，那么美国有一个黑色星期五的节日，那么我们也试试看，后面根本没有想到，就是为了活命的事情，让大家记住这是我们搞的，人家愿意到我们这儿来，而且分得清楚淘宝商城和淘宝，就那么一点小事情，跟后面的那些东西都是一步一步走过来的。</span></p>
+<p><span>回过来讲，在战略上，我们可能经常讲的是一个清晰的战略规划，我是唱点反调，清晰的规划是课本上讲的，或者对于以前发生过的事情，在今天，以今天向前看，战略很难被清晰的规划。这里面要靠什么，我认为是靠执着和坚持，大的势要走对，我经常跟团队分享我自己经历的感觉，我经常说这句话：</span><span>在战术上面，两点之间距离最短，这是数学原理，在战术上面，在数学上面，在战略上，两点之间距离永远是最长的，你发现这个战略一进展，就要调整了，本来朝着这个方向走，本来以为要到终点了，但是做着做着，就发觉不对，就要调整，你是走这样一个路。</span></p>
+<p><span>但是这里面最怕的是什么？最怕走回头路，有些东西坚持就是胜利，我经常的口头禅，特别是新业务，核心就是信仰和坚持，你信不信这件事情，第二你愿不愿意为此坚持，这个我觉得可能是拿到一个成果，当我们轻轻松松总结一件事情发生的结果时，把它条例性质化、结构化、逻辑化，变成一个战略推导的时候，它的发生过程就是因为信仰和坚持，这是我自己的感受，我不知道大家怎么想的，我觉得就是因为信仰和坚持，我们信这件事情，我为此愿意付出。可能咬紧牙最后扛不住了，再扛一下，过一个坎，再过下一个，就这么回事。</span></p>
+<p><span>但是大方向要&ldquo;对一下&rdquo;，到底是顺势而做还是逆势而做，</span><span>顺势而做，扛着扛着，越扛越轻松，逆着社会潮流而做，会越扛越累，逆着消费习惯的变化，逆着商业的变化去做，会越来越累</span><span>。在这个基础上，可能落到定期对表，但是如果天天照着战略课本做是做不出东西来的，这是我自己经历的，这是我想跟大家分享的，就是在整个的分分合合当中，在我自己经历过阿里重要的&ldquo;分合&rdquo;。</span></p>
+<p><strong>阿里的&ldquo;借鸡下蛋&rdquo;和&ldquo;鸡孵出鸭&rdquo;</strong></p>
+<p><strong>1、任何业务都是可以被重新定义的</strong></p>
+<p><span>我换一个角度，借花献佛也好，墙外的花墙内开也好，我说的一个例子，就是P4P，2005年收购雅虎中国以后，那时候雅虎还是如日中天。因为雅虎当时是搜索，尽管Google已经起来了，但是雅虎当时还是比较强，我们就接触到了这个东西。</span></p>
+<p><span>P4P一开始在雅虎中国用，阴差阳错的机会，让我们看到这个玩意儿，这些生产要素，淘宝都有啊，广告素材就是商品，而且商家不需要为这个广告素材额外花力气做这个广告素材，他自己就是一个商品，广告主就是商家，媒体就是淘宝，衡量它的效果好不好，就是给商家有没有带来生意，带来生意这里要两说，一个是即期的生意，因为这个广告，带来马上的销售，另外是远期的生意，因为这个广告带来真正有价值的客户。</span></p>
+<p><span>我们把这两个东西结合起来，这是从一个原来的一个东西里面，我们本来买的是1，然后做着做着，发觉1没做好，搞出了个2来，这是我们历史上发生好几次这样的事情，就是你买回来一只鸡，结果炖出来一只鸭，这是第一次。</span></p>
+<p><span>这几年来还有一次，现在这只鸡不是变成了鸭，而是鸡生出了几只鹌鹑，什么东西呢？UCweb，我们买UCweb的时候，不知道Joe有没有讲影响阿里的几个战略投资之作，这确实是非常重要的决策点，</span><span>因为我们对UCweb的收购，因为我们对高德的收购，使得我们在无线互联网时代形成了一个基础服务矩阵，这是对阿里来讲非常重要的，进一步奠定了今天大家看阿里巴巴，到底是一个电子商务公司还是一个数据公司</span><span>。其实我们从2008年、2009年以后，就把自己定位成为一个数据分享的第一平台，我想教授来肯定讲这个。</span></p>
+<p><span>在这个过程当中，光是自己说自己改变了不算，你提供的服务有没有改变，你给客户提供的价值有没有改变，今天因为有了UC、因为有了高德，在无线互联网疆域的拓展进入崭新的空间，什么叫鸡加鹌鹑呢，第一天这是一个浏览器，实际上大家知道浏览器的日子很难过的，我们当时在UC进入阿里大家庭以后，开始做两件事情，一个是建设自己的无线搜索。</span></p>
+<p><span>在这个里面，其实用一个浏览器，如果没有这个东西，搜索没有办法练的，没有办法养的，你没有一个场景，你是很难凭空在百度那么大的时候，国外有Google的时候，你再去从头做一个搜索，这是非常难的，我们之所以叫这是鹌鹑，不是鸭。</span></p>
+<p><span>另外一个鹌鹑就是信息流，大家可以看到随着混合信息流从图文到今天的短视频，现在变成了互联网用户非常重要的消费内容的一个载体和一个Kill时间的工具，我们买回来一只鸡，这个鸡本身有一定的价值，但是能不能用这只鸡孵出别的东西来，搞出两个不是鸡的东西来，我们就搞信息流和搞搜索，这也是我们经常思考的东西。</span></p>
+<p><span>我们一直讲的问题，任何业务是可以被重新定义的，可能第一天我们做的是这个业务，叫的是这个平台，很容易我们团队一股脑就奔着这个去了，可能越是基层的团队，考虑的问题，就是我刚才说的，我必须一条道跑到黑，拼命拿到结果，但是有的时候还是要跳出这个局来，看一看这件事情有没有被重新定义的可能性。拼命的劲头需要，但是光有勇气是不够的，信仰和坚持背后要的是智慧，就是有智慧支持的信仰和坚持，这个事情才能搞成，不然就是拼命了，这个东西搏命是不好搞的，这是我们背后的思考。</span></p>
+<p><strong>&nbsp;<span style="text-indent: 2em;">2、由来往做出钉钉，核心是客户价值</span></strong></p>
+<p><span>刚才说的是UC是这个鸡还活得很好，另外出来了几个鹌鹑。另外一个就是鸡没养活，养出一只鸭子来，最近一两年又有一个经典例子，就是来往和钉钉，本来我们要养一个来往。我的观点是，你这个玩意儿到底跟别人比提供了什么新的客户价值，是客户必须要用你的，特别是当人家已经很大了以后，你有什么差异化的客户价值，可以进入这个市场。这也是管业务的一个核心词就是客户价值，第一定义谁是你的客户，今天在阿里这样一个平台上，其实大家会问，第一个词还用问吗，客户那么大，我说越是大，越是要问，为什么？很容易大而不聚焦，阿里是很大，但是阿里里面每个业务必须对特定的客户群聚焦，拼起来才能说我们服务了四亿五亿更多的用户，如果每个小业务说我服务四亿五亿的客户，肯定搞不好。</span></p>
+<p><span>你是2C还是2B的业务，这个策略是完全不一样的，消费者是哪群消费者，不能说所有人都是你的消费者，这是违反所有业务展开基本的一个逻辑，就是必须要定义清晰的消费者族群，给消费者提供价值。</span></p>
+<p><span>后来为什么有钉钉呢，就是这个中间有信仰和有勇气，愿意坚持的那一小撮同学，他们不愿意放弃，他们觉得在这个上面搞不出来东西了，再搞也没用，搞不出来东西了，因为一旦这个东西，用户产品一旦定型，只有一次大的机会，不可能有第二次机会，不可能突然升级换版本，变成一个完全不一样的东西。</span></p>
+<p><span>最终回到核心用户价值是什么，钉钉这个事情上面，这个小团队，原来来往团队里面很小的一撮人，他们觉得这个事情怎么搞不成，必须重启炉灶再搞一个，就是因为团队有坚持、有信仰，并且他们抓住了一些用户价值，所以今天发展得还不错。在这个产品上，我给无招他们团队最重要的一句话，就是做简单，很多时候老想加东西，加了就觉得满意了，其实有的时候越加越不满意，要把工具类的产品做简单，化繁为简，能够抽象用户的需求，真正做成一个工具平台。</span></p>
+<p><strong>&nbsp;<span style="text-indent: 2em;">3、鸡窝孵出鸭时，要呵护它，这是战略的灵动性</span></strong></p>
+<p><span>对于阿里来讲，我自己经历过的对于阿里的决定，比较大的决定的几个瞬间，一种是分分合合，我们经常过几年就要分一次，合一次。第二个是借鸡下蛋，用鸡孵出鸭来，这里面反映我们在整个战略当中，我们自己的一些灵动性。</span><span>因为很多的创新是自上而下和自下而上的结合，如果在今天互联网的时代，我们认为只靠自下而上的创新是不够的，很多创意在民间、在下面，我们怎么给团队一些空间，让一些东西能冒出来。同时在冒出来的时候，能够及时发现它，能够呵护这个东西，原来在鸡窝里面养出一只鸭子来，哪怕是一只小鸭子也挺好，说明物种在进化、物种在发生变异。</span></p>
+<p><strong>战略思考和组织文化</strong></p>
+<p><strong>1、CEO要更多思考&ldquo;长远的事&rdquo;和&ldquo;不可为的事&rdquo;</strong></p>
+<p><span>当然从更宏观来讲，对于阿里来讲，我们对于整个业务的发展，按照产业链的视角来讲，我们的思考，更多的会思考五年十年甚至更长时间的事情，这也是为什么我们从2009年以后，一直开始坚定在云上面做投入和做建设的原因。这里面说白了，2009的云跟今天的云完全是两回事，甚至定义都是两个定义。但是这个核心是要对未来的大势有一个判断，最终为此愿意做一些投入，而这个中间，可能到目前为止，阿里做得比较有意思的是说我们整个的业务，我们的产业业务从B到C，再到大底层的云，再到文娱，再到海外，我们希望形成一个同一时间轴上不同时间点一种板块轮动效应，这也是我觉得非常重要的，我也非常关注这个问题。</span></p>
+<p><span>对于一个大的企业，像阿里来讲，我们必须承认一件事情，所谓花无百日红，没有一个业务可以一直红的，没有一个业务可以都像正午十二点的阳光一样，正当头上，产品都有生命周期，都有高峰和低谷。那么作为像阿里这样的大的公司来讲，我们怎么样避免集体性的高峰或者集体性的低谷，当然集体性的高峰大家都很开心，别忘了集体性的高峰就是意味着集体性的低谷，在一个共振的轴上面，你很容易发生这样的事情。</span><span>我们的整个布局是轮动的，Joe在有一次我们对于海外资本市场业绩发布会上讲过一句话，我觉得还是挺有意思的。</span></p>
+<p><span>他说we&nbsp; work&nbsp; for&nbsp; now，we&nbsp; invest&nbsp; for&nbsp; tomorrow，we&nbsp; incubate for&nbsp; future，我们为今天工作，为未来投资，最后一句比较特别的，我们为未来孵化一些东西。为未来有一些冒出来的小芽，也许十个二十个芽里面，有一个芽发了，那就大发了，完全变成一个新的未来的主力业务，这是对于阿里巴巴这样的公司，考虑比较多的视角，包括下面那么多的业务，大文娱、云、高德、菜鸟，包括电商，电商里面还分很多种类，B2B、2C，2C里面还分B2C、B2C，B2C还分国内、进出口，还分外国的本地市场，事情是做不完的，更重要的是你要抓住这个业务的主线，为未来做投资甚至做孵化。第二还是要果断做取舍。</span></p>
+<p><span>尽管所有的机会都看上去很漂亮，但是今天什么东西不可为，对我们今天的阿里来讲显得更加重要。今天我们第一不缺名，品牌也很响，我们有卓越的Leader马云。我们业务也算还不错，我们也不缺钱，听上去啥都能干，但是有什么事情不能干的，这是我们今天站在我这个层面考虑比较多的问题，什么事情不可为的。</span><span>大公司要往小做，小公司要有大的格局，我觉得非常重要，这是我们一直这么多年发展下来，我们的一个心得。</span></p>
+<p><strong>&nbsp;<span style="text-indent: 2em;">2、天马行空、脚踏实地；中学为体、西学为用</span></strong></p>
+<p><span>别人问我说阿里巴巴是一家什么公司，我站在我的视角，我有两句话，我心里的阿里巴巴，就是我所经历的，我有体感的阿里巴巴，用两句话总结，阿里巴巴第一句话是天马行空的公司，也是脚踏实地的公司，这是缺一不可的。我们有非常大的愿景，包括我们也有很多奇思妙想，有很多的想法，甚至有很多马云的想法，很古灵精怪的想法，为什么能够发展到今天，能够走下去，最重要很多的想法变成了现实，不然想得再多，也没有人信，必须变成现实，这是整个战略和执行上的两句话。</span></p>
+<p><span>第二个从文化上来讲，阿里巴巴是一家中学为体、西学为用的公司，这是我自己的体感。我们在文化上，我们在整个组织上，其实后面贯穿的，包括大家都知道，我们阿里巴巴喜欢太极，其实这里面有中国的文化思想在里面，包括阴阳的平衡，整个这里面体现了我们对于这个东西，我们的一些向往，不能说我们完全有这个，我们是一种向往。第二个，我们在整个管理上，特别是我们的整个管理机制设计上按照现代企业管理制度来管理的，一定是这样的，最后才能变成一个中西合璧的整体。</span></p>
+<p><strong>3、阿里喜欢两类人：不安分、能成事</strong></p>
+<p><span>我跟HR一直聊的话题，到底招什么样的人，</span><span>我说招两种人，第一个是招体制内的不安分者，招跨国公司的叛逆者，</span><span>一种是体系内的国营企业或者说体系内不安分的人，在这里日子过得很好，但老想干点啥，到我们这儿来吧。第二个是招跨国公司的叛逆者，跨国公司里面，我看的核心问题，有些人可能有很漂亮的履历，我最关心这个人置于这个体系，是他创造了这个体系，还是这个体系成就了这个人。特别在跨国公司里，很多人就像螺丝钉一样，他可能在一个体系里面转的，他在这里面坐在这个位置，不管他的位置多大，可能是总经理，多大的帽子，都很好，但是如果是你把中国业务从零打出来的，或者你去的时候，这个东西本来没有，建了这个体系，这是本质的不同，是人造就了事情，还是事情造就了人，这是我们在招聘当中，包括我们现在在内部员工的晋升上面，我们经常问这个问题，特别是高阶员工的晋升。</span></p>
+<p><span>这两年阿里业务比较好的时候，很多问题会被掩盖，看去这个人业绩都不错，但是我说这个</span><span>到底是这个人造就了这个业务还是这个业务造就了这个人，这些问题都是我们现在考虑比较多的。我想对不同的企业来讲，大家都有各种借鉴，最终我们还是需要找的是因人成事这样的人，因为这个人，Make&nbsp; things&nbsp; different，因为人，这个事情不一样。</span></p>
+<p><span>我们今天说非凡人以平凡心做非凡事，因为今天事实上我们承担的责任，我们做的事情，真的需要有一个非凡的思考力，有非凡的格局，有非常的勇气才能做一些事情，但是反过来如果你没有对客户的敬畏之心，你不是用一个平凡心，不是谦卑之心、服务之心，很难做好这个事情。这里面背后反映的是什么？反映在一个企业，不同阶段对于人的要求是不一样的，对于人的整个引导和培养的角度是需要去辩证的发展，今天就讲讲阿里的老故事，把一些我自己体会到的剧烈的变化分享给大家。</span><span style="text-indent: 2em;">&nbsp;</span></p>
+<p><strong>提问环节：</strong></p>
+<p><strong>1、谈入股银泰：对&ldquo;新零售&rdquo;阿里是严肃的，绝不是搞一个时髦概念</strong></p>
+<p><span>学员：问一下银泰入股后面的是怎么考虑的？</span></p>
+<p><span>张勇：我们去年提出五个新，引起大家很多的反响，新零售上面大家有很多的讨论，阿里巴巴对于新零售是非常认真的去构想它和实践它的，我们绝对不是说一个概念，我们绝对不是说一个虚无缥渺的东西。</span></p>
+<p><span>过去十几年电子商务的发展，把虚拟世界和实体世界分割开来看，是一个阶段性的产物。越往后走，虚拟世界和实体世界就是一个世界，电子商务和实体商业是一个世界。在我看来，电子商务是最真实的经济，不是虚拟的经济，它是反映整个实体经济的脉搏。而在今天整个零售业态的发展，我用的关键词叫&ldquo;重构&rdquo;，我们正好今天可以讨论，</span><span>我的观点很简单，我希望我们的团队能够不仅有原来做电子商务的力量和经验，同时能够用这样互联网的技术和思想去帮助实体商业的生产要素进行重构，赋予它互联网的能力。</span><span>实体商业的生产要素就是人、货、场，网上也是人、货、场，两者没有本质区别。</span></p>
+<p><span>今天中国实体商业碰到的问题，典型是供给不能满足需求快速增长和变化的问题，今天的中国实体商业碰到的问题一定是消费者的需求在发展，年轻一代的消费者正在变成消费的主力军，但是中国的百货行业本质上还是赚商业地产的级差地租和超额利润。</span></p>
+<p><span>然而最终消费者的需求跟装修没有关系，跟地段其实没有本质关系，最多是便利性的关系，但是这个标地是什么，对象是什么，这个上面不升级。我们认为实体商业面临一个大改革、大改造的机遇和挑战，我们两年前参与到银泰，当然这个私有化刚刚发起，并没有完全，还在过程当中，市场反响到目前还是非常正面的，最终我们希望能够把银泰打造成为我们在新零售的尝试，真正以互联网要素重构人、货、场的试点。</span></p>
+<p><span>无论是银泰还是三江都是这么考虑。刚才银泰的思考，整个百货业态的重构，百货商业的重构，包括Shopping&nbsp; mall业态的重构，而三江后面的思考，我们基于本地化的、及时性的，以食品生鲜为代表的消费对象、消费类别的电子商务，线上线下一体的电子商务，我们认为是一个巨大的场景。</span></p>
+<p><span>原来电子商务的做法是空军，从上面往下走的，它对于地面的渗透是不足的，今天什么东西是刚性需求，什么东西是刚性消费？就是一个东西，嘴巴吃的东西，吃的东西是刚性消费，只不过今天中国的老百姓越来越多的对于吃的要求越来越高，对于安全性要求越来越高，对于质量的要求越来越高，你怎么样提供这样的产品，同时他们又都是互联网人口，为了八块钱鸡蛋挤超市班车的时代肯定会过去。</span></p>
+<p><span>今天随着年轻化人群在越来越变成消费主力，我们认为未来，用户真正要的是有品质的产品，安全的产品，这样的服务。人以食为天，一天三顿饭逃不掉的，电子商务做得那么大，但是吃跟我们有多少关系，每个人都要吃早饭，早饭跟我们有多少关系？现在还没有关系，但是我们觉得可以发生关系，这个关系不是为我们发生关系，而是我们在里面能够产生价值，能够让整个服务的提供，因为互联网的问题，使得供应链可以被缩短，使得需求可以被提前聚合。</span></p>
+<p><span>比如说一个办公楼，那么多年轻的同事，早上要吃早饭，为什么早饭不能提前预定，为什么预定以后不能以地理位置纬度来聚合，为什么不以中央厨房的力量进行高效率的加工，每个人的早饭吃得热腾腾的，质量能够过关，价格合适的，这是每个人都向往的生活，每个人吃油条还要担心这个油条是什么油炸出来的，这是我们的悲哀。回到前面，这两个项目，</span><span>对于我们阿里内部是非常严肃认真地对待新零售这三个字的，我们绝对不只是想引起一番讨论和大家觉得很时髦，现在讨论新零售了，但是到底是什么，是什么是要做出来的。回到我前面讲的战术和战略的问题，所有的战略思想，最重要看实践，把它做出来，当然我们现在已经有很多具体的想法和实践，我们希望能在银泰、三江这样一些物理的设施里面，能够把它去体现出来。</span></p>
+<p><strong>2、谈时间管理：我对秘书只有一个要求：不能替我安排时间</strong></p>
+<p><span>学员：你的时间其实比马云的时间更宝贵的，就是更忙，今天阿里实在太大，但是你又强调扁平化的管理，那你自己个人时间怎么分配，组织上怎么保证你可以管那么多东西？</span></p>
+<p><span>张勇：时间是一个大问题，我有一个准则，我的时间必须我掌握，有了钉钉通讯工具以后，极大的压榨了很多的碎片时间。跟刚才的问题一样，我们现在的管理从树状管理走向网状管理，原来网状管理不可能的，今天变得可能了，我这个瞬间可以跟阿里巴巴五万名员工的任何一个人进行沟通，可以很轻松的三十秒之内就可以跟他沟通，没有任何问题，这个组织完全可以一个网状结构。</span></p>
+<p><span>原来阿里我们有一个经典的理论，一个管理者带七个人，一层一层的，这两年我在阿里讲得比较多，这是一个经典的PC时代的想法，实际上是一个树状结构，这里有一个前提，为什么一个人管七个人，因为管多了管不好，为什么管不好，因为它的边界是不能过宽，过宽是盖不到的。今天不能说它变得无穷大，这是不客观的，但是一定是可以比七个人扩大的，它有机会让这个组织通过网状结构的管理，用一个有效的信息沟通工具、办公的工具，能够让整个的沟通变得更有效，这是可以发生的。</span></p>
+<p><span>当然尽管如此，我还是说时间管理是我最重要的问题，做我的秘书也挺痛苦的，他们会有雪片的需求过来，我给他们最重要的一个原则，我这个人对秘书还是挺好的，不会随便骂人，但是我说有一件事情是要骂人的，其它事情都可以接受的，就是说不要替我安排时间，你不能安排我的时间，最先排上去的会不一定是最重要的，最后一分钟来的人可能必须是你把所有事情推掉要去见的人，你没有办法按部就班做一些事情，必须是动态的，当然也是需要一些默契，这个默契慢慢培养起来也是很可贵的。</span></p>
+<p><span>这个中间，时间管理是非常重要的，同时还有在这个过程当中，能够真正让下一层Leader担当起更大的责任来，因为你靠一个人是不行的，你一定是让一层一层的年轻人能够上来，承担更大的责任。我用的是一个弹性管理方法，因为下面的每个业务管理者的成熟度是不一样的，有一些你要退得后一点，有一些你必须往前进一点。一般就是总司令下面放几个军长，军长下面放师长，但是现实很骨感，有的时候，这个军长没有，你只有一个旅长，当然第一你要有时间投资去找那个军长，但是在没找到军长之前，你必须干师长的活，不然这个事情就倒霉了，要么你派另外一个军，把军长兼起来，你不能放任不管。我的意思，必须要有人来Take&nbsp; ownership，不然就是三不管的地区。</span></p>
+<p><strong>3、谈烧钱模式：用市场费换GMV是不成立的</strong></p>
+<p><span>学员：如何评价团购网站的机遇和挑战，听您讲到店吃和吃外卖两个问题都解决了，那样接下来就是&ldquo;到家自己做饭吃&rdquo;，跟生鲜购物直接相关，就离你们最近了。</span></p>
+<p><span>张勇：食品我们一直都有，是非常重要的电商品类，我讲的吃是跟一日三餐相关的吃，而不是零食，而是一日三餐有关的食物，包括酒，这一块上面的发展，电商在里面的渗透率还是非常低的。另外一边，整个的线下业态，在刚才说的质量、安全方面带来很大的问题，这里面有一个巨大的机会。首先是用户需求，用户需要好的食品，用户需要有安全性的食品。第二在做法上面，我认为它跟本地化、跟及时性都密切相关，缺少本地化和及时性，因为吃这个玩意儿一定要本地化，因为中国太大了，广东人吃的东西跟东北人吃的东西完全不一样。及时性也很重要，你偶尔买个火腿，说年货节买一个火腿，过几天拿到，也许可以，我说今天咱们在这儿开会，大家回家，家在杭州，回家做一个晚饭，可能一边听，一边手机滑一下，定两个菜，回去有及时的食品，有加工的食品。</span></p>
+<p><span>我认为加工类的会有一个很大的前景，因为今天的年轻一代，我那天跟人家开玩笑，给你一只鸡，你都不知道怎么办，这个里面的加工类，当然烹饪的乐趣仍然在的。现在这个行业是非常细分的，非常复杂。</span></p>
+<p><span>第二个，我觉得很多团购网站还是非常了不起的公司，整个执行力非常强，在O2O这一块，这么多年的耕耘也非常艰难，能够打到今天。但是这里面核心还是在用户核心价值的建立上面，今天狂风过后，外卖开始收运费了，电影票九块九也少了，说白了，所有东西都是这样，都会回到商业的本原。反正我在阿里怪话挺多的，外面不太说，我有这么一句话：</span><span>衡量任何一个业务，用市场费换GMV的业务是不成立的，你投入市场奋换来GMV，最后GMV来估值，这个东西又不是看不懂，阿里不需要这么去做。</span><span>风暴过去平静以后，很多东西都会显露出来，这是我的观点。</span></p>
+<p><strong>4、谈海外投入：阿里很多布局是下围棋而不是下象棋</strong></p>
+<p><span>学员：阿里巴巴在国际化海外投入非常大的，比如说在印度的动作，肯定是基于商业愿景去的，还有一些比如说阿里巴巴收购南华早报，在台湾、香港做一些青年人创业，这是基于商业愿景还是中国软实力的需要？</span></p>
+<p><span>张勇：阿里巴巴今天的规模和影响力，没有办法只用业务的讨论来讨论很多这样的一个行为，包括像南华早报，包括我们做的一些公益项目，包括做的国外一些布局，其实更多的是建立一个宏观环境的需要。包括像南华早报这样的媒体其实挺可惜，非常优秀的一个媒体，这个地区其实有影响力的一个英文媒体，但是它整个的运作方式其实是非常传统的，所有的媒体今天都面临这个问题。今天如何能够用一些互联网的方式去帮助它，同时让它保有它的独立影响力，这里面有很多的东西可以去做。</span></p>
+<p><span>这又回到生态这个词了，它是广义的生态布局，对于阿里来讲，可能我们做的很多事情像下围棋，而不是下国际象棋。我们做的很多事情，在布局阶段，很多的子，大家不是看得很明白，几个子连成一片这样走过去，可能是这个角上放一个子，那个角上放一个子，当然我们也不是每个棋都是好棋，也有下臭棋，我们把几块布局最后能够连成一片，也许第一天的思考是这样的，但是第二天连起来的思考是那样的，因为计划不如变化快。</span></p>
+<p><strong>5、谈CFO当CEO：本质上我是个不太安分的人，阿里让我找到&ldquo;真我&rdquo;</strong></p>
+<p><span>学员：上午的时候，问了新浪的曹总，马老师调侃他，说天底下最糟糕的事情是CFO当CEO，马老师讲这句话的时候，你是在CEO在任吗？会计出身的人，在中国创业还是有特别大的优势，你怎么看的？</span></p>
+<p><span>张勇：马云讲这句话时，我还没当阿里CEO。</span></p>
+<p><span>我觉得可能本质上，从我自己身上去想的话，我骨子里其实是一个不太安分的人，或者说做CFO的角度来讲，我不是一个真正意义上真正适合做CFO，而是阴差阳错，阿里巴巴给我一个机会，找到真我或者怎么样。</span></p>
+<p><strong>6、谈选人标准：眼光、格局、胸怀很关键</strong></p>
+<p><span>学员：阿里是蛮大的集团了，你下面有十几二十多个人向你汇报，你选这些人的时候，你是基于一些什么样的判断，除了价值观之外，在能力上面或者看重的点上面，有什么样的相似点？</span></p>
+<p><span>张勇：第一还是格局，眼光、格局、胸怀，我觉得到这个份上的很多同事，从技能来讲，其实我认为都已经具备了很高的技能，不用在技能上多讨论问题，更多的是眼光、格局、胸怀的问题。我的D要么是C某O要么是业务总裁，大的事业群的总裁。这个层面上，最关键是眼光、格局和胸怀。我每个月开整个管理会议，我的口头禅，我们这个班子还是要讲Team，这个讨论，这样的会上我们讨论很多宏观的问题、战略的问题，这个时候讨论，不是阿里云的人就站在阿里云的角度讨论问题，而是所有人站在全集团角度讨论问题，只是分工不一样，承担不同的职责。</span></p>
+<p><span>在分工里面，我们看这个分工，在合适的时间，有相应特质的人做合适的业务，这是非常重要的，价值观是前提，技能在这个层面也是前提，最重要的是眼光、胸怀和格局，这个决定了整个集团。因为每个人的业务下面，少则几千人，多则上万人。他们的整个判断，他们对于团队的人才的渴望，对于人才的感染力，对于整个业务前瞻性的思考，直接决定了这个集团的未来，这是最关键的。</span></p>
+<div><span><br /></span></div>
+</div>            <div class="copyright">[本文作者i黑马，i黑马原创。如需转载请联系微信公众号（ID:iheima）授权，未经授权，转载必究。]</div>
+            <!--<div class="approe">
+                    <span class="num">
+                        赏
+                    </span>
+            </div>-->
+            <div class="mesinfo cf">
+                <div class="fl tags">
+                    <i class="tagicon"></i>
+                                                            <span class="tag">阿里</span>
+                                        <span class="tag">张勇</span>
+                                    </div>
+                <div class="fl rightinfo cf">
+                    <div class="fl suppose">
+                        <i class="approve approve-161433"></i>
+                        <i></i><span class="zan" id="zan-161433">赞(...)</span>
+                    </div>
+                    <div class="fl share">
+                        <span>分享到：</span>
+                        <dl class="changeshare">
+                            <a href="http://share.baidu.com/s?type=text&pic=http%3A%2F%2Fupload.iheima.com%2F2017%2F0223%2Fthumb_250_156_1487836323376.png&searchPic=0&sign=on&to=tsina&url=http://www.iheima.com/zixun/2017/0223/161433.shtml&title=阿里CEO张勇：阿里历史上几个重要决策及背后思考&key=1116687299" target="_blank"><dd class="sina"></dd></a>
+                            <a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iheima.com/zixun/2017/0223/161433.shtml&title=阿里CEO张勇：阿里历史上几个重要决策及背后思考&pics=http%3A%2F%2Fupload.iheima.com%2F2017%2F0223%2Fthumb_250_156_1487836323376.png&desc=&summary=&site=" target="_blank"><dd class="qzone"></dd></a>
+                            <a href="#" class="wx"><dd class="wechat wechat-161433"></dd>
+                                <span class="share-weixin share-weixin-161433" style="display: none;"><img width="120px" height="120px" src="http://s.jiathis.com/qrcode.php?url=http://www.iheima.com/zixun/2017/0223/161433.shtml?via=wechat_qr"/></span>
+                            </a>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="article-list cf">
+                <ul>
+                                                            <li class="course-one">
+                        <a href="http://www.iheima.com/zixun/2017/0406/162410.shtml" target="_self">
+                            <div class="course-list-img">
+                                <img alt="马云第五大经济体技术核心曝光 原来他的野心是这样" src="http://upload.iheima.com/2017/0406/1491448768213.jpg" class="img">
+                            </div>
+                            <div class="tips">
+                                马云第五大经济体技术核心曝光 ...                            </div>
+                        </a>
+                    </li>
+                                        <li class="course-one">
+                        <a href="http://www.iheima.com/zixun/2017/0401/162343.shtml" target="_self">
+                            <div class="course-list-img">
+                                <img alt="短视频元年 土豆变身、阿里入局背后巨头们的针锋相对" src="http://upload.iheima.com/2017/0401/1491015577240.jpg" class="img">
+                            </div>
+                            <div class="tips">
+                                短视频元年 土豆变身、阿里入局...                            </div>
+                        </a>
+                    </li>
+                                        <li class="course-one">
+                        <a href="http://www.iheima.com/zixun/2017/0401/162338.shtml" target="_self">
+                            <div class="course-list-img">
+                                <img alt="专访何小鹏：阿里动用20亿“重启”土豆，短视频的生态级竞争正式开始" src="http://upload.iheima.com/2017/0401/1491010126892.jpg" class="img">
+                            </div>
+                            <div class="tips">
+                                专访何小鹏：阿里动用20亿“重启...                            </div>
+                        </a>
+                    </li>
+                                    </ul>
+            </div>
+            <div class="cf mobile-common">
+                <div class="common-title">
+                    文章评论
+                </div>
+                <div class="comment-wrap comment-wrap-161433">
+                    <div class="respons_wp">
+                        <div class="comment-content">
+                            <div class="comment-frame comment-frame-161433 cf">
+                                <div class="user-portrait fl">
+                                    <img src="http://img.iheima.com/templates/iheima/images/test.jpg" alt="">
+                                    <span>匿名用户</span>
+                                </div>
+                                <div class="comment fr">
+                                    <textarea name="comment" id="comment" placeholder="发表简短评论......"></textarea>
+                                    <div class="btn-wrap cf btn-wrap-161433">
+
+                                        <div class="publish bluebtn fr">发布</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-item-wrap comment-item-wrap-161433" style="display:none">
+                    <div class="comment-item">
+                        <div class="title">
+                            全部评论：<span class="comment-num comment-num-161433">10</span>
+                        </div>
+                        <div class="comment hide-comment fr hide-comment-161433">
+                            <textarea name="comment" id="comment" placeholder="发表简短评论......"></textarea>
+                            <div class="btn-wrap btn-wrap-161433 clearfix">
+                                <div class="publish bluebtn fr" style="cursor:pointer;">发布</div>
+                            </div>
+                        </div>
+                        <ul class="user-comment user-comment-161433">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer cf">
+    <div class="footer_wrap cf">
+        <div class="footer_left fl">
+            <a href="#">
+                <img src="http://file.iheima.com/static/ihm/527a74/images/footer_logo.png">
+            </a>
+            <div class="links">
+                <!--<a href="http://www.iheima.com/sitemap/">站点地图</a> |-->
+                <a href="http://www.iheima.com/about" target="_blank">关于我们</a> |
+                <a href="http://www.iheima.com/feedback" target="_blank">意见反馈</a> |
+                <a href="http://www.iheima.com/opinion" target="_blank">免责声明</a>
+            </div>
+            <h5 class="h5">合作伙伴:</h5>
+            <ul class="footer-links cf">
+                <li>
+                    <a href="https://www.qiniu.com/" rel="nofollow" class="external" target="_blank">
+                        <img style="height:36px;" src="http://cyj-i.oss-cn-beijing.aliyuncs.com/qiniu.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://vip.ucloud.cn/" rel="nofollow" class="external" target="_blank">
+                        <img src="http://img.iheima.com/templates/iheima/version2/images/upyun.jpg">
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.aliyun.com" rel="nofollow" class="external" target="_blank">
+                        <img src="http://img.iheima.com/templates/iheima/images/aliyun.jpg">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer_right fr">
+            <h5 class="h5">友情链接</h5>
+            <ul class="footer-link cf">
+            <li>
+                <a href="http://finance.qq.com/" class="external" target="_blank">腾讯财经</a>
+            </li>
+            <li>
+                <a href="http://www.leiphone.com/" class="external" target="_blank">雷锋网</a>
+            </li>
+            <li>
+                <a href="http://www.iresearch.cn" class="external" target="_blank">艾瑞网</a>
+            </li>
+            <li>
+                <a href="http://www.chinaz.com/" class="external" target="_blank">站长之家</a>
+            </li>            
+            <li>
+                <a href="http://sai.iheima.com/" class="external" target="_blank">黑马大赛</a>
+            </li>
+            <li>
+                <a href="http://www.pintu360.com/" class="external" target="_blank">品途</a>
+            </li>
+            <li>
+                <a href="http://www.iyiou.com/" class="external" target="_blank">亿欧网</a>
+            </li>
+            <li>
+                <a href="http://www.ebrun.com/" class="external" target="_blank">亿邦动力网</a>
+            </li>
+            <li>
+                <a href="http://www.chinaipo.com/" class="external" target="_blank">新三板在线</a>
+            </li>
+            <li>
+                <a href="http://it.sohu.com/" class="external" target="_blank">搜狐IT</a>
+            </li>
+            <li>
+                <a href="http://tech.ifeng.com/" class="external" target="_blank">凤凰科技</a>
+            </li>
+            <li>
+                <a href="http://www.yicai.com/" class="external" target="_blank">一财网</a>
+            </li>
+            <li>
+                <a href="http://www.72byte.com/" class="external" target="_blank">72变</a>
+            </li>
+            <li>
+                <a href="http://www.zealer.com/" class="external" target="_blank">ZEALER 中国</a>
+            </li>
+            <li>
+                <a href="http://www.geekpark.net/" class="external" target="_blank">极客公园</a>
+            </li>
+            <li>
+                <a href="http://www.jiasuhui.com/" class="external" target="_blank">加速会</a>
+            </li>
+             <li>
+                <a href="http://www.cokeji.com" class="external" target="_blank">酷科技</a>
+            </li>
+            <li>
+                <a href="http://www.tmtage.com" class="external" target="_blank">蓝时代</a>
+            </li>
+            <li>
+                <a href="http://block123.com" class="external" target="_blank">区块导航</a>
+            </li>
+            <li>
+                <a href="http://chainnews.com/" class="external" target="_blank">链闻CHAINNEWS</a>
+            </li>
+            <li>
+                <a href="http://tuoniao.fm" class="external" target="_blank">鸵鸟电台</a>
+            </li>
+            <li>
+                <a href="http://www.igao7.com" class="external" target="_blank">爱搞机</a>
+            </li>
+            <li>
+                <a href="http://www.b12.cn" class="external" target="_blank">B12</a>
+            </li>
+            <li>
+                <a href="http://www.eqxiu.com" class="external" target="_blank">易企秀</a>
+            </li>
+            <li>
+                <a href="http://www.dingkeji.com" class="external" target="_blank">钉科技</a>
+            </li>
+            <li>
+                <a href="http://www.dudong.com" class="external" target="_blank">读懂新三板</a>
+            </li>
+            <li>
+                <a href="http://www.ifenxi.com/" class="external" target="_blank">爱分析</a>
+            </li>
+            <li>
+                <a href="http://hy2046.com/" class="external" target="_blank">黑羊网</a>
+            </li>
+            <li>
+                <a href="https://www.chinaventure.com.cn/" class="external" target="_blank">投中网</a>
+            </li>
+            <li>
+                <a href="http://www.lanxiongsports.com/" class="external" target="_blank">懒熊体育</a>
+            </li>
+            <li>
+                <a href=" http://www.yibencaijing.com/" class="external" target="_blank">一本财经</a>
+            </li>
+            <li>
+                <a href="  http://stock.eastmoney.com/news/cxgyw.html/" class="external" target="_blank">东方财富网</a>
+            </li>
+            <li>
+                <a href="  http://www.jingmeiti.com/" class="external" target="_blank">鲸媒体</a>
+            </li>
+            <li>
+                <a href="http://www.sportsmoney.cn/" class="external" target="_blank">体育大生意</a>
+            </li>
+            <li>
+                <a href="http://www.uavvv.com/" class="external" target="_blank">无人机世界</a>
+            </li>
+            <li>
+                <a href="http://www.lxzl.com.cn/" class="external" target="_blank">凌雄租赁</a>
+            </li>
+            <li>
+                <a href="http://www.niaogebiji.com" class="external" target="_blank">鸟哥笔记</a>
+            </li>
+            </ul>
+            <div class="copyright cf">版权所有 © 创业黑马(北京)科技股份有限公司旗下《i黑马网》 京ICP备12 006413号-1
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9723485e19f163e8e518ca694e959cb9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+<!-- Matomo -->
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//piwik.inner.heimadata.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+<!-- End Matomo Code -->
+</script>
+<!-- 请置于所有广告位代码之前 -->
+<script src="http://dup.baidustatic.com/js/ds.js"></script>
+</body>
+
+<script type="text/javascript" src="http://img.iheima.com/templates/iheima/js/layer/layer.js"></script>
+<script type="text/javascript" src="http://img.iheima.com/templates/iheima/js/component.js"></script>
+<script type="text/javascript" src="http://img.iheima.com/templates/iheima/version2/js/arttemplate.js"></script>
+<script type="text/javascript" src="http://img.iheima.com/templates/iheima/js/comment2.js"></script>
+<script type="text/javascript" src="http://img.iheima.com/templates/iheima/js/article.js"></script>
+<script>
+var catid = 53;
+var proids = '51';
+$(function(){
+    $(".wechat-161433").hover(function() {
+        $(".share-weixin-161433").show();
+        return false;
+    }, function(){
+        $(".share-weixin-161433").hide();
+        return false;
+    });
+    digg.get(161433, "zan-161433");
+    $(".approve-161433").click(function(){
+        digg.set(161433, "zan-161433");
+    });
+    //初始化文章数据
+    var downCmtNum = $('.comment-num-161433');
+    var commentList = $('.user-comment-161433');
+
+    getCommemt(60153, commentList, function(json) {
+        $('.comment-wrap-161433 img').attr({src:json.userphoto, alt:json.username});
+        $('.comment-wrap-161433 span').text(json.username);
+        downCmtNum.text(json.total);
+        if(json.total > 0) $('.comment-item-wrap-161433').show();
+        UID = json.createdby;
+        // 验证码
+        if (json.isseccode == 1) {
+            getSeccode($('.btn-wrap-161433'));
+        };
+    });
+    sendComment(161433, 60153);
+    replyComment(161433, 60153);
+
+    //下一篇文章
+    var contentid = 161433;
+    article.init(contentid, catid, proids);
+})
+</script>
+
+<script type="text/html" id="js-comment-list-tpl">
+    <%for (var i=0;i<datalist.length;i++) {%>
+    <li class="cf">
+        <div class="user-portrait fl">
+            <img class="img-responsive" src="<%=datalist[i].userphoto%>" alt="<%=datalist[i].username%>">
+        </div>
+        <div class="main-comment fl">
+            <div class="self-comment cf" data-commentid="<%=datalist[i].commentid%>">
+                <div class="user-info">
+                    <a data-createdby="<%=datalist[i].createdby%>"><%=datalist[i].username%></a> <span class="date"><%=datalist[i].created%></span>
+                </div>
+                <div class="content fl">
+                    <%=datalist[i].content%>
+                </div>
+                <div class="num-wrap fr">
+                    <div class="num-item fr">
+                        <span class="support-num num">(<b><%=datalist[i].supports%></b>)</span>
+                        <span class="talk-num num">(<b><%=datalist[i].follow.length%></b>)</span>
+                    </div>
+                </div>
+            </div>
+            <%for (var k=0;k<datalist[i].follow.length;k++) {%>
+            <div class="other-comment-wrap cf">
+                <div class="cf other-title-content" data-commentid="<%=datalist[i].follow[k].commentid%>">
+                    <div class="other-user-portrait fl">
+                        <img class="img-responsive" src="<%=datalist[i].follow[k].userphoto%>" alt="<%=datalist[i].follow[k].username%>">
+                    </div>
+                    <div class="other-comment fl">
+                        <div class="user-info">
+                            <a data-createdby="<%=datalist[i].follow[k].createdby%>"><%=datalist[i].follow[k].username%></a>
+                        </div>
+                        <div class="content">
+                            回复<a><%=datalist[i].follow[k].fusername%></a>
+                            <%=datalist[i].follow[k].content%>
+                        </div>
+                    </div>
+                    <div class="date-wrap fr">
+                        <span class="date"><span class="reply">[回复]</span><%=datalist[i].follow[k].created%></span>
+                    </div>
+                </div>
+            </div>
+            <%}%>
+        </div>
+    </li>
+    <%}%>
+</script>
+
+<script type="text/html" id="js-levelone-tpl">
+    <li class="cf">
+        <div class="user-portrait fl">
+            <img class="img-responsive" src="<%=userphoto%>" alt="<%=username%>">
+        </div>
+        <div class="main-comment fl">
+            <div class="self-comment cf" data-commentid="<%=commentid%>">
+                <div class="user-info">
+                    <a data-createdby="<%=createdby%>"><%=username%></a> <span class="date"><%=created%></span>
+                </div>
+                <div class="content fl">
+                    <%=content%>
+                </div>
+                <div class="num-wrap fr">
+                    <div class="num-item fr">
+                        <span class="support-num num">(<b>0</b>)</span>
+                        <span class="talk-num num">(<b>0</b>)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</script>
+
+<script type="text/html" id="js-reply-tpl">
+    <div class="other-comment-wrap cf">
+        <div class="cf other-title-content" data-commentid="<%=commentid%>">
+            <div class="other-user-portrait fl">
+                <img class="img-responsive" src="<%=userphoto%>" alt="<%=username%>">
+            </div>
+            <div class="other-comment fl">
+                <div class="user-info">
+                    <a data-createdby="<%=createdby%>"><%=username%></a>
+                </div>
+                <div class="content">
+                    回复<a><%=fusername%></a>
+                    <%=content%>
+                </div>
+            </div>
+            <div class="date-wrap fr">
+                <span class="date"><span class="reply">[回复]</span><%=created%></span>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="js-code-tpl">
+    <div class="valid-wrap fl">
+        <input type="text" class="valid-code fl" placeholder="验证码" />
+        <div class="valid-img fl" style="width: 90px;"><img class="code-img" src="<%=codeurl%>" alt="验证码,看不清楚?请点击刷新验证码" style="cursor: pointer;width: 100%;height: 100%;"/></div>
+    </div>
+</script>
+
+
+</html>

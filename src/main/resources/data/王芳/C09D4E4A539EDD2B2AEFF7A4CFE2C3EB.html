@@ -1,0 +1,789 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>        <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"9ccc3afdf5","agent":"","transactionName":"b1MANhcFCxcCAkdYC1YZJBcLBxENDA8cRRFMWRBMEw0AExBPR0QQV0QRWAEBEQUKDQ==","applicationID":"13763035","errorBeacon":"bam.nr-data.net","applicationTime":250}</script>
+
+    <title>王芳- 五星级酒店高管 | 到「在行」来约见我</title>
+    <meta name="keywords" content="职业规划,行家,咨询,经验,解决问题,智库,一对一,面对面">
+    <meta name="description" content="王芳,香格里拉、雅高、凯宾斯基等旗下五星级酒店市场部、销售部、营运管理、业主代表等,星级酒店运营管理，发展你的职业生涯">
+    <meta name="author" content="">
+
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+    
+    <script src="https://s.mlinks.cc/scripts/dist/mlink.min.js"></script>
+
+    <link rel="shortcut icon" href="/static/front/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/static/front/styles/a488d11a.base.css" />
+    
+<link rel="stylesheet" href="/static/front/styles/39fa2103.tutorDetail.css">
+
+    
+
+</head>
+<body>
+    <!--[if gt IE 8]><!-->
+    
+    
+
+<nav class="mobileMenu mobile-menu mobile-menu-nav">
+    <span class="mobile-menu-close">
+        <i class="icon icon-close-menu"></i>
+    </span>
+    <ul class="mobile-menu-list">
+        <li class="item">
+            <a href="/" data-market="General;导航栏;首页">首页</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=397" data-market="General;导航栏;职场发展">职场发展</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=420" data-market="General;导航栏;行业经验">行业经验</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=342" data-market="General;导航栏;互联网+">互联网+</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=389" data-market="General;导航栏;创业和投融资">创业和投融资</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=450" data-market="General;导航栏;生活服务">生活服务</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=479" data-market="General;导航栏;心理">心理</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=485" data-market="General;导航栏;投资理财">投资理财</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=495" data-market="General;导航栏;教育学习">教育学习</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=510" data-market="General;导航栏;其他">其他</a>
+        </li>
+        
+    </ul>
+</nav>
+
+<nav class="mobileMenu mobile-menu mobile-menu-setting">
+    <span class="mobile-menu-close">
+        <i class="icon icon-close-menu"></i>
+    </span>
+    <ul class="mobile-menu-list">
+
+        
+
+        <li class="item">
+            <a href="/meets/bull/">我约的行家</a>
+        </li>
+        <li class="item">
+            <a href="/wishlist/">心愿单</a>
+        </li>
+        <li class="item">
+            <a href="/coupons/">我的礼券</a>
+        </li>
+    </ul>
+
+    <div class="mobileMenuFooter mobile-menu-footer">
+        <a href="/auth/logout">退出</a>
+    </div>
+    
+</nav>
+    
+    <!--<![endif]-->
+    
+    
+
+
+
+
+
+
+<div class="mobileHeader mobile-header ">
+    <h1><a href="/" class="mobile-logo" data-market="General;导航栏;左上Logo"><i class="icon icon-zaih"></i></a></h1>
+    <a href="javascript: void 0;" class="mobile-menu-btn" id="mobileMenuBtn" data-market="General;导航栏;右上Buttom"><span class="icon icon-menu"></span></a>
+    
+    <a class="searchBtn search-btn-mobile" data-market="General;右上搜索栏;搜索Button"><span class="icon icon-search"></span></a>
+    <form class="search" action="/search" method="GET">
+        <input class="search-content" type="text" placeholder="搜行家、话题、服务" name='word' autocomplete="off" value="">
+        <div class="search-sug sug"></div>
+    </form>
+    
+
+    
+    <a href="/auth/authorize-use/weibo?when=other&amp;next=%2F" class="mobile-text-btn" id="mobileLoginBtn" data-login="false" data-received="登录页浏览次数..from.mentor;when.其他" data-market="General;右上登陆;登陆" data-zhugeio_when="other">登录</a>
+    
+    <a href="http://fd.zaih.com/fenda" class="mobile-text-btn" target="_blank" data-received="顶导航-在行一点入口">去「在行一点」</a>
+</div>
+
+<div id="header" class="header ">
+<!--[if lt IE 9]>
+    <div class="old-ie">
+        为了使您在浏览本站时拥有更好的体验，推荐升级您的IE浏览器，或者使用免费的<a href="http://rj.baidu.com/soft/detail/14744.html" target="_blank">Chrome浏览器</a>、<a href="http://www.firefox.com.cn/" target="_blank">Firefox浏览器</a>。
+    </div>
+<![endif]-->
+    <div class="column">
+        <a class="header-logo" href="/" data-market="General;导航栏;左上Logo"><i class="icon icon-zaih"></i></a>
+        <ul class="header-nav">
+            <li class="decorate"></li>
+            
+            
+            
+            <li data-action="nav-select">
+                <a href="/topics/?category_id=397" class="" data-received="顶导航-分类..category.职场发展;from.mentor;" data-market="General;导航栏;职场发展">职场发展</a>
+            </li>
+            
+            
+            
+            
+            <li data-action="nav-select">
+                <a href="/topics/?category_id=420" class="" data-received="顶导航-分类..category.行业经验;from.mentor;" data-market="General;导航栏;行业经验">行业经验</a>
+            </li>
+            
+            
+            
+            
+            <li data-action="nav-select">
+                <a href="/topics/?category_id=342" class="" data-received="顶导航-分类..category.互联网+;from.mentor;" data-market="General;导航栏;互联网+">互联网+</a>
+            </li>
+            
+            
+            
+            
+            <li data-action="nav-select">
+                <a href="/topics/?category_id=389" class="" data-received="顶导航-分类..category.创业和投融资;from.mentor;" data-market="General;导航栏;创业和投融资">创业和投融资</a>
+            </li>
+            
+            
+            
+            
+            <li data-action="nav-select" class="drop-more">
+                <a href="javascript: void 0;" class="">更多<i class="icon icon-arrow-bottom"></i></a>
+                <ul class="drop-menu">
+                    <li>
+                        <a href="/topics/?category_id=450" class="" data-received="顶导航-分类..category.生活服务;from.mentor;" data-market="General;导航栏-更多;生活服务">生活服务</a>
+                    </li>
+            
+            
+            
+            
+                    <li>
+                        <a href="/topics/?category_id=479" class="" data-received="顶导航-分类..category.心理;from.mentor;" data-market="General;导航栏-更多;心理">心理</a>
+                    </li>
+            
+            
+            
+            
+                    <li>
+                        <a href="/topics/?category_id=485" class="" data-received="顶导航-分类..category.投资理财;from.mentor;" data-market="General;导航栏-更多;投资理财">投资理财</a>
+                    </li>
+            
+            
+            
+            
+                    <li>
+                        <a href="/topics/?category_id=495" class="" data-received="顶导航-分类..category.教育学习;from.mentor;" data-market="General;导航栏-更多;教育学习">教育学习</a>
+                    </li>
+            
+            
+            
+            
+                    <li>
+                        <a href="/topics/?category_id=510" class="" data-received="顶导航-分类..category.其他;from.mentor;" data-market="General;导航栏-更多;其他">其他</a>
+                    </li>
+            
+            
+                </ul>
+            </li>
+            
+            
+        </ul>
+        <div class="header-setting">
+            
+            <a href="
+                
+                    /settings/mobile?next=%2Fapply%2Fzhima_verify%2F
+                " class="tutorApply" target="_blank" data-received="成为行家" data-market="General;右上登陆;成为行家" data-is_mobile_verified="">成为行家</a>
+            
+            
+            <a data-login="false" rel="nofollow" data-received="登录页浏览次数..from.mentor;when.其他" data-zhugeio_when="other" href="/auth/login?when=other&amp;next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84894137%2F" data-market="General;右上登陆;登陆">登录</a>
+            <a rel="nofollow" data-received="顶导航-注册..from.mentor;" href="/auth/signup?when=other&amp;next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84894137%2F" data-market="General;右上登陆;注册">注册</a>
+            
+        </div>
+        
+        <div class="header-links">
+            <a href="http://fd.zaih.com/fenda" target="_blank" data-received="顶导航-在行一点入口">去「在行一点」</a>
+        </div>
+        
+        <form class="search" action="/search" method="GET">
+            <input class="search-content" autocomplete="off" type="text" placeholder="搜行家、话题、服务" value="" name='word'>
+            <div class="search-sug sug"></div>
+            <button class="search-btn icon icon-search" type="submit" data-market="General;右上搜索栏;搜索Button }}"></button>
+        </form>
+        
+    </div>
+</div>
+    
+    
+<div class="container container-top">
+    
+<div class="cover">
+    <div class="cover-image" style="background-image : url(//medias.zaih.com/FlU5aiJm5LJtNXQkOcbxBU0K2itL!preface)"></div>
+</div>
+<div class="tutor-full">
+    <div class="column">
+        <div class="tutor-full-main" id="tutorInfo">
+            <span class="tutor-avatar tutorAvatar">
+                <img src="//medias.zaih.com/Fjfdz2qUajTBj9vYcKyYZ7KvSvN8!avatar" alt="王芳">
+            </span>
+            <div class="tutor-info" data-mlink="action=view_tutor&tutorId=84894137">
+                 <h1 class="tutor-name" data-tutor_id="84894137">王芳</h1>
+                 <p class="tutor-title" id="tutorTitle">五星级酒店高管</p>
+                 <ul class="tutor-detail tutorDetail">
+                    <li class="detail">
+                        <span class="icon icon-clock-solid"></span>
+                        
+                        <span class="highlight">半天</span>内回应
+                        
+                    </li>
+                    <li class="detail"><span class="icon icon-meet"></span>
+                        <span class="highlight">6</span>人见过
+                    </li>
+                    
+                    
+                    
+                    <li class="detail detail-more"><span class="icon icon-heart"></span>
+                        
+                        <span class="highlight">17</span>人想见
+                        
+                    </li>
+                    
+                    
+                    <li class="detail detail-more"><span class="highlight">高</span>接受率</li>
+                    
+                    
+                    
+                    
+                    
+                    <li><span class="icon icon-go btn-folding foldingBtn"></span></li>
+                    
+                    
+                </ul>
+                <p class="tutor-title">
+                    <span class="city">西安</span>
+                    <span class="location">高新区</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="main">
+        
+        
+        <div class="tutor-content">
+            
+            <ul id="topicList" class="topic-list">
+                
+                <li class="topic-item ">
+                    
+                    <div class="topic-info">
+                        
+                        <div class="rating withRatingTip">
+                            
+                            9.3<span class="unit">分</span>
+                            
+                            <span class="icon icon-tip"></span>
+                        </div>
+                        <div class="topic-price">
+                            <span class="yuan">￥</span>
+                            <span class="price">400</span>
+                            <span class="time">/次</span>
+                        </div> 
+                        
+                    </div>
+                    <h2 class="topicTitle" data-topic_id="29869673" data-topic_price="400" data-topic_duration="1" data-is_meeting="false" data-topic_type="general" data-is_fixture="False">星级酒店运营管理，发展你的职业生涯</h2>
+                    <div class="topic-content-fold topicFold">
+                        <div class="topic-introduction topicIntroduction">
+                            <div><p>星级酒店的运营管理尤其需要passion &amp; patience。</p>
+
+<p>当你处于不同的职位和角度时，基于你的工作经验，对这个问题的认知和处理方式发都会有所不同。</p>
+
+<p>我在星级酒店管理行业从业已有15年，无论你是刚刚入行的小白，还是摸索数年的资深人士，我们都可以坐下来交流一些实际运营中的想法和心得。或许你的问题过去也困扰过我，又或许我们正在面临同样的困境挑战。</p>
+
+<p>如果你对酒店管理行业的职业发展方向抱有疑问，我也可以为你提供一些帮助。</p>
+
+<p>P.S.:在选择与我见面前，请把你的问题更具体化。毕竟一小时的谈话只能解决一个小问题。请把你的问题提前发给我，方便我做更精确的准备，提升见面效率。期待与你的见面。</p>
+
+资深星级酒店管理从业者与你交流切身心得</div>
+                            
+                            <div class="info shareTopic bdsharebuttonbox" data-tag="29869673">
+                            
+                                
+                                <p><strong>分享话题：</strong>
+                                    <a data-cmd="tsina" class="icon icon-weibo hideInZDH" title="分享到新浪微博"></a>
+                                    <a data-cmd="weixin" class="icon icon-weixin hideInZDH" title="分享到微信"></a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="fold"></div>
+                    </div>
+                    <div class="topic-ft">
+                        <div class="topic-info">
+                            
+                            <span class="meet-time">约1小时</span>
+                            
+                            <span class="meet-num">6人约过</span>
+                        </div>
+                        <a href="#" class="topic-more-btn toggleBtn" data-received="话题页-话题显示更多..mID.84894137;mName.王芳;tID.29869673;tName.星级酒店运营管理，发展你的职业生涯">
+                            <span class="icon icon-arrow-bottom-circular"></span>
+                        </a>
+                    </div>
+                </li>
+                
+            </ul>
+            
+            <div class="about-tutor-title">
+                <h2>关于行家</h2>
+            </div>
+            <div class="about-tutor-summary">
+				<div><p><img alt="" src="//medias.zaih.com/Fkof20ukf3LCp67Az2YlOF26KwYJ!mainbody" style="height:333px; width:500px"></p>
+
+<p>从事酒店管理工作15年以上，曾经服务于品牌酒店管理集团香格里拉、雅高、凯宾斯基旗下的数个五星级酒店。</p>
+
+<p>陆续在酒店管理方负责过市场部、销售部、营运部门等，熟悉五星级酒店的整体营运。</p>
+
+<p>参与过两家酒店的筹备开业。也曾加入业主方，负责上游投资集团和酒店管理方的工作总体协调，支持及加强各部门的内控管理，同时严格监督管理方执行管理协议。</p>
+</div>
+            </div>
+        </div>
+    </div>
+    <div class="side">
+        <div class="tutor-booking" id="booking">
+            <div class="tutor-share-list bdsharebuttonbox hideInZDH" id="share" data-tag="shareTutor">
+                <span class="share-title">分享</span>
+                <a data-cmd="tsina" class="icon icon-weibo weibo" title="分享到新浪微博" data-analyze="Share:Weibo:mentor:84894137" data-received="话题页-分享..mID.84894137;mName.王芳;type.微博"></a>
+                <a data-cmd="weixin" class="icon icon-weixin weixin" title="分享到微信" data-received="话题页-分享..mID.84894137;mName.王芳;type.微信"></a>
+            </div>
+            
+            
+            <div class="about-zaih">
+                <p class="about-title">只需付<span class="keynote">几百元</span>，就可以与行家</p>
+                <p class="about-title"><span class="keynote">一对一线下面谈</span></p>
+                <p class="about-tips">为您答疑解惑、出谋划策。不满意还能“无忧退款”。</p>
+                <p class="about-tips-mobile">为您答疑解惑、出谋划策。</p>
+                <p class="about-tips-mobile">不满意还能“无忧退款”。</p>
+                <span class="icon icon-zaih logo"></span>
+            </div>
+            
+            
+            
+            
+            
+            <div class="operation-list operationList">
+                
+                
+                
+                
+                
+                <a id="bookingBtn" class="btn-primary btn-hg" href="javascript:void 0;" data-user_id="" data-login="false" data-zhugeio_when="booking" data-analyze="Meet:Open:84894137:" data-is_same_city="false">立即预约</a>
+                
+                
+                
+                
+                
+                <a class="btn-plat btn-hg follow-btn " id="followBtn" href="javascript:void 0;"  data-tutor_id="84894137" data-login="false" data-zhugeio_when="follow">
+                    <span class="icon icon-heart-empty"></span>加入心愿单
+                </a>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="comments-bg">
+    <div class="column">
+        <div class="comments-main">
+            <div class="comments-switch">
+                    
+                    <h2 class="left-tab tab picked">
+                        <span id="commentsBtn">学员点评</span>
+                        <div class="drop-select" id="commentSort">
+                            <a class="drop-select-default" data-current-sort="likings_count" href="javascript:void 0;">热门<i class="icon icon-arrow-bottom"></i></a>
+                            <ul class="drop-select-options hidden">
+                                
+<li>
+    <a href="javascript:void 0;" class="reviewsSortBy" data-sort-by="likings_count">热门</a>
+</li>
+
+                                
+<li>
+    <a href="javascript:void 0;" class="reviewsSortBy" data-sort-by="latest">最新</a>
+</li>
+
+                            </ul>
+                        </div>
+                    </h2>
+                    <h2 class="right-tab tab"><span id="remarksBtn">好友点评</span></h2>
+                    
+            </div>
+            
+            <div class="comments" id="comments" data-total-count="5">
+                <ul class="comments-list">
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84808806">
+                            <img src="//medias.zaih.com/FtdfxBLrZDDrlR6TpETT0uNHNBHa!avatar" alt="花_道手">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                花_道手
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                感谢王芳老师的同类行业分享。作为一个创业者，在与老师的交流中，学习到了一些创业者在品牌建设中常被忽略的细节问题及新鲜的活动策划方案！
+                            </div>
+                            <div class="comment-topic-name">参与话题：星级酒店运营管理，发展你的职业生涯</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2016-09-26</span>
+                                <button class="comment-like like" data-review-id="65387" data-login="false">
+                                    <span></span>
+                                    有用</button>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84907048">
+                            <img src="//medias.zaih.com/Fh8J1Fi5s-dN1IasJlJ12wpJKOsa!avatar" alt="136*****735">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                136*****735
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                在经济不景气的大环境下，我的酒店经营出现诸多问题，尤其是订单量的持续走低，王总做了全面分析总结，对我来说是很好的学习提升。
+                            </div>
+                            <div class="comment-topic-name">参与话题：星级酒店运营管理，发展你的职业生涯</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2016-03-18</span>
+                                <button class="comment-like like" data-review-id="32281" data-login="false">
+                                    <span></span>
+                                    有用</button>
+                            </div>
+                            
+                            <div class="comment-reply">
+                                行家回复：一些浅见而已，谢谢你的信任！让我们关注趋势，随时调整吧。
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84783502">
+                            <img src="//medias.zaih.com/FhVk6RpzLps7emY_xZc4FhSq_2sN!avatar" alt="穆森阿">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                穆森阿
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                王芳老师在酒店领域经验丰富，尤其是运营。而我之前偏门地想请教王老师关于服务方面的内容。王老师也爽快答应并做了充分备课，非常感谢！我颇有收获！
+                            </div>
+                            <div class="comment-topic-name">参与话题：星级酒店运营管理，发展你的职业生涯</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2016-03-17</span>
+                                <button class="comment-like like" data-review-id="32174" data-login="false">
+                                    <span></span>
+                                    有用</button>
+                            </div>
+                            
+                            <div class="comment-reply">
+                                行家回复：非常感谢您的信任！而且我也是有收获的啊😄 所以在行是个很好的平台让我们结识以及交流！
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84903408">
+                            <img src="//medias.zaih.com/FkthOh9ZO-DaFlhhfIdC-99QQkZf!avatar" alt="陈筱白">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                陈筱白
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                很愉快轻松的一次交谈，就像是遇到久别重逢的朋友，同行业的对话，用她的亲身经历和她的微笑诠释着“服务”。学习是永无止尽的，不光学知识，还要修炼自身，打磨自我，明天总是崭新的，不可预知的，与其猜测，惶恐，不如沉下心来，做好今天。这是我的感悟。最后再次谢谢王总分享和延时，希望有机会再向你学习。
+                            </div>
+                            <div class="comment-topic-name">参与话题：星级酒店运营管理，发展你的职业生涯</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2016-03-11</span>
+                                <button class="comment-like like" data-review-id="30730" data-login="false">
+                                    <span></span>
+                                    有用</button>
+                            </div>
+                            
+                            <div class="comment-reply">
+                                行家回复：学习是互相的☀️
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84902634">
+                            <img src="//medias.zaih.com/Fh8J1Fi5s-dN1IasJlJ12wpJKOsa!avatar" alt="璞玉华光">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                璞玉华光
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                非常开心的一次谈话。王总以她专业的行业分析，给予我很多启发和解决方案的建议，收获颇丰！
+                            </div>
+                            <div class="comment-topic-name">参与话题：星级酒店运营管理，发展你的职业生涯</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2016-03-11</span>
+                                <button class="comment-like like" data-review-id="30607" data-login="false">
+                                    <span></span>
+                                    有用</button>
+                            </div>
+                            
+                            <div class="comment-reply">
+                                行家回复：你的思维之敏捷与活跃对我也是一个学习👍
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            <div class="comments hidden" id="remarks" data-total-count="6">
+                <h2></h2>
+                <ul class="comments-list">
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84903842">
+                            <img src="//medias.zaih.com/Fh8J1Fi5s-dN1IasJlJ12wpJKOsa!avatar" alt="李民">
+                        </span>
+                        
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-friend-name">
+                                李民
+                                </strong>
+                                <div>
+                                    <span class="comment-friend-title">行政管家</span>
+                                </div>
+                            </div>
+                            <div class="comment-bd">
+                                人生最可贵的品格是本分自然地生活，踏踏实实地做事儿，兢兢业业地工作，诚诚实实地交友，心底坦荡地为人。乐于助人，同事相处融洽，扎实酒店经验，专业技能或业务水平优秀。
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84903588">
+                            <img src="//medias.zaih.com/Fh8J1Fi5s-dN1IasJlJ12wpJKOsa!avatar" alt="任玥">
+                        </span>
+                        
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-friend-name">
+                                任玥
+                                </strong>
+                                <div>
+                                    <span class="comment-friend-title">公关经理</span>
+                                </div>
+                            </div>
+                            <div class="comment-bd">
+                                作为酒店行业资深从业者，王芳在酒店运营，市场营销，品控，人力资源管理等方面表现卓越。王芳具有酒店运营和发展的战略视野，在具体工作中，她细心且用人不疑，指导员工更高效完成工作。此外，王芳的亲和力和感染力，也让她在繁忙的日常工作中获得了更多赞誉。
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84903299">
+                            <img src="//medias.zaih.com/FuJG0LM7mJdk71-xW3LQk5ZUmSq0!avatar" alt="胡彪">
+                        </span>
+                        
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-friend-name">
+                                胡彪
+                                </strong>
+                                <div>
+                                    <span class="comment-friend-title">弘记集体 副总裁</span>
+                                </div>
+                            </div>
+                            <div class="comment-bd">
+                                5星及超5星高端酒店长期的运营和管理经验使得王芳总对整个行业的发展和本质有其独到的看法和理解。敏锐的嗅觉和极其善于把握发展规律的高超能力成就了王芳在行业内的一致好评和行业地位。温婉舒雅的风格，亲善高效的团队建设极为同行称道。
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84903227">
+                            <img src="//medias.zaih.com/Fh8J1Fi5s-dN1IasJlJ12wpJKOsa!avatar" alt="地主陆">
+                        </span>
+                        
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-friend-name">
+                                地主陆
+                                </strong>
+                                <div>
+                                    <span class="comment-friend-title">旅游媒体资深人士</span>
+                                </div>
+                            </div>
+                            <div class="comment-bd">
+                                丰富的国际五星级酒店从业经历，尤为珍贵的是不改初心的热情。不光有大城市的工作履历，也曾在边远地区拓荒，会带给大家各种参考和借鉴
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84902705">
+                            <img src="//medias.zaih.com/lra2laludysyrmzzm2akvcs28xjyevww!avatar" alt="王群英">
+                        </span>
+                        
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-friend-name">
+                                王群英
+                                </strong>
+                                <div>
+                                    <span class="comment-friend-title">媒体主编</span>
+                                </div>
+                            </div>
+                            <div class="comment-bd">
+                                行家在五星级酒店圈里非常有知名度，也是很多圈内人学习的目标！在工作上大胆创新，有格局，有高度；在生活中热心温婉，有情调，有魅力；在合作中诚信互赞，有胆识，有魄力！
+                            </div>
+                        </div>
+                    </li>
+                    
+                </ul>
+                
+                <a class="btn-plat btn-lg btn-more" href="javascript: void 0;" id="moreRemarks">查看更多</a>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="tutor-share-list-mobile bdsharebuttonbox hideInZDH" id="share" data-tag="shareTutor">
+    <span class="share-title">分享</span>
+    <a data-cmd="tsina" data-received="话题页-分享..mID.84894137;mName.王芳;type.微博" class="icon icon-weibo weibo" title="分享到新浪微博" data-analyze="Share:Weibo:mentor:84894137"></a>
+</div>
+
+
+
+
+    
+    <div class="footer">
+        <div class="column">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <a class="footer-logo" href="/" data-market="General;底部导航;Logo"><i class="icon icon-zaih"></i>果壳网出品</a>
+                    <div class="footer-link">
+                        <a href="/" data-market="General;底部导航;首页">首页</a>
+                        
+                        <a class="appDownloadBtn app-download" href="/app/" data-received="下载app..page.mentor" data-market="General;底部导航;下载APP">下载App</a>
+                        <a class="appDownloadBtn mobile-app-download" target="_blank" href="http://guo.kr/8k0KtO" data-received="下载app..page.mentor" data-market="General;底部导航;下载APP">下载App</a>
+                        
+                        <a href="/help/about/" data-market="General;底部导航;关于我们">关于我们</a>
+                        <a href="/help/faq/" data-market="General;底部导航;帮助">帮助</a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <a class="footer-tel" href="tel:4000691791">4000-691-791</a>
+                    <p class="footer-time">工作日 10:00-19:00</p>
+                    <div class="online-service">
+                        <a class="btn-primary online-service-btn" href="http://kefu.easemob.com/webim/im.html?tenantId=2970" target="_blank" data-market="General;底部导航;在线客服">在线客服</a>
+                    </div>
+                    <span class="footer-qr"><img src="http://media.zaih.com/FnTxnAExFlSJrz_OZMeQyDJeYJtT">官方微信</span>
+                    <span class="footer-qr"><img src="http://media.zaih.com/FpfnWcdi3GN2ra151WYfgJF2rurS">在行沙龙</span>
+                </div>
+            </div>
+            <div class="footer-info">
+                <div class="footer-left">
+                    GUOKR © 2018 LOVINGLY MADE IN BEIJING
+                    <br>
+                    北京我最在行信息技术有限公司
+                    <br>
+                    京B2-20160131 |
+                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502031582"><img src="http://media.zaih.com/FinEALw7ifYIV2baxOAzDe1ctz1S"/>京公网安备 11010502031582号</a>
+                </div>
+                <div class="footer-right">
+                    地址  北京市朝阳区建国路郎园Vintage
+                    <br>
+                    电话  010-85809983
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<!-- JavaScript at the bottom for fast page loading -->
+
+
+<script>
+var weixin_mp_config = {"appId": "wx63736776bf28c6b5", "nonceStr": "5YLRdzVq6sFV", "signature": "7e1fd20fe876fcd5a473a4717fd04baf3a712ea0", "timestamp": "1527935087"};
+</script>
+
+<script>
+var weibo_login_url = "/auth/authorize-use/weibo?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84894137%2F",
+        weixin_login_url = "/auth/authorize-use/weixin?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84894137%2F",
+        baidu_login_url = "/auth/authorize-use/baidu?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84894137%2F",
+        weixin_mp_login_url = "/auth/authorize-use/weixin_mp?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84894137%2F",
+        signup_url = "/auth/signup?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84894137%2F";
+</script>
+
+<script src="/static/front/scripts/62c4d7e6.base.js"></script>
+<script src="/static/front/scripts/c94331eb.main.js"></script>
+
+<script>
+var validateObj = {"is_self" : false,"has_realname" : false,"is_mobile_verified" :  false},
+    tutor_city = "\u897f\u5b89",
+    tutor = {"id":"84894137","summary": "香格里拉、雅高、凯宾斯基等旗下五星级酒店市场部、销售部、营运管理、业主代表等", "realname": "王芳"},
+    pageName = 'tutorDetail';
+</script>
+<script src="/static/front/scripts/67dbe8b0.content.js"></script>
+
+<!-- end scripts -->
+</body>
+</html>

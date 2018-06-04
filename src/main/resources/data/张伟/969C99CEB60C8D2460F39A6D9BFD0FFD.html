@@ -1,0 +1,887 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>        <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"9ccc3afdf5","agent":"","transactionName":"b1MANhcFCxcCAkdYC1YZJBcLBxENDA8cRRFMWRBMEw0AExBPR0QQV0QRWAEBEQUKDQ==","applicationID":"13763035","errorBeacon":"bam.nr-data.net","applicationTime":437}</script>
+
+    <title>张伟- 「创见」发起人，商业公益社创跨界导师 | 到「在行」来约见我</title>
+    <meta name="keywords" content="职业发展,行家,咨询,经验,解决问题,智库,一对一,面对面">
+    <meta name="description" content="张伟,「创见」发起人，前CIC首席执行官，在读博士,带你做自己的CEO－人生事业规划辅导">
+    <meta name="author" content="">
+
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+    
+    <script src="https://s.mlinks.cc/scripts/dist/mlink.min.js"></script>
+
+    <link rel="shortcut icon" href="/static/front/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/static/front/styles/a488d11a.base.css" />
+    
+<link rel="stylesheet" href="/static/front/styles/39fa2103.tutorDetail.css">
+
+    
+
+</head>
+<body>
+    <!--[if gt IE 8]><!-->
+    
+    
+
+<nav class="mobileMenu mobile-menu mobile-menu-nav">
+    <span class="mobile-menu-close">
+        <i class="icon icon-close-menu"></i>
+    </span>
+    <ul class="mobile-menu-list">
+        <li class="item">
+            <a href="/" data-market="General;导航栏;首页">首页</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=397" data-market="General;导航栏;职场发展">职场发展</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=420" data-market="General;导航栏;行业经验">行业经验</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=342" data-market="General;导航栏;互联网+">互联网+</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=389" data-market="General;导航栏;创业和投融资">创业和投融资</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=450" data-market="General;导航栏;生活服务">生活服务</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=479" data-market="General;导航栏;心理">心理</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=485" data-market="General;导航栏;投资理财">投资理财</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=495" data-market="General;导航栏;教育学习">教育学习</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=510" data-market="General;导航栏;其他">其他</a>
+        </li>
+        
+    </ul>
+</nav>
+
+<nav class="mobileMenu mobile-menu mobile-menu-setting">
+    <span class="mobile-menu-close">
+        <i class="icon icon-close-menu"></i>
+    </span>
+    <ul class="mobile-menu-list">
+
+        
+
+        <li class="item">
+            <a href="/meets/bull/">我约的行家</a>
+        </li>
+        <li class="item">
+            <a href="/wishlist/">心愿单</a>
+        </li>
+        <li class="item">
+            <a href="/coupons/">我的礼券</a>
+        </li>
+    </ul>
+
+    <div class="mobileMenuFooter mobile-menu-footer">
+        <a href="/auth/logout">退出</a>
+    </div>
+    
+</nav>
+    
+    <!--<![endif]-->
+    
+    
+
+
+
+
+
+
+<div class="mobileHeader mobile-header ">
+    <h1><a href="/" class="mobile-logo" data-market="General;导航栏;左上Logo"><i class="icon icon-zaih"></i></a></h1>
+    <a href="javascript: void 0;" class="mobile-menu-btn" id="mobileMenuBtn" data-market="General;导航栏;右上Buttom"><span class="icon icon-menu"></span></a>
+    
+    <a class="searchBtn search-btn-mobile" data-market="General;右上搜索栏;搜索Button"><span class="icon icon-search"></span></a>
+    <form class="search" action="/search" method="GET">
+        <input class="search-content" type="text" placeholder="搜行家、话题、服务" name='word' autocomplete="off" value="">
+        <div class="search-sug sug"></div>
+    </form>
+    
+
+    
+    <a href="/auth/authorize-use/weibo?when=other&amp;next=%2F" class="mobile-text-btn" id="mobileLoginBtn" data-login="false" data-received="登录页浏览次数..from.mentor;when.其他" data-market="General;右上登陆;登陆" data-zhugeio_when="other">登录</a>
+    
+    <a href="http://fd.zaih.com/fenda" class="mobile-text-btn" target="_blank" data-received="顶导航-在行一点入口">去「在行一点」</a>
+</div>
+
+<div id="header" class="header ">
+<!--[if lt IE 9]>
+    <div class="old-ie">
+        为了使您在浏览本站时拥有更好的体验，推荐升级您的IE浏览器，或者使用免费的<a href="http://rj.baidu.com/soft/detail/14744.html" target="_blank">Chrome浏览器</a>、<a href="http://www.firefox.com.cn/" target="_blank">Firefox浏览器</a>。
+    </div>
+<![endif]-->
+    <div class="column">
+        <a class="header-logo" href="/" data-market="General;导航栏;左上Logo"><i class="icon icon-zaih"></i></a>
+        <ul class="header-nav">
+            <li class="decorate"></li>
+            
+            
+            
+            <li data-action="nav-select">
+                <a href="/topics/?category_id=397" class="" data-received="顶导航-分类..category.职场发展;from.mentor;" data-market="General;导航栏;职场发展">职场发展</a>
+            </li>
+            
+            
+            
+            
+            <li data-action="nav-select">
+                <a href="/topics/?category_id=420" class="" data-received="顶导航-分类..category.行业经验;from.mentor;" data-market="General;导航栏;行业经验">行业经验</a>
+            </li>
+            
+            
+            
+            
+            <li data-action="nav-select">
+                <a href="/topics/?category_id=342" class="" data-received="顶导航-分类..category.互联网+;from.mentor;" data-market="General;导航栏;互联网+">互联网+</a>
+            </li>
+            
+            
+            
+            
+            <li data-action="nav-select">
+                <a href="/topics/?category_id=389" class="" data-received="顶导航-分类..category.创业和投融资;from.mentor;" data-market="General;导航栏;创业和投融资">创业和投融资</a>
+            </li>
+            
+            
+            
+            
+            <li data-action="nav-select" class="drop-more">
+                <a href="javascript: void 0;" class="">更多<i class="icon icon-arrow-bottom"></i></a>
+                <ul class="drop-menu">
+                    <li>
+                        <a href="/topics/?category_id=450" class="" data-received="顶导航-分类..category.生活服务;from.mentor;" data-market="General;导航栏-更多;生活服务">生活服务</a>
+                    </li>
+            
+            
+            
+            
+                    <li>
+                        <a href="/topics/?category_id=479" class="" data-received="顶导航-分类..category.心理;from.mentor;" data-market="General;导航栏-更多;心理">心理</a>
+                    </li>
+            
+            
+            
+            
+                    <li>
+                        <a href="/topics/?category_id=485" class="" data-received="顶导航-分类..category.投资理财;from.mentor;" data-market="General;导航栏-更多;投资理财">投资理财</a>
+                    </li>
+            
+            
+            
+            
+                    <li>
+                        <a href="/topics/?category_id=495" class="" data-received="顶导航-分类..category.教育学习;from.mentor;" data-market="General;导航栏-更多;教育学习">教育学习</a>
+                    </li>
+            
+            
+            
+            
+                    <li>
+                        <a href="/topics/?category_id=510" class="" data-received="顶导航-分类..category.其他;from.mentor;" data-market="General;导航栏-更多;其他">其他</a>
+                    </li>
+            
+            
+                </ul>
+            </li>
+            
+            
+        </ul>
+        <div class="header-setting">
+            
+            <a href="
+                
+                    /settings/mobile?next=%2Fapply%2Fzhima_verify%2F
+                " class="tutorApply" target="_blank" data-received="成为行家" data-market="General;右上登陆;成为行家" data-is_mobile_verified="">成为行家</a>
+            
+            
+            <a data-login="false" rel="nofollow" data-received="登录页浏览次数..from.mentor;when.其他" data-zhugeio_when="other" href="/auth/login?when=other&amp;next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84758174%2F" data-market="General;右上登陆;登陆">登录</a>
+            <a rel="nofollow" data-received="顶导航-注册..from.mentor;" href="/auth/signup?when=other&amp;next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84758174%2F" data-market="General;右上登陆;注册">注册</a>
+            
+        </div>
+        
+        <div class="header-links">
+            <a href="http://fd.zaih.com/fenda" target="_blank" data-received="顶导航-在行一点入口">去「在行一点」</a>
+        </div>
+        
+        <form class="search" action="/search" method="GET">
+            <input class="search-content" autocomplete="off" type="text" placeholder="搜行家、话题、服务" value="" name='word'>
+            <div class="search-sug sug"></div>
+            <button class="search-btn icon icon-search" type="submit" data-market="General;右上搜索栏;搜索Button }}"></button>
+        </form>
+        
+    </div>
+</div>
+    
+    
+<div class="container container-top">
+    
+<div class="cover">
+    <div class="cover-image" style="background-image : url(//medias.zaih.com/FlU5aiJm5LJtNXQkOcbxBU0K2itL!preface)"></div>
+</div>
+<div class="tutor-full">
+    <div class="column">
+        <div class="tutor-full-main" id="tutorInfo">
+            <span class="tutor-avatar tutorAvatar">
+                <img src="//medias.zaih.com/Fmztjh1fMg3WvX_H-IqsUsa3flrU30!avatar" alt="张伟">
+            </span>
+            <div class="tutor-info" data-mlink="action=view_tutor&tutorId=84758174">
+                 <h1 class="tutor-name" data-tutor_id="84758174">张伟</h1>
+                 <p class="tutor-title" id="tutorTitle">「创见」发起人，商业公益社创跨界导师</p>
+                 <ul class="tutor-detail tutorDetail">
+                    <li class="detail">
+                        <span class="icon icon-clock-solid"></span>
+                        
+                        <span class="highlight">半天</span>内回应
+                        
+                    </li>
+                    <li class="detail"><span class="icon icon-meet"></span>
+                        <span class="highlight">50</span>人见过
+                    </li>
+                    
+                    
+                    
+                    <li class="detail detail-more"><span class="icon icon-heart"></span>
+                        
+                        <span class="highlight">482</span>人想见
+                        
+                    </li>
+                    
+                    
+                    <li class="detail detail-more"><span class="highlight">中</span>接受率</li>
+                    
+                    
+                    
+                    
+                    
+                    <li><span class="icon icon-go btn-folding foldingBtn"></span></li>
+                    
+                    
+                </ul>
+                <p class="tutor-title">
+                    <span class="city">上海</span>
+                    <span class="location">徐汇区 武康路 淮海中路</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="main">
+        
+        
+        <div class="tutor-content">
+            
+            <ul id="topicList" class="topic-list">
+                
+                <li class="topic-item ">
+                    
+                    <div class="topic-info">
+                        
+                        <div class="rating withRatingTip">
+                            
+                            9.8<span class="unit">分</span>
+                            
+                            <span class="icon icon-tip"></span>
+                        </div>
+                        <div class="topic-price">
+                            <span class="yuan">￥</span>
+                            <span class="price">860</span>
+                            <span class="time">/次</span>
+                        </div> 
+                        
+                    </div>
+                    <h2 class="topicTitle" data-topic_id="29861539" data-topic_price="860" data-topic_duration="2" data-is_meeting="false" data-topic_type="general" data-is_fixture="False">带你做自己的CEO－人生事业规划辅导</h2>
+                    <div class="topic-content-fold topicFold">
+                        <div class="topic-introduction topicIntroduction">
+                            <div><p>掌握经营人生与事业的智慧，把个人发展，人生价值，事业乐趣与社会意义相结合。做好“自己人生”，这场最重要的创业的CEO——</p><ul><li>你是否为了不喜欢的专业而彷徨？或正在纠结是继续读书深造还是就业？</li><li>你也许你刚步入职场，没有找到满意的工作，内心正在扎挣是先择业后就业还是先就业后择业？</li><li>要不要跳槽，要不要转行？甚至要不要自己创业？</li><li>你了解自己吗？自己的独特优势，才干，兴趣是什么？</li><li>你有独立的人格吗？自己的人生意义和价值观是什么？未来的理想和愿景是什么？ </li><li>你内心是否感觉迷茫或恐惧？缺乏资源？缺乏认同？没有方向或是方向太多不知道怎么选择？</li><li>你有做少数派的事业与生活经历吗？你拥有“与众不同”的个性特征吗？</li><li>你正在思考如何去把“个人价值观人生意义”与“自己的事业创业工作生活”比较完美结合起来？</li></ul><p>如果您的心中确有无限徜徉，来和我聊一聊，能为上述所有疑惑和纠结找到一个出口。在约见中，我能为你提供的帮助：</p><ul><li>梳理个性，爱好，与目前学业事业规划中的矛盾，找到相互的“支点”；</li><li>推荐一些阅读、实践、视角，来帮助拓宽对人生与事业规划的“远见”；</li><li>一起探索如何更好的把个人发展，人生价值，事业乐趣与社会意义相结合；</li><li>激发思考的 “创见”，让无聊的生存才变成了有聊的生活，成为自我生活的思想家。</li></ul><p>我一路求学，经商，人生路上遇到非常多的“引路人”，召唤着我“为人燃灯引路”的志向。创业创新，做研究咨询，读博，做各类公益志愿者，分享“创见（C-sight）”这份读书笔记，其实都只是完成自己一生“燃灯使命”的每一步铺垫。正如《创见》今年年会主题“少有人走的路”，以及推出的【1st JOB】“青年导学”项目，都是致力于帮助更多人掌握经营人生与事业的智慧，把个人发展，人生价值，事业乐趣与社会意义相结合。做好“自己人生”——这场最重要的创业的CEO！</p><ul><li>我在国企，外企跨国公司都呆过，甲方乙方都做过；</li><li>国内外名校都呆过，中西方教育都接受过，既熟悉商业领域，也熟悉学术领域；</li><li>经历过帮别人创业，自己创业，投资收购等，也辅导过各类创业者，为他们排忧解难；</li><li>深谙营销与企业管理，社会心理学与组织变革，喜欢参与，设计，主导各类学习型组织，培训与教育体验课程；</li><li>过去从业十五年，一直很乐于也帮助了非常多不同年龄不同领域的同道后辈，走上了更合适自己更快乐的人生与事业道路。</li></ul><p>正所谓“不愤不启”，来交流之前，需要做一下简单的“功课”（完成以下的问题反馈），提前邮件给我，这样见面时我们彼此可以更有效深入的交流。这个话题辅导的不是“成功成就之技巧”，而是一起来聊聊如何“发现初心，懂得自省，理解终生学习与人生幸福之道”。如果约见前无法及时提供问题反馈或沟通发现你目前的需求与我能提供的帮助并不匹配，我会及时取消我们的约见，请知悉！</p><ul><li>问题1：你觉得自己拥有“独立的人格”吗？你做少数派的事业与生活经历，与其中自己“与众不同”的个性特征是？</li><li>问题2：做一个很简单的自己人生与事业的SWOT分析，想想你觉得咋样的生活才算把“个人价值观人生意义”与“自己的事业创业工作生活”比较完美的结合起来了？心目中有没有类似的榜样?</li></ul><p>约见后，我会邮件一份《约见小结》给你，简单汇总沟通内容，建议行动方向，参考阅读等。</p>
+帮你掌握经营人生与事业的智慧，把事业乐趣与社会意义相结合。</div>
+                            
+                            <div class="info shareTopic bdsharebuttonbox" data-tag="29861539">
+                            
+                                
+                                <p><strong>分享话题：</strong>
+                                    <a data-cmd="tsina" class="icon icon-weibo hideInZDH" title="分享到新浪微博"></a>
+                                    <a data-cmd="weixin" class="icon icon-weixin hideInZDH" title="分享到微信"></a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="fold"></div>
+                    </div>
+                    <div class="topic-ft">
+                        <div class="topic-info">
+                            
+                            <span class="meet-time">约2小时</span>
+                            
+                            <span class="meet-num">45人约过</span>
+                        </div>
+                        <a href="#" class="topic-more-btn toggleBtn" data-received="话题页-话题显示更多..mID.84758174;mName.张伟;tID.29861539;tName.带你做自己的CEO－人生事业规划辅导">
+                            <span class="icon icon-arrow-bottom-circular"></span>
+                        </a>
+                    </div>
+                </li>
+                
+            </ul>
+            
+            <div class="about-tutor-title">
+                <h2>关于行家</h2>
+            </div>
+            <div class="about-tutor-summary">
+				<div><p><img alt="" src="//medias.zaih.com/FovqwzXzNQ-4fIJrKRjlP-_SwjyT!mainbody" style="height:421px; width:500px">张伟（Daisy Zhang）, 笔名“黛正”，大家都昵称她“小花”，自认是一个人生与生活的思考者+人文社会的科学研究者+商业公益社会创新创业的跨界行家！</p><p>她是——</p><ul><li>学术研究—可持续发展与社会创新创业的跨界研究者</li></ul><p>- 复旦大学企业管理系毕业，伦敦政治经济学院(LSE) 组织和社会心理学硕士，英国志奋领学者；复旦管理学院可持续发展创新与增长研究所研究人员（在读博士生），致力于研究人类与商业的可持续发展；课题包括：全球与中国社会企业化创新趋势，社会创业者的心理纠结，跨界合作与社会价值共创，扎根理论研究方法论及其应用等；<br>- 复旦大学管理学院“社会价值共创案例评估体系”课题研究小组组长：研发了“企业社会价值共创”的社会责任案例评估体系。</p><ul><li>公益机构与社群管理 — 社会创新与跨界价值共创的践行者</li></ul><p>- 《创见》社群发起人: 支持创见者们成为自己人生的CEO，自我生活的思想家。<br>担任浙江省首家民办公益图书馆-有为图书馆的独立理事: 全面支持与鉴证“用一座图书馆，改变一座城”的中国小城镇素养教育环境改善与社区精神文化提升的里程碑式的社会创新实践。<br>- 担任大型教育公募基金会-上海真爱梦想公益基金会的管理顾问：策划主导多项跨界社会价值共创项目，包括“芝麻信用”专项基金的发起策划与第一期大学生信用课程研发落地，策划并负责哈佛社会创新种子社区(SEED)与真爱梦想合作的人才孵化项目“梦想种子计划”等。</p><ul><li>教育产品的研发管理 — 素养教育创新领域的先锋</li></ul><p>- 站在中国素养教育课程研发第一线：担任真爱梦想公益基金会“梦想课程研究院”执行院长，构建专业课程研发管理体系，主导研发梦想课程2.0体系，研究全球与中国素养教育现况与课程图谱等。<br>- 青年成长课程设计者：独立提供帮助青年人实现全人素养培植与人生事业规划管理的私教课程，包括《创见》每年为18-35岁青年提供“成为自己人生的CEO”的1st JOB导学项目，及“在行”平台上的“人生事业规划”私人咨询。<br>- 青年成长与社会创业导师：JA（青年成就）长期志愿者，并参与支持“创行”，SEED Camp等项目，担任课程导师，青少年创业创新赛事顾问与评审等。​</p><ul><li>商业管理 — 超过十五年深耕营销与创新，深厚的企业与创业领导力</li></ul><p>- 营销战略，市场研究，知识管理，组织设计的全能掌舵：曾先后服务于智威汤逊(JWT)广告公司，光明乳业股份集团，尼尔森研究咨询，艾德惠研市场研究有限公司。在广告、营销管理、市场研究和企业战略管理，知识管理与知识产品商业化与理念营销等方面拥有丰富的践行经验，深谙市场研究与营销战略管理，组织变革发展和企业创新管理之道。</p><p>- 商业创新领域的连续创业者： 互联网与大数据行业专家，前CIC首席执行官（CIC是中国最早的社会化媒体研究咨询公司，现为全球最大的营销集团WPP的一员），是推进中国社会化媒体研究和社会化商业发展的领军人物，于2013年主编出版了《社会化商业变革在中国-中国社会化媒体发展引领下的商业变革之20年巡礼》</p><p>个人经历的三次创业包括——</p><ul><li>CIC（2006-2013）：是中国成立最早最大的社会化商业资讯提供商，是行业的领导品牌，专业致力于帮助企业和组织充分利用中国社会化媒体和网络口碑资讯来实现其整个组织的商业创新。2012年被并购入WPP集团，成为开启社会化媒体研究行业蓝海的创业成功案例；</li><li>嘴角（2013-2014）：移动互联网领域的健康美食平台，先后涉足APP移动应用，O2O技术解决方案，健康美食电子商务，大数据与智能软硬件结合等；</li><li>创见（C-sight）（2014-至今）：人生与事业的规划辅导，社会创新创业支持，人本素养教育领域的可持续发展。本人积累了很多成功与失败的商业与社会创业创新经验，可与大家分享。</li></ul><p>曾有记者这样写她：“Daisy的人生是倒着进行的，先是生计所迫、家庭所逼，18岁就自力，不断奋斗，30岁成为CEO，34岁公司卖给全球最大的传播集团WPP，35岁辞职二度创业，36岁，她回到校园，重新开始校园生活，一边攻读PhD，一边陪伴已经青春期的女儿成长。殊不知，年少成名，攀峰固是一段艰难而精彩的旅程，放下也是一种磨练与考验。间隔年，给自己一个让灵魂赶上奔跑的人生机会。”</p><p>而她是这样回应的：“我从未放弃自己的“逐梦之旅”，熟悉的人都知道我的梦想是办一所“社会化大学”，为中国的教育公平与社会创新做贡献。求学，经商，人生路上遇到那么多“引路人”也同样召唤着我“为人燃灯引路”的志向。读博也好，分享“创见（C-sight）”这份读书笔记也好，其实都只是完成自己一生“燃灯使命”的每一步铺垫。正如《创见》首次年会主题“少有人走的路-与众不同的我”，以及推出的【1st JOB】“青年导学”项目，都是致力于帮助更多人掌握经营人生与事业的智慧，把个人发展，人生价值，事业乐趣与社会意义相结合。做好“自己人生”，这场最重要的创业的CEO。”</p><p>用“创见 - 发刊词”里的话来一起共勉：</p><p>因为拥有“独立的人格，自由的灵魂，奔放的思想”，拥有了思考的“创见”，我们无聊的生存才变成了有聊的生活！让我们用开放宽厚的心态去接受不一样的灵魂带来的多元价值体系，让每个人平等地成为自我生活的思想家。</p><p><br>- 相关链接 -</p><p>微信公众号：创见（ID: C-Sight）</p><p>合作联系邮箱：csight@126.com</p><p>创业创新方面一些代表性的个人博客文章（来源：<a target="_blank" href="http://blog.sina.com.cn/u/1654267613">daisyzw新浪博客</a>）：</p><p><a target="_blank" href="http://blog.sina.com.cn/s/blog_629a1edd0101exl7.html">一场商业生态的社会化革命（2013-06-30）</a></p><p><a target="_blank" href="http://blog.sina.com.cn/s/blog_629a1edd0101h32e.html">致“创业”（2013-10-18）</a></p><p><a target="_blank" href="http://blog.sina.com.cn/s/blog_629a1edd0101j6tb.html">谈创业创新 - 走在BAT之上（2014-2-24）</a></p><p>教育发展方面一些代表性的个人微信文章（来源：「创见」微信公众号C-sight；「创见」网页版www.csight.org）：</p><p><a href="http://mp.weixin.qq.com/s?__biz=MzA5OTE4NzEzNQ==&amp;mid=209319720&amp;idx=1&amp;sn=cb2ff4205702732badb95427b20726f2#rd">Become A CEO of Life - 人生即创业</a></p><p><a href="http://mp.weixin.qq.com/s?__biz=MzA5OTE4NzEzNQ==&amp;mid=207985125&amp;idx=1&amp;sn=26b89b97679f11b182f7e27e9a51a4e2#rd">在中国读博这几年</a></p><p><a href="http://mp.weixin.qq.com/s?__biz=MzA5OTE4NzEzNQ==&amp;mid=202419653&amp;idx=1&amp;sn=ee154b8eff575ef4692066b819e09d78#rd">游学欧洲 （写给想出国留学的年轻人）</a></p><p><a target="_blank" href="http://mp.weixin.qq.com/s?__biz=MzA5OTE4NzEzNQ==&amp;mid=205791533&amp;idx=4&amp;sn=1304501c2c94fe117b1f4c533fd17c88&amp;scene=18#rd">为什么我们需要“创见” - 因为我们的“怕”与“恨”，更因为“爱” </a></p><p><a target="_blank" href="http://mp.weixin.qq.com/s?__biz=MzA5OTE4NzEzNQ==&amp;mid=205792011&amp;idx=3&amp;sn=ce43d8b1dfe2dff813ae7a34a762a447&amp;scene=18#rd">“逆袭”中国现行教育体制的力量（致敬立志改善中国教育的创见者）</a></p><p><a target="_blank" href="http://mp.weixin.qq.com/s?__biz=MzA5OTE4NzEzNQ==&amp;mid=205791533&amp;idx=6&amp;sn=36cc563c6b6d11b2f8d2801aa56f8003&amp;scene=18#rd">致为人父母“与孩子一起修行” - 教育之“道”与“术”</a></p><p>访谈：</p><p><a target="_blank" href="http://mp.weixin.qq.com/s?__biz=MzA5OTE4NzEzNQ==&amp;mid=201009824&amp;idx=1&amp;sn=e87d83487d6dc875cff0195ed6e36773#rd">“Xface”访谈 - 黛正的两次间隔年之创见</a></p></div>
+            </div>
+        </div>
+    </div>
+    <div class="side">
+        <div class="tutor-booking" id="booking">
+            <div class="tutor-share-list bdsharebuttonbox hideInZDH" id="share" data-tag="shareTutor">
+                <span class="share-title">分享</span>
+                <a data-cmd="tsina" class="icon icon-weibo weibo" title="分享到新浪微博" data-analyze="Share:Weibo:mentor:84758174" data-received="话题页-分享..mID.84758174;mName.张伟;type.微博"></a>
+                <a data-cmd="weixin" class="icon icon-weixin weixin" title="分享到微信" data-received="话题页-分享..mID.84758174;mName.张伟;type.微信"></a>
+            </div>
+            
+            
+            <div class="about-zaih">
+                <p class="about-title">只需付<span class="keynote">几百元</span>，就可以与行家</p>
+                <p class="about-title"><span class="keynote">一对一线下面谈</span></p>
+                <p class="about-tips">为您答疑解惑、出谋划策。不满意还能“无忧退款”。</p>
+                <p class="about-tips-mobile">为您答疑解惑、出谋划策。</p>
+                <p class="about-tips-mobile">不满意还能“无忧退款”。</p>
+                <span class="icon icon-zaih logo"></span>
+            </div>
+            
+            
+            
+            
+            
+            <div class="operation-list operationList">
+                
+                
+                
+                
+                
+                <a class="btn-disable btn-hg" href="javascript:void 0;">行家最近忙，暂不可约</a>
+                
+                
+                
+                
+                
+                <a class="btn-plat btn-hg follow-btn " id="followBtn" href="javascript:void 0;"  data-tutor_id="84758174" data-login="false" data-zhugeio_when="follow">
+                    <span class="icon icon-heart-empty"></span>加入心愿单
+                    
+                </a>
+                
+            </div>
+            
+            <ul class="tutor-topic-list">
+                <h2 class="tutor-list-title">相关行家</h2>
+                
+                
+                    
+                <li>
+                    <a href="/mentor/84752829/?referedby=84752829&amp;topic_id=29860681" data-received="话题页-推荐、相关话题..from.84758174;fName.张伟;target.84752829;tName.李石;type.相关">
+                        <div class="tutor-info-left">
+                            <span class="tutor-pic" style="background-image : url(//medias.zaih.com/Fo8wv40Z9X8_Pkxkj6rwzB0Xj3Y864!avatar)"></span>
+                        </div>
+                        <div class="tutor-info-right">
+                            <p class="tutor-title">
+                                <span class="tutor-name">李石</span>
+                                <em>珩跃产业发展CEO，资深企业管理顾问</em>
+                            </p>
+                            <p class="topic-title">职业规划和职业成长</p>
+                            
+                            <p class="meet-count">99人见过</p>
+                            
+                        </div>
+                    </a>
+                </li>
+                
+                
+                
+                
+                    
+                <li>
+                    <a href="/mentor/84771481/?referedby=84771481&amp;topic_id=29861550" data-received="话题页-推荐、相关话题..from.84758174;fName.张伟;target.84771481;tName.邓宇霖;type.相关">
+                        <div class="tutor-info-left">
+                            <span class="tutor-pic" style="background-image : url(//medias.zaih.com/FoP8HML3YU6rRG2U5neGk6QrkRAZ!avatar)"></span>
+                        </div>
+                        <div class="tutor-info-right">
+                            <p class="tutor-title">
+                                <span class="tutor-name">邓宇霖</span>
+                                <em>求简咨询合伙人，资深猎头</em>
+                            </p>
+                            <p class="topic-title">职场老鸟如何华丽转身？</p>
+                            
+                            <p class="meet-count">60人见过</p>
+                            
+                        </div>
+                    </a>
+                </li>
+                
+                
+                
+                
+                    
+                <li>
+                    <a href="/mentor/84825513/?referedby=84825513&amp;topic_id=29867243" data-received="话题页-推荐、相关话题..from.84758174;fName.张伟;target.84825513;tName.吴艾珉;type.相关">
+                        <div class="tutor-info-left">
+                            <span class="tutor-pic" style="background-image : url(//medias.zaih.com/lpr9YH3sVorGe9TwiwGVDaDzW8YS37!avatar)"></span>
+                        </div>
+                        <div class="tutor-info-right">
+                            <p class="tutor-title">
+                                <span class="tutor-name">吴艾珉</span>
+                                <em>香港小岛钻石国际投资理财公司董事长</em>
+                            </p>
+                            <p class="topic-title">用创意去经营人生！</p>
+                            
+                            <p class="meet-count">64人见过</p>
+                            
+                        </div>
+                    </a>
+                </li>
+                
+                
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="comments-bg">
+    <div class="column">
+        <div class="comments-main">
+            <div class="comments-switch">
+                    
+                    <h2 class="left-tab tab picked">
+                        <span id="commentsBtn">学员点评</span>
+                        <div class="drop-select" id="commentSort">
+                            <a class="drop-select-default" data-current-sort="likings_count" href="javascript:void 0;">热门<i class="icon icon-arrow-bottom"></i></a>
+                            <ul class="drop-select-options hidden">
+                                
+<li>
+    <a href="javascript:void 0;" class="reviewsSortBy" data-sort-by="likings_count">热门</a>
+</li>
+
+                                
+<li>
+    <a href="javascript:void 0;" class="reviewsSortBy" data-sort-by="latest">最新</a>
+</li>
+
+                            </ul>
+                        </div>
+                    </h2>
+                    <h2 class="right-tab tab"><span id="remarksBtn">好友点评</span></h2>
+                    
+            </div>
+            
+            <div class="comments" id="comments" data-total-count="48">
+                <ul class="comments-list">
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="85144577">
+                            <img src="//medias.zaih.com/FpTBb5rOfY5qH5tn3mojo-1UlItj48!avatar" alt="高登">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                高登
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                小花老师，亲和睿智，但是她的分析准确，判断也直指人心。不论是见面前的准备过程，还是见面时的循循善诱，小花老师带着我一起拨开我心中的迷雾，挖掘出问题的本质，并且给了我真诚的指导。感谢小花老师，当然还有在行这个平台。
+                            </div>
+                            <div class="comment-topic-name">参与话题：带你做自己的CEO－人生事业规划辅导</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2017-04-18</span>
+                                <button class="comment-like like" data-review-id="91910" data-login="false">
+                                    <span></span>
+                                    有用</button>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="85135978">
+                            <img src="//medias.zaih.com/FjwgmOv4rWZBAGTm8WJ1ZwEBrdLT!avatar" alt="黄帅Eric">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                黄帅Eric
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                非常棒的一次约见，小花老师的一套方法让我豁然开朗，非常感谢尽心尽力地我做了完整的分析，找到了方向，更棒的是还有解决方案，让我长期以来的困惑找到了头绪：）
+                            </div>
+                            <div class="comment-topic-name">参与话题：带你做自己的CEO－人生事业规划辅导</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2017-04-13</span>
+                                <button class="comment-like like" data-review-id="91384" data-login="false">
+                                    <span></span>
+                                    有用</button>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="85066827">
+                            <img src="//medias.zaih.com/Fh8J1Fi5s-dN1IasJlJ12wpJKOsa!avatar" alt="安奈">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                安奈
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                小花老师，温柔而坚定，睿智而干练，理论与实践并驾齐驱。在与小花老师的对话中，让我再认识了自己原来看不清楚的一些想法，一些自身存在的问题，从而能够更加清晰的认清接下来的方向，制定切实可行的行动计划。小花老师是我第一个人生意义上的导师，大爱小花老师[爱心][爱心][爱心]感谢遇到你。
+                            </div>
+                            <div class="comment-topic-name">参与话题：带你做自己的CEO－人生事业规划辅导</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2016-11-11</span>
+                                <button class="comment-like like" data-review-id="71298" data-login="false">
+                                    <span></span>
+                                    有用</button>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="85052887">
+                            <img src="//medias.zaih.com/Fq-eYuKZ5MyCwZaJn77AgSzRgm5Q98!avatar" alt="Ariel7">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                Ariel7
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                师父领进门。
+不得不承认，“师父”的作用至关重要。在行的平台让价值理念彼此认同的人成为良师益友，众多职业规划师中认准了小花老师，约见后也证明我的选择是对的。两个半小时的聊天中，小花老师从原生家庭分析了个性，分析了现在和将来可能面临的困境，并从不同角度提出突破方案以供参考，对于迷茫期的转专业学生起了指明灯般的作用。
+修行靠个人。
+小花老师说，如果自身不心怀梦想地前进，每天与她喝两个小时的咖啡谈心也不会有丝毫作用。如果自己不认清、执行、反思，约见也只能是一剂应急药，治标不治本。先靠个人自觉修行一段时间后，回过头来看这次约见，才敢说它是人生中的turning point。
+最后，很高兴认识小花老师，很高兴认识真实的自己。
+                            </div>
+                            <div class="comment-topic-name">参与话题：带你做自己的CEO－人生事业规划辅导</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2016-11-02</span>
+                                <button class="comment-like like" data-review-id="70189" data-login="false">
+                                    <span></span>
+                                    有用</button>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="85094749">
+                            <img src="//medias.zaih.com/Fh8J1Fi5s-dN1IasJlJ12wpJKOsa!avatar" alt="黄子鹏">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                黄子鹏
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                不知不觉一个上午就过去了，会谈内容很充实。从自我探索和社会生存两方面谈。自我探索包括对过去自我的评价，对家庭关系的探索。内容很详细，对我产生了人生阶段性的成果，有待进一步实践，30岁回来再看。社会生存技能上自己的确非常薄弱，按照我们讨论的结果去做吧。争取人生的一个新里程碑。闲话不多说，用行动谢谢小花老师。
+                            </div>
+                            <div class="comment-topic-name">参与话题：带你做自己的CEO－人生事业规划辅导</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2016-11-01</span>
+                                <button class="comment-like like" data-review-id="70047" data-login="false">
+                                    <span></span>
+                                    有用</button>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                </ul>
+                
+                <a class="btn-plat btn-lg btn-more" data-received="话题页-更多评价..mID.84758174;mName.张伟" href="javascript: void 0;" id="moreComments">查看更多</a>
+                
+            </div>
+            
+            
+            <div class="comments hidden" id="remarks" data-total-count="4">
+                <h2></h2>
+                <ul class="comments-list">
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84773179">
+                            <img src="//medias.zaih.com/FubaS94sIl5jDKX-wrC1nR6nuyAJ!avatar" alt="金洁">
+                        </span>
+                        
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-friend-name">
+                                金洁
+                                </strong>
+                                <div>
+                                    <span class="comment-friend-title">创见项目负责人 /前CIC知识管理与创新部门主管</span>
+                                </div>
+                            </div>
+                            <div class="comment-bd">
+                                很幸运在过去职业道路上遇见了Daisy这样亦师亦友的老板，最让人敬佩的是她坚定的信念和天生的使命感，对待每件事精益求精的态度。Daisy对人才发展与教育有独到的见解，“爱才”和“惜才”是她的特点， 从不吝惜向年青人分享学识经验与提供指导。每次与她聊天，她的格局视野，洞见智慧一定能让你来一次脑力激荡，刷新原先思维模式。不过友情提醒：小花老师的思路与语速飞快，表达犀利（记得提前做好功课和整理好思路），在高效的对话中她可以一次帮你讲完别人要讲2-3次的内容，所以必要时带好笔记本哦。
+
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84772855">
+                            <img src="//medias.zaih.com/7662ne1yizfmjib2lo60lvnrepvwovam!avatar" alt="Justin 程思祺">
+                        </span>
+                        
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-friend-name">
+                                Justin 程思祺
+                                </strong>
+                                <div>
+                                    <span class="comment-friend-title">益涂 创始人</span>
+                                </div>
+                            </div>
+                            <div class="comment-bd">
+                                Daisy张伟是我见过在营销方面最一针见血的，丝毫不留情面，把你的问题直接血淋淋的展现在你面前，可以好不夸张的说Daisy是营销领域的金星。她的毒嘴让你又爱又恨。爱的是讲的每句都直戳问题根源，让你豁然开朗，脑洞大开。恨的是颜面尽失，自信心被无情打击。所以如果你想打算见见传说中的Daisy老师，我的建议是你要有足够强大的内心，足够坦诚的意愿以及能重拾决心不断前行的坚毅。
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84771344">
+                            <img src="//medias.zaih.com/FubaS94sIl5jDKX-wrC1nR6nuyAJ!avatar" alt="陶亦之">
+                        </span>
+                        
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-friend-name">
+                                陶亦之
+                                </strong>
+                                <div>
+                                    <span class="comment-friend-title">食安先 产品经理/Daisy 全球粉丝会会长</span>
+                                </div>
+                            </div>
+                            <div class="comment-bd">
+                                咳咳【害羞脸】
+
+这是我仰慕了三年的女神。是的，三年，比我经历过的最长的恋情还要长。至今我还记得第一次见到她——2012年3月，在起点的创业公开课上——为她的智慧着迷，被她的魄力所折服，最重要的是被她分享的内容吸引的如痴如醉。冥冥之中，那一课也造就了如今投身移动互联网行业的我。今年3月，机缘巧合之下，我加入了女神创办的“创见”俱乐部，加紧跟随的脚步努力修炼自己“独立的人格，自由的灵魂，奔放的思想”。如果你正在想把无聊的生存变成有聊的生活的话 —— 不妨，来约谈一番看看
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84771358">
+                            <img src="//medias.zaih.com/FubaS94sIl5jDKX-wrC1nR6nuyAJ!avatar" alt="李佳蓉">
+                        </span>
+                        
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-friend-name">
+                                李佳蓉
+                                </strong>
+                                <div>
+                                    <span class="comment-friend-title">电子商务主任</span>
+                                </div>
+                            </div>
+                            <div class="comment-bd">
+                                强烈推荐各种对自己人生或事业有些困惑和疑虑，或是想要些创业指导意见的人，约见我的前老板和现在某些意义上的老板，绝对物超所值！绝对的女开复、偶像、女神，可以把一切针对优秀女性的褒义词统统用上！：）
+                            </div>
+                        </div>
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="tutor-share-list-mobile bdsharebuttonbox hideInZDH" id="share" data-tag="shareTutor">
+    <span class="share-title">分享</span>
+    <a data-cmd="tsina" data-received="话题页-分享..mID.84758174;mName.张伟;type.微博" class="icon icon-weibo weibo" title="分享到新浪微博" data-analyze="Share:Weibo:mentor:84758174"></a>
+</div>
+
+<ul class="tutor-topic-list-mobile">
+    <h2 class="tutor-list-title">相关行家</h2>
+    
+    
+        
+    <li>
+        <a href="/mentor/84752829/?referedby=84752829&amp;topic_id=29860681" data-received="话题页-推荐、相关话题..from.84758174;fName.张伟;target.84752829;tName.李石;type.相关">
+            <div class="tutor-info-left">
+                <span class="tutor-pic" style="background-image : url(//medias.zaih.com/Fo8wv40Z9X8_Pkxkj6rwzB0Xj3Y864!avatar)"></span>
+            </div>
+            <div class="tutor-info-right">
+                <p class="tutor-title">
+                    <span class="tutor-name">李石</span>
+                    <em>珩跃产业发展CEO，资深企业管理顾问</em>
+                </p>
+                <p class="topic-title">职业规划和职业成长</p>
+                
+                <p class="meet-count">99人见过</p>
+                
+            </div>
+        </a>
+    </li>
+    
+    
+    
+    
+        
+    <li>
+        <a href="/mentor/84771481/?referedby=84771481&amp;topic_id=29861550" data-received="话题页-推荐、相关话题..from.84758174;fName.张伟;target.84771481;tName.邓宇霖;type.相关">
+            <div class="tutor-info-left">
+                <span class="tutor-pic" style="background-image : url(//medias.zaih.com/FoP8HML3YU6rRG2U5neGk6QrkRAZ!avatar)"></span>
+            </div>
+            <div class="tutor-info-right">
+                <p class="tutor-title">
+                    <span class="tutor-name">邓宇霖</span>
+                    <em>求简咨询合伙人，资深猎头</em>
+                </p>
+                <p class="topic-title">职场老鸟如何华丽转身？</p>
+                
+                <p class="meet-count">60人见过</p>
+                
+            </div>
+        </a>
+    </li>
+    
+    
+    
+    
+        
+    <li>
+        <a href="/mentor/84825513/?referedby=84825513&amp;topic_id=29867243" data-received="话题页-推荐、相关话题..from.84758174;fName.张伟;target.84825513;tName.吴艾珉;type.相关">
+            <div class="tutor-info-left">
+                <span class="tutor-pic" style="background-image : url(//medias.zaih.com/lpr9YH3sVorGe9TwiwGVDaDzW8YS37!avatar)"></span>
+            </div>
+            <div class="tutor-info-right">
+                <p class="tutor-title">
+                    <span class="tutor-name">吴艾珉</span>
+                    <em>香港小岛钻石国际投资理财公司董事长</em>
+                </p>
+                <p class="topic-title">用创意去经营人生！</p>
+                
+                <p class="meet-count">64人见过</p>
+                
+            </div>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+
+
+
+    
+    <div class="footer">
+        <div class="column">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <a class="footer-logo" href="/" data-market="General;底部导航;Logo"><i class="icon icon-zaih"></i>果壳网出品</a>
+                    <div class="footer-link">
+                        <a href="/" data-market="General;底部导航;首页">首页</a>
+                        
+                        <a class="appDownloadBtn app-download" href="/app/" data-received="下载app..page.mentor" data-market="General;底部导航;下载APP">下载App</a>
+                        <a class="appDownloadBtn mobile-app-download" target="_blank" href="http://guo.kr/8k0KtO" data-received="下载app..page.mentor" data-market="General;底部导航;下载APP">下载App</a>
+                        
+                        <a href="/help/about/" data-market="General;底部导航;关于我们">关于我们</a>
+                        <a href="/help/faq/" data-market="General;底部导航;帮助">帮助</a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <a class="footer-tel" href="tel:4000691791">4000-691-791</a>
+                    <p class="footer-time">工作日 10:00-19:00</p>
+                    <div class="online-service">
+                        <a class="btn-primary online-service-btn" href="http://kefu.easemob.com/webim/im.html?tenantId=2970" target="_blank" data-market="General;底部导航;在线客服">在线客服</a>
+                    </div>
+                    <span class="footer-qr"><img src="http://media.zaih.com/FnTxnAExFlSJrz_OZMeQyDJeYJtT">官方微信</span>
+                    <span class="footer-qr"><img src="http://media.zaih.com/FpfnWcdi3GN2ra151WYfgJF2rurS">在行沙龙</span>
+                </div>
+            </div>
+            <div class="footer-info">
+                <div class="footer-left">
+                    GUOKR © 2018 LOVINGLY MADE IN BEIJING
+                    <br>
+                    北京我最在行信息技术有限公司
+                    <br>
+                    京B2-20160131 |
+                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502031582"><img src="http://media.zaih.com/FinEALw7ifYIV2baxOAzDe1ctz1S"/>京公网安备 11010502031582号</a>
+                </div>
+                <div class="footer-right">
+                    地址  北京市朝阳区建国路郎园Vintage
+                    <br>
+                    电话  010-85809983
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<!-- JavaScript at the bottom for fast page loading -->
+
+
+<script>
+var weixin_mp_config = {"appId": "wx63736776bf28c6b5", "nonceStr": "tsLlSu5FXfDp", "signature": "ecdb00be539806435edf884c7fcfd19576416d01", "timestamp": "1527935034"};
+</script>
+
+<script>
+var weibo_login_url = "/auth/authorize-use/weibo?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84758174%2F",
+        weixin_login_url = "/auth/authorize-use/weixin?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84758174%2F",
+        baidu_login_url = "/auth/authorize-use/baidu?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84758174%2F",
+        weixin_mp_login_url = "/auth/authorize-use/weixin_mp?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84758174%2F",
+        signup_url = "/auth/signup?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84758174%2F";
+</script>
+
+<script src="/static/front/scripts/62c4d7e6.base.js"></script>
+<script src="/static/front/scripts/c94331eb.main.js"></script>
+
+<script>
+var validateObj = {"is_self" : false,"has_realname" : false,"is_mobile_verified" :  false},
+    tutor_city = "\u4e0a\u6d77",
+    tutor = {"id":"84758174","summary": "「创见」发起人，前CIC首席执行官，在读博士", "realname": "张伟"},
+    pageName = 'tutorDetail';
+</script>
+<script src="/static/front/scripts/67dbe8b0.content.js"></script>
+
+<!-- end scripts -->
+</body>
+</html>

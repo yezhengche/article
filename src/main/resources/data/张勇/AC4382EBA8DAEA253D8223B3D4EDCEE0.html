@@ -1,0 +1,1534 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>张勇</title>
+	<link href="/images/ldzc.css" rel="stylesheet" type="text/css" />
+	<script charset="utf-8" type="text/javascript" src="http://gmwz-1251053291.file.myqcloud.com/hnV3rq55cduGp6XYfXqmoJNp0aJ9ntWag4aNaX7eebGCmq2gxaKG3ZyV0NeSm3xteaGqrIF3sGo.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<link href="/images/reset.css" type="text/css" rel="stylesheet" />
+<link href="/images/header.css" type="text/css" rel="stylesheet" />
+<link href="/images/footer.css" type="text/css" rel="stylesheet" />
+
+ <!--引导页全屏淡入淡出轮播图样式s-->
+<script type="text/javascript" src="/images/starts.js"></script>
+<script type="text/javascript" src="/images/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/images/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="/images/jquery.SuperSlide.2.1.1.js"></script>
+<!--script type="text/javascript">
+	$(function(){
+		$.backstretch(["/images/banner_01.jpg"]);
+		 var c =setTimeout(function(){
+			$("body").backstretch(["/images/banner2_01.jpg","/images/banner_01.jpg","/images/banner2_01.jpg"],{duration:4000,fade:12000}); 
+		 },1000)
+		 c;
+	});
+</script-->
+<script type="text/javascript">
+	$(function(){
+		
+		$.backstretch(["/material/20170112/W020170112368119207580.jpg"]);
+		
+		 var c =setTimeout(function(){
+			$("body").backstretch([
+			
+			
+				"/material/20170112/W020170112368119207580.jpg"
+					
+			],{duration:4000,fade:12000}); 
+		 },1000)
+		 c;
+	});
+</script>
+<!-- 检索跳转 -->
+<script>
+	$(function() {
+		$('#j_search_btn').click(function() {
+			var str = $(this).prev().val();
+			checks(str);
+		});
+	});
+	function checks(t) {
+		t = t.replace(/(^\s+)|(\s+$)/g, "");
+		if (t == "" || t == "请输入关键检索字") {
+			alert('请输入有效内容');
+			return false;
+		}
+		szMsg = "[#_%&'/",
+		";:=!^]";
+		alertStr = "";
+		for (i = 1; i < szMsg.length + 1; i++) {
+			if (t.indexOf(szMsg.substring(i - 1, i)) > -1) {
+				alertStr = "请勿包含非法字符如[#_%&'/",
+				";:=!^]";
+				alert(alertStr);
+				// break;
+				return false;
+			}
+		}
+		var key = document.getElementById("keyword").value;
+		window.location.href = "/search.html?keyword=" + key;
+		return true;
+	}
+</script>
+
+<script type="text/javascript" language="javascript"> 
+//加入收藏 
+	function AddFavorite(sURL, sTitle) {
+		sURL = encodeURI(sURL);
+		try{
+			window.external.addFavorite(sURL, sTitle);
+		}
+		catch(e)
+		{
+			try{
+			window.sidebar.addPanel(sTitle, sURL, "");
+			}
+			catch (e)
+			{
+			alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+			}
+		}
+	} 
+//设为首页 
+	function SetHome(url){
+		if (document.all) {
+			document.body.style.behavior='url(#default#homepage)';
+			document.body.setHomePage(url);
+		}
+		else{ 
+			alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");
+		}
+	}
+</script>
+<script type="text/javascript">
+      function GoTo() {
+          window.open("/syqt/wzjc/index.html?StrUrl=" + document.URL);
+      }
+</script>
+	<script type="text/javascript">
+		//取图片进行地址转换，主要为了兼容历史数据
+			function formatImgUrl(_imgUrl,_width,_height,_imgTitle){	
+				if(_width==null || _width==""){ _width=347};
+				if(_height==null || _height==""){ _height=249};
+				var	str = _imgUrl;
+				var arr= new Array();
+				arr = str.toString().split(";");
+				var  image=arr[0];
+				var s3 = image.substr(0, 2);
+				if(s3=="P0"){
+					var httphead = "/protect/";
+					var s1 = image.substr(0, 8);
+					var s2 = image.substr(0,10);
+					httphead+=s1+"/"+s2+"/"+image;
+					document.write('<img src="'+httphead+'" height="'+_height+'" width="'+_width+'" alt="'+_imgTitle+'" />');
+				}else if(s3 == "W0"){
+					var httphead = "/webpic/";
+					var s1 = image.substr(0, 8);
+					var s2 = image.substr(0,10);
+					httphead+=s1+"/"+s2+"/"+image;
+					document.write('<img src="'+httphead+'" height="'+_height+'" width="'+_width+'" alt="'+_imgTitle+'" />');
+				}else {
+					document.write('<img src="'+_imgUrl+'" height="'+_height+'" width="'+_width+'" alt="'+_imgTitle+'" />');
+				}	
+			}
+		</script>
+</head>
+
+<body>
+	<div class="head">
+	<div class="bos"></div>
+	<div class="dtims">
+		<ul>
+			<li class="kbox"></li>
+			<li class="dtims_t">
+				<div class="dtims_c">
+					<table width="520" height="35px" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td>
+								<table width="520" height="28px" border="0" cellspacing="0" cellpadding="0">
+									<td id="labelTime"><script type="text/javascript">ShowDateTime();</script></td>
+									<td width="240"><iframe width="240" scrolling="no" height="25" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=34&py=yinjiang"></iframe></td>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</li>
+			<li class="dtims_x">
+				<dl>
+					<dt>
+						<a onClick="SetHome(window.location)" href="javascript:void(0)" title="设为首页"><img src="/images/swsy.png" /></a>
+					</dt>
+					<dd><a onClick="AddFavorite(window.location,document.title)" href="javascript:void(0)" title="加入收藏"><img src="/images/jrsc.png" /></a></dd>
+				</dl>
+			</li>
+		</ul>
+	</div>
+	<div class="yj_logo">
+		<div  class="logos"></div>
+		<div  class="fonts">
+			<div class="fonts-c"><img src="/images/logo_font.png" alt="" /></div>
+			<div class="input_c" style="margin-right:9%;">
+				<input type="text" id="keyword" name="keyword" value="请输入关键字搜索" onfocus="if(this.value=='请输入关键字搜索')this.value=''" onblur="if(this.value=='')this.value='请输入关键字搜索'" />
+				<a  href="javascript:;" id="j_search_btn"></a>
+			</div>
+			<style>
+				.tz_sk{width:70%;height:40px;float:right;margin-right:10%;}
+				.tz_sk ul{margin:0;padding:0;}
+				.tz_sk ul li{list-style:none;float:left;}
+				.tz_sk ul li a{padding:2px 4px;margin:0 4px;color:#387c38;text-decoration:none;line-height:36px;}
+				.tz_sk ul li a:hover{color:#005aab;}
+				.tz_sk ul li span{line-height:34px;color:#387c38;float:right;}
+			</style>
+			<div class="tz_sk">
+				<ul>
+					<li><a href="http://www.gov.cn/zhengce/xxgkzl.htm" target="_blank">国务院文件</a><span>|</span></li>
+					<li><a href="http://www.gov.cn/xinwen/yaowen.htm" target="_blank">国务院信息</a><span>|</span></li>
+					<li><a href="http://www.gzgov.gov.cn/xxgk/jbxxgk/fgwj/zfwj/" target="_blank">省政府文件</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="nvcat">
+			<div class="c_nvcat">				
+				<div class="w_navat">
+					<ul>
+						<li class="qwfw" onmouseover="ShowDiv('qwfws')" onmouseout="HinDiv('qwfws')">
+							<div class="qw_n">
+								<a href="javascript:void();">全网服务</a>
+								<span><a href="javascript:void();">Full network servce</a></span>
+							</div>
+							<div class="qwfws" id="qwfws">
+								<dl class="navM4">
+									<dd>
+										<h2><a href="http://www.yinjiang.gov.cn/xxgk/zxgk/">基础公开</a></h2>
+										<p class="bb">
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/jgsz/">机构设置</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/ldzc/">领导之窗</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/ldrz/">领导日志</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/ldjh/">领导讲话</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/zkxx/">招考信息</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/zcwj/">政策文件</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/zcjd/">政策解读</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/ghjh/">规划计划</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/rsxx/">人事信息</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/tjxx/">统计信息</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/yjgl/">应急管理</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/jdjc/">监督检查</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/shgy/">社会公益</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/zfcwhy/">政府常务会议</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/xwfb/">新闻发布会</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/zdxzjcsxtzhzd/">行政决策听证会制度</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/xzsp_50849/">行政审批</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/xzzf/">行政执法</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/sjyqfxpgjz/">事件舆情风险评估机制</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/zfgb/">政府公报</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zxgk/taya/">提案议案</a>
+											
+										</p>
+									</dd>
+									<dt>基础公开</dt>
+								</dl>
+								<dl class="navM4">
+									<dd>
+										<h2><a href="http://www.yinjiang.gov.cn/xxgk/zdxxgk/">重点领域公开</a></h2>
+										<p class="bb">
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zdxxgk/xzqlgk/">权力清单和责任清单</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zdxxgk/fpgz_26313/">扶贫工作</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zdxxgk/shjz_26314/">社会救助</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zdxxgk/zjxx/">财政资金</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zdxxgk/zfcg/">政府采购</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zdxxgk/ggzypz/">公共资源配置</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zdxxgk/zdjsxm/">重大建设项目</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zdxxgk/hjbh/">环境保护</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zdxxgk/spypaq/">食品药品安全</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zdxxgk/xzfygk/">行政复议公开</a>
+											
+												<a href="http://www.yinjiang.gov.cn/xxgk/zdxxgk/njgzbt/">农机购置补贴</a>
+											
+												<a href="http://www.yinjiang.gov.cn/bmsite/yjtjzmzzzxtzcjj/">招商引资</a>
+											
+										</p>
+										
+									</dd>
+									<dt>重点领域公开</dt>
+								</dl>
+								<dl class="navM4">
+									<dd>
+										<h2><a href="http://www.yinjiang.gov.cn/zmhd/">政民互动</a></h2>
+										<p class="bb">
+											
+												<script type="text/javascript">
+								var lm="征集调查";
+								if(lm!="政务微信"){
+									if(lm=="书记、县长群众直通交流台"){
+										document.write('<a style="width:200px;" href="http://www.yinjiang.gov.cn/zmhd/wsdc/">征集调查</a>');
+									}else{
+										if(lm=="政务微博"){
+															document.write('<a target="_blank" href="http://www.yinjiang.gov.cn/zmhd/wsdc/">征集调查</a>');
+															}else{
+															document.write('<a href="http://www.yinjiang.gov.cn/zmhd/wsdc/">征集调查</a>');
+															}
+									}
+								}
+							</script>
+											
+												<script type="text/javascript">
+								var lm="社情民意";
+								if(lm!="政务微信"){
+									if(lm=="书记、县长群众直通交流台"){
+										document.write('<a style="width:200px;" href="http://www.yinjiang.gov.cn/zmhd/xzxx/">社情民意</a>');
+									}else{
+										if(lm=="政务微博"){
+															document.write('<a target="_blank" href="http://www.yinjiang.gov.cn/zmhd/xzxx/">社情民意</a>');
+															}else{
+															document.write('<a href="http://www.yinjiang.gov.cn/zmhd/xzxx/">社情民意</a>');
+															}
+									}
+								}
+							</script>
+											
+												<script type="text/javascript">
+								var lm="回应关切";
+								if(lm!="政务微信"){
+									if(lm=="书记、县长群众直通交流台"){
+										document.write('<a style="width:200px;" href="http://www.yinjiang.gov.cn/zmhd/rdhy_26321/">回应关切</a>');
+									}else{
+										if(lm=="政务微博"){
+															document.write('<a target="_blank" href="http://www.yinjiang.gov.cn/zmhd/rdhy_26321/">回应关切</a>');
+															}else{
+															document.write('<a href="http://www.yinjiang.gov.cn/zmhd/rdhy_26321/">回应关切</a>');
+															}
+									}
+								}
+							</script>
+											
+												<script type="text/javascript">
+								var lm="在线访谈";
+								if(lm!="政务微信"){
+									if(lm=="书记、县长群众直通交流台"){
+										document.write('<a style="width:200px;" href="http://www.yinjiang.gov.cn/zmhd/zxft/">在线访谈</a>');
+									}else{
+										if(lm=="政务微博"){
+															document.write('<a target="_blank" href="http://www.yinjiang.gov.cn/zmhd/zxft/">在线访谈</a>');
+															}else{
+															document.write('<a href="http://www.yinjiang.gov.cn/zmhd/zxft/">在线访谈</a>');
+															}
+									}
+								}
+							</script>
+											
+												<script type="text/javascript">
+								var lm="政务微博";
+								if(lm!="政务微信"){
+									if(lm=="书记、县长群众直通交流台"){
+										document.write('<a style="width:200px;" href="http://www.yinjiang.gov.cn/zmhd/zwwb/">政务微博</a>');
+									}else{
+										if(lm=="政务微博"){
+															document.write('<a target="_blank" href="http://www.yinjiang.gov.cn/zmhd/zwwb/">政务微博</a>');
+															}else{
+															document.write('<a href="http://www.yinjiang.gov.cn/zmhd/zwwb/">政务微博</a>');
+															}
+									}
+								}
+							</script>
+											
+												<script type="text/javascript">
+								var lm="政务微信";
+								if(lm!="政务微信"){
+									if(lm=="书记、县长群众直通交流台"){
+										document.write('<a style="width:200px;" href="http://www.yinjiang.gov.cn/zmhd/zwwx/">政务微信</a>');
+									}else{
+										if(lm=="政务微博"){
+															document.write('<a target="_blank" href="http://www.yinjiang.gov.cn/zmhd/zwwx/">政务微信</a>');
+															}else{
+															document.write('<a href="http://www.yinjiang.gov.cn/zmhd/zwwx/">政务微信</a>');
+															}
+									}
+								}
+							</script>
+											
+												<script type="text/javascript">
+								var lm="书记、县长群众直通交流台";
+								if(lm!="政务微信"){
+									if(lm=="书记、县长群众直通交流台"){
+										document.write('<a style="width:200px;" href="http://www.yinjiang.gov.cn/zmhd/sjxzqzztjlt/">书记、县长群众直通交流台</a>');
+									}else{
+										if(lm=="政务微博"){
+															document.write('<a target="_blank" href="http://www.yinjiang.gov.cn/zmhd/sjxzqzztjlt/">书记、县长群众直通交流台</a>');
+															}else{
+															document.write('<a href="http://www.yinjiang.gov.cn/zmhd/sjxzqzztjlt/">书记、县长群众直通交流台</a>');
+															}
+									}
+								}
+							</script>
+											
+												<script type="text/javascript">
+								var lm="信件统计";
+								if(lm!="政务微信"){
+									if(lm=="书记、县长群众直通交流台"){
+										document.write('<a style="width:200px;" href="http://www.yinjiang.gov.cn/zmhd/xjtj/">信件统计</a>');
+									}else{
+										if(lm=="政务微博"){
+															document.write('<a target="_blank" href="http://www.yinjiang.gov.cn/zmhd/xjtj/">信件统计</a>');
+															}else{
+															document.write('<a href="http://www.yinjiang.gov.cn/zmhd/xjtj/">信件统计</a>');
+															}
+									}
+								}
+							</script>
+											
+										</p>
+									</dd>
+									<dt>政民互动</dt>
+								</dl>
+								<dl class="navM4">
+									<dd>
+										<h2><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/">社保、医疗卫生</a></h2>
+										<h6><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/shbz/">社会保障</a></h6>
+										<p>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/shbz/sbzcjjd/">社会救助</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/shbz/sbcx/">社会保险</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/shbz/shfl/">社会福利</a>
+											
+										</p>
+					
+										<h6><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/ylws/">医疗卫生</a></h6>
+										<p>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/ylws/yljgjs/">医疗机构</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/ylws/ydcx/">计生机构</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/ylws/ypcx/">药店名录</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/ylws/ylxmsf/">就医指南</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/ylws/jbyf/">急救服务</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/ylws/yljzzc/">职业病诊断与鉴定</a>
+											
+										</p>
+									</dd>
+									<dt>社保、医疗卫生</dt>
+								</dl>
+								<dl class="navM4">
+									<dd>
+										<h2><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/">教育、劳动就业</a></h2>
+										
+										<h6><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jyfw/">教育培训</a></h6>
+										<p>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jyfw/zszc/">学校（幼儿园）概况</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jyfw/xxjs/">招生计划</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jyfw/jyjz/">学区划分</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jyfw/jyzz/">奖励资助</a>
+											
+										</p>
+										<h6><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jyfw_23528/">劳动就业</a></h6>
+										<p>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jyfw_23528/pxjgml/">就业岗位</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jyfw_23528/jyzc/">职业技能培训</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jyfw_23528/zczpxx/">劳动权益保障</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jyfw_23528/cyfc/">创业扶持</a>
+											
+										</p>
+									</dd>
+									<dt>教育、劳动就业</dt>
+								</dl>
+								<dl class="navM4">
+									<dd>
+										<h2><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/">社区、住房服务</a></h2>
+										
+										<h6><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/sqfw/">社区服务</a></h6>
+										<p>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/sqfw/jzfw/">家政服务</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/sqfw/ylty/">养老托幼</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/sqfw/cs/">超市</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/sqfw/bmd/">便民店</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/sqfw/cyd/">餐饮店</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/sqfw/xyd/">洗衣店</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/sqfw/mfd/">美发店</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/sqfw/flyz/">法律援助</a>
+											
+										</p>
+										<h6><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/zffw/">住房服务</a></h6>
+										<p>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/zffw/fdczc/">房地产政策</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/zffw/bzxzfsl/">保障性住房申领</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/zffw/fyxx/">房源信息</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/zffw/htfbxz/">合同范本下载</a>
+											
+										</p>
+									</dd>
+									<dt>社区、住房服务</dt>
+								</dl>
+								<dl class="navM4">
+									<dd>
+										<h2><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/">旅游、交通出行</a></h2>
+										
+										<h6><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/lyfw/">休闲旅游</a></h6>
+										<p>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/lyfw/jdjs/">旅游景点</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/lyfw/lyxltj/">游程推荐</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/lyfw/jdml/">旅行社名录</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/lyfw/ylcsml/">民俗风情</a>
+											
+										</p>
+										<h6><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jtcx/">交通出行</a></h6>
+										<p>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jtcx/ggcx/">公共出行</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jtcx/ztcx/">长途出行</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jtcx/czfw/">出租服务</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jtcx/jyz/">加油站</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/jtcx/wzcx/">违章查询</a>
+											
+										</p>
+									</dd>
+									<dt>旅游、交通出行</dt>
+								</dl>
+								<dl class="navM4">
+									<dd>
+										<h2><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/">三农、招商引资</a></h2>
+										
+										<h6><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/snfw/">三农服务</a></h6>
+										<p>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/snfw/sndt/">三农动态</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/snfw/nykjfwzs/">农业科技服务知识</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/snfw/ncpscxq/">农产品市场需求</a>
+											
+										</p>
+										<h6><a href="http://www.yinjiang.gov.cn/wsfw/ztfw/tzfw/">招商引资</a></h6>
+										<p>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/tzfw/zsxm/">投资项目</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/tzfw/cyjs/">投资环境</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/tzfw/tzdt/">投资成本</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/ztfw/tzfw/tzcx/">投资程序</a>
+											
+										</p>
+									</dd>
+									<dt>三农、招商引资</dt>
+								</dl>
+								<dl class="navM4">
+									<dd>
+										<h2><a href="http://www.yinjiang.gov.cn/wsfw/spbs/">行政审批</a></h2>
+										<p>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/spbs/bgxz_23585/">表格下载</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/spbs/cjsfw/">重点办事服务</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/spbs/bsfw/">办事服务</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/spbs/wssb/">网上申报</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/spbs/bszn/">办事指南</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/spbs/ztcx/">状态查询</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/spbs/jggs/">结果公示</a>
+											
+												<a href="http://www.yinjiang.gov.cn/wsfw/spbs/bscjwt/">办事常见问题</a>
+											
+										</p>
+									</dd>
+									<dt>行政审批</dt>
+								</dl>
+								<dl class="navM4">
+									<dd>
+										<h2><a href="http://www.yinjiang.gov.cn/xxgkml/">信息公开目录</a></h2>
+										
+										<!--h6><a href="http://www.yinjiang.gov.cn/xxgkml/">信息公开目录</a></h6-->
+										<p>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/zfjg/&ClassInfoId=26209">政府机构</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/zcwj_26213/&ClassInfoId=26213">政策文件</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/czzj/&ClassInfoId=26221">财政资金</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/ghjh_26225/&ClassInfoId=26225">规划计划</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/zjgb/&ClassInfoId=26228">总结公报</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/tjxx_26233/&ClassInfoId=26233">统计信息</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/cgztb/&ClassInfoId=26237">采购招投标</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/qlqdhzrqd/&ClassInfoId=26259">权力清单和责任清单</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/fpgz/&ClassInfoId=26260">扶贫工作</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/shjz/&ClassInfoId=26261">社会救助</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/zdxm/&ClassInfoId=26263">重大项目</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/bzxzf/&ClassInfoId=26266">保障性住房</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/rsxx_26272/&ClassInfoId=26272">人事信息</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/yjgl_26276/&ClassInfoId=26276">应急管理</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/jdjc_26285/&ClassInfoId=26285">监督检查</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/shgy_26291/&ClassInfoId=26291">社会公益</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/zdcq/&ClassInfoId=26292">征地拆迁</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/jghsf/&ClassInfoId=26298">价格和收费</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/jhsy/&ClassInfoId=26304">计划生育</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/xwfbh/&ClassInfoId=26307">新闻发布会</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/gsgg/&ClassInfoId=26308">公示公告</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/zdxzjcsxtzhzd_50868/&ClassInfoId=50868">行政决策听证会制度</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/xzsp_50869/&ClassInfoId=50869">行政审批</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/xzzf_50874/&ClassInfoId=50874">行政执法</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/sjyqfxpgjz_50879/&ClassInfoId=50879">事件舆情风险评估机制</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/zfgb_50880/&ClassInfoId=50880">政府公报</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/xzfygk_50881/&ClassInfoId=50881">行政复议公开</a>
+											
+												<a href="/xxgkml/index.shtml?url=http://www.yinjiang.gov.cn/xxgkml/hjbh_50882/&ClassInfoId=50882">环境保护</a>
+													 		
+										</p>
+									</dd>
+									<dt>信息公开目录</dt>
+								</dl>
+							</div>
+							<script>
+								$(document).ready(function() {
+									$(".qwfws dl dt").mouseover(function() {
+										$(".qwfws dl").removeClass("dlHover");
+										$(this).parent().addClass("dlHover");
+									})
+									$(".qwfws").hover(function() {
+										$(this).addClass("qwfwHover");
+									},function() {
+										$(this).removeClass("qwfwHover");
+										$(".qwfws dl").removeClass("dlHover");
+									})
+								});
+							</script>
+							<script type="text/javascript">
+								//弹出隐藏层
+								function ShowDiv(show_div){
+									document.getElementById(show_div).style.display='block';
+								}
+								function HinDiv(show_div){
+									document.getElementById(show_div).style.display='none';
+								}
+							</script>
+						</li>
+						<li><a href="/">网站首页</a></li>
+						<li><a href="http://www.yinjiang.gov.cn/zjyj/">走进印江</a></li>
+						<li><a href="http://www.yinjiang.gov.cn/xwzx/">新闻中心</a></li>
+						<li><a href="http://www.yinjiang.gov.cn/xxgk/">政务公开</a></li>
+						<li><a href="http://www.yinjiang.gov.cn/wsfw/">网上服务</a></li>
+						<li class="zmhd"><a href="http://www.yinjiang.gov.cn/zmhd/">政民互动</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	<div class="content">
+		<div class="w1200 auto">
+		   <div class="dqwz_box f14">
+				您当前的位置是：<a href="../../../../../../" title="首页" class="CurrChnlCls">首页</a>&nbsp;&raquo;&nbsp;<a href="../../../../../" title="政务公开" class="CurrChnlCls">政务公开</a>&nbsp;&raquo;&nbsp;<a href="../../../../" title="基础公开" class="CurrChnlCls">基础公开</a>&nbsp;&raquo;&nbsp;<a href="../../../" title="领导之窗" class="CurrChnlCls">领导之窗</a>&nbsp;&raquo;&nbsp;<a href="../../" title="县委领导" class="CurrChnlCls">县委领导</a>&nbsp;&raquo;&nbsp;<a href="../" title="县委常委" class="CurrChnlCls">县委常委</a>
+		   </div>
+		   <div class="contld bs_bg">
+		   		<div class="left_nav">
+					<div class="list">
+						<div class="title">县委领导</div>
+						<ul>
+							
+								<li><a href="../201803/t20180305_2125849.html?num=0"><i></i>沈健民</a></li>
+							
+								<li><a href="../../xwbzr/201801/t20180119_2103368.html?num=0"><i></i>谢守文</a></li>
+							
+								<li><a href="../201710/t20171025_2009115.html?num=0"><i></i>萧子静</a></li>
+							
+								<li><a href="../201704/t20170412_1736143.html?num=0"><i></i>何学明</a></li>
+							
+								<li><a href="../201612/t20161222_1572998.html?num=0"><i></i>谢守文</a></li>
+							
+								<li><a href="../201612/t20161221_1571513.html?num=0"><i></i>田猛</a></li>
+							
+								<li><a href="../201612/t20161221_1571511.html?num=0"><i></i>张廷刚</a></li>
+							
+								<li><a href="../201612/t20161219_1563943.html?num=0"><i></i>张浩然</a></li>
+							
+								<li><a href="../201612/t20161219_1563409.html?num=0"><i></i>田芳</a></li>
+							
+								<li><a href="./t20160926_1314449.html?num=0"><i></i>袁纯江</a></li>
+							
+								<li><a href="./t20160926_1314378.html?num=0"><i></i>杨忠善</a></li>
+							
+								<li><a href="./t20160926_1314359.html?num=0"><i></i>代忠义</a></li>
+							
+								<li><a href="./t20160926_1314342.html?num=0"><i></i>张勇</a></li>
+							
+								<li><a href="./t20160926_1314312.html?num=0"><i></i>田艳</a></li>
+							
+								<li><a href="../../fsj/201609/t20160926_1312168.html?num=0"><i></i>张勇</a></li>
+							
+								<li><a href="../../fsj/201609/t20160926_1311951.html?num=0"><i></i>张浩然</a></li>
+							
+								<li><a href="../../sj/201609/t20160926_1311365.html?num=0"><i></i>田艳　</a></li>
+							
+						</ul>
+					</div>
+					<div class="list">
+						<div class="title">人大领导</div>
+						<ul>
+							
+								<li><a href="../../../rdld/fzr/201612/t20161222_1573195.html?num=1"><i></i>任翔</a></li>
+							
+								<li><a href="../../../rdld/fzr/201612/t20161222_1573194.html?num=1"><i></i>田仁森</a></li>
+							
+								<li><a href="../../../rdld/fzr/201612/t20161222_1573179.html?num=1"><i></i>严黔闽</a></li>
+							
+								<li><a href="../../../rdld/zr/201612/t20161222_1573081.html?num=1"><i></i>何圣仙</a></li>
+							
+								<li><a href="../../../rdld/fzr/201609/t20160926_1314781.html?num=1"><i></i>严政</a></li>
+							
+								<li><a href="../../../rdld/fzr/201609/t20160926_1314797.html?num=1"><i></i>杨晓凤</a></li>
+							
+								<li><a href="../../../rdld/fzr/201609/t20160926_1314813.html?num=1"><i></i>张莉</a></li>
+							
+								<li><a href="../../../rdld/rdbzr/201609/t20160926_1314837.html?num=1"><i></i>黄光雯</a></li>
+							
+						</ul>
+					</div>
+					<div class="list">
+						<div class="title">政府领导</div>
+						<ul>
+							
+								<li><a href="../../../zfld/fxz/201802/t20180227_2123613.html?num=2"><i></i>沈健民</a></li>
+							
+								<li><a href="../../../zfld/fxz/201710/t20171025_2009091.html?num=2"><i></i>萧子静</a></li>
+							
+								<li><a href="../../../zfld/fxz/201704/t20170412_1736275.html?num=2"><i></i>何学明</a></li>
+							
+								<li><a href="../../../zfld/xz/201609/t20160926_1314847.html?num=2"><i></i>张浩然</a></li>
+							
+								<li><a href="../../../zfld/fxz/201612/t20161219_1563419.html?num=2"><i></i>王  琪</a></li>
+							
+								<li><a href="../../../zfld/fxz/201612/t20161219_1563412.html?num=2"><i></i>熊  飞</a></li>
+							
+								<li><a href="../../../zfld/fxz/201612/t20161219_1563380.html?num=2"><i></i>任明洪</a></li>
+							
+								<li><a href="../../../zfld/fxz/201612/t20161219_1563294.html?num=2"><i></i>喻  莉</a></li>
+							
+								<li><a href="../../../zfld/fxz/201609/t20160926_1314909.html?num=2"><i></i>田 猛</a></li>
+							
+								<li><a href="../../../zfld/fxz/201609/t20160926_1314871.html?num=2"><i></i>代忠义</a></li>
+							
+								<li><a href="../../../zfld/zfbzr/201609/t20160926_1314963.html?num=2"><i></i>马洪刚</a></li>
+							
+						</ul>
+					</div>
+					<div class="list">
+						<div class="title">政协领导</div>
+						<ul>
+							
+								<li><a href="../../../zxld/fzx/201801/t20180112_2099982.html?num=3"><i></i>刘旭明</a></li>
+							
+								<li><a href="../../../zxld/fzx/201801/t20180112_2099952.html?num=3"><i></i>叶向能</a></li>
+							
+								<li><a href="../../../zxld/fzx/201612/t20161222_1573442.html?num=3"><i></i>程红</a></li>
+							
+								<li><a href="../../../zxld/fzx/201612/t20161222_1573438.html?num=3"><i></i>周华忠</a></li>
+							
+								<li><a href="../../../zxld/zx/201612/t20161222_1573097.html?num=3"><i></i>饶继勇</a></li>
+							
+								<li><a href="../../../zxld/fzx/201609/t20160926_1314985.html?num=3"><i></i>严志宏</a></li>
+							
+								<li><a href="../../../zxld/fzx/201609/t20160926_1314993.html?num=3"><i></i>杨孝华</a></li>
+							
+								<li><a href="../../../zxld/msz/201609/t20160926_1315006.html?num=3"><i></i>卢朝勇</a></li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="right_nav"> 
+					<div class="grxx">
+						<div class="ldtp">
+							<script type="text/javascript">
+								imgdata="P020171023650130777768.jpg;张勇 副书记证件照 红底.jpg";
+								var str= new Array(); 
+								str=imgdata.split(","); 
+								var _imgURL="";
+								for (i=0;i<str.length ;i++ )   
+								{   
+								 _imgURL=str[0];   
+								}
+								if(_imgURL==""||_imgURL==null){
+								  document.write('<img src="/images/nopic.jpg" />');
+								}else{
+								 formatImgUrl(_imgURL,"130","168","张勇");
+								}
+								_imgURL="";
+							</script>
+县委常委：张勇
+						</div>
+						<div class="ldjj">
+							<div class="title">工作分工</div>
+							<div class="text">
+							   张勇同志：协助县委书记负责县委日常工作，分管党的建设工作。负责脱贫攻坚工作、农业农村工作、卫生与计划生育工作、绩效目标管理考核工作、群众工作。分管督查督办局(督查室、绩效办)、县委群工部。联系县人武部。受县委书记委托处理县委有关事宜。
+							</div>
+						</div>
+					</div>
+					<div class="ldjl">
+						<div class="title">
+							<h3>个人简历</h3>
+						</div>
+						<div class="jlnr">
+							<p style="text-indent: 32px;line-height: 37px"><span style=";font-family:宋体;font-size:16px"><span style="font-family:宋体">张勇，男，土家族，贵州思南人，</span>1973年7月出生，1994年8月参加工作，2004年5月加入中国共产党，在职大专学历。</span><span style=";font-family:宋体;font-size:16px">现任贵州省印江自治县委副书记。</span></p><p style="text-indent: 31px;line-height: 37px"><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">1991.09</span><span style=";font-family:宋体;font-size:16px">--</span><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">1994.08 &nbsp;贵州省工业管理学校工业会计专业学习</span></p><p style="text-indent: 31px;line-height: 37px"><span style="font-family: 宋体; letter-spacing: 0px;">1994.08</span><span style="font-family: 宋体;">--</span><span style="font-family: 宋体; letter-spacing: 0px;">1995.02 &nbsp;贵州省玉屏自治县大龙镇乡镇企业管理站工作员</span></p><p style="text-indent: 31px;line-height: 37px"><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">1995.02</span><span style=";font-family:宋体;font-size:16px">--</span><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">1996.02 &nbsp;贵州省玉屏自治县大龙镇司法所工作员</span></p><p style="text-indent: 31px;line-height: 37px"><span style="font-family: 宋体; letter-spacing: 0px;">1996.02</span><span style="font-family: 宋体;">--</span><span style="font-family: 宋体; letter-spacing: 0px;">1997.03 &nbsp;贵州大龙经济开发区管委会招商处工作员</span></p><p style="text-indent: 31px;line-height: 37px"><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">1997.03</span><span style=";font-family:宋体;font-size:16px">--</span><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">1998.09 &nbsp;贵州省玉屏自治县大龙镇综治办主任</span></p><p style="text-indent: 31px;line-height: 37px"><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">1998.09</span><span style=";font-family:宋体;font-size:16px">--</span><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">2001.10 &nbsp;贵州省玉屏自治县亚鱼乡副乡长</span></p><p style="text-indent: 31px;line-height: 37px"><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">2001.10</span><span style=";font-family:宋体;font-size:16px">--</span><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">2003.06 &nbsp;共青团贵州省玉屏自治县委副书记</span></p><p style="text-indent: 31px;line-height: 37px"><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">2003.06--</span><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">2004.04 &nbsp;共青团贵州省玉屏自治县委副书记（主持工作）</span></p><p style="text-indent: 31px;line-height: 37px"><span style=";font-family:宋体;letter-spacing:-0;font-size:16px"><span style="font-family:宋体">（</span>2003.09—2005.07在中央农业广播电视学校农业推广专业学习〈自考大专〉</span><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">）</span></p><p style="text-indent: 39px;line-height: 37px"><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">2004.04</span><span style=";font-family:宋体;font-size:16px">--</span><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">2006.04 &nbsp;共青团贵州省玉屏自治县委书记</span></p><p style="text-indent: 39px;line-height: 37px"><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">2006.04</span><span style=";font-family:宋体;font-size:16px">--</span><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">2010.10 &nbsp;贵州省玉屏自治县体育局局长</span></p><p style="margin-left: 0;text-indent: 46px;line-height: 37px"><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">2010.10</span><span style=";font-family:宋体;font-size:16px">--</span><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">2010.12 &nbsp;贵州省玉屏自治县田坪镇党委副书记（正科级）</span></p><p style="margin-left: 0;text-indent: 46px;line-height: 37px"><span style="font-family: 宋体; letter-spacing: 0px;">2010.12</span><span style="font-family: 宋体;">--</span><span style="font-family: 宋体; letter-spacing: 0px;">2012.02 &nbsp;贵州省玉屏自治县田坪党委副书记、镇长</span></p><p style="text-indent: 39px;line-height: 37px"><span style=";font-family:宋体;letter-spacing:-0;font-size:16px">2012.02</span><span style=";font-family:宋体;font-size:16px">--2013.04 &nbsp;</span><span style=";font-family:宋体;letter-spacing:-0;font-size:16px"><span style="font-family:宋体">贵州省玉屏自治县田坪镇党委书记</span></span></p><p style="text-indent: 39px;line-height: 37px"><span style="font-family: 宋体; letter-spacing: 0px;">2013.04</span><span style="font-family: 宋体;">--2015.05 &nbsp;</span><span style="font-family: 宋体; letter-spacing: 0px;">贵州玉屏经济开发区党工委委员、管委会副主任，</span><span style="font-family: 宋体; letter-spacing: 0px;">玉屏自治县田坪镇党委书记</span></p><p style="text-indent: 39px;line-height: 37px"><span style="font-family: 宋体; letter-spacing: 0px;">2015.05</span><span style="font-family: 宋体;">--2016.09 &nbsp;</span><span style="font-family: 宋体;">贵州省沿河自治县委常委、政法委书记</span></p><p style="text-indent: 39px;line-height: 37px"><span style="font-family: 宋体;">2016.09</span><span style="font-family: 宋体;">--2017.09 &nbsp;</span><span style="font-family: 宋体;">贵州省铜仁市万山区委常委、组织部部长、统战部部长</span></p><p style="text-indent:40px;line-height:37px"><span style=";font-family:宋体;font-size:16px">2017.09</span><span style=";font-family:宋体;font-size:16px">--</span><span style=";font-family:宋体;font-size:16px"><span style="font-family:宋体">贵州省印江自治县委副书记</span></span></p><p><br/></p>
+						</div>
+					</div>
+				</div>
+		   </div>
+	   </div>
+	</div>
+	<div class="footer">
+<style type="text/css">
+.cat_c .hd ul{ position: absolute;left: 50%; top: 0px; height: 48px; margin: 0 auto; margin-left: -425px;}
+</style>
+	<div class="wz_nvcat">
+		<div class="na_cat">
+			<div class="cat_c">
+				<div class="hd">
+					<ul>
+						<li class="unnewdh">省市政府</li>
+						<li class="unnewdh">各省直部门</li>
+						<li class="unnewdh">市（州）</li>
+						<li class="unnewdh">县（市、区）</li>
+						<li class="unnewdh">其他</li>
+					</ul>
+				</div>
+				<div class="bd">
+					<div class="data-list">
+						<ul>
+								
+								 <li>
+									 <a target="_blank" class="f" href="http://www.xjbt.gov.cn/" >
+										新疆生产建设兵团
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.xinjiang.gov.cn/" >
+										新疆
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.nx.gov.cn/" >
+										宁夏
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.qh.gov.cn/" >
+										青海
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gansu.gov.cn/" >
+										甘肃
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.shaanxi.gov.cn/" >
+										陕西
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.xizang.gov.cn/" >
+										西藏
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.yn.gov.cn/" >
+										云南
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.sc.gov.cn/" >
+										四川
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.hainan.gov.cn/" >
+										海南
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gxzf.gov.cn/" >
+										广西
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gd.gov.cn/" >
+										广东
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.hunan.gov.cn/" >
+										湖南
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.hubei.gov.cn/" >
+										湖北
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.henan.gov.cn/" >
+										河南
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.shandong.gov.cn/" >
+										山东
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.jiangxi.gov.cn/" >
+										江西
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzgov.gov.cn/" >
+										贵州
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.ah.gov.cn/" >
+										安徽
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.zhejiang.gov.cn/" >
+										浙江
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.jiangsu.gov.cn/" >
+										江苏
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.shanghai.gov.cn/" >
+										上海
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.hlj.gov.cn/" >
+										黑龙江
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.jl.gov.cn/" >
+										吉林
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.ln.gov.cn/" >
+										辽宁
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.nmg.gov.cn/" >
+										内蒙古
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.shanxigov.cn/" >
+										山西
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.tj.gov.cn/" >
+										天津
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.beijing.gov.cn/" >
+										北京市
+									 </a>
+								 </li>
+							 
+						</ul>
+						<div class="c" onclick="hideLayout(this)" height="45" valign="middle" align="right">
+							<img style="cursor:pointer;" src="/images/dhnew_close.jpg" width="59" height="28" />
+						</div>
+					</div>
+					<div class="data-list">
+						<ul>
+								
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzgrain.gov.cn/" >
+										省粮食局
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gztyw.gov.cn/" >
+										省体育局
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzpp.gov.cn/" >
+										省新闻出版广电局，省版权局
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gz.stats.gov.cn/" >
+										省统计局
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzqts.gov.cn/" >
+										省质监局
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzaic.org.cn/" >
+										省工商局
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gz-l-tax.gov.cn/" >
+										省地税局
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gztour.gov.cn/" >
+										省旅发委
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzsj.gov.cn/" >
+										省审计厅
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzwht.gov.cn/" >
+										省文化厅
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzcom.gov.cn/" >
+										省商务厅
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzmwr.gov.cn/" >
+										省水利厅
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://gzrst.gov.cn/" >
+										省人力资源社会保障厅
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzgtzy.gov.cn/" >
+										省国土资源厅
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzhjbh.gov.cn/" >
+										省环境保护厅
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.qjt.gov.cn/" >
+										省交通运输厅
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzcz.gov.cn/" >
+										省财政厅
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzdis.gov.cn/" >
+										省监察厅
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzmw.gov.cn/" >
+										省民宗委
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzjxw.gov.cn/" >
+										省经济和信息化委
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzdpc.gov.cn/" >
+										省发展改革委
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzsft.gov.cn/" >
+										省司法厅
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzsmzt.gov.cn/" >
+										省民政厅
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzga.gov.cn/" >
+										省公安厅
+									 </a>
+								 </li>
+							 
+						</ul>
+						<div class="c" onclick="hideLayout(this)" height="45" valign="middle" align="right">
+							<img style="cursor:pointer;" src="/images/dhnew_close.jpg" width="59" height="28" />
+						</div>
+					</div>
+					<div class="data-list">
+						<ul>
+								
+								 <li>
+									 <a target="_blank" class="f" href="http://www.trs.gov.cn/" >
+										铜仁市
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.qiannan.gov.cn/" >
+										黔南州
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gygov.gov.cn/" >
+										贵阳市
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.zunyi.gov.cn/" >
+										遵义市
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.anshun.gov.cn/" >
+										安顺市
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.gzlps.gov.cn/" >
+										六盘水市
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.bijie.gov.cn/" >
+										毕节市
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.qxn.gov.cn/" >
+										黔西南州
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.qdn.gov.cn/" >
+										黔东南州
+									 </a>
+								 </li>
+							 
+						</ul>
+						<div class="c" onclick="hideLayout(this)" height="45" valign="middle" align="right">
+							<img style="cursor:pointer;" src="/images/dhnew_close.jpg" width="59" height="28" />
+						</div>
+					</div>
+					<div class="data-list">
+						<ul>
+								
+								 <li>
+									 <a target="_blank" class="f" href="http://www.yuping.gov.cn:8008/index.shtml" >
+										玉屏县
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.shiqian.gov.cn/" >
+										石阡县
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.dejiang.gov.cn/" >
+										德江县
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.sinan.gov.cn/sy/" >
+										思南县
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.bjq.gov.cn/" >
+										碧江区
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.songtao.gov.cn/" >
+										松桃县
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.jiangkou.gov.cn/" >
+										江口县
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.yanhe.gov.cn/" >
+										沿河县
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.trws.gov.cn/" >
+										万山区
+									 </a>
+								 </li>
+							 
+						</ul>
+						<div class="c" onclick="hideLayout(this)" height="45" valign="middle" align="right">
+							<img style="cursor:pointer;" src="/images/dhnew_close.jpg" width="59" height="28" />
+						</div>
+					</div>
+					<div class="data-list">
+						<ul>
+								
+								 <li>
+									 <a target="_blank" class="f" href="http://www.yjw.gov.cn/" >
+										印江网
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.people.com.cn/" >
+										人民网
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.chinanews.com/" >
+										中国新闻网
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.cctv.com/" >
+										中央电视台
+									 </a>
+								 </li>
+							 	
+								 <li>
+									 <a target="_blank" class="f" href="http://www.tongren.gov.cn/" >
+										铜仁网
+									 </a>
+								 </li>
+							 
+						</ul>
+						<div class="c" onclick="hideLayout(this)" height="45" valign="middle" align="right">
+							<img style="cursor:pointer;" src="/images/dhnew_close.jpg" width="59" height="28" />
+						</div>
+					</div>
+				</div>
+				<!--script type="text/javascript">jQuery(".cat_c").slide({trigger:"click"});</script-->
+			</div>
+		</div>
+		<div class="b_cat" style="position: relative;">
+			<div class="foot_nvat" style="width:528px; height:40px;">
+				<a href="http://www.yinjiang.gov.cn/syqt/lxfs/">关于我们&nbsp;</a>|
+				<a href="http://www.yinjiang.gov.cn/syqt/bqsm/">版权声明&nbsp;</a>|
+				<a href="http://www.yinjiang.gov.cn/syqt/yssm/">隐私声明&nbsp;</a>|
+				<a href="http://www.yinjiang.gov.cn/syqt/fzxx/">辅助信息&nbsp;</a>|
+				<a href="http://www.yinjiang.gov.cn/syqt/rssdy/">RSS订阅&nbsp;</a>|
+				<a href="http://www.yinjiang.gov.cn/syqt/wzdt/">网站地图&nbsp;</a>|
+				<a href="http://58.16.65.210/ids/account/main.jsp">后台维护&nbsp;</a>
+				<a href="" style="display:none;"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259641870'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1259641870' type='text/javascript'%3E%3C/script%3E"));</script></a>
+			</div>
+			<div class="foo_b">
+				<div class="foo_p" style=" float:none; margin: 0 auto;">
+					<div class="foo_cen" style="height:80px; width:875px;">
+						<p>主办：印江土家族苗族自治县人民政府&nbsp;&nbsp;承办：印江土家族苗族自治县人民政府办公室&nbsp;&nbsp;ICP备案号：黔ICP备16005565号  </p>
+						<p>电子邮件：yjxxzhx@126.com 电话：0856-6222991 政府网站标识码：5206250005  公安机关备案号：52062502001002</p>
+						<p>技术支持：<a href="http://www.gogbh.cn/" target="_blank">贵州多彩博虹科技有限公司</a>（建议使用1280 x 720以上分辨率IE9.0以上版本浏览）</p>
+					</div>
+<div class="foo_cen" style="height:30px; overflow:hidden; float:none; margin:0 auto;">
+						<iframe width="100%" height="26" frameborder="0" src="/fwl.html"></iframe>
+					</div>
+					<div class="c_b"></div>
+					<div class="f_imgs" style="float:none; margin:0 auto;">
+						<div class="dzjg">
+							<script id="_jiucuo_" sitecode='5206250005' src='http://pucha.kaipuyun.cn/exposure/jiucuo.js'></script>
+							<a href="http://bszs.conac.cn/sitename?method=show&id=060EF34A7D5A08FEE053012819ACE874" target="_blank"><img src="/images/10705.png" alt="" /></a>
+						</div>
+					</div>
+				</div>
+				<!--<div class="foo_logo">
+					<div class="wx"><img src="/images/623.png" alt="" /></div>
+					<div class="wb">
+						<div class="wb_c"><p>印江县政府<br/>微信、微博</p></div>
+						<div class="wb_sin"><a target="_blank" href="http://t.qq.com/yjmhw2013?preview"><img src="/images/sin.png" alt="" /></a></div>
+						<div class="wb_wx">
+							<a href="" onmouseover="ShowDiv('2016wxss')" onmouseout="HinDiv('2016wxss')" ><img src="/images/wx.png" alt="" /></a>
+							<div id="2016wxss" style="bottom: 100px; right: 3%; display: none; z-index: 10000; position: absolute;">
+								<img src="/images/623.png" />
+							</div>
+						</div>
+					</div>
+				</div>-->
+				<div class="foo_bgs"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+	.slideBar{
+	background: #fff;
+	cursor:pointer;
+	height:auto;
+	width:66px;
+	position:fixed;
+	left: 52%;
+	margin-left: 600px;
+	_position:absolute; 
+	top:300px;
+	_position:absolute;_top:expression(eval(document.documentElement.clientHeight/2+document.documentElement.scrollTop)); 
+	text-align:center;}	
+	.slideBar a{background:url(/images/app-icon.png) no-repeat; width:100%; height:78px; display:block;}
+	.slideBar a.ydb{background-position:0px -75px;}
+	.slideBar a.wx{ background: url(/images/wx.png) center 20px no-repeat;line-height: 126px;color: #24c447;border-bottom: 1px solid #ddd;}
+	.slideBar a.wb{background: url(/images/txwb.jpg) center top no-repeat;line-height: 126px;color: #24c447;border-bottom: 1px solid #ddd;}
+	.slideBar a.bmcx{ background: url(/images/bmcx.jpg) center top no-repeat;line-height: 126px;color: #24c447;border-bottom: 1px solid #ddd;}
+</style>
+<div class="slideBar">
+		<a class="wb" target="_blank" href="http://t.qq.com/yjmhw2013?preview">政务微博</a>
+		<a class="wx" onmouseover="ShowDiv('2017wxs')" onmouseout="HinDiv('2017wxs')"  href="javascript:void(0)">政务微信
+			<div id="2017wxs" style="top: 80px; right: 66px; display: none; z-index: 10000; position: absolute;">
+				<img src="/images/623.png" />
+			</div>
+		</a>
+		<a class="app" href="/app.html"></a>
+		<a class="ydb" onmouseover="ShowDiv('2017ysp')" onmouseout="HinDiv('2017ysp')"  href="javascript:void(0)">
+			<div id="2017ysp" style="top: 160px; right: 66px; display: none; z-index: 10000; position: absolute;">
+				<img src="/images/ysp_ewm.png" style="width: 150px;height: 150px;" />
+			</div>
+		</a>
+		<a class="bmcx" href="/wsfw/bmcx/"></a>
+	</div>
+<script type="text/javascript">
+	//弹出隐藏层
+	function ShowDiv(show_div){
+		document.getElementById(show_div).style.display='block';
+	}
+	function HinDiv(show_div){
+		document.getElementById(show_div).style.display='none';
+	}
+</script>
+<script type="text/javascript">
+  var tabs = $('.unnewdh'), tabs_list = $('.data-list');
+  tabs.click(function() {
+    var $this = $(this), index = tabs.index(this);
+    tabs_list.hide();
+    if ($this.hasClass('on')) {
+      $this.removeClass('on');
+    } else {
+      tabs.removeClass('on').eq(index).addClass('on');
+      tabs_list.eq(index).show();
+    }
+  });
+  function hideLayout(obj) {
+    var o = $(obj).parents('.data-list'), index = tabs_list.index(o);
+    tabs.eq(index).removeClass('on');
+    tabs_list.eq(index).hide();
+  }
+</script>
+<script id="_trs_ta_js" src="//ta.trs.cn/c/js/ta.js?mpid=1115" async="async" defer="defer"></script>
+
+<script language="JavaScript">var _trackDataType = "web";var _trackData = _trackData || [];</script>
+<script type="text/javascript" charset="utf-8" id="kpyfx_js_id_10000590" src="//fxsjcj.kaipuyun.cn/count/10000590/10000590.js"></script>
+
+
+<script>
+$(document).ready(function () {
+            for (var i = 0; i < document.links.length; i++) {
+                var url = document.links[i].href.toLowerCase();
+                if (url.indexOf("http://localhost") == -1 && url.indexOf("yinjiang.gov.cn") == -1&& url != "yinjiang.bohoog.com" &&url.indexOf("javascript:") == -1 && url != "#" && !document.links[i].onclick) {
+                    document.links[i].onclick = function () {
+                        return confirm("您访问的链接即将离开“印江县人民政府门户网站”，是否继续？")
+                    };
+                }
+            }
+        });
+</script>
+<script>
+window.onload=function()
+{
+document.getElementById("Zoom").innerHTML = document.getElementById("Zoom").innerHTML.replace("--- #turnpageflag# ---","");
+}
+</script>
+	<script type="text/javascript">
+		var index=0;
+		try{
+			var searchStr = location.search;
+			searchStr = searchStr.substr(1); //将searchStr字符串分割成数组，数组中的每一个元素为一个参数和参数值
+			var searchs = searchStr.split("&"); //获得第一个参数和值
+			var address = searchs[0].split("=");
+			index=address[1];
+		}catch (e){
+			index=0;
+		}
+		 jQuery(".left_nav").slide({titCell:".title", targetCell:".list ul",defaultIndex:index,trigger:"click",effect:"slideDown",delayTime:300,returnDefault:false});
+	</script>
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>玉屏公众信息网·张勇</title>
+<meta name="description" content="张勇" />
+<meta name="keywords" content="张勇" />
+<meta name="whichpage" content="doc" />
+<meta name="key_kinds" content="张勇" />
+<meta name="whichcolumn" content="张勇" />
+<meta name="whichcorp" content="玉屏公众信息网" />
+<meta name="RootChannel" content="Intertid.TemplateHelper.ChannelEntity" />
+<meta name="key_pageurl" content="/zwgk/ldzc/xwld/cw/zy/index.shtml" />
+<meta name="ifspide" content="true" />
+<link href="/static/2013/css/index.css" rel="stylesheet" type="text/css" />
+<link href="/static/2013/css/channelpage.css" rel="stylesheet" type="text/css" />
+<meta property="wb:webmaster" content="d04431c622045cc9" />
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/static/2013/js/jquery.js"></script>
+<script type="text/javascript" src="/static/2013/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/static/2013/js/jquery.tab.js"></script>
+<script type="text/javascript" src="/static/2013/js/jquery.roll.js"></script>
+<script type="text/javascript" src="/static/2013/js/jquery.tree.js"></script>
+<script type="text/javascript" src="/static/2013/js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+function browserRedirect() {
+var sUserAgent = navigator.userAgent.toLowerCase();
+var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+var bIsAndroid = sUserAgent.match(/android/i) == "android";
+var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
+if (bIsIphoneOs || bIsAndroid || bIsWM) {
+window.location = 'http://3g.yuping.gov.cn';
+} 
+}
+browserRedirect();
+</script>
+<!--[if IE 6]>
+<script type="text/javascript" src="/static/js/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('.fix_bg,background,img');
+</script>
+<![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+$(function() {
+	$.fn.manhuatoTop = function(options) {
+		var defaults = {			
+			showHeight : 150,
+			speed : 1000
+		};
+		var options = $.extend(defaults,options);
+		$("body").prepend("<div id='totop'><a>返回顶部</a></div>");
+		var $toTop = $(this);
+		var $top = $("#totop");
+		var $ta = $("#totop a");
+		$toTop.scroll(function(){
+			var scrolltop=$(this).scrollTop();		
+			if(scrolltop>=options.showHeight){				
+				$top.show();
+			}
+			else{
+				$top.hide();
+			}
+		});	
+		$ta.hover(function(){ 		
+			$(this).addClass("cur");	
+		},function(){			
+			$(this).removeClass("cur");		
+		});	
+		$top.click(function(){
+			$("html,body").animate({scrollTop: 0}, options.speed);	
+		});
+	}
+});
+</script>
+<script type="text/javascript">
+$(function (){
+	$(window).manhuatoTop({
+		showHeight : 100,//设置滚动高度时显示
+		speed : 500 //返回顶部的速度以毫秒为单位
+	});
+});
+</script>
+
+<div id="header">
+	<div class="stwmdjs" style="position:absolute; top:254px; left:960px; width:170px; text-align:right; line-height:22px;">
+<a href="#lcos" style="text-align:right;" class="stwmgb">关闭</a><p><a href="/xwzx/xwtt/175599.shtml"><img src="/upload/piao.jpg" /></a></p>
+</div>
+        <div class="stwmdjs1" style="position:absolute; top:375px; left:960px; width:170px; text-align:right; line-height:22px;">
+<a href="#lcos" style="text-align:right;" class="stwmgb1">关闭</a><p><a href="/zt/2017/mfggzltpgj/index.shtml"><img src="/upload/1.jpg" /></a></p>
+</div>
+
+   
+    <script type="text/javascript">
+		$(function(){
+		$(".stwmgb").click(function () {
+		$(".stwmdjs").hide();
+		});
+		});
+
+                $(function(){
+		$(".stwmgb1").click(function () {
+		$(".stwmdjs1").hide();
+		});
+		});
+
+		
+		var interval = 1000; 
+		function ShowCountDown(year,month,day,divname) 
+		{ 
+		var now = new Date(); 
+		var endDate = new Date(year, month-1, day); 
+		var leftTime=endDate.getTime()-now.getTime(); 
+		var leftsecond = parseInt(leftTime/1000); 
+		//var day1=parseInt(leftsecond/(24*60*60*6)); 
+		var day1=Math.floor(leftsecond/(60*60*24)); 
+		var hour=Math.floor((leftsecond-day1*24*60*60)/3600); 
+		var minute=Math.floor((leftsecond-day1*24*60*60-hour*3600)/60); 
+		var second=Math.floor(leftsecond-day1*24*60*60-hour*3600-minute*60); 
+		var cc = document.getElementById(divname); 
+		cc.innerHTML = day1
+		/*cc.innerHTML = "距离"+year+"年"+month+"月"+day+"日还有："+day1+"天"+hour+"小时"+minute+"分"+second+"秒"; 
+		*/
+		} 
+		window.setInterval(function(){ShowCountDown(2017,06,18,'djs2');}, interval); 
+
+	</script>
+
+
+<div class="baohuhuanjing" style="position:absolute; top:254px; left:-181px; width:170px; text-align:right; line-height:22px;">
+<a href="#lcos" class="piao_lcos">关闭</a><p><a href="http://58.16.65.139:8088/gzwsxf/gzlogin.jsp?orgid=3021"><img src="/static/images/wsxfpt.jpg"/></a></p>
+</div>
+<script type="text/javascript">
+$(function(){
+$(".piao_lcos").click(function () {
+$(".baohuhuanjing").hide();
+});
+})
+</script>
+<div class="rxdh" style="position:absolute; top:374px; left:-181px; width:170px; text-align:right; line-height:22px;">
+<a href="#lcos" class="piao_rxdh">关闭</a><p><a href="http://guizhou.12388.gov.cn/tongrenshi/yupingxian/index.html"><img src="/static/images/wyjb.jpg"/></a></p>
+</div>
+<script type="text/javascript">
+$(function(){
+$(".piao_rxdh").click(function () {
+$(".rxdh").hide();
+});
+})
+</script>
+  <div class="ding">  
+<a style="float:left;" href="http://webscan.360.cn/index/checkwebsite/url/www.yuping.gov.cn" name="d0fd636787ae597b8137a74858357a8a" >360网站安全检测平台</a>
+<img src="/static/images/guohui.png" style="float:left"><a href="http://www.gov.cn/"  style="float:left">中国政府网</a>
+<img src="/static/images/guohui.png" style="float:left"><a href="http://www.gzgov.gov.cn/"  style="float:left">贵州省人民政府网</a>
+<img src="/static/images/guohui.png" style="float:left"><a href="http://www.trs.gov.cn/"  style="float:left">铜仁市人民政府网</a>
+    <ul><li>                       
+      <a name="top" href="http://www.yuping.gov.cn/">简体版</a>
+      <!--<a href="http://big5.yuping.gov.cn">繁体版</a> -->
+      <a href="http://3g.yuping.gov.cn"> WAP手机版 </a>
+      <a href="/RSS/index.shtml" title="RSS订阅" target="_blank">RSS订阅</a>
+      <a href="http://e.weibo.com/yupinggov" title="政务微博" target="_blank" style="margin-right:3px;">政务微博</a>
+      </li></ul>
+  </div>
+<div class="hyy">宜居、宜游、宜业</div>  
+<div class="hyy2">黔东枢纽城市</div>
+<div class="hyy3">侗乡玉屏欢迎您!</div>
+<div class="tianqi">
+   <a href="/jrtq/189931.shtml" style="color:#686868" title="玉屏未来72小时天气预报" target="_blank">一、玉屏未来72小时天气预报预计：今天夜间到明天白天，阴天...</a>
+  </div>
+
+<!--特色专题-->
+<div class="tesezhuanti">                              
+<a href="/ggfw/tzfw/index.shtml" target="_blank" class="ts1" title="投资玉屏"></a>
+<a href="/ggfw/lyfw/index.shtml" target="_blank" class="ts2" title="旅游玉屏"></a>
+<a href="/ggfw/snfw/index.shtml" target="_blank" class="ts3" title="三农玉屏"></a>
+<a href="/xwzx/tpxw/index.shtml" target="_blank" class="ts5" title="图片玉屏"></a>
+</div>
+<!--导航-->
+	<div id="nav">
+		<ul class="f_l">
+        	<li style="padding-left:17px;"><a href="/index.shtml">网站首页</a></li><li><a href="/zjyp/index.shtml">走进玉屏</a></li><li><a href="/zwgk/index.shtml">信息公开</a></li><li><a href="/zwdt/index.shtml">网上办事</a></li><li><a href="/ggfw/index.shtml">公共服务</a></li>
+<li><a href="/WebPortal/home/index.html">互动交流</a></li>
+        </ul>
+        <div class="sousuo f_r">
+      <label class="f_l">信息搜索：</label>
+      <input class="f_l"   type="text" value="请输入关键字搜索" onfocus="return refocus('www','query');" id="query"  name="query" onkeydown="EnterSub('www','query');" onBlur="return reblur('www','query');"  >
+      <a class="f_l" href="javascript:void(0);" title="搜索" onclick="sub('www','query');"></a>
+      </div>
+	</div>
+</div>
+<script type="text/javascript">
+function tan(){
+   alert("系统正在升级中!");
+   return false;
+}
+  function refocus(www,query){     
+     var getquery=document.getElementById(query);
+     getquery.value="";
+	 getquery.autocomplete="off";
+	 getquery.focus(); 
+	 
+  }  
+  function reblur(www,query){
+     var getquery=document.getElementById(query);
+	 if (getquery.value==""){
+        getquery.value="请输入搜索关键字";	 
+	 }
+  }   
+String.prototype.trim=function(){
+	return this.replace(/(^\s*)|(\s*$)/g,"");
+}
+function sub(www,query){
+      
+	//必需，先将文本转换为utf-8
+	document.charset = "utf-8";	
+	var fixvalue = document.getElementById(query).value;
+	fixvalue = fixvalue.replace(/\~|\!|\*|\?|\^|\\|\(|\)|\[|\]|\+|\-|\:|\{|\}|\"/g,"");
+	if(fixvalue.trim()=="" || fixvalue=="请输入搜索关键字"){
+		document.getElementById(query).value = "";
+		alert("关键字不能为空！");
+		return false;
+	}
+	else{		
+			window.open("http://www.yuping.gov.cn:8084/contentsearch/search.jsp?index="+www+"&query="+encodeURIComponent(fixvalue));
+		
+	}
+	//必需，最后将文本转换为gb2312
+	document.charset="gb2312"
+	return false;
+}
+function gsub(){
+	var url = "http://www.yuping.gov.cn:8084/contentsearch/gjsousuo.jsp";
+	window.open(url);
+}
+//回车提交方法
+function EnterSub(www,query){
+		if (event.keyCode == 13)    {
+        	//必需，先将文本转换为utf-8
+			document.charset = "utf-8";	
+			var fixvalue = document.getElementById(query).value;
+			fixvalue = fixvalue.replace(/\~|\!|\*|\?|\^|\\|\(|\)|\[|\]|\+|\-|\:|\{|\}|\"/g,"");
+			if(fixvalue.trim()==""){
+				document.getElementById(query).value = "";
+				alert("关键字不能为空！");
+				return false;
+			}
+			else{
+				if(document.getElementById("qun").checked){
+					window.open("http://www.yuping.gov.cn:8084/contentsearch/search.jsp?query="+encodeURIComponent(fixvalue));
+				}else{
+					window.open("http://www.yuping.gov.cn:8084/contentsearch/search.jsp?index="+www+"&query="+encodeURIComponent(fixvalue));
+				}
+			}
+			//必需，最后将文本转换为gb2312
+			document.charset="gb2312"
+			return false;
+    	}
+	}
+function SetHome(obj,vrl){
+        try{
+                obj.style.behavior='url(#default#homepage)';obj.setHomePage(vrl);
+        }
+        catch(e){
+                if(window.netscape) {
+                        try {
+                                netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+                        }
+                        catch (e) {
+                                alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+                        }
+                        var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                        prefs.setCharPref('browser.startup.homepage',vrl);
+                 }
+        }
+}
+</script>
+<div class="container_cp clearfix">
+  <div class="FixBg clearfix">
+    <div class="sidemenu sidemenu_red f_l">  
+      <p class="top_img"><img src="/static/images/side_img05.jpg" /></p>
+<h2><em><a href="/zwgk/ldzc/xwld/sj/wjm/index.shtml">县 委 领 导</a></em></h2>
+  <div class="submenu_red">
+  <h4>书记</h4>
+     
+    <table class="tab09" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>       <td width="35%"><span><a href="/zwgk/ldzc/xwld/sj/wjm/index.shtml">王俊铭</a></span></td>
+       </tr>
+    </table>
+  </div>
+    <div class="submenu_red">
+  <h4>副书记</h4>
+     
+    <table class="tab09" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>       <td width="35%"><span><a href="/zwgk/ldzc/xwld/fsj/axr/index.shtml">杨德振</a></span></td>
+            <td width="65%"><span><a href="/zwgk/ldzc/xwld/fsj/yh/index.shtml">杨宏</a></span></td>
+       </tr>
+    </table>
+  </div>
+    <div class="submenu_red">
+  <h4>常委</h4>
+     
+    <table class="tab09" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>       <td width="35%"><span><a href="/zwgk/ldzc/xwld/cw/zy/index.shtml">张勇</a></span></td>
+            <td width="65%"><span><a href="/zwgk/ldzc/xwld/cw/wch/index.shtml">吴红春</a></span></td>
+      </tr>
+      <tr>       <td width="35%"><span><a href="/zwgk/ldzc/xwld/cw/yy/index.shtml">杨渊</a></span></td>
+            <td width="65%"><span><a href="/zwgk/ldzc/xwld/cw/zsc/index.shtml">张生财</a></span></td>
+      </tr>
+      <tr>       <td width="35%"><span><a href="/zwgk/ldzc/xwld/cw/jxc/index.shtml">蒋新成</a></span></td>
+            <td width="65%"><span><a href="/zwgk/ldzc/xwld/cw/tdw/index.shtml">田登伟</a></span></td>
+      </tr>
+      <tr>       <td width="35%"><span><a href="/zwgk/ldzc/xwld/cw/lxl/index.shtml">刘学良</a></span></td>
+            <td width="65%"><span><a href="/zwgk/ldzc/xwld/cw/hjm/index.shtml">黄桔梅</a></span></td>
+      </tr>
+      <tr>       <td width="35%"><span><a href="/zwgk/ldzc/xwld/cw/ycj/index.shtml">阮成江</a></span></td>
+            <td width="65%"><span><a href="/zwgk/ldzc/xwld/cw/cg/index.shtml">陈高</a></span></td>
+      </tr>
+      <tr>       <td width="35%"><span><a href="/zwgk/ldzc/xwld/cw/jc/index.shtml">姜超</a></span></td>
+       </tr>
+    </table>
+  </div>
+    <div class="submenu_red">
+  <h4>办公室主任</h4>
+     
+    <table class="tab09" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>       <td width="35%"><span><a href="/zwgk/ldzc/xwld/xwbgszr/tdw/index.shtml">田登伟</a></span></td>
+       </tr>
+    </table>
+  </div>
+    <h2><em><a href="/zwgk/ldzc/xzxld/zx/ydf/index.shtml">县人大领导</a></em></h2>
+  <h2><em><a href="/zwgk/ldzc/xzfld/xc/axr/index.shtml">县政府领导</a></em></h2>
+  <h2><em><a href="/zwgk/ldzc/xzxld/zx/lhb/index.shtml">县政协领导</a></em></h2>
+
+ 
+       </div>
+    <div class="Rightbox clearfix f_r">
+      <div class="Rightbox clearfix f_r"> 
+        <!--领导分工start-->
+        <div class="box21 clearfix">           <div class="box21_l f_l"><img src="/images/zwgk/ldzc/xwld/cw/zy/2017/9/26/cc706491-3347-4a06-8b53-c6d54d319e3f.png" /></div>
+          <div class="box21_r f_r">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <th width="30%">                   县委
+                   常委：</th>
+                <td width="70%">张勇</td>
+              </tr>
+              <tr>
+                <th width="17%">工作分工：</th>
+                <td width="83%"><p>负责县委安排的工作。</p></td>
+              </tr>
+              <div class="" style="text-align:center; text-indent:0px; padding:10px 0; border-bottom:1px dashed #ccc;">来源：玉屏公众信息网
+&nbsp; 发布日期：2017年09月06日 10:35 浏览次数：<script src="/Counter/Count.asp?ID=ea9566e7-5db0-4108-b263-2887cc8ea44c&SiteID=2519f70a-44f3-477c-b0f5-da54627124ad"></script></div>
+
+        <div class="fx" style="position:relative; overflow:hidden;">
+			<!-- JiaThis Button BEGIN -->
+            <div class="jiathis_style" style="float:right; margin:10px 0; ">
+                <a class="jiathis_button_qzone"></a>
+                <a class="jiathis_button_tsina"></a>
+                <a class="jiathis_button_tqq"></a>
+                <a class="jiathis_button_weixin"></a>
+                <a class="jiathis_button_renren"></a>
+                <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                <a class="jiathis_counter_style"></a>
+            </div>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+            <!-- JiaThis Button END -->
+        </div>
+
+            </table>
+          </div>
+           </div>
+        
+        <!--领导分工end--> 
+        <!--领导分工start-->
+        <div class="box15 box15_red mgt_10">
+          <h2 class="clearfix"><span class="tit white font_14 f_l">领导简介</span></h2>
+          <div class="box15_con">             <p>张勇，男，土家族，1981年5月生，籍贯贵州思南，2003年12月参加工作，2006年6月加入中国共产党，研究生学历，法律硕士学位。现任玉屏自治县委常委。</p>
+<p>1999.09&mdash;2003.07 中南民族大学民族学与社会学学院民族学专业学习<br />
+2003.07&mdash;2003.12 贵州省铜仁地区文化局文化艺术研究所实习<br />
+2003.12&mdash;2004.06 贵州省铜仁地区文化局文化艺术研究所工作员<br />
+2004.06&mdash;2008.10 贵州省铜仁地区文化局群众艺术馆工作员(其间:<br />
+2006.10-2007.06抽调到铜仁地委办公室工作；2007.06-2008.10抽调到铜仁地区文化局办公室工作)<br />
+2008.10&mdash;2009.05 贵州省铜仁地区政协工委办公室政协委员培训中心工作员<br />
+2009.05&mdash;2010.05 贵州省德江县人民政府科技副县长<br />
+2010.05&mdash;2011.12 贵州省德江县人民政府科技副县长（副县级）<br />
+2011.12&mdash;2012.04 贵州省德江县人民政府副县长<br />
+2012.04&mdash;2015.12 贵州省德江县委常委、宣传部部长（其间：2013.04<br />
+&mdash;2015.12在中南民族大学法学院法学专业学习，获法律硕士学位）<br />
+2015.12&mdash;2017.08 共青团贵州省铜仁市委书记、党组书记<br />
+2017.08&mdash;2017.10 贵州省玉屏自治县委常委</p>
+<p>2017.10&mdash; 贵州省玉屏自治县委常委、副县长</p>
+             </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/static/js/public.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/static_def/js/thickbox.css" type="text/css"/>
+<script type="text/javascript" src="/static_def/js/thickbox.js"></script><br/>
+<div class="footer">
+	<div class="footbg">
+    <em>   
+    <a class="footbut" href="#top" title="返回顶部"><img src="/static/2013/images/body/foot_but.jpg" width="282" height="69" /></a>            
+    <a target="_blank" href="/fzlm/gybz/index.shtml">关于本站</a>
+    <a target="_blank" href="/fzlm/lxwm/index.shtml">联系我们</a>
+    <a target="_blank" href="/fzlm/wzdt/index.shtml">网站地图</a>
+    <a href="javascript:void(0);" onclick="AddFavorite('玉屏公众信息网',location.href)">收藏本站</a>
+    <a target="_blank" href="/fzlm/bqsm/index.shtml">版权声明</a>
+    <a href="/WebPortal/GovMistakes/ErrorCollection?DepID=043b55ed-73f9-4431-87eb-fa85a7879fe1&height=490&width=470&TB_iframe" class="thickbox">网站纠错</a>
+   
+    </em>
+    </div>
+    <div style="display:none"><script src="/Counter/Count.asp?ContentID=2519f70a-44f3-477c-b0f5-da54627124ad&SiteID=2519f70a-44f3-477c-b0f5-da54627124ad&SiteName=玉屏公众信息网"></script></div>
+    <div class="fbg">
+    	<div class="fbg_c">
+        		<p style=" padding-top:27px;">主办单位:中共玉屏侗族自治县委  玉屏侗族自治县人民政府 地址：贵州省玉屏侗族自治县平溪镇中山路505号</p>
+				<p style=" padding-top:12px;">网站维护:玉屏侗族自治县人民政府信息管理中心 技术支持:<a style="color:#1471ac;" href="http://www.intertid.com" target="_blank">泰得利通</a> </p>
+  			    <p style=" padding-top:12px;">公安系统备案号：52062202522229  黔ICP备05004376号</p>
+  	  </div>
+    </div>
+    
+</div>
+<div style="text-align:center">
+<!--<script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/24/358/2181/40501427/CA243582181405014270000.js' type='text/javascript'%3E%3C/script%3E"));</script>-->
+<span id="_ideConac">
+ <a href="http://bszs.conac.cn/sitename?method=show&id=081D28D7F3C152DDE053022819AC3BD7"><img id="imgConac" src="/static/images/foot/tp1.png" data-bd-imgshare-binded="1" hspace="0" vspace="0" border="0"></a></span>
+<!--<script id="_jiucuo_" sitecode='5206220011' src='http://pucha.kaipuyun.cn/exposure/jiucuo.js'></script>-->
+<span id="_span_jiucuo">
+<a href="http://121.43.68.40/exposure/jiucuo.html?site_code=5206220011&url=www.yuping.gov.cn">
+<img onclick="Link('5206220011')" style="margin:0;border:0;cursor: pointer;" src="http://121.43.68.40/exposure/images/jiucuo.png?v=5206220011">
+</a>
+</span>
+</div>
+<!--微信-->
+<div id="Right1" style="position: fixed; bottom: 5px;  _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,30)||0))); _position:absolute; _bottom:auto; right: 10px">
+<img width="158" height="155" border="0" src="/static/images/weixin.png" alt="玉屏县人民政府微信平台">
+<p style="text-align: center;">扫一下</p>
+<p style="text-align: center;">让您更了解“玉屏”</p>
+<div id="closeRight1" style="text-align:right;cursor:pointer; font-size:12px; line-height:30px;">关闭</div>
+</div>
+<script language="JavaScript">var _trackDataType = "web";var _trackData = _trackData || [];</script><script type="text/javascript" charset="utf-8" id="kpyfx_js_id_10000587" src="//fxsjcj.kaipuyun.cn/count/10000587/10000587.js"></script>
+<script type="text/javascript">
+$(function(){
+$("#closeRight1").click(function () {
+$("#Right1").hide();
+});
+})
+</script>
+<!--微信-->
+<!--微信2-->
+<div id="Right2" style="position: fixed; bottom: 5px;  _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,30)||0))); _position:absolute; _bottom:auto; left: 10px">
+<img width="158" height="155" border="0" src="/static/images/sjxfewm.png" alt="贵州手机信访二维码下载">
+<p style="text-align: center;">贵州手机</p>
+<p style="text-align: center;">信访二维码</p>
+<div id="closeRight2" style="text-align:right;cursor:pointer; font-size:12px; line-height:30px;">关闭</div>
+</div>
+<script language="JavaScript">var _trackDataType = "web";var _trackData = _trackData || [];</script><script type="text/javascript" charset="utf-8" id="kpyfx_js_id_10000587" src="//fxsjcj.kaipuyun.cn/count/10000587/10000587.js"></script>
+<script type="text/javascript">
+$(function(){
+$("#closeRight2").click(function () {
+$("#Right2").hide();
+});
+})
+</script>
+<!--微信-->
+<div style="display:none; position: fixed; bottom: 0px;  _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,30)||0))); _position:absolute; _bottom:auto; left: 10px" id="Right2">
+<div style="height:auto; width:118px; position:relative;">
+<a href="#1"><div style="background:url(/static/images/djs.jpg) no-repeat; height:485px; width:118px;"></div></a>
+<div style="position:absolute; width:41px; height:32px; font-family:'黑体'; font-size:39px; top:390px; left:45px; color:#d9081b;" id="djs"></div>
+<div style="text-align:right;cursor:pointer; font-size:12px; line-height:30px;" id="gb">关闭</div>
+</div>
+</div>
+<script type="text/javascript">
+$(function(){
+$("#gb").click(function () {
+$("#Right2").hide();
+});
+})
+</script>
+
+<!--外链-->
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            for (var i = 0; i < document.links.length; i++) {
+                var url = document.links[i].href.toLowerCase();
+                if (url.indexOf("javascript") == -1 && url.indexOf("yuping.gov.cn") == -1 && url != "#" && !document.links[i].onclick) {
+                    document.links[i].onclick = function () {
+                        return confirm("您访问的链接即将离开“玉屏公众信息网”，是否继续？")
+                    };
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height:100%">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="SiteName" content="贵州省水利厅">
+<meta name="SiteDomain" content="http://www.gzmwr.gov.cn/,www.gzmwr.gov.cn/">
+<meta name="SiteIDCode" content='5200000011'>
+<meta name="ColumnName" content="主动公开">
+<meta name="ColumnType" content="">
+<meta name="ArticleTitle" content="杨静、李军同志任前公示">
+<meta name="PubDate" content="2015-01-14 10:44:24">
+<meta name="ContentSource" content="">
+<meta name="Keywords" content="<meta name="keywords" content="杨静、李军同志任前公示">">
+<meta name="Author" content="yxc">
+<meta name="Description" content="">
+<title>杨静、李军同志任前公示</title>
+<script src="/images/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8" ignore="1"></script>
+<script src="/images/jquery.SuperSlide.2.1.1.js" type="text/javascript" charset="utf-8" ignore="1"></script>
+<script src="/tools/js/layer/layer.js" type="text/javascript"></script>
+<!-- 检索跳转 -->
+<script>
+	$(function() {
+		$('#j_search_btn').click(function() {
+			var str = $(this).prev().val();
+			checks(str);
+		});
+	});
+	function checks(t) {
+		t = t.replace(/(^\s+)|(\s+$)/g, "");
+		if (t == "" || t == "请输入关键检索字") {
+			alert('请输入有效内容');
+			return false;
+		}
+		szMsg = "[#_%&'/",
+		";:=!^]";
+		alertStr = "";
+		for (i = 1; i < szMsg.length + 1; i++) {
+			if (t.indexOf(szMsg.substring(i - 1, i)) > -1) {
+				alertStr = "请勿包含非法字符如[#_%&'/",
+				";:=!^]";
+				alert(alertStr);
+				// break;
+				return false;
+			}
+		}
+		var key = document.getElementById("keyword").value;
+		window.location.href = "/search.html?keyword=" + key;
+		return true;
+	}
+</script>
+<script type="text/javascript">
+//隐藏控件
+function turnoff(obj){
+	document.getElementById(obj).style.display="none";
+}
+</script>
+
+<script type="text/javascript" language="javascript"> 
+//加入收藏 
+	function AddFavorite(sURL, sTitle) {
+		sURL = encodeURI(sURL);
+		try{
+			window.external.addFavorite(sURL, sTitle);
+		}
+		catch(e)
+		{
+			try{
+			window.sidebar.addPanel(sTitle, sURL, "");
+			}
+			catch (e)
+			{
+			alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+			}
+		}
+	} 
+//设为首页 
+	function SetHome(url){
+		if (document.all) {
+			document.body.style.behavior='url(#default#homepage)';
+			document.body.setHomePage(url);
+		}
+		else{ 
+			alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");
+		}
+	}
+</script>
+<script type="text/javascript">
+      function GoTo() {
+          window.open("/syqt/wzjc/index.html?StrUrl=" + document.URL);
+      }
+</script>
+
+<script type="text/javascript">
+	//取图片进行地址转换，主要为了兼容历史数据
+   function formatImgUrl(_imgUrl,_width,_height,_imgTitle){	
+		if(_width==null || _width==""){ _width=347};
+		if(_height==null || _height==""){ _height=249};
+		var	str = _imgUrl;
+		var arr= new Array();
+		arr = str.toString().split(";");
+		var  image=arr[0];
+		var s3 = image.substr(0, 2);
+		if(s3=="P0"){
+			var httphead = "/protect/";
+			var s1 = image.substr(0, 8);
+			var s2 = image.substr(0,10);
+			httphead+=s1+"/"+s2+"/"+image;
+			document.write('<img src="'+httphead+'" height="'+_height+'" width="'+_width+'" alt="'+_imgTitle+'" />');
+		}else if(s3 == "W0"){
+			var httphead = "/webpic/";
+			var s1 = image.substr(0, 8);
+			var s2 = image.substr(0,10);
+			httphead+=s1+"/"+s2+"/"+image;
+			document.write('<img src="'+httphead+'" height="'+_height+'" width="'+_width+'" alt="'+_imgTitle+'" />');
+		}else {
+			document.write('<img src="'+_imgUrl+'" height="'+_height+'" width="'+_width+'" alt="'+_imgTitle+'" />');
+		}	
+   }			
+</script>
+
+<style>
+body {
+    background: none;
+}
+</style>
+<link href="../../../../images/nry.css" rel="stylesheet" />
+<script type="text/javascript">
+function fontResizer(smallFont,medFont,largeFont){
+	
+	function clearSelected(){
+		$(".f10").removeClass("curFont");
+		$(".f14").removeClass("curFont");
+		$(".f16").removeClass("curFont");
+	}
+	
+	function saveState(curSize){
+		var date = new Date();
+		date.setTime(date.getTime()+(7*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+		document.cookie = "fontSizer"+"="+curSize+expires+"; path=/";
+	}
+
+	$(".f10").click(function(){
+		$('#Zoom').css('font-size', smallFont);
+		clearSelected();
+		$(".f10").addClass("curFont");
+		saveState(smallFont);
+	});
+
+	$(".f14").click(function(){
+		$('#Zoom').css('font-size', medFont);
+		clearSelected();
+		$(".f14").addClass("curFont");
+		saveState(medFont);
+	});
+
+	$(".f16").click(function(){
+		$('#Zoom').css('font-size', largeFont);
+		clearSelected();
+		$(".f16").addClass("curFont");
+		saveState(largeFont);
+	});
+
+	function getCookie(c_name){
+		if(document.cookie.length>0){
+			c_start=document.cookie.indexOf(c_name + "=");
+			if (c_start!=-1){
+				c_start=c_start + c_name.length+1;
+				c_end=document.cookie.indexOf(";",c_start); 
+				if(c_end==-1)c_end=document.cookie.length;
+				return unescape(document.cookie.substring(c_start,c_end));
+			}
+		} 
+		return "";
+	}
+
+	var savedSize = getCookie('fontSizer');
+
+	if(savedSize!=""){
+		$('#Zoom').css('font-size', savedSize);
+		switch(savedSize){
+			case smallFont: $(".f10").addClass("curFont");
+			break;
+			case medFont: $(".f14").addClass("curFont");
+			break;
+			case largeFont: $(".f16").addClass("curFont");
+			break;
+			default: $(".f14").addClass("curFont");
+		}
+	}else {
+		$('#Zoom').css('font-size', medFont);
+		$(".f14").addClass("curFont");
+	}
+	
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	fontResizer('10px','14px','16px');
+});
+</script>
+</head>
+
+<body>
+<!--头部导航-->
+<div class="header">
+	<div class="header_nav auto">
+		<dl>
+			<dt class="f_l"><img src="/images/logo.png" ignore="1" /></dt>
+			<dd class="f_r f14 f_w">
+				<ul class="nav_right">
+					<li>
+						<a href="/" class="sy">首页</a>
+					</li>
+                                        <li>
+						<a href="http://www.gov.cn/zhengce/index.htm" target="_blank">国务院文件</a>
+					</li>
+                                        <li>
+						<a href="http://www.gov.cn/pushinfo/v150203/" target="_blank">国务院信息</a>
+					</li>
+                                        <li>
+						<a href="http://www.gzgov.gov.cn/xxgk/jbxxgk/fgwj/zfwj/" target="_blank">省政府文件</a>
+					</li>
+					<li>
+						<a href="/slxw/">水利新闻</a>
+					</li>
+					<li>
+						<a href="/xxgk/">政务公开</a>
+					</li>
+					<li>
+						<a href="/gzcy/">公众参与</a>
+					</li>
+					<li>
+						<a href="/zxfw/">网上服务</a>
+					</li>
+				</ul>
+			</dd>
+		</dl>
+	</div>
+</div>
+
+<!--背景图切换-->
+<div class="Focus_map">
+	<div class="fullSlide">
+		<div class="bd">
+			<ul style="position: relative; width:100%; height: 450px;">
+				<li style="position: absolute; width:100%; left: 0px; top: 0px; display: list-item; background:url(/images/bg_01.jpg) no-repeat center top;"></li>
+				<li style="position: absolute; width:100%; left: 0px; top: 0px; display: list-item; background:url(/images/bg_02.jpg) no-repeat center top;"></li>
+				<li style="position: absolute; width:100%; left: 0px; top: 0px; display: list-item; background:url(/images/bg_03.jpg) no-repeat center top;"></li>
+				<li style="position: absolute; width:100%; left: 0px; top: 0px; display: list-item; background:url(/images/bg_04.jpg) no-repeat center top;"></li>
+				<li style="position: absolute; width:100%; left: 0px; top: 0px; display: list-item; background:url(/images/bg_05.jpg) no-repeat center top;"></li>
+				<li style="position: absolute; width: 100%; left: 0px; top: 0px; display: none;background:url(/images/bg_06.jpg) no-repeat center top;"></li>
+			</ul>
+		</div>
+		<div class="logo_wz">
+			<div class="w1200 auto">
+				<img class="xdms" src="/images/logo_1.png" ignore="1" />
+			</div>
+		</div>
+		<div class="yun_bg">
+			<div class="w1200 auto">
+
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(".fullSlide").slide({
+		mainCell: ".bd ul",
+		effect: "fold",
+		autoPlay: true,
+		autoPage: true,
+		trigger: "click"
+	});
+</script>
+<div class=" header_bottom">
+	<div class="w1200 auto">
+        <div class=" f_l weather f14 ">
+        	<iframe src="http://www.thinkpage.cn/weather/weather.aspx?uid=U97C833469&cid=CHGZ000000&l=zh-CHS&p=SMART&a=0&u=C&s=3&m=2&x=1&d=2&fc=&bgc=&bc=&ti=0&in=0&li=" frameborder="0" scrolling="no" width="320" height="110" allowTransparency="true"></iframe>
+        </div>
+        <div class="f_l search" id="s-search">
+        	<span>
+        		<input id="keyword" class="input" value="请输入关键字搜索" onfocus="if(this.value=='请输入关键字搜索' )this.value=''" onblur="if(this.value=='' )this.value='请输入关键字搜索'" />
+        	<a href="javascript:;" id="j_search_btn"></a>
+        	</span>
+        </div>        
+      <!-- 检索跳转 -->
+<script>
+$(function() {
+    $('#j_search_btn').click(function() {
+        var str = $(this).prev().val();
+        checks(str);
+    });
+});
+function checks(t) {
+    t = t.replace(/(^\s+)|(\s+$)/g, "");
+    if (t == "" || t == "请输入关键检索字") {
+        alert('请输入有效内容');
+        return false;
+    }
+    szMsg = "[#_%&'/",
+    ";:=!^]";
+    alertStr = "";
+    for (i = 1; i < szMsg.length + 1; i++) {
+        if (t.indexOf(szMsg.substring(i - 1, i)) > -1) {
+            alertStr = "请勿包含非法字符如[#_%&'/",
+            ";:=!^]";
+            alert(alertStr);
+            // break;
+            return false;
+        }
+    }
+    var key = document.getElementById("keyword").value;
+    window.location.href = "/search2.html?keyword=" + key;
+    return true;
+}
+</script>  
+        
+        
+        
+        
+        
+        <div class="f_r " style="width: 295px;height: 138px;overflow: hidden;position: relative; ">
+        	<div class="zxtzgg ">
+            	<div style="width: 295px;height: 40px; ">
+                    <h3 class="f13 f_l ">最新通知公告</h3>
+                    <a href="http://www.gzmwr.gov.cn/slxw/tzgg/" class="f_r">
+	<img src="/images/more_icon.png" width="31" height="31" alt="" ignore="1" />
+	</a>
+</div>
+<div class="bd_tzgg">
+	<ul>
+		
+			<li>
+				<div class="f_l bd_rq">
+					<h2 class="">01</h2>
+					<p class="f16">
+						2018-06
+					</p>
+				</div>
+				<div class="f_l bd_list">
+					<p class="f16 c36">
+						清水江白市镇白市村草坪...
+					</p>
+					<p class="f13" style="font-size: 13px;margin-top: 5px;color:#b3b3b3;">
+						
+　　行政许可公示
+　　黔水许告字﹝2018﹞60号         ...
+						<a href="http://www.gzmwr.gov.cn/slxw/tzgg/201806/t20180601_3155562.html" target="_blank" style="color:#c26060;font-family: '微软雅黑';font-size:13px;">[详细]</a>
+					</p>
+				</div>
+			</li>
+		
+			<li>
+				<div class="f_l bd_rq">
+					<h2 class="">01</h2>
+					<p class="f16">
+						2018-06
+					</p>
+				</div>
+				<div class="f_l bd_list">
+					<p class="f16 c36">
+						世界银行贷款（33条公路...
+					</p>
+					<p class="f13" style="font-size: 13px;margin-top: 5px;color:#b3b3b3;">
+						
+　　行政许可公示
+　　黔水许告字﹝2018﹞59号         ...
+						<a href="http://www.gzmwr.gov.cn/slxw/tzgg/201806/t20180601_3155563.html" target="_blank" style="color:#c26060;font-family: '微软雅黑';font-size:13px;">[详细]</a>
+					</p>
+				</div>
+			</li>
+		
+			<li>
+				<div class="f_l bd_rq">
+					<h2 class="">23</h2>
+					<p class="f16">
+						2018-05
+					</p>
+				</div>
+				<div class="f_l bd_list">
+					<p class="f16 c36">
+						贵州省水利厅关于开展201...
+					</p>
+					<p class="f13" style="font-size: 13px;margin-top: 5px;color:#b3b3b3;">
+						
+　　附件3-水利部安监司关于印发2018年水利安全生产月主...
+						<a href="http://www.gzmwr.gov.cn/slxw/tzgg/201805/t20180523_3150477.html" target="_blank" style="color:#c26060;font-family: '微软雅黑';font-size:13px;">[详细]</a>
+					</p>
+				</div>
+			</li>
+		
+			<li>
+				<div class="f_l bd_rq">
+					<h2 class="">22</h2>
+					<p class="f16">
+						2018-05
+					</p>
+				</div>
+				<div class="f_l bd_list">
+					<p class="f16 c36">
+						省水利厅关于印发贵州省...
+					</p>
+					<p class="f13" style="font-size: 13px;margin-top: 5px;color:#b3b3b3;">
+						
+　　办安监〔2018〕66号  水利部办公厅关于开展水利工程...
+						<a href="http://www.gzmwr.gov.cn/slxw/tzgg/201805/t20180522_3149978.html" target="_blank" style="color:#c26060;font-family: '微软雅黑';font-size:13px;">[详细]</a>
+					</p>
+				</div>
+			</li>
+		
+			<li>
+				<div class="f_l bd_rq">
+					<h2 class="">22</h2>
+					<p class="f16">
+						2018-05
+					</p>
+				</div>
+				<div class="f_l bd_list">
+					<p class="f16 c36">
+						大方县响水水库工程洪水...
+					</p>
+					<p class="f13" style="font-size: 13px;margin-top: 5px;color:#b3b3b3;">
+						
+　　行政许可公示
+　　黔水许告字﹝2018﹞57号         ...
+						<a href="http://www.gzmwr.gov.cn/slxw/tzgg/201805/t20180522_3149966.html" target="_blank" style="color:#c26060;font-family: '微软雅黑';font-size:13px;">[详细]</a>
+					</p>
+				</div>
+			</li>
+		
+			<li>
+				<div class="f_l bd_rq">
+					<h2 class="">22</h2>
+					<p class="f16">
+						2018-05
+					</p>
+				</div>
+				<div class="f_l bd_list">
+					<p class="f16 c36">
+						织金县生活垃圾焚烧发电...
+					</p>
+					<p class="f13" style="font-size: 13px;margin-top: 5px;color:#b3b3b3;">
+						
+　　行政许可公示
+　　黔水许告字﹝2018﹞56号         ...
+						<a href="http://www.gzmwr.gov.cn/slxw/tzgg/201805/t20180522_3149967.html" target="_blank" style="color:#c26060;font-family: '微软雅黑';font-size:13px;">[详细]</a>
+					</p>
+				</div>
+			</li>
+		
+			<li>
+				<div class="f_l bd_rq">
+					<h2 class="">22</h2>
+					<p class="f16">
+						2018-05
+					</p>
+				</div>
+				<div class="f_l bd_list">
+					<p class="f16 c36">
+						正安县白狮水库工程项目...
+					</p>
+					<p class="f13" style="font-size: 13px;margin-top: 5px;color:#b3b3b3;">
+						
+　　行政许可公示
+　　黔水许告字﹝2018﹞54号         ...
+						<a href="http://www.gzmwr.gov.cn/slxw/tzgg/201805/t20180522_3149968.html" target="_blank" style="color:#c26060;font-family: '微软雅黑';font-size:13px;">[详细]</a>
+					</p>
+				</div>
+			</li>
+		
+			<li>
+				<div class="f_l bd_rq">
+					<h2 class="">21</h2>
+					<p class="f16">
+						2018-05
+					</p>
+				</div>
+				<div class="f_l bd_list">
+					<p class="f16 c36">
+						关于发布“贵州省水利水...
+					</p>
+					<p class="f13" style="font-size: 13px;margin-top: 5px;color:#b3b3b3;">
+						
+　　《贵州省水利水电工程地质灾害危险性评估技术导则》...
+						<a href="http://www.gzmwr.gov.cn/slxw/tzgg/201805/t20180521_3147957.html" target="_blank" style="color:#c26060;font-family: '微软雅黑';font-size:13px;">[详细]</a>
+					</p>
+				</div>
+			</li>
+		
+			<li>
+				<div class="f_l bd_rq">
+					<h2 class="">17</h2>
+					<p class="f16">
+						2018-05
+					</p>
+				</div>
+				<div class="f_l bd_list">
+					<p class="f16 c36">
+						贵州久泰邦达能源有限开...
+					</p>
+					<p class="f13" style="font-size: 13px;margin-top: 5px;color:#b3b3b3;">
+						
+　　行政许可公示
+　　黔水许告字﹝2018﹞52号         ...
+						<a href="http://www.gzmwr.gov.cn/slxw/tzgg/201805/t20180518_3147297.html" target="_blank" style="color:#c26060;font-family: '微软雅黑';font-size:13px;">[详细]</a>
+					</p>
+				</div>
+			</li>
+		
+			<li>
+				<div class="f_l bd_rq">
+					<h2 class="">17</h2>
+					<p class="f16">
+						2018-05
+					</p>
+				</div>
+				<div class="f_l bd_list">
+					<p class="f16 c36">
+						贵州久泰邦达能源有限开...
+					</p>
+					<p class="f13" style="font-size: 13px;margin-top: 5px;color:#b3b3b3;">
+						
+　　行政许可公示
+　　黔水许告字﹝2018﹞53号         ...
+						<a href="http://www.gzmwr.gov.cn/slxw/tzgg/201805/t20180518_3147298.html" target="_blank" style="color:#c26060;font-family: '微软雅黑';font-size:13px;">[详细]</a>
+					</p>
+				</div>
+			</li>
+		
+	</ul>
+</div>
+</div>
+<script>
+	jQuery(".zxtzgg").slide({
+		titCell: ".hd ul",
+		mainCell: ".bd_tzgg ul",
+		autoPage: true,
+		effect: "top",
+		autoPlay: true
+	});
+</script>
+</div>
+</div>
+</div>
+</div>
+<div class="float-right" id="img5">
+	<div class="close" onclick="javascript:turnoff('img5')">关闭</div>
+	<ul>
+		<li>
+			<a href="#" class="weixin"></a>
+		</li>
+		<li>贵州省水利厅 微博、微信</li>
+		<li>
+			<a href="#" class="wx"></a>
+			<a target="_blank" href="http://weibo.com/p/1001063222468590/home?from=page_100106&mod=TAB&is_all=1#place" class="wb"></a>
+		</li>
+	</ul>
+</div>
+<div class="lby_box">
+  <div class="w1200 auto">
+    <div class="dqwz_box f14"> 您当前的位置是：<a href="../../../../" title="首页" class="CurrChnlCls">首页</a>&nbsp;&raquo;&nbsp;<a href="../../../" title="政务公开" class="CurrChnlCls">政务公开</a>&nbsp;&raquo;&nbsp;<a href="../../" title="主动公开" class="CurrChnlCls">主动公开</a>&nbsp;&raquo;&nbsp;<a href="../" title="人事信息" class="CurrChnlCls">人事信息</a></div>
+    <div class="nry_content t_c">
+      <h2 class="">杨静、李军同志任前公示</h2>
+      <div style="border-bottom:1px solid #c6c6c6; margin:10px;">
+        <ul class="ul_list_a auto" style="width:800px;">
+          <li class="fontResizer" style="width:115px;"><strong class="f_l">字体</strong> <a href="#" class="f10">小</a> <a href="#" class="f14">中</a> <a href="#" class="f16">大</a> </li>
+          <li class="news_source" style="padding:0 10px;height:28px;line-height:28px;float:left;">
+           <script type="text/javascript">
+			var wzly='';
+			if(wzly!=''){
+			document.write('<strong class="f_l">来源：</strong>'+wzly);
+			}
+			else{document.write('<strong class="f_l">来源：</strong>'+"贵州省水利厅");}
+		  </script>
+		  </li>
+          <li class="fbsj">
+		  <script type="text/javascript">
+			var  pubdata='2015-01-14 10:44:24';
+			if(pubdata!=''){
+			document.write('<strong class="f_l">发布时间：</strong>'+pubdata);
+			}
+	       </script>
+         </li>
+         <li class="dyby">
+                  <script type="text/javascript">
+			var zz='yxc';
+			if(zz!=''){
+			document.write('编辑：'+zz+'');
+			}
+		  </script></li>
+          <li class="dyby"> <a href="javascript:window.print();">打印本页&nbsp;&nbsp;&nbsp;&nbsp;|</a> <a href="javascript:window.opener=null;window.close()">&nbsp;&nbsp;&nbsp;&nbsp;关闭本页&nbsp;&nbsp;&nbsp;&nbsp;</a> </li>
+          <li class="lll"></li>
+        </ul>
+      </div>
+      <div class="zx_content t_l">
+       <div align="center">
+     <!--播放附件视频-->
+    
+       
+    
+    </div>
+     <!--end播放附件视频-->
+      <font id="Zoom"><p>
+	&nbsp;&nbsp;&nbsp; 为进一步扩大干部选拔任用工作中的民主，广泛听取群众意见，根据《党政领导干部选拔任用工作条例》有关规定，经厅党组会议研究决定，现对杨静、李军两位同志进行任前公示：</p>
+<p>
+	&nbsp;&nbsp;&nbsp; 杨静，男，汉族，1967年3月出生，1987年7月参加工作，大学本科学历，2006年6月加入中国共产党。现任省水利科学研究院副院长，2010年11月起任副县长级干部。拟任省水利科学研究院党总支书记（正县长级）。</p>
+<p>
+	&nbsp;&nbsp;&nbsp; 李军，男，汉族，1968年12月出生，1990年8月参加工作，大学本科学历，非中共党员干部。现任省水利科学研究院副院长，2007年6月起任副县长级干部。拟任省水利科学研究院院长（正县长级）。</p>
+<p>
+	&nbsp;&nbsp;&nbsp; 公示时间：2015年1月14日至1月20日。如对公示对象有问题反映的，请在公示期间与厅人事处、厅纪检监察室联系（联系电话：85937303； 85936226）。</p>
+<p>
+	&nbsp;&nbsp;&nbsp; 反映问题必须实事求是，客观公正。为便于对反映的问题进行调查核实，请在反映问题时，提供具体事实或线索，并请提供联系方式，以便于我们调查核实。对实名反映问题的，我们将严格遵守党的纪律，对反映人的情况予以严格保密。&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2015年1月14日&nbsp;</p></font>
+      </div>
+      <div class="fx_content"> <strong class="f_l">分享：</strong>
+        <div class="bdsharebuttonbox f_l"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a></div>
+        <script>
+		      window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},              "share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},    "selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+		</script>
+        <div class="gjz_content f_l"> <strong>关键字：</strong> <a href="javascript:GoTo();" class="wyjc">我要纠错</a> <a href="/syqt/rssdy/" class="wytj">定制</a> </div>
+      </div>
+      <ul class="wz_sxp">
+        <li>
+		<span class="title f_l">上一篇</span>
+		<span class="syp_nr f_l"><a  href="javascript:;" id="no1">无</a>
+                     
+			 <script type="text/javascript">
+                var  str="";
+                var str_1 = "./t20160928_1058738.html";
+                var str_4 = '关于2014年度全省水资源工作先进集体和先进个人评选结果的公示';
+				if(str_4!="")
+				{
+						jQuery("#no1").hide();
+					if (str=="") {
+					  document.write('<a  href="'+str_1+'" alt="'+str_4+'" title="'+str_4+'">'+str_4+'</a>');
+					} else {
+					  document.write('<a  href="'+str+'" alt="'+str_4+'" title="'+str_4+'">'+str_4+'</a>');
+					}
+				}
+				else{
+				 document.write('<a  href="javascript:;">无数据</a>');
+				}
+            </script>
+         
+		 </span>
+		</li>
+        <li>
+		<span class="title f_l">下一篇</span>
+		<span class="syp_nr f_l"><a  href="javascript:;" id="no2">无</a>
+	
+			 <script type="text/javascript">
+                var  str="";
+                var str_1 = "./t20160928_1058742.html";
+                var str_4 = '赵云同志调动公示';
+				if(str_4!="")
+				{
+						jQuery("#no2").hide();
+					if (str=="") {
+					  document.write('<a  href="'+str_1+'" alt="'+str_4+'" title="'+str_4+'">'+str_4+'</a>');
+					} else {
+					  document.write('<a  href="'+str+'" alt="'+str_4+'" title="'+str_4+'">'+str_4+'</a>');
+					}
+				}
+				else{
+				 document.write('<a  href="javascript:;">无数据</a>');
+				}
+            </script>
+         
+		 </span>
+	    </li>
+        <li> <span class="title f_l">相关信息</span> <span class="syp_nr f_l"><a href="javascript:;"></a></span> </li>
+      </ul>
+      <div class="p_list t_l">
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer_box">
+	<div class="w1200 auto" style="width:940px;">
+		<form>
+			<div class='diy_select'>
+				<input type='hidden' name='' class='diy_select_input' />
+				<div class='diy_select_txt'>--政府部门网站--</div>
+				<div class='diy_select_btn'></div>
+				<ul class='diy_select_list'>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.mwr.gov.cn/">
+								水利部
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gov.cn/">
+								中央人民政府
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzgov.gov.cn/">
+								贵州省人民政府
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzrd.gov.cn/">
+								贵州人大
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzszx.gov.cn/">
+								贵州政协网
+							</a>
+						</li>
+					
+				</ul>
+			</div>
+			<div class='diy_select'>
+				<input type='hidden' name='' class='diy_select_input' />
+				<div class='diy_select_txt'>--省直部门网站--</div>
+				<div class='diy_select_btn'></div>
+				<ul class='diy_select_list'>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzdpc.gov.cn/">
+								省发改委
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzjxw.gov.cn/">
+								省经信委
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzsmzt.gov.cn/">
+								省民政厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://kjt.gzst.gov.cn/">
+								省科技厅/知识产权局
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzcz.gov.cn/">
+								省财政厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzsjyt.gov.cn/">
+								省教育厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzmw.gov.cn/">
+								省民委
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzga.gov.cn/">
+								省公安厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzsft.gov.cn/">
+								省司法厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzcz.gov.cn/">
+								省财政厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://gzrst.gov.cn/">
+								省人力资源社会保障厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzgtzy.gov.cn/">
+								省国土资源厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzhjbh.gov.cn/">
+								省环境保护厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzjs.gov.cn/">
+								省住房城乡建设厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.qagri.gov.cn/">
+								省农委
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzcom.gov.cn/">
+								省商务厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzwht.gov.cn/">
+								省文化厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzhfpc.gov.cn/">
+								省卫生和计划生育委员会
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzsgzw.gov.cn/">
+								省国资委
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzsj.gov.cn/">
+								省审计厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzforestry.gov.cn/">
+								省林业厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gz-l-tax.gov.cn/">
+								省地税局
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzaic.org.cn/">
+								省工商局
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.qjt.gov.cn/">
+								省交通厅
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gz.stats.gov.cn/">
+								省统计局
+							</a>
+						</li>
+					
+				</ul>
+			</div>
+			<div class='diy_select'>
+				<input type='hidden' name='' class='diy_select_input' />
+				<div class='diy_select_txt'>--厅直网站--</div>
+				<div class='diy_select_btn'></div>
+				<ul class='diy_select_list'>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzswj.gov.cn/">
+								贵州省水文水资源局
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzsb.org.cn/">
+								贵州省水土保持监测站
+							</a>
+						</li>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gzsdsjy.cn/">
+								贵州省水利水电勘测设计研究院
+							</a>
+						</li>
+					
+				</ul>
+			</div>		
+			
+			<div class='diy_select'>
+				<input type='hidden' name='' class='diy_select_input' />
+				<div class='diy_select_txt'>--其他网站--</div>
+				<div class='diy_select_btn'></div>
+				<ul class='diy_select_list'>
+					
+						<li>
+							<a TARGET="_blank" href="http://www.gog.com.cn/">
+								多彩贵州网
+							</a>
+						</li>
+					
+				</ul>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="footer_bottom f12">
+	<div class="w1200 auto">
+		<dl>
+			<dt>
+            	<a onClick="SetHome(window.location)" href="javascript:void(0)" style="text-decoration:none;">设为首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onClick="AddFavorite(window.location,document.title)" href="javascript:void(0)" style="text-decoration:none;">加入收藏</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/syqt/wzdt/">网站地图</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/syqt/bqsm/">版权声明</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/syqt/ystk/">隐私条款</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/syqt/wzjc/">网站纠错</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/syqt/wzbz/">网站帮助</a>&nbsp;&nbsp;|&nbsp;&nbsp;<!--a href="/syqt/rssdy/">RSS订阅</a>&nbsp;&nbsp;|&nbsp;&nbsp;--><a href="/syqt/gywm/">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://58.16.65.210/ids/admin/login.jsp" target="_blank">信息报送</a>   
+            </dt>
+			<dd>
+				<p>地址：贵州省贵阳市南明区西湖巷34号&nbsp;&nbsp;联系电话：0851-85936302</p>
+				<p style="margin-top: 3px;">[黔ICP备05001357号] &nbsp;&nbsp;网站标识码：5200000011&nbsp;&nbsp;版权所有:贵州省水利厅门户网站 &nbsp;&nbsp;未经应许请勿复制或镜像</p>
+				<p style="margin-top: 3px;">
+                                        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52010202000471" target="_blank"><img src="/images/2017091501.png" style="    vertical-align: middle;" />贵公网安备 52010202000471号</a>
+                                        技术支持:
+					<a href="http://www.gogbh.cn/" target="_blank">贵州多彩博虹科技有限公司</a></p>
+				<p style="margin-top: 2px;">
+					<div class="xz" style="width:200px;margin: 0 auto;line-height: 80px;text-align: center;height: 80px;">
+				<div class="xz_lf" style="float: left;height: 80px;width: 80px;">
+					<script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/24/000/0000/40707124/CA240000000407071240005.js' type='text/javascript'%3E%3C/script%3E"));</script>
+				</div>
+				<div class="xz_lr" style="float: right;padding-top: 10px;height: 70px;width: 110px;">
+					<script id="_jiucuo_" sitecode='5200000011' src='http://pucha.kaipuyun.cn/exposure/jiucuo.js' ignore="1"></script>
+				</div>
+			</div>
+				</p>
+			</dd>
+		</dl>
+	</div>
+</div>
+<script type="text/javascript">
+    $('.wx').on('click', function () {
+        layer.open({
+            type: 1,
+            area: ['160px', '200px'],
+            title: false, //不显示标题
+            shadeClose: true,
+            content: '<img src="/images/weixin.png" ignore="1" style="height: 200px;width:160px" />'
+        });
+    });
+</script>
+<script type="text/javascript">
+	function diy_select() {
+		this.init.apply(this, arguments)
+	};
+	diy_select.prototype = {
+		init: function(opt) {
+			this.setOpts(opt);
+			this.o = this.getByClass(this.opt.TTContainer, document, 'div'); //容器
+			this.b = this.getByClass(this.opt.TTDiy_select_btn); //按钮
+			this.t = this.getByClass(this.opt.TTDiy_select_txt); //显示
+			this.l = this.getByClass(this.opt.TTDiv_select_list); //列表容器
+			this.ipt = this.getByClass(this.opt.TTDiy_select_input); //列表容器
+			this.lengths = this.o.length;
+			this.showSelect();
+		},
+		addClass: function(o, s) //添加class
+			{
+				o.className = o.className ? o.className + ' ' + s : s;
+			},
+		removeClass: function(o, st) //删除class
+			{
+				var reg = new RegExp('\\b' + st + '\\b');
+				o.className = o.className ? o.className.replace(reg, '') : '';
+			},
+		addEvent: function(o, t, fn) //注册事件
+			{
+				return o.addEventListener ? o.addEventListener(t, fn, false) : o.attachEvent('on' + t, fn);
+			},
+		showSelect: function() //显示下拉框列表
+			{
+				var This = this;
+				var iNow = 0;
+				this.addEvent(document, 'click', function() {
+					for(var i = 0; i < This.lengths; i++) {
+						This.l[i].style.display = 'none';
+					}
+				})
+				for(var i = 0; i < this.lengths; i++) {
+					this.l[i].index = this.b[i].index = this.t[i].index = i;
+					this.t[i].onclick = this.b[i].onclick = function(ev) {
+						var e = window.event || ev;
+						var index = this.index;
+						This.item = This.l[index].getElementsByTagName('li');
+
+						This.l[index].style.display = This.l[index].style.display == 'block' ? 'none' : 'block';
+						for(var j = 0; j < This.lengths; j++) {
+							if(j != index) {
+								This.l[j].style.display = 'none';
+							}
+						}
+						This.addClick(This.item);
+						e.stopPropagation ? e.stopPropagation() : (e.cancelBubble = true); //阻止冒泡
+					}
+				}
+			},
+		addClick: function(o) //点击回调函数
+			{
+
+				if(o.length > 0) {
+					var This = this;
+					for(var i = 0; i < o.length; i++) {
+						o[i].onmouseover = function() {
+							This.addClass(this, This.opt.TTFcous);
+						}
+						o[i].onmouseout = function() {
+							This.removeClass(this, This.opt.TTFcous);
+						}
+						o[i].onclick = function() {
+							var index = this.parentNode.index; //获得列表
+							This.t[index].innerHTML = This.ipt[index].value = this.innerHTML.replace(/^\s+/, '').replace(/\s+&/, '');
+							This.l[index].style.display = 'none';
+						}
+					}
+				}
+			},
+		getByClass: function(s, p, t) //使用class获取元素
+			{
+				var reg = new RegExp('\\b' + s + '\\b');
+				var aResult = [];
+				var aElement = (p || document).getElementsByTagName(t || '*');
+
+				for(var i = 0; i < aElement.length; i++) {
+					if(reg.test(aElement[i].className)) {
+						aResult.push(aElement[i])
+					}
+				}
+				return aResult;
+			},
+
+		setOpts: function(opt) //以下参数可以不设置  //设置参数
+			{
+				this.opt = {
+					TTContainer: 'diy_select', //控件的class
+					TTDiy_select_input: 'diy_select_input', //用于提交表单的class
+					TTDiy_select_txt: 'diy_select_txt', //diy_select用于显示当前选中内容的容器class
+					TTDiy_select_btn: 'diy_select_btn', //diy_select的打开按钮
+					TTDiv_select_list: 'diy_select_list', //要显示的下拉框内容列表class
+					TTFcous: 'focus' //得到焦点时的class
+				}
+				for(var a in opt) //赋值 ,请保持正确,没有准确判断的
+				{
+					this.opt[a] = opt[a] ? opt[a] : this.opt[a];
+				}
+			}
+	}
+
+	var TTDiy_select = new diy_select({ //参数可选
+		TTContainer: 'diy_select', //控件的class
+		TTDiy_select_input: 'diy_select_input', //用于提交表单的class
+		TTDiy_select_txt: 'diy_select_txt', //diy_select用于显示当前选中内容的容器class
+		TTDiy_select_btn: 'diy_select_btn', //diy_select的打开按钮
+		TTDiv_select_list: 'diy_select_list', //要显示的下拉框内容列表class
+		TTFcous: 'focus' //得到焦点时的class
+	}); //如同时使用多个时请保持各class一致.
+</script>
+<script id="_trs_ta_js" src="//ta.trs.cn/c/js/ta.js?mpid=998" async="async" defer="defer"></script>
+<script language="JavaScript">var _trackDataType = "web";var _trackData = _trackData || [];</script><script type="text/javascript" charset="utf-8" id="kpyfx_js_id_10000870" src="//fxsjcj.kaipuyun.cn/count/10000870/10000870.js"></script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            for (var i = 0; i < document.links.length; i++) {
+                var url = document.links[i].href.toLowerCase();
+                if (url.indexOf("http://localhost") == -1 && url.indexOf("gzmwr.gov.cn") == -1&& url != "#" && !document.links[i].onclick) {
+                    document.links[i].onclick = function () {
+                        return confirm("您即将离开贵州省水利厅门户网站，访问到其他网站，是否继续？")
+                    };
+
+                }
+            }
+        });
+</script>
+
+<!--博虹探针代码-->
+<script type="text/javascript">
+    var _wapaq = _wapaq || [];
+    _wapaq.push(['trackPageView']);
+    (function() {
+        var u = "http://webprobe.octodata.com.cn/";
+        _wapaq.push(['setTrackerUrl', u + 'tracker']);
+        _wapaq.push(['setSiteId', 78]);
+        _wapaq.push(['setDiscardUrlParams', true]);
+        var d = document,
+            g = d.createElement('script'),
+            s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript';
+        g.async = true;
+        g.defer = true;
+        g.src = 'http://bazhuawangluo.oss-cn-hangzhou.aliyuncs.com/ds2.js?v=' + new Date().getUTCDay();
+        s.parentNode.insertBefore(g, s);
+    })();
+</script>
+</body>
+</html>

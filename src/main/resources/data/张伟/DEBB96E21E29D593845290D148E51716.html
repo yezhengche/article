@@ -1,0 +1,985 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>        <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"9ccc3afdf5","agent":"","transactionName":"b1MANhcFCxcCAkdYC1YZJBcLBxENDA8cRRFMWRBMEw0AExBPR0QQV0QRWAEBEQUKDWxGDUxePRYKFAwH","applicationID":"13763035","errorBeacon":"bam.nr-data.net","applicationTime":284}</script>
+
+    <title>张伟- 独立运营顾问，铁血网前主编 | 到「在行」来约见我</title>
+    <meta name="keywords" content="传统行业转型,内容运营,用户运营,行家,咨询,经验,解决问题,智库,一对一,面对面">
+    <meta name="description" content="张伟,铁血网前主编，「开干了」企业外脑,互联网内容审核，如何不被“查水表&#34;,做好社区运营：内容和用户,梳理清晰：传统企业如何“＋互联网”">
+    <meta name="author" content="">
+
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+    
+    <script src="https://s.mlinks.cc/scripts/dist/mlink.min.js"></script>
+
+    <link rel="shortcut icon" href="/static/front/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/static/front/styles/a488d11a.base.css" />
+    
+<link rel="stylesheet" href="/static/front/styles/39fa2103.tutorDetail.css">
+
+    
+
+</head>
+<body>
+    <!--[if gt IE 8]><!-->
+    
+    
+
+<nav class="mobileMenu mobile-menu mobile-menu-nav">
+    <span class="mobile-menu-close">
+        <i class="icon icon-close-menu"></i>
+    </span>
+    <ul class="mobile-menu-list">
+        <li class="item">
+            <a href="/" data-market="General;导航栏;首页">首页</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=397" data-market="General;导航栏;职场发展">职场发展</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=420" data-market="General;导航栏;行业经验">行业经验</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=342" data-market="General;导航栏;互联网+">互联网+</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=389" data-market="General;导航栏;创业和投融资">创业和投融资</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=450" data-market="General;导航栏;生活服务">生活服务</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=479" data-market="General;导航栏;心理">心理</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=485" data-market="General;导航栏;投资理财">投资理财</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=495" data-market="General;导航栏;教育学习">教育学习</a>
+        </li>
+        
+        <li class="item">
+            <a href="/topics/?category_id=510" data-market="General;导航栏;其他">其他</a>
+        </li>
+        
+    </ul>
+</nav>
+
+<nav class="mobileMenu mobile-menu mobile-menu-setting">
+    <span class="mobile-menu-close">
+        <i class="icon icon-close-menu"></i>
+    </span>
+    <ul class="mobile-menu-list">
+
+        
+
+        <li class="item">
+            <a href="/meets/bull/">我约的行家</a>
+        </li>
+        <li class="item">
+            <a href="/wishlist/">心愿单</a>
+        </li>
+        <li class="item">
+            <a href="/coupons/">我的礼券</a>
+        </li>
+    </ul>
+
+    <div class="mobileMenuFooter mobile-menu-footer">
+        <a href="/auth/logout">退出</a>
+    </div>
+    
+</nav>
+    
+    <!--<![endif]-->
+    
+    
+
+
+
+
+
+
+<div class="mobileHeader mobile-header ">
+    <h1><a href="/" class="mobile-logo" data-market="General;导航栏;左上Logo"><i class="icon icon-zaih"></i></a></h1>
+    <a href="javascript: void 0;" class="mobile-menu-btn" id="mobileMenuBtn" data-market="General;导航栏;右上Buttom"><span class="icon icon-menu"></span></a>
+    
+    <a class="searchBtn search-btn-mobile" data-market="General;右上搜索栏;搜索Button"><span class="icon icon-search"></span></a>
+    <form class="search" action="/search" method="GET">
+        <input class="search-content" type="text" placeholder="搜行家、话题、服务" name='word' autocomplete="off" value="">
+        <div class="search-sug sug"></div>
+    </form>
+    
+
+    
+    <a href="/auth/authorize-use/weibo?when=other&amp;next=%2F" class="mobile-text-btn" id="mobileLoginBtn" data-login="false" data-received="登录页浏览次数..from.mentor;when.其他" data-market="General;右上登陆;登陆" data-zhugeio_when="other">登录</a>
+    
+    <a href="http://fd.zaih.com/fenda" class="mobile-text-btn" target="_blank" data-received="顶导航-在行一点入口">去「在行一点」</a>
+</div>
+
+<div id="header" class="header ">
+<!--[if lt IE 9]>
+    <div class="old-ie">
+        为了使您在浏览本站时拥有更好的体验，推荐升级您的IE浏览器，或者使用免费的<a href="http://rj.baidu.com/soft/detail/14744.html" target="_blank">Chrome浏览器</a>、<a href="http://www.firefox.com.cn/" target="_blank">Firefox浏览器</a>。
+    </div>
+<![endif]-->
+    <div class="column">
+        <a class="header-logo" href="/" data-market="General;导航栏;左上Logo"><i class="icon icon-zaih"></i></a>
+        <ul class="header-nav">
+            <li class="decorate"></li>
+            
+            
+            
+            <li data-action="nav-select">
+                <a href="/topics/?category_id=397" class="" data-received="顶导航-分类..category.职场发展;from.mentor;" data-market="General;导航栏;职场发展">职场发展</a>
+            </li>
+            
+            
+            
+            
+            <li data-action="nav-select">
+                <a href="/topics/?category_id=420" class="" data-received="顶导航-分类..category.行业经验;from.mentor;" data-market="General;导航栏;行业经验">行业经验</a>
+            </li>
+            
+            
+            
+            
+            <li data-action="nav-select">
+                <a href="/topics/?category_id=342" class="" data-received="顶导航-分类..category.互联网+;from.mentor;" data-market="General;导航栏;互联网+">互联网+</a>
+            </li>
+            
+            
+            
+            
+            <li data-action="nav-select">
+                <a href="/topics/?category_id=389" class="" data-received="顶导航-分类..category.创业和投融资;from.mentor;" data-market="General;导航栏;创业和投融资">创业和投融资</a>
+            </li>
+            
+            
+            
+            
+            <li data-action="nav-select" class="drop-more">
+                <a href="javascript: void 0;" class="">更多<i class="icon icon-arrow-bottom"></i></a>
+                <ul class="drop-menu">
+                    <li>
+                        <a href="/topics/?category_id=450" class="" data-received="顶导航-分类..category.生活服务;from.mentor;" data-market="General;导航栏-更多;生活服务">生活服务</a>
+                    </li>
+            
+            
+            
+            
+                    <li>
+                        <a href="/topics/?category_id=479" class="" data-received="顶导航-分类..category.心理;from.mentor;" data-market="General;导航栏-更多;心理">心理</a>
+                    </li>
+            
+            
+            
+            
+                    <li>
+                        <a href="/topics/?category_id=485" class="" data-received="顶导航-分类..category.投资理财;from.mentor;" data-market="General;导航栏-更多;投资理财">投资理财</a>
+                    </li>
+            
+            
+            
+            
+                    <li>
+                        <a href="/topics/?category_id=495" class="" data-received="顶导航-分类..category.教育学习;from.mentor;" data-market="General;导航栏-更多;教育学习">教育学习</a>
+                    </li>
+            
+            
+            
+            
+                    <li>
+                        <a href="/topics/?category_id=510" class="" data-received="顶导航-分类..category.其他;from.mentor;" data-market="General;导航栏-更多;其他">其他</a>
+                    </li>
+            
+            
+                </ul>
+            </li>
+            
+            
+        </ul>
+        <div class="header-setting">
+            
+            <a href="
+                
+                    /settings/mobile?next=%2Fapply%2Fzhima_verify%2F
+                " class="tutorApply" target="_blank" data-received="成为行家" data-market="General;右上登陆;成为行家" data-is_mobile_verified="">成为行家</a>
+            
+            
+            <a data-login="false" rel="nofollow" data-received="登录页浏览次数..from.mentor;when.其他" data-zhugeio_when="other" href="/auth/login?when=other&amp;next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84751620%2Ftopic%2F29869443%2F" data-market="General;右上登陆;登陆">登录</a>
+            <a rel="nofollow" data-received="顶导航-注册..from.mentor;" href="/auth/signup?when=other&amp;next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84751620%2Ftopic%2F29869443%2F" data-market="General;右上登陆;注册">注册</a>
+            
+        </div>
+        
+        <div class="header-links">
+            <a href="http://fd.zaih.com/fenda" target="_blank" data-received="顶导航-在行一点入口">去「在行一点」</a>
+        </div>
+        
+        <form class="search" action="/search" method="GET">
+            <input class="search-content" autocomplete="off" type="text" placeholder="搜行家、话题、服务" value="" name='word'>
+            <div class="search-sug sug"></div>
+            <button class="search-btn icon icon-search" type="submit" data-market="General;右上搜索栏;搜索Button }}"></button>
+        </form>
+        
+    </div>
+</div>
+    
+    
+<div class="container container-top">
+    
+<div class="cover">
+    <div class="cover-image" style="background-image : url(//medias.zaih.com/FlU5aiJm5LJtNXQkOcbxBU0K2itL!preface)"></div>
+</div>
+<div class="tutor-full">
+    <div class="column">
+        <div class="tutor-full-main" id="tutorInfo">
+            <span class="tutor-avatar tutorAvatar">
+                <img src="//medias.zaih.com/FiFx5RgOv8W3ERfaBmUscg4PJZzx!avatar" alt="张伟">
+            </span>
+            <div class="tutor-info" data-mlink="action=view_tutor&tutorId=84751620">
+                 <h1 class="tutor-name" data-tutor_id="84751620">张伟</h1>
+                 <p class="tutor-title" id="tutorTitle">独立运营顾问，铁血网前主编</p>
+                 <ul class="tutor-detail tutorDetail">
+                    <li class="detail">
+                        <span class="icon icon-clock-solid"></span>
+                        
+                        <span class="highlight">半天</span>内回应
+                        
+                    </li>
+                    <li class="detail"><span class="icon icon-meet"></span>
+                        <span class="highlight">41</span>人见过
+                    </li>
+                    
+                    
+                    
+                    <li class="detail detail-more"><span class="icon icon-heart"></span>
+                        
+                        <span class="highlight">263</span>人想见
+                        
+                    </li>
+                    
+                    
+                    <li class="detail detail-more"><span class="highlight">高</span>接受率</li>
+                    
+                    
+                    
+                    
+                    
+                    <li><span class="icon icon-go btn-folding foldingBtn"></span></li>
+                    
+                    
+                </ul>
+                <p class="tutor-title">
+                    <span class="city">北京</span>
+                    <span class="location">百子湾，国贸</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="main">
+        
+        
+        <div class="tutor-content">
+            
+            <ul id="topicList" class="topic-list">
+                
+                <li class="topic-item ">
+                    
+                    <div class="topic-info">
+                        
+                        <div class="rating withRatingTip">
+                            
+                            <span class="unit"><span class="mobile-hide">评分数量不足，</span>暂无总分</span>
+                            
+                            <span class="icon icon-tip"></span>
+                        </div>
+                        <div class="topic-price">
+                            <span class="yuan">￥</span>
+                            <span class="price">600</span>
+                            <span class="time">/次</span>
+                        </div> 
+                        
+                    </div>
+                    <h2 class="topicTitle" data-topic_id="29869443" data-topic_price="600" data-topic_duration="1" data-is_meeting="false" data-topic_type="general" data-is_fixture="False">互联网内容审核，如何不被“查水表&#34;</h2>
+                    <div class="topic-content-fold topicFold">
+                        <div class="topic-introduction topicIntroduction">
+                            <div><p>我们关注内容安全审核，是为了防止出现“黑天鹅事件”。这几年都知道新浪微博火了，其实新浪之前的行业大碗是饭否网。当年快速发展的饭否，并没有败在业务上，却因为内容尺度失控，被国家有关部门拿下。</p><p>在这样的情况下，网站编辑、主编、内容运营容易碰到：</p><ul><li>做内容把握不好尺度。太轻了没力度，太重了怕犯规；</li><li>搞不清楚什么事是能炒作的，什么事是碰不得的；</li><li>碰见发恶意广告删不完，竞争对手过来挖人的防不住。</li></ul><p>我在我拥有十年互联网内容运营经验，常年与有关部门对接，了解国家法规和行业底线。</p><p>我愿意与你分享的内容包括：</p><ul><li>讲解内容安全审核和内容选题，什么事能做，什么事不能做；</li><li>帮助学员设定审核机制（技术＋人工）解决垃圾信息和内容安全隐患问题。</li></ul><p>PS.在选择与我见面前，请把你的问题更具体化。毕竟一小时的谈话只能解决一个小问题。请把你的问题提前发给我，方便我做更精确的准备，提升见面效率。期待与你的见面。</p>
+做互联网的产品，一定不要折在内容违规上</div>
+                            
+                            <div class="info shareTopic bdsharebuttonbox" data-tag="29869443">
+                            
+                                
+                                <p><strong>分享话题：</strong>
+                                    <a data-cmd="tsina" class="icon icon-weibo hideInZDH" title="分享到新浪微博"></a>
+                                    <a data-cmd="weixin" class="icon icon-weixin hideInZDH" title="分享到微信"></a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="fold"></div>
+                    </div>
+                    <div class="topic-ft">
+                        <div class="topic-info">
+                            
+                            <span class="meet-time">约1小时</span>
+                            
+                            <span class="meet-num">1人约过</span>
+                        </div>
+                        <a href="#" class="topic-more-btn toggleBtn" data-received="话题页-话题显示更多..mID.84751620;mName.张伟;tID.29869443;tName.互联网内容审核，如何不被“查水表&#34;">
+                            <span class="icon icon-arrow-bottom-circular"></span>
+                        </a>
+                    </div>
+                </li>
+                
+                <li class="topic-item ">
+                    
+                    <div class="topic-info">
+                        
+                        <div class="rating withRatingTip">
+                            
+                            9.5<span class="unit">分</span>
+                            
+                            <span class="icon icon-tip"></span>
+                        </div>
+                        <div class="topic-price">
+                            <span class="yuan">￥</span>
+                            <span class="price">600</span>
+                            <span class="time">/次</span>
+                        </div> 
+                        
+                    </div>
+                    <h2 class="topicTitle" data-topic_id="29869231" data-topic_price="600" data-topic_duration="1.5" data-is_meeting="false" data-topic_type="general" data-is_fixture="False">做好社区运营：内容和用户</h2>
+                    <div class="topic-content-fold topicFold">
+                        <div class="topic-introduction topicIntroduction">
+                            <div><p>社区难做谁都知道，可不做又难以形成足够的壁垒。咬着牙决定做社区，那么恭喜你万里长征要开始走了，做社区的过程意味着：调和人际关系、设立激励规则、刺激用户UGC、拉拢新用户入驻、激活僵尸老用户、还要办活动带着大家HIGH...俨然就是个“虚拟国家首脑”的状态</p><p>如果你是：社区类产品的创业者或运营负责人</p><ul><li>不知道先做内容还是先做用户；</li><li>流量价格越来越高，不知道怎样获取有效用户；</li><li>运营团队，岗位不知道如何设置。</li></ul><p>我可以帮助你梳理团队结构和岗位设置、提供运营的技巧方法。争取少走弯路，让每个运营方案都能有理有据。</p><p>PS.在选择与我见面前，请把你的问题更具体化。毕竟一小时的谈话只能解决一个小问题。请把你的问题提前发给我，方便我做更精确的准备，提升见面效率。</p><p>期待与你的见面。</p>
+<p>10年运营经验，历任主编、运营总监。对创业公司如何推进运营业务和团队搭建颇有心得。在铁血网期间，见证了一个社区从初创期到上市的历程。</p>
+<p>从内容运营和用户运营的角度解析，如何做好社区产品</p></div>
+                            
+                            <div class="info shareTopic bdsharebuttonbox" data-tag="29869231">
+                            
+                                
+                                <p><strong>分享话题：</strong>
+                                    <a data-cmd="tsina" class="icon icon-weibo hideInZDH" title="分享到新浪微博"></a>
+                                    <a data-cmd="weixin" class="icon icon-weixin hideInZDH" title="分享到微信"></a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="fold"></div>
+                    </div>
+                    <div class="topic-ft">
+                        <div class="topic-info">
+                            
+                            <span class="meet-time">约1.5小时</span>
+                            
+                            <span class="meet-num">31人约过</span>
+                        </div>
+                        <a href="#" class="topic-more-btn toggleBtn" data-received="话题页-话题显示更多..mID.84751620;mName.张伟;tID.29869231;tName.做好社区运营：内容和用户">
+                            <span class="icon icon-arrow-bottom-circular"></span>
+                        </a>
+                    </div>
+                </li>
+                
+                <li class="topic-item ">
+                    
+                    <div class="topic-info">
+                        
+                        <div class="rating withRatingTip">
+                            
+                            9.2<span class="unit">分</span>
+                            
+                            <span class="icon icon-tip"></span>
+                        </div>
+                        <div class="topic-price">
+                            <span class="yuan">￥</span>
+                            <span class="price">649</span>
+                            <span class="time">/次</span>
+                        </div> 
+                        
+                    </div>
+                    <h2 class="topicTitle" data-topic_id="29868009" data-topic_price="649" data-topic_duration="1.5" data-is_meeting="false" data-topic_type="general" data-is_fixture="False">梳理清晰：传统企业如何“＋互联网”</h2>
+                    <div class="topic-content-fold topicFold">
+                        <div class="topic-introduction topicIntroduction">
+                            <div><p>“互联网”成了现在的热词，越来越多的企业开始关注：如何结合互联网的力量来为自己业务提供助力。然而却发现：自己做，看不懂。招人做，人难找。钱花了不少，业务却感觉不到明显的进展。</p><p>如果你正在面临：</p><ul><li>拥抱互联网，却陷入迷茫，理不清线上平台和主营业务的关系；</li><li>新业务团队组建不起来，牛人留不住；</li><li>团队缺乏线上运营经验，拿不出解决问题的方案。</li></ul><p>PS.在选择与我见面前，请把你的问题更具体化。毕竟一小时的谈话只能解决一个小问题。请把你的问题提前发给我，方便我做更精确的准备，提升见面效率。期待与你的见面。</p>
+<p>我在互联网10年运营和管理经验，历任主编、运营总监、职业经理人等职位。目前从事独立运营顾问，专注于协助企业解决在接入互联网时面临的困惑。对创业公司如何推进业务和团队搭建颇有心得。</p>
+<p>我愿意协助你完成的是：</p><p>根据公司主营业务，拆解出网络运营目标，做到有方向；<br>新业务团队该如何组建，做到有人做。</p></div>
+                            
+                            <div class="info shareTopic bdsharebuttonbox" data-tag="29868009">
+                            
+                                
+                                <p><strong>分享话题：</strong>
+                                    <a data-cmd="tsina" class="icon icon-weibo hideInZDH" title="分享到新浪微博"></a>
+                                    <a data-cmd="weixin" class="icon icon-weixin hideInZDH" title="分享到微信"></a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="fold"></div>
+                    </div>
+                    <div class="topic-ft">
+                        <div class="topic-info">
+                            
+                            <span class="meet-time">约1.5小时</span>
+                            
+                            <span class="meet-num">7人约过</span>
+                        </div>
+                        <a href="#" class="topic-more-btn toggleBtn" data-received="话题页-话题显示更多..mID.84751620;mName.张伟;tID.29868009;tName.梳理清晰：传统企业如何“＋互联网”">
+                            <span class="icon icon-arrow-bottom-circular"></span>
+                        </a>
+                    </div>
+                </li>
+                
+            </ul>
+            
+            <div class="about-tutor-title">
+                <h2>关于行家</h2>
+            </div>
+            <div class="about-tutor-summary">
+				<div><p> </p><p><img alt="" src="//medias.zaih.com/FqTsNzjVlGMIcTdByCe_5tZydrlF!mainbody" style="height:333px; width:500px"></p><p>互联网从业者、独立运营顾问</p><p>做过大项目：</p><p>2008年开始在铁血网担任主编，带领运营团队操盘注册会员千万级的社区产品。见证了一个社区从初创期到上市的历程。</p><p>从0到1的实践者：</p><p>    ·    2010年开始实践在从0到1，结束个人创业项目后，加入思立德文化传媒</p><p>    ·    任职期间，操盘网站广告、手机游戏等项目；</p><p>    ·    仅用半年时间，网站项目从0开始发展至每日千万级浏览量。</p><p>爱玩跨界：</p><p>    ·    2014年受邀加入国内最大心灵成长平台"心探索"；</p><p>    ·    主持从传统公司到互联网公司的演变，推进“＋互联网”业务；</p><p>    ·    离职后继续以顾问身份协助CEO推进公司业务发展。</p><p>－－－－－－</p><p>想对我了解更多，想预知话题“聊效”，欢迎来「分答」向我提问！</p><p>（app用户第一步：截屏保存带有此二维码的页面；第二步：在微信“扫一扫”中打开相册；第三步，选中刚刚截屏的图片，即可进入我的分答页面）</p><p><img alt="" src="//medias.zaih.com/FrgnP2Tu5tOE5DneDJ1uJJNYWkRO!mainbody"></p></div>
+            </div>
+        </div>
+    </div>
+    <div class="side">
+        <div class="tutor-booking" id="booking">
+            <div class="tutor-share-list bdsharebuttonbox hideInZDH" id="share" data-tag="shareTutor">
+                <span class="share-title">分享</span>
+                <a data-cmd="tsina" class="icon icon-weibo weibo" title="分享到新浪微博" data-analyze="Share:Weibo:mentor:84751620" data-received="话题页-分享..mID.84751620;mName.张伟;type.微博"></a>
+                <a data-cmd="weixin" class="icon icon-weixin weixin" title="分享到微信" data-received="话题页-分享..mID.84751620;mName.张伟;type.微信"></a>
+            </div>
+            
+            
+            <div class="about-zaih">
+                <p class="about-title">只需付<span class="keynote">几百元</span>，就可以与行家</p>
+                <p class="about-title"><span class="keynote">一对一线下面谈</span></p>
+                <p class="about-tips">为您答疑解惑、出谋划策。不满意还能“无忧退款”。</p>
+                <p class="about-tips-mobile">为您答疑解惑、出谋划策。</p>
+                <p class="about-tips-mobile">不满意还能“无忧退款”。</p>
+                <span class="icon icon-zaih logo"></span>
+            </div>
+            
+            
+            
+            
+            
+            <div class="operation-list operationList">
+                
+                
+                
+                
+                
+                <a id="bookingBtn" class="btn-primary btn-hg" href="javascript:void 0;" data-user_id="" data-login="false" data-zhugeio_when="booking" data-analyze="Meet:Open:84751620:" data-is_same_city="false">立即预约</a>
+                
+                
+                
+                
+                
+                <a class="btn-plat btn-hg follow-btn " id="followBtn" href="javascript:void 0;"  data-tutor_id="84751620" data-login="false" data-zhugeio_when="follow">
+                    <span class="icon icon-heart-empty"></span>加入心愿单
+                </a>
+                
+            </div>
+            
+            <ul class="tutor-topic-list">
+                <h2 class="tutor-list-title">张伟的推荐</h2>
+                
+                
+                
+                <li>
+                    <a href="/mentor/84753592/?recommendby=84753592" data-received="话题页-推荐、相关话题..from.84751620;fName.张伟;target.84753592;tName.宋锐;type.推荐">
+                    <div class="tutor-info-left">
+                        <span class="tutor-pic" style="background-image : url(//medias.zaih.com/FiFwGev-hLGsOGxdq-KsKtgDjY1M!avatar)"></span>
+                    </div>
+                    <div class="tutor-info-right">
+                        <p class="topic-title">
+                            移动产品如何走出本土，出海掘金？
+                        </p>
+                        <p class="tutor-title">
+                            <span class="tutor-name">宋锐</span>
+                            <span class="location"><i class="icon icon-area"></i>北京</span>
+                        </p>
+                        <p class="tutor-title">
+                            <em>琥珀天气COO</em>
+                        </p>
+                    </div>
+                    <div class="discription">
+                        <p>国内做海外市场的团队不多，宋总这边又是大浪淘沙中的金沙。</p>
+                    </div>
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li>
+                    <a href="/mentor/84759579/?recommendby=84759579" data-received="话题页-推荐、相关话题..from.84751620;fName.张伟;target.84759579;tName.龚攀;type.推荐">
+                    <div class="tutor-info-left">
+                        <span class="tutor-pic" style="background-image : url(//medias.zaih.com/FtH_03bt9oYjQOIaB-RLDdY8lOKs!avatar)"></span>
+                    </div>
+                    <div class="tutor-info-right">
+                        <p class="topic-title">
+                            用5个游戏化原理，让你的工作变有趣
+                        </p>
+                        <p class="tutor-title">
+                            <span class="tutor-name">龚攀</span>
+                            <span class="location"><i class="icon icon-area"></i>北京</span>
+                        </p>
+                        <p class="tutor-title">
+                            <em>游戏化研发顾问</em>
+                        </p>
+                    </div>
+                    <div class="discription">
+                        <p>这位小哥年轻有趣，富有活力，总能有新的想法给我带来灵感。</p>
+                    </div>
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li>
+                    <a href="/mentor/84935413/?recommendby=84935413" data-received="话题页-推荐、相关话题..from.84751620;fName.张伟;target.84935413;tName.张妍妍;type.推荐">
+                    <div class="tutor-info-left">
+                        <span class="tutor-pic" style="background-image : url(//medias.zaih.com/FgMBamaEGRiPAY1ZzNFen9QSPb8025!avatar)"></span>
+                    </div>
+                    <div class="tutor-info-right">
+                        <p class="topic-title">
+                            如何做好电商运营和推广
+                        </p>
+                        <p class="tutor-title">
+                            <span class="tutor-name">张妍妍</span>
+                            <span class="location"><i class="icon icon-area"></i>北京</span>
+                        </p>
+                        <p class="tutor-title">
+                            <em>龙观电商创始人，清华MBA</em>
+                        </p>
+                    </div>
+                    <div class="discription">
+                        <p>有幸上过张老师的课，收获良多，电商方面有困惑找她没错的</p>
+                    </div>
+                    </a>
+                </li>
+                
+                
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="comments-bg">
+    <div class="column">
+        <div class="comments-main">
+            <div class="comments-switch">
+                    
+                    <h2 class="left-tab tab picked">
+                        <span id="commentsBtn">学员点评</span>
+                        <div class="drop-select" id="commentSort">
+                            <a class="drop-select-default" data-current-sort="likings_count" href="javascript:void 0;">热门<i class="icon icon-arrow-bottom"></i></a>
+                            <ul class="drop-select-options hidden">
+                                
+<li>
+    <a href="javascript:void 0;" class="reviewsSortBy" data-sort-by="likings_count">热门</a>
+</li>
+
+                                
+<li>
+    <a href="javascript:void 0;" class="reviewsSortBy" data-sort-by="latest">最新</a>
+</li>
+
+                            </ul>
+                        </div>
+                    </h2>
+                    <h2 class="right-tab tab"><span id="remarksBtn">好友点评</span></h2>
+                    
+            </div>
+            
+            <div class="comments" id="comments" data-total-count="40">
+                <ul class="comments-list">
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="85045420">
+                            <img src="//medias.zaih.com/FqgoGDAvcJXojqJRCLZU5KSAh6RL!avatar" alt="蔚蔚幸福">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                蔚蔚幸福
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                老师的干货分享让我的思维突然打开，面对自身负责的产品也有了更多的思考和探索方向。老师的沟通很棒，每个问题解答很清晰。根据我的问题有整个分享的框架。约谈中一定要纪录哦！不然你会错过很多你不知道的知识领域！谢谢张老师，嘻嘻嘻～
+                            </div>
+                            <div class="comment-topic-name">参与话题：做好社区运营：内容和用户</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2016-10-22</span>
+                                <button class="comment-like like" data-review-id="68444" data-login="false">
+                                    <span>3</span>
+                                    有用</button>
+                            </div>
+                            
+                            <div class="comment-reply">
+                                行家回复：学习劲头很足，思路很清晰的学员，祝你发展的越来越好：）
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84939372">
+                            <img src="//medias.zaih.com/FtH3RE2AlDmn08l4NpL4UA6s3ujU!avatar" alt="Sun 79">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                Sun 79
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                张伟先生在细分用户群体社区运营上有很多实战经验，收获良多，很有缘份能够通过在行平台认识，希望以后能有更多的火花！
+                            </div>
+                            <div class="comment-topic-name">参与话题：做好社区运营：内容和用户</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2017-03-20</span>
+                                <button class="comment-like like" data-review-id="88483" data-login="false">
+                                    <span>2</span>
+                                    有用</button>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="85135402">
+                            <img src="//medias.zaih.com/FuXNkKVVJ15MONC-L7BqePQFVt3p!avatar" alt="高杨 KarenGao">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                高杨 KarenGao
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                在张老师的帮助下理清了概念，社群运营当前重点也更清晰。
+                            </div>
+                            <div class="comment-topic-name">参与话题：做好社区运营：内容和用户</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2017-03-29</span>
+                                <button class="comment-like like" data-review-id="89618" data-login="false">
+                                    <span>1</span>
+                                    有用</button>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84771471">
+                            <img src="//medias.zaih.com/FnIkm_Qm6yEXCmEb-zf9YAAUfDau!avatar" alt="李东东">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                李东东
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                张师傅是一位名副其实的互联网内容和社区运营老兵，踩遍各种坑（却没掉坑）、亲历过中国互联网潮水的涨落，实操经验丰富。做内容创业和社区社群运营的朋友，非常推荐和张师傅聊下！！
+                            </div>
+                            <div class="comment-topic-name">参与话题：做好社区运营：内容和用户</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2017-03-19</span>
+                                <button class="comment-like like" data-review-id="88188" data-login="false">
+                                    <span>1</span>
+                                    有用</button>
+                            </div>
+                            
+                            <div class="comment-reply">
+                                行家回复：东东美女的创业经历让人钦佩，祝你后面越走越顺，我这边如果有合适的人帮你留意着。
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84903754">
+                            <img src="//medias.zaih.com/FqGVQxvMZELLd4JL_3A8yap1PhH8!avatar" alt="王小雨">
+                        </span>
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-student-name">
+                                王小雨
+                                </strong>
+                            </div>
+                            <div class="comment-bd">
+                                非常有收获的一次谈话 老师分析了社区内容运营的精髓、包括不同形式的内容的引导。结合在铁血网的经验给了非常细致的分析和梳理。物超所值。
+                            </div>
+                            <div class="comment-topic-name">参与话题：做好社区运营：内容和用户</div>
+                            <div class="comment-ft">
+                                <span class="comment-date">2016-08-14</span>
+                                <button class="comment-like like" data-review-id="59470" data-login="false">
+                                    <span>1</span>
+                                    有用</button>
+                            </div>
+                            
+                            <div class="comment-reply">
+                                行家回复：跟王总见面后发现经历丰富，尤其是海外市场，约见后，对我也很有收获。祝王总的产品越做越好。
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                </ul>
+                
+                <a class="btn-plat btn-lg btn-more" data-received="话题页-更多评价..mID.84751620;mName.张伟" href="javascript: void 0;" id="moreComments">查看更多</a>
+                
+            </div>
+            
+            
+            <div class="comments hidden" id="remarks" data-total-count="3">
+                <h2></h2>
+                <ul class="comments-list">
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84847085">
+                            <img src="//medias.zaih.com/i6gxrsmf4jw0dovett7k64f0so31fx2p!avatar" alt="乌实">
+                        </span>
+                        
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-friend-name">
+                                乌实
+                                </strong>
+                                <div>
+                                    <span class="comment-friend-title">水瓶时代董事长</span>
+                                </div>
+                            </div>
+                            <div class="comment-bd">
+                                张伟有着强大的逻辑思维能力，擅长找出工作中各种问题背后的根源动因，并用结构化、方法论的方式将以解决。我和张伟共事的时候，经常受益于他对问题的独到的分析、判断所带来的清晰化、本质化的解决方案。相信他也能为你带来同样明晰有效的意见和建议。
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84845424">
+                            <img src="//medias.zaih.com/1fopwfn8mhkvge588vulvlifz4uek6e8!avatar" alt="汤城">
+                        </span>
+                        
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-friend-name">
+                                汤城
+                                </strong>
+                                <div>
+                                    <span class="comment-friend-title">琥珀天气创始人</span>
+                                </div>
+                            </div>
+                            <div class="comment-bd">
+                                基于丰富实践经验的深入思考和系统的总结，这是张伟分享的最大的特点。对于企业管理，或许你已经身经百战，或许你对甚多问题早已感同身受，但张伟能在短短的数十分钟内帮你梳理出清晰脉络，使你得到一个体系化的指导，从而完成从点到面的升华。
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="comment-all">
+                        <span class="user-avatar" data-id="84843625">
+                            <img src="//medias.zaih.com/-2965749432-9-122120-5230-4749-111-125-106-43!avatar" alt="刘威">
+                        </span>
+                        
+                        <div class="comment">
+                            <div class="comment-hd">
+                                <strong class="comment-friend-name">
+                                刘威
+                                </strong>
+                                <div>
+                                    <span class="comment-friend-title">铁血网 副总裁</span>
+                                </div>
+                            </div>
+                            <div class="comment-bd">
+                                张伟同学在铁血和我共事期间是一位很靠谱的战友兼伙伴。他对工作的态度并不局限于保质保量完成任务，而是经常会总结并思考工作背后的逻辑与方法论，以求更多的收获与突破。我想这也是他能够在后来的工作中搞定从0到1的重要原因。
+                            </div>
+                        </div>
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="tutor-share-list-mobile bdsharebuttonbox hideInZDH" id="share" data-tag="shareTutor">
+    <span class="share-title">分享</span>
+    <a data-cmd="tsina" data-received="话题页-分享..mID.84751620;mName.张伟;type.微博" class="icon icon-weibo weibo" title="分享到新浪微博" data-analyze="Share:Weibo:mentor:84751620"></a>
+</div>
+
+<ul class="tutor-topic-list-mobile">
+    <h2 class="tutor-list-title">张伟的推荐</h2>
+    
+    
+    
+    <li>
+        <a href="/mentor/84753592/?recommendby=84753592" data-received="话题页-推荐、相关话题..from.84751620;fName.张伟;target.84753592;tName.宋锐;type.推荐">
+        <div class="tutor-info-left">
+            <span class="tutor-pic" style="background-image : url(//medias.zaih.com/FiFwGev-hLGsOGxdq-KsKtgDjY1M!avatar)"></span>
+        </div>
+        <div class="tutor-info-right">
+            <p class="tutor-title">
+                <span class="tutor-name">宋锐</span>
+                <em>琥珀天气COO</em>
+            </p>
+            <p class="topic-title">移动产品如何走出本土，出海掘金？</p>
+            <p class="location">北京</p>
+        </div>
+        <div class="discription">
+            <p>国内做海外市场的团队不多，宋总这边又是大浪淘沙中的金沙。</p>
+        </div>
+        </a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/mentor/84759579/?recommendby=84759579" data-received="话题页-推荐、相关话题..from.84751620;fName.张伟;target.84759579;tName.龚攀;type.推荐">
+        <div class="tutor-info-left">
+            <span class="tutor-pic" style="background-image : url(//medias.zaih.com/FtH_03bt9oYjQOIaB-RLDdY8lOKs!avatar)"></span>
+        </div>
+        <div class="tutor-info-right">
+            <p class="tutor-title">
+                <span class="tutor-name">龚攀</span>
+                <em>游戏化研发顾问</em>
+            </p>
+            <p class="topic-title">用5个游戏化原理，让你的工作变有趣</p>
+            <p class="location">北京</p>
+        </div>
+        <div class="discription">
+            <p>这位小哥年轻有趣，富有活力，总能有新的想法给我带来灵感。</p>
+        </div>
+        </a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/mentor/84935413/?recommendby=84935413" data-received="话题页-推荐、相关话题..from.84751620;fName.张伟;target.84935413;tName.张妍妍;type.推荐">
+        <div class="tutor-info-left">
+            <span class="tutor-pic" style="background-image : url(//medias.zaih.com/FgMBamaEGRiPAY1ZzNFen9QSPb8025!avatar)"></span>
+        </div>
+        <div class="tutor-info-right">
+            <p class="tutor-title">
+                <span class="tutor-name">张妍妍</span>
+                <em>龙观电商创始人，清华MBA</em>
+            </p>
+            <p class="topic-title">如何做好电商运营和推广</p>
+            <p class="location">北京</p>
+        </div>
+        <div class="discription">
+            <p>有幸上过张老师的课，收获良多，电商方面有困惑找她没错的</p>
+        </div>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+
+
+
+    
+    <div class="footer">
+        <div class="column">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <a class="footer-logo" href="/" data-market="General;底部导航;Logo"><i class="icon icon-zaih"></i>果壳网出品</a>
+                    <div class="footer-link">
+                        <a href="/" data-market="General;底部导航;首页">首页</a>
+                        
+                        <a class="appDownloadBtn app-download" href="/app/" data-received="下载app..page.mentor" data-market="General;底部导航;下载APP">下载App</a>
+                        <a class="appDownloadBtn mobile-app-download" target="_blank" href="http://guo.kr/8k0KtO" data-received="下载app..page.mentor" data-market="General;底部导航;下载APP">下载App</a>
+                        
+                        <a href="/help/about/" data-market="General;底部导航;关于我们">关于我们</a>
+                        <a href="/help/faq/" data-market="General;底部导航;帮助">帮助</a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <a class="footer-tel" href="tel:4000691791">4000-691-791</a>
+                    <p class="footer-time">工作日 10:00-19:00</p>
+                    <div class="online-service">
+                        <a class="btn-primary online-service-btn" href="http://kefu.easemob.com/webim/im.html?tenantId=2970" target="_blank" data-market="General;底部导航;在线客服">在线客服</a>
+                    </div>
+                    <span class="footer-qr"><img src="http://media.zaih.com/FnTxnAExFlSJrz_OZMeQyDJeYJtT">官方微信</span>
+                    <span class="footer-qr"><img src="http://media.zaih.com/FpfnWcdi3GN2ra151WYfgJF2rurS">在行沙龙</span>
+                </div>
+            </div>
+            <div class="footer-info">
+                <div class="footer-left">
+                    GUOKR © 2018 LOVINGLY MADE IN BEIJING
+                    <br>
+                    北京我最在行信息技术有限公司
+                    <br>
+                    京B2-20160131 |
+                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502031582"><img src="http://media.zaih.com/FinEALw7ifYIV2baxOAzDe1ctz1S"/>京公网安备 11010502031582号</a>
+                </div>
+                <div class="footer-right">
+                    地址  北京市朝阳区建国路郎园Vintage
+                    <br>
+                    电话  010-85809983
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<!-- JavaScript at the bottom for fast page loading -->
+
+
+<script>
+var weixin_mp_config = {"appId": "wx63736776bf28c6b5", "nonceStr": "IPat6M1dAsn7", "signature": "4fccb2db4d14231947a4c4e3d4ecef807724b007", "timestamp": "1527935028"};
+</script>
+
+<script>
+var weibo_login_url = "/auth/authorize-use/weibo?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84751620%2Ftopic%2F29869443%2F",
+        weixin_login_url = "/auth/authorize-use/weixin?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84751620%2Ftopic%2F29869443%2F",
+        baidu_login_url = "/auth/authorize-use/baidu?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84751620%2Ftopic%2F29869443%2F",
+        weixin_mp_login_url = "/auth/authorize-use/weixin_mp?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84751620%2Ftopic%2F29869443%2F",
+        signup_url = "/auth/signup?next=http%3A%2F%2Fwww.zaih.com%2Fmentor%2F84751620%2Ftopic%2F29869443%2F";
+</script>
+
+<script src="/static/front/scripts/62c4d7e6.base.js"></script>
+<script src="/static/front/scripts/c94331eb.main.js"></script>
+
+<script>
+var validateObj = {"is_self" : false,"has_realname" : false,"is_mobile_verified" :  false},
+    tutor_city = "\u5317\u4eac",
+    tutor = {"id":"84751620","summary": "铁血网前主编，「开干了」企业外脑", "realname": "张伟"},
+    pageName = 'tutorDetail';
+</script>
+<script src="/static/front/scripts/67dbe8b0.content.js"></script>
+
+<!-- end scripts -->
+</body>
+</html>

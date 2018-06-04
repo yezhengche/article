@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.hankcs:hanlp:portable-1.6.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.hankcs/hanlp/portable-1.6.3/eec95d57b3c35eeb9b34981cc0940b169b95511d/hanlp-portable-1.6.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.hankcs/hanlp/portable-1.6.3/f5e8c53cc39e32be4f677cb7a4914442c55ae0eb/hanlp-portable-1.6.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

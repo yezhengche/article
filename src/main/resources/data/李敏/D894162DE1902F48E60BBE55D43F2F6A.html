@@ -1,0 +1,668 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="李敏简介,李敏作品欣赏,李敏雕塑,李敏资讯,李敏展览,李敏作品价格"/>
+<meta name="description" content="李敏官方网站，包括李敏简介、李敏作品欣赏、李敏艺术资讯新闻、李敏作品价格、李敏展览，评论互动等信息，为您查询李敏资料及了解艺术作品提供最有价值的参考" />
+<title>李敏官方网站-雅昌艺术家网</title>
+<link href="/static/css/common.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/green.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="/static/js/common.js" type="text/javascript"></script>
+<script src="/static/js/imageToggle.js" type="text/javascript"></script>
+<script type="text/javascript" src="/static/js/slider.js"></script>
+<script src="/static/js/hover.js" type="text/javascript"></script>
+ <!--[if lte IE 6]>
+<script type="text/javascript" src="/static/js/DD_belatedPNG.js"></script>
+<script>
+DD_belatedPNG.fix('.layerMid,.layer a.close,.layerTop,.layerBot');
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+   $(document).ready(function(){
+    var userAgent = document.getElementById("mobileCopy"); 
+	if(userAgent){
+	userAgent.onclick = function(){ 
+	 function InitAjax()
+	 {
+	　var ajax=false;
+	　try {
+	　　ajax = new ActiveXObject("Msxml2.XMLHTTP");
+	　} catch (e) {
+	　　try {
+	　　　ajax = new ActiveXObject("Microsoft.XMLHTTP");
+	　　} catch (E) {
+	　　　ajax = false;
+	　　}
+	　}
+	　if (!ajax && typeof XMLHttpRequest!='undefined') {
+	　　ajax = new XMLHttpRequest();
+	　}
+	　return ajax;
+	  }
+	  var url = "/ajax_userAgent";
+	  var postStr = "type=1";
+	  var ajax = InitAjax();
+	   ajax.open("POST", url, true);
+			ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			ajax.send(postStr);
+			ajax.onreadystatechange = function() {
+		　    if (ajax.readyState == 4 && ajax.status == 200) {
+			  if(ajax.responseText==1){
+			  }else{
+				 alert(ajax.responseText);
+			  }
+			  location.href=userAgent.dataset.id;
+			}
+		　}
+		
+      }
+	}
+});
+</script>
+
+
+<script  language="javascript">
+function CheckMemberCenterLoginForm()
+{
+if (document.getElementById("UserName").value=="" || document.getElementById("Pwd").value=="")
+	{
+		alert('请输入帐号密码');
+		return false;
+	}
+}
+
+function SetHome(obj,vrl){
+        try{
+                obj.style.behavior='url(#default#homepage)';obj.setHomePage(vrl);
+        }
+        catch(e){
+                if(window.netscape) {
+                        try {
+                                netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+                        }
+                        catch (e) {
+                                alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+                        }
+                        var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                        prefs.setCharPref('browser.startup.homepage',vrl);
+                 }
+        }
+}
+</script>
+<style>
+.mini-nav { /*width:960px;  margin:auto; */ height:30px;line-height:30px; }
+.mini-nav a { color:#767676; padding:0px 8px;  background:url(../images/cssSprites.gif) no-repeat right 2px; }
+.mini-nav a.unbG {  background:none; }
+#memberCenterTop .top_l { float:left; }
+#memberCenterTop .top_l .username { color:#003B90; }
+.gonggao { padding-left:0px; }
+#memberCenterTop .top_l .myartron { position:relative; z-index:100; }
+#memberCenterTop .myartron .myartron_link { background: url("../images/memberCenterSj.gif") no-repeat right center ;
+ padding-right:16px; text-decoration:none;}
+#memberCenterTop .top_r { color:#C2DDFF; float:right; text-align:right; }
+#memberCenterTop .top_r a { margin:0 4px; }
+#memberCenterTop { height:36px; line-height:36px; padding:0 0 0 5px; width:955px; }
+#memberCenterTop .myartron ul { background:none repeat scroll 0 0 #FFFFFF; border:1px solid #BFDBFF; left:0; position:absolute; top:26px; width:66px; z-index:100;}
+#memberCenterTop  .myartron ul li { background:#EBEBED; line-height:22px; margin-bottom:1px; text-align:center; }
+#memberCenterTop .myartron ul li a { color:#2483FF; margin:0; padding:0; background:none; }
+#memberCenterTop  .myartron ul li a:hover { text-decoration:none; }
+#memberCenterTop .myartron ul .first { background:#2483FF; }
+#memberCenterTop .myartron ul .first a { color: #FFFFFF; }
+.t_s { color:#CC0001; line-height:24px; }
+.mini {
+    height: 30px;
+    margin: auto;
+    width: 960px;
+}
+.mini i{
+    color: #979797;
+    font-size: 11px;
+    font-style: normal;
+    padding: 0 10px;
+}
+.mini a {line-height: 30px;}
+.red1 { color:#AD2637 !important;}
+.fl { float:left; }
+.fr { float:right; }
+.headerLine {height:5px; line-height:0; font-size:0; background:#fff; clear:both; margin-top:5px; border-top:1px solid #D4D4D4;}
+</style>
+</head>
+<body>
+<img src="//auction3.img.artimg.net/wximg/?type=img&src=http://img1.artron.net/artist/A0262169/2013052815531214798.jpg?cbfcece2f9a9862d329d29ced18a1cb5" height="0" width="0">
+<div id="BgDiv"></div>
+<div id="topFix">
+      <link href="//pubunder.artron.net/issue_public/issue_top/css/common.css" rel="stylesheet" type="text/css" />
+<link href="//pubunder.artron.net/issue_public/issue_top/css/newTop.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="//pubunder.artron.net/issue_public/issue_top/js/newLogin.js"></script>
+<div id="sso_topbar" class="sso_bg">
+    <div class="sso_pw fix">
+        <div id="sso_loginBar">
+        	<a target="_blank" title="雅昌首页" href="http://www.artron.net/" class="sso_home sso_btn">雅昌首页</a>
+            <div class="sso_optionInput">
+            	
+                <script type="text/javascript"
+                    src="//passport.artron.net/client/sso.js"></script>
+                <script type="text/javascript">
+                    var sso = new sso();
+                </script>
+                <!-- 登录后 -->
+                <div id="member_after_login" style="display:none;">
+                    <span class="sso_wel"><b></b></span><a target="_self" class="sso_login" href="javascript:void(0)" onclick="sso.go(this, 'logout')">退出</a>
+                </div>
+                <!-- 登录前 -->
+                <div id="member_before_login" style="display:none;">
+                    <span class="sso_wel sso_fl">您好！</span><a target="_self" href="javascript:void(0)" onclick="sso.go(this, 'login')" class="sso_login sso_fl">请登录</a><a target="_self" href="javascript:void(0)" onclick="sso.go(this, 'register')" class="sso_reg sso_fl">免费注册</a>
+                </div>
+                <script type="text/javascript">
+                    $.ajax({
+                        type : "get",
+                        async : true,
+                        url : "//passport.artron.net/status",
+                        dataType : "jsonp",
+                        jsonp : "jsonpCallback",
+                        success : function(data) {
+                            if (data.status == 1) {
+                                $("#member_after_login").find("b").html(
+                                        data.username);
+                                $("#member_after_login").show();
+								$(".sso_news").show();
+                                $(".sso_buying").addClass("sso_buyLog");
+                                if(data.orderSum > 0){
+                                    $(".sso_buyLog").children("span").addClass("sso_buyNum").html("（"+data.orderSum+"）");
+                                }else{
+									$(".sso_buyLog").children("span").removeClass("sso_buyNum").html("（0）");
+								}
+                            } else {
+                                $("#member_before_login").show();
+                                $(".sso_buying").removeClass("sso_buyLog");
+                            }
+                        },
+                        error : function() {
+                        }
+                    });
+                </script>
+            </div>
+            <div class="sso_select sso_myArtron">
+                <div class="sso_site">
+                    <div class="sso_dropdown oh">
+                        <a class="sso_siteTit icon-artron" href="http://passport.artron.net/memCenter/index/" title="我的雅昌" target="_blank">我的雅昌</a><b class="sso_dropBtn"></b>
+                    </div>
+                    <ul class="sso_siteList">
+                        <li><a class="icon-buy" href="http://passport.artron.net/memCenter/buyer/" target="_blank">求购作品</a></li>
+                        <li><a class="icon-release" href="http://passport.artron.net/service/product/" target="_blank">发布作品</a></li>
+                        <li><a class="icon-attention" href="http://passport.artron.net/memCenter/attention/" target="_blank">我的关注</a></li>
+                        <li><a class="icon-collect" href="http://passport.artron.net/memCenter/collection/index" target="_blank">我的收藏</a></li>
+                        <li><a class="icon-SetUp" href="http://passport.artron.net/service/product/company" target="_blank">服务中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a class="sso_buying" href="http://passport.artron.net/memCenter/buyer/" target="_blank">求购单<span>（0）</span></a>
+            <a class="sso_news" href="http://passport.artron.net/memCenter/message/index/" target="_blank">消息<!--<span>（0）</span>--></a>
+        </div>
+        <div class="sso_other">
+            <a href="http://help.artron.net/" title="帮助中心" target="_blank">帮助中心</a>
+        </div>
+        <div class="sso_select sso_artSite">
+            <div class="sso_site">
+                <div class="sso_dropdown oh">
+                    <a target="_self" class="sso_siteTit" href="###" title="雅昌子站">雅昌子站</a><b class="sso_dropBtn"></b>
+                </div>
+                <ul style="overflow: hidden;" class="sso_siteList">
+                    <li><a href="http://huanan.artron.net/" target="_blank">华南站</a></li>
+                    <li><a href="http://huadong.artron.net/" target="_blank">华东站</a></li>
+                    <!--<li><a href="http://fj.artron.net/" target="_blank">福建站</a></li>-->
+                    <li><a href="http://gd.artron.net" target="_blank">广东站</a></li>
+                    <!-- <li><a href="http://jx.artron.net" target="_blank">江西站</a></li> -->
+                    <!--<li><a target="_blank" href="http://hn.artron.net/">河南站</a></li>-->
+                    <li><a target="_blank" href="http://sxsh.artron.net/">山西书画</a></li>
+                    <li><a href="http://ebook.artron.net/" target="_blank">图书网</a></li>
+                    <li><a href="http://en.artron.net/" target="_blank">英文站</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sso_topTel">
+            <a href="http://help.artron.net/service/" target="_blank"><b class="sso_fl">买家服务中心：</b><span>400 669 0999</span></a>
+        </div>
+        <div class="sso_select sso_homeSer">
+            <div class="sso_site">
+                <div class="sso_dropdown oh">
+                    <a class="sso_siteTit" style="color:#666;">主页服务</a><b class="sso_dropBtn"></b>
+                </div>
+                <ul class="sso_siteList">
+                    <li class="first"><span class="sso_serArist"><a href="http://artist.artron.net/" target="_blank">艺术家</a></span><span class="sso_serGal"><a href="http://gallery.artron.net/" target="_blank">画廊</a><i>/</i><a href="http://crc.artron.net" target="_blank">古玩店</a></span><span class="sso_serAuc"><a href="http://auction.artron.net/" target="_blank">拍卖</a></span></li>
+                    <li><span class="sso_serArist"><a href="http://artist.artron.net/yishujiaintroduce/" target="_blank">特权介绍</a></span><span class="sso_serGal"><a href="http://gallery.artron.net/help/introduce/" target="_blank">特权介绍</a></span><span class="sso_serAuc"><a href="http://auction.artron.net/help/introduce/html/introduce_brand.html" target="_blank">特权介绍</a></span></li>
+                    <li><span class="sso_serArist"><a href="http://passport.artron.net/service/artist/" target="_blank">现在开通</a></span><span class="sso_serGal"><a href="http://passport.artron.net/service/gallery/" target="_blank">现在开通</a></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+<div class="box980 spaceB20 seachBan">
+	<div class="banner spaceB20"><img src="http://img1.artron.net/artist/A0262169/guang960.jpg?cbfcece2f9a9862d329d29ced18a1cb5"  onerror="this.src='/static/image/defaultbaner.jpg';"/>
+		<div class="logo">
+		    		    <!--<a href="http://limin.artron.net/"> -->
+			<p class="title"><strong class="siteTit"><span title="李敏">李敏</span>官方网站</strong>
+
+            <img id="minQr" src="/static/image/common/qr.png" width="18" height="18" alt="二维码图标" />
+
+            
+            
+            </p>    	
+	        <p class="address">http://limin.artron.net/</p>
+	        <!--</a>-->
+				    </div>
+        
+        <div class="Titname"><a href="http://artist.artron.net/artlogon.php" target="_blank" >登录数字资产管理中心>></a></div>
+        <span class="pv manageBtn">访问量：<i>570633</i></span>
+	</div>
+    
+</div>
+<div class="nav">
+	<div class="box980 clearfix">
+            
+          <ul>
+    		<li><a href="http://limin.artron.net/" class="index introOver"><span>首页</span></a></li>
+    		<li><a href="http://limin.artron.net/about" class="intro "><span>艺术家介绍</span></a></li>    		<li><a href="http://limin.artron.net/works" class="works "><span>作品</span></a></li>    		<li><a href="http://limin.artron.net/exhibit" class="exhibit "><span>展览</span></a></li>    		<li><a href="http://limin.artron.net/market" class="market "><span>拍卖行情</span></a></li>            <li><a href="http://limin.artron.net/news" class="news "><span>资讯</span></a></li>    		<li><a href="http://limin.artron.net/photo" class="photo "><span>相册</span></a></li>    		<li><a href="http://limin.artron.net/collect" class="collect "><span>收藏捐赠</span></a></li>    		<li><a href="http://limin.artron.net/book" class="publice "><span>出版著作</span></a></li>    		<li><a href="http://limin.artron.net/messageboard" class="message "><span>留言板</span></a></li>    	</ul>
+                
+        
+        
+    </div>
+</div>
+<!--顶部 end-->
+<div class="box980 mainRL pt20">
+<!--左侧 start-->
+	<div class="left">
+       <!--最新动态 start-->
+<script type="text/javascript">
+function setMaxSize(element,width,height){
+
+	$(element).removeAttr("width").removeAttr("height");
+	var imgWidth = $(element).outerWidth(),
+		imgHeight = $(element).outerHeight();
+	if(imgWidth > imgHeight*width/height){
+		if(imgWidth > width){
+			$(element).attr("width",width);
+		}
+	} else {
+		if(imgHeight > height){
+			$(element).attr("height",height);
+		}
+	} 
+	
+	if($(element).css("visibility") == "hidden"){
+		$(element).css("visibility", "visible");
+	}
+}
+
+</script>
+
+     	 <div class="border03 spaceB30 ">
+            <div class="border03Common">
+            	<div id="slideBox" class="slideBox bgGray">
+                      <div class="brd"></div>
+				      <div class="hd">
+				          <ul>                         
+				              							    <li></li>
+				   	          							    <li></li>
+				   	          							    <li></li>
+				   	          							    <li></li>
+				   	          							    <li></li>
+				   	          				         
+                          </ul>
+				      </div>
+				      <div class="bd">
+                      <ul>
+                      				                								   <li class="imgWrap">
+                                   <a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900001" title="远古的传说-大禹治水（立于佛山玫瑰园社区） " target="_blank"><img src="http://img2.artron.net/artist/A0262169/brt026216900001.jpg" onload="setMaxSize(this, 710, 360)" /></a><span></span>
+                                   <p><a href="http://limin.artron.net/works_detail_brt026216900001" title="远古的传说-大禹治水（立于佛山玫瑰园社区） " target="_blank">远古的传说-大禹治水（立于佛山玫瑰园社区）</a>
+                                   </p>
+                                   </li>
+																   <li class="imgWrap">
+                                   <a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900002" title="远古的传说-女媧造人（立于佛山玫瑰园社区） " target="_blank"><img src="http://img2.artron.net/artist/A0262169/brt026216900002.jpg" onload="setMaxSize(this, 710, 360)" /></a><span></span>
+                                   <p><a href="http://limin.artron.net/works_detail_brt026216900002" title="远古的传说-女媧造人（立于佛山玫瑰园社区） " target="_blank">远古的传说-女媧造人（立于佛山玫瑰园社区）</a>
+                                   </p>
+                                   </li>
+																   <li class="imgWrap">
+                                   <a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900003" title="远古的传说-盘古开天地（立于佛山玫瑰园社区） " target="_blank"><img src="http://img2.artron.net/artist/A0262169/brt026216900003.jpg" onload="setMaxSize(this, 710, 360)" /></a><span></span>
+                                   <p><a href="http://limin.artron.net/works_detail_brt026216900003" title="远古的传说-盘古开天地（立于佛山玫瑰园社区） " target="_blank">远古的传说-盘古开天地（立于佛山玫瑰园社区</a>
+                                   </p>
+                                   </li>
+																   <li class="imgWrap">
+                                   <a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900004" title="远古的传说-神农氏（立于佛山玫瑰园社区） " target="_blank"><img src="http://img2.artron.net/artist/A0262169/brt026216900004.jpg" onload="setMaxSize(this, 710, 360)" /></a><span></span>
+                                   <p><a href="http://limin.artron.net/works_detail_brt026216900004" title="远古的传说-神农氏（立于佛山玫瑰园社区） " target="_blank">远古的传说-神农氏（立于佛山玫瑰园社区）</a>
+                                   </p>
+                                   </li>
+																   <li class="imgWrap">
+                                   <a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900005" title="远古的传说-钻木取火（立于佛山玫瑰园社区） " target="_blank"><img src="http://img2.artron.net/artist/A0262169/brt026216900005.jpg" onload="setMaxSize(this, 710, 360)" /></a><span></span>
+                                   <p><a href="http://limin.artron.net/works_detail_brt026216900005" title="远古的传说-钻木取火（立于佛山玫瑰园社区） " target="_blank">远古的传说-钻木取火（立于佛山玫瑰园社区）</a>
+                                   </p>
+                                   </li>
+														                      </ul>
+				      </div>
+				  </div>
+				<script type="text/javascript">jQuery(".slideBox").slide( { mainCell:".bd ul",effect:"leftLoop",autoPlay:true} );</script>
+		    </div>
+        </div>
+              <!--最新动态 end-->        
+        <!--最新作品 start-->
+                <div class="border01 spaceB30">
+        	<div class="border01Top">
+            	<h2 title="推荐作品"><span>推荐作品</span><a target="_blank" href="/works">更多</a></h2>
+            </div>
+            <div class="picList bg " id="trailerList">
+             <a class="front" href="javascript:void(0)"></a>
+             <a class="next" href="javascript:void(0)"></a>
+             <div class="picListBox">
+             <ul class="ygUl"> 
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900006" target="_blank" title="春夏秋冬"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900006.jpg" alt="春夏秋冬" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900006" target="_blank" title="春夏秋冬">春夏秋冬</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900007" target="_blank" title="春夏秋冬1a"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900007.jpg" alt="春夏秋冬1a" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900007" target="_blank" title="春夏秋冬1a">春夏秋冬1a</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900008" target="_blank" title="春夏秋冬2a"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900008.jpg" alt="春夏秋冬2a" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900008" target="_blank" title="春夏秋冬2a">春夏秋冬2a</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900009" target="_blank" title="春夏秋冬3a"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900009.jpg" alt="春夏秋冬3a" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900009" target="_blank" title="春夏秋冬3a">春夏秋冬3a</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900010" target="_blank" title="春夏秋冬4a"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900010.jpg" alt="春夏秋冬4a" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900010" target="_blank" title="春夏秋冬4a">春夏秋冬4a</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900011" target="_blank" title="风的祝福"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900011.jpg" alt="风的祝福" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900011" target="_blank" title="风的祝福">风的祝福</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900012" target="_blank" title="黄河——孕"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900012.jpg" alt="黄河——孕" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900012" target="_blank" title="黄河——孕">黄河——孕</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900013" target="_blank" title="黄河——孕a"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900013.jpg" alt="黄河——孕a" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900013" target="_blank" title="黄河——孕a">黄河——孕a</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900014" target="_blank" title="母亲的祁盼"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900014.jpg" alt="母亲的祁盼" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900014" target="_blank" title="母亲的祁盼">母亲的祁盼</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900015" target="_blank" title="南风（1）"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900015.jpg" alt="南风（1）" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900015" target="_blank" title="南风（1）">南风（1）</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900016" target="_blank" title="南风（2）"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900016.jpg" alt="南风（2）" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900016" target="_blank" title="南风（2）">南风（2）</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900017" target="_blank" title="琼花魂"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900017.jpg" alt="琼花魂" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900017" target="_blank" title="琼花魂">琼花魂</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900018" target="_blank" title="琼花魂组雕"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900018.jpg" alt="琼花魂组雕" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900018" target="_blank" title="琼花魂组雕">琼花魂组雕</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900019" target="_blank" title="群英谱浮雕"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900019.jpg" alt="群英谱浮雕" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900019" target="_blank" title="群英谱浮雕">群英谱浮雕</a></p></li>
+             	
+               <li><div class="imgWrap"><a class="imgCell" href="http://limin.artron.net/works_detail_brt026216900020" target="_blank" title="阮玲玉"><img src="http://img2.artron.net/artist/A0262169/small_brt026216900020.jpg" alt="阮玲玉" onload="DrawImage(this, 140, 140);" /></a></div><p><a href="http://limin.artron.net/works_detail_brt026216900020" target="_blank" title="阮玲玉">阮玲玉</a></p></li>
+                          </ul>
+             </div>
+            </div>
+        </div>
+                <!--最新作品 end-->
+        <!--艺术家资讯-->
+                  <div class="border01 spaceB30">
+        	<div class="border01Top">
+                        	<h2 title="艺术家资讯"><span>艺术家资讯</span><a href="http://limin.artron.net/news" target="_blank">更多</a></h2>
+                            </div>
+            <div class="border01Common">
+            	<div class="indexNewsList">
+                	
+                    <dl>
+                    	<dt></dt>
+                        <dd><h3><a href="http://limin.artron.net/news_detail_455901" title="论现代雕塑与共享空间" target="_blank">论现代雕塑与共享空间</a></h3>
+                        <p>自十七世纪以来，只是在二十世纪雕塑才第一次以一种主要艺术的姿态出现。特别是近六十年内，雕塑的发展甚至比绘画还值得关注。一些富有探索精神的现代雕塑家们，开创了根本性的新局面。特别是把雕塑当作构成或装...<a href="http://limin.artron.net/news_detail_455901" target="_blank">详细</a></p></dd>
+                    </dl>
+                                     
+                  <dl class="last">
+                    	<dt class="imgWrap"><a class="imgCell" href="http://limin.artron.net/news_detail_469320"><img src="https://img3.artron.net/news/201306/2013062809094512483.jpg" onload="DrawImage(this, 100, 100);" /><span class="v"></span></a></dt>
+                        <dd><h3><a href="http://limin.artron.net/news_detail_469320" title="邓嘉斌：“传递空间——广东雕塑艺术沙龙展”" target="_blank">邓嘉斌：“传递空间——广东雕塑艺术沙龙展”</a></h3>
+                        <p>由雅昌艺术网主办，广州艺海堂美术馆承办，中国雕塑学会，广州美术学院雕塑系，广州雕塑院，佛山雕塑院和深圳雕塑院联合参与，并由北京画院美术馆馆长，中国雕塑家协会常务理事吴洪亮先生担任学术主持的&ldquo;传递空间;;广东雕塑家艺术沙龙&rdquo;展...<a href="http://limin.artron.net/news_detail_469320" target="_blank">详细</a></p></dd>
+                    </dl>
+                                        
+                </div>
+            </div>
+        </div>
+                 <!--艺术家资讯 end-->
+        <!--艺术家评论 start-->
+                <!--艺术家评论 end-->
+        <!--鉴证备案 start-->    
+               
+        
+        
+        
+        
+        <!--鉴证备案 end-->  
+        <!--相关展览 start-->
+                  <!--相关展览 end-->
+               
+                
+        
+        
+	</div>
+    
+    <!--左侧 end-->
+    <!--右侧 start-->
+    <div class="right bg">
+     <!--艺术家简介 start-->
+         <h2><strong>艺术家简介</strong></h2>
+    	<div class="indexAbout spaceB23">
+           <div class="clear"></div>
+        	<dl>
+            	<dt><div class="imgWrap"><span class="imgCell"><img src="http://img1.artron.net/artist/A0262169/2013052815531214798.jpg?cbfcece2f9a9862d329d29ced18a1cb5" alt="李敏"  /></span></div></dt>
+                <dd>
+                    <h3>李敏</h3>
+                    				   				     					    <p class="dtil">国家二级美术师</p>
+					                  
+									     					    <p class="dtil">
+中国雕塑学会会员</p>
+					                  
+									     					    <p class="dtil">
+全国城雕创作资格证持有者<a href="http://limin.artron.net/about" class="fr">详细</a></p>
+					                  
+									                    
+                </dd>
+            </dl>
+            <ul class="visits">
+            	<li>总访问人数：<span>570633</span></li>
+                <li>总作品数量：<span>46</span></li>
+            </ul>
+            <ul class="atten">
+                                  </ul>
+       		<div class="favorShare">
+        	    <!-- JiaThis Button BEGIN -->
+                <!--<div class="jiathis_style"><span class="jiathis_txt">分享到：</span>-->
+                <!--<a class="jiathis_button_tsina"></a>-->
+                <!--<a class="jiathis_button_weixin"></a>-->
+                <!--<a class="jiathis_button_tqq"></a>-->
+                <!--<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>-->
+                <!--</div>-->
+                <!--<script type="text/javascript" >-->
+                <!--var jiathis_config={                 -->
+                    <!--title:"李敏",-->
+                    <!--summary:"唯一授权官方网站",-->
+                    <!--shortUrl:false,-->
+                    <!--hideMore:false-->
+                <!--}-->
+                <!--</script>-->
+                <!--<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>-->
+                <!-- JiaThis Button END -->
+                <div class="bdShare" style="padding-top: 4px; ">
+                    <div class="bdsharebuttonbox" data-tag="share_new">
+                        <em style="float: left;line-height: 36px;">分享到：</em>
+                        <a class="bds_tsina" data-cmd="tsina"></a>
+                        <a class="bds_tqq" data-cmd="tqq"></a>
+                        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                    </div>
+                </div>
+          </div>            
+        </div>
+        <!--艺术家简介 end-->
+       <!--微官网二维码 start-->
+               <div class="qrArtist clearfix spaceB23">
+            <img src="//qrcode.artron.net/?type=artist&id=A0262169&el=12&margin=2" alt="艺术家手机官网二维码" width="80" height="80" />
+            <p>扫描二维码访问<br />艺术家手机官网</p>
+        </div>
+               <!--微官网二维码 end-->
+        
+       <!--艺术家年表 start-->
+                <div class="artYear clearfix spaceB23">
+           <h2><strong>艺术家年表</strong><a href="http://limin.artron.net/about#year" target="_blank">更多</a></h2>
+           <div class="clear"></div>
+                           <dl>
+                 <dt>2008年</dt>
+                 <dd>《突破》入选第七届中国体育美术作品展览（合作）；《陆贾与赵佗...</dd>
+                </dl>
+                            <dl>
+                 <dt>2007年</dt>
+                 <dd>《大地》（铸铜）入选“共沐蓝天•共创和谐——广东美术慈善创作...</dd>
+                </dl>
+                     </div>
+                <!--艺术家年表 end-->
+        <div class="clear"></div>
+        <!--获奖记录 start-->
+                <!--获奖记录 end-->
+        <div class="clear"></div>
+        <!--艺术家风采 start-->
+                  <div class=" clearfix spaceB23 " >
+           <h2><strong>艺术家风采</strong><a href="http://limin.artron.net/photo" target="_blank">更多</a></h2>
+           <div class="clear"></div>
+            <div class="artStyle" id="trailerList1" >
+             <a href="javascript:void(0)" class="front01"></a>
+             <a href="javascript:void(0)" class="next01"></a>
+             <div class="artList">
+             <div class="artListBox">
+              <ul class="ygUl">
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203907" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00001.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203908" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00002.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203909" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00003.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203910" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00004.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203911" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00005.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203912" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00006.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203913" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00007.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203914" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00008.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203915" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00009.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203916" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00010.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203917" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00011.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203918" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00012.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203919" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00013.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203920" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00014.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+                              <li class="imgWrap"><a class="imgCell"  href="http://limin.artron.net/photo_indexpicture_203921" target="_blank" ><img src="http://img4.artron.net/artist/A0262169/A0262169photo00015.jpg"  onload="javascript:DrawImage(this, 160, 160);" /></a></li>
+               
+              </ul>
+              </div>
+             </div>
+            </div>
+          </div>
+                  <!--艺术家风采 end-->
+               <!--拍卖指数 end-->
+        <!--拍卖指数 end-->
+         <!--合作策展人 start-->
+                 
+         <!--合作策展人 end-->
+         
+         <!--友情链接 start-->
+                  <!--友情链接 end-->
+       
+       
+    </div>
+    <!--右侧 end-->
+    <div class="clear"></div>
+    <div class="editor">
+    <ul>
+            <li class="name"><span>客服专员：麻煜科</span></li>
+      <li class="mail"><a href="mailto:mayuke@artron.net">mayuke@artron.net</a></li>
+                  <li class="name"><span>责任编辑：张彦红</span></li>
+      <li class="mail"><a href="mailto:zyh@artron.net">zyh@artron.net</a></li>
+      <li class="tel">020-87353013</li>
+    </ul>
+ </div>
+</div>
+<div id="anchor">
+  <div title="返回顶部" class="ah" id="toTop">返回顶部</div>
+</div>
+ <!-- issue_public/footer.html -->
+<link href="//pubunder.artron.net/issue_public/issue_footer/css/footer.css" rel="stylesheet" type="text/css" />
+<div id="sso_bNav" class="bNav">
+<a style="background-image: none;" href="http://www.artron.net/aboutus/aboutus.php" target="_blank">关于我们</a><a href="http://minisite.artron.net/product/" target="_blank">产品介绍</a><a href="http://job.artron.net/" target="_blank">人才招聘</a><a href="http://news.artron.net/morenews.php?column_id=119" target="_blank">雅昌动态</a><a href="http://minisite.artron.net/contact/" target="_blank">联系我们</a><a href="http://www.artron.net/map.php" target="_blank">网站地图</a><a href="http://www.artron.net/aboutus/copyright.php" target="_blank">版权说明</a><a href="http://www.artron.net/aboutus/mzsm.php" target="_blank">免责声明</a><a href="http://www.artron.net/aboutus/privacy.php" target="_blank">隐私权保护</a><a href="http://www.artron.net/link.html" target="_blank">友情链接</a><a href="http://www.artron.com.cn" target="_blank">雅昌集团</a><a href="http://www.artron.net/aboutus/adviser.php" target="_blank">专家顾问</a><a href="http://www.artron.net/aboutus/law.php" target="_blank">法律顾问</a>
+</div>
+<div id="sso_copyright">
+  <p><span>Copyright Reserved 2000-2018 </span>&nbsp;雅昌艺术网&nbsp;版权所有</p>
+  <p><a href="http://www.artron.net/aboutus/zs.php" target="_blank">电信与信息服务业务经营许可证（粤）<span>B2-20030053</span></a><a href="http://www.artron.net/aboutus/zz_artron.php" target="_blank">广播电视制作经营许可证（粤）字第<span>717</span>号</a><a href="http://www.artron.net/aboutus/yyzzfb.php" target="_blank">企业法人营业执照</a></p>
+  <p><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011302000792" style="display:inline-block;"><img src="//pubunder.artron.net/pubimgs/web/ghs.png" style="float:left;margin-right:5px"><span>京公网安备 11011302000792号</span></a><a href="http://www.miibeian.gov.cn" target="_blank">粤<span>ICP</span>备<span>17056390</span>号-<span>4</span></a><a href="http://www.artron.net/aboutus/vz_artron.php" target="_blank">信息网络传播视听节目许可证<span>1909402</span>号</a><a href="http://www.artron.net/aboutus/hlwymzczs.php" target="_blank">互联网域名注册证书</a><a style="margin-right:0;" href="http://www.12377.cn/" target="_blank">中国互联网举报中心</a></p>
+  <p><a href="http://www.artron.net/aboutus/wh_artron.php" target="_blank">网络文化经营许可证粤网文<span>［2015］1282-139</span>号</a><a href="http://www.artron.net/aboutus/cb_artron.php" target="_blank">网络出版服务许可证<span>（总）网出证（粤）字第021号</span></a><a href="http://www.artron.net/aboutus/cbwjyxkz.php" target="_blank">出版物经营许可证</a><a href="http://www.artron.net/aboutus/zs_site.php" target="_blank">可信网站验证服务证书<span>2012040503023850</span>号</a></p>
+</div>
+
+<!--<div class="vote">
+<div class="box980" style="position:relative">艺术家官网目前外测中，如有问题请反馈给艺术家客服或拨打客服电话：010-80480998--8883 <b></b></div>
+</div>-->
+<div id="mask"></div>
+<div id="qrPop">
+	<div class="qrLeft"></div>
+    <div class="qrRight">
+    <a class="qrClose" href="javascript:;" title="关闭">关闭</a>
+        <dl>
+        <dt><img id="qrPopImg" src="//qrcode.artron.net/?type=artist&id=A0262169&el=12&margin=2" width="158" height="158" alt="微官网二维码" /></dt>
+    <dd><h3>李敏</h3><p class="qrPs">扫一扫上面的二维码图形<br />就可以关注我的手机官网</p></dd>
+    </dl>
+   <!--     <div class="selfShare">
+        	<em>分享到：</em><a id="sinaWeibo" href="javascript:;" title="新浪微博">新浪微博</a><a id="qqWeibo" href="javascript:;" title="腾讯微博">腾讯微博</a><a id="qqWeixin" href="javascript:;" title="微信">微信</a>
+        </div>-->
+   <div class="selfShare">
+    <div class="bdsharebuttonbox" data-tag="share_new">
+    <em>分享到：</em>
+    <a class="bds_tsina" data-cmd="tsina"></a>
+    <a class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    </div>
+	</div>
+<script>
+              var _share_pic = "//qrcode.artron.net/?type=artist&id=A0262169&el=12&margin=2";
+    window._bd_share_config = {
+	common : {
+		bdText : '欢迎订阅李敏艺术家微官网',
+		//bdDesc : '摘要',
+		bdUrl : 'http://limin.artron.net/',
+		bdPic : _share_pic
+	},
+	share : [{
+		"bdSize" : 24
+	}],
+
+	image : [{
+	   "tag" : "share_new",
+		viewType : 'list',
+		viewPos : 'top',
+		viewColor : 'black',
+		viewSize : '24',
+		viewList : ['qzone','tsina','huaban','tqq','renren']
+	}]
+}
+with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+    </div>
+</div>
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'hm.baidu.com/hm.js?851619594aa1d1fb8c108cde832cc127';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+  
+<script language="javascript" type="text/javascript">
+   function ShowDIV(thisObjID) {
+          $("#BgDiv").css({ display: "block", height: $(document).height() });
+          var yscroll = document.documentElement.scrollTop;
+          $("#" + thisObjID ).show(300);
+			document.documentElement.scrollTop = 0;
+			  }
+
+      function closeDiv(thisObjID) {
+          $("#BgDiv").css("display", "none");
+
+          $("#" + thisObjID).hide(300);
+      }
+ </script>
+
+
+</body>
+</html>

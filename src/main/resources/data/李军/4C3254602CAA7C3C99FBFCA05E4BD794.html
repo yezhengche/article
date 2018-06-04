@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>李军刚_北京理工大学物理学院</title>
+<meta name="keywords" content="北京理工大学物理学院" />
+<meta name="description" content="北京理工大学物理学院" />
+<link href="../../../../css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<div class="header">
+ 
+<script type="text/javascript">
+window.onload = function ()
+{
+		var oUl = document.getElementById("navigation");
+		var oLi = oUl.getElementsByTagName("li");
+		
+		for(var i=0;i<oLi.length;i++)
+		{
+			oLi[i].onmouseover = function ()
+			{
+				this.className = "hover";
+			};
+			oLi[i].onmouseout = function ()
+			{
+				this.className = "";
+			};
+		};
+		
+		function getByClass(sClass,parent){
+		
+		var aEles = (parent||document).getElementsByTagName('*');
+		var arr = [];
+		
+		for(var i=0; i<aEles.length; i++){
+			
+			var aClass = aEles[i].className.split(' ');
+			
+			for(var j=0; j<aClass.length; j++){
+				
+				if( aClass[j] == sClass ){
+				
+					arr.push( aEles[i] );
+					break;
+					
+				}	
+			}
+		}
+		return arr;
+	}
+	
+	var arr = getByClass('select');
+	var arr2 = getByClass('son_select');
+	var that = null;
+	var onoff = true;
+	
+	for(var i=0;i<arr.length;i++)
+	{
+		arr[i].index = i;
+		arr[i].onclick = function(ev) {
+			var e = ev || event;
+			e.cancelBubble = true;
+			for(var i=0;i<arr.length;i++)
+			{
+				if(i!=this.index)
+				{
+					arr2[this.index].style.display = 'block';
+					arr2[i].style.display = 'none';
+				}
+			};
+			if(onoff)
+			{
+				arr2[this.index].style.display = 'block';
+				onoff = false;
+			}else
+			{
+				arr2[this.index].style.display = 'none';
+				onoff = true;
+			};
+			that = this.index;
+			document.onclick = function() {
+				arr2[that].style.display = 'none';
+				onoff = true;
+			}
+		}
+	};
+
+}
+</script>
+
+ <div class="logo"><a href="../../../../index.htm"><img src="../../../../images/logo.jpg" width="503" height="69" /></a></div>
+    <div class="header_link">  <a href="../../../../lxwm/index.htm">联系我们</a>  ｜  <a href="http://english.bit.edu.cn/ensite/physics/index.htm">English</a></div>
+    <div class="ser">
+    <form name="dataForm" class="search" action="/cms/search/searchResults.jsp" target="_blank" method="post" accept-charset="utf-8" onsubmit="document.charset='utf-8';">
+    <input name="siteID" value="91" type ="hidden">
+    <input class="notxt" value="全文检索" name="query" type="text" id="keywords" onFocus="if(value==defaultValue){value='';}" onBlur="if(!value){value=defaultValue;}"
+     onclick="if(this.value==''){this.value='';this.form.keywords.style.color='#3c98cc'}">
+    <input class="notxt1" name="Submit" type="submit" value="" />
+    </form>
+    </div>
+    <div class="nav">
+        <!--        下拉菜单效果 开始         -->
+        <ul id="navigation" class="navigation">
+          <li style="background:none;">
+          <a href="../../../../index.htm">首&nbsp;页</a>   
+          </li>
+		  
+		  				   			     				  <li><a href="../../../../xygk/xyjj/index.htm">学院概况</a>
+                  			                 
+              <div class="sonnav">
+              <dl>
+			                <dd><a href="../../../../xygk/xyjj/index.htm">学院简介</a></dd>
+                             <dd><a href="../../../../xygk/lsyg/index.htm">历史沿革</a></dd>
+                             <dd><a href="../../../../xygk/xygw/index.htm">学院公文</a></dd>
+                             <dd><a href="../../../../xygk/xzbg/index.htm">行政办公</a></dd>
+                            
+              </dl>
+              </div>
+               </li>
+			  
+         			   			     				  <li><a href="../../index.htm">师资队伍</a>
+                  			                 
+              <div class="sonnav">
+              <dl>
+			                <dd><a href="../../index.htm">在职教职工</a></dd>
+                             <dd><a href="../../../gccrc/index.htm">高层次人才</a></dd>
+                             <dd><a href="../../../dsdw/index.htm">导师队伍</a></dd>
+                             <dd><a href="../../../bsh/index.htm">博士后</a></dd>
+                             <dd><a href="../../../ltxry/index.htm">离退休人员</a></dd>
+                             <dd><a href="../../../jzjs/index.htm">兼职教授</a></dd>
+                            
+              </dl>
+              </div>
+               </li>
+			  
+         			   			     				  <li><a href="../../../../dqgz/hddt/index.htm">党群工作</a>
+                  			                 
+              <div class="sonnav">
+              <dl>
+			                <dd><a href="../../../../dqgz/hddt/index.htm">活动动态</a></dd>
+                             <dd><a href="../../../../dqgz/gkjdk/index.htm">工会教代会</a></dd>
+                             <dd><a href="../../../../dqgz/dtjs/index.htm">党团建设</a></dd>
+                             <dd><a href="../../../../dqgz/xygz/index.htm">校友工作</a></dd>
+                            
+              </dl>
+              </div>
+               </li>
+			  
+         			   			     				  <li><a href="../../../../kxyj/kydt/index.htm">科学研究</a>
+                  			                 
+              <div class="sonnav">
+              <dl>
+			                <dd><a href="../../../../kxyj/kydt/index.htm">科研动态</a></dd>
+                             <dd><a href="../../../../kxyj/xzjg/index.htm">学术机构</a></dd>
+                             <dd><a href="../../../../kxyj/yjcg/index.htm">研究成果</a></dd>
+                             <dd><a href="../../../../kxyj/yjfx/index.htm">研究方向</a></dd>
+                             <dd><a href="../../../../kxyj/ktz/index.htm">课题组</a></dd>
+                            
+              </dl>
+              </div>
+               </li>
+			  
+         			   	         
+			  
+				  <li><a href="../../../../rcpy/bksjy/tzgg/index.htm">人才培养</a>
+				  
+				                
+              <div class="sonnav">
+              <dl>
+			                <dd><a href="../../../../rcpy/bksjy/index.htm">本科生教育</a></dd>
+                             <dd><a href="../../../../rcpy/yjsjy/index.htm">研究生教育</a></dd>
+                             <dd><a href="../../../../rcpy/xyfc/index.htm">校友风采</a></dd>
+                            
+              </dl>
+              </div>
+               </li>
+			  
+         			   			     				  <li><a href="../../../../xsgz/xsfc/index.htm">学生工作</a>
+                  			                 
+              <div class="sonnav">
+              <dl>
+			                <dd><a href="../../../../xsgz/xsfc/index.htm">学生风采</a></dd>
+                             <dd><a href="../../../../xsgz/xsdj/index.htm">学生党建</a></dd>
+                             <dd><a href="../../../../xsgz/hjpy/index.htm">获奖评优</a></dd>
+                             <dd><a href="../../../../xsgz/sxjy/index.htm">实习就业</a></dd>
+                            
+              </dl>
+              </div>
+               </li>
+			  
+         			   			     				  <li><a href="../../../../gjjl/gjxm/index.htm">国际交流</a>
+                  			                 
+              <div class="sonnav">
+              <dl>
+			                <dd><a href="../../../../gjjl/gjxm/index.htm">国际项目</a></dd>
+                            
+              </dl>
+              </div>
+               </li>
+			  
+                 
+         
+         
+         
+      </ul>
+      <!--        下拉菜单效果 结束         --> 
+    </div></div>
+<div class="content">
+    <div class="img"><img src="../../../../images/banner.jpg" width="1000" height="200" /></div>
+    <div class="list">
+        <div class="lf_list">
+          <div class="lf_list00">
+              
+             <div class="lf01_list">
+              <h3>师资队伍</h3>
+              <ul>
+                 				   
+                     <li><a href="../../index.htm">在职教职工</a></li>
+					
+		          				   
+                     <li><a href="../../../gccrc/index.htm">高层次人才</a></li>
+					
+		          				   
+                     <li><a href="../../../dsdw/index.htm">导师队伍</a></li>
+					
+		          				   
+                     <li><a href="../../../bsh/index.htm">博士后</a></li>
+					
+		          				   
+                     <li><a href="../../../ltxry/index.htm">离退休人员</a></li>
+					
+		          				   
+                     <li><a href="../../../jzjs/index.htm">兼职教授</a></li>
+					
+		               
+              
+              </ul>
+            </div>
+            <div class="rt03">
+              
+   <a href="http://mail.bit.edu.cn/"><img src="../../../../images/icon08.jpg" width="210" height="78"  style="padding-top:20px"/></a>
+                          </div>
+          </div>
+        </div>
+        <div class="rt_list">
+            <div class="bread">
+           当前位置：
+
+ 	 		<a href="../../../../index.htm">首页</a>
+	
+ &nbsp;>&nbsp;	 				<a href="../../index.htm">师资队伍</a>
+			
+ &nbsp;>&nbsp;	 	  <a href="../../index.htm">在职教职工</a>
+	  
+	   
+ &nbsp;>&nbsp;	 				<a href="../cc1/index.htm">副高</a>
+			
+ &nbsp;>&nbsp; <a href="index.htm">李军刚</a>            </div>
+            <div class="box_list">
+               <h3>副高</h3>
+                <div class="xq_teacher">
+                				 
+				   			    <img src="../../../../images/content/2018-03/20180305075243101650.jpg" />
+                <div class="wz_teacher">
+                <span>姓名：</span>李军刚<br />
+                <span>所在学科：</span>物理学院<br />
+                <span>职称：</span>副高    <br />
+                <span>联系电话：</span>010-68914027<br />
+                <span>E-mail：</span>jungl@bit.edu.cn<br />
+                <span>通信地址：</span>北京海淀区中关村南大街5号 北京理工大学物理学院<br />
+				                
+                </div>
+									                <div class="con_teacher">
+             	
+				 				   
+				    <div class="con01_t">
+                    <h3>个人简历</h3>
+					                      <p>1999年-2013年北京理工大学物理系，理学硕士；2003年-2008年北京理工大学物理学院理学博士，2008年毕业于北京理工大学并留校任教。</p>
+ 
+					                      </div>
+                   
+				   				   
+				    <div class="con01_t">
+                    <h3>工作经历</h3>
+					                      <p>&nbsp;2008年-2012年北京理工大学理学院讲师；</p>
+
+<p>2008年-2014年北京理工大学物理学院副教授，硕士生指导教师。</p>
+
+<p>2014年全年澳大利亚格里菲斯大学量子动力学中心，客座副教授；</p>
+
+<p>2015年至今 北京理工大学物理学院副教授，硕士生指导教师。</p>
+
+<p>主要讲授大学物理等课程。Physical Review A、 Physical Review Letter等杂志的审稿人。</p>
+ 
+					                      </div>
+                   
+				   				   
+				    <div class="con01_t">
+                    <h3>科研方向</h3>
+					                      <p>&nbsp;研究领域：</p>
+
+<p>（1）量子度量学、贝叶斯统计在物理中的应用；</p>
+
+<p>（2）量子开放系统理论、量子测量基本理论、量子控制。</p>
+
+<p>主持国家自然科学基金青年项目“量子系统的非马尔科夫动力学演化及其反馈控制”一项。</p>
+
+<p>参与国家自然科学基金项目两项，发表SCI论文30多篇。</p>
+ 
+					                      </div>
+                   
+				   				   
+				    <div class="con01_t">
+                    <h3>学术成就</h3>
+					                      <p>　　主要论文：</p>
+
+<p>　　<span style="font-family:arial,helvetica,sans-serif">1．Jun-Gang Li, Yuan-Mei Wang, Di Yang, and Jian Zou&nbsp; Effect of prior information on noisy Bayesian frequency estimation，Phys. Rev. A 96, 052130 (2017)</span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif">　　2.S. Slussarenko, M. Weston, Jun-Gang Li, N. Campbell, &nbsp;Howard M. Wiseman , Geoff J. Pryde, Quantum State Discrimination Using the Minimum Average Number of Copies, Phys. Rev. Lett. 2017, 118: 030520(理论一作)</span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif">　　3.Jun-Gang Li, Jian Zou, Bin Shao, Factorization law for Entanglement evolution of two qubits in Non-markovian dephasing channels, Physics Letters A 375,2300 (2011)</span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif">　　4.Jun-Gang Li, Jian Zou, Bin Shao, Non-Markovianity of the damped Jaynes-Cummings model with detuning， Physical Review A 81, 062124 (2010)</span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif">　　5.Jun-Gang Li, Jian Zou, Bin Shao, Entanglement evolution of two qubits under noisy environments， Physical Review A 82, 042318 (2010)</span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif">　　6.Jun-Gang Li, Jian Zou, Bin Shao, Steady atomic entanglement with different quantum feedbacks，Physical Review A 77, 012339 (2008)</span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif">　　7.Jun-Gang Li, Jian Zou, Bin Shao, Preparation of 2n-qubit W state via Entanglement transfer, Physics Letters A 361,59 (2007)</span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif">　　8.Jian Zou， Jun-Gang Li, Bin Shao, Entanglement transfer from entangled two-mode fields to a pair of separable and mixed qubits，Physical Review A 73, 042319 (2006)</span></p>
+
+<p>　　招生情况：已毕业硕士生3人，其中3人获北京理工大学优秀硕士学位论文。在读硕士1名。每年拟招收硕士生1-2名。</p>
+ 
+					                      </div>
+                   
+				                       
+                </div>
+              </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="footer">
+
+北京理工大学 版权所有 地址：北京海淀区中关村南大街5号 邮编：100081<br />
+京ICP备10019879号　京公网安备110402430044号</div>
+</body></html>

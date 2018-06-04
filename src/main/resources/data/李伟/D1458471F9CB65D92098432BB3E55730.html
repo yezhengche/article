@@ -1,0 +1,621 @@
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="UTF-8">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <meta http-equiv="Content-Language" content="gb2312"/>
+    <title>李伟 - 个人主页</title>
+
+    <link rel="stylesheet" rev="stylesheet" href="/default/skins/Simple-Black/global.css" type="text/css" media="all"/>
+    <link rel="stylesheet" rev="stylesheet" href="/default/skins/Simple-Black/layout.css" type="text/css" media="all"/>
+    <link rel="stylesheet" rev="stylesheet" href="/default/skins/Simple-Black/typography.css" type="text/css" media="all"/>
+    <link rel="stylesheet" rev="stylesheet" href="/default/skins/Simple-Black/link.css" type="text/css" media="all"/>
+    <link rel="stylesheet" rev="stylesheet" href="/default/skins/Simple-Black/style/album.css" type="text/css" media="all"/>
+        	    
+<style>
+p {
+    word-wrap:break-word;
+    overflow:auto;
+}
+
+body {
+	margin:0px;
+}
+#topbanner {
+	width:100%;
+	height:26px;
+	background-color:#fff;
+	border-top:1px solid #333;
+	border-bottom:1px solid #333;
+	margin:0px;
+	background-image: url(images/topbanner_bg.gif);
+}
+#mainlink {
+	float:right;
+	line-height:26px;
+	margin-left: 14px;
+	margin-right:10px;
+	color: #111;
+}
+#mainlink ul li a{
+	color: #0E4D8B;
+}
+#mainlink ul li a:hover {
+	text-decoration: underline;
+	color: #FF9933;
+}
+#mainlink ul{
+	list-style-type:none;
+	margin:0px;
+}
+#mainlink ul li {
+	display:inline;
+	padding:3px 2px;
+}
+
+#Side_Item div ul {
+	list-style-type:none;
+	margin: 0px 10px;
+}
+#Side_Item div ul li {
+}
+#BookList{
+width:80%;
+text-align:center;
+}
+.bookitem {
+	float:left;
+	width:190px;
+	height:180px;
+	position:relative;
+}
+
+.bi{
+	cursor: pointer;
+}
+.actionSubmit{
+    cursor: pointer;
+}
+.text_box {
+    width: 300px;
+}
+
+</style>
+
+<script type="text/javascript">
+<!--
+var ctxPath="http://person.zju.edu.cn";
+var userId="0098075";
+//-->
+</script>
+<script type="text/javascript" src="/default/script/global.js"></script>
+
+<link href="/default/include/css/xuanfuchuan.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/default/include/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/default/include/js/jquery.bxSlider.min.js"></script>
+<link href="/template/mypage/common/jquery-ui-1.7.1.custom.css" rel="stylesheet" type="text/css"/>
+<script src="/template/mypage/common/jquery-ui-1.7.1.custom.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(document).ready(
+function(){
+	$('#guest').dialog({
+	 autoOpen: false,
+	 width: 400,
+	 height:400,
+	 buttons: {
+	  // "保存": function() { 
+		//edit_save();
+		//$(this).val(""); 
+	   //}, 
+	   "发送": function() {
+		   var form = document.liuyan;
+			var xingming = $('#xingming').val();
+			var tel = $('#tel').val();
+			var email = $('#email').val();
+			var qq = $('#qq').val();
+			var content = form.liuyan_content.value;
+			var sendto = $('#sendto').val();
+			var opt = $('#opt').val();
+			
+			 if(xingming=='')
+			 {
+				 alert('姓名不能为空！');
+				 $("#xingming").focus();
+				 return false;
+			 }else if(content==''){
+				 alert('留言内容不能为空！');
+				 $("#liuyan_content").focus();
+				 return false;
+			 }
+			 edit_save(xingming,tel,email,qq,content,sendto,opt);
+		  } ,
+		  "重置": function() { 
+			  	$('#xingming').val('');
+				$('#tel').val('');
+				$('#email').val('');
+				$('#qq').val('');
+				document.liuyan.liuyan_content.value='';
+		 },
+		  "关闭": function() { 
+			   $(this).dialog("close"); 
+		 }
+	   
+	   }
+	});
+
+	$('.liuyan').click(
+		function() {
+			//显示
+			//console.log(111);
+			$('#guest').dialog('open');
+	});
+	
+	
+
+});
+
+
+
+function edit_save(xm,tel,email,qq,content,st,opt){
+	$.post('/xinxiyuan/liuyan.php', 
+			{cmd : 'liuyan', sendfrom:xm, tel: tel,email:email,qq:qq,content:content,sendto:st,opt:opt},
+			function (data) {if(data=='success')alert('发送成功！');}
+	);
+}
+
+
+//个人主页  个人主页标题 和个性化描述 单个修改
+jQuery(function($){		
+	$(".bi").click(function(){
+		 //alert(123);
+		$(this).parent().find("span").hide();
+		$(this).parent().find("input").show();
+		$(this).hide();
+		$(this).parent().find(".actionSubmit").show();		
+		
+	});	
+
+	$('.actionSubmit').click(function(){
+		var obj= $(this);
+		var value = obj.parent().find('.text_box').val();
+		var creator = obj.parent().find('.text_box1').val();
+		var type = obj.parent().find('.text_box2').val();
+		var name = obj.parent().find('.text_box').attr('name'); 
+		 //alert(type+name);	
+		$.ajax({
+				type : 'POST',
+				url : "/pageview.php?cmd=set_xinxi",
+				data : {
+					'value' : value,
+					'creator' : creator,
+					'type' : type,
+					'name' : name
+				},	
+				cache : false,
+				dataType : 'json',
+				success : function(data) {					
+					if (data['error'] == 201) {						
+						alert(data['msg']);
+					}else{
+						alert('修改成功!');
+						obj.parent().find("span").html(value);
+						obj.parent().find("span").show();
+						obj.parent().find("input").hide();
+						obj.hide();
+						obj.parent().find(".bi").show();
+					}
+				}
+		});		
+	});
+	
+});
+
+</script>
+
+<!-- Baidu Button BEGIN -->
+ 
+<!-- Baidu Button END -->
+</head>
+
+
+<body>
+<div id="topbanner">
+<span id="mainlink">
+
+    <ul>
+        <li><a href="http://person.zju.edu.cn/">首页</a> </li>
+        <li><a href="http://person.zju.edu.cn/uniLogin.php">登录</a></a></li>
+        <li><a href="http://person.zju.edu.cn/redir.php?catalog_id=399" target="_bank">帮助</a></li>
+        <li>|</li>
+    </ul>
+</span>
+</div>
+<link href="/default/include/css/xuanfuchuan.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/default/include/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/default/include/js/jquery.bxSlider.min.js"></script>
+<link href="/template/mypage/common/jquery-ui-1.7.1.custom.css" rel="stylesheet" type="text/css"/>
+<script src="/template/mypage/common/jquery-ui-1.7.1.custom.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(document).ready(
+function(){
+	$('#guest').dialog({
+	 autoOpen: false,
+	 width: 400,
+	 height:400,
+	 buttons: {
+	  // "保存": function() { 
+		//edit_save();
+		//$(this).val(""); 
+	   //}, 
+	   "发送": function() {
+		   var form = document.liuyan;
+			var xingming = $('#xingming').val();
+			var tel = $('#tel').val();
+			var email = $('#email').val();
+			var qq = $('#qq').val();
+			var content = form.liuyan_content.value;
+			var sendto = $('#sendto').val();
+			var opt = $('#opt').val();
+			
+			 if(xingming=='')
+			 {
+				 alert('姓名不能为空！');
+				 $("#xingming").focus();
+				 return false;
+			 }else if(content==''){
+				 alert('留言内容不能为空！');
+				 $("#liuyan_content").focus();
+				 return false;
+			 }
+			 edit_save(xingming,tel,email,qq,content,sendto,opt);
+		  } ,
+		  "重置": function() { 
+			  	$('#xingming').val('');
+				$('#tel').val('');
+				$('#email').val('');
+				$('#qq').val('');
+				document.liuyan.liuyan_content.value='';
+		 },
+		  "关闭": function() { 
+			   $(this).dialog("close"); 
+		 }
+	   
+	   }
+	});
+
+	$('.liuyan').click(
+		function() {
+			//显示
+			//console.log(111);
+			$('#guest').dialog('open');
+	});
+});
+
+function edit_save(xm,tel,email,qq,content,st,opt){
+	$.post('/xinxiyuan/liuyan.php', 
+			{cmd : 'liuyan', sendfrom:xm, tel: tel,email:email,qq:qq,content:content,sendto:st,opt:opt},
+			function (data) {if(data=='success')alert('发送成功！');}
+	);
+}
+
+jQuery(function($){
+	var contactButton=$("#ywlx"),contactIcons=$(".si_serviceleft2"),contact=$(".serviceleft"),timer;
+	/*contactButton.mouseover(function(){
+		clearTimeout(timer);
+		//timer=setTimeout(function(){
+			contactIcons.stop(true).show(500);
+		//},200);
+	});*/
+	contact.mouseenter(function(){
+		clearTimeout(timer);
+		contact.stop(true,false).animate({"right":0},500);
+	}).mouseleave(function(){
+		clearTimeout(timer);
+		timer=setTimeout(function(){
+			contact.stop(true,false).animate({"right":-110},500);			
+		},200);
+	});
+	
+});
+</script>
+
+<!-- Baidu Button BEGIN 
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=2&amp;pos=left&amp;uid=6821881" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+ Baidu Button END -->
+
+<script type="text/javascript" src="/default/script/global.js"></script>
+<!--<script type="text/javascript" src="/widget/template/SimpleTree.js" ></script>
+<link type="text/css" href="/default/include/column.css" rel="stylesheet"/>
+<script type="text/javascript">
+
+$(function(){
+	$(".Pcontent").SimpleTree({
+		click:function(a){
+			if(!$(a).attr("hasChild"))
+				alert($(a).attr("ref"));
+		}
+	});
+
+	$(".close").live("click",function(){
+		$(this).removeClass('close');
+		$(this).addClass('open');
+	});
+	$(".open").live("click",function(){
+		$(this).removeClass('open');
+		$(this).addClass('close');
+	});
+});
+
+</script>
+--></head>
+<body>
+<div class="serviceleft" style="top:200px;right:-110px;">
+  <div class="si_serviceleft">
+  <div id="ywlx" style="position: absolute;left:-24px;top:63px"><img src="/default/include/images/ywlx.png" /> </div>
+    <div class="si_serviceleft2" style="top:-86px;border:1px solid #ccc">
+      <ul>
+     <!-- <li style="background: none;text-align: center;text-indent: 0;width: 79px;border-bottom:1px solid #666;background-color: #F6F6F6;border-bottom: 1px solid #F2F1F1;border-top: 1px solid #FBFBFB;float: left;font-size:14px;margin-top:-30px;padding: 5px 0;text-indent: 0.5em;width: 100%;">与我联系</li> --> 
+       <li class="si_serviceleftLI1" ><a href="#">
+   <img style="margin-left:10px;clear: both;" src="/default/skins/shehui_2/images/logo.png" />个人主页</a>
+        	<div style="display: none;">
+        		        	<table width="130" border="0" align="left" cellpadding="0" cellspacing="0" bgcolor="#fff" style="border: 1px solid #CCCCCC;border-right:1px solid #fff">
+	          	
+	          		<tr><td style="background-color: #F6F6F6;line-height:24px">我的主页二维码</td></tr>
+	          		<tr><td>
+        				<img  width='130' src="/xinxiyuan/erweima.php?data=http://person.zju.edu.cn/0098075" alt="个人主页二维码" title="个人主页二维码"/>
+					</td></tr>
+				
+	          	</table>
+	          	
+        	</div>
+        </li>
+         <li class="si_serviceleftLI5" style=""><a class="liuyan" >留言</a></li>
+        <li class="si_serviceleftLI2"><a href="#">微博</a>
+        	<div class="weibo" style="display: none;">
+        	        		<!--<div class="weibo1"><img style="float:left" src="/xinxiyuan/erweima.php?data=" alt="新浪微博" title="微博二维码"/></div>
+        		<div class='weibo2'>dddd<img src="/xinxiyuan/erweima.php?data=" alt='腾讯微博'  title="微博二维码"/></div>
+        	-->
+        	</div>
+        </li>
+        <li class="si_serviceleftLI3" style=""><a target="_blank" href="#">QQ</a>
+          <div style="display: none;">
+          	
+        		<!--<img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=840061718&o=http://mypage.jjw.crigh.zju.edu.cn/home&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC=http://wpa.qq.com/pa?p=1:840061718:1 alt="点击这里给我发消息">
+        		-->
+        		<!--<a href="http://wpa.qq.com/msgrd?v=3&uin=840061718&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:840061718:51" alt="给我留言！" title="给我留言！"/></a>
+          -->
+          </div>
+        </li>
+       <!-- <li class="si_serviceleftLast" style=""><a href="#">微信</a>
+         	        </li> -->
+       
+      <!-- 
+        <li style="background: none;text-align: center;text-indent: 0;background-color: #F6F6F6;width: 79px; padding:5px 15px;font-size:14px;color:#000">谁看过我</li>
+        <li class="si_serviceleftLI6" style=""><a class="fangke" >最近访客</a>
+        	<div style="display: none;" title="最近谁看过我的主页">
+        		<table width="" border="0" align="left" cellpadding="0" cellspacing="0" bgcolor="#fff" style="float:right;border: 1px solid #CCCCCC;">
+        		<tr><td style="background-color: #F6F6F6;line-height:24px" colspan="3">最近谁看过我的主页</td></tr>
+	        		        	</table>
+			</div>
+        </li>
+         -->
+      </ul>
+    </div>
+  </div>
+</div>
+
+ <div id="guest" style="display: none;" title="发表留言">
+          <form id="liuyan" name="liuyan" method="post" action="">
+  <table width="330" border="0" align="left" cellpadding="0" cellspacing="1"> 
+  	
+    <tr>
+      <td width="120" height="35" align="right" valign="middle">留言人姓名:</td>
+      <td width="140" height="35" align="left" valign="middle">
+      <input name="xingming" type="text" id="xingming" size="15" value="" /></td>
+    </tr>
+    <tr>
+      <td  height="35" align="right" valign="middle">联系电话:</td>
+      <td  height="35" align="left" valign="middle">
+      <input name="tel" type="text" id="tel" size="15" value="" />
+      </td>
+    </tr>
+    <tr>
+	    <td height="35" align="right" valign="middle">电子邮箱:</td>
+		<td height="35" align="left" valign="middle"><input  name="email" id="email" value="" size="15"/></td>
+	</tr>
+    <tr>
+		<td height="35" align="right" valign="middle">常用QQ:</td>
+	    <td height="35" align="left" valign="middle">
+	      <input name="qq" type="text" id="qq" size="15" value="" />
+	     </td>
+	</tr>
+	<tr>
+		<td align="right" valign="middle">留言内容:</td>
+		<td  align="left" valign="middle">
+		  <textarea rows='7' cols='30' name='liuyan_content' id='liuyan_content' ></textarea>
+	      <input type="hidden" name="sendto" id="sendto" value="0098075"/>
+	      <input type="hidden" name="opt" id="opt" value="cn"/>
+		</td>
+    </tr>
+    
+  </table>
+</form>
+</div>
+<script type="text/javascript">
+
+$(function(){
+    $(".si_serviceleftLast").hover(function(){
+    $(".si_serviceleftLast div").fadeIn(0);
+    },function(){
+        $(".si_serviceleftLast div").fadeOut(0);
+    })
+    $(".si_serviceleftLI2").hover(function(){
+    $(".si_serviceleftLI2 div").fadeIn(0);
+    },function(){
+        $(".si_serviceleftLI2 div").fadeOut(0);
+    })
+    $(".si_serviceleftLI1").hover(function(){
+    $(".si_serviceleftLI1 div").fadeIn(0);
+    },function(){
+        $(".si_serviceleftLI1 div").fadeOut(0);
+    })
+    $(".si_serviceleftLI3").hover(function(){
+    $(".si_serviceleftLI3 div").fadeIn(0);
+    },function(){
+        $(".si_serviceleftLI3 div").fadeOut(0);
+    })
+    $(".si_serviceleftLI6").hover(function(){
+    $(".si_serviceleftLI6 div").fadeIn(0);
+    },function(){
+        $(".si_serviceleftLI6 div").fadeOut(0);
+    })
+    $(".si_serviceleft2 ul li").hover(function(){
+        $(this).addClass("li_gray");
+        },function(){
+        $(this).removeClass("li_gray");
+        })
+    })
+  
+</script><div id="container">
+<!--head 头部-->
+<div id="header">
+    <div id="blogname">
+    <div>
+    <span>李伟</span>     
+           
+    </div>
+          <div id="blogTitle">
+          <span></span>
+                  </div>
+        <div id="static_url">
+        	永久链接: http://person.zju.edu.cn/0098075&nbsp;&nbsp;<a href="#" onclick="setCopy('http://person.zju.edu.cn/0098075');alert('已经把该地址复制到系统剪贴板,\n您可以使用(Ctrl+V或鼠标右键)粘贴功能\n通过其他软件记录或发送给您的朋友.')">复制</a>&nbsp;&nbsp;<a href="javascript:;" onclick="setHome('http://person.zju.edu.cn','0098075')">收藏</a>
+        </div>
+    </div>
+    <div id="menu">
+        <div id="Left"></div>
+        <div id="Right"><!--<img src="images/language.gif" alt="switchLanguage" usemap="#language" style="border:0;margin:10px 5px 0 0;"/><map name="language" id="language"><area shape="rect" coords="0,0,34,15" href="?language=zh_CN" alt="中文版"/><area shape="rect" coords="34,0,66,15" href="?language=en_US" alt="English"/></map>--></div>
+        <ul id="blog_menu">
+        	<li class="menuL"></li>
+                            <li><a class="menuA" href="http://person.zju.edu.cn/0098075">中文主页</a></li>
+                        			        </ul>
+    </div>
+</div>
+<!--content 内容-->
+<div id="Tbody">
+<div id="mainContent">
+	<div id="item_0" style="display:block;">
+		<div class="mainItem">
+			
+            <a class="itemTitle">个人简介</a>
+			<div class="itemContent">
+			<p class="MsoNormal" style="line-height:150%;layout-grid-mode:char;mso-layout-grid-align:&#10;none"><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">&nbsp; &nbsp;李伟，教授，博士生导师。</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">1986</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">年</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">7</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">月获得华东理工大学化学工程学士学位，</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">1991</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">年</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">3</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">月和</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">1998</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">年</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">6</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">月分别获得浙江大学化工学院环境化工硕士和生物化工博士学位。</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">2000</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">年</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">3</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">月至</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">2001</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">年</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">4</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">月在美国加州大学伯克利分校，劳伦斯伯克利国家实验室做访问学者。现任工业生态与环境研究所所长，兼任国家环境保护燃煤大气污染控制工程技术中心副主任、浙江省环保公共科技创新服务平台大气子平台理事、《高校化学工程学报》编委等职，入选浙江省</span><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">&ldquo;</span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">新世纪</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">151</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">人才工程</span><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">&rdquo;</span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">。</span><span lang="EN-US" style="font-size: 12pt; line-height: 150%;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="line-height:150%;layout-grid-mode:char;mso-layout-grid-align:&#10;none"><span style="font-size: 12pt; line-height: 150%;">&nbsp; &nbsp; &nbsp;</span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">目前的主要研究方向为生态化工、污染控制与资源化，重点开展大气污染控制与治理、环境生物技术、、环境催化技术等方面研究工作，包括化学</span><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">-</span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">生物耦合净化烟气中</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">NO<sub>x</sub></span></span><span lang="EN-US" style="font-size: 12pt; line-height: 150%;" /><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">新技术，</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">SCR</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">烟气脱硝技术，</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">CO<sub>2</sub></span></span><span lang="EN-US" style="font-size: 12pt; line-height: 150%;" /><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">的减排与捕集技术，有机废气治理新技术，</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">PM<sub>2.5</sub></span></span><span lang="EN-US" style="font-size: 12pt; line-height: 150%;" /><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">源解析与控制等。近年来主持过多项科研项目，包括国家重点研发计划、</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">863</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">计划、国家自然科学基金、浙江省科技攻关计划重大及重点项目等。至今已在</span><span style="font-family: 'Times New Roman';"><i><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">Appl. Catal. B-Environ.</span></i><i><span style="font-size: 12pt; line-height: 150%;">、</span></i><i><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">Environ. Sci. Technol.</span></i><i><span style="font-size: 12pt; line-height: 150%;">、</span></i><i><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">Bioresour. Technol.</span></i><i><span style="font-size: 12pt; line-height: 150%;">、</span></i><i><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">Appl. Microbiol.</span></i></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">等国内外著名学术刊物和国际会议上发表学术论文</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">150</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">余篇，出版著作</span><span style="font-family: 'Times New Roman';"><span lang="EN-US" style="font-size: 12pt; line-height: 150%;">5</span></span><span style="font-size: 12pt; line-height: 150%; font-family: 黑体;">本，获多项发明和实用新型专利。获浙江省科学技术奖（一等）、浙江省自然科学奖（二等）、高等学校科学研究优秀成果奖（二等）等奖励。</span><span lang="EN-US" style="font-size: 12pt; line-height: 150%;"><o:p></o:p></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 14px;"><span style="font-family: 幼圆;"><span style="color: black; line-height: 150%;"><span style="line-height: 150%;" /></span></span></span></p>
+			</div>
+		</div>        		<div class="mainItem">
+			<a class="itemTitle">工作研究领域</a>
+			<div class="itemContent">
+			<p>工业生态、大气污染控制与治理、环境生物技术、生物质资源化。
+
+欢迎化工、环境、化学、生物等相关学科加盟，攻读硕士、博士学位，开展博士后研究或合作科研。
+</p>
+			</div>
+		</div>        		<div class="mainItem">
+			<a class="itemTitle">联系方式</a>
+			<div class="itemContent"><p>
+			电话：0571-87952513<br/>			电子信箱：w_li@zju.edu.cn </p>			</div>
+		</div>
+        			
+	</div>
+ </div>
+<!--siderbar-->
+<div id="sidebar">
+<div id="innersidebar">
+<div id="sidebar-topimg"></div>
+<!--Basic Info 基本信息-->
+<div id="Side_BasicInfo" class="sidepanel">
+	<h4 class="PtitleBlank"></h4>
+	
+	<div class="Pcontent">
+	<div style="margin-left:25px;">
+		<img height=120 alt="" onload="setSize(this,120)" onerror="setErrorPic(this)" src='/attachments/75/0906105109-1964853436.jpg' border="0"/>	</div>
+	<div style="text-align:left;">
+	<ul style="	list-style-type:none;margin: 0px;">
+	<font size="2">
+		<li><b>姓名</b>：李伟</li>
+		<li><b>单位</b>：化学工程与生物工程学院</li>
+		<li><b>职称</b>：教授</li>
+		<li id="total_hites">我的主页共被访问了<b>36443</b> 次</li>
+        	</font>
+	</ul>
+	</div>
+	</div>
+	
+		
+	
+	<div class="Pfoot"></div>
+</div>
+
+<!--Category 栏目-->
+<div id="Side_Item" class="sidepanel"><h4 class="Ptitle">栏目</h4>
+    <div class="Pcontent">
+    	<ul>
+    	<font size="2">
+            <li><a href="http://person.zju.edu.cn/0098075/0.html">基本信息</a></li>
+        	<!--         	<li><a href="http://person.zju.edu.cn/0098075/591269.html">教学工作</a></li>
+                    	<li><a href="http://person.zju.edu.cn/0098075/591265.html">工作研究项目</a></li>
+                    	<li><a href="http://person.zju.edu.cn/0098075/591267.html">发表论文</a></li>
+                    	<li><a href="http://person.zju.edu.cn/0098075/591266.html">出版著作</a></li>
+                    	<li><a href="http://person.zju.edu.cn/0098075/591268.html">专利成果</a></li>
+                    	<li><a href="http://person.zju.edu.cn/0098075/591270.html">奖励荣誉</a></li>
+                    	<li><a href="http://person.zju.edu.cn/0098075/591273.html">实验室介绍</a></li>
+             -->
+            	            	            <li><a href="http://person.zju.edu.cn/0098075/591269.html">教学工作</a></li>
+	            	                        	            	            <li><a href="http://person.zju.edu.cn/0098075/591265.html">工作研究项目</a></li>
+	            	                        	            	            <li><a href="http://person.zju.edu.cn/0098075/591267.html">发表论文</a></li>
+	            	                        	            	            <li><a href="http://person.zju.edu.cn/0098075/591266.html">出版著作</a></li>
+	            	                        	            	            <li><a href="http://person.zju.edu.cn/0098075/591268.html">专利成果</a></li>
+	            	                        	            	            <li><a href="http://person.zju.edu.cn/0098075/591270.html">奖励荣誉</a></li>
+	            	                        	            	            <li><a href="http://person.zju.edu.cn/0098075/591273.html">实验室介绍</a></li>
+	            	                                   <!--             <li><a href="http://person.zju.edu.cn/0098075/655206.html">图书推荐</a></li>
+            -->
+        </font>
+        </ul>
+    </div>
+    <div class="Pfoot"></div>
+</div>
+<!-- 
+	<div id="Side_Album" class="sidepanel">
+	    <div class="Pcontent">
+	        <div id="album"></div>
+	    </div>
+	    <div class="Pfoot"></div>
+	</div>
+-->
+<!--Links 友情链接-->
+<div id="Side_Links" class="sidepanel"><h4 class="Ptitle">链接</h4>
+    <div class="Pcontent">
+    	        <a class="sideA" href="http://person.zju.edu.cn/sujing/0.html#" title="研究团队--李素静" target="_blank">研究团队--李素静</a>
+            </div>
+    <div class="Pfoot"></div>
+</div>
+
+<div id="sidebar-bottomimg"></div>
+</div>
+</div>
+<div style="clear: both;height:1px;overflow:hidden;margin-top:-1px;"></div>
+</div>
+<!--foot 底部-->
+
+<div id="foot">
+	Copyright&copy; 2007-2014 浙江大学信息化建设领导小组办公室 咨询电话：87951669 意见建议：<a href="mailto:itsm@zju.edu.cn">itsm@zju.edu.cn</a></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,498 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript">
+        if (window.location.toString().indexOf("shtml?") > 0) {
+            self.location = window.location.toString().replace(window.location.search.toString(), "");
+        }
+        function doccheckart(json) {
+            if (json[0].result == "1") {
+                self.location = "http://www.360doc.com/noarticle.aspx";
+            }
+        }
+    </script>
+<script src="/js/jquery1.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+        var patt1 = new RegExp("[0-9]*_[0-9]*");
+        var url = patt1.exec(location.href);
+        if (navigator.userAgent.toLowerCase().indexOf("micromessenger") > -1) {
+            window.location.href = "http://www.360doc26.net/wxarticlenew/" + url.toString().split("_")[1] + ".html";
+                        
+        }
+        else if (navigator.userAgent.indexOf("iPhone") > 0 || navigator.userAgent.indexOf("Android") > 0 || navigator.userAgent.indexOf("iPod") > 0) {  //手机端跳转
+
+            if (url != "") {
+                self.location = "http://www.360doc.cn/article/" + url + ".html";
+            }
+        }
+        if ( 603575303 !=  603575303) {
+            $.ajax({
+            url: "http://www.360doc.com/ajax/getuserid.ashx",
+            cache: false,
+            dataType: "json",
+            success: function (result) {
+                    if (7219999 != result.userid) { 
+                        self.location = "http://www.360doc.com/content/16/1103/10/7219999_603575303.shtml";
+        }
+        }
+        });}
+        </script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta content="360doc" name="classification" /><link rel="alternate" media="only screen and (max-width: 640px)" href="http://www.360doc.cn/article/7219999_603575303.html"/><meta content="军衔,李伟,政委" name=keywords><meta content="新疆军区政委李伟少将最新军衔&#160;晋升中将军衔&#160;李伟简历" name=description><meta name="mobile-agent" content="format=html5;url=http://www.360doc.cn/article/7219999_603575303.html"/><meta content="新疆军区政委李伟少将最新军衔 晋升中将军衔 李伟简历新疆军区政委李伟少将最新军衔 晋升中将军衔 李伟简历(2016-08-04 09:10:46)转载▼。澎湃新闻记者从陆军政治工作部出版的《人民陆军》报获悉，7月31日，陆军晋升中将、少将仪式在北京隆重举行。李伟曾任第47集团军政治部主任、副政委，南疆军区政委等职，少将军衔。2014年年底，李伟升任新疆军区政委。" name=360docabstract><meta content="www.360doc.com" name="author" /><title>
+新疆军区政委李伟少将最新军衔&#160;晋升中将军衔&#160;李伟简历
+</title>
+<script src="/js/showarticlefollow20160329.js?t=2017062101" type="text/javascript" charset="utf-8"></script>
+<script src="http://www.360doc.com/js/jQuery.md5.min.js?t=2016041501" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?d86954201130d615136257dde062a503";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+<link rel="stylesheet" type="text/css" href="http://css.360doc.com/wzhead-cleaned.css?t=2016011601" /><link rel="stylesheet" type="text/css" href="http://css.360doc.com/newArticle20160509.css?t=2017101701" />
+<script type="text/javascript" language="javascript">
+        window.onerror = ignoreError;
+        function ignoreError() {
+            return true;
+        }
+    </script>
+<link href="http://css.360doc.com/index7/newheader.css?t=2016123003" rel="stylesheet" type="text/css" /></head>
+<body onmouseup="setDragEnd()" onclick="delAllDiv(event)">
+<span id="LayerLogin"></span>
+<div style="position: fixed; width: 100%; z-index: 1000;">
+<div class="header" style="background-color: #ffffff;">
+<div class="header_1">
+<a href="http://www.360doc.com/index.html">
+<img src="http://pubimage.360doc.com/index7/nlogo.jpg" class="f_left" /></a>
+<div class="mylibrary">
+<a id="userInfoUrl" href="http://www.360doc.com/my360doc.aspx" class="a1">
+<div class="h_user">
+<img id="divuserinfonew" src="http://pubimage.360doc.com/index7/dingtu.gif" /><span></span>
+</div>
+我的图书馆
+</a>
+<ul class="hm_list hm_account" style="display: none;">
+<li><a href="http://www.360doc.com/myindex.aspx">首页</a></li>
+<li><a href="http://www.360doc.com/myfiles.aspx?app=1&type=3">馆藏</a></li>
+<li><a href="http://www.360doc.com/myreadroom.aspx">阅览室</a></li>
+<li><a href="http://www.360doc.com/mystudy.aspx">学习圈</a></li>
+<li><a href="http://www.360doc.com/mycontacts.aspx">通讯录</a></li>
+<li><a href="javascript:void(0);" onclick="displaylogin();">退出帐号</a></li>
+</ul>
+</div>
+<div class="headmail f_left" style="display: none;">
+<p class="h_icon1" id="newMsg"></p>
+<span class="h_border"></span>
+<ul class="hm_list" id="msgtips">
+<li id="msgicon"><a href="/mymsg.aspx?app=2">查看信箱</a></li>
+<li id="sysmsgicon"><a href="/mymsg.aspx?app=9">系统消息</a></li>
+<li id="sysicon"><a href="/mymsg.aspx?app=4">官方通知</a></li>
+<li class="hm_color2" style="background-color: #f4f4f4"><a href="/mymsg.aspx?app=6">设置</a></li>
+</ul>
+</div>
+<div class="headtalker f_left" style="display: none;">
+<p class="h_icon1" id="newDialog"></p>
+<span class="h_border"></span>
+<ul class="hm_list">
+<li id="li1chat"><a href="javascript:void(0)" onclick="initchatnew()">开始对话</a></li>
+<li id="li2chat" style="display: none;"><a href="javascript:void(0)" style="color: #141414;">有<span>11</span>人和你对话，<span onclick="initchatnew()" style="color: #4578b4">查看</span>&nbsp;<span onclick="clearinfochat()" style="color: #4578b4">忽略</span></a></li>
+<li><a href="http://www.360doc.com/mycontacts.aspx?app=8">历史对话记录</a></li>
+<li class="hm_color2" style="background-color: #f4f4f4"><a href="http://www.360doc.com/mycontacts.aspx?app=7">通知设置</a></li>
+</ul>
+</div>
+<a href="http://www.360doc.com/advice.html" target="_blank" class="head_talk f_right">留言交流</a>
+<div class="headsearch f_right">
+<div class="zcomdiv">
+<input type="text" class="headsearch_inp f_left" value="搜文章 找馆友" />
+<span class="headsearch_btn f_right" id="searchlinkid"></span>
+</div>
+<div class="headsearch_select">
+<p class="hs_title">请选择搜索范围</p>
+<a href="javascript:goSearch();" class="cur">含&nbsp;<span></span>&nbsp;的文章</a>
+<a href="javascript:goSearch();">昵称为&nbsp;<span></span>&nbsp;的馆友</a>
+<a href="javascript:goSearch();">兴趣为&nbsp;<span></span>&nbsp;的馆友</a>
+</div>
+</div>
+</div>
+</div>
+<div class="arti_type_shadow"></div>
+</div>
+<div style="height: 68px; _height: 0px; width: 100%;"></div>
+<div class="clear360doc"></div>
+<div class="doc360article_content">
+<div style="height: 90px; padding-top: 13px;">
+<script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script><ins class='adsbygoogle' style='display: inline-block; width: 970px; height: 90px' data-ad-client='ca-pub-6625678643128649' data-ad-slot='2709112222'></ins><script> (adsbygoogle = window.adsbygoogle || []).push({ }); </script>
+</div>
+<p class="clearboth"></p>
+<div class="a_left">
+<div id="bgchange">
+<div class="fontsize_bgcolor_controler">
+<div class="a_bgcolor">
+<img src="http://pubimage.360doc.com/NewArticle/bgcolor.jpg" />
+<div class="a_colorlist">
+<span class="a_color1" onclick="artStatistics('20-11-1');">
+<img src="http://pubimage.360doc.com/NewArticle/yes.gif" /></span>
+<span class="a_color2" onclick="artStatistics('20-11-2');">
+<img src="http://pubimage.360doc.com/NewArticle/yes.gif" /></span>
+<span class="a_color3" onclick="artStatistics('20-11-3');">
+<img src="http://pubimage.360doc.com/NewArticle/yes.gif" /></span>
+<span class="a_color4" onclick="artStatistics('20-11-4');">
+<img src="http://pubimage.360doc.com/NewArticle/yes.gif" /></span>
+<span class="a_color5" onclick="artStatistics('20-11-5');">
+<img src="http://pubimage.360doc.com/NewArticle/yes.gif" /></span>
+<span class="a_color6 cur" onclick="artStatistics('20-11-6');">
+<img src="http://pubimage.360doc.com/NewArticle/yes.gif" /></span>
+</div>
+</div>
+<div class="a_fontsize">
+<img src="http://pubimage.360doc.com/NewArticle/fontSize.jpg" />
+<div class="fschange">
+<label>
+<input type="radio" name="font_Size" id="" value="18" onclick="artStatistics('20-10-1');" />大
+</label>
+&nbsp;
+<label>
+<input type="radio" name="font_Size" id="" value="16" onclick="artStatistics('20-10-2');" />中
+</label>
+&nbsp;
+<label>
+<input type="radio" name="font_Size" id="" value="14" onclick="artStatistics('20-10-3');" />小
+</label>
+</div>
+</div>
+</div>
+<h2 id="titiletext">新疆军区政委李伟少将最新军衔&#160;晋升中将军衔&#160;李伟简历</h2>
+<div class="article_data">
+<div class="article_data_left">
+2016-11-03
+<span class="a_username">&nbsp;<a href="http://www.360doc.com/userhome/7219999" id="savernickname" target="_blank" onclick="artStatistics(&#39;20-7-1&#39;);">csd545</a>
+</span>
+<span id="articleinfo">
+<span id="docsource" class="a_from"></span><span id="360doc_Readnum"></span><span id="360docResaveCount"><span onclick="ShowSaverUser();artStatistics('20-13');" id="360doc_saverNum" style="cursor: pointer;"></span>
+<span id="360doc_saverUser">
+<div style="position: absolute; height: 305px; width: 144px; left: 0px; z-index: 2;" id="sameArtOuter">
+<div onclick="event.cancelBubble=true;" style="overflow-y: auto; height: 300px; overflow-x: hidden; z-index: 100; right: 0px; margin-top: -10px;" id="sameArt">
+</div>
+</div>
+</span>
+</span>
+</span>
+</div>
+<div id="resavelayer1" class="bdsharebuttonbox article_data_right">
+</div>
+</div>
+<div id="articlecontent" class="article_container" onmousedown="newhighlight = true;" onmouseup="NewHighlight(event);">
+<table>
+<tbody>
+<tr>
+<td id="artContent" width="656">
+<div style="width: 656px; margin: 0; padding: 0; height: 0;"></div>
+<div><h2>新疆军区政委李伟少将最新军衔&nbsp;晋升中将军衔&nbsp;李伟简历</h2>
+<img width="15" height="15" align="absmiddle" title="此博文包含图片" src="http://image101.360doc.com/DownloadImg/2016/11/0310/83653059_1.gif">
+(2016-08-04 09:10:46)<div><a action-type="reblog" action-data="{srcBlog:1, blogId:'13741e5ac0102xe6p'}"><cite><img src="http://image101.360doc.com/DownloadImg/2016/11/0310/83653059_1.gif" width="15" height="15" align="absmiddle">转载<em>▼</em></cite></a></div> </div>
+<div>
+<table>
+<tbody><tr>
+<td>
+标签：
+<h3><a href="http://search.sina.com.cn/?c=blog&amp;q=%C0%EE%CE%B0&amp;by=tag" target="_blank">李伟</a></h3>
+</td>
+<td>
+分类：
+<a target="_blank" href="http://blog.sina.com.cn/s/articlelist_5222032812_2_1.html">人事任免</a>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div>
+<p style="text-indent: 2em;"><a href="http://photo.blog.sina.com.cn/showpic.html#blogid=13741e5ac0102xe6p&amp;url=http://album.sina.com.cn/pic/005Hp7hGzy73Mn3r0hv35" target="_blank"><img src="http://image101.360doc.com/DownloadImg/2016/11/0310/83653059_2" style="margin: 0pt auto;display:block" height="429" width="501" alt="新疆军区政委李伟少将最新军衔&nbsp;<wbr>晋升中将军衔&nbsp;<wbr>李伟简历" title="新疆军区政委李伟少将最新军衔&nbsp;<wbr>晋升中将军衔&nbsp;<wbr>李伟简历" action-data="http%3A%2F%2Fs6.sinaimg.cn%2Fmw690%2F005Hp7hGzy73Mn3r0hv35%26690" action-type="show-slide"></a><br><font style="font-size: 22px;">&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>
+李伟</font></p>
+<p style="text-indent: 2em;"><font style="font-size: 22px;">原标题：陆军举行将官晋衔仪式，8人晋升中将、32人晋升少将</font></p>
+<p style="text-indent: 2em;"><font style="font-size: 22px;">今年“八一”建军节前夕，解放军及武警部队晋升军衔警衔仪式陆续进行。</font></p>
+<p style="text-indent: 2em;"><font style="font-size: 22px;">其中，陆军也进行了将官晋衔仪式。</font></p>
+<p style="text-indent: 2em;"><font style="font-size: 22px;">澎湃新闻记者从陆军政治工作部出版的《人民陆军》报获悉，7月31日，陆军晋升中将、少将仪式在北京隆重举行。陆军司令员<a href="http://renwuku.news.ifeng.com/index/detail/231/lizuocheng" target="_blank">李作成</a>宣读中央军委命令，政治委员刘雷主持晋衔仪式。</font></p>
+<p style="text-indent: 2em;"><font style="font-size: 22px;"><strong>这次晋升中将军衔的8位军官是：</strong><strong>陆军副司令员周松和、陆军参谋长刘振立、陆军政治工作部主任张书国、南部战区副司令员兼南部战区陆军司令员刘小午、南部战区副政委兼南部战区陆军政委白吕、北部战区副政委兼北部战区陆军政委<a href="http://renwuku.news.ifeng.com/index/detail/538/shixiao" target="_blank">石晓</a>、中部战区副政委兼中部战区陆军政委吴社洲、新疆军区政委李伟。</strong></font></p>
+<p style="text-indent: 2em;"><font style="font-size: 22px;">李伟曾任第47集团军政治部主任、副政委，南疆军区政委等职，少将军衔。2013年9月，李伟转任第21集团军政委。2014年年底，李伟升任新疆军区政委。</font></p></div>
+</td>
+<script>
+                                    var html = document.getElementById("artContent").innerHTML;
+                                    document.getElementById("artContent").innerHTML = html;
+
+                                </script>
+</tr>
+</tbody>
+</table>
+<div id="viewerPlaceHolder" style="width: 717px; height: 700px; display: none; margin: 0 auto;">
+</div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>
+<ul></ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div></div>
+<span></span>
+<a></a>
+<p style="margin: 0; padding: 0;"></p>
+<p class="clearboth"></p>
+<div id="divreward" style="display: none;"></div>
+<div class="bdsharebuttonbox bottombtn" style="margin-top: 33px;">
+<div class="zcommond" style="overflow: visible;">
+<a href="javascript:void(0);" class="btn_collect" onclick="SaveArt();artStatistics('20-3-2');">转藏到我的图书馆</a>
+<a id="flowimg3" href="javascript:void(0);" class="btn_good" onclick="Showflowerlayer('sendedLayer1');">献花（<span id="articleflowernum">0</span>）
+<span id="flowernumadd" style="display: none;">+1</span>
+</a>
+<span class="span1 f_left" onclick="setTimeout(function(){$('.bottombtn .sharelist_new').slideToggle(0);},10);artStatistics('20-8-3');" onmouseover="this.style.color='#0f659c'" onmouseout="this.style.color=''">分享：</span>
+<a class="sharewx f_left" href="javascript:void(0);" onclick="shareWeixin();artStatistics('20-8-6');">微信</a>
+<div class="s2 f_left" onclick="setTimeout(function(){$('.bottombtn .sharelist_new').slideToggle(0);},10);artStatistics('20-8-4');"><span></span></div>
+</div>
+<div class="sharelist_new" id="fenxiangLayer2">
+<a class="slbg1" href="javascript:void(0);" data-cmd="qzone" onclick="artStatistics('20-8-8');">QQ空间</a>
+<a class="slbg2" href="javascript:void(0);" data-cmd="sqq" onclick="artStatistics('20-8-10');">QQ好友</a>
+<a class="slbg3" href="javascript:void(0);" data-cmd="tsina" onclick="artStatistics('20-8-12');">新浪微博</a>
+<a class="slbg5" href="javascript:void(0);" onclick="showdivemail1();artStatistics('20-8-16');">推荐给朋友</a>
+</div>
+</div>
+<div class="bottom_controler">
+<p class="bottom_cleft">
+来自：
+<span class="a_username" style="width: auto;">
+<a href="http://www.360doc.com/userhome/7219999" id="savernickname2" target="_blank" onclick="artStatistics(&#39;20-7-2&#39;);">csd545</a>
+</span>
+&gt;
+<span id="cname" class="a_from"><a href='http://www.360doc.com/userhome.aspx?userid=7219999&cid=311' target='_blank' onclick='artStatistics("20-6");'>《陆军》</a></span>
+</p>
+<div class="bottom_cright">
+<a href=" https://www.baidu.com/s?wd=%e5%86%9b%e8%a1%94+%e6%9d%8e%e4%bc%9f+%e6%94%bf%e5%a7%94&tn=SE_hldp01010_6r0gix1f" target="_blank" class="a1" onclick="artStatistics('20-19');">以文找文</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="javascript:void(0);" class="a2" onclick="showAlertLayer1();artStatistics('20-18');">举报</a>
+</div>
+</div>
+<div class="prev_next">
+<p id="lastart" class="p1">
+</p>
+<p id="nextart" class="p2">
+</p>
+</div>
+</div>
+<p class="clearboth"></p>
+<div style="width: 676px; float: left;">
+<div class="str_border" style="border: none; position: relative; z-index: 2;">
+<strong>猜你喜欢</strong>
+</div>
+<ul class="youlike" style="margin-top: -18px; position: relative; z-index: 1;">
+<div style="width: 676px; height: 280px; border: 0;" id="divyoulikead">
+</div>
+</ul>
+<div class="zcommond" style="padding: 10px 0 5px;">
+<div class="bottom_article f_left">
+<div class="str_border">
+<strong>类似文章</strong>
+<a href=http://www.360doc.com/relevant/603575303_more.shtml target='_blank' class='a_more f_right' onclick='artStatistics("20-9-8");'>更多</a>
+</div>
+<ul class="barticle_list">
+<li><span><a href=http://www.360doc.com/content/16/0803/23/13826956_580613603.shtml target=_blank onclick='artStatistics("20-9-7");'>陆军举行晋衔仪式：8人晋升中将 32人晋升...</a></span></li>
+<li><span><a href=http://www.360doc.com/content/13/0803/08/7219999_304413306.shtml target=_blank onclick='artStatistics("20-9-7");'>驻香港部队政委岳世鑫晋升中将(图/简历)...</a></span></li>
+<li><span><a href=http://www.360doc.com/content/12/0830/10/10097397_233147557.shtml target=_blank onclick='artStatistics("20-9-7");'>中国人民解放军兰州军区</a></span></li>
+<li><span><a href=http://www.360doc.com/content/12/0503/17/1323366_208409727.shtml target=_blank onclick='artStatistics("20-9-7");'>兰州军区-领导序列</a></span></li>
+<li><span><a href=http://www.360doc.com/content/12/0817/00/1654071_230596076.shtml target=_blank onclick='artStatistics("20-9-7");'>从这次的授衔看我军隐忧</a></span></li>
+<li><span><a href=http://www.360doc.com/content/16/0203/19/7219999_532546620.shtml target=_blank onclick='artStatistics("20-9-7");'>西部战区陆军多名领导集中亮相，赵志荣任...</a></span></li>
+<li><span><a href=http://www.360doc.com/content/12/0730/18/3256622_227323007.shtml target=_blank onclick='artStatistics("20-9-7");'>刘亚洲等6人被授予上将军衔警衔(图/简历...</a></span></li>
+<li><span><a href=http://www.360doc.com/content/11/1009/01/1481198_154486209.shtml target=_blank onclick='artStatistics("20-9-7");'>中国人民解放军成都军区主要领导名单?各...</a></span></li>
+</ul>
+</div>
+<div class="bottom_article f_right">
+<div class="str_border">
+<strong>精选文章</strong>
+</div>
+<ul class="barticle_list">
+<li><span><a onclick="artStatistics('20-9-9');" href=http://www.360doc.com/content/13/0223/08/8290311_267358199.shtml target="_blank">宝宝长牙期遇到的那些问题</a></span></li>
+<li><span><a onclick="artStatistics('20-9-9');" href=http://www.360doc.com/content/13/0601/06/169798_289581287.shtml target="_blank">神奇的觀相知人法</a></span></li>
+<li><span><a onclick="artStatistics('20-9-9');" href=http://www.360doc.com/content/13/0918/13/10598125_315295389.shtml target="_blank">足三里的准确位置图</a></span></li>
+<li><span><a onclick="artStatistics('20-9-9');" href=http://www.360doc.com/content/13/0406/13/4240596_276384150.shtml target="_blank">图解Photoshop所有功能</a></span></li>
+<li><span><a onclick="artStatistics('20-9-9');" href=http://www.360doc.com/content/13/1104/00/276037_326326368.shtml target="_blank">看古代床的演变</a></span></li>
+<li><span><a onclick="artStatistics('20-9-9');" href=http://www.360doc.com/content/06/0618/20/9447_137101.shtml target="_blank">铲平肚腩简单健身法</a></span></li>
+<li><span><a onclick="artStatistics('20-9-9');" href=http://www.360doc.com/content/13/1215/19/13789206_337299364.shtml target="_blank">商业拜访的魔鬼细节</a></span></li>
+<li><span><a onclick="artStatistics('20-9-9');" href=http://www.360doc.com/content/13/1220/18/6355450_338612614.shtml target="_blank">长丝巾的新围法</a></span></li>
+</ul>
+</div>
+</div>
+<div id="divunderad">
+</div>
+<div id="ReflectionPart">
+<div style="height: 156px; margin: 0px 0px;">
+<div class="plbox">
+<div style="padding-left: 6px;">
+<div class="titwx" style="height: 23px; font-size: 16px; font-weight: bold; margin-top: 10px;">
+发表评论<a target="_blank" href="http://www.360doc.com/agreement.html" style="float: right; font-size: 12px; color: #666; font-weight: normal; line-height: 20px; padding-right: 4px;">评论公约</a>
+</div>
+<textarea name="SendRefTB" id="SendRefTB" style="width: 100%; margin-top: 6px; height: 75px; border: 1px solid #e7e7e7; background-color: #fff; overflow: auto; font-size: 12px;" onfocus="testContent(1);" onblur="testContent(2)"></textarea>
+<div style="text-align: right; padding-right: 3px; padding-top: 6px;">
+<div class="huifubt">
+<a id="ImgSendPL" href="javascript:void(0);" onclick="SubmitReflection();"></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="padding-top: 15px; padding-left: 15px;" id="Reflction">
+</div>
+</div>
+</div>
+<div class="a_right">
+<div class="user_info">
+<div class="user_photo f_left">
+<p class="user_photopic">
+<a href="http://www.360doc.com/userhome/7219999" id="userphotourl" target="_blank" onclick="artStatistics(&#39;20-7-4&#39;);">
+<img src="http://userimage2.360doc.com/12/0316/21/7219999_201203162100390640_main.jpg" id="userphoto" width="58" height="58" />
+</a>
+</p>
+<a href="javascript:void(0);" onclick="docTalk();artStatistics('20-15');" class="user_talk" title="与TA对话"></a>
+</div>
+<div class="user_data f_right">
+<div class="user_data_name">
+<a href="http://www.360doc.com/userhome/7219999" id="nickname" target="_blank" onclick="artStatistics(&#39;20-7-3&#39;);">csd545</a>
+<img src="http://pubimage.360doc.com/NewArticle/user_name_tag.gif" alt="图书馆" />
+</div>
+<p id="userdegree"><img src='http://pubimage.360doc.com/NewArticle/userstar1.gif' /><img src='http://pubimage.360doc.com/NewArticle/userstar1.gif' /><img src='http://pubimage.360doc.com/NewArticle/userstar1.gif' /><img src='http://pubimage.360doc.com/NewArticle/userstar1.gif' /><img src='http://pubimage.360doc.com/NewArticle/userstar1.gif' /></p>
+<div class="user_data_num">
+<a id="spanfollowstatus" class="gz_no"></a>
+<script type="text/javascript">isfollow(7219999);</script>
+<span id="follownum">4814</span>&nbsp;&nbsp;&nbsp;&nbsp;
+<span>馆藏</span>&nbsp;<span id="artnum">52586</span>
+</div>
+</div>
+</div>
+<div class="his_her"><ul class='his_her_type'><li class='f_left curone'>TA的最新馆藏</li></ul><div class='his_her_div' style="height:220px;"><ul class='his_her_list'><li><div><span></span><a href=http://www.360doc.com/content/18/0601/21/7219999_758844049.shtml target=_blank onclick="artStatistics('20-9-2');">致人死亡凶案只一人被判7年，吉林梅河口徇私枉法者纷纷落马</a></div><div><span></span><a href=http://www.360doc.com/content/18/0601/17/7219999_758804314.shtml target=_blank onclick="artStatistics('20-9-2');">两男子酒后闹事骂警察“我身价千万，花钱办死你”</a></div><div><span></span><a href=http://www.360doc.com/content/18/0601/17/7219999_758803844.shtml target=_blank onclick="artStatistics('20-9-2');">肉霸团伙覆灭 鄂州屠宰办主任受贿充当黑恶保护伞</a></div><div><span></span><a href=http://www.360doc.com/content/18/0601/17/7219999_758801744.shtml target=_blank onclick="artStatistics('20-9-2');">湖南广播电视台原副台长罗毅案一审宣判：获刑5年6个月</a></div><div><span></span><a href=http://www.360doc.com/content/18/0601/17/7219999_758801600.shtml target=_blank onclick="artStatistics('20-9-2');">贵州遵赤高速一客车追尾半挂车，致6死1伤</a></div><div><span></span><a href=http://www.360doc.com/content/18/0601/17/7219999_758801314.shtml target=_blank onclick="artStatistics('20-9-2');">河北曲阳一轿车高速漂移撞入吃夜宵人群，致1死4伤</a></div><div><span></span><a href=http://www.360doc.com/content/18/0601/17/7219999_758801131.shtml target=_blank onclick="artStatistics('20-9-2');">河南省人大常委会任命黄强为河南省副省长</a></div></li></ul></div></div>
+<div class="clear360doc" style="padding-top: 10px; height: 260px;">
+<div id="divifartad1">
+<script>
+            var strow = document.body.offsetWidth;
+            var strsw = document.body.scrollWidth;
+            var strsc = window.screen.width;
+
+            function aliad1() {
+                document.write('<a style="display:none!important" id="tanx-a-mm_11220363_1101997_10218757"></a>');
+                tanx_s = document.createElement("script");
+                tanx_s.type = "text/javascript";
+                tanx_s.charset = "gbk";
+                tanx_s.id = "tanx-s-mm_11220363_1101997_10218757";
+                tanx_s.async = true;
+                tanx_s.src = "http://p.tanx.com/ex?i=mm_11220363_1101997_10218757";
+                tanx_h = document.getElementsByTagName("head")[0];
+                if (tanx_h) tanx_h.insertBefore(tanx_s, tanx_h.firstChild);
+            }
+
+            function aliad2() {
+                document.write('<a style="display:none!important" id="tanx-a-mm_11220363_1101997_26568831"></a>');
+                tanx_s = document.createElement("script");
+                tanx_s.type = "text/javascript";
+                tanx_s.charset = "gbk";
+                tanx_s.id = "tanx-s-mm_11220363_1101997_26568831";
+                tanx_s.async = true;
+                tanx_s.src = "http://p.tanx.com/ex?i=mm_11220363_1101997_26568831";
+                tanx_h = document.getElementsByTagName("head")[0];
+                if (tanx_h) tanx_h.insertBefore(tanx_s, tanx_h.firstChild);
+            }
+
+
+            if (strsc <= 1024) {
+                aliad1();
+            }
+            else {
+                //300宽
+                aliad2();
+            }
+        </script>
+</div>
+<div style="height: 10px;">
+</div>
+</div>
+<div class="his_her" id="recommendArt" style="margin-top: 5px;">
+<div class="str_border" style="margin: 0;">
+<span style="font-size: 14px; float: left;">喜欢该文的人也喜欢</span>
+<a style="float: right;" class="a_more" onclick="artStatistics('20-9-4');" href="http://www.360doc.com/readroom.html" target="_blank">更多</a>
+</div>
+<div class='his_her_div' style="height: 264px;">
+<ul class='his_her_list'>
+<li id="recommendArtLists"></li>
+</ul>
+</div>
+</div>
+<div class="clear360doc" style="padding-top: 10px;" id="divifartad2">
+</div>
+<br />
+<div id="divifartrightsogou">
+</div>
+<div class="clear360doc" id="divad5" style="padding-top: 11px; zoom: 1; width: 300px;">
+<div id="divad4" style="display: none;">
+<div id="divifartad">
+</div>
+<div class="ggwz">
+<a href="javascript:void(0);" onclick="closead(2);">关闭</a>
+</div>
+<div style="height: 13px;">
+</div>
+</div>
+<div style="clear: both; display: none;" id="divad6">
+<div id="adfloatbaidu">
+</div>
+<div class="ggwz" style="left: 25px;">
+<a href="javascript:void(0);" onclick="closead(3);">关闭</a>
+</div>
+<div style="height: 13px;">
+</div>
+</div>
+<div style="height: 75px;">
+</div>
+</div>
+</div>
+</div>
+<p class="clearboth"></p>
+<input type="hidden" id="artid" value="603575303" />
+<input type="hidden" id="docarttitle" value="%e6%96%b0%e7%96%86%e5%86%9b%e5%8c%ba%e6%94%bf%e5%a7%94%e6%9d%8e%e4%bc%9f%e5%b0%91%e5%b0%86%e6%9c%80%e6%96%b0%e5%86%9b%e8%a1%94%26nbsp%3b%e6%99%8b%e5%8d%87%e4%b8%ad%e5%b0%86%e5%86%9b%e8%a1%94%26nbsp%3b%e6%9d%8e%e4%bc%9f%e7%ae%80%e5%8e%86" />
+<input type="hidden" id="firstartid" value="603575303" />
+<input type="hidden" id="firstuid" value="7219999" />
+<input type="hidden" id="firstarturl" value="http://www.360doc.com/content/16/1103/10/7219999_603575303.shtml" />
+<input type="hidden" id="subclassid" value="-1" />
+<input type="hidden" id="recommendart1" value="230596076" />
+<input type="hidden" id="recommendart2" value="-1" />
+<input type="hidden" id="isowner" value="False" />
+<input type="hidden" id="original" value="0" />
+<input type="hidden" id="showrewardlist" value="0" />
+<input type="hidden" id="saveruserid" value="7219999" />
+<input type="hidden" id="sourceurl" value="http://blog.sina.com.cn/s/blog_13741e5ac0102xe6p.html" />
+<input type="hidden" id="artreadroomid" value="0" />
+<script src="http://www.360doc.com/js/Statistics/sha1.js?t=2017092101" type="text/javascript"></script>
+<script src="http://www.360doc.com/js/Statistics/addStatistics.js?t=2017101601" type="text/javascript"></script>
+<script src="http://www.360doc.com/js/showarticle.js?t=2018052904" type="text/javascript" charset="utf-8"></script>
+<script>GerLookingUserInfo(1,7219999,1,0,'-1',-1,10,0);OutputSource('http://blog.sina.com.cn/s/blog_13741e5ac0102xe6p.html','新浪博客');OutputLastNextArt('%e5%8d%97%e7%96%86%e5%86%9b%e5%8c%ba%e6%94%bf%e5%a7%94%ef%bc%9a%e5%9f%b9%e5%85%bb%e2%80%9c%e7%bb%b4%e7%a8%b3%e4%b8%8d%e6%80%95%e9%99%a9%e3%80%81%e5%ae%88%e9%98%b2%e4%b8%8d%e6%80%95%e4%ba%8f%e2%80%9d%e7%9a%84%e6%88%8d%e8%be%b9%e5%86%9b%e4%ba%ba','http://www.360doc.com/content/16/1102/09/7219999_603309630.shtml',0);OutputLastNextArt('%e5%86%9b%e5%aa%92%ef%bc%9a%e8%a2%ab%e5%8e%9f%e5%9b%9b%e6%80%bb%e9%83%a8%e8%af%84%e4%b8%ba%e5%85%a8%e5%86%9b%e4%bc%98%e7%a7%80%e6%8c%87%e6%8c%a5%e5%ae%98%ef%bc%8c%e4%bb%96%e4%b8%ba%e4%bd%95%e4%bb%8d%e4%b8%bb%e5%8a%a8%e7%94%b3%e8%af%b7%e8%bd%ac%e4%b8%9a','http://www.360doc.com/content/16/1104/16/7219999_603929522.shtml',1);</script>
+<script type="text/javascript" src="http://www.360doc.com/js/index7/newheader.js?t=2018040902"></script>
+<script src="http://blockart.360doc.com/ajax/getstatusv2.ashx?aid=603575303" type="text/javascript" charset="utf-8" async="async"></script>
+<script type="text/javascript">
+        var baiduImagePlus = {
+            noLogo: true,
+            unionId: 'u2617463',
+            maxMiniAdCount: 0,
+            formList: [{ formId: 10 }]
+        };
+    </script>
+<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/i.js"></script>
+<script type="application/ld+json">
+    {
+        "@context": "https://ziyuan.baidu.com/contexts/cambrian.jsonld",
+        "@id": "http://www.360doc.com/content/16/1103/10/7219999_603575303.shtml",
+        "title": "新疆军区政委李伟少将最新军衔&#160;晋升中将军衔&#160;李伟简历",
+        "pubDate": "2016-11-03T10:19:22"
+    }
+    </script>
+</body>
+</html>

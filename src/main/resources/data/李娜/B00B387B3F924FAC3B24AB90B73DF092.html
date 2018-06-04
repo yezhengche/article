@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>上海交通大学机械与动力工程学院</title>
+    <meta name="description" content="上海交通大学机械与动力工程学院" />
+    <meta name="keywords" content="上海交通大学机械与动力工程学院" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link type="text/css" rel="stylesheet" href="/css/css.css" />
+    <script src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src=/js/bootstrap.min.js></script>
+    <script type="text/javascript">
+        function search_validate(){
+            if(document.getElementById('search_keywords').value == ''){
+                alert('请输入搜索关键字');
+                return false;
+            }
+        }
+        function search_validate_mobile(){
+            if(document.getElementById('search_keywords_mobile').value == ''){
+                alert('请输入搜索关键字');
+                return false;
+            }
+        }
+    </script>    
+    <script type="text/javascript">
+        $(function(){
+            $('.ny_nr,.snr').find('div').css('textIndent','2em');
+            $('.ny_nr > p,.snr > p').each(function(){
+                //if($(this).html().length > 15){
+                    $(this).css('textIndent','2em');
+                    $(this).find('br:eq(0)').remove();
+                //}
+            });
+            $('.ny_nr,.snr').find('table').css('margin','0 auto').find('p').each(function(){
+                $(this).html($(this).text()).css('padding','0px');
+            });
+            $('.ny_nr,.snr').find('table').parent('div').removeAttr('style');
+        });
+    </script>
+</head>
+
+<body>
+    <div class="top">
+        <div class="main">
+            <a href="/" class="logo"></a>
+            <!--pc上显示-->
+            <ul class="cd_t">
+                <li><a href="/index_zxs.html">在校生</a></li>
+                <li class="l_x">|</li>
+                <li><a href="/index_jzg.html">教职工</a></li>
+                <li class="l_x">|</li>
+                <li><a href="/index_xy.html">校友</a></li>
+                <li class="l_x">|</li>
+                <li><a href="/index_fk.html">访客</a></li>
+                <li class="l_x">|</li>
+                                <li><a href="http://me.sjtu.edu.cn/user/login.html">登录</a></li>
+                            </ul>
+            <div class="ss">
+                <form method="get" action="http://me.sjtu.edu.cn/active/search.html" onsubmit="return search_validate();">
+                <input type="text" class="ss_txt" id="search_keywords" name="search_keywords" placeholder="站内搜索">
+                <input name="" type="submit" value=" " class="ss_an" />
+                </form>
+            </div>
+            <!--/pc上显示-->
+            <span class="menu2" id="menu2"><a href="javascript:void(0)">&nbsp;</a></span>
+        </div>
+    </div>
+    <div id=navk>
+        <!--手机上显示-->
+        <ul class="cd_t">
+            <li><a href="/index_zxs.html">在校生</a></li>
+            <li class="l_x">|</li>
+            <li><a href="/index_jzg.html">教职工</a></li>
+            <li class="l_x">|</li>
+            <li><a href="/index_xy.html">校友</a></li>
+            <li class="l_x">|</li>
+            <li><a href="/index_fk.html">访客</a></li>
+            <li class="l_x">|</li>
+                        <li><a href="#">登录</a></li>
+                    </ul>
+        <div class="ss">
+            <form method="get" action="http://me.sjtu.edu.cn/active/search.html" onsubmit="return search_validate_mobile();">
+            <input type="text" class="ss_txt" id="search_keywords_mobile" name="search_keywords" placeholder="站内搜索">
+            <input name="" type="button" value=" " class="ss_an" />
+            </form>
+        </div>
+        <!--/手机上显示-->
+        <ul class="menu">
+            <!--当前栏目请在Li里引用on-->
+            <li class="l_home "><a href="/" class="dbt" style="font-weight: bold;">首 页</a></li>
+                        <li style="width: 125px;" class="">
+                <a href="http://me.sjtu.edu.cn/about_us.html" class="dbt">学院概况</a>
+                                <dl>
+                                        <dd><a href="http://me.sjtu.edu.cn/college_profile.html">学院简介</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/college_history.html">历史沿革</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/school_profile.html">办学概况</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/leader_team.html">领导团队</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/political_institution.html">行政机构</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/map.html">学院地图</a></dd>
+                                    </dl>
+                            </li>
+                        <li style="width: 125px;" class="">
+                <a href="http://me.sjtu.edu.cn/personnel_training.html" class="dbt">人才培养</a>
+                                <dl>
+                                        <dd><a href="http://me.sjtu.edu.cn/rencai_profile.html">概况</a></dd>
+                                        <dd><a href="http://202.120.53.238/bkjx/">本科生</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/YanJS/">研究生</a></dd>
+                                        <dd><a href="http://jdgs.sjtu.edu.cn/">非全日制专硕</a></dd>
+                                        <dd><a href="http://mexsgz.sjtu.edu.cn/">学生工作</a></dd>
+                                    </dl>
+                            </li>
+                        <li style="width: 125px;" class="on">
+                <a href="http://me.sjtu.edu.cn/teacher_team.html" class="dbt">师资队伍</a>
+                                <dl>
+                                        <dd><a href="http://me.sjtu.edu.cn/teacher_profile.html">师资概况</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/academician.html">院士学者</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/teacher_directory.html">教师名录</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/bsh.html">博士后</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/hr_service.html">人事服务</a></dd>
+                                    </dl>
+                            </li>
+                        <li style="width: 125px;" class="">
+                <a href="http://me.sjtu.edu.cn/scientific_research.html" class="dbt">科学研究</a>
+                                <dl>
+                                        <dd><a href="http://me.sjtu.edu.cn/scientific_survey.html">科研概况</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/scientific_research_institution.html">科研机构</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/keyanjidi.html">科研基地</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/research_project.html">科研项目</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/scientific_achievements.html">科研成果</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/scientific_service.html">科研服务</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/sysgl.html">实验室管理</a></dd>
+                                    </dl>
+                            </li>
+                        <li style="width: 125px;" class="">
+                <a href="http://me.sjtu.edu.cn/Party_voice.html" class="dbt">党建之声</a>
+                                <dl>
+                                        <dd><a href="http://me.sjtu.edu.cn/19da.html">十九大精神专题</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/theory.html">理论学习</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/Grassroots_building.html">基层党建</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/Cadre_work.html">干部工作</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/Rules_regulations.html">规章制度</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/Party_building.html">党建服务</a></dd>
+                                    </dl>
+                            </li>
+                        <li style="width: 125px;" class="">
+                <a href="http://me.sjtu.edu.cn/international_co_operation.html" class="dbt">国际合作</a>
+                                <dl>
+                                        <dd><a href="http://me.sjtu.edu.cn/overview_of_international_cooperation.html">国际合作概况</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/foreign_affairs.html">外事指南</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/study_tour.html">海外游学项目</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/entry_and_exit_procedures.html">出入境办理</a></dd>
+                                    </dl>
+                            </li>
+                        <li style="width: 125px;" class="">
+                <a href="http://me.sjtu.edu.cn/talent_recruitment.html" class="dbt">人才招聘</a>
+                                <dl>
+                                        <dd><a href="http://me.sjtu.edu.cn/hr.html">招聘启事</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/hr_plan.html">人才计划</a></dd>
+                                    </dl>
+                            </li>
+                        <li style="width: 125px;" class="">
+                <a href="http://me.sjtu.edu.cn/alumni.html" class="dbt">校友专栏</a>
+                                <dl>
+                                        <dd><a href="http://me.sjtu.edu.cn/alumni_news.html">校友动态</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/alumni_directory.html">校友名录</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/alumni_known.html">知名校友</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/growth_mark.html">成长印迹</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/fund_donation.html">基金捐赠</a></dd>
+                                        <dd><a href="http://me.sjtu.edu.cn/contact_us.html">联系我们</a></dd>
+                                    </dl>
+                            </li>
+                    </ul>
+        <div class="clear"></div>
+    </div>
+    <SCRIPT type=text/javascript>
+    $(document).ready(function() {
+        var pk = document.body.clientWidth;
+        if (pk < 1180) {
+            //手机菜单
+            $("#menu2").click(function() {
+                if ($("#navk").css("display") == "none") {
+                    $(this).find("a").addClass("on");
+                    $("#navk").slideDown("slow");
+                } else {
+                    $(this).find("a").removeClass("on");
+                    $("#navk").slideUp("slow");
+                }
+            });
+        } else {
+            $(".menu li").hover(function() {
+                $(this).find("dl").css("display", "block");
+            }, function() {
+
+                $(this).find("dl").css("display", "none");
+            });
+
+        };
+    });
+    //-->
+    </SCRIPT>
+
+
+<div class="nyk">
+    <div class="main">
+    	        <div class="ny_bt">教师名录</div>
+        <div class="nr_js">
+            <div class="imgk"><img src="/upload/image/20170420/20170420175251.jpg"></div>
+            <div class="txtk">
+                <p class="p_1"><b>李娜 </b> 副教授  </p>
+                <p>
+                    <b>所在系所</b>工业工程与管理系                    <br>
+                    <b>办公电话</b>021-34206470                     <br>
+                    <b>通讯地址</b>上海交通大学机械工程与动力工程学院A楼630                     <br>
+                    <b>电子邮件</b>na-li03@sjtu.edu.cn                                         <br>
+                    <b>个人主页</b>  
+                                    </p>
+            </div>
+        </div>
+        <ul class="lb_js2">
+        	            <li>
+                <h2>教育背景</h2>
+                <div class="txtk">2003-2008    清华大学管理科学与工程专业    博士<br />
+1999-2003    西安交通大学机械工程自动化专业    学士</div>
+            </li>
+                                    <li>
+                <h2>工作经历</h2>
+                <div class="txtk">2008―2012.10    上海交通大学机械与动力工程学院工业工程系 　讲师 <br />
+2012-今            上海交通大学机械与动力工程学院工业工程系 　副教授</div>
+            </li>
+                                    <li>
+                <h2>出访及挂职经历</h2>
+                <div class="txtk">2012.2-2012.8  美国威斯康星大学麦迪逊分校 系统与工业工程系 访问学者</div>
+            </li>
+                                    <li>
+                <h2>研究方向</h2>
+                <div class="txtk">医院运作管理 <br />
+服务管理、行为运作管理 <br />
+随机系统分析与决策  <br />
+</div>
+            </li>
+                                    <li>
+                <h2>科研项目</h2>
+                <div class="txtk">2015.1-2018.12：顾客多种心理联合影响的排队系统建模与动态决策研究， 国家自然科学基金项目（71471114），项目负责人；<br />
+2011.1-2013.12：考虑顾客行为特性的排队系统建模与分析，国家自然科学基金项目（71002037），项目负责人；<br />
+2010.1-2013.12：服务型制造运行机理与运作管理新方法研究，国家自然科学基金重点项目（70932004），项目子课题负责人；<br />
+2015.1-2017.12：精益医院管理的医疗服务创新方法研究，科技部创新方法专项（2015IM030200），项目子课题负责人；<br />
+2015.1-2019.12：医疗与健康的价值链整合与管理，国家自然科学基金重点项目（ 71432006），项目子课题负责人。<br />
+2010-今 教育部博士点基金，新教师类（2011-2013）：考虑顾客排队行为的多阶排队网络建模与能力策略分析（编号：20100073120080）,项目负责人；  <br />
+2012-2015 上海交通大学SMC-晨星青年学者奖励计划，优秀青年教师B类项目：考虑人的行为因素的排队服务系统研究（项目编号：12X100010104），负责人。 <br />
+2010-2014  国家自然科学重点基金“服务型制造运行机理与运作管理新方法研究” （编号：70932004），第三负责人； <br />
+2008-2010 上海市教委科研创新重点项目上，服务型制造组织网络结构与构建机理研究(09ZZ19)，项目第二负责人； <br />
+2011.1-2013.12 集成电路生产线自动化调度控制：实时派工系统晶圆优化调度算法研究，上海宝信软件股份有限公司企业横向项目，子项目负责人。 <br />
+2010.12.30-2011.06.30 服务型制造模式优化及物流运作管理平台规划咨询，上海集优机械股份有限公司，企业项目，子项目负责人。 <br />
+2006.7-2008.9，具有多环特性的半导体生产系统性能分析研究，(国家自然科学基金)，主要参与人； <br />
+2006.7-2006.8，中航一集团成都飞机制造有限公司，生产流程优化与改善项目，项目负责人； <br />
+2004.7-2004.9，江阴模塑集团有限公司，设备维护维修管理改善及信息系统研究项目，项目负责人； <br />
+2005.6-2006.7，Intel上海 (产品)有限公司，多工厂生产能力规划算法研究及系统实现项目，项目组长； <br />
+2004.11-2006.1，Intel上海 (产品)有限公司，企业内部供应链周期降低项目，项目组长； <br />
+2005.1-2005.6，Intel上海 (产品)有限公司，内部供应链指标平衡分析及管理项目，项目负责人； <br />
+2008.1-2008.7，首钢实业公司，ERP信息系统实施项目，流程分析改善部分负责人； </div>
+            </li>
+                                    <li>
+                <h2>代表性论文专著</h2>
+                <div class="txtk">Li Na, Kong Nan, Li Quanlin Jiang zhibin, Evaluation of Reverse Referral Partnership in a Tiered Hospital System – A Queuing based Approach, International Journal of Production Research, 2017. 55(19), pp. 5647-5663<br />
+Li, Na., Yu, X., Matta, A., Modelling and workload reallocation of call centres with multi-type customers, International Journal of Production Research,2017,55(19), pp. 5664-5680<br />
+Na Li , Shiqing Yao, George Liu , Caihua Zhuang ,Optimization of A Multi-Constant Work-In-Process Semiconductor Assembly and Test Factory Base on Performance Evaluation, Computers & Industrial Engineering, 2010. 59 (2), 314-322 <br />
+Na Li, Li  Zheng, Zhicong  Zhang, Caihua Zhuang, An Overlapping Decomposition Method for Performance Analysis of The Two-Loop Closed Production System in Semiconductor Assembly Factory, International Journal of Computer Integrated Manufacturing 24 (9), pp. 811-820,2011. <br />
+Li, N.; Jiang, Z.; Liu, G.,Analysis of Quality-Caused Re-Entrance Electrical Test System in Semiconductor Manufacturing by Markov Method. International Journal of Production Research. 2012.50(12).3486-3497.<br />
+Na Li, Zhibin Jiang. Modeling and Optimization of A Product-Service System with Additional Service Capacity and Impatient Customers. Computers & Operations Research 2013.40(8): 1923–1937.<br />
+Li Na, ZhengLi, LiQuanlin, Performance analysis of two-loop closed production systems, Computers & Operations Research,2009,36(1)，119-134. <br />
+Li Na, Mike, ZhengLi, SINGLE-STATION PERFORMANCE EVALUATION AND IMPROVEMENT IN SEMICONDUCTOR MANUFACTURING: A GRAPHICAL APPROACH, International Journal of Production Economics, 2007. 107 (2), 397-403. <br />
+Na Li, Zhibin Jiang, Analysis of Two-loop Closed Production System based on Markov Model , International Journal of Industrial and Systems Engineering, Volume 9, Number 2, October 2011 , pp. 195-212(18). <br />
+Shiqing Yao;Zhibin Jiang; Na Li;Na Geng;Xiao Liu, A decentralised multi-objective scheduling methodology for semiconductor manufacturing, International Journal of Production Research. 49( 24), 2011,7227-7252. <br />
+Shiqing Yao, Zhibin Jiang, Na Li: A branch and bound algorithm for minimizing total completion time on a single batch machine with incompatible job families and dynamic arrivals. Computers & OR 39(5): 939-951 (2012) <br />
+Shiqing Yao, Zhibin Jiang, Na Li etc, A multi-objective dynamic scheduling approach using multiple attribute decision making in semiconductor manufacturing [J]. International Journal of Production Economics, 2011, 130(1): 125-133 <br />
+Zhang, Zhicong，Zheng, Li，Li, Na.Semiconductor final test scheduling with Sarsa([lambda],Â k) algorithm.EJOR. 2011, 215(2), 446-458 <br />
+Zhicong Zhang, Li Zheng, Na Li, Kaishun Hu. Minimizing mean weighted tardiness in unrelated parallel machine scheduling with reinforcement learning. Computers & Operations Research, 2012, 39(7): 1315-1324 <br />
+Li Na, Zheng Li, Li QuanLin. Modeling and Analysis of A Two-Loop Closed Production System. 40th CIRP International Manufacturing Systems Seminar. Liverpool. 2007.4. <br />
+Li Na, Zheng Li, Li QuanLin. Semiconductor system with multiple closed-loops constrains. 2007 International Conference on Modeling and Analysis of Semiconductor Manufacturing. Scottsdale, Arizona, U.S.A.2007.9. EI索引. <br />
+Li Na, Zhang Lawrence, Zhang Mike, Zheng Li, Applied Factory Physics Study on Semiconductor Assembly and Test Manufacturing, 2005 International Symposium on Semiconductor Manufacturing. <br />
+Na Li, Zhibin Jiang, Jianwei Niu, Caihua Zhuang, Approximation Method for Performance Analysis of Three-Loop Closed Systems. The 2009 IEEE international Conference on Industrial engineering and engineering Management, 1249-1252. EI索引. <br />
+Na Li, Li Zheng ,Wei Feng，Analysis of Two-loop Closed Production Systems，The Fifth Annual IEEE Conference on Automation Science and Engineering (IEEE CASE 2009),460-465. EI索引. <br />
+Feng Wei，Zheng Li, Li Na, Performance evaluation of a multi-product system with setups and dynamic scheduling policies, 2010 IEEE International Conference on Automation Science and Engineering, CASE 2010 .2010, Article number 5584177, Pages 960-965 <br />
+Wei Feng, Li Zheng, Na Li ,System Properties of Multi-product Systems with Setup Times and Finite Buffers, 44th CIRP Conference on Manufacturing Systems in Madison, Wisconsin, USA. <br />
+Kangzhou Wang, Zhibin Jiang, Na Li, Optimal Production Control of a Manufacturing System with Customer Balking Behavior, the proceeding of 41st Computer and Industrial Engineering Conference, Los Angeles, USA, 2011.10, pp969-974. <br />
+Wang, K., Li, N., Jiang, Z., Queueing system with impatient customers: A review, Proceedings of 2010 IEEE International Conference on Service Operations and Logistics, and Informatics, SOLI 2010 , art. no. 5551611, pp. 82-87 <br />
+李娜，江志斌，郑力，庄才华，芯片封装系统两环闭型排队网络模型性能解析研究，上海交通大学学报，2010. 44(7)：1014-1018. <br />
+李娜，江志斌，郑力，李杰，芯片测试环节质量重入随机系统建模与性能分析，系统工程理论与实践， 2011. 31（8），1593-1599.EI索引, <br />
+李娜； 贾博； 江志斌； 谢梦得；考虑顾客体验的排队系统研究，工业工程与管理，2012.17（3），36-40. <br />
+李娜,郑力,半导体封装测试系统的生产能力规划,系统工程. 2006.8. 107-112 <br />
+李娜,郑力, 李志忠, 胡长建,温沛涵.基于XML的表面粗糙度的Web动态显示与编辑,制造业自动化.2005.12. <br />
+赵艳丽,江志斌,李娜. 基于分层赋时着色Petri网的临床路径建模，上海交通大学学报2010 44(2):0252-0258。 <br />
+李友； 江志斌； 李娜； 李程晶圆制造系统投料策略综述，工业工程与管理；2011.16.（6），108-114. <br />
+全鹏； 李娜； 江志斌； 闵亚能；基于AHP和规则的多目标晶圆制造派工方法的应用，工业工程与管理，2011.16(4).113-117. <br />
+王康周，江志斌，李娜，耿娜，服务型制造资源计划体系研究架构，工业工程与管理，2010.11，Vol.16(3), pp113-120. <br />
+林文进； 江志斌； 李娜；服务型制造理论研究综述，工业工程与管理 </div>
+            </li>
+                                    <li>
+                <h2>教学工作</h2>
+                <div class="txtk">1、 课程名称：   随机模型 <br />
+授课对象：本科生  <br />
+学时数：   54  <br />
+学分：3 <br />
+2、 课程名称：   生产运作管理 <br />
+授课对象：硕士生  <br />
+学时数：   48  <br />
+学分：3 <br />
+4、 课程名称：   项目计划与控制 <br />
+授课对象：工程硕士生  <br />
+学时数：   36  <br />
+学分：2 </div>
+            </li>
+                                                <li>
+                <h2>学术兼职</h2>
+                <div class="txtk">运筹与管理学会随机与运作管理分会理事；<br />
+清华大学工业工程系研究生论文指导与评审委员会委员；<br />
+IJPR，EJOR等期刊审稿人。 </div>
+            </li>
+                                    <li>
+                <h2>荣誉奖励</h2>
+                <div class="txtk">2008年  新进优秀青年教师一等奖，获得科研启动金5万元； <br />
+2011年  获SMC-晨星青年学者奖励计划优秀青年教师（B类），获奖金与项目经费共20万元； <br />
+2011年  聘期考核优秀奖（1/23）。<br />
+2014年河北省科学技术奖二等奖；<br />
+2013年《工业工程导论》课程被评为国家级精品课程（导论类）；<br />
+2015-2016年度上海交通大学机械动力工程学院现代服务业运作管理课题组三八红旗集体；<br />
+</div>
+            </li>
+                                </ul>
+        <script type="text/javascript">
+        $(".lb_js2 li:first").find("h2").addClass("on");
+        $(".lb_js2 li:first").find(".txtk").slideDown();
+        $(function() {
+            //菜单隐藏展开
+            var tabs_i = 0
+            $('.lb_js2 li h2').click(function() {
+                var _self = $(this);
+                var j = $('.lb_js2 li h2').index(_self);
+                if (tabs_i == j) return false;
+                tabs_i = j;
+                $('.lb_js2 li').each(function(e) {
+                    if (e == tabs_i) {
+                        $(this).find("h2").addClass("on");
+                        $(this).find(".txtk").slideDown();
+                    } else {
+                        $(this).find("h2").removeClass("on");
+                        $(this).find(".txtk").slideUp();
+                    }
+                });
+            });
+        })
+        </script>
+        <div class="clear"></div>
+    </div>
+</div>
+    <div class="foot">
+        <div class="main">
+            <div class="f1">
+                <div class="cd_f">
+                    <!--<a href="#">网站地图</a>|--><a href="/website_statement.html">网站声明</a>|<a href="http://www.sjtu.edu.cn" target="_blank">友情链接</a>|<a href="/political_institution.html">联系我们</a>|<a href="http://202.120.53.238" target="_blank">返回旧版</a></div>
+                <div class="fnr">Copyright © 2016 上海交通大学机械与动力工程学院 版权所有</div>
+                <div class="fx">
+                    <span class="s1">分享到</span>
+                                        <a href="http://www.jiathis.com/send/?webid=weixin&url=http%3A%2F%2Fme.sjtu.edu.cn%2F%2Findex%2Fpage_detail%2Fteacher_directory1%2F2277&title=李娜 " class="cd_f1" target="_blank"></a>
+                    <a href="http://www.jiathis.com/send/?webid=tsina&url=http%3A%2F%2Fme.sjtu.edu.cn%2F%2Findex%2Fpage_detail%2Fteacher_directory1%2F2277&title=李娜 " class="cd_f2" target="_blank"></a>
+                    <a href="http://www.jiathis.com/send/?webid=cqq&url=http%3A%2F%2Fme.sjtu.edu.cn%2F%2Findex%2Fpage_detail%2Fteacher_directory1%2F2277&title=李娜 " class="cd_f3" target="_blank"></a>
+                </div>
+            </div>
+            <div class="f2"><img src="/images/ewm.jpg" />
+                <p>Email：sjtume@sjtu.edu.cn
+                    <br> 地址：上海市东川路800号上海交通大学闵行校区机械与动力工程学院
+                    <br> 邮编：200240 </p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</body>
+<style type="text/css">
+.wx_loading{position:fixed;top:0;left:0;bottom:0;right:0;z-index:10000;background-color:rgba(0, 0, 0, 0)}.wx_loading_inner{text-align:center;background-color:rgba(0, 0, 0, 0.5);color:#fff;position:fixed;top:50%;left:50%;margin-left:-70px;margin-top:-48px;width:140px;border-radius:6px;font-size:14px;padding:58px 0 10px 0}.wx_loading_icon{position:absolute;top:15px;left:50%;margin-left:-16px;width:24px;height:24px;border:2px solid #fff;border-radius:24px;-webkit-animation:gif 1s infinite linear;animation:gif 1s infinite linear;clip:rect(0 auto 12px 0)}@keyframes gif{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg);}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);}}@-webkit-keyframes gif{0%{-webkit-transform:rotate(0deg);}100%{-webkit-transform:rotate(360deg);}}
+</style>
+<div class="wx_loading" id="wxloading" style="display: none;">
+    <div class="wx_loading_inner">
+        <i class="wx_loading_icon"></i>
+        请求加载中...
+    </div>
+</div>
+</html>

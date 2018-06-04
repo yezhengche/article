@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script  type="text/javascript"  src="js/jquery-1.9.0.min.js"></script>
+<meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no" /><meta name="format-detection" content="telephone=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<!--<meta http-equiv="expires" width="640" content="-1" /> -->
+<!--<meta http-equiv="Cache-Control" content="no-cache" /> -->
+<!--<meta http-equiv="Pragma" content="no-cache" /> -->
+<title>
+	清华大学出版社
+</title><link rel="stylesheet" href="css/basic3.css?v=1.018" /><link rel="stylesheet" href="css/sweet-alert.css?v=1.01" />
+<script  type="text/javascript"  src="css/sweet-alert.min.js"></script>
+ 
+    <style>
+        .black_overlay
+        {
+            display: none;
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: 1001;
+            -moz-opacity: 1;
+            opacity: .80;
+        }
+        .white_content
+        {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -290px;
+            width: 590px;
+            height: 300px;
+            z-index: 1002;
+            overflow: auto;
+        }
+        .zxgmtc1
+        {
+            background: url(images/zxgmtg2.png);
+            width: 590px;
+            height: 189px;
+        }
+        .zxgmtc2
+        {
+            background: url(images/zxgmtg1.png);
+            width: 590px;
+            height: 95px;
+            margin-top: 15px;
+        }
+        .zxgmtc2 .p1
+        {
+            width: 100%;
+            height: 95px;
+            font-size: 30px;
+            color: #333;
+            text-align: center;
+            line-height: 95px;
+        }
+        .zxgmtc1 .p1
+        {
+            width: 100%;
+            height: 94px;
+            font-size: 30px;
+            line-height: 94px;
+            text-align: center;
+        }
+        .zxgmtc1 .p2
+        {
+            border-top: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body >
+	  <div class="page-mask1">
+    </div>
+    <div class="page-mask">
+    </div>
+    <ul class="menu1">
+        
+    </ul>
+	<div class="page-m">
+		<!-- Header -->
+		<header>
+			<div class="wzsy">
+				<div class="wzsyleft">
+					<div class="wzsyleft-2 ssbg">书问搜索</div>
+					<div class="wzsyleft-1 ssbg">站内搜索</div>
+					<div class="wzsyleft-3"><input id="input_key" type="text" mt="1" class="input_test" value="请输入关键字"></div>
+					<div class="wzsyleft-4"><input type="image" src="images/ssan.jpg"></div>
+				</div>
+				<div class="wzsyright" style="display:none"><a href="">ENGLISH</a></div>
+			</div>
+			<div class="header">
+				<p class="p1"><img src="images/logorw.png" alt=""> </p>
+				<p class="p2"><img src="images/logo.png" alt=""></p>
+				<p class="p3"><a href="javascript:;" id="btnMenu"></a></p>
+			</div>
+		</header>
+		<section>
+        
+    
+            <div class="gybanner">
+                <div class="tsxqyts">
+                    <div class="tsxqytskj">
+                        <div class="tsxqleft">
+                            <img src="../upload/smallbookimg/061693-01.jpg" width="188px" height="250px"
+                                alt="">
+                        </div>
+                        <div class="tsxqright">
+                            <p class="p1">
+                                数据库原理与应用（第3版）</p>
+                            <p class="p3 p2">
+                                作者：王秀英、张俊玲、籍淑丽、孙睿霞</p>
+                            <p class="p3">
+                                定价：49元</p>
+                            <p class="p3">
+                                ISBN：9787302449317</p>
+                            <p class="p3">
+                                出版日期：2017.01.01</p>
+                            <p class="p3">
+                                版次：3-2</p>
+                            <p class="p3">
+                                印刷日期：2017.09.06</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <img src="images/banner.jpg" height="336px" alt=""> -->
+            </div>
+            <div class="gyzwjj">
+                <div class="gyzwjjkj">
+                    <div class="tsxqgf">
+                        <a href="javascript:;" id="kj" title="061693-01.rar" class="tszsxqgfkj tsxqgfys">
+                            有课件</a> <a href="javascript:;" class="tszsxqgfkj tsxqgfleft"
+                                onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+                                在线购买</a> <a href="javascript:;"
+                                        id="yssq" style="display: none" class="tszsxqgfkj tsxqgfleft">申领样书</a><a href="http://www.wqbook.com/books/booksn/061693-01"
+                                            id="dzs" style="display: none" class="tszsxqgfkj tsxqgfleft">电子书</a>
+                        <a href="http://www.jiathis.com/shar" class="tszsxqgfkj tsxqgfleft jiathis jiathis_txt jiathis_separator jtico jtico_jiathi">
+                            分享</a>
+                    </div>
+                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                    <!-- JiaThis Button END -->
+                    <div class="tsxqjjnr">
+                        <div class="tsxqjjnrkj">
+                            <p class="xqnrwzys">
+                                荣获“北京高等教育精品教材”，两次再版，累积印刷18次，发行近5万册，被数百所高校选作数据库课程教材，配教学PPT、Access 实例、SQL Server实例。</p>
+                            <div class="tsxqkb">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tsxqjjnrjs">
+                        <div id="aaa" title="数据库原理与应用（第3版）" class="tsxqjjnrbt">
+                            内容介绍
+                        </div>
+                        <div class="tsxqjjnrkj">
+                            <p>
+                                本教材的第1版于2007年被评为北京市精品教材。自出版以来得到广大读者的青睐，被数百所高校选为教材，两次再版。本书本着与时俱进的原则，根据数据库技术目前发展的前沿和教学需要，在多年教学、研究以及实际工程中积累的经验的基础上，借鉴了国外数据库课程的安排方法，采用了“应用、原理和提高的三段式”讲解法进行组织和编著的，书中内容由浅入深，便于学生对数据库学习的接受和理解。本教材以案例为线索，系统地介绍了数据库管理系统Access 2010的应用；数据库设计的理论和方法；以及以SQL Server 2008为背景，以T\|SQL为重点介绍了SQL语言的使用。本书还对数据库安全和数据库的发展进行了较为详细的阐述。
+本教材各章具有大量的习题，书后还提供了相应的上机实验和综合训练题，便于读者进一步理解和掌握各章所学到的知识，同时也便于组织教学。为了方便教学，本书配有电子课件（PPT）。
+本教材内容丰富，讲解由浅入深、通俗易懂、重点突出、示例翔实。在内容编排上系统全面、新颖实用、可读性强，是高等学校“数据库原理与应用”课程的理想教材和参考书。也适合从事办公自动化管理人员和从事计算机软件设计的科技人员及其他有关人员自学、参考。
+                            </p>
+                        </div>
+                        <div class="tsxqkb">
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div id="light" class="white_content">
+        <div class="zxgmtc1">
+<a id="buy" href="http://detail.tmall.com/item.htm?spm=a1z10.1-b.w9858442-8055933095.4.fH3HiL&id=543003537741"
+                                    title="543003537741" > <p class="p1">纸质书购买</p></a> 
+                <a href="http://www.wqbook.com/books/booksn/061693-01"
+                                              ><p class="p1 p2">电子书购买</p></a>
+        </div>
+        <div class="zxgmtc2">
+            <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
+                <p class="p1">
+                    取消</p>
+            </a>
+        </div>
+    </div>
+        
+    <div id="fade" class="black_overlay">
+    </div>
+    <script type="text/javascript">
+        if ('1' == "1") {
+            $("#yssq").show();
+        }
+        else
+            $("#dzs").show();
+        $("#buy").click(function (event) {
+            if ($("#buy").attr("title") == "") {
+                swal("天猫暂时没有上架链接！");
+                return false; //阻止链接跳转
+            }
+        });
+
+        $("#kj").click(function (event) {
+            if ($("#kj").attr("title") != "") {
+                swal("课件需要通过电脑版才能下载！");
+                return false; //阻止链接跳转
+            }
+        });
+        $("#yssq").click(function () {
+            var flag = "";
+            $.ajaxSetup({
+                async: false
+            });
+            $.ajax({
+                type: "POST",
+                dataType: "html",
+                url: '../booksCenter/allbooks/addys.ashx?cid=061693-01',      //提交 到一般处理程序请求数据  
+                success: function (result) {
+                    flag = result;
+                    return;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    swal("网络异常请稍候再试...");
+                    return;
+                }
+            });
+            if (flag == "0") {
+                swal({
+                    title: "是否登录?",
+                    text: "教师会员登陆后，才可以申领样书，确定是否登录!",
+                    type: "warning",
+                    confirmButtonColor: '#DD6B55',
+                    confirmButtonText: '跳转登录页面',
+                    cancelButtonText: "取消",
+                    showCancelButton: true,
+                    closeOnConfirm: false
+                },
+	            function (isConfirm) {
+	                if (isConfirm) {
+	                    window.location.href = "m_dl.aspx?returnurl=" + encodeURIComponent(window.location.href) ;
+	                }
+	            });
+               /* if (confirm("教师会员登陆后，才可以申领样书，确定是否登录？")) {
+                    window.location.href = "../Wap/m_dl.aspx?returnurl=" + encodeURIComponent(window.location.href);
+                }
+                return;*/
+            }
+            if (flag == "2") {
+                swal("权限不足，您的帐号不是教师会员，不能申领样书");
+                return;
+            }
+            if (flag == "3") {
+                swal({
+                    title: "是否提交样书?",
+                    text: "您已申领了此书，不能重复申领，是否到“申领样书”提交样书!",
+                    type: "warning",
+                    confirmButtonColor: '#DD6B55',
+                    confirmButtonText: '跳转到提交样书',
+                    cancelButtonText: "取消",
+                    showCancelButton: true,
+                    closeOnConfirm: false
+                },
+	            function (isConfirm) {
+	                if (isConfirm) {
+	                    window.location.href = "../wap/m_kslys.aspx";
+	                }
+	                return;
+	            });
+            }
+            if (flag == "4") {
+                swal("此书是零售图书，不能申领!");
+                return;
+            }
+            if (flag == "6") {
+                swal("此书是暂时没有库存，请申领替代图书或者新版!");
+                return;
+            }
+            if (flag == "1") {
+                swal({
+                    title: "是否提交样书?",
+                    text: "此样书已添加到申请列表中，是否到“申领样书”提交样书!",
+                    type: "warning",
+                    confirmButtonColor: '#DD6B55',
+                    confirmButtonText: '跳转到提交样书',
+                    cancelButtonText: "取消",
+                    showCancelButton: true,
+                    closeOnConfirm: false
+                },
+	            function (isConfirm) {
+	                if (isConfirm) {
+	                    window.location.href = "../wap/m_kslys.aspx";
+	                }
+	                return;
+	            });
+               /* if (confirm("此样书已添加到申请列表中，是否到“申领样书”提交样书")) {
+                    window.location.href = "../wap/m_kslys.aspx";
+                }
+                return;
+                */
+            }
+        })
+        $(".wbgzwmkj .span3").click(function () {
+            $(".qq_ewm").css("display", "");
+        })
+        $(".tszsxqgfkj").hover(function () {
+            $(this).css("background", "#6a3a8e");
+            $(this).css("color", "#fff");
+        }, function () {
+            $(this).css("background", "");
+            $(this).css("color", "#461d65");
+        })
+        $(".fxan").hover(function () {
+            $(".fxyc").css("display", "");
+        }, function () {
+            $(".fxyc").css("display", "none");
+        })
+        window.$huan = {
+        };
+    </script>
+
+  			<div class="footer footertop">
+				<div class="wbdh" style=" display:none">
+					<div id="wbdhkj" class="wbdhkj">
+						<a class="p1 pys2" href="wap_index.aspx">关于我们</a>
+                        <a class="p2 pys2" href="newslist.aspx">新闻列表</a>
+						<a class="p2 pys2" href="tszx.aspx">图书中心</a>
+						<a class="p3 pys2" href="fsdh.aspx">分社导航</a>
+						<a class="p1 pys2" href="lxwm.aspx">联系我们</a>
+						<a class="p2 pys2" href="rczp.aspx">人才招聘</a>
+					</div>
+                     <script type="text/javascript">
+                         $(document).ready(function () {
+                             var tmp = GetSimpleUrl(window.location.href);
+
+                             var links = $('#wbdhkj a');
+                             var l = $('#wbdhkj a').length;
+                             for (var i = 0; i < l; i++) {
+                                 if (links.eq(i).attr("href") == tmp){
+                                     links.eq(i).removeClass("pys2").addClass("pys");
+                                     links.eq(i).click(function (event) {
+                                         return false; //阻止链接跳转
+                                     });
+                                 }
+                             }
+                         });
+                         function GetSimpleUrl(url) {
+                             var tmp = new Array();
+                             tmp = url.split("/"); 
+                             var pp = tmp[tmp.length - 1]; 
+                             tmp = pp.split("?"); 
+                             return tmp[0];
+
+                         }
+                     </script>
+				</div>
+				<div class="wbgzwm">
+					<div class="wbgzwmkj">
+						<span class="span1">关注我：</span>
+						<span class="span2"><a href="http://weibo.com/thupress"><img src="images/xlwb.jpg" alt=""></a></span>
+						<span class="span3"><a href="#"><img src="images/wx.jpg" alt=""></a></span>
+						<span class="span4">
+							<a href="http://www.izhixue.com.cn" style="cursor: pointer;" ><p>智学苑</p>
+							<p>数字教学</p></a>
+						</span>
+					</div>
+				</div>
+				 <p class="qq_ewm" style="display: none;">
+					<img src="images/qq_ewm.png"/>
+				</p>
+				<div class="gsxx">
+					<div class="wbfwl">
+						<div class="kj">
+							<span class="span1">访问量： </span>
+							<span id="HITS" class="span2">70132938</span>
+						</div>
+					</div>
+					<div class="wbwblj">
+						<p>
+							<a href="lxwm.aspx">联系我们</a>  
+							|  
+							<a href="bo_flsm.aspx">法律声明</a> 
+							|  
+							<a href="bo_dbjb.aspx">盗版举报</a>
+							|  
+							<a href="rczp.aspx">人才招聘</a>
+						</p>
+					</div>
+					<div class="wbdnhd">
+						<div class="wbdbjz">
+							<div class="kj1 kj">
+								<a href="../index.html" style="cursor: pointer;"><span class="span1"><img src="images/qhdn.png" alt=""></span>
+								<span class="span2">电脑版</span></a>
+							</div>
+							<div class="kj2 kj">
+								<a href="#" style="cursor: pointer;"><span class="span1"><img src="images/hddb.png" alt=""></span>
+								<span class="span3">返回顶部</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="wbbqsy">
+						<p>版权所有(C)2014 清华大学出版社有限公司</p>
+					</div>
+					<div class="wbgaba">
+						<p>京ICP备05029640号  京公网安备11010802013248号</p>
+					</div>
+				</div>
+			</div>
+			
+		</section>
+
+	</div>
+    <ul class="menu">
+        <li><a href="wap_index.aspx">关于我们</a></li>
+        <li><a href="newslist.aspx">新闻列表</a></li>
+        <li><a href="m_hdhy.aspx">会议活动</a></li>
+        <li><a href="tszx.aspx">产品中心</a></li>
+        <li><a href="fsdh.aspx">分社导航</a></li>
+        <li><a href="lxwm.aspx">联系我们</a></li>
+        <li><a href="rczp.aspx">人才招聘</a></li>
+    </ul>
+</body>
+<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" >
+
+	    $(".wzsyleft-1").click(function () {
+	        $(this).css("background", "#461D64");
+	        $(this).css("color", "#fff");
+	        $(".wzsyleft-2").css("background", "#fff");
+	        $(".wzsyleft-2").css("color", "#461d65");
+	        $("#input_key").css("color", "#461d65");
+	        $("#input_key").attr("mt", "1");
+	    })
+	    $(".wzsyleft-2").click(function () {
+	        $(this).css("background", "#461D64");
+	        $(this).css("color", "#fff");
+	        $(".wzsyleft-1").css("background", "#fff");
+	        $(".wzsyleft-1").css("color", "#461d65");
+	        $("#input_key").attr("mt", "2");
+
+	    })
+	    $(".wzsyleft-4").click(function () {
+
+	        if ($("#input_key").attr("mt") == "1") {
+	            window.location.href = "searchbooks.aspx?keyword=" + encodeURIComponent($("#input_key").val());
+	            return false;
+	        }
+	        else {
+	            window.open("http://www.bookask.com/s/kw_" + $("#input_key").val() + ".html");
+	            return false;
+
+	        }
+
+	    })
+	    $('.input_test').bind({
+	        focus: function () {
+	            if (this.value == this.defaultValue) {
+	                this.value = "";
+
+	            }
+	        }, blur: function () {
+	            if (this.value == "") {
+	                this.value = this.defaultValue;
+	            }
+	        }
+	    });
+	    $(".pys2").hover(function () {
+	        $(this).css("background", "#6a3a8e");
+	        $(this).css("color", "#fff");
+	    }, function () {
+	        $(this).css("background", "");
+	        $(this).css("color", "#461d65");
+	    })
+	    $(".wbgzwmkj .span3").click(function () {
+	        $(".qq_ewm").css("display", "");
+	    })
+	</script>
+</html>

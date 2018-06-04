@@ -1,0 +1,1307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>李娜老师详细介绍-教师网</title>
+
+
+<!--[if IE 6]><script type="text/javascript">try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {}</script><![endif]-->
+
+<link rel="stylesheet" type="text/css" href="styles/css.css" />
+<!--<link href="../style/public.css" rel="stylesheet" type="text/css" />-->
+<script src="http://www.hteacher.net/images/js/jquery-1.7.1.min.js"></script>
+<style type="text/css">
+  .image  A IMG{width:201px;height:217px}
+   .logo  A IMG{width:160px;height:60px}
+   .imgla A IMG{width:113px;height:65px}
+   .footer A IMG{width:auto;height:auto}
+   .po_left A IMG{width:68px;height:23px}
+   .po_right A IMG{width:150px;height:36px}
+   .commentdetail A IMG{width:50px;height:50px}
+</style>
+</head>
+
+<body>
+<!--头部-->
+<style>
+/*header*/
+.header_wrap{width:100%; height:40px; background:url(/images/headbg.jpg) repeat-x;}
+.header{width:1190px; height:40px; margin:0 auto; line-height:40px; color:#999; font-size:12px;}
+.header p{float:left; width:165px; padding-left:8px;}
+.header span{width:400px; float: left; }
+.header span a{padding:0 7px 0 8px;color:#6c6c6c;}
+.header span a:hover{color:#f40;}
+.header ul{float:right; width:auto;}
+.header ul li{float:left; padding-top:10px; line-height:22px; background:url(/images/iconn.png) right -110px no-repeat;position:relative; z-index:3;}
+.header ul li a{ display:block; padding:0 16px; _padding:0 14px; color:#6c6c6c;}
+.header ul li a:hover{color:#f40;padding:0 15px; height:22px;}
+.header ul li.nobg{background:none;}
+.header ul li.pt8{ padding-top:8px; padding-bottom:8px; background:#319f01; margin-right:4px;}
+.header ul li a:not(.nobg).current{border:1px solid #efefef; border-bottom:0; background:#fff;padding:0 15px; _padding:0 13px;}
+.header ul li a:hover{border:1px solid #efefef; border-bottom:0; background:#fff;padding:0 15px 0 16px; _padding:0 13px; }
+.header ul li.nohover a{ padding:0 4px;}
+.header ul li.nohover a:hover{border:0; border-bottom:0; background:none;padding:0 4px; _padding:0; }
+.header ul li a.nobg:hover{border:0; border-bottom:0; background:0;padding:0 16px; _padding:0 13px;}
+.header ul .gr{width:auto; min-width:120px;}
+.header ul li .down{width:155px; height:90px; border:1px solid #efefef; position:absolute; right:0; top:32px; background:#fff; z-index:-1; display: none;}
+.header ul li .down img{padding:10px;float:left;}
+.header ul li .down strong{float:left; width:56px; font-weight:normal; padding-top:10px;}
+.header ul li .down2{width:172px; height:90px;}
+.header ul li .down2 strong{width:72px; text-align: center;}
+.header ul li .down2 .care{float: left; width:40px; height:18px; border-radius:3px; background: #319f01; text-align: center; line-height:18px; color:#fff; padding:0; margin-left:15px;}
+
+/*登陆之后*/
+.header ul li a img{width:20px; height:20px; border-radius:50%; display:inline-block;vertical-align: middle;margin-right:5px;}
+.header ul li .down3{width: 100%; min-width: 120px; height:135px; padding-top:10px; box-sizing:border-box;border:1px solid #efefef; border-top:0;}
+.header ul li .down3 a{display:block;height:30px; text-align: center; line-height: 30px; border-bottom:1px solid #ccc; margin:0 10px;}
+.header ul li .down3 a:hover{padding:0; border:0; border-bottom:1px solid #ccc;}
+</style>
+<script type="text/javascript">
+		$(document).ready(function(e) {
+      	//ajax start		
+				
+			var top_now=new Date	
+			
+			$.ajax({
+             type: "get",
+             url: "/toplogininfo.php?curtt="+top_now.getTime() +　+"&ttt="+top_now.getSeconds(),
+             dataType: "html",
+			 complete: function(data,textStatus)
+			 {
+				 $("#toploginarea").html(data.responseText);
+			 }
+            
+         });
+				 
+			
+		   //ajax end
+			 
+			 //shop cart ajax
+			 			$.ajax({
+             type: "get",
+             url: "/order/ajaxcart.php?curtt="+top_now.getTime() +　+"&ttt="+top_now.getSeconds(),
+             dataType: "html",
+			 complete: function(data,textStatus)
+			 {
+				 $(".numGoods").html(data.responseText);
+			 }
+            
+         });
+			
+			 //end shop cart ajax
+    });
+		</script>
+ <script type="text/javascript">
+	$(document).ready(function(e) {
+        //鼠标经过header时出现下拉
+	$('#toploginarea').on('mouseenter','li.gr',function(){
+		$(this).children('a').addClass('current').siblings('a').removeClass('current')
+		$(this).children('div').css('display', 'block');
+		});
+	$('#toploginarea').on('mouseleave','li.gr',function(){
+		$(this).children('a').removeClass('current')
+		$(this).children('div').css('display', 'none');
+		});	
+
+//鼠标经过header时出现下拉
+	$('.topwx li').hover(function() {
+		$(this).children('a').addClass('current').siblings('a').removeClass('current')
+		$(this).children('div').css('display', 'block');
+	}, function() {
+		$(this).children('a').removeClass('current')
+		$(this).children('div').css('display', 'none');
+	});
+    });
+
+</script>       
+
+        
+<div class="header_wrap">
+	<div class="header" id="header">
+    	<p>您好，欢迎来到华图教师网！</p>
+        <span><a href="/new/" target="_blank">教师公告</a>|<a href="/service/" target="_blank">帮助中心</a>|<a href="/zhuanti/2016weidian/" target="_blank">微店加盟</a>|<a href="/zhuanti/app_2_0_2/" target="_blank"><img src="/images/icon_sj.png" width="13" style="vertical-align:middle; margin-right:3px; margin-top:-1px;"/>教师在线APP</a></span>
+        
+        <ul class="topwx">
+        	<li><a>微信</a>
+            	<div class="down">
+                	<img src="http://www.hteacher.net/images/topweixin.jpg" />
+                    <strong>华图教师微信号： htjiaoshi</strong>
+                </div>
+            </li>
+            <li><a href="http://e.weibo.com/htjsw" target="_blank">微博</a>
+                <div class="down down2">
+                    <img src="http://www.hteacher.net/images/wb_s.jpg" />
+                    <strong>华图教师<br/>认证官方微博</strong>
+                    <a href="../../fuwuzhinan/20130222/50352.html" target="_blank" class="care">+关注</a>
+                </div>
+            </li>
+           <!-- <li><a href="/zhuanti/huatuAPP/index.php" target="_blank">华图在线</a>
+                <div class="down down2">
+                    <img src="/images/app1.jpg" />
+                    <strong>华图在线<br/>官方APP</strong>
+                    <a href="../../zhuanti/huatuAPP/index.php" target="_blank" class="care">+下载</a>
+                </div>
+            </li>  -->           
+        </ul>
+        <ul id="toploginarea">
+          
+        </ul>
+    </div>
+</div><div class="wrap" style="width:1190px; margin:0 auto;">
+	<style>
+/*top*/
+.top{height:127px; clear: both;}
+.top .l{float: left; width:370px; padding:27px 54px 0 4px;}
+.top .c{float: left; width:540px; height:78px; padding:37px 0 0; position:relative;}
+.selectList {position:absolute;left:2px; top:39px;width: 69px;height: 27px;border-right: 1px solid #E2E1E1;background: #F3F3F3;color: #333;line-height: 28px;cursor: pointer;}
+.selectList dt { width:54px; height:27px; padding-left: 12px; background:url(/images/icon2.png) -66px -65px no-repeat;}
+.selectList dd {position: absolute;top: 26px; display: none;width: 68px;border: 1px solid #E2E1E1;background: #FFF;text-align: center;}
+.selectList span {display: block;width:68px;border-bottom: 1px solid #E2E1E1;line-height: 28px;cursor: pointer;}
+
+.top .c .search{width:320px; height:28px;border:2px solid #319f01; border-right:0; border-radius:2px 0 0 2px; float: left; color:#888; padding-left:73px; background: url() 0 0 no-repeat;}
+.top .c .btn{float: left; height:30px;}
+.top .c p{font-size:12px; padding-top:12px;clear: both; height:22px; color:#888;}
+.top .c p a{padding-right:15px; color:#888;}
+.top .c p a:hover{color:#f40;}
+.top .r{float: right; width:176px; height:95px; background:url(/images/hpic1.jpg) 0 0 no-repeat;margin-top:10px;}
+/*nav*/
+.nav{height:160px;}
+.mainnav{height:46px; background:#319f01;}
+.mainnav li{float: left; padding:0 4px 0 30px; font:400 16px/46px "\5FAE\8F6F\96C5\9ED1","\9ED1\4F53",Arial,sans-serif; position:relative;}
+.mainnav li a{color:#fff;}
+.mainnav li a:hover{color:#fff; text-decoration:underline;}
+.mainnav li img {
+    position: absolute;
+    right: -25px;
+    top: -7px;
+}
+.nav .menu{height:113px; border:1px solid #ccc; border-top:0;line-height:30px; font-size:12px;}
+.nav .menu p{float: left; width:990px; padding-top:15px;}
+.nav .menu p a{display:inline-block; padding:0 7px;}
+.nav .menu .btn_m,.nav .menu .btn_w{margin:40px 0 0 0; float: left; width:92px; height:36px; background:#3fa600; font:bold 16px/36px "\5FAE\8F6F\96C5\9ED1","\9ED1\4F53",Arial,sans-serif; color:#fff; text-align: center;}
+.nav .menu .btn_w{background:#ff4401; margin-right:7px;}
+.nav .menu .btn_w:hover{background:#ed3101;}
+.nav .menu .btn_m:hover{background:#349800;}
+</style>
+<script type="text/javascript">
+		$(document).ready(function(e) {
+$(".selectList").mouseover(function(event){
+		
+    	$(this).children("dd").css('display','block');
+			
+  	}).mouseout(function(event){
+		
+    	$(this).children("dd").css('display','none');
+		
+  	});
+	
+	$("dd span").click(function(event){
+  
+  		var $html = $(this).html();
+  		$("#jq_selectList dt").html($html);
+		$("#jq_selectList dd").hide()
+		
+		}
+	)
+ 	 
+	$('form .btn').click(function(event) {
+		var $th=$("#jq_selectList dt").html();
+		if($th=="课 程"){
+			$('form').attr('action','http://www.hteacher.net/so/class.php')
+			}
+		if($th=="资 讯"){
+			$('form').attr('action','http://www.hteacher.net/so/news.php')
+			}
+		}
+	)
+    });
+		</script>
+<div class="top">
+    <div class="l">
+     <a href="http://www.hteacher.net/" target="_blank"><img src="/images/logo_new.jpg" alt="华图教师" /></a>   
+    </div>
+    <div class="c">
+    	<dl class="selectList" id="jq_selectList">
+            <dt id="selectMenu">课 程</dt>
+            <dd><span>课 程</span><span>资 讯</span></dd>
+        </dl>
+        <form class="clearfix" style="padding:0px;margin:0px" action="http://www.hteacher.net/so/class.php" method="post" accept-charset="GB2312"  onsubmit="if(isIE)document.charset='GB2312'">
+                <input type="text" value="" autofocus name="keyword" class="search" />
+                <div class="btn"><a href="#" target="_blank"><input type="image"  src="/images/rbtn.jpg" /></a></div></form>
+               <p>热门：<a href="/zhuanti/xlk/2018xzgzbsqcb.php" target="_blank">资格证笔试全程班</a><a href="/zbkt/nry.php?id=53696" target="_blank">特岗教师考试</a><a href="/zbkt/nry.php?id=53697" target="_blank">事业单位D类</a><a href="/zbkt/index_fxfilter.php?Province=1&NetClassCategoryId=12" target="_blank">北京招教课程</a><a href="/zbkt/index_fxfilter.php?Province=13&NetClassCategoryId=12" target="_blank">安徽招教课程</a></p>
+            </div>
+            <div class="r"></div>
+        </div>
+        <div class="nav">
+        	<ul class="mainnav">
+                <li><a href="/" target="_blank">首页</a></li>
+                <li><a href="/zhaojiao/" target="_blank">教师招聘</a></li>
+                <li><a href="/zige/" target="_blank">教师资格证</a></li>
+                <li><a href="/class/" target="_blank">高清视频课程</a><img src="http://www.hteacher.net/images/hot2.gif" /></li>
+				<li><a href="/zbkt/" target="_blank">直播课堂</a><img src="http://www.hteacher.net/images/hot2.gif" /></li>
+                <li><a href="/card/" target="_blank">包月卡</a></li>
+			    <li><a href="/zbkt/index_minclass.php" target="_blank">9元铺子</a></li>
+				<li><a href="http://pigai.hteacher.net/" target="_blank">小图批改</a><img src="http://www.hteacher.net/images/hot2.gif" /></li>
+                <li><a href="/mok/" target="_blank">在线模考</a></li>
+                <li><a href="/ziliao/" target="_blank">资料下载</a></li>
+                <li><a href="/teachers/" target="_blank">师资团队</a></li>
+                <li><a href="/zhaojiao/zonghezhidao/" target="_blank">综合指导</a></li>           
+            </ul>
+            <div class="menu">
+        <p>
+            <a href="http://beijing.hteacher.net/" target="_blank">北京</a>
+            <a href="http://guangdong.hteacher.net/" target="_blank">广东</a>
+            <a href="http://guangdong.hteacher.net/" target="_blank">汕头</a>
+            <a href="http://guangdong.hteacher.net/" target="_blank">湛江</a>
+            <a href="http://shenzhen.hteacher.net/" target="_blank">深圳</a>
+            <a href="http://shandong.hteacher.net/" target="_blank">山东</a>
+            <a href="http://shandong.hteacher.net/" target="_blank">青岛</a>
+            <a href="http://shandong.hteacher.net/" target="_blank">临沂</a>
+            <a href="http://jiangsu.hteacher.net/" target="_blank">江苏</a>
+            <a href="http://jiangsu.hteacher.net/" target="_blank">苏州</a>
+            <a href="http://jiangsu.hteacher.net/" target="_blank">徐州</a>
+            <a href="http://liaoning.hteacher.net/" target="_blank">辽宁</a>
+            <a href="http://liaoning.hteacher.net/" target="_blank">沈阳</a>
+            <a href="http://liaoning.hteacher.net/" target="_blank">大连</a>
+            <a href="http://jiangxi.hteacher.net/" target="_blank">江西</a>
+            <a href="http://jiangxi.hteacher.net/" target="_blank">赣州</a>
+            <a href="http://jiangxi.hteacher.net/" target="_blank">九江</a>
+            <a href="http://yunnan.hteacher.net/" target="_blank">云南</a>
+            <a href="http://zhejiang.hteacher.net/" target="_blank">浙江</a>
+            <a href="http://zhejiang.hteacher.net/" target="_blank">温州</a>
+            <a href="http://zhejiang.hteacher.net/" target="_blank">宁波</a>
+            <a href="http://anhui.hteacher.net/" target="_blank">安徽</a>
+            <a href="http://hainan.hteacher.net/" target="_blank">海南</a>
+            <a href="http://henan.hteacher.net/" target="_blank">河南</a>
+            <a href="http://henan.hteacher.net/" target="_blank">新乡</a>
+            <a href="http://henan.hteacher.net/" target="_blank">信阳</a>
+            <a href="http://hebei.hteacher.net/" target="_blank">河北</a>
+            <a href="http://hebei.hteacher.net/" target="_blank">唐山</a>
+            <a href="http://hebei.hteacher.net/" target="_blank">保定</a>
+            <a href="http://jilin.hteacher.net/" target="_blank">吉林</a>
+            <a href="http://sx.hteacher.net/" target="_blank">陕西</a>
+            <a href="http://sx.hteacher.net/" target="_blank">延安</a>
+            <a href="http://sx.hteacher.net/" target="_blank">汉中</a>
+            <a href="http://guangxi.hteacher.net/" target="_blank">广西</a>
+            <a href="http://guangxi.hteacher.net/" target="_blank">桂林</a>
+            <a href="http://shanghai.hteacher.net/" target="_blank">上海</a>
+            <a href="http://guizhou.hteacher.net/" target="_blank">贵州</a>
+            <a href="http://guizhou.hteacher.net/" target="_blank">遵义</a>
+            <a href="http://xinjiang.hteacher.net/" target="_blank">新疆</a>
+            <a href="http://sichuan.hteacher.net/" target="_blank">四川</a>
+            <a href="http://sichuan.hteacher.net/" target="_blank">绵阳</a>
+            <a href="http://sichuan.hteacher.net/" target="_blank">泸州</a>
+            <a href="http://sichuan.hteacher.net/" target="_blank">乐山</a>
+            <a href="http://tianjin.hteacher.net/" target="_blank">天津</a>
+            <a href="http://fujian.hteacher.net/" target="_blank">福建</a>
+            <a href="http://fujian.hteacher.net/" target="_blank">福州</a>
+            <a href="http://fujian.hteacher.net/" target="_blank">厦门</a>
+            <a href="http://hubei.hteacher.net/" target="_blank">湖北</a>
+            <a href="http://hubei.hteacher.net/" target="_blank">襄阳</a>
+            <a href="http://hubei.hteacher.net/" target="_blank">宜昌</a>
+            <a href="http://hunan.hteacher.net/" target="_blank">湖南</a>
+            <a href="http://hunan.hteacher.net/" target="_blank">湘西</a>
+            <a href="http://hunan.hteacher.net/" target="_blank">邵阳</a>
+            <a href="http://shanxi.hteacher.net/" target="_blank">山西</a>
+            <a href="http://chongqing.hteacher.net/" target="_blank">重庆</a>
+            <a href="http://ningxia.hteacher.net/" target="_blank">宁夏</a>
+            <a href="http://gansu.hteacher.net/" target="_blank">甘肃</a>
+            <a href="http://qinghai.hteacher.net/" target="_blank">青海</a>
+            <a href="http://www.hteacher.net/" target="_blank">西藏</a>
+            <a href="http://heilongjiang.hteacher.net/" target="_blank">黑龙江</a>
+            <a href="http://heilongjiang.hteacher.net/" target="_blank">齐齐哈尔</a>
+            <a href="http://neimenggu.hteacher.net/" target="_blank">内蒙古</a>
+            <a href="http://neimenggu.hteacher.net/" target="_blank">呼伦贝尔</a>
+            <a href="http://neimenggu.hteacher.net/" target="_blank">赤峰</a>
+        </p>
+        <a href="/class/" target="_blank" class="btn_w">视频课程</a>
+        <a href="/zbkt/" target="_blank" class="btn_m">直播课程</a>
+    </div>
+        </div></div>
+<div class="wz">您在的位置：<a href="/">首页</a>&nbsp;&gt;&nbsp;<span><a href="/teachers/">教师</a></span></div><!--头部End-->
+<!--主体部分-->
+<div id="aimd" class="clearfix">
+    
+    <!--主体left-->
+    <div class="aimd_left">
+    	<div class="pape_js">
+        	<div class="pape_js_left">
+            	<img src="http://upload.htexam.net/teacherphoto/12030903491311879.jpg" />
+            </div>
+            <div class="pape_js_right">
+            	<ul>
+                	<li class="r"><span class="p">李娜老师</span></li>
+                    <li class="cn"><p><var></var></p></li>
+                    <li class="cn"><p><var>教授科目:</var><em></em></p></li>
+                    <li class="cn"><p><var>教学风格:</var><em></em></p></li>
+                    <li class="r"><span class="p">个人介绍</span></li>
+                    <li class="ce"><p><em>
+·首都师范大学教育学硕士<br>
+·华图教师考试研究中心专职教师<br>
+·知识面广，专业功底扎实，具有扎实的教育学理论基础，授课条理清晰，重点突出<br>
+·清晰的授课体系和深入浅出的教学风格，善于调动课堂气氛和学员积极性。<br>
+</em></p></li>
+                </ul>
+            	<div class="pape_js_po">
+                	<div class="po_left">
+                   
+                    </div>
+                	<div class="po_right"><a href="/jz/?c=stlister&a=index&htteacherid=304"><img src="images/shiting.gif" /></a></div>
+                </div>
+            </div>
+        </div>
+    	<div class="pape_move">
+        	<p>他的试听</p>
+            <div class="c">
+            	<ul>
+                	<li><a href="/jz/index.php?c=stdetail&a=index&videoid=525"><img src="http://upload.htexam.net/vtube/videoimg/13030104223614043.jpg" width="188"/></a><a href="/index.php?c=stdetail&a=index&videoid=525" title="陕西学前心理学 专业科目试听-李娜"><p>陕西学前心理学 专业科</a></li>
+                	<li><a href="/jz/index.php?c=stdetail&a=index&videoid=489"><img src="http://upload.htexam.net/vtube/videoimg/12082810103417961.jpg" width="188"/></a><a href="/index.php?c=stdetail&a=index&videoid=489" title="幼教专项突破班试听-李娜"><p>幼教专项突破班试听-李</a></li>
+                	<li><a href="/jz/index.php?c=stdetail&a=index&videoid=421"><img src="http://upload.htexam.net/vtube/videoimg/1206121127294745.jpg" width="188"/></a><a href="/index.php?c=stdetail&a=index&videoid=421" title="幼儿教育学科基础精讲班试听-李娜"><p>幼儿教育学科基础精讲班</a></li>
+                	<li><a href="/jz/index.php?c=stdetail&a=index&videoid=419"><img src="http://upload.htexam.net/vtube/videoimg/12061211271015770.jpg" width="188"/></a><a href="/index.php?c=stdetail&a=index&videoid=419" title="幼儿《教育基础知识》基础精讲班试听-李娜"><p>幼儿《教育基础知识》基</a></li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+<script type="text/javascript">
+  function displayarea(str)
+  {
+	  if(str=="classarea")
+	  {
+		  document.getElementById("classarea").style.display="";
+		  document.getElementById("classareatab").className="on";
+		   
+	  }
+	  else
+	  {
+		  document.getElementById("classarea").style.display="none";
+		  document.getElementById("classareatab").className="";
+	  }
+	  
+	  if(str=="commentarea")
+	  {
+		  document.getElementById("commentarea").style.display="";
+		  document.getElementById("commentareatab").className="on";
+	  }
+	  else
+	  {
+		  document.getElementById("commentarea").style.display="none";
+		  document.getElementById("commentareatab").className="";
+	  }
+  }
+</script>
+        <div class="pape_pj">
+            <div class="tab">
+                <div class="main_title">
+                    <ul>
+                        <li class="on" onmousemove="displayarea('commentarea')" id="commentareatab"><a href="#" name="comment">学员评价</a></li>
+                        <li onmousemove="displayarea('classarea')" id="classareatab">所授课程</li>
+                    </ul><span></span>
+                 </div>
+                <div class="box t" id="commentarea">
+                    <div class="box_con">
+   
+                       <ul class="commentdetail">
+                      
+                            <li>
+                                <a href="#" title="" class="userpic" target="_blank"><img src="images/we.gif" alt="" title="" /></a>
+                                <div class="sdi">
+                                   <h4>学员：<span>MGCCK52</span> 对 <span>李娜</span> 评价到</h4>
+                                    <p class="commentdetail_txt">　条理清晰</p>
+                                    <div class="commentdetail_bar">
+                                    <p>2016-06-15 </p>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                      
+                            <li>
+                                <a href="#" title="" class="userpic" target="_blank"><img src="images/we.gif" alt="" title="" /></a>
+                                <div class="sdi">
+                                   <h4>学员：<span>13476831201</span> 对 <span>李娜</span> 评价到</h4>
+                                    <p class="commentdetail_txt">　讲得不错</p>
+                                    <div class="commentdetail_bar">
+                                    <p>2015-12-20 </p>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                      
+                            <li>
+                                <a href="#" title="" class="userpic" target="_blank"><img src="images/we.gif" alt="" title="" /></a>
+                                <div class="sdi">
+                                   <h4>学员：<span>ZYM20150322</span> 对 <span>李娜</span> 评价到</h4>
+                                    <p class="commentdetail_txt">　讲的不错，继续学习！！</p>
+                                    <div class="commentdetail_bar">
+                                    <p>2015-12-04 </p>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                      
+                            <li>
+                                <a href="#" title="" class="userpic" target="_blank"><img src="images/we.gif" alt="" title="" /></a>
+                                <div class="sdi">
+                                   <h4>学员：<span>15817371014</span> 对 <span>李娜</span> 评价到</h4>
+                                    <p class="commentdetail_txt">　题目是讲挺多，只是没有系统概括每种题型简便的答题方法。</p>
+                                    <div class="commentdetail_bar">
+                                    <p>2014-11-21 </p>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                      
+                            <li>
+                                <a href="#" title="" class="userpic" target="_blank"><img src="images/we.gif" alt="" title="" /></a>
+                                <div class="sdi">
+                                   <h4>学员：<span>htwxm_3053907</span> 对 <span>李娜</span> 评价到</h4>
+                                    <p class="commentdetail_txt">　刚开始会认为枯燥，没想到讲的非常生动，一看就知道，李娜老师准备的非常充足，不像我报考的另一门，没备课就算了，还读错了很多字</p>
+                                    <div class="commentdetail_bar">
+                                    <p>2014-04-21 </p>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                      
+                            <li>
+                                <a href="#" title="" class="userpic" target="_blank"><img src="images/we.gif" alt="" title="" /></a>
+                                <div class="sdi">
+                                   <h4>学员：<span>杨正标</span> 对 <span>李娜</span> 评价到</h4>
+                                    <p class="commentdetail_txt">　手势很到位</p>
+                                    <div class="commentdetail_bar">
+                                    <p>2013-10-02 </p>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                      
+                            <li>
+                                <a href="#" title="" class="userpic" target="_blank"><img src="images/we.gif" alt="" title="" /></a>
+                                <div class="sdi">
+                                   <h4>学员：<span>ningjing4080</span> 对 <span>李娜</span> 评价到</h4>
+                                    <p class="commentdetail_txt">　讲的特别好！太喜欢了！</p>
+                                    <div class="commentdetail_bar">
+                                    <p>2013-08-05 </p>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                      
+                            <li>
+                                <a href="#" title="" class="userpic" target="_blank"><img src="images/we.gif" alt="" title="" /></a>
+                                <div class="sdi">
+                                   <h4>学员：<span>18710867368</span> 对 <span>李娜</span> 评价到</h4>
+                                    <p class="commentdetail_txt">　讲的好</p>
+                                    <div class="commentdetail_bar">
+                                    <p>2013-07-17 </p>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                      
+                            <li>
+                                <a href="#" title="" class="userpic" target="_blank"><img src="images/we.gif" alt="" title="" /></a>
+                                <div class="sdi">
+                                   <h4>学员：<span>茶香123456</span> 对 <span>李娜</span> 评价到</h4>
+                                    <p class="commentdetail_txt">　很满意</p>
+                                    <div class="commentdetail_bar">
+                                    <p>2012-09-22 </p>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                                   
+                         </ul>
+                         <div class="pb">
+                         	<table cellspacing=0 style="margin:0 auto; padding-top:20px;" align="center">
+                         		<tr>
+                         			<td>
+ 
+                                    <div class='pagebox' id='_function_code_page'>
+<span
+
+ class='pagebox_num_nonce' >
+<a href="detail.php?page=1&id=304#comment"><font>1</font></a>
+</span>
+<span
+
+  class='pagebox_num' >
+</span>
+<span
+
+  class='pagebox_num' >
+</span>
+<span
+
+  class='pagebox_num' >
+</span>
+<span
+
+  class='pagebox_num' >
+</span>
+<span
+
+  class='pagebox_num' >
+</span>
+   
+                                        </div>
+                                     </td>
+                                  </tr>
+                               </table>
+                           </div>
+                      </div>
+                   </div>
+                <div class="box t" id="classarea" style="display:none">
+                
+	                  	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45202">深圳市教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45202"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45202"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45200">新疆兵团教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45200"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45200"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45199">新疆教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45199"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45199"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45198">宁夏教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45198"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45198"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45197">青海省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45197"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45197"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45196">甘肃省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45196"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45196"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45195">陕西省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45195"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45195"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45194">西藏教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45194"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45194"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45193">云南省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45193"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45193"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45192">贵州省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45192"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45192"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45191">四川省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45191"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45191"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45190">海南省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45190"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45190"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45189">广西教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45189"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45189"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45188">广东省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45188"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45188"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45187">湖南省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45187"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45187"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45186">湖北省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45186"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45186"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45185">河南省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45185"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45185"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45184">山东省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45184"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45184"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45183">江西省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45183"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45183"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45182">福建省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45182"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45182"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45181">安徽省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45181"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45181"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45180">浙江省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45180"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45180"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45179">江苏省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45179"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45179"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45178">黑龙江省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45178"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45178"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45177">吉林省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45177"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45177"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45176">辽宁省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45176"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45176"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45175">内蒙古教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45175"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45175"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45173">河北省教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45173"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45173"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45172">重庆市教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45172"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45172"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                	<ul class="commentdetail">
+                    	<li>
+                                <img class="mlo" src="images/shitu.png" alt="" title="" />
+                                <div class="sdq">
+                                	<div style="float:left; width:410px; overflow:hidden;">
+                                       <h4><a href="/detail.php?id=45171">天津市教师招聘面试（说课）幼教专项突破班</a></h4>
+                                        <p class="commentdetail_txt">考试类型：中小学教师招聘</p>
+                                        <p class="commentdetail_txt">原价：￥580元</p> 
+                                    </div>
+                                    <div style="float:right; padding-top:50px;">
+                                        <div class="btn1">
+                                            <a href="/detail.php?id=45171"><strong>去试听</strong></a>
+                                        </div><div class="btn1">
+                                            <a href="/detail.php?id=45171"><strong>我要报名</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dotline"></div>
+                            </li>
+                    </ul>
+                                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--主体left-Eed-->
+    <!--主体right-->
+    <div class="aimd_right">
+      <div class="right_th_q">
+        <div class="right_th clearfix" style="z-index: 15;">
+          <h2 class="thBox">华图教师：</h2>
+<p>
+<a href="/teachers/detail.php?id=540" target="_blank">吴雪娅</a> 
+<a href="/teachers/detail.php?id=437" target="_blank">武晶晶</a> 
+<a href="/teachers/detail.php?id=292" target="_blank">李新广</a> 
+<a href="/teachers/detail.php?id=392" target="_blank">施怡 </a> 
+<a href="/teachers/detail.php?id=298" target="_blank">宋炜</a> 
+<a href="/teachers/detail.php?id=440" target="_blank">屈秀美</a> 
+<a href="/teachers/detail.php?id=537" target="_blank">章媛</a>
+<a href="/teachers/detail.php?id=604" target="_blank">周斌</a>
+<a href="/teachers/detail.php?id=534" target="_blank">魏翔</a> 
+<a href="/teachers/detail.php?id=299" target="_blank">解薇</a> 
+<a href="/teachers/detail.php?id=643" target="_blank">吕媛媛</a> 
+<a href="/teachers/detail.php?id=362" target="_blank">王小丽</a> 
+<a href="/teachers/detail.php?id=293" target="_blank">杨书玲</a> 
+<a href="/teachers/detail.php?id=285" target="_blank">吕璇</a> 
+<a href="/teachers/detail.php?id=287" target="_blank">王静</a> 
+<a href="/teachers/detail.php?id=316" target="_blank">王威</a> 
+<a href="/teachers/detail.php?id=323" target="_blank">李春玲 </a> 
+<a href="/teachers/detail.php?id=664" target="_blank">张会卿</a> 
+<a href="/teachers/detail.php?id=633" target="_blank">吴冬梅</a> 
+<a href="/teachers/detail.php?id=605" target="_blank">孙碧璇</a> 
+<a href="/teachers/detail.php?id=555" target="_blank">尚洁</a> 
+<a href="/teachers/detail.php?id=637" target="_blank">马天来</a> 
+<a href="/teachers/detail.php?id=610" target="_blank">刘雪妮</a> 
+<a href="/teachers/detail.php?id=608" target="_blank">刘伟丹</a> 
+<a href="/teachers/detail.php?id=599" target="_blank">程玲</a> 
+<a href="/teachers/detail.php?id=669" target="_blank">陈安兰</a> 
+<a href="/teachers/detail.php?id=665" target="_blank">李敏</a>
+</p>
+          <h2 class="thBox">地方教师：</h2>
+<a href="/teachers/hnteacherlist.php" target="_blank">河南教师</a>
+</div>
+      </div>
+	  <!--
+      <div id="right_ad">
+   	  <div class="right_ac">
+				<p>名师讲堂</p>
+            </div>
+             <div class="right_dd">
+				<div class="right_ad_img">
+    			<div class="imgla"><a href="/jz/index.php?c=detail&a=index&videoid=789"><img src="http://www.hteacher.net/pic-index/2015xgkms.jpg" width=113 height="65"></a></div>
+    			<div class="imgra"><a href="/jz/index.php?c=detail&a=index&videoid=789">2015下半年国考资格证面试备<br></a>
+        		<span class="imgfb">主讲：吴雪娅</span></div>
+				</div>
+
+                <div class="dotline"></div>
+                <div class="right_ad_text">
+                    <ul>
+                        <li><img src="images/bof.gif" />&nbsp;<a href="/jz/index.php?c=detail&a=index&videoid=781" title="2015下半年教师资格证统考备考讲座">2015下半年教师资格证统考备考</a></li>
+                        <li><img src="images/bof.gif" />&nbsp;<a href="/jz/index.php?c=detail&a=index&videoid=780" title="国考资格面试试讲结构化">国考资格面试试讲结构化</a></li>
+                        <li><img src="images/bof.gif" />&nbsp;<a href="/jz/index.php?c=detail&a=index&videoid=779" title="2015年上半年教师资格证面试备考03">2015年上半年教师资格证面试备</a></li>
+                        <li><img src="images/bof.gif" />&nbsp;<a href="/jz/index.php?c=detail&a=index&videoid=778" title="2015年上半年教师资格证面试备考02">2015年上半年教师资格证面试备</a></li>
+                        <li><img src="images/bof.gif" />&nbsp;<a href="/jz/index.php?c=detail&a=index&videoid=777" title="2015年上半年教师资格证面试备考01">2015年上半年教师资格证面试备</a></li>
+                      
+                    </ul>
+                </div>
+            </div>      
+    	</div>
+		-->
+    </div>
+    <!--主体right-Eed-->
+</div>
+<!--主体部分End-->
+<!--foot-->
+<style>
+.containers{width:100%; background:#333;}
+.containers .footer {
+font:12px/21px "\5FAE\8F6F\96C5\9ED1",Arial,sans-serif;
+width: 1100px;
+height:80px;
+line-height: 24px;
+text-align: center;
+margin:0 auto;
+padding:20px 0;
+font-size:12px;
+background:#333;
+color:#ccc;}
+.footer a, .yqljBox a {
+padding: 0 4px;
+color:#fff;
+text-decoration: none;
+background:none;
+}
+.footer p{line-height:26px; padding-top:3px;}
+
+</style>
+
+<div class="containers">
+  <div class="footer f12">
+		<a href="/culture/htintro.php" target="_blank">华图简介</a>|<a href="/culture/htcontact.php" target="_blank">联系我们</a>|<a href="/culture/wenhua.php" target="_blank">华图文化</a>|<a href="/culture/rongyu.php" target="_blank">华图荣誉</a>|<a href="/culture/gongyi.php" target="_blank">华图公益</a>|<a href="/culture/falv.php" target="_blank">法律声明</a>|<a href="/culture/mianze.php" target="_blank">免责声明</a>|<a href="/culture/sqlink.php" target="_blank">申请友链</a>|<a href="/class/" target="_blank" >视频课程</a>|<a href="/zbkt/" target="_blank">直播课堂</a>
+		<p>京ICP备16044424号-2 京公网安备 11010802023064号 报名咨询：4006-01-9999<br />
+        Copyright &copy; 2001-2018 hteacher.net 版权所有
+        <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F72104d9092ca76a85c4e26ebd8fa94f1' type='text/javascript'%3E%3C/script%3E"));
+</script> <script src="http://s102.cnzz.com/stat.php?id=4934593&web_id=4934593&show=pic" language="JavaScript"></script>
+</p>
+</div>
+</div>
+<!--监测代码-->
+<script type="text/javascript">
+	(function(url) {
+		var script = document.createElement('script');
+		script.type='text/javascript';
+		script.src = url;
+		var f = document.getElementsByTagName('script')[0];
+		f.parentNode.insertBefore(script, f);
+	})('http://geekca.cubead.com/static/huatu.min.js?rand=' + Math.floor(Math.random() * (10000000)));
+</script>
+<!--foot-End-->
+</body>
+</html>

@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN"> 
+<title>杭州人大-张勇书法作品</title>
+<link rel="stylesheet" type="text/css" href="../../../images/style.css">
+<style type="text/css">
+A.LINKzxd:link {COLOR: #C33E05; text-decoration: none;font-size:14px;FONT-WEIGHT: bold;}
+A.LINKzxd:visited {COLOR: #C33E05;font-size:14px;FONT-WEIGHT: bold;}
+A.LINKzxd:active {COLOR: #C33E05;font-size:14px;FONT-WEIGHT: bold; }
+A.LINKzxd:hover {COLOR: #000000; font-size:14px;FONT-WEIGHT: bold;}
+.text_th a{COLOR: #FFFFFF;}
+</style>
+<script language="javascript" type="text/javascript">
+<!--
+function setTab(name,cursel,n){
+ for(i=1;i<=n;i++){
+  var menu=document.getElementById(name+i);
+  var con=document.getElementById("con_"+name+"_"+i);
+  menu.className=i==cursel?"hover":"";
+  con.style.display=i==cursel?"block":"none";
+ }
+}
+//-->
+</script>
+</head>
+<body>
+ <script type="text/javascript" src="../../../images/common.js"></script>
+<script type="text/javascript" src="../../../images/prototype.js"></script>
+<script> 
+
+/////////////////////////////////////////检索///////////////////////////////////////////////////////
+function FieldSearchForm_onsubmit() 
+{
+	
+	var SQL,pword,kong;
+	var sqlword = new Array();
+	    SQL=pword=kong=" ";		
+	    pword=document.FieldSearchForm.word.value;
+		pword = pword.replace(/^\s*/g,"");
+		pword = pword.replace(/\s*$/g,"");
+		pword = pword.replace(/\s+/g," "); 
+                pword = pword.split( kong );			
+                sqlword[0] = pword[0];
+	        SQL = sqlword[0];
+	for(var j=1;j<pword.length;j++)
+	    {
+	    sqlword[j] = " and "  + pword[j];
+		SQL += sqlword[j];
+		
+		}
+	document.FieldSearchForm.searchword.value=SQL;	
+	if(SQL=="")
+	{
+		alert("检索词不能为空!");
+		return false;
+	}
+	//alert(document.FieldSearchForm.searchword.value);
+	return true;
+}
+</script>
+<div id="header">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><img src="../../../images/hzrd_index_02.jpg" width="980" height="156" /></td>
+    </tr>
+    <tr>
+      <td height="30" background="../../../images/hzrd_index_04.jpg"> <table width="100%" border="0" cellspacing="0" cellpadding="0" class="header_Nav">
+          <tr>
+            <td width="79%" align="center"><div id="Nav-head">
+<div id="navMain">
+<ul>
+            <li style="width:85px" class="current"  onmouseover="show_menu(0);" id="menu_0"><a href="../../../">首&nbsp;&nbsp;页</a></li>
+            <li style="width:85px" onmouseover="show_menu(10);" id="menu_10"><a href='../../../hzrd/'>杭州人大</a></li>
+            <li style="width:85px" onmouseover="show_menu(11);" id="menu_11"><a href='../../../zxzx/'>资讯中心</a></li>
+            <li style="width:85px" onmouseover="show_menu(12);" id="menu_12"><a href='../../../rdhy/'>人大会议</a></li>
+            <li style="width:85px" onmouseover="show_menu(13);" id="menu_13"><a href='../../../rdgz/'>人大工作</a></li>
+            <li style="width:85px" onmouseover="show_menu(14);" id="menu_14"><a href='../../'>代表园地</a></li>
+            <li style="width:85px" onmouseover="show_menu(15);" id="menu_15"><a href='../../../wxzl/'>文献资料</a></li>
+            <li style="width:85px" onmouseover="show_menu(16);" id="menu_16"><a href='../../../jgdj/'>机关党建</a></li>
+            <li style="width:85px" onmouseover="show_menu(17);" id="menu_17"><a href='../../../jjgz/'>纪检工作</a></li>
+   </ul>
+      </div></div></td>
+            
+            <td width="21%" align="center"><table border="0" align="center" cellpadding="0" cellspacing="0">
+             <form name="FieldSearchForm" method="get" action="http://218.108.49.36:8083/wasdemo/search"  target="_blank" onSubmit="return FieldSearchForm_onsubmit()">
+			    <tr>
+                  <td width="22"><img src="../../../images/ss_img_1.gif" width="22" height="22" /></td>
+                  <td><input name="word" size="18" class="input_ss" type="text" id="textfield" /><input type="hidden" name="searchword" /><input name="StringEncoding" value="gbk" type="hidden" /><input type="hidden" name="channelid" value="136244" /></td>
+                  <td width="40"><INPUT type=image src="../../../images/ss_img_3.gif" width="40" height="22" hspace="4" border="0" align="absmiddle" /></td>
+                </tr>
+				</form>
+              </table></td>
+			  
+          </tr>
+        </table></td>
+    </tr>
+    <tr>
+      <td height="31" background="../../../images/hzrd_index_05.jpg"><div class="Nav-Bottom" id="sub_menu"></div>
+<div id="menu_cont_0" class="menu_cont" style="display:none;">
+<span class="menu_cont_0">&nbsp;&nbsp;
+今天是：
+              <script language=JavaScript>
+function writeDateInfo(){
+	var day="";
+	var month=""; 
+	var ampm="";
+	var ampmhour="";
+	var myweekday="";
+	var year="";
+	
+	mydate=new Date();
+	myweekday=mydate.getDay();
+	mymonth=mydate.getMonth()+1;
+	myday= mydate.getDate();
+	myyear= mydate.getYear();
+	year=(myyear > 200) ? myyear : 1900 + myyear;
+	if(myweekday == 0)
+	weekday=" 星期日";
+	else if(myweekday == 1)
+	weekday=" 星期一";
+	else if(myweekday == 2)
+	weekday=" 星期二";
+	else if(myweekday == 3)
+	weekday=" 星期三";
+	else if(myweekday == 4)
+	weekday=" 星期四";
+	else if(myweekday == 5)
+	weekday=" 星期五";
+	else if(myweekday == 6)
+	weekday=" 星期六";
+	
+	document.write(year+"年"+mymonth+"月"+myday+"日"+weekday);
+}
+writeDateInfo()
+</script>
+
+          
+  </span>
+</div>
+<div id="menu_cont_10" style="display:none;margin-left:20px">
+<span class="menu_cont_10">
+ <a href="../../../hzrd/rmdbdh/">人民代表大会</a>　|　<a href="../../../hzrd/rdcwh/">人大常委会</a>　|　<a href="../../../hzrd/gzwyh/">专门委员会</a>　|　<a href="../../../hzrd/gzwyh_1/">工作委员会</a>　|　<a href="../../../hzrd/bgt/">办公厅</a>　|　<a href="../../../hzrd/yjs/">研究室</a>　|　<a href="../../../hzrd/zzjg/">组织机构</a>　|　
+</span>
+</div>
+<div id="menu_cont_11" style="display:none;margin-left:50px">
+<span class="menu_cont_11">
+ <a href="../../../zxzx/rdxw/">人大新闻</a>　|　<a href="../../../zxzx/rdsp/">人大时评</a>　|　<a href="../../../zxzx/rdtp/">人大图片</a>　|　<a href="../../../zxzx/qxrd/">区县人大</a>　|　<a href="../../../zxzx/mtjj/">人大视窗</a>　|　<a href="../../../zxzx/wsgg/">网上公告</a>　|　
+</span>
+</div>
+<div id="menu_cont_12" style="display:none;">
+<span class="menu_cont_12" style="margin-left:220px">
+ <a href="../../../rdhy/rmdbdh/">人民代表大会专题</a>　|　
+</span>
+</div>
+<div id="menu_cont_13" style="display:none;">
+<span class="menu_cont_13">
+ <a href="../../../rdgz/lfgz_4465/">立法工作</a>　|　<a href="../../../rdgz/jyjd/">决议决定</a>　|　<a href="../../../rdgz/rsrm/">人事任免</a>　|　<a href="../../../rdgz/dcyj/">调查研究</a>　|　<a href="../../../rdgz/zfjd/">执法监督</a>　|　
+</span>
+</div>
+<div id="menu_cont_14" style="display:none;">
+<span class="menu_cont_14" style="margin-left:400px">
+ <a href="../../sydbjj/">杭州人大杂志简介</a>　|　<a href="../../dbfc/">代表风采</a>　|　<a href="../">人大艺苑</a>　|　
+</span>
+</div>
+<div id="menu_cont_15" style="display:none;">
+<span class="menu_cont_15">
+ <a href="../../../wxzl/hzrdzz/">杭州人大杂志</a>　|　<a href="../../../wxzl/hzrdxx/">杭州人大信息</a>　|　<a href="../../../wxzl/flfg/">法律法规</a>　|　
+</span>
+</div>
+<div id="menu_cont_16" style="display:none;">
+<span class="menu_cont_16">
+ <a href="../../../jgdj/hdap/">活动安排</a>　|　<a href="../../../jgdj/wjzd/">文件制度</a>　|　<a href="../../../jgdj/zbxx/">支部信息</a>　|　<a href="../../../jgdj/ddsj/">蹲点手记</a>　|　
+</span>
+</div>
+
+<div id="menu_cont_17" style="display:none;">
+<span class="menu_cont_16">
+ 
+</span>
+</div>
+
+<script type="text/javascript">
+var tID=0;
+function show_menu(ID){
+  if(ID!=tID){
+    $('sub_menu').innerHTML = '&nbsp;'+$('menu_cont_'+ID).innerHTML;
+    $('menu_'+ID).className = 'current';
+    $('menu_'+tID).className = '';
+    tID=ID;
+  }else{
+    $('menu_'+ID).className = 'current';
+    $('sub_menu').innerHTML = '&nbsp;'+$('menu_cont_'+ID).innerHTML;    
+  }
+}
+show_menu(0);
+</script></td>
+    </tr>
+  </table>	
+</div>
+<div id="main">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="height_five">
+    <tr>
+      <td width="5">&nbsp;</td>
+      <td><table width="100%" height="28" border="0" align="center" cellpadding="0" cellspacing="0" background="../../../images/ldjh_bg.gif">
+        <tr>
+          <td align="left">&nbsp;&nbsp;&nbsp;您现在的位置： <a href="../../../" target="_blank">首页</a>><a href="../../" target="_blank">代表园地</a>><a href="../" target="_blank">人大艺苑</a>><a href="./" target="_blank">张勇书法作品</a></td>
+          </tr>
+      </table>
+        <table width="100%" height="437" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="24%" align="center" valign="top" bgcolor="#fff2f3" style="border-right:1px solid #eec9ca"><table width="100%" height="30" border="0" cellpadding="0" cellspacing="0" background="../../../images/bg_img_1.jpg">
+              <tr>
+                <td align="left" class="text_th">&nbsp;&nbsp;&nbsp;&nbsp;<a title='张勇书法作品'>张勇书法作品</a></td>
+              </tr>
+            </table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+			  
+			</tr>
+			</table>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                
+				<tr>
+                  <td height="30" align="center" background="../../..//images/zhengxie-nei01-02.gif" class="text_td"><a href="./xyhz/" target="_blank" class='LINKzxd'>写意杭州</a></td>
+                </tr>
+				<tr>
+              <td align="center" valign="middle"><img src="../../..//images/zhengxie-nei01-04.gif" width="207" height="1" /></td>
+            </tr>
+				
+				<tr>
+                  <td height="30" align="center" background="../../..//images/zhengxie-nei01-02.gif" class="text_td"><a href="./hmxz/" target="_blank" class='LINKzxd'>翰墨宪政</a></td>
+                </tr>
+				<tr>
+              <td align="center" valign="middle"><img src="../../..//images/zhengxie-nei01-04.gif" width="207" height="1" /></td>
+            </tr>
+				
+				<tr>
+                  <td height="30" align="center" background="../../..//images/zhengxie-nei01-02.gif" class="text_td"><a href="./syyf/" target="_blank" class='LINKzxd'>书艺有法</a></td>
+                </tr>
+				<tr>
+              <td align="center" valign="middle"><img src="../../..//images/zhengxie-nei01-04.gif" width="207" height="1" /></td>
+            </tr>
+				
+				<tr>
+                  <td height="30" align="center" background="../../..//images/zhengxie-nei01-02.gif" class="text_td"><a href="./xtzw/" target="_blank" class='LINKzxd'>线条之舞</a></td>
+                </tr>
+				<tr>
+              <td align="center" valign="middle"><img src="../../..//images/zhengxie-nei01-04.gif" width="207" height="1" /></td>
+            </tr>
+				
+				<tr>
+                  <td height="30" align="center" background="../../..//images/zhengxie-nei01-02.gif" class="text_td"><a href="./jgth/" target="_blank" class='LINKzxd'>甲骨探微</a></td>
+                </tr>
+				<tr>
+              <td align="center" valign="middle"><img src="../../..//images/zhengxie-nei01-04.gif" width="207" height="1" /></td>
+            </tr>
+				
+				<tr>
+                  <td height="30" align="center" background="../../..//images/zhengxie-nei01-02.gif" class="text_td"><a href="./kybs/" target="_blank" class='LINKzxd'>快意榜书</a></td>
+                </tr>
+				<tr>
+              <td align="center" valign="middle"><img src="../../..//images/zhengxie-nei01-04.gif" width="207" height="1" /></td>
+            </tr>
+				
+              </table></td>
+            <td width="76%" valign="top">
+			<table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+			<tr><td height="8"></td></tr>
+			<tr>
+			
+			  <Td><a href="./201110/t20111026_277773.html"><img src="./201110/W020111026529568508776.jpg"/></a></Td>
+              <td>&nbsp;&nbsp;&nbsp;</td>
+			  <td><font style="font-size:12pt;line-height:1.5"><P>　　张勇，号大勇，斋名青园居。浙江杭州人，生于一九五三年十一月。曾任中共杭州市委宣传部部务会议成员、办公室主任，杭州市人大常委会副秘书长、办公厅主任等职，现任杭州市人大常委会副秘书长、研究室主任。现为省、市书法家协会会员，杭州市人大书画研究会会长。</P>
+<P>　　张勇生于杭城望族张包世家，秉承家传，自幼习书，于真草篆隶和甲骨文书法均有涉猎和研习，以隶书见长。其《张勇隶书西湖诗》被众书家评为“颇具伊秉绶风格，作品极具功力。”</P>
+<P>　　张勇的书法作品屡次在省市各类比赛中获奖。</P></font></td>
+			
+			</tr>
+			</table>
+			
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+				  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
+                    <tr>
+                      <td height="30" align="left" class="Content_t">写意杭州&nbsp;&nbsp;<img src="../../../images/img_bg_t.jpg" width="283" height="19" align="absmiddle" /></td>
+                      <td width="14%" height="30" align="center"><a href='./xyhz/' target="_blank">更多内容 ...</a></td>
+                    </tr>
+                  </table>
+                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="news_list" id="con_two_2">
+                      
+                           <tr>
+			
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./xyhz/201110/t20111026_277868.html" target="_blank"><img src="./xyhz/201110/W020111025386004202772.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">草书杨万里诗中堂</td></tr>
+                            </table>
+                           </td>       
+                         
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./xyhz/201110/t20111026_277867.html" target="_blank"><img src="./xyhz/201110/W020111025386007649993.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">甲骨文白居易词句中堂</td></tr>
+                            </table>
+                           </td>       
+                         
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./xyhz/201110/t20111026_277866.html" target="_blank"><img src="./xyhz/201110/W020111025386011395439.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">行书苏东坡诗横幅</td></tr>
+                            </table>
+                           </td>       
+                         </tr>
+					  
+                    </table></td>
+                </tr>
+              </table><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="25">&nbsp;</td>
+  </tr>
+</table>
+
+			  
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+				  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
+                    <tr>
+                      <td height="30" align="left" class="Content_t">翰墨宪政&nbsp;&nbsp;<img src="../../../images/img_bg_t.jpg" width="283" height="19" align="absmiddle" /></td>
+                      <td width="14%" height="30" align="center"><a href='./hmxz/' target="_blank">更多内容 ...</a></td>
+                    </tr>
+                  </table>
+                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="news_list" id="con_two_2">
+                      
+                           <tr>
+			
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./hmxz/201110/t20111025_277554.html" target="_blank"><img src="./hmxz/201110/W020111025387533704390.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">行书主权在民条幅</td></tr>
+                            </table>
+                           </td>       
+                         
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./hmxz/201110/t20111025_277552.html" target="_blank"><img src="./hmxz/201110/W020111025387561662459.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">甲骨文五星出东方条幅</td></tr>
+                            </table>
+                           </td>       
+                         
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./hmxz/201110/t20111025_277547.html" target="_blank"><img src="./hmxz/201110/W020111025387568070206.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">楷书维护宪法中堂</td></tr>
+                            </table>
+                           </td>       
+                         </tr>
+					  
+                    </table></td>
+                </tr>
+              </table><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="25">&nbsp;</td>
+  </tr>
+</table>
+
+			  
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+				  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
+                    <tr>
+                      <td height="30" align="left" class="Content_t">书艺有法&nbsp;&nbsp;<img src="../../../images/img_bg_t.jpg" width="283" height="19" align="absmiddle" /></td>
+                      <td width="14%" height="30" align="center"><a href='./syyf/' target="_blank">更多内容 ...</a></td>
+                    </tr>
+                  </table>
+                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="news_list" id="con_two_2">
+                      
+                           <tr>
+			
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./syyf/201110/t20111026_277734.html" target="_blank"><img src="./syyf/201110/W020111025388215249727.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">楷书诗经时迈中堂</td></tr>
+                            </table>
+                           </td>       
+                         
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./syyf/201110/t20111026_277733.html" target="_blank"><img src="./syyf/201110/W020111025388228379345.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">楷书散氏盘石门颂条幅</td></tr>
+                            </table>
+                           </td>       
+                         
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./syyf/201110/t20111026_277732.html" target="_blank"><img src="./syyf/201110/W020111025388237743812.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">楷书茶味诗心条幅</td></tr>
+                            </table>
+                           </td>       
+                         </tr>
+					  
+                    </table></td>
+                </tr>
+              </table><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="25">&nbsp;</td>
+  </tr>
+</table>
+
+			  
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+				  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
+                    <tr>
+                      <td height="30" align="left" class="Content_t">线条之舞&nbsp;&nbsp;<img src="../../../images/img_bg_t.jpg" width="283" height="19" align="absmiddle" /></td>
+                      <td width="14%" height="30" align="center"><a href='./xtzw/' target="_blank">更多内容 ...</a></td>
+                    </tr>
+                  </table>
+                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="news_list" id="con_two_2">
+                      
+                           <tr>
+			
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./xtzw/201110/t20111026_277803.html" target="_blank"><img src="./xtzw/201110/W020111025388948039696.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">行草金刚经句条幅</td></tr>
+                            </table>
+                           </td>       
+                         
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./xtzw/201110/t20111026_277801.html" target="_blank"><img src="./xtzw/201110/W020111025388998037853.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">行草道德经句条幅</td></tr>
+                            </table>
+                           </td>       
+                         
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./xtzw/201110/t20111026_277799.html" target="_blank"><img src="./xtzw/201110/W020111025388998197971.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">行书钱选诗中堂</td></tr>
+                            </table>
+                           </td>       
+                         </tr>
+					  
+                    </table></td>
+                </tr>
+              </table><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="25">&nbsp;</td>
+  </tr>
+</table>
+
+			  
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+				  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
+                    <tr>
+                      <td height="30" align="left" class="Content_t">甲骨探微&nbsp;&nbsp;<img src="../../../images/img_bg_t.jpg" width="283" height="19" align="absmiddle" /></td>
+                      <td width="14%" height="30" align="center"><a href='./jgth/' target="_blank">更多内容 ...</a></td>
+                    </tr>
+                  </table>
+                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="news_list" id="con_two_2">
+                      
+                           <tr>
+			
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./jgth/201110/t20111026_277846.html" target="_blank"><img src="./jgth/201110/W020111025389624589492.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">篆隶华夏珍宝中堂</td></tr>
+                            </table>
+                           </td>       
+                         
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./jgth/201110/t20111026_277845.html" target="_blank"><img src="./jgth/201110/W020111025389636142258.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">甲骨文松老秋荫条幅</td></tr>
+                            </table>
+                           </td>       
+                         
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./jgth/201110/t20111026_277844.html" target="_blank"><img src="./jgth/201110/W020111025389648331803.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">甲骨文嘉酒異书四言联</td></tr>
+                            </table>
+                           </td>       
+                         </tr>
+					  
+                    </table></td>
+                </tr>
+              </table><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="25">&nbsp;</td>
+  </tr>
+</table>
+
+			  
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+				  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
+                    <tr>
+                      <td height="30" align="left" class="Content_t">快意榜书&nbsp;&nbsp;<img src="../../../images/img_bg_t.jpg" width="283" height="19" align="absmiddle" /></td>
+                      <td width="14%" height="30" align="center"><a href='./kybs/' target="_blank">更多内容 ...</a></td>
+                    </tr>
+                  </table>
+                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="news_list" id="con_two_2">
+                      
+                           <tr>
+			
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./kybs/201110/t20111026_277856.html" target="_blank"><img src="./kybs/201110/W020111025390092079987.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">榜书大象无形</td></tr>
+                            </table>
+                           </td>       
+                         
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./kybs/201110/t20111026_277855.html" target="_blank"><img src="./kybs/201110/W020111025390127693270.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">榜书凌风飞</td></tr>
+                            </table>
+                           </td>       
+                         
+                             <td width="30%">	
+                             <table>	     
+                            <tr height="150px">
+                         
+                          <td width="100%" align="center"><a href="./kybs/201110/t20111026_277852.html" target="_blank"><img src="./kybs/201110/W020111025390127227707.jpg"/></a>
+                          </td>
+                          
+                        </tr>
+                        <tr height="30px"><td width="100%">榜书归真</td></tr>
+                            </table>
+                           </td>       
+                         </tr>
+					  
+                    </table></td>
+                </tr>
+              </table><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="25">&nbsp;</td>
+  </tr>
+</table>
+
+			  
+            </td>
+      <td width="5">&nbsp;</td>
+    </tr>
+  </table>
+</div>
+ <div id="foot">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="height_eight">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="5">&nbsp;</td>
+      <td height="25" bgcolor="#b8030a">&nbsp;</td>
+      <td width="5">&nbsp;</td>
+    </tr>
+  </table></td>
+  </tr>
+  <tr>
+    <td height="60" align="center">Copyrights 2009 by 版权所有：杭州人大　　　浙ICP备05075821号<br><br><a target="_blank" href='../../../qtlm/wzdt/'>网站地图</a> &nbsp;&nbsp;&nbsp;&nbsp;<script src=" http://s5.cnzz.com/stat.php?id=2810030&web_id=2810030&show=pic1" language="JavaScript"></script></td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

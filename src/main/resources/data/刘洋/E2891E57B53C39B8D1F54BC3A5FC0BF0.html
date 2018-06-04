@@ -1,0 +1,929 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]><html class="ie ie6"><![endif]-->
+<!--[if IE 7]><html class="ie ie7"><![endif]-->
+<!--[if IE 8 ]><html class="ie8"><![endif]-->
+<!--[if !IE]><!--><html><!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>刘洋老师边讲边写stm32视频教程-计划-单片机-STM32 - 畅学电子网</title>
+  <meta content="STM32单片机,刘洋,基础,外设,计划,单片机,STM32" name="keywords" />
+  <meta content="刘洋老师主讲，STM32单片机基础篇和外设..." name="description" />    
+  <link href="/Css/Home/bootstrap.css" rel="stylesheet" media="screen">
+<link href="/Css/Home/site.css" rel="stylesheet" />
+<script type="text/javascript" src="/Js/Home/public/jquery.1.7.2-min.js"></script>
+<script type="text/javascript" src="/Js/Home/public/menu.js"></script>    
+<script type="text/javascript" src="/Js/Home/signup/signup.js"></script>  
+
+  <SCRIPT type="text/javascript" src="/Js/Home/public/jquery.tools.js"></SCRIPT>
+</head>
+<body class="flats-theme">
+ <div class="header" id="header">
+  <div class="container">
+   <div class="header-smenu clearfix">
+     <div class="fl">
+     <a href="/curriculum">课设</a>
+     <a href="/graduation">毕设</a>
+     <a href="/dissertation">论文</a>
+     <a href="/tools">工具</a>
+     <a href="/software">软件</a>
+     <a href="/kit">开发学习套件</a>
+     </div>
+     <div class="fr">
+     <a href="/gift">礼品中心</a>     
+     <a href="/zhuxue">助学活动</a>
+     <a href="/about/campus">校园大使</a>
+     <a href="/about/lecturers">讲师招募</a>
+     <a href="/about/blackbl">黑板报</a>
+     <a href="/about/contact">联系我们</a>
+     </div>
+   </div>
+  
+   <div class="clearfix">
+    <a href="/" class="logo" title="畅学电子网"><img src="/Images/img/logo/logo.png" alt="畅学电子网"/><em>畅学电子</em></a>
+    <ul class="header-nav">
+		<li class="item"><a href="/" class="trigger">首页</a></li><li class="item item-pd">        <a href="javascript::void(0);" class="trigger trig">学习<span class="down-triangle"></span></a>
+        <div class="menus">
+          <ul class="clearfix">            
+            		 <li><a href="/channel/tid/2">单片机</a></li> <li><a href="/channel/tid/4">硬件设计</a></li> <li><a href="/channel/tid/3">软件开发</a></li> <li><a href="/channel/tid/5">技术应用</a></li> <li><a href="/channel/tid/1">基础课</a></li> <li><a href="/channel/tid/60">课设毕设</a></li> <li><a href="/channel/tid/67">电子竞赛</a></li> <li><a href="/channel/tid/6">职场创业</a></li>            
+          </ul>
+        </div>
+      </li>
+      <li class="item"><a href="/course" class="trigger">课程</a></li><li class="item"><a href="/plan" class="trigger">计划</a></li><li class="item"><a href="/project" class="trigger">项目</a></li><li class="item"><a href="/group" class="trigger">小组</a></li>                 
+    </ul>
+	<script type='text/javascript'>
+    $(function(){
+        var reg=new RegExp("(^| )uid=([^;]*)(;|$)");
+        var reg1=new RegExp("(^| )qqimg=([^;]*)(;|$)");
+        var reg2=new RegExp("(^| )qnickname=([^;]*)(;|$)");
+        //获得cookie值
+        if(arr1=document.cookie.match(reg1)){var qqimg=unescape(arr1[2]);}
+        if(arr2=document.cookie.match(reg2)){var qnickname=unescape(arr2[2]);}
+        if(arr=document.cookie.match(reg)){var uid= unescape(arr[2]);}
+    
+        if(uid || qnickname){
+            $('#nosign').remove();
+            $('#reg-guide').remove();
+            $('#issign').css('display','block');
+         }else{
+                if(qnickname){
+                        $('#nosign').remove();	
+                        $('div[name=isqq]').remove();
+                        $('.user-nav-menus').children().remove();
+                        $('.user-nav-menus').html('<a href="/signin/killqq">退出帐号</a>')
+                        //$('#ulogo').attr('src',qqimg);
+                        $('#header_nickname').html(decodeURI(qnickname));
+                        $('#issign').css('display','block');	
+                    }
+                else{
+                        $('#nosign').css('display','block');
+                        $('#issign').remove();
+                }
+        }
+        if(uid){
+            $.post('/public/getuser',{'uid':uid},function(data){
+                datas = eval('('+data+')');
+                //$('#header_nickname').html(datas.nickname);
+                //$('#ulogo').attr('src',datas.picture);
+                $('#upage').attr('href','/user/'+uid)
+                })
+            $.post('/public/getunread',{'uid':uid},function(data){
+                datas = eval('('+data+')');
+                    if(datas.letter!=0){
+                        $('#message-remind-number').css('display','block');
+                        $('#message-remind-number').html(datas.letter);
+                    }
+                    if(datas.message!=0){
+                        $('#notification-remind-number').css('display','block');
+                        $('#notification-remind-number').html(datas.message);
+                    }
+                })
+        }
+    })
+    </script>
+    <form id="sbmf" class="search-form" action="/search" method="post" onsubmit="return postq()">
+      <input id='q' type="text" class="search-input fl" name="q" value="想学什么？搜搜看" onfocus="if(this.value=='想学什么？搜搜看'){this.value='';}"  onblur="if(this.value==''){this.value='想学什么？搜搜看';}" />
+      <input id='t' type='hidden' name='t' value='plan'>        <script>
+        function postq(){
+        	var str = $('#q').val();
+        	var t = $('#t').val();
+        	if(t==undefined){
+				t='course';
+            }
+			$("#sbmf").attr("action","/search/"+t+"/q/"+str);
+			if(str.replace(/[ ]/g,"").length==0){
+				alert("请输入查找内容");
+				return false;
+			}
+        }
+        </script>
+      <input type="submit" class="search-btn base_icon fr" value="" /><br/>
+    </form>
+	      
+	    <div id="nosign" class="user-status-bar">
+          <a href="/signin" class="status-item  sign-status-item" id="signin-status-item">登录</a>
+          <a href="/signup" class="status-item sign-status-item" id="signup-status-item">注册</a>
+        </div>
+        </div>
+  </div>
+</div>
+<div class="container course channel">
+  <div class="course-breadcrumb widtha" >
+<a href='/channel/tid/2'>单片机</a><span>&gt;</span><a href='/channel/tid/24'>STM32</a><span>&gt;</span>
+			<a href='/plan/tid/24'>学习计划</a>      <span>&gt;</span>
+      <span>刘洋老师边讲边写stm32视频教程</span>
+  </div>
+    <div id="course-main">
+    <div id="course-header" class="flat course-header">
+  <div class="imagblock clearfix" id="planindex">
+    <div class="imageblock-image" id="couImg">
+      <img src="/Uploads/2013_12/plan/131388109104_s.jpg" alt="刘洋老师边讲边写stm32视频教程">
+    </div>    
+    <div class="imageblock-content">
+      <h1 class="clearfix mbm">刘洋老师边讲边写stm32视频教程</h1>
+      <ul class="course-metas">
+        <li>
+          <span>学员：</span><span class="acor cursor">1754</span> 人
+        </li>
+        <li>
+          <span>浏览：</span>47779次
+        </li>
+      </ul>
+      <div class="action-bar mrs">
+			  <a href="javascript:;" class="btn btn-large btn-success login">参加该计划</a>
+	      </div>
+         
+    </div>
+  </div>
+  <div class="mtl">
+    <b class="cors">简介</b>
+    <div class="course-summary mbl">
+      <p>刘洋老师主讲，STM32单片机基础篇和外设篇</p>
+    </div>
+    <b class="cors">标签</b>
+    <div class="course-tags tags" id="course-tags">
+       <a href='/search/index/q/STM32单片机 /t/plan' class="tag">STM32单片机 </a><a href='/search/index/q/刘洋 /t/plan' class="tag">刘洋 </a><a href='/search/index/q/基础 /t/plan' class="tag">基础 </a><a href='/search/index/q/外设 /t/plan' class="tag">外设 </a>    </div>
+  </div>
+<div class="clearfix mvshare">
+    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare mtt">
+      <span class="bds_more">分享到：</span>
+      <a class="bds_qzone"></a>
+      <a class="bds_tsina"></a>
+      <a class="bds_tqq"></a>
+      <a class="bds_renren"></a>
+      <a class="bds_sqq"></a>
+      <a class="bds_kaixin001"></a>
+      <a class="bds_douban"></a>
+      <a class="bds_fbook"></a>
+      <a class="bds_youdao"></a>
+  </div>
+  <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6794740" ></script>
+  <script type="text/javascript" id="bdshell_js"></script>
+  <script type="text/javascript">
+      var bds_config = {'snsKey':{'tsina':'2016891773'}};
+      document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+  </script>  
+<a href="javascript:;" id='sb' class="btn fr login fr" title="请先登陆后再添加"><i class="icon-plus"></i> 添加到书包</a>
+     
+      </div>
+<div>
+  <div class="clearfix mtm">
+  <div class="pills mbb">
+    <a href="#" class="on">目录</a>
+    <a class="acor cursor">学员(1754人)</a>
+  </div>
+</div>
+</div>
+</div>
+<script>
+  __COURSE_MEMBER_ROLE = 'none';
+</script>
+  <div class="flat posrel" id="lesson">
+    <a onClick="GetTop();" id="displan" title="参加该计划后可进行查看学习" href="javascript:;"></a>    <h2>目录 
+      <div id="error" style="position: relative;top: -5px;right: 5%;width: 60px;height: 22px;" class="clearfix">
+              <a href="javascript:;">我要纠错</a>
+      </div>
+    </h2>
+    <div class="phasehead"> 
+                <span class="phasetitle">阶段1:</span> <span class="phasename">前言、硬件资源、最小系统、开发环境与时钟配置</span> 
+                <span class="phasedate">计划时长：<span>2</span>天</span>
+            </div>
+            <div class="lessons phm">
+                <ul>
+                    <li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L1</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  1.前言-ARM概述</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L2</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  2.开发板硬件资源配置</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L3</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程   3.STM32最小系统</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L4</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  4.安装STM32开发环境和创建...</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L5</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  5.STM32时钟配置</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li>                 </ul>
+            </div><div class="phasehead"> 
+                <span class="phasetitle">阶段2:</span> <span class="phasename">GPIO配置、点亮发光二极管、蜂鸣器实验、按键、中断与PWM</span> 
+                <span class="phasedate">计划时长：<span>3</span>天</span>
+            </div>
+            <div class="lessons phm">
+                <ul>
+                    <li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L6</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  6.GPIO配置和点亮第一个发光...</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L7</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  6.GPIO配置和点亮第一个发光...</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L8</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  7.蜂鸣器实验和Systick定...</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L9</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  8.独立键盘</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L10</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  9.STM32中断</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L11</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  10.外部中断</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L12</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  11.定时器中断</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L13</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  12.STM32 PWM工作原理</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L14</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  13.STM32 PWM输出实现</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li>                 </ul>
+            </div><div class="phasehead"> 
+                <span class="phasetitle">阶段3:</span> <span class="phasename">串口、CAN总线与A/D转换</span> 
+                <span class="phasedate">计划时长：<span>3</span>天</span>
+            </div>
+            <div class="lessons phm">
+                <ul>
+                    <li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L15</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  14.USART 串口工作原理</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L16</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  22.DAC工作原理</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L17</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  21.ADC模拟量输入实验</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L18</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  20.ADC工作原理</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L19</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程 19.CAN总线通讯实验(上)</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L20</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程 19.CAN总线通讯实验(下)</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L21</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程 18.CAN总线工作原理(下)</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L22</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程 18.CAN总线工作原理(上)</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L23</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  17.printf 重定向</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L24</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  16.RS485 串口通讯实验</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L25</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  15.RS232串口通讯实验</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L26</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  23.DAC模拟量输出实验</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li>                 </ul>
+            </div><div class="phasehead"> 
+                <span class="phasetitle">阶段4:</span> <span class="phasename">DMA、RTC、低功耗、温度传感器、看门狗、模拟及加密</span> 
+                <span class="phasedate">计划时长：<span>4</span>天</span>
+            </div>
+            <div class="lessons phm">
+                <ul>
+                    <li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L27</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  24.DMA工作原理</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L28</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程32.FLASH模拟EEPROM实验</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L29</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  31.STM32 窗口看门狗的工...</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L30</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  30.STM32独立看门狗的工作...</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L31</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  29.STM32内部温度传感器工...</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L32</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  28.STM32低功耗工作原理与...</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L33</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  27.RTC实时时钟实验</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L34</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  26.RTC时钟和BKP的工作原...</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L35</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  25.DMA实验</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L36</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">基础篇--刘洋老师边讲边写STM32视频教程  33.STM32 程序加密</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li>                 </ul>
+            </div><div class="phasehead"> 
+                <span class="phasetitle">阶段5:</span> <span class="phasename">IIC与存储器</span> 
+                <span class="phasedate">计划时长：<span>2</span>天</span>
+            </div>
+            <div class="lessons phm">
+                <ul>
+                    <li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L37</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">外设篇--刘洋老师边讲边写STM32视频教程 1.I2C工作原理</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L38</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">外设篇--刘洋老师边讲边写STM32视频教程 2.STM32模拟I2C通讯</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L39</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">外设篇--刘洋老师边讲边写STM32视频教程 3.CAT24WCxx存储器工作原...</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li><li>
+						          <a href="javascript::void(0);" title="请购买此学习计划后查看此内容" id="fsstatus">     
+					                <span class="lesson-index">L40</span><span class="lesson-tab">[视]</span>
+									
+					                <span class="lesson-title learn-title">外设篇--刘洋老师边讲边写STM32教程 4. I2C读写AT24Cxx存储器(...</span>
+					  <span class="lesson-price">[ 免费 ]</span>
+					              </a>
+					            </li>                 </ul>
+            </div>  </div>
+<div class="flat">
+      <h2>已有6条评论</h2>
+            <ul class="discuss-replies">
+<li class="reply">
+          <div class="who" id="img"><a href="/user/34827" class="show-user-card" data-uid="34827"><img class="img42" src="/Uploads/2018_01/face/qq4c1de3225f27ad3e84dc79047551b073_s.jpg" alt="赵日天999"></a>
+</div>
+          <div class="mbs">
+                        <strong class="mrs"><a href="/user/34827" class="show-user-card" data-uid="34827" title="赵日天999">赵日天999</a></strong>
+            <span class="said-meta" id="ctime6">02-26 09:43</span>
+          </div>
+          <div class="eword editor-content reply-editor-content"><p>讲的很好，就是有几个视频顺序不对</p></div>
+                  </li><li class="reply">
+          <div class="who" id="img"><a href="/user/22578" class="show-user-card" data-uid="22578"><img class="img42" src="/Images/default/user.jpg" alt="sundd163"></a>
+</div>
+          <div class="mbs">
+                        <strong class="mrs"><a href="/user/22578" class="show-user-card" data-uid="22578" title="sundd163">sundd163</a></strong>
+            <span class="said-meta" id="ctime6">12-09 09:59</span>
+          </div>
+          <div class="eword editor-content reply-editor-content"><p>没想到STM32还有免费的   非常感谢</p></div>
+                  </li><li class="reply">
+          <div class="who" id="img"><a href="/user/18551" class="show-user-card" data-uid="18551"><img class="img42" src="/Images/default/user.jpg" alt="王乐"></a>
+</div>
+          <div class="mbs">
+                        <strong class="mrs"><a href="/user/18551" class="show-user-card" data-uid="18551" title="王乐">王乐</a></strong>
+            <span class="said-meta" id="ctime6">10-16 11:28</span>
+          </div>
+          <div class="eword editor-content reply-editor-content"><p>看了很多视频 这个老师讲得最清晰易懂，赞一个.期待更多视频！<br /></p></div>
+                  </li><li class="reply">
+          <div class="who" id="img"><a href="/user/17844" class="show-user-card" data-uid="17844"><img class="img42" src="/Images/default/user.jpg" alt="沧海一粟00"></a>
+</div>
+          <div class="mbs">
+                        <strong class="mrs"><a href="/user/17844" class="show-user-card" data-uid="17844" title="沧海一粟00">沧海一粟00</a></strong>
+            <span class="said-meta" id="ctime6">07-15 15:25</span>
+          </div>
+          <div class="eword editor-content reply-editor-content"><p>看了很多视频  这个老师讲得最清晰易懂，赞一个</p></div>
+                  </li><li class="reply">
+          <div class="who" id="img"><a href="/user/14587" class="show-user-card" data-uid="14587"><img class="img42" src="/Images/default/user.jpg" alt="hellopp"></a>
+</div>
+          <div class="mbs">
+                        <strong class="mrs"><a href="/user/14587" class="show-user-card" data-uid="14587" title="hellopp">hellopp</a></strong>
+            <span class="said-meta" id="ctime6">05-11 22:05</span>
+          </div>
+          <div class="eword editor-content reply-editor-content"><p>不太清楚</p></div>
+                  </li><li class="reply">
+          <div class="who" id="img"><a href="/user/12822" class="show-user-card" data-uid="12822"><img class="img42" src="/Images/default/user.jpg" alt="Sevin"></a>
+</div>
+          <div class="mbs">
+                        <strong class="mrs"><a href="/user/12822" class="show-user-card" data-uid="12822" title="Sevin">Sevin</a></strong>
+            <span class="said-meta" id="ctime6">04-08 22:16</span>
+          </div>
+          <div class="eword editor-content reply-editor-content"><p>这个视频好像不全，少了几个</p></div>
+                  </li>           
+      </ul>      <div class="pagination mbm"> <ul>   </ul></div>
+</div>
+  <div class="flat">
+             <h2>添加一条评论</h2>
+	         <div class="tac mtl msn">只有登录用户才能评论，请先<a href="/signin">登录</a>或<a href="/signup">注册</a>哦！</div> 
+    </div>    
+    
+  <div class="flat">
+		      <h2 class="clearfix"><span class="fl dib">相关视频</span><a href="/video" target="_blank" class="more_right dib">» 更多</a></h2>      
+		      <ul class="course-cards four-course"><li>
+						   <div class="course-item"><a class="thumb dib" href="/video/id/20838" target="_blank"><img src="/Uploads/2014_12/video/vi10b7a261333a40ae820dcee74a6f0770_s.jpg" alt=野火STM32视频教程：39-USB Mass Storage（SD卡模拟U盘）></a>
+						   <p class="title text-overflow"><a href="/video/id/20838" title=野火STM32视频教程：39-USB Mass Storage（SD卡模拟U盘）>野火STM32视频教程：39-USB Mass Storage（SD卡模拟U盘）</a></p>
+						   </div></li>
+				<li>
+						   <div class="course-item"><a class="thumb dib" href="/video/id/20833" target="_blank"><img src="/Uploads/2014_12/video/vi7754a5cef45c6fd2eff662c6d93ea8fd_s.jpg" alt=野火STM32视频教程：32-I2S-MP3(helix解码)></a>
+						   <p class="title text-overflow"><a href="/video/id/20833" title=野火STM32视频教程：32-I2S-MP3(helix解码)>野火STM32视频教程：32-I2S-MP3(helix解码)</a></p>
+						   </div></li>
+				<li>
+						   <div class="course-item"><a class="thumb dib" href="/video/id/20800" target="_blank"><img src="/Uploads/2014_12/video/viedbe245f4da8627bfcea2006222a2e52_s.jpg" alt=野火STM32视频教程：【必看】ISO-整板测试_1></a>
+						   <p class="title text-overflow"><a href="/video/id/20800" title=野火STM32视频教程：【必看】ISO-整板测试_1>野火STM32视频教程：【必看】ISO-整板测试_1</a></p>
+						   </div></li>
+				<li>
+						   <div class="course-item"><a class="thumb dib" href="/video/id/20802" target="_blank"><img src="/Uploads/2014_12/video/vi8c341c451b621b6407474f8d6a7269de_s.jpg" alt=野火STM32视频教程：0-如何学习STM32></a>
+						   <p class="title text-overflow"><a href="/video/id/20802" title=野火STM32视频教程：0-如何学习STM32>野火STM32视频教程：0-如何学习STM32</a></p>
+						   </div></li>
+				<li>
+						   <div class="course-item"><a class="thumb dib" href="/video/id/20840" target="_blank"><img src="/Uploads/2014_12/video/vi62c9bbb0356a95ee826fb70339ea932a_s.jpg" alt=野火STM32视频教程：43-示波器></a>
+						   <p class="title text-overflow"><a href="/video/id/20840" title=野火STM32视频教程：43-示波器>野火STM32视频教程：43-示波器</a></p>
+						   </div></li>
+				<li>
+						   <div class="course-item"><a class="thumb dib" href="/video/id/20803" target="_blank"><img src="/Uploads/2014_12/video/via74b6e00b1c968af3e2c2184b3db2671_s.jpg" alt=野火STM32视频教程：1-搭建开发环境></a>
+						   <p class="title text-overflow"><a href="/video/id/20803" title=野火STM32视频教程：1-搭建开发环境>野火STM32视频教程：1-搭建开发环境</a></p>
+						   </div></li>
+				<li>
+						   <div class="course-item"><a class="thumb dib" href="/video/id/20805" target="_blank"><img src="/Uploads/2014_12/video/vi205c553f57bfa0c7c66243a296029576_s.jpg" alt=野火STM32视频教程：3-初识STM32库></a>
+						   <p class="title text-overflow"><a href="/video/id/20805" title=野火STM32视频教程：3-初识STM32库>野火STM32视频教程：3-初识STM32库</a></p>
+						   </div></li>
+				<li>
+						   <div class="course-item"><a class="thumb dib" href="/video/id/20806" target="_blank"><img src="/Uploads/2014_12/video/vi59087cf0a8b16e788a19740ed8b2813c_s.jpg" alt=野火STM32视频教程：4-流水灯的前世今生></a>
+						   <p class="title text-overflow"><a href="/video/id/20806" title=野火STM32视频教程：4-流水灯的前世今生>野火STM32视频教程：4-流水灯的前世今生</a></p>
+						   </div></li>
+				</ul>
+		    </div>  </div>
+    <div id="course-side">  
+    <div class="flat">
+  <h2>计划创建人</h2>
+  <div class="course-author-block imageblock clearfix">
+      <div class="imageblock-image">
+          <a href="/user/13"><img class="img48" src="/Uploads/2014_01/face/1390448050_s.jpg" alt="永不止步步"></a>
+      </div>
+      <div class="imageblock-content">  
+          <div class="nickname"><a href="/user/13" class="show-user-card" data-uid="13" title="永不止步步">永不止步步</a>
+          <span class="fsn">（）</span></div>
+          <span class="acor cursor">金币：</span>67173个<span class="gray mhs">|</span><span class="acor cursor">学分：</span>179636个
+      </div>
+  </div>
+         <ul>
+             <li class="gray">
+              <span>创建时间：</span>12-27 09:36  <span class="mlm">最近修改：</span>12-27 09:36            </li>
+         </ul>      
+  </div>
+         
+ <div class="flat adv_img"> <p><a href="https://cepark.taobao.com/index.htm?spm=a1z10.1-c.w5002-16027494474.22.70b1de28iJyrH1"><img src="/Uploads/2018_01/article/c0205c337d54efe8446eb863b969d242.jpg" alt="" /></a></p> </div>  
+<div class="flat">
+<h2>1754人在使用该计划</h2>
+      <ul class="grids smallpic-grids">
+		<li class="grid">
+			             <a href="/user/2"><img class="img48" src="/Uploads/2015_01/face/1421462842_s1421462847_s.jpg" alt="畅学电子"></a>
+			             <div class="mtt"><a href="/user/2" class="show-user-card" data-uid="2" title="畅学电子">畅学电子</a></div>
+			         </li><li class="grid">
+			             <a href="/user/110"><img class="img48" src="/Images/default/user.jpg" alt="Daniel"></a>
+			             <div class="mtt"><a href="/user/110" class="show-user-card" data-uid="110" title="Daniel">Daniel</a></div>
+			         </li><li class="grid">
+			             <a href="/user/120"><img class="img48" src="/Images/default/user.jpg" alt="星梦苑"></a>
+			             <div class="mtt"><a href="/user/120" class="show-user-card" data-uid="120" title="星梦苑">星梦苑</a></div>
+			         </li><li class="grid">
+			             <a href="/user/179"><img class="img48" src="/Uploads/2014_02/face/1392185437_s.jpg" alt="一介布衣"></a>
+			             <div class="mtt"><a href="/user/179" class="show-user-card" data-uid="179" title="一介布衣">一介布衣</a></div>
+			         </li><li class="grid">
+			             <a href="/user/139"><img class="img48" src="/Images/default/user.jpg" alt="charles"></a>
+			             <div class="mtt"><a href="/user/139" class="show-user-card" data-uid="139" title="charles">charles</a></div>
+			         </li><li class="grid">
+			             <a href="/user/177"><img class="img48" src="/Images/default/user.jpg" alt="小boy"></a>
+			             <div class="mtt"><a href="/user/177" class="show-user-card" data-uid="177" title="小boy">小boy</a></div>
+			         </li><li class="grid">
+			             <a href="/user/141"><img class="img48" src="/Images/default/user.jpg" alt="肖人"></a>
+			             <div class="mtt"><a href="/user/141" class="show-user-card" data-uid="141" title="肖人">肖人</a></div>
+			         </li><li class="grid">
+			             <a href="/user/39"><img class="img48" src="/Images/default/user.jpg" alt="JInGenPie"></a>
+			             <div class="mtt"><a href="/user/39" class="show-user-card" data-uid="39" title="JInGenPie">JInGenPie</a></div>
+			         </li><li class="grid">
+			             <a href="/user/451"><img class="img48" src="/Images/default/user.jpg" alt="awilling"></a>
+			             <div class="mtt"><a href="/user/451" class="show-user-card" data-uid="451" title="awilling">awilling</a></div>
+			         </li><li class="grid">
+			             <a href="/user/454"><img class="img48" src="/Images/default/user.jpg" alt="星空"></a>
+			             <div class="mtt"><a href="/user/454" class="show-user-card" data-uid="454" title="星空">星空</a></div>
+			         </li><li class="grid">
+			             <a href="/user/459"><img class="img48" src="/Images/default/user.jpg" alt=""></a>
+			             <div class="mtt"><a href="/user/459" class="show-user-card" data-uid="459" title=""></a></div>
+			         </li><li class="grid">
+			             <a href="/user/349"><img class="img48" src="/Images/default/user.jpg" alt="毒草"></a>
+			             <div class="mtt"><a href="/user/349" class="show-user-card" data-uid="349" title="毒草">毒草</a></div>
+			         </li><li class="grid">
+			             <a href="/user/493"><img class="img48" src="/Uploads/2014_07/face/1404979732_s.jpg" alt="茅草"></a>
+			             <div class="mtt"><a href="/user/493" class="show-user-card" data-uid="493" title="茅草">茅草</a></div>
+			         </li><li class="grid">
+			             <a href="/user/469"><img class="img48" src="/Uploads/2014_06/face/1404094179_s.jpg" alt="Atmel89C"></a>
+			             <div class="mtt"><a href="/user/469" class="show-user-card" data-uid="469" title="Atmel89C">Atmel89C</a></div>
+			         </li><li class="grid">
+			             <a href="/user/427"><img class="img48" src="/Images/default/user.jpg" alt="田地"></a>
+			             <div class="mtt"><a href="/user/427" class="show-user-card" data-uid="427" title="田地">田地</a></div>
+			         </li><li class="grid">
+			             <a href="/user/517"><img class="img48" src="/Uploads/2014_07/face/1406193316_s.jpg" alt="小焓焓"></a>
+			             <div class="mtt"><a href="/user/517" class="show-user-card" data-uid="517" title="小焓焓">小焓焓</a></div>
+			         </li>      </ul>
+</div> 
+ <div class="flat">       
+		            <h2 class="clearfix"><span class="fl dib">课程推荐</span><a href="/course" target="_blank" class="more_right dib">» 更多</a></h2>          
+		            <div class="course-author-block imageblock clearfix">
+		                 <ul class="course-cards v-right"><li class="course-item">
+				             <div class="v-thumb"><a class="" target="_blank" href="/course/id/9" title="CAN模块实战教程"><img src="/Uploads/2014_10/course_pic/1414635235_s.jpg" alt="CAN模块实战教程"/>  </a></div>
+							 <div class="v-meta"><a target="_blank" href="/course/id/9" title="CAN模块实战教程">CAN模块实战教程</a></div>
+					     </li><li class="course-item">
+				             <div class="v-thumb"><a class="" target="_blank" href="/course/id/36" title="畅学MMA7455数字三轴加速度模块实战教程"><img src="/Uploads/2017_05/course_pic/1493968217_s.jpg" alt="畅学MMA7455数字三轴加速度模块实战教程"/>  </a></div>
+							 <div class="v-meta"><a target="_blank" href="/course/id/36" title="畅学MMA7455数字三轴加速度模块实战教程">畅学MMA7455数字三轴加速度模块实战教程</a></div>
+					     </li><li class="course-item">
+				             <div class="v-thumb"><a class="" target="_blank" href="/course/id/1" title="51单片机轻松入门与实践 — 畅学单片机"><img src="/Uploads/2017_05/course_pic/1493972711_s.jpg" alt="51单片机轻松入门与实践 — 畅学单片机"/>  </a></div>
+							 <div class="v-meta"><a target="_blank" href="/course/id/1" title="51单片机轻松入门与实践 — 畅学单片机">51单片机轻松入门与实践 — 畅学单片机</a></div>
+					     </li><li class="course-item">
+				             <div class="v-thumb"><a class="" target="_blank" href="/course/id/4" title="MSP430单片机轻松入门与实践 — 畅学单片机"><img src="/Uploads/2017_05/course_pic/1493973568_s.jpg" alt="MSP430单片机轻松入门与实践 — 畅学单片机"/>  </a></div>
+							 <div class="v-meta"><a target="_blank" href="/course/id/4" title="MSP430单片机轻松入门与实践 — 畅学单片机">MSP430单片机轻松入门与实践 — 畅学单片机</a></div>
+					     </li><li class="course-item">
+				             <div class="v-thumb"><a class="" target="_blank" href="/course/id/52" title="STM32学习之气宗——寄存器篇"><img src="/Uploads/2017_05/course_pic/1495702585_s.png" alt="STM32学习之气宗——寄存器篇"/>  </a></div>
+							 <div class="v-meta"><a target="_blank" href="/course/id/52" title="STM32学习之气宗——寄存器篇">STM32学习之气宗——寄存器篇</a></div>
+					     </li><li class="course-item">
+				             <div class="v-thumb"><a class="" target="_blank" href="/course/id/29" title="人体红外感应模块实战教程"><img src="/Uploads/2017_05/course_pic/1493971765_s.jpg" alt="人体红外感应模块实战教程"/>  </a></div>
+							 <div class="v-meta"><a target="_blank" href="/course/id/29" title="人体红外感应模块实战教程">人体红外感应模块实战教程</a></div>
+					     </li><li class="course-item">
+				             <div class="v-thumb"><a class="" target="_blank" href="/course/id/53" title="畅学DIY小型“冰箱”基础教程"><img src="/Uploads/2017_09/course_pic/1504251192_s.jpg" alt="畅学DIY小型“冰箱”基础教程"/>  </a></div>
+							 <div class="v-meta"><a target="_blank" href="/course/id/53" title="畅学DIY小型“冰箱”基础教程">畅学DIY小型“冰箱”基础教程</a></div>
+					     </li><li class="course-item">
+				             <div class="v-thumb"><a class="" target="_blank" href="/course/id/34" title="零基础学C语言从入门到精通"><img src="/Uploads/2017_05/course_pic/1493965230_s.jpg" alt="零基础学C语言从入门到精通"/>  </a></div>
+							 <div class="v-meta"><a target="_blank" href="/course/id/34" title="零基础学C语言从入门到精通">零基础学C语言从入门到精通</a></div>
+					     </li><li class="course-item">
+				             <div class="v-thumb"><a class="" target="_blank" href="/course/id/33" title="畅学三合一AVR单片机实战教程"><img src="/Uploads/2017_05/course_pic/1493975264_s.jpg" alt="畅学三合一AVR单片机实战教程"/>  </a></div>
+							 <div class="v-meta"><a target="_blank" href="/course/id/33" title="畅学三合一AVR单片机实战教程">畅学三合一AVR单片机实战教程</a></div>
+					     </li><li class="course-item">
+				             <div class="v-thumb"><a class="" target="_blank" href="/course/id/8" title="CAN总线轻松入门与实战 CAN总线开发板配套教程"><img src="/Uploads/2017_05/course_pic/1493972824_s.jpg" alt="CAN总线轻松入门与实战 CAN总线开发板配套教程"/>  </a></div>
+							 <div class="v-meta"><a target="_blank" href="/course/id/8" title="CAN总线轻松入门与实战 CAN总线开发板配套教程">CAN总线轻松入门与实战 CAN总线开发板配套教程</a></div>
+					     </li></ul>
+		            </div>
+		        </div> <div class="flat">
+		      <h2 class="clearfix"><span class="fl dib">相关文章</span><a href="/article" target="_blank" class="more_right dib">» 更多</a></h2>      
+		      <ul class="text-list"><li><div class="title clearfix"><span class="dataico txt"></span><a href="/article/id/14366" target="_blank" title=基于STM32的加密录音笔设计>基于STM32的加密录音笔设计</a></div></li><li><div class="title clearfix"><span class="dataico txt"></span><a href="/article/id/15687" target="_blank" title=STM32——通用定时器>STM32——通用定时器</a></div></li><li><div class="title clearfix"><span class="dataico txt"></span><a href="/article/id/37508" target="_blank" title=stm32 pwm输入捕捉模式学习笔记>stm32 pwm输入捕捉模式学习笔...</a></div></li><li><div class="title clearfix"><span class="dataico txt"></span><a href="/article/id/18809" target="_blank" title=基于STM32单片机的DLP驱动电路的研究>基于STM32单片机的DLP驱动电路...</a></div></li><li><div class="title clearfix"><span class="dataico txt"></span><a href="/article/id/38564" target="_blank" title=STM32 EEPROM读写过程中被中断产生异常处理分析>STM32 EEPROM读写过程中被...</a></div></li><li><div class="title clearfix"><span class="dataico txt"></span><a href="/article/id/58796" target="_blank" title=STM32的待机唤醒实验分析（基于原子哥程序）>STM32的待机唤醒实验分析（基于原...</a></div></li><li><div class="title clearfix"><span class="dataico txt"></span><a href="/article/id/58469" target="_blank" title=一个与STM32F2高低温死机相关的话题>一个与STM32F2高低温死机相关的...</a></div></li><li><div class="title clearfix"><span class="dataico txt"></span><a href="/article/id/58370" target="_blank" title=SmartTimer的开发思路>SmartTimer的开发思路</a></div></li><li><div class="title clearfix"><span class="dataico txt"></span><a href="/article/id/58458" target="_blank" title=使用NRF24L01控制STM32平衡车>使用NRF24L01控制STM32平...</a></div></li><li><div class="title clearfix"><span class="dataico txt"></span><a href="/article/id/58449" target="_blank" title=分享STM32代码读保护个人解决方案>分享STM32代码读保护个人解决方案</a></div></li></ul>
+		    </div> <div class="flat">
+		      <h2 class="clearfix"><span class="fl dib">相关计划</span><a href="/plan" target="_blank" class="more_right dib">» 更多</a></h2>      
+		      <ul class="course-cards v-right"><li class="course-item"><div class="v-thumb"><a href="/plan/id/93" target="_blank"><img src="/Uploads/2014_02/plan/111392796781_s.jpg" /> </a></div><div class="v-meta"><a target="_blank" href="/plan/id/93" title=刘凯老师STM32培训视频>刘凯老师STM32培训视频</a><div></li><li class="course-item"><div class="v-thumb"><a href="/plan/id/139" target="_blank"><img src="/Uploads/2014_09/plan/21410578352_s.jpg" /> </a></div><div class="v-meta"><a target="_blank" href="/plan/id/139" title=42集-野火STM32高清视频教程>42集-野火STM32高清视频教程</a><div></li><li class="course-item"><div class="v-thumb"><a href="/plan/id/80" target="_blank"><img src="/Uploads/2013_12/plan/131388365160_s.jpg" /> </a></div><div class="v-meta"><a target="_blank" href="/plan/id/80" title=手把手教你学ARM-stm32（李想主讲）>手把手教你学ARM-stm32（李想主讲）</a><div></li><li class="course-item"><div class="v-thumb"><a href="/plan/id/229" target="_blank"><img src="/Uploads/2015_05/plan/21431331718_s.jpg" /> </a></div><div class="v-meta"><a target="_blank" href="/plan/id/229" title=《原子教你玩STM32》系列视频全30讲+PPT讲解>《原子教你玩STM32》系列视频全30讲+...</a><div></li><li class="course-item"><div class="v-thumb"><a href="/plan/id/43" target="_blank"><img src="/Uploads/2013_12/plan/131387771373_s.jpg" /> </a></div><div class="v-meta"><a target="_blank" href="/plan/id/43" title=疯狂的石头教你如何快速掌握STM32>疯狂的石头教你如何快速掌握STM32</a><div></li><li class="course-item"><div class="v-thumb"><a href="/plan/id/207" target="_blank"><img src="/Uploads/2015_04/plan/21429685230_s.jpg" /> </a></div><div class="v-meta"><a target="_blank" href="/plan/id/207" title=《振南电子STM32视频教程》何强共14讲>《振南电子STM32视频教程》何强共14讲</a><div></li></ul>
+		    </div></div>
+  </div>
+<div class="footer container">
+  <div class="padding28">
+    <div class="fl footer-links">
+      <a href="/about/about_us">关于我们</a>
+      <a href="/about/about_business">业务合作</a>
+      <a href="/about/about_personnel">人才招聘</a>
+      <a href="/about/feedback">意见反馈</a>
+      <a href="/about/helper">帮助中心</a>
+      <a href="/about/copyright">版权说明</a>
+      <a href="/about/agreement">用户协议</a>
+      <a href="/about/contact">联系我们</a>      
+      <br />
+      <span class="copyright">©2013 www.eeskill.com  <span> 冀ICP备14016434号</span> </span>
+    </div>
+    <div class="fr tar">
+      <div class="vam">
+      关注我们：
+      <a href="http://weibo.com/eeskill" title="畅学电子网(新浪微博)" target="_blank" class="mrs"><i class="social-icon sina"></i></a><a href="http://t.qq.com/eeskill" target="_blank" title="畅学电子网(腾讯微博)" class="mrs"><i class="social-icon tqq"></i></a><a href="http://user.qzone.qq.com/849934286?ptlang=2052" title="QQ空间" target="_blank" class="mrs"><i class="social-icon qzone"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<a href="javascript:;" class="go-top use_icon dn" id="go-top" onClick="GetTop();"></a>
+<script type="text/javascript">
+function GetTop()
+{
+　　scrollTo(0,0); 
+} 
+</script> 
+
+<div id="reg-guide">
+  <div class="container">
+    <a href="/signup" class="btn btn-large reg-btn">立即注册</a>
+    <div class="slogan">
+      <div class="slogan-note">畅学电子网，带你进入电子开发学习世界</div>
+      <div class="slogan-note mtt">专业电子工程技术学习交流社区，加入畅学一起充电加油吧！</div>
+    </div>
+    <div class="partners-login">
+      <div class="title tac">已有畅学电子网帐号？<a href="/signin" class="mrm">登录</a></div>
+      <div class="partners tar">
+        <span class="fsm">可从合作网站帐号登录：</span>
+        <a href="/Signin/qqstep1" class="msw">
+          <img src="/Images/img/connect/qq_48x48.gif" alt="畅学电子网QQ登陆"/>
+          <span>QQ</span>
+        </a>
+        <a href="https://api.weibo.com/oauth2/authorize?client_id=2016891773&redirect_uri=http%3A%2F%2Fwww.eeskill.com%2FSignin%2Fsinacallback&response_type=code">
+          <img src="/Images/img/connect/weibo.png" alt="畅学电子网QQ登陆" width="24" height="24">
+          <span>新浪微博</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="weixinbox">
+    <p class="weixin_close"><a class="box-close close" title="关闭">x</a></p>
+    <p><img src="/Images/img/common/weixin.png" alt="畅学电子网订阅号"></p>
+</div>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe2af91b14bd18b5a77457b0407143e8a' type='text/javascript'%3E%3C/script%3E"));
+</script>  
+
+
+
+<!--<a onclick="window.external.AddFavorite(location.href, document.title);" title="畅学电子网" style="cursor:hand">收藏本页</a>
+
+
+<p>
+<script language="javascript">
+function addFavorite(url,title){
+var fav_url = url;
+ var fav_title = title;
+ if (document.all && window.external){
+   window.external.AddFavorite(fav_url,fav_title);
+ }else if (window.sidebar){
+   window.sidebar.addPanel(fav_title,fav_url,"");
+ }else{
+   alert("浏览器不支持，请 CTRL + D 手动加入收藏夹");
+ }
+  }
+</script>
+代码三：<a href="javascript:addFavorite('www.eeskill.com','dizhi ');">添加收藏</a>
+</p>-->
+
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"1","bdPos":"right","bdTop":"250"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+
+<script> var groupurl=''; </script> 
+<script type="text/javascript" src="/Js/Home/public/use.js"></script>
+<script type="text/javascript" src="/Js/Home/form/content.js"></script>
+<script type="text/javascript" src="/Js/Home/plan/plan.js"></script>
+<script type="text/javascript">
+  	function close_div(){
+	  var div= document.getElementById("note-popup-composer");
+	  document.getElementById("note-popup-composer").parentNode.removeChild(div);
+	}
+  	$(function(){
+			$(".login,span[name='alert_singin']").live('click',function(e){
+				var uid = "";
+				x=e.pageX-80;
+				y=e.pageY-110;
+				if(uid ==''){
+					var $div = '<div id="note-popup-composer" class="modal modal-mini" display="block" style="z-index: 9991; display:block; top:'+y+'px; left:'+x+'px;">'
+						   +'<div class="modal-body"> '   
+				           +'<div class="modal-mini-info">'
+				           + '<i class="info-icon info-icon-confirm"></i>只有登录用户才能参加计划和添加到书包。现在就去登录？'
+				           + '</div>'
+				           + '<div class="modal-mini-info-actions">'
+				           +  '<a href="/signin" class="btn btn-small btn-success" data-type="yes">确定</a>'
+				           +   '<a href="javascript:;" class="btn btn-small" id="clost-div" data-type="no" onclick="close_div()"><span>取消</span></a>'
+				           +   		'</div>'  
+				           + 	'</div>'
+				 		   +  '</div>';
+					$("body").append($div);
+					return false;
+				}
+			});				
+  	 })
+  </script>
+<script type="text/javascript">
+/* 收藏按钮*/
+$(function(){
+	$("#collect_btn").one('click',function(){
+		var id = 81;
+		$(this).attr('class','btn btnactive fr disabled');
+		$.post('/collect/create/type/plan',{'id':id},function(data){
+				if(data){location.reload();}
+			})
+	});
+	$("#collect_del").click(function(){
+		var id = 81;
+		$.post('/collect/del/type/plan',{'id':id},function(data){
+			alert('添加成功，已加入您的书包');
+			$('#collect_btn').html('打开书包').attr('class','btn btnactive acor fr').attr('href','/me/bag/plan');
+		})
+	});
+})
+</script>
+<div class="modal arale-dialogs jcdiv" id="DivEditor" style="position:fixed; _position:absolute; left:634px; top:96px; z-index:9; "> 
+<!--<script type="text/javascript">
+function jiucuoCheckForm(){
+	  var isNull=/^[\s'　']*$/
+	  if(($('#jiucuocourse-summary-field').val() =='')||(isNull.test(document.getElementById("jiucuocourse-summary-field").value))){
+		  $('#jiucuosummsg').html('<span class="hint formerror red">请填写错误描述</span>');
+		  $('#jiucuocourse-summary-field').addClass('validate-error');
+		  $('#jiucuocourse-summary-field').focus();  
+		  return false;  
+	  }
+	  if(($('#jiucuocon').val() =='')||(isNull.test(document.getElementById("con").value))){
+		  $('#jiucuoconmsg').html('<span class="hint formerror red">请填写正确信息</span>');
+		  $('#jiucuocon').addClass('validate-error');
+		  $('#jiucuocon').focus();  
+		  return false;  
+	  }
+}
+</script>   -->
+<div class="modal-header move" id="Mdown"> 
+        <a data-role="close" class="close clost" href="javascript:;">×</a> 
+        <h3 data-role="title">信息纠错</h3> 
+    </div> 
+    <div data-role="body" class="modal-body nopb">
+        <form action='/studyplan/article_error/id/81' method="post" class="form-horizontal"  onSubmit="javascript:return jiucuoCheckForm()">
+            <div class="control-group">
+                <label class="control-label">错误描述</label>
+                <div class="controls prm">
+                    <textarea rows="2" name="summary" id="jiucuocourse-summary-field"></textarea>
+                    <span id="jiucuosummsg"></span>                
+                </div>
+            </div>
+
+          <div class="control-group">
+              <label class="control-label">正确信息</label>
+              <div class="controls prm">
+                 <textarea name="content" id="jiucuocon"></textarea>
+                 <span id="jiucuoconmsg"></span>              </div>
+          </div>
+          <div class="control-group">
+               <label class="control-label"></label>
+               <div class="controls prm">
+                  <input type="submit" class="btn btn-success mrm fl" value="提交">
+               </div>
+          </div>
+        </form>
+    </div>
+  <div data-role="footer" class="modal-footer"></div>
+</div>
+<script type="text/javascript" src="/Js/Home/form/jiucuo.js"></script>
+<script type="text/javascript" src="/Js/Home/form/article.js"></script> 
+<script type="text/javascript" src="/Js/Home/form/move_dialog.js"></script>
+</body>
+</html>
